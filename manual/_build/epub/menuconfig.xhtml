@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Menuconfig</title>
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="menuconfig">
+<h1>Menuconfig</h1>
+<div class="section" id="zephyr-is-like-linux">
+<h2>Zephyr is like linux</h2>
+<p><strong>Note:</strong>  to get a feel, compile a program, for example</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/bluetooth/peripheral -D CONF_FILE=&quot;prj.conf&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">the</span> <span class="pre">pinetime</span> <span class="pre">contains</span> <span class="pre">an</span> <span class="pre">external</span> <span class="pre">32Kz</span> <span class="pre">crystal</span></code>
+now you can have a look in the configurationfile (and modify if needed)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> west build -t menuconfig
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Modules</span>  <span class="o">---&gt;</span>
+    <span class="n">Board</span> <span class="n">Selection</span> <span class="p">(</span><span class="n">nRF52832</span><span class="o">-</span><span class="n">MDK</span><span class="p">)</span>  <span class="o">---&gt;</span>
+    <span class="n">Board</span> <span class="n">Options</span>  <span class="o">---&gt;</span>
+    <span class="n">SoC</span><span class="o">/</span><span class="n">CPU</span><span class="o">/</span><span class="n">Configuration</span> <span class="n">Selection</span> <span class="p">(</span><span class="n">Nordic</span> <span class="n">Semiconductor</span> <span class="n">nRF52</span> <span class="n">series</span> <span class="n">MCU</span><span class="p">)</span>  <span class="o">---&gt;</span>
+    <span class="n">Hardware</span> <span class="n">Configuration</span>  <span class="o">---&gt;</span>
+    <span class="n">ARM</span> <span class="n">Options</span>  <span class="o">---&gt;</span>
+    <span class="n">Architecture</span> <span class="p">(</span><span class="n">ARM</span> <span class="n">architecture</span><span class="p">)</span>  <span class="o">---&gt;</span>
+    <span class="n">General</span> <span class="n">Architecture</span> <span class="n">Options</span>  <span class="o">---&gt;</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Floating</span> <span class="n">point</span>  <span class="o">----</span>
+    <span class="n">General</span> <span class="n">Kernel</span> <span class="n">Options</span>  <span class="o">---&gt;</span>
+    <span class="n">Device</span> <span class="n">Drivers</span>  <span class="o">---&gt;</span> <span class="o">**************</span><span class="n">SELECT</span> <span class="n">THIS</span> <span class="n">ONE</span><span class="o">***************************</span>
+    <span class="n">C</span> <span class="n">Library</span>  <span class="o">---&gt;</span>
+    <span class="n">Additional</span> <span class="n">libraries</span>  <span class="o">---&gt;</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Bluetooth</span>  <span class="o">---&gt;</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Console</span> <span class="n">subsystem</span><span class="o">/</span><span class="n">support</span> <span class="n">routines</span> <span class="p">[</span><span class="n">EXPERIMENTAL</span><span class="p">]</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">C</span><span class="o">++</span> <span class="n">support</span> <span class="k">for</span> <span class="n">the</span> <span class="n">application</span>  <span class="o">----</span>
+    <span class="n">System</span> <span class="n">Monitoring</span> <span class="n">Options</span>  <span class="o">---&gt;</span>
+    <span class="n">Debugging</span> <span class="n">Options</span>  <span class="o">---&gt;</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Disk</span> <span class="n">Interface</span>  <span class="o">----</span>
+    <span class="n">File</span> <span class="n">Systems</span>  <span class="o">---&gt;</span>
+<span class="o">-*-</span> <span class="n">Logging</span>  <span class="o">---&gt;</span>
+    <span class="n">Management</span>  <span class="o">---&gt;</span>
+    <span class="n">Networking</span>  <span class="o">---&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="p">]</span> <span class="n">IEEE</span> <span class="mf">802.15</span><span class="o">.</span><span class="mi">4</span> <span class="n">drivers</span> <span class="n">options</span>  <span class="o">----</span>
+<span class="p">(</span><span class="n">UART_0</span><span class="p">)</span> <span class="n">Device</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">UART</span> <span class="n">Device</span> <span class="k">for</span> <span class="n">UART</span> <span class="n">Console</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Console</span> <span class="n">drivers</span>  <span class="o">---&gt;</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Net</span> <span class="n">loopback</span> <span class="n">driver</span>  <span class="o">----</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Serial</span> <span class="n">Drivers</span>  <span class="o">---&gt;</span>
+    <span class="n">Interrupt</span> <span class="n">Controllers</span>  <span class="o">---&gt;</span>
+    <span class="n">Timer</span> <span class="n">Drivers</span>  <span class="o">---&gt;</span>
+<span class="o">-*-</span> <span class="n">Entropy</span> <span class="n">Drivers</span>  <span class="o">---&gt;</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">GPIO</span> <span class="n">Drivers</span>  <span class="o">---&gt;</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Shared</span> <span class="n">interrupt</span> <span class="n">driver</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">SPI</span> <span class="n">hardware</span> <span class="n">bus</span> <span class="n">support</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">I2C</span> <span class="n">Drivers</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">I2S</span> <span class="n">bus</span> <span class="n">drivers</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">PWM</span> <span class="p">(</span><span class="n">Pulse</span> <span class="n">Width</span> <span class="n">Modulation</span><span class="p">)</span> <span class="n">Drivers</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Enable</span> <span class="n">board</span> <span class="n">pinmux</span> <span class="n">driver</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">ADC</span> <span class="n">drivers</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Watchdog</span> <span class="n">Support</span>  <span class="o">----</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Hardware</span> <span class="n">clock</span> <span class="n">controller</span> <span class="n">support</span>  <span class="o">---&gt;</span> <span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="n">SELECT</span> <span class="n">THIS</span> <span class="n">ONE</span><span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Precision</span> <span class="n">Time</span> <span class="n">Protocol</span> <span class="n">Clock</span> <span class="n">driver</span> <span class="n">support</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">IPM</span> <span class="n">drivers</span>  <span class="o">----</span>
+    <span class="n">Max</span> <span class="n">compiled</span><span class="o">-</span><span class="ow">in</span> <span class="n">log</span> <span class="n">level</span> <span class="k">for</span> <span class="n">ipm</span> <span class="p">(</span><span class="n">Info</span><span class="p">)</span>  <span class="o">---&gt;</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Flash</span> <span class="n">hardware</span> <span class="n">support</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Sensor</span> <span class="n">Drivers</span>  <span class="o">----</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Max</span> <span class="n">compiled</span><span class="o">-</span><span class="ow">in</span> <span class="n">log</span> <span class="n">level</span> <span class="k">for</span> <span class="n">clock</span> <span class="n">control</span> <span class="p">(</span><span class="n">Info</span><span class="p">)</span>  <span class="o">---&gt;</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">NRF</span> <span class="n">Clock</span> <span class="n">controller</span> <span class="n">support</span>  <span class="o">---&gt;</span> <span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="n">SELECT</span> <span class="n">THIS</span> <span class="n">ONE</span><span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+          {% if copyright %}
+              <p class="copyright">{{ copyright }}</p>
+          {% endif %}
+      </div>
+      <div class="col-xs-12">
+          <div class="logos">
+              <img src="{{pathto("_static/img/asf_logo_wide_small.png", 1)}}" alt="Apache" title="Apache">
+              <small class="footnote">
+                Apache Mynewt, Mynewt, Apache, the Apache feather logo, and the Apache Mynewt project logo are either
+                registered trademarks or trademarks of the Apache Software Foundation in the United States and other countries.
+              </small>
+              <a href="{{ slack_url }}">
+                <img src="{{pathto("_static/img/add_to_slack.png", 1)}}" alt="Slack Icon" title="Join our Slack Community" />
+              </a>
+          </div>
+      </div>
+    </div>
+  </div>
+</footer>

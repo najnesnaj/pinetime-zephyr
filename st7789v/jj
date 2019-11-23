@@ -1,0 +1,1 @@
+./src/main.c:	display_dev = device_get_binding(DT_INST_0_SITRONIX_ST7789V_LABEL);

@@ -1,0 +1,195 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ZEPHYR on the DS6 smartwatch &#8212; jjprojects 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Howto flash your zephyr image" href="flashing.html" />
+    <link rel="prev" title="Howto remote copy" href="remotecp.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="flashing.html" title="Howto flash your zephyr image"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="remotecp.html" title="Howto remote copy"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">jjprojects 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="zephyr-on-the-ds6-smartwatch">
+<h1>ZEPHYR on the DS6 smartwatch<a class="headerlink" href="#zephyr-on-the-ds6-smartwatch" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="bluetooth-example">
+<h2>Bluetooth example<a class="headerlink" href="#bluetooth-example" title="Permalink to this headline">¶</a></h2>
+<p><strong>Note:</strong>  compile the provided example, so a build directory gets created</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> west build -p -b nrf52832_mdk samples/bluetooth/eddystone
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">this</span> <span class="pre">builds</span> <span class="pre">an</span> <span class="pre">image,</span> <span class="pre">which</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">found</span> <span class="pre">under</span> <span class="pre">the</span> <span class="pre">build</span> <span class="pre">directory</span></code></p>
+<p><strong>Note:</strong> Do not flash it yet, we adapt the settings first</p>
+<p><code class="docutils literal notranslate"><span class="pre">the</span> <span class="pre">DS6</span> <span class="pre">watch</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">contain</span> <span class="pre">an</span> <span class="pre">external</span> <span class="pre">crystal</span> <span class="pre">to</span> <span class="pre">generate</span> <span class="pre">32Khz,</span> <span class="pre">so</span> <span class="pre">we</span> <span class="pre">need</span> <span class="pre">to</span> <span class="pre">adapt</span> <span class="pre">the</span> <span class="pre">config</span></code></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> west build -t menuconfig
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Modules</span>  <span class="o">---&gt;</span>
+    <span class="n">Board</span> <span class="n">Selection</span> <span class="p">(</span><span class="n">nRF52832</span><span class="o">-</span><span class="n">MDK</span><span class="p">)</span>  <span class="o">---&gt;</span>
+    <span class="n">Board</span> <span class="n">Options</span>  <span class="o">---&gt;</span>
+    <span class="n">SoC</span><span class="o">/</span><span class="n">CPU</span><span class="o">/</span><span class="n">Configuration</span> <span class="n">Selection</span> <span class="p">(</span><span class="n">Nordic</span> <span class="n">Semiconductor</span> <span class="n">nRF52</span> <span class="n">series</span> <span class="n">MCU</span><span class="p">)</span>  <span class="o">---&gt;</span>
+    <span class="n">Hardware</span> <span class="n">Configuration</span>  <span class="o">---&gt;</span>
+    <span class="n">ARM</span> <span class="n">Options</span>  <span class="o">---&gt;</span>
+    <span class="n">Architecture</span> <span class="p">(</span><span class="n">ARM</span> <span class="n">architecture</span><span class="p">)</span>  <span class="o">---&gt;</span>
+    <span class="n">General</span> <span class="n">Architecture</span> <span class="n">Options</span>  <span class="o">---&gt;</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Floating</span> <span class="n">point</span>  <span class="o">----</span>
+    <span class="n">General</span> <span class="n">Kernel</span> <span class="n">Options</span>  <span class="o">---&gt;</span>
+    <span class="n">Device</span> <span class="n">Drivers</span>  <span class="o">---&gt;</span> <span class="o">**************</span><span class="n">SELECT</span> <span class="n">THIS</span> <span class="n">ONE</span><span class="o">***************************</span>
+    <span class="n">C</span> <span class="n">Library</span>  <span class="o">---&gt;</span>
+    <span class="n">Additional</span> <span class="n">libraries</span>  <span class="o">---&gt;</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Bluetooth</span>  <span class="o">---&gt;</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Console</span> <span class="n">subsystem</span><span class="o">/</span><span class="n">support</span> <span class="n">routines</span> <span class="p">[</span><span class="n">EXPERIMENTAL</span><span class="p">]</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">C</span><span class="o">++</span> <span class="n">support</span> <span class="k">for</span> <span class="n">the</span> <span class="n">application</span>  <span class="o">----</span>
+    <span class="n">System</span> <span class="n">Monitoring</span> <span class="n">Options</span>  <span class="o">---&gt;</span>
+    <span class="n">Debugging</span> <span class="n">Options</span>  <span class="o">---&gt;</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Disk</span> <span class="n">Interface</span>  <span class="o">----</span>
+    <span class="n">File</span> <span class="n">Systems</span>  <span class="o">---&gt;</span>
+<span class="o">-*-</span> <span class="n">Logging</span>  <span class="o">---&gt;</span>
+    <span class="n">Management</span>  <span class="o">---&gt;</span>
+    <span class="n">Networking</span>  <span class="o">---&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="p">]</span> <span class="n">IEEE</span> <span class="mf">802.15</span><span class="o">.</span><span class="mi">4</span> <span class="n">drivers</span> <span class="n">options</span>  <span class="o">----</span>
+<span class="p">(</span><span class="n">UART_0</span><span class="p">)</span> <span class="n">Device</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">UART</span> <span class="n">Device</span> <span class="k">for</span> <span class="n">UART</span> <span class="n">Console</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Console</span> <span class="n">drivers</span>  <span class="o">---&gt;</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Net</span> <span class="n">loopback</span> <span class="n">driver</span>  <span class="o">----</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Serial</span> <span class="n">Drivers</span>  <span class="o">---&gt;</span>
+    <span class="n">Interrupt</span> <span class="n">Controllers</span>  <span class="o">---&gt;</span>
+    <span class="n">Timer</span> <span class="n">Drivers</span>  <span class="o">---&gt;</span>
+<span class="o">-*-</span> <span class="n">Entropy</span> <span class="n">Drivers</span>  <span class="o">---&gt;</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">GPIO</span> <span class="n">Drivers</span>  <span class="o">---&gt;</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Shared</span> <span class="n">interrupt</span> <span class="n">driver</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">SPI</span> <span class="n">hardware</span> <span class="n">bus</span> <span class="n">support</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">I2C</span> <span class="n">Drivers</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">I2S</span> <span class="n">bus</span> <span class="n">drivers</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">PWM</span> <span class="p">(</span><span class="n">Pulse</span> <span class="n">Width</span> <span class="n">Modulation</span><span class="p">)</span> <span class="n">Drivers</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Enable</span> <span class="n">board</span> <span class="n">pinmux</span> <span class="n">driver</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">ADC</span> <span class="n">drivers</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Watchdog</span> <span class="n">Support</span>  <span class="o">----</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Hardware</span> <span class="n">clock</span> <span class="n">controller</span> <span class="n">support</span>  <span class="o">---&gt;</span> <span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="n">SELECT</span> <span class="n">THIS</span> <span class="n">ONE</span><span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Precision</span> <span class="n">Time</span> <span class="n">Protocol</span> <span class="n">Clock</span> <span class="n">driver</span> <span class="n">support</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">IPM</span> <span class="n">drivers</span>  <span class="o">----</span>
+    <span class="n">Max</span> <span class="n">compiled</span><span class="o">-</span><span class="ow">in</span> <span class="n">log</span> <span class="n">level</span> <span class="k">for</span> <span class="n">ipm</span> <span class="p">(</span><span class="n">Info</span><span class="p">)</span>  <span class="o">---&gt;</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Flash</span> <span class="n">hardware</span> <span class="n">support</span>  <span class="o">----</span>
+<span class="p">[</span> <span class="p">]</span> <span class="n">Sensor</span> <span class="n">Drivers</span>  <span class="o">----</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Max</span> <span class="n">compiled</span><span class="o">-</span><span class="ow">in</span> <span class="n">log</span> <span class="n">level</span> <span class="k">for</span> <span class="n">clock</span> <span class="n">control</span> <span class="p">(</span><span class="n">Info</span><span class="p">)</span>  <span class="o">---&gt;</span>
+<span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">NRF</span> <span class="n">Clock</span> <span class="n">controller</span> <span class="n">support</span>  <span class="o">---&gt;</span> <span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="n">SELECT</span> <span class="n">THIS</span> <span class="n">ONE</span><span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                                          <span class="n">Zephyr</span> <span class="n">Kernel</span> <span class="n">Configuration</span>
+<span class="mi">32</span><span class="n">KHz</span> <span class="n">clock</span> <span class="n">source</span> <span class="p">(</span><span class="n">Synthesized</span> <span class="kn">from</span> <span class="nn">HFCLK</span><span class="p">)</span>  <span class="o">---&gt;</span>  <span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="n">SELECT</span> <span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span>
+<span class="mi">32</span><span class="n">KHz</span> <span class="n">clock</span> <span class="n">accuracy</span> <span class="p">(</span><span class="mi">0</span> <span class="n">ppm</span> <span class="n">to</span> <span class="mi">20</span> <span class="n">ppm</span><span class="p">)</span>  <span class="o">---&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                                              <span class="n">Zephyr</span> <span class="n">Kernel</span> <span class="n">Configuration</span>
+<span class="p">(</span> <span class="p">)</span> <span class="n">RC</span> <span class="n">Oscillator</span>
+<span class="p">(</span> <span class="p">)</span> <span class="n">Crystal</span> <span class="n">Oscillator</span>
+<span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="n">Synthesized</span> <span class="kn">from</span> <span class="nn">HFCLK</span>
+<span class="p">(</span> <span class="p">)</span> <span class="n">External</span> <span class="n">low</span> <span class="n">swing</span>
+<span class="p">(</span> <span class="p">)</span> <span class="n">External</span> <span class="n">full</span> <span class="n">swing</span>
+</pre></div>
+</div>
+<p><strong>Finally, leave the config menu and do not forget to save your config</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">now</span> <span class="pre">just</span> <span class="pre">type</span> <span class="pre">west</span> <span class="pre">build,</span> <span class="pre">you</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">keep</span> <span class="pre">your</span> <span class="pre">config</span> <span class="pre">which</span> <span class="pre">is</span> <span class="pre">located</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">build</span> <span class="pre">directory</span></code></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> west build
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ZEPHYR on the DS6 smartwatch</a><ul>
+<li><a class="reference internal" href="#bluetooth-example">Bluetooth example</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="remotecp.html"
+                        title="previous chapter">Howto remote copy</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="flashing.html"
+                        title="next chapter">Howto flash your zephyr image</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/zephyr.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="flashing.html" title="Howto flash your zephyr image"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="remotecp.html" title="Howto remote copy"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">jjprojects 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, jj.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+    </div>
+  </body>
+</html>

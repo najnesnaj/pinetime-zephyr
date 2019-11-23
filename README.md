@@ -1,2 +1,37 @@
 # pinetime-zephyr
-pinetime smartwatch nrf52 zephyr 
+
+
+in this repository you will find a manual, created with sphinx:
+            -html
+            -pdf
+            -epub
+
+In the manual is explained how you can create programs (firmware) for the pinetime open source watch.
+
+
+Once you install zephyr, you only have to copy the board definition file.
+
+You can compile all the samples and try them out.
+
+In this repository you can find modified directories, which you can copy to the zephyrproject directory
+           -pinetime (board definition -> boards/arm)
+           -st7789v (samples/display)
+           -blinky (samples/basic)
+
+ALREADY DONE:
+-------------
+   -the display
+   -bluetooth BLE
+   
+
+
+TODO: 
+-----
+   -touchscreen
+   -accel sensor
+   -powermanagement
+   -DFU (wireless firmware update)
+   -graphics library (fonts)
+   -heart rate sensor (and HR detection) 
+    
+

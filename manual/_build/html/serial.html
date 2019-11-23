@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>i2c detect and print result to serial port &#8212; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="bluetooth (BLE) example" href="bluetooth.html" />
+    <link rel="prev" title="ZEPHYR on the DS6 smartwatch" href="blinky.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="bluetooth.html" title="bluetooth (BLE) example"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="blinky.html" title="ZEPHYR on the DS6 smartwatch"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="i2c-detect-and-print-result-to-serial-port">
+<h1>i2c detect and print result to serial port<a class="headerlink" href="#i2c-detect-and-print-result-to-serial-port" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>this is an example, which allows you to test two things :</dt><dd><ul class="simple">
+<li><p>printing something to the serial port</p></li>
+<li><p>using the I2C_O port</p></li>
+</ul>
+</dd>
+</dl>
+<p>first check file nrf52832_mdk.dts it should could have this</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> ~/zephyrproject/zephyr/boards/arm/nrf52832_mdk
+<span class="gp">$</span> vi  nrf52832_mdk.dts
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">uart0</span> <span class="p">{</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;okay&quot;</span><span class="p">;</span>
+        <span class="n">compatible</span> <span class="o">=</span> <span class="s2">&quot;nordic,nrf-uart&quot;</span><span class="p">;</span>
+        <span class="n">current</span><span class="o">-</span><span class="n">speed</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">115200</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">tx</span><span class="o">-</span><span class="n">pin</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">23</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">rx</span><span class="o">-</span><span class="n">pin</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">22</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="o">/*</span>      <span class="n">rts</span><span class="o">-</span><span class="n">pin</span> <span class="o">=</span> <span class="o">&lt;-</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">cts</span><span class="o">-</span><span class="n">pin</span> <span class="o">=</span> <span class="o">&lt;-</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span><span class="o">*/</span>
+        <span class="p">};</span>
+
+<span class="o">&amp;</span><span class="n">i2c0</span> <span class="p">{</span>
+        <span class="n">compatible</span> <span class="o">=</span> <span class="s2">&quot;nordic,nrf-twi&quot;</span><span class="p">;</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;okay&quot;</span><span class="p">;</span>
+        <span class="n">sda</span><span class="o">-</span><span class="n">pin</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">scl</span><span class="o">-</span><span class="n">pin</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">7</span><span class="o">&gt;</span><span class="p">;</span>
+       <span class="p">};</span>
+</pre></div>
+</div>
+<p><strong>Note :: in order to get the I2C_0  on the DS6, it needs to be powered</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">the</span> <span class="pre">main.c</span> <span class="pre">got</span> <span class="pre">adapted</span> <span class="pre">so</span> <span class="pre">as</span> <span class="pre">to</span> <span class="pre">switch</span> <span class="pre">on</span> <span class="pre">port</span> <span class="pre">26</span></code></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>define HR_SENSOR_PORT DT_ALIAS_LED0_GPIOS_CONTROLLER
+<span class="gp">#</span>define TENSION_I2C DT_ALIAS_LED0_GPIOS_PIN
+<span class="go">struct device *dev;</span>
+
+<span class="go">dev = device_get_binding(HR_SENSOR_PORT);</span>
+<span class="go">gpio_pin_configure(dev, TENSION_I2C, GPIO_DIR_OUT);</span>
+<span class="go">gpio_pin_write(dev, TENSION_I2C, 1);  //this powers the HR sensor I2C</span>
+</pre></div>
+</div>
+<p>the file nrf52832_mdk.dts should have this :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">leds {</span>
+<span class="go">        compatible = &quot;gpio-leds&quot;;</span>
+<span class="go">        led0_green: led_0 {</span>
+<span class="go">                gpios = &lt;&amp;gpio0 26 GPIO_INT_ACTIVE_LOW&gt;;</span>
+<span class="go">                label = &quot;Green LED 0&quot;;</span>
+<span class="go">        };</span>
+<span class="go">        led1_red: led_1 {</span>
+<span class="go">                gpios = &lt;&amp;gpio0 23 GPIO_INT_ACTIVE_LOW&gt;;</span>
+<span class="go">                label = &quot;Red LED 1&quot;;</span>
+<span class="go">        };</span>
+<span class="go">        led2_blue: led_2 {</span>
+<span class="go">                gpios = &lt;&amp;gpio0 24 GPIO_INT_ACTIVE_LOW&gt;;</span>
+<span class="go">                label = &quot;Blue LED 1&quot;;</span>
+<span class="go">        };</span>
+<span class="go">};</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b nrf52832_mdk samples/drivers/i2c_scanner -- -DCONF_FILE<span class="o">=</span><span class="s2">&quot;prj.conf overlay-nrf52.conf&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">this</span> <span class="pre">builds</span> <span class="pre">an</span> <span class="pre">image,</span> <span class="pre">which</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">found</span> <span class="pre">under</span> <span class="pre">the</span> <span class="pre">build</span> <span class="pre">directory</span></code></p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="blinky.html"
+                        title="previous chapter">ZEPHYR on the DS6 smartwatch</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bluetooth.html"
+                        title="next chapter">bluetooth (BLE) example</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/serial.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="bluetooth.html" title="bluetooth (BLE) example"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="blinky.html" title="ZEPHYR on the DS6 smartwatch"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, jj.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
+    </div>
+  </body>
+</html>

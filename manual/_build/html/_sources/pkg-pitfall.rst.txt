@@ -1,0 +1,55 @@
+example definition pkg.yml
+==========================
+
+
+``for a single application, a definition`` 
+:e.g.  pkg.yml
+``can be found on multiple locations``    
+    
+::
+
+    repos/apache-mynewt-core/hw/bsp/ds6_nrf52/
+    |-- boot-nrf52xxaa.ld
+ -> |-- pkg.yml
+    |-- bsp.yml
+    |-- nrf52xxaa.ld-orig
+    |-- src
+    |-- syscfg.yml
+    
+    targets
+    |-- ds6_blueart
+    |-- my_blinky_sim
+    |-- nrf52_blinky
+ -> |   |-- pkg.yml
+    |   |-- syscfg.yml
+    |   `-- target.yml
+    
+    apps/
+    |-- blinky
+ -> |   |-- pkg.yml
+    |   `-- src
+    |       |-- compile_time.h
+    `-- blueart
+
+.. code-block:: console
+
+ ~T~\~T~@~T~@ DISCLAIMER
+ ~T~@~T~@ DISCLAIMER
+
+**Note**: If you do not have ``tree``, run ``brew install tree``
+
+.. code-block:: yaml
+    :emphasize-lines: 1
+
+    repository.apache-mynewt-core:
+        type: github
+        vers: 1-latest
+        user: apache
+        repo: mynewt-core
+
+
+.. code-block:: shell 
+
+ $shell
+ $gnu
+

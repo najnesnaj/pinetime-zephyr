@@ -1,0 +1,18 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}About}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Todo}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Fast track}{3}{section.1.2}
+\contentsline {chapter}{\numberline {2}Install zephyr}{5}{chapter.2}
+\contentsline {chapter}{\numberline {3}zephyr on the pinetime smartwatch}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Blinky example}{7}{section.3.1}
+\contentsline {chapter}{\numberline {4}bluetooth (BLE) example}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}Eddy Stone}{9}{section.4.1}
+\contentsline {section}{\numberline {4.2}Ble Peripheral}{9}{section.4.2}
+\contentsline {section}{\numberline {4.3}using Python to read out bluetoothservices}{10}{section.4.3}
+\contentsline {chapter}{\numberline {5}st7789 display}{11}{chapter.5}
+\contentsline {section}{\numberline {5.1}Display example}{11}{section.5.1}
+\contentsline {chapter}{\numberline {6}Menuconfig}{13}{chapter.6}
+\contentsline {section}{\numberline {6.1}Zephyr is like linux}{13}{section.6.1}
+\contentsline {chapter}{\numberline {7}hacking the pinetime smartwatch}{15}{chapter.7}
+\contentsline {chapter}{\numberline {8}Howto flash your zephyr image}{17}{chapter.8}
+\contentsline {chapter}{\numberline {9}howto generate pdf documents}{19}{chapter.9}

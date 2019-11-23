@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>st7789 display</title>
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="st7789-display">
+<h1>st7789 display</h1>
+<div class="section" id="display-example">
+<h2>Display    example</h2>
+<p><strong>Note: I think you need to connect the 5V, just connecting the SWD cable (3.3V) is likely not enough to light up the leds</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">watch</span> <span class="n">has</span> <span class="n">background</span> <span class="n">leds</span> <span class="k">for</span> <span class="n">the</span> <span class="n">LCD</span><span class="o">.</span>
+
+<span class="n">They</span> <span class="n">need</span> <span class="n">to</span> <span class="n">be</span> <span class="n">on</span> <span class="p">(</span><span class="n">LOW</span><span class="p">)</span> <span class="n">to</span> <span class="n">visualize</span> <span class="n">the</span> <span class="n">display</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">replace the display sample with the one in this repo</span>
+<span class="gp">$</span> cp <span class="o">(</span>this repo<span class="o">)</span>st7789  ~/zephyrproject/zephyr/samples/display
+</pre></div>
+</div>
+<p><cite>building an image, which can be found under the build directory</cite>
+the pinetime.overlay contains the definitions for the screen like resolution, and SPI-port data</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b pinetime samples/display/st7789v -DDTC_OVERLAY<span class="o">=</span><span class="s2">&quot;pinetime.overlay&quot;</span>
+</pre></div>
+</div>
+<p>once the compilation is completed you can upload the firmware
+~/zephyrproject/zephyr/build/zephyr/zephyr.bin</p>
+<p>if all goes well, you should see some coloured squares on your screen</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

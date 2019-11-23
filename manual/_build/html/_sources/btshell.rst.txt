@@ -1,0 +1,8 @@
+example setting up btshell
+==========================
+
+.. code-block:: yaml
+
+	target.app:  "@apache-mynewt-nimble/apps/btshell"
+	target.bsp: "@apache-mynewt-core/hw/bsp/ds6_nrf52"
+	target.build_profile: optimized

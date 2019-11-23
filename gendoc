@@ -1,0 +1,6 @@
+cd manual 
+make html
+make latexpdf
+make epub
+cp _build/latex/*.pdf .. 
+cp _build/epub/*.epub .. 

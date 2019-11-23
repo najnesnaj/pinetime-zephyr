@@ -1,0 +1,86 @@
+i2c detect and print result to serial port
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+this is an example, which allows you to test two things : 
+     - printing something to the serial port
+     - using the I2C_O port
+
+
+first check file nrf52832_mdk.dts it should could have this 
+
+.. code-block:: console
+
+    $ cd ~/zephyrproject/zephyr/boards/arm/nrf52832_mdk
+    $ vi  nrf52832_mdk.dts
+
+
+::
+
+    &uart0 {
+            status = "okay";
+            compatible = "nordic,nrf-uart";
+            current-speed = <115200>;
+            tx-pin = <23>;
+            rx-pin = <22>;
+            /*      rts-pin = <-1>;
+            cts-pin = <-1>;*/
+            };
+
+    &i2c0 {
+            compatible = "nordic,nrf-twi";
+            status = "okay";
+            sda-pin = <8>;
+            scl-pin = <7>;
+           };
+
+
+
+
+**Note :: in order to get the I2C_0  on the DS6, it needs to be powered**
+
+
+``the main.c got adapted so as to switch on port 26``
+
+.. code-block :: console
+
+       #define HR_SENSOR_PORT DT_ALIAS_LED0_GPIOS_CONTROLLER
+       #define TENSION_I2C DT_ALIAS_LED0_GPIOS_PIN
+       struct device *dev;
+
+       dev = device_get_binding(HR_SENSOR_PORT);
+       gpio_pin_configure(dev, TENSION_I2C, GPIO_DIR_OUT);
+       gpio_pin_write(dev, TENSION_I2C, 1);  //this powers the HR sensor I2C 
+
+
+the file nrf52832_mdk.dts should have this :
+
+
+
+.. code-block:: console
+
+        leds {
+                compatible = "gpio-leds";
+                led0_green: led_0 {
+                        gpios = <&gpio0 26 GPIO_INT_ACTIVE_LOW>;
+                        label = "Green LED 0";
+                };
+                led1_red: led_1 {
+                        gpios = <&gpio0 23 GPIO_INT_ACTIVE_LOW>;
+                        label = "Red LED 1";
+                };
+                led2_blue: led_2 {
+                        gpios = <&gpio0 24 GPIO_INT_ACTIVE_LOW>;
+                        label = "Blue LED 1";
+                };
+        };
+
+
+
+
+.. code-block:: console
+
+    $  west build -p -b nrf52832_mdk samples/drivers/i2c_scanner -- -DCONF_FILE="prj.conf overlay-nrf52.conf" 
+
+``this builds an image, which can be found under the build directory``
+
+

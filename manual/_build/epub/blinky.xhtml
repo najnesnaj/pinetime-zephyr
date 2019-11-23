@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>zephyr on the pinetime smartwatch</title>
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="zephyr-on-the-pinetime-smartwatch">
+<h1>zephyr on the pinetime smartwatch</h1>
+<div class="section" id="blinky-example">
+<h2>Blinky    example</h2>
+<p><strong>Note: I think you need to connect the 5V, just connecting the SWD cable (3.3V) is likely not enough to light up the leds</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">watch</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">contain</span> <span class="n">a</span> <span class="n">led</span> <span class="k">as</span> <span class="n">such</span><span class="p">,</span> <span class="n">but</span> <span class="n">it</span> <span class="n">has</span> <span class="n">background</span> <span class="n">leds</span> <span class="k">for</span> <span class="n">the</span> <span class="n">LCD</span><span class="o">.</span>
+
+<span class="n">Once</span> <span class="n">lit</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">barely</span> <span class="n">see</span> <span class="n">it</span><span class="p">,</span> <span class="n">cause</span> <span class="n">the</span> <span class="n">screen</span> <span class="ow">is</span> <span class="n">black</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">copy the board definition for the pinetime to the zephyrproject directory</span>
+<span class="gp">$</span> cp <span class="o">(</span>this repo<span class="o">)</span>pinetime  ~/zephyrproject/zephyr/boards/arm/pinetime
+
+<span class="go">replace the blinky sample with the one in this repo</span>
+<span class="gp">$</span> cp <span class="o">(</span>this repo<span class="o">)</span>blinky  ~/zephyrproject/zephyr/samples/basic
+</pre></div>
+</div>
+<p>have a look at the pinetime.dts file, here you see the definition of the background leds.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">gpios = &lt;&amp;gpio0 14 GPIO_INT_ACTIVE_LOW&gt;;</span>
+<span class="go">gpios = &lt;&amp;gpio0 22 GPIO_INT_ACTIVE_LOW&gt;;</span>
+<span class="go">gpios = &lt;&amp;gpio0 23 GPIO_INT_ACTIVE_LOW&gt;;</span>
+</pre></div>
+</div>
+<p><cite>building an image, which can be found under the build directory</cite></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> west build -p -b pinetime samples/basic/blinky
+</pre></div>
+</div>
+<p>once the compilation is completed you can upload the firmware
+~/zephyrproject/zephyr/build/zephyr/zephyr.bin</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

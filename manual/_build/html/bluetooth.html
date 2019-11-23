@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>bluetooth (BLE) example &#8212; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="st7789 display" href="display.html" />
+    <link rel="prev" title="zephyr on the pinetime smartwatch" href="blinky.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="display.html" title="st7789 display"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="blinky.html" title="zephyr on the pinetime smartwatch"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="bluetooth-ble-example">
+<h1>bluetooth (BLE) example<a class="headerlink" href="#bluetooth-ble-example" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="eddy-stone">
+<h2>Eddy Stone<a class="headerlink" href="#eddy-stone" title="Permalink to this headline">¶</a></h2>
+<p><strong>Note:</strong>  compile the provided example, so a build directory gets created</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> west build -p -b pinetime samples/bluetooth/eddystone
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">this</span> <span class="pre">builds</span> <span class="pre">an</span> <span class="pre">image,</span> <span class="pre">which</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">found</span> <span class="pre">under</span> <span class="pre">the</span> <span class="pre">build</span> <span class="pre">directory</span></code></p>
+<p>I use linux with a bluetoothadapter 4.0.
+You need bluez.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>bluetoothctl
+<span class="gp">[bluetooth]#</span>scan on
+</pre></div>
+</div>
+<p>And your Eddy Stone should be visible.</p>
+<p>If you have a smartphone, you can download the nrf utilities app from nordic.</p>
+</div>
+<div class="section" id="ble-peripheral">
+<h2>Ble Peripheral<a class="headerlink" href="#ble-peripheral" title="Permalink to this headline">¶</a></h2>
+<p>this example is a demo of the services under bluetooth</p>
+<p>first build the image</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b pinetime samples/bluetooth/peripheral -D <span class="nv">CONF_FILE</span><span class="o">=</span><span class="s2">&quot;prj.conf&quot;</span>
+</pre></div>
+</div>
+<p>the image, can be found under the build directory, and has to be flashed to the pinetime</p>
+<p>with linux you can have a look using bluetoothctl</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>bluetoothctl
+<span class="gp">[bluetooth]#</span>scan on
+
+
+<span class="go">[NEW] Device 60:7C:9E:92:50:C1 Zephyr Peripheral Sample Long</span>
+<span class="go">once you see your device</span>
+<span class="gp">[blueooth]#</span>connect <span class="m">60</span>:7C:9E:92:50:C1 <span class="o">(</span>the device mac address as displayed<span class="o">)</span>
+
+<span class="go">then you can already see the services</span>
+</pre></div>
+</div>
+<p>same thing with the app from nordic, you could try to connect and display value of e.g. heart rate</p>
+</div>
+<div class="section" id="using-python-to-read-out-bluetoothservices">
+<h2>using Python to read out bluetoothservices<a class="headerlink" href="#using-python-to-read-out-bluetoothservices" title="Permalink to this headline">¶</a></h2>
+<p>In this repo you will find a python script : readbat.py
+In order to use it you need bluez on linux and the python <cite>bluepy</cite> module.</p>
+<p>It can be used in conjunction with the peripheral bluetooth demo.
+It just reads out the battery level, and prints it.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">binascii</span>
+<span class="kn">from</span> <span class="nn">bluepy.btle</span> <span class="k">import</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">Peripheral</span>
+
+<span class="n">temp_uuid</span> <span class="o">=</span> <span class="n">UUID</span><span class="p">(</span><span class="mh">0x2A19</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Peripheral</span><span class="p">(</span><span class="s2">&quot;60:7C:9E:92:50:C1&quot;</span><span class="p">,</span> <span class="s2">&quot;random&quot;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+   <span class="n">ch</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">getCharacteristics</span><span class="p">(</span><span class="n">uuid</span><span class="o">=</span><span class="n">temp_uuid</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+   <span class="nb">print</span> <span class="n">binascii</span><span class="o">.</span><span class="n">b2a_hex</span><span class="p">(</span><span class="n">ch</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">bluetooth (BLE) example</a><ul>
+<li><a class="reference internal" href="#eddy-stone">Eddy Stone</a></li>
+<li><a class="reference internal" href="#ble-peripheral">Ble Peripheral</a></li>
+<li><a class="reference internal" href="#using-python-to-read-out-bluetoothservices">using Python to read out bluetoothservices</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="blinky.html"
+                        title="previous chapter">zephyr on the pinetime smartwatch</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="display.html"
+                        title="next chapter">st7789 display</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/bluetooth.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="display.html" title="st7789 display"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="blinky.html" title="zephyr on the pinetime smartwatch"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, jj.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
+    </div>
+  </body>
+</html>

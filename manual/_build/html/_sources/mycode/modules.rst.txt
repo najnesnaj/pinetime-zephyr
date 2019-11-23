@@ -1,0 +1,8 @@
+doctest
+=======
+
+.. toctree::
+   :maxdepth: 4
+
+   conf
+   statemachine

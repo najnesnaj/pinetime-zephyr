@@ -1,0 +1,115 @@
+ZEPHYR on the DS6 smartwatch
+============================
+
+
+Bluetooth example
+~~~~~~~~~~~~~~~~~
+
+**Note:**  compile the provided example, so a build directory gets created 
+
+
+.. code-block:: console
+
+    $ west build -p -b nrf52832_mdk samples/bluetooth/eddystone 
+
+``this builds an image, which can be found under the build directory``
+
+
+
+**Note:** Do not flash it yet, we adapt the settings first
+
+
+``the DS6 watch does not contain an external crystal to generate 32Khz, so we need to adapt the config``
+
+.. code-block:: console
+
+
+    $ west build -t menuconfig 
+
+::
+
+        Modules  --->
+        Board Selection (nRF52832-MDK)  --->
+        Board Options  --->
+        SoC/CPU/Configuration Selection (Nordic Semiconductor nRF52 series MCU)  --->
+        Hardware Configuration  --->
+        ARM Options  --->
+        Architecture (ARM architecture)  --->
+        General Architecture Options  --->
+    [ ] Floating point  ----
+        General Kernel Options  --->
+        Device Drivers  ---> **************SELECT THIS ONE*************************** 
+        C Library  --->
+        Additional libraries  --->
+    [*] Bluetooth  --->
+    [ ] Console subsystem/support routines [EXPERIMENTAL]  ----
+    [ ] C++ support for the application  ----
+        System Monitoring Options  --->
+        Debugging Options  --->
+    [ ] Disk Interface  ----
+        File Systems  --->
+    -*- Logging  --->
+        Management  --->
+        Networking  --->
+
+
+
+::
+
+    [ ] IEEE 802.15.4 drivers options  ----
+    (UART_0) Device Name of UART Device for UART Console
+    [*] Console drivers  --->
+    [ ] Net loopback driver  ----
+    [*] Serial Drivers  --->
+        Interrupt Controllers  --->
+        Timer Drivers  --->
+    -*- Entropy Drivers  --->
+    [*] GPIO Drivers  --->
+    [ ] Shared interrupt driver  ----
+    [ ] SPI hardware bus support  ----
+    [ ] I2C Drivers  ----
+    [ ] I2S bus drivers  ----
+    [ ] PWM (Pulse Width Modulation) Drivers  ----
+    [ ] Enable board pinmux driver  ----
+    [ ] ADC drivers  ----
+    [ ] Watchdog Support  ----
+    [*] Hardware clock controller support  ---> <<<<<<<<<<<<<<<<SELECT THIS ONE<<<<<<<<<<
+    [ ] Precision Time Protocol Clock driver support
+    [ ] IPM drivers  ----
+        Max compiled-in log level for ipm (Info)  --->
+    [ ] Flash hardware support  ----
+    [ ] Sensor Drivers  ----
+
+
+::
+
+         Max compiled-in log level for clock control (Info)  --->
+     [*] NRF Clock controller support  ---> <<<<<<<<<<<<<<<<<<<<SELECT THIS ONE<<<<<<<<<<< 
+
+
+::
+
+                                              Zephyr Kernel Configuration
+    32KHz clock source (Synthesized from HFCLK)  --->  <<<<<<<<<<<<<<<<SELECT <<<<<<<<<<<<
+    32KHz clock accuracy (0 ppm to 20 ppm)  --->
+
+
+::
+    
+                                                  Zephyr Kernel Configuration
+    ( ) RC Oscillator
+    ( ) Crystal Oscillator
+    (X) Synthesized from HFCLK
+    ( ) External low swing
+    ( ) External full swing
+    
+
+**Finally, leave the config menu and do not forget to save your config**
+
+``now just type west build, you want to keep your config which is located in the build directory``
+
+.. code-block:: console
+
+    $ west build  
+
+ 

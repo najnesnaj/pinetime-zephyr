@@ -1,0 +1,50 @@
+creating the DS_D6 board 
+========================
+
+
+the DS_D6 board
+~~~~~~~~~~~~~~~~
+
+**Note:** the board is the smart watch
+
+
+After adapting an existing board, why not create your own?
+
+
+.. code-block:: console
+
+    $ cd ~/zephyrproject/zephyr/boards/arm (nordic nrf52832 is an arm processor) 
+
+::
+    
+    this directory contains all the arm boards,  you could copy one, and rename all the references. 
+
+
+
+
+    In this github repo, an example ds_d6 directory is provided. 
+    Put it under ..../boards/arm.
+    Should be usable afterwards.
+
+
+
+
+
+``the DS6 watch does not contain an external crystal to generate 32Khz, so we need to adapt the config``
+
+.. code-block:: console
+
+
+    $ vi ds_d6_defconfig 
+
+
+verify if this line is contained :
+**CONFIG_CLOCK_CONTROL_NRF_K32SRC_SYNTH=y**
+
+**and finally build your board (ds_d6)**
+
+
+
+.. code-block:: console
+
+      west build -p -b ds_d6 samples/bluetooth/eddystone/

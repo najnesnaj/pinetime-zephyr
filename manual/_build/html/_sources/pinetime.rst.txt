@@ -1,0 +1,37 @@
+==================================
+Zephyr for the pinetime smartwatch
+==================================
+::
+
+    this document describes the installation of zephyr RTOS on the Pinetime smartwatch.
+    it should be applicable on other nordic nrf52832 based watches 
+
+
+
+
+
+
+
+::
+
+    in the boards directory, you'll find the definitions for the pinetime smartwatch 
+    
+.. note::
+
+         the pinetime has a swd interface
+
+         
+it is write protected see:   :ref:`flashing`
+
+
+------------------------
+
+
+
+
+
+
+
+
+
+
