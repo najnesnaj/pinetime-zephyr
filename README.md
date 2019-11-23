@@ -18,6 +18,13 @@ In this repository you can find modified directories, which you can copy to the 
            -st7789v (samples/display)
            -blinky (samples/basic)
 
+IMPORTANT:
+----------
+in order to work properly you need to install a zephyr patch : 
+https://github.com/zephyrproject-rtos/zephyr/pull/20570/files
+
+
+
 ALREADY DONE:
 -------------
    -the display
