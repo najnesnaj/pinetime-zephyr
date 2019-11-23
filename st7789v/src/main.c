@@ -52,8 +52,8 @@ void main(void)
 	display_get_capabilities(display_dev, &capabilities);
 
 	/* size of the rectangle */
-	const size_t w = 40;
-	const size_t h = 40;
+	const size_t w = 60;
+	const size_t h = 60;
 	const size_t buf_size = rgb_size * w * h;
 
 	/* points are clockwise, from top left */

@@ -3,6 +3,12 @@
 ST7789V Display driver
 ######################
 
+
+make sure this patch is applied : 
+https://github.com/zephyrproject-rtos/zephyr/pull/20570/files
+
+
+
 Overview
 ********
 This sample will draw some basic rectangles onto the display.
