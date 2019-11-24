@@ -13,6 +13,8 @@
 \contentsline {section}{\numberline {5.1}Display example}{11}{section.5.1}
 \contentsline {chapter}{\numberline {6}Menuconfig}{13}{chapter.6}
 \contentsline {section}{\numberline {6.1}Zephyr is like linux}{13}{section.6.1}
-\contentsline {chapter}{\numberline {7}hacking the pinetime smartwatch}{15}{chapter.7}
-\contentsline {chapter}{\numberline {8}Howto flash your zephyr image}{17}{chapter.8}
-\contentsline {chapter}{\numberline {9}howto generate pdf documents}{19}{chapter.9}
+\contentsline {chapter}{\numberline {7}Menuconfig}{15}{chapter.7}
+\contentsline {section}{\numberline {7.1}board and shield}{15}{section.7.1}
+\contentsline {chapter}{\numberline {8}hacking the pinetime smartwatch}{17}{chapter.8}
+\contentsline {chapter}{\numberline {9}Howto flash your zephyr image}{19}{chapter.9}
+\contentsline {chapter}{\numberline {10}howto generate pdf documents}{21}{chapter.10}

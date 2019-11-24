@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.11.17)  24 NOV 2019 06:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.11.17)  24 NOV 2019 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1200,30 +1200,34 @@ Chapter 6.
 Chapter 7.
 [15
 
-] [16]
-Chapter 8.
-[17
-
-] [18
+] [16
 
 ]
+Chapter 8.
+[17] [18]
 Chapter 9.
+[19
+
+] [20
+
+]
+Chapter 10.
 (./oswatch.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 559.
- [19]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 559.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 584.
+ [21]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 584.
  (./oswatch.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 559.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 559.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 584.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 584.
 Package rerunfilecheck Info: File `oswatch.out' has not changed.
-(rerunfilecheck)             Checksum: 23E2E6AC28191D6102E099B30BA62CA4;2506.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 559.
+(rerunfilecheck)             Checksum: C44782E09D75353E05E30E02E589F749;2742.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 584.
  ) 
 Here is how much of TeX's memory you used:
- 13694 strings out of 494923
- 189597 string characters out of 6180741
- 323100 words of memory out of 5000000
- 16657 multiletter control sequences out of 15000+600000
+ 13703 strings out of 494923
+ 189744 string characters out of 6180741
+ 322216 words of memory out of 5000000
+ 16662 multiletter control sequences out of 15000+600000
  48042 words of font info for 69 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  37i,12n,45p,666b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1236,10 +1240,10 @@ vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on oswatch.pdf (23 pages, 137456 bytes).
+Output written on oswatch.pdf (25 pages, 139353 bytes).
 PDF statistics:
- 251 PDF objects out of 1000 (max. 8388607)
- 209 compressed objects within 3 object streams
- 41 named destinations out of 1000 (max. 500000)
- 157 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 271 PDF objects out of 1000 (max. 8388607)
+ 227 compressed objects within 3 object streams
+ 45 named destinations out of 1000 (max. 500000)
+ 173 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -132,17 +132,35 @@
     </navPoint>
     <navPoint id="navPoint21" playOrder="16">
       <navLabel>
+        <text>Menuconfig</text>
+      </navLabel>
+      <content src="board_and_shield.xhtml" />  
+      <navPoint id="navPoint22" playOrder="16">
+        <navLabel>
+          <text>Menuconfig</text>
+        </navLabel>
+        <content src="board_and_shield.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint23" playOrder="17">
+        <navLabel>
+          <text>board and shield</text>
+        </navLabel>
+        <content src="board_and_shield.xhtml#board-and-shield" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint24" playOrder="18">
+      <navLabel>
         <text>hacking   the pinetime smartwatch</text>
       </navLabel>
       <content src="flashing.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint22" playOrder="17">
+    <navPoint id="navPoint25" playOrder="19">
       <navLabel>
         <text>Howto flash your zephyr image</text>
       </navLabel>
       <content src="writeprotection.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint23" playOrder="18">
+    <navPoint id="navPoint26" playOrder="20">
       <navLabel>
         <text>howto generate pdf documents</text>
       </navLabel>

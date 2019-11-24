@@ -448,6 +448,31 @@ now you can have a look in the configurationfile (and modify if needed)
 \end{sphinxVerbatim}
 
 
+\chapter{Menuconfig}
+\label{\detokenize{board_and_shield:menuconfig}}\label{\detokenize{board_and_shield::doc}}
+
+\section{board and shield}
+\label{\detokenize{board_and_shield:board-and-shield}}
+The PineTime smart watch is one single unit.
+Howeven from a hardware point of perspective, one could consider it as a microcontroller with a shield.
+
+The microcontroller is defined in the board (-b pintime) definition.
+
+The display can be considered as a shield on top op the board.
+
+In this repository, have a look under board/shields.
+
+You will find an overlay and a configuration file.
+
+You can copy these under \textasciitilde{}zephyrproject/zephyr.
+
+It is then located in a central directory, and you can build the image using:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/gui/lvgl \PYGZhy{}\PYGZhy{} \PYGZhy{}DSHIELD=pinetime}
+\end{sphinxVerbatim}
+
+
 \chapter{hacking   the pinetime smartwatch}
 \label{\detokenize{flashing:hacking-the-pinetime-smartwatch}}\label{\detokenize{flashing::doc}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
