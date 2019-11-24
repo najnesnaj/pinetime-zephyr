@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Nov 23, 2019}
+\date{Nov 24, 2019}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -216,6 +216,11 @@ I solved this by creating a link from the development-tools to /usr/bin/dtc (her
 \PYG{g+go}{mv dtc dtc\PYGZhy{}orig}
 \PYG{g+go}{ln \PYGZhy{}s /usr/bin/dtc dtc}
 \end{sphinxVerbatim}
+
+\sphinxstylestrong{Note : in order to get the display st7789 Picture-Perfect, you might need a zephyr patch}
+
+have a look at : \sphinxurl{https://github.com/zephyrproject-rtos/zephyr/pull/20570/files}
+You will find them in this repo under patches-zephyr.
 
 
 \chapter{zephyr on the pinetime smartwatch}

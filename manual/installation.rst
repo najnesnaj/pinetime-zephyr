@@ -26,5 +26,7 @@ But even after following the rules, I got a problem with the ``dtc (device tree 
 
 
 
+**Note : in order to get the display st7789 Picture-Perfect, you might need a zephyr patch**
 
-
+have a look at : https://github.com/zephyrproject-rtos/zephyr/pull/20570/files
+You will find them in this repo under patches-zephyr.
