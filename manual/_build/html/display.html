@@ -1,9 +1,11 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>st7789 display &#8212; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +16,9 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Menuconfig" href="menuconfig.html" />
+    <link rel="prev" title="bluetooth (BLE) example" href="bluetooth.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -22,6 +26,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="menuconfig.html" title="Menuconfig"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bluetooth.html" title="bluetooth (BLE) example"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -45,9 +55,8 @@
 <span class="gp">$</span> cp <span class="o">(</span>this repo<span class="o">)</span>st7789  ~/zephyrproject/zephyr/samples/display
 </pre></div>
 </div>
-<p><cite>building an image, which can be found under the build directory</cite>
-the pinetime.overlay contains the definitions for the screen like resolution, and SPI-port data</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b pinetime samples/display/st7789v -DDTC_OVERLAY<span class="o">=</span><span class="s2">&quot;pinetime.overlay&quot;</span>
+<p><cite>building an image, which can be found under the build directory</cite></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b pinetime samples/display/st7789v
 </pre></div>
 </div>
 <p>once the compilation is completed you can upload the firmware
@@ -70,6 +79,12 @@ the pinetime.overlay contains the definitions for the screen like resolution, an
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bluetooth.html"
+                        title="previous chapter">bluetooth (BLE) example</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="menuconfig.html"
+                        title="next chapter">Menuconfig</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -78,11 +93,13 @@ the pinetime.overlay contains the definitions for the screen like resolution, an
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
+  <h3>Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -97,12 +114,18 @@ the pinetime.overlay contains the definitions for the screen like resolution, an
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="menuconfig.html" title="Menuconfig"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bluetooth.html" title="bluetooth (BLE) example"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, jj.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
     </div>
   </body>
 </html>

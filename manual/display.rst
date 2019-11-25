@@ -26,11 +26,10 @@ Display    example
 
 
 `building an image, which can be found under the build directory`
-the pinetime.overlay contains the definitions for the screen like resolution, and SPI-port data
 
 .. code-block:: console
 
-    $  west build -p -b pinetime samples/display/st7789v -DDTC_OVERLAY="pinetime.overlay" 
+    $  west build -p -b pinetime samples/display/st7789v 
 
 once the compilation is completed you can upload the firmware
 ~/zephyrproject/zephyr/build/zephyr/zephyr.bin 

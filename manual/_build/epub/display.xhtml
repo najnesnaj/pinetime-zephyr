@@ -26,9 +26,8 @@
 <span class="gp">$</span> cp <span class="o">(</span>this repo<span class="o">)</span>st7789  ~/zephyrproject/zephyr/samples/display
 </pre></div>
 </div>
-<p><cite>building an image, which can be found under the build directory</cite>
-the pinetime.overlay contains the definitions for the screen like resolution, and SPI-port data</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b pinetime samples/display/st7789v -DDTC_OVERLAY<span class="o">=</span><span class="s2">&quot;pinetime.overlay&quot;</span>
+<p><cite>building an image, which can be found under the build directory</cite></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b pinetime samples/display/st7789v
 </pre></div>
 </div>
 <p>once the compilation is completed you can upload the firmware

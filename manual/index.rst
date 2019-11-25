@@ -34,7 +34,6 @@ suggestion :
    bluetooth 
    display
    menuconfig
-   board_and_shield
    flashing
    writeprotection 
    latexpdf.rst
