@@ -114,35 +114,41 @@
     </navPoint>
     <navPoint id="navPoint18" playOrder="14">
       <navLabel>
+        <text>sensors on the I2C bus</text>
+      </navLabel>
+      <content src="sensors.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint19" playOrder="15">
+      <navLabel>
         <text>Menuconfig</text>
       </navLabel>
       <content src="menuconfig.xhtml" />  
-      <navPoint id="navPoint19" playOrder="14">
+      <navPoint id="navPoint20" playOrder="15">
         <navLabel>
           <text>Menuconfig</text>
         </navLabel>
         <content src="menuconfig.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint20" playOrder="15">
+      <navPoint id="navPoint21" playOrder="16">
         <navLabel>
           <text>Zephyr is like linux</text>
         </navLabel>
         <content src="menuconfig.xhtml#zephyr-is-like-linux" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint21" playOrder="16">
+    <navPoint id="navPoint22" playOrder="17">
       <navLabel>
         <text>hacking   the pinetime smartwatch</text>
       </navLabel>
       <content src="flashing.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint22" playOrder="17">
+    <navPoint id="navPoint23" playOrder="18">
       <navLabel>
         <text>Howto flash your zephyr image</text>
       </navLabel>
       <content src="writeprotection.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint23" playOrder="18">
+    <navPoint id="navPoint24" playOrder="19">
       <navLabel>
         <text>howto generate pdf documents</text>
       </navLabel>

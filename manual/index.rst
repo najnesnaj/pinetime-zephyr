@@ -33,6 +33,7 @@ suggestion :
    blinky
    bluetooth 
    display
+   sensors
    menuconfig
    flashing
    writeprotection 
