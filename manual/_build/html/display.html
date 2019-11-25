@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>st7789 display &#8212; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +15,7 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="sensors on the I2C bus" href="sensors.html" />
+    <link rel="next" title="LittlevGL Basic Sample" href="lvgl.html" />
     <link rel="prev" title="bluetooth (BLE) example" href="bluetooth.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -27,7 +25,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="sensors.html" title="sensors on the I2C bus"
+          <a href="lvgl.html" title="LittlevGL Basic Sample"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="bluetooth.html" title="bluetooth (BLE) example"
@@ -45,7 +43,8 @@
 <h1>st7789 display<a class="headerlink" href="#st7789-display" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="display-example">
 <h2>Display    example<a class="headerlink" href="#display-example" title="Permalink to this headline">¶</a></h2>
-<p><strong>Note: I think you need to connect the 5V, just connecting the SWD cable (3.3V) is likely not enough to light up the leds</strong></p>
+<p><strong>Note: I think you need to connect the 5V, just connecting the SWD cable (3.3V) is likely not enough to light up the leds</strong>
+<strong>While connecting 5V, do not connect 3.3V</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">watch</span> <span class="n">has</span> <span class="n">background</span> <span class="n">leds</span> <span class="k">for</span> <span class="n">the</span> <span class="n">LCD</span><span class="o">.</span>
 
 <span class="n">They</span> <span class="n">need</span> <span class="n">to</span> <span class="n">be</span> <span class="n">on</span> <span class="p">(</span><span class="n">LOW</span><span class="p">)</span> <span class="n">to</span> <span class="n">visualize</span> <span class="n">the</span> <span class="n">display</span><span class="o">.</span>
@@ -83,8 +82,8 @@
   <p class="topless"><a href="bluetooth.html"
                         title="previous chapter">bluetooth (BLE) example</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="sensors.html"
-                        title="next chapter">sensors on the I2C bus</a></p>
+  <p class="topless"><a href="lvgl.html"
+                        title="next chapter">LittlevGL Basic Sample</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -93,13 +92,11 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -115,7 +112,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="sensors.html" title="sensors on the I2C bus"
+          <a href="lvgl.html" title="LittlevGL Basic Sample"
              >next</a> |</li>
         <li class="right" >
           <a href="bluetooth.html" title="bluetooth (BLE) example"
@@ -125,7 +122,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, jj.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
     </div>
   </body>
 </html>

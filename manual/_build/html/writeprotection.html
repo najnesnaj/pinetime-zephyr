@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Howto flash your zephyr image &#8212; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -52,13 +50,13 @@
 <p>I copy the image using $scp -P 8888 zephyr.bin 192.168.0.77:/usr/src/pinetime
 (secure copy using my user defined port 8888 which is normally port 22)</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>the PineTime watch is read/write protected
 executing the following : nrf52.dap apreg 1 0x0c shows 0x0</p>
 <p>Mind you st-link does not allow you to execute that command, you need J-link.
 There is a workaround using the GPIO of a raspberry pi or a Orangepi.
 You have to reconfigure Openocd with the –enable-cmsis-dap option.</p>
-<p class="last">Unlock the chip by executing the command:
+<p>Unlock the chip by executing the command:
 &gt; nrf52.dap apreg 1 0x04 0x01</p>
 </div>
 </div>
@@ -83,13 +81,11 @@ You have to reconfigure Openocd with the –enable-cmsis-dap option.</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -115,7 +111,7 @@ You have to reconfigure Openocd with the –enable-cmsis-dap option.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, jj.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
     </div>
   </body>
 </html>

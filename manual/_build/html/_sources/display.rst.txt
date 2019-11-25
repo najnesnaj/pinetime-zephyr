@@ -6,7 +6,7 @@ Display    example
 ~~~~~~~~~~~~~~~~~~~
 
 **Note: I think you need to connect the 5V, just connecting the SWD cable (3.3V) is likely not enough to light up the leds**
-
+**While connecting 5V, do not connect 3.3V**
 
 ::
 

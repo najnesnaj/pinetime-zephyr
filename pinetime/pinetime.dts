@@ -110,7 +110,7 @@ PO.23 LCD backlight
 
 	st7789v@0 {
 		compatible = "sitronix,st7789v";
-		label = "ST7789V";
+		label = "DISPLAY";
 		spi-max-frequency = <8000000>;
 		reg = <0>;
 		cmd-data-gpios = <&gpio0 18 0>;

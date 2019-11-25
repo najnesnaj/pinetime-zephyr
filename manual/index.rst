@@ -33,6 +33,7 @@ suggestion :
    blinky
    bluetooth 
    display
+   lvgl
    sensors
    menuconfig
    flashing

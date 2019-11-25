@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>LittlevGL Basic Sample &#8212; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="sensors on the I2C bus" href="sensors.html" />
+    <link rel="prev" title="st7789 display" href="display.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="sensors.html" title="sensors on the I2C bus"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="display.html" title="st7789 display"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="littlevgl-basic-sample">
+<span id="lvgl-sample"></span><h1>LittlevGL Basic Sample<a class="headerlink" href="#littlevgl-basic-sample" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This sample application displays “Hello World” in the center of the screen
+and a counter at the bottom which increments every second.</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>definitions can be found under the boards sub-directory</dt><dd><ul class="simple">
+<li><p>pinetime.conf</p></li>
+<li><p>pinetime.overlay</p></li>
+</ul>
+</dd>
+</dl>
+<p>The program has been modified to light up the background leds.
+Might be unnecessary…
+can be found in this repo</p>
+<dl class="simple">
+<dt>::</dt><dd><p>Matching labels are necessary!
+pinetime.conf:CONFIG_LVGL_DISPLAY_DEV_NAME=”DISPLAY”
+pinetime.overlay:               label = “DISPLAY”; (spi definition)</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
+<p>Make sure you copied the board definitions.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/gui/lvgl</span>
+</pre></div>
+</div>
+<p>modifying the font size :</p>
+<p>west build -t menuconfig
+goto additional libraries / lvgl gui library
+(look for fonts, and adapt according to your need)</p>
+<p>west build</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>LittlevGL Web Page: <a class="reference external" href="https://littlevgl.com/">https://littlevgl.com/</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">LittlevGL Basic Sample</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#building-and-running">Building and Running</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="display.html"
+                        title="previous chapter">st7789 display</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="sensors.html"
+                        title="next chapter">sensors on the I2C bus</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/lvgl.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="sensors.html" title="sensors on the I2C bus"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="display.html" title="st7789 display"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, jj.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
+    </div>
+  </body>
+</html>
