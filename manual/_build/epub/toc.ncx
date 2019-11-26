@@ -143,48 +143,54 @@
       </navPoint>
       <navPoint id="navPoint23" playOrder="18">
         <navLabel>
+          <text>Todo</text>
+        </navLabel>
+        <content src="lvgl.xhtml#todo" />  
+      </navPoint>
+      <navPoint id="navPoint24" playOrder="19">
+        <navLabel>
           <text>References</text>
         </navLabel>
         <content src="lvgl.xhtml#references" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint24" playOrder="19">
+    <navPoint id="navPoint25" playOrder="20">
       <navLabel>
         <text>sensors on the I2C bus</text>
       </navLabel>
       <content src="sensors.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint25" playOrder="20">
+    <navPoint id="navPoint26" playOrder="21">
       <navLabel>
         <text>Menuconfig</text>
       </navLabel>
       <content src="menuconfig.xhtml" />  
-      <navPoint id="navPoint26" playOrder="20">
+      <navPoint id="navPoint27" playOrder="21">
         <navLabel>
           <text>Menuconfig</text>
         </navLabel>
         <content src="menuconfig.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint27" playOrder="21">
+      <navPoint id="navPoint28" playOrder="22">
         <navLabel>
           <text>Zephyr is like linux</text>
         </navLabel>
         <content src="menuconfig.xhtml#zephyr-is-like-linux" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint28" playOrder="22">
+    <navPoint id="navPoint29" playOrder="23">
       <navLabel>
         <text>hacking   the pinetime smartwatch</text>
       </navLabel>
       <content src="flashing.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint29" playOrder="23">
+    <navPoint id="navPoint30" playOrder="24">
       <navLabel>
         <text>Howto flash your zephyr image</text>
       </navLabel>
       <content src="writeprotection.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint30" playOrder="24">
+    <navPoint id="navPoint31" playOrder="25">
       <navLabel>
         <text>howto generate pdf documents</text>
       </navLabel>

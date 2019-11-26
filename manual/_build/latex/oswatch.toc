@@ -1,24 +1,25 @@
 \babel@toc {english}{}
-\contentsline {chapter}{\numberline {1}About}{3}{chapter.1}
-\contentsline {section}{\numberline {1.1}Todo}{3}{section.1.1}
-\contentsline {section}{\numberline {1.2}Fast track}{3}{section.1.2}
-\contentsline {chapter}{\numberline {2}Install zephyr}{5}{chapter.2}
-\contentsline {chapter}{\numberline {3}zephyr on the pinetime smartwatch}{7}{chapter.3}
-\contentsline {section}{\numberline {3.1}Blinky example}{7}{section.3.1}
-\contentsline {chapter}{\numberline {4}bluetooth (BLE) example}{9}{chapter.4}
-\contentsline {section}{\numberline {4.1}Eddy Stone}{9}{section.4.1}
-\contentsline {section}{\numberline {4.2}Ble Peripheral}{9}{section.4.2}
-\contentsline {section}{\numberline {4.3}using Python to read out bluetoothservices}{10}{section.4.3}
-\contentsline {chapter}{\numberline {5}st7789 display}{11}{chapter.5}
-\contentsline {section}{\numberline {5.1}Display example}{11}{section.5.1}
-\contentsline {chapter}{\numberline {6}LittlevGL Basic Sample}{13}{chapter.6}
-\contentsline {section}{\numberline {6.1}Overview}{13}{section.6.1}
-\contentsline {section}{\numberline {6.2}Requirements}{13}{section.6.2}
-\contentsline {section}{\numberline {6.3}Building and Running}{13}{section.6.3}
-\contentsline {section}{\numberline {6.4}References}{13}{section.6.4}
-\contentsline {chapter}{\numberline {7}sensors on the I2C bus}{15}{chapter.7}
-\contentsline {chapter}{\numberline {8}Menuconfig}{17}{chapter.8}
-\contentsline {section}{\numberline {8.1}Zephyr is like linux}{17}{section.8.1}
-\contentsline {chapter}{\numberline {9}hacking the pinetime smartwatch}{19}{chapter.9}
-\contentsline {chapter}{\numberline {10}Howto flash your zephyr image}{21}{chapter.10}
-\contentsline {chapter}{\numberline {11}howto generate pdf documents}{23}{chapter.11}
+\contentsline {chapter}{\numberline {1}About}{3}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Todo}{3}{section.1.1}% 
+\contentsline {section}{\numberline {1.2}Fast track}{3}{section.1.2}% 
+\contentsline {chapter}{\numberline {2}Install zephyr}{5}{chapter.2}% 
+\contentsline {chapter}{\numberline {3}zephyr on the pinetime smartwatch}{7}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Blinky example}{7}{section.3.1}% 
+\contentsline {chapter}{\numberline {4}bluetooth (BLE) example}{9}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Eddy Stone}{9}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Ble Peripheral}{9}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}using Python to read out bluetoothservices}{10}{section.4.3}% 
+\contentsline {chapter}{\numberline {5}st7789 display}{11}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Display example}{11}{section.5.1}% 
+\contentsline {chapter}{\numberline {6}LittlevGL Basic Sample}{13}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}Overview}{13}{section.6.1}% 
+\contentsline {section}{\numberline {6.2}Requirements}{13}{section.6.2}% 
+\contentsline {section}{\numberline {6.3}Building and Running}{13}{section.6.3}% 
+\contentsline {section}{\numberline {6.4}Todo}{13}{section.6.4}% 
+\contentsline {section}{\numberline {6.5}References}{14}{section.6.5}% 
+\contentsline {chapter}{\numberline {7}sensors on the I2C bus}{15}{chapter.7}% 
+\contentsline {chapter}{\numberline {8}Menuconfig}{17}{chapter.8}% 
+\contentsline {section}{\numberline {8.1}Zephyr is like linux}{17}{section.8.1}% 
+\contentsline {chapter}{\numberline {9}hacking the pinetime smartwatch}{19}{chapter.9}% 
+\contentsline {chapter}{\numberline {10}Howto flash your zephyr image}{21}{chapter.10}% 
+\contentsline {chapter}{\numberline {11}howto generate pdf documents}{23}{chapter.11}% 

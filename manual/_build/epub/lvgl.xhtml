@@ -18,11 +18,13 @@
 <h2>Overview</h2>
 <p>This sample application displays “Hello World” in the center of the screen
 and a counter at the bottom which increments every second.</p>
+<p>LittlevGL is a free and open-source graphics library providing everything you need to create embedded GUI with easy-to-use graphical elements, beautiful visual effects and low memory footprint.</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements</h2>
 <dl class="simple">
-<dt>definitions can be found under the boards sub-directory</dt><dd><ul class="simple">
+<dt>definitions can be found under the boards sub-directory</dt>
+<dd><ul class="simple">
 <li><p>pinetime.conf</p></li>
 <li><p>pinetime.overlay</p></li>
 </ul>
@@ -31,12 +33,11 @@ and a counter at the bottom which increments every second.</p>
 <p>The program has been modified to light up the background leds.
 Might be unnecessary…
 can be found in this repo</p>
-<dl class="simple">
-<dt>::</dt><dd><p>Matching labels are necessary!
-pinetime.conf:CONFIG_LVGL_DISPLAY_DEV_NAME=”DISPLAY”
-pinetime.overlay:               label = “DISPLAY”; (spi definition)</p>
-</dd>
-</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Matching labels are necessary!
+pinetime.conf:CONFIG_LVGL_DISPLAY_DEV_NAME=&quot;DISPLAY&quot;
+pinetime.overlay:               label = &quot;DISPLAY&quot;; (spi definition)
+</pre></div>
+</div>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running</h2>
@@ -50,8 +51,19 @@ goto additional libraries / lvgl gui library
 (look for fonts, and adapt according to your need)</p>
 <p>west build</p>
 </div>
+<div class="section" id="todo">
+<h2>Todo</h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Create a button</p></li>
+<li><p>touchscreen activation (problem cause zephyr does not support this yet)</p></li>
+<li><p>lvgl supports lv_canvas_rotate(canvas, &amp;imd_dsc, angle, x, y, pivot_x, pivot_y) should be cool for a clock, chrono…</p></li>
+</ul>
+</div></blockquote>
+</div>
 <div class="section" id="references">
 <h2>References</h2>
+<p><a class="reference external" href="https://docs.littlevgl.com/en/html/index.html">https://docs.littlevgl.com/en/html/index.html</a></p>
 <p>LittlevGL Web Page: <a class="reference external" href="https://littlevgl.com/">https://littlevgl.com/</a></p>
 </div>
 </div>

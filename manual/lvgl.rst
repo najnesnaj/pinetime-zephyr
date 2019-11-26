@@ -52,7 +52,7 @@ Todo
 
     - Create a button
     - touchscreen activation (problem cause zephyr does not support this yet)
-
+    - lvgl supports lv_canvas_rotate(canvas, &imd_dsc, angle, x, y, pivot_x, pivot_y) should be cool for a clock, chrono...
 
 References
 **********
