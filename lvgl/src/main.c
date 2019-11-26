@@ -51,8 +51,19 @@ void main(void)
 backlight_init();
 
 	hello_world_label = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_text(hello_world_label, "Hello world!");
+lv_label_set_long_mode(hello_world_label, LV_LABEL_LONG_BREAK);     /*Break the long lines*/
+    lv_label_set_recolor(hello_world_label, true);                      /*Enable re-coloring by commands in the text*/
+	lv_label_set_text(hello_world_label, "#0000ff Hello world!");
+
 	lv_obj_align(hello_world_label, NULL, LV_ALIGN_CENTER, 0, 0);
+
+
+ lv_obj_t * label2 = lv_label_create(lv_scr_act(), NULL);
+    lv_label_set_long_mode(label2, LV_LABEL_LONG_SROLL_CIRC);     /*Circular scroll*/
+    lv_obj_set_width(label2, 150);
+    lv_label_set_text(label2, "It is a circularly scrolling text. ");
+    lv_obj_align(label2, NULL, LV_ALIGN_CENTER, 0, 30);
+
 
 	count_label = lv_label_create(lv_scr_act(), NULL);
 	lv_obj_align(count_label, NULL, LV_ALIGN_IN_BOTTOM_MID, 0, 0);
