@@ -2,7 +2,7 @@ PWD /usr/src/pinetime-zephyr/manual/_build/latex
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
-INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT /root/.texlive2017/texmf-var/web2c/pdftex/pdflatex.fmt
 INPUT oswatch.tex
 OUTPUT oswatch.log
 INPUT sphinxmanual.cls
@@ -13,6 +13,14 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
 INPUT /usr/share/texlive/texmf-dist/tex/latex/cmap/cmap.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/cmap/cmap.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
@@ -103,10 +111,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/parskip/parskip-2001-04-09.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/parskip/parskip-2001-04-09.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
@@ -115,6 +121,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/capt-of/capt-of.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/capt-of/capt-of.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/needspace/needspace.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/needspace/needspace.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/carlisle/remreset.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/carlisle/remreset.sty
 INPUT sphinxhighlight.sty
 INPUT sphinxhighlight.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
@@ -158,6 +166,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/hypcap.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/oberdiek/hypcap.sty
+INPUT sphinxmessages.sty
+INPUT sphinxmessages.sty
 OUTPUT oswatch.idx
 INPUT oswatch.aux
 INPUT oswatch.aux

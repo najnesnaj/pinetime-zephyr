@@ -35,6 +35,7 @@ suggestion :
    display
    lvgl
    sensors
+   i2c
    menuconfig
    flashing
    writeprotection 

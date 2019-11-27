@@ -30,7 +30,8 @@ Todo
 
 list with suggestions:
 
-       - better graphics
+       - better graphics (lvgl using images and rotating stuff)
+       - NOR flash (here one can store data)
        - watchdog
        - DFU (update over bluetooth)
        - acceleration sensor

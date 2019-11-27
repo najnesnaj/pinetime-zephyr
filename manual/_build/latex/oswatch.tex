@@ -9,19 +9,49 @@
 \usepackage[utf8]{inputenc}
 \ifdefined\DeclareUnicodeCharacter
 % support both utf8 and utf8x syntaxes
-\edef\sphinxdqmaybe{\ifdefined\DeclareUnicodeCharacterAsOptional\string"\fi}
-  \DeclareUnicodeCharacter{\sphinxdqmaybe00A0}{\nobreakspace}
-  \DeclareUnicodeCharacter{\sphinxdqmaybe2500}{\sphinxunichar{2500}}
-  \DeclareUnicodeCharacter{\sphinxdqmaybe2502}{\sphinxunichar{2502}}
-  \DeclareUnicodeCharacter{\sphinxdqmaybe2514}{\sphinxunichar{2514}}
-  \DeclareUnicodeCharacter{\sphinxdqmaybe251C}{\sphinxunichar{251C}}
-  \DeclareUnicodeCharacter{\sphinxdqmaybe2572}{\textbackslash}
+  \ifdefined\DeclareUnicodeCharacterAsOptional
+    \def\sphinxDUC#1{\DeclareUnicodeCharacter{"#1}}
+  \else
+    \let\sphinxDUC\DeclareUnicodeCharacter
+  \fi
+  \sphinxDUC{00A0}{\nobreakspace}
+  \sphinxDUC{2500}{\sphinxunichar{2500}}
+  \sphinxDUC{2502}{\sphinxunichar{2502}}
+  \sphinxDUC{2514}{\sphinxunichar{2514}}
+  \sphinxDUC{251C}{\sphinxunichar{251C}}
+  \sphinxDUC{2572}{\textbackslash}
 \fi
 \usepackage{cmap}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,amstext}
 \usepackage{babel}
+
+
+
 \usepackage{times}
+\expandafter\ifx\csname T@LGR\endcsname\relax
+\else
+% LGR was declared as font encoding
+  \substitutefont{LGR}{\rmdefault}{cmr}
+  \substitutefont{LGR}{\sfdefault}{cmss}
+  \substitutefont{LGR}{\ttdefault}{cmtt}
+\fi
+\expandafter\ifx\csname T@X2\endcsname\relax
+  \expandafter\ifx\csname T@T2A\endcsname\relax
+  \else
+  % T2A was declared as font encoding
+    \substitutefont{T2A}{\rmdefault}{cmr}
+    \substitutefont{T2A}{\sfdefault}{cmss}
+    \substitutefont{T2A}{\ttdefault}{cmtt}
+  \fi
+\else
+% X2 was declared as font encoding
+  \substitutefont{X2}{\rmdefault}{cmr}
+  \substitutefont{X2}{\sfdefault}{cmss}
+  \substitutefont{X2}{\ttdefault}{cmtt}
+\fi
+
+
 \usepackage[Bjarne]{fncychap}
 \usepackage{sphinx}
 
@@ -35,30 +65,13 @@
 % Set up styles of URL: it should be placed after hyperref.
 \urlstyle{same}
 
-\addto\captionsenglish{\renewcommand{\figurename}{Fig.\@ }}
-\makeatletter
-\def\fnum@figure{\figurename\thefigure{}}
-\makeatother
-\addto\captionsenglish{\renewcommand{\tablename}{Table }}
-\makeatletter
-\def\fnum@table{\tablename\thetable{}}
-\makeatother
-\addto\captionsenglish{\renewcommand{\literalblockname}{Listing}}
-
-\addto\captionsenglish{\renewcommand{\literalblockcontinuedname}{continued from previous page}}
-\addto\captionsenglish{\renewcommand{\literalblockcontinuesname}{continues on next page}}
-\addto\captionsenglish{\renewcommand{\sphinxnonalphabeticalgroupname}{Non-alphabetical}}
-\addto\captionsenglish{\renewcommand{\sphinxsymbolsname}{Symbols}}
-\addto\captionsenglish{\renewcommand{\sphinxnumbersname}{Numbers}}
-
-\addto\extrasenglish{\def\pageautorefname{page}}
-
+\usepackage{sphinxmessages}
 
 
 
 
 \title{open source watch Documentation}
-\date{Nov 26, 2019}
+\date{Nov 27, 2019}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -138,7 +151,10 @@ In fact it is a small computer on your wrist, with a battery and screen, and cap
 list with suggestions:
 \begin{itemize}
 \item {} 
-better graphics
+better graphics (lvgl using images and rotating stuff)
+
+\item {} 
+NOR flash (here one can store data)
 
 \item {} 
 watchdog
@@ -442,6 +458,86 @@ LittlevGL Web Page: \sphinxurl{https://littlevgl.com/}
 0x15: Touch Controller: Hynitron CST816S Touch Controller
 
 
+\chapter{configuring I2C}
+\label{\detokenize{i2c:configuring-i2c}}\label{\detokenize{i2c::doc}}
+
+\section{board level definitions}
+\label{\detokenize{i2c:board-level-definitions}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{under} \PYG{n}{boards}\PYG{o}{/}\PYG{n}{arm}\PYG{o}{/}\PYG{n}{pinetime} \PYG{n}{are} \PYG{n}{the} \PYG{n}{board} \PYG{n}{definitions}
+\PYG{o}{\PYGZhy{}} \PYG{n}{pinetime}\PYG{o}{.}\PYG{n}{dts}
+\PYG{o}{\PYGZhy{}} \PYG{n}{pinetime\PYGZus{}defconfig}
+
+
+\PYG{n}{The} \PYG{n}{sensors} \PYG{o+ow}{in} \PYG{n}{the} \PYG{n}{pintime} \PYG{n}{use} \PYG{n}{the} \PYG{n}{I2C} \PYG{n}{bus}\PYG{o}{.}
+
+\PYG{o}{\PYGZam{}}\PYG{n}{i2c1} \PYG{p}{\PYGZob{}}
+        \PYG{n}{compatible} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{nordic,nrf\PYGZhy{}twi}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
+        \PYG{n}{status} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{okay}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
+        \PYG{n}{sda}\PYG{o}{\PYGZhy{}}\PYG{n}{pin} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{6}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+        \PYG{n}{scl}\PYG{o}{\PYGZhy{}}\PYG{n}{pin} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{7}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+
+      \PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\section{development trajectory}
+\label{\detokenize{i2c:development-trajectory}}
+The final goal is to use the accel-sensor in the watch (BMA423), which does not exist yet.
+In order to minimize the effort:
+\begin{itemize}
+\item {} 
+we’ll use something that looks like it (ADXL372), because there exists an example.
+
+\item {} 
+next we adapt it to use the existing BMA280 sensor (under drivers/sensor)
+
+\item {} 
+finally we create a driver for the BMA423, based upon the BMA280
+
+\end{itemize}
+
+
+\section{defining an I2C sensor}
+\label{\detokenize{i2c:defining-an-i2c-sensor}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{under} \PYG{n}{samples}\PYG{o}{/}\PYG{n}{sensor}\PYG{o}{/}\PYG{n}{axl372} \PYG{n}{we} \PYG{n}{create} \PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{pinetime.overlay}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{o}{\PYGZam{}}\PYG{n}{i2c1} \PYG{p}{\PYGZob{}}
+    \PYG{n}{status} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{okay}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
+    \PYG{n}{clock}\PYG{o}{\PYGZhy{}}\PYG{n}{frequency} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{n}{I2C\PYGZus{}BITRATE\PYGZus{}STANDARD}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+    \PYG{n}{adxl372}\PYG{n+nd}{@18} \PYG{p}{\PYGZob{}}
+               \PYG{n}{compatible} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{adi,adxl372}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
+               \PYG{n}{reg} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{l+m+mh}{0x18}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+               \PYG{n}{label} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{ADXL372}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
+               \PYG{n}{int1}\PYG{o}{\PYGZhy{}}\PYG{n}{gpios} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZam{}}\PYG{n}{gpio0} \PYG{l+m+mi}{8} \PYG{l+m+mi}{0}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+               \PYG{p}{\PYGZcb{}}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+\sphinxstylestrong{note: this gets somehow merged with the board definition pinetime.dts}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{In} \PYG{n}{the} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{prj.conf}\PYG{l+s+s2}{\PYGZdq{}} \PYG{n}{file} \PYG{n}{we} \PYG{n}{define} \PYG{n}{the} \PYG{n}{sensor}
+
+\PYG{n}{CONFIG\PYGZus{}STDOUT\PYGZus{}CONSOLE}\PYG{o}{=}\PYG{n}{y}
+\PYG{n}{CONFIG\PYGZus{}LOG}\PYG{o}{=}\PYG{n}{y}
+\PYG{n}{CONFIG\PYGZus{}I2C}\PYG{o}{=}\PYG{n}{y}
+\PYG{n}{CONFIG\PYGZus{}SENSOR}\PYG{o}{=}\PYG{n}{y}
+\PYG{n}{CONFIG\PYGZus{}ADXL372}\PYG{o}{=}\PYG{n}{y}
+\PYG{n}{CONFIG\PYGZus{}ADXL372\PYGZus{}I2C}\PYG{o}{=}\PYG{n}{y}
+\PYG{n}{CONFIG\PYGZus{}SENSOR\PYGZus{}LOG\PYGZus{}LEVEL\PYGZus{}WRN}\PYG{o}{=}\PYG{n}{y}
+\end{sphinxVerbatim}
+
+\sphinxstylestrong{note: this gets somehow merged with the board definition pinetime\_defconfig}
+
+
+\section{compiling the sample}
+\label{\detokenize{i2c:compiling-the-sample}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{west} \PYG{n}{build} \PYG{o}{\PYGZhy{}}\PYG{n}{p} \PYG{o}{\PYGZhy{}}\PYG{n}{b} \PYG{n}{pinetime} \PYG{n}{samples}\PYG{o}{/}\PYG{n}{sensor}\PYG{o}{/}\PYG{n}{adxl372} \PYG{o}{\PYGZhy{}}\PYG{n}{DCONF}\PYG{o}{=}\PYG{n}{prj}\PYG{o}{.}\PYG{n}{conf}
+\end{sphinxVerbatim}
+
+
 \chapter{Menuconfig}
 \label{\detokenize{menuconfig:menuconfig}}\label{\detokenize{menuconfig::doc}}
 
@@ -526,10 +622,11 @@ now you can have a look in the configurationfile (and modify if needed)
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{note}{Note:}
-the pinetime has a swd interface
-to write firmware you need special hardware
-I use a stm-link which is very cheap(2\$)
-You can also use the GPIO header of a raspberry pi / or orange pi (see my repo: \sphinxurl{https://github.com/najnesnaj/openocd})
+The pinetime has a swd interface.
+To be able to write firmware,  you need special hardware.
+I use a stm-link which is very cheap(2\$).
+You can also use the GPIO header of a raspberry pi.
+(my repo: \sphinxurl{https://github.com/najnesnaj/openocd} is adapted for the orange pi)
 \end{sphinxadmonition}
 
 To flash the software I use openocd :
@@ -579,10 +676,10 @@ programming
 \PYG{g+gp}{\PYGZgt{}}reset
 \end{sphinxVerbatim}
 
-removing write protection see:   {\hyperref[\detokenize{writeprotection:flashing}]{\sphinxcrossref{\DUrole{std,std-ref}{Howto flash your zephyr image}}}}
+removing write protection see:   {\hyperref[\detokenize{writeprotection:flashing}]{\sphinxcrossref{\DUrole{std,std-ref}{howto flash your zephyr image}}}}
 
 
-\chapter{Howto flash your zephyr image}
+\chapter{howto flash your zephyr image}
 \label{\detokenize{writeprotection:howto-flash-your-zephyr-image}}\label{\detokenize{writeprotection:flashing}}\label{\detokenize{writeprotection::doc}}
 Once you completed your \sphinxcode{\sphinxupquote{west build}} , your image is located under the build directory
 

@@ -1,6 +1,6 @@
 .. _flashing:
 
-Howto flash your zephyr image 
+howto flash your zephyr image 
 =============================
 
 

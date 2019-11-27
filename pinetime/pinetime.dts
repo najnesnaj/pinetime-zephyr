@@ -91,18 +91,22 @@ PO.23 LCD backlight
 	scl-pin = <7>;
 };
 */
-/* not implemented?
 &i2c1 {
 	compatible = "nordic,nrf-twi";
 	status = "okay";
-	sda-pin = <14>;
-	scl-pin = <13>;
+	sda-pin = <6>;
+	scl-pin = <7>;
+/*        adxl372@18 {
+        compatible = "adxl372";
+        reg=<0x18>;
+        label="ADXL372";
+        int1-gpios = <&gpio0 8 0>; 
+        };*/
 };
-*/
-&spi0 {
-        compatible = "nordic,nrf-spi";
         /* Cannot be used together with i2c0. */
         /* status = "okay"; */
+&spi0 {
+        compatible = "nordic,nrf-spi";
         sck-pin = <2>;
         mosi-pin = <3>;
         miso-pin = <4>;
@@ -130,6 +134,7 @@ PO.23 LCD backlight
 		porch-param = [0c 0c 00 33 33];
 		cmd2en-param = [5a 69 02 01];
 		pwctrl1-param = [a4 a1];
+                pvgam-param = [D0 04 0D 11 13 2B 3F 54 4C 18 0D 0B 1F 23];
 		nvgam-param = [D0 04 0C 11 13 2C 3F 44 51 2F 1F 1F 20 23];
 		ram-param = [00 F0];
 		rgb-param = [CD 08 14];

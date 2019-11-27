@@ -162,35 +162,71 @@
     </navPoint>
     <navPoint id="navPoint26" playOrder="21">
       <navLabel>
+        <text>configuring I2C</text>
+      </navLabel>
+      <content src="i2c.xhtml" />  
+      <navPoint id="navPoint27" playOrder="21">
+        <navLabel>
+          <text>configuring I2C</text>
+        </navLabel>
+        <content src="i2c.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint28" playOrder="22">
+        <navLabel>
+          <text>board level definitions</text>
+        </navLabel>
+        <content src="i2c.xhtml#board-level-definitions" />  
+      </navPoint>
+      <navPoint id="navPoint29" playOrder="23">
+        <navLabel>
+          <text>development trajectory</text>
+        </navLabel>
+        <content src="i2c.xhtml#development-trajectory" />  
+      </navPoint>
+      <navPoint id="navPoint30" playOrder="24">
+        <navLabel>
+          <text>defining an I2C sensor</text>
+        </navLabel>
+        <content src="i2c.xhtml#defining-an-i2c-sensor" />  
+      </navPoint>
+      <navPoint id="navPoint31" playOrder="25">
+        <navLabel>
+          <text>compiling the sample</text>
+        </navLabel>
+        <content src="i2c.xhtml#compiling-the-sample" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint32" playOrder="26">
+      <navLabel>
         <text>Menuconfig</text>
       </navLabel>
       <content src="menuconfig.xhtml" />  
-      <navPoint id="navPoint27" playOrder="21">
+      <navPoint id="navPoint33" playOrder="26">
         <navLabel>
           <text>Menuconfig</text>
         </navLabel>
         <content src="menuconfig.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint28" playOrder="22">
+      <navPoint id="navPoint34" playOrder="27">
         <navLabel>
           <text>Zephyr is like linux</text>
         </navLabel>
         <content src="menuconfig.xhtml#zephyr-is-like-linux" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint29" playOrder="23">
+    <navPoint id="navPoint35" playOrder="28">
       <navLabel>
         <text>hacking   the pinetime smartwatch</text>
       </navLabel>
       <content src="flashing.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint30" playOrder="24">
+    <navPoint id="navPoint36" playOrder="29">
       <navLabel>
-        <text>Howto flash your zephyr image</text>
+        <text>howto flash your zephyr image</text>
       </navLabel>
       <content src="writeprotection.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint31" playOrder="25">
+    <navPoint id="navPoint37" playOrder="30">
       <navLabel>
         <text>howto generate pdf documents</text>
       </navLabel>

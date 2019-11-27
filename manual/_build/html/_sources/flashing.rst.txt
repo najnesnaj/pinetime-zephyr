@@ -9,10 +9,11 @@ hacking   the pinetime smartwatch
     
 .. note::
 
-         the pinetime has a swd interface
-         to write firmware you need special hardware
-         I use a stm-link which is very cheap(2$)
-         You can also use the GPIO header of a raspberry pi / or orange pi (see my repo: https://github.com/najnesnaj/openocd) 
+         The pinetime has a swd interface.
+         To be able to write firmware,  you need special hardware.
+         I use a stm-link which is very cheap(2$).
+         You can also use the GPIO header of a raspberry pi. 
+         (my repo: https://github.com/najnesnaj/openocd is adapted for the orange pi) 
 
 
 To flash the software I use openocd :
