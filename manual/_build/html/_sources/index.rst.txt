@@ -34,8 +34,10 @@ suggestion :
    bluetooth 
    display
    lvgl
+   spinor
    sensors
    i2c
+   bma280
    menuconfig
    flashing
    writeprotection 

@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Nov 27, 2019}
+\date{Nov 29, 2019}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -448,6 +448,65 @@ lvgl supports lv\_canvas\_rotate(canvas, \&imd\_dsc, angle, x, y, pivot\_x, pivo
 LittlevGL Web Page: \sphinxurl{https://littlevgl.com/}
 
 
+\chapter{Serial Nor Flash}
+\label{\detokenize{spinor:serial-nor-flash}}\label{\detokenize{spinor::doc}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/drivers/spi\PYGZus{}flash \PYGZhy{}DCONF=prj.conf}
+\end{sphinxVerbatim}
+
+
+\section{Overview}
+\label{\detokenize{spinor:overview}}
+This sample application should unlock the serial nor flash memory.
+This can be very usefull to store e.g. background for the watch.
+
+compilation problematic ….
+
+/root/zephyrproject/zephyr/samples/drivers/spi\_flash/src/main.c:17:22: error: ‘DT\_INST\_0\_JEDEC\_SPI\_NOR\_LABEL’ undeclared (first use in this function); did you mean ‘DT\_INST\_0\_NORDIC\_NRF\_RTC\_LABEL’?
+
+
+\section{Requirements}
+\label{\detokenize{spinor:requirements}}
+complement the pinetime.dts file with the following (under spi)
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{mx25r64: mx25r6435f@0 \PYGZob{}}
+\PYG{g+go}{                compatible = \PYGZdq{}spi\PYGZhy{}nor, jedec\PYGZdq{};}
+\PYG{g+go}{                reg = \PYGZlt{}0\PYGZgt{};}
+\PYG{g+go}{                spi\PYGZhy{}max\PYGZhy{}frequency = \PYGZlt{}80000000\PYGZgt{};}
+\PYG{g+go}{                label = \PYGZdq{}MX25R64\PYGZdq{};}
+\PYG{g+go}{                jedec\PYGZhy{}id = [c2 28 17];}
+\PYG{g+go}{                size = \PYGZlt{}67108864\PYGZgt{};}
+\PYG{g+go}{                has\PYGZhy{}be32k;}
+\PYG{g+go}{                has\PYGZhy{}dpd;}
+\PYG{g+go}{                t\PYGZhy{}enter\PYGZhy{}dpd = \PYGZlt{}10000\PYGZgt{};}
+\PYG{g+go}{                dpd\PYGZhy{}wakeup\PYGZhy{}sequence = \PYGZlt{}30000 20 45000\PYGZgt{};}
+\PYG{g+go}{                wp\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 5 0\PYGZgt{};}
+\PYG{g+go}{                hold\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 23 0\PYGZgt{};}
+\PYG{g+go}{                \PYGZcb{};}
+\PYG{g+go}{                                                                                                                                                                                                   \PYGZcb{};}
+\end{sphinxVerbatim}
+
+
+\section{Building and Running}
+\label{\detokenize{spinor:building-and-running}}
+
+\section{Todo}
+\label{\detokenize{spinor:todo}}\begin{itemize}
+\item {} 
+detect ID memory
+
+\item {} 
+create working board definition
+
+\end{itemize}
+
+
+\section{References}
+\label{\detokenize{spinor:references}}
+\sphinxurl{http://files.pine64.org/doc/datasheet/pinetime/MX25L6433F,\%203V,\%2064Mb,\%20v1.6.pdf}
+
+
 \chapter{sensors on the I2C bus}
 \label{\detokenize{sensors:sensors-on-the-i2c-bus}}\label{\detokenize{sensors::doc}}
 0x18: Accelerometer: BMA423-DS000
@@ -537,6 +596,62 @@ finally we create a driver for the BMA423, based upon the BMA280
 \PYG{n}{west} \PYG{n}{build} \PYG{o}{\PYGZhy{}}\PYG{n}{p} \PYG{o}{\PYGZhy{}}\PYG{n}{b} \PYG{n}{pinetime} \PYG{n}{samples}\PYG{o}{/}\PYG{n}{sensor}\PYG{o}{/}\PYG{n}{adxl372} \PYG{o}{\PYGZhy{}}\PYG{n}{DCONF}\PYG{o}{=}\PYG{n}{prj}\PYG{o}{.}\PYG{n}{conf}
 \end{sphinxVerbatim}
 
+
+\chapter{Bosch BMA280}
+\label{\detokenize{bma280:bosch-bma280}}\label{\detokenize{bma280::doc}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/drivers/bma280}
+\end{sphinxVerbatim}
+
+
+\section{Overview}
+\label{\detokenize{bma280:overview}}
+This sample application mimics the presence of a bosch, bma280 accel sensor.
+For this sensor exists a driver in zephyr, but no sample.
+Remember, I’m not a zephyr expert and am learning on the way.
+
+
+\section{Requirements}
+\label{\detokenize{bma280:requirements}}
+complement the pinetime.dts file with the following (under samples/sensor/bma280)
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{\PYGZam{}i2c1 \PYGZob{}}
+\PYG{g+go}{        bma280@18 \PYGZob{}}
+\PYG{g+go}{                   compatible = \PYGZdq{}bosch,bma280\PYGZdq{};}
+\PYG{g+go}{                   reg = \PYGZlt{}0x18\PYGZgt{};}
+\PYG{g+go}{                   label = \PYGZdq{}BMA280\PYGZdq{};}
+\PYG{g+go}{                   int1\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 8 0\PYGZgt{};}
+\PYG{g+go}{                  \PYGZcb{};}
+\PYG{g+go}{       \PYGZcb{};}
+\end{sphinxVerbatim}
+
+Create a file: \sphinxtitleref{/dts/bindings/sensor/bosch,bma280-i2c.yaml}.
+Which contains:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{compatible}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{bosch,bma280}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n}{include}\PYG{p}{:} \PYG{n}{i2c}\PYG{o}{\PYGZhy{}}\PYG{n}{device}\PYG{o}{.}\PYG{n}{yaml}
+\PYG{n}{properties}\PYG{p}{:}
+       \PYG{n}{int1}\PYG{o}{\PYGZhy{}}\PYG{n}{gpios}\PYG{p}{:}
+       \PYG{n+nb}{type}\PYG{p}{:} \PYG{n}{phandle}\PYG{o}{\PYGZhy{}}\PYG{n}{array}
+       \PYG{n}{required}\PYG{p}{:} \PYG{n}{false}
+\end{sphinxVerbatim}
+
+
+\section{Building and Running}
+\label{\detokenize{bma280:building-and-running}}
+
+\section{Todo}
+\label{\detokenize{bma280:todo}}\begin{itemize}
+\item {} 
+since no serial port and no J-LINK, I have to print messages to the screen or trough bluetooth serial (which does not exist, or I haven’t found it yet ;) )
+
+\end{itemize}
+
+
+\section{References}
+\label{\detokenize{bma280:references}}
 
 \chapter{Menuconfig}
 \label{\detokenize{menuconfig:menuconfig}}\label{\detokenize{menuconfig::doc}}

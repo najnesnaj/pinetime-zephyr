@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Serial Nor Flash</title>
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="serial-nor-flash">
+<h1>Serial Nor Flash</h1>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/drivers/spi_flash -DCONF=prj.conf</span>
+</pre></div>
+</div>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>This sample application should unlock the serial nor flash memory.
+This can be very usefull to store e.g. background for the watch.</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements</h2>
+<p>complement the pinetime.dts file with the following (under spi)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mx25r64: mx25r6435f@0 {</span>
+<span class="go">                compatible = &quot;spi-nor, jedec&quot;;</span>
+<span class="go">                reg = &lt;0&gt;;</span>
+<span class="go">                spi-max-frequency = &lt;80000000&gt;;</span>
+<span class="go">                label = &quot;MX25R64&quot;;</span>
+<span class="go">                jedec-id = [c2 28 17];</span>
+<span class="go">                size = &lt;67108864&gt;;</span>
+<span class="go">                has-be32k;</span>
+<span class="go">                has-dpd;</span>
+<span class="go">                t-enter-dpd = &lt;10000&gt;;</span>
+<span class="go">                dpd-wakeup-sequence = &lt;30000 20 45000&gt;;</span>
+<span class="go">                wp-gpios = &lt;&amp;gpio0 5 0&gt;;</span>
+<span class="go">                hold-gpios = &lt;&amp;gpio0 23 0&gt;;</span>
+<span class="go">                };</span>
+<span class="go">                                                                                                                                                                                                   };</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running</h2>
+</div>
+<div class="section" id="todo">
+<h2>Todo</h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>detect ID memory</p></li>
+<li><p>create working board definition</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+<p><a class="reference external" href="http://files.pine64.org/doc/datasheet/pinetime/MX25L6433F,%203V,%2064Mb,%20v1.6.pdf">http://files.pine64.org/doc/datasheet/pinetime/MX25L6433F,%203V,%2064Mb,%20v1.6.pdf</a></p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>
