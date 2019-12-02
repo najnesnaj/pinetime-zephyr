@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Dec 01, 2019}
+\date{Dec 02, 2019}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -471,36 +471,76 @@ complement the pinetime.dts file with the following (under spi)
 \#define JEDEC\_ID\_MACRONIX\_MX25L64      0xC22017
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{mx25l64: mx25l6435f@0 \PYGZob{}}
-\PYG{g+go}{                compatible = \PYGZdq{}spi\PYGZhy{}nor, jedec\PYGZdq{};}
-\PYG{g+go}{                reg = \PYGZlt{}0\PYGZgt{};}
-\PYG{g+go}{                spi\PYGZhy{}max\PYGZhy{}frequency = \PYGZlt{}80000000\PYGZgt{};}
-\PYG{g+go}{                label = \PYGZdq{}MX25L64\PYGZdq{};}
-\PYG{g+go}{                jedec\PYGZhy{}id = [c2 20 17];}
-\PYG{g+go}{                size = \PYGZlt{}67108864\PYGZgt{};}
-\PYG{g+go}{                has\PYGZhy{}be32k;}
-\PYG{g+go}{                has\PYGZhy{}dpd;}
-\PYG{g+go}{                t\PYGZhy{}enter\PYGZhy{}dpd = \PYGZlt{}10000\PYGZgt{};}
-\PYG{g+go}{                dpd\PYGZhy{}wakeup\PYGZhy{}sequence = \PYGZlt{}30000 20 45000\PYGZgt{};}
-\PYG{g+go}{                wp\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 5 0\PYGZgt{};}
-\PYG{g+go}{                hold\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 23 0\PYGZgt{};}
-\PYG{g+go}{                \PYGZcb{};}
-\PYG{g+go}{                                                                                                                                                                                                   \PYGZcb{};}
+\PYG{g+go}{\PYGZam{}spi0 \PYGZob{}}
+\PYG{g+go}{  compatible = \PYGZdq{}nordic,nrf\PYGZhy{}spi\PYGZdq{};}
+\PYG{g+go}{  status = \PYGZdq{}okay\PYGZdq{};}
+\PYG{g+go}{  sck\PYGZhy{}pin = \PYGZlt{}2\PYGZgt{};}
+\PYG{g+go}{  mosi\PYGZhy{}pin = \PYGZlt{}3\PYGZgt{};}
+\PYG{g+go}{  miso\PYGZhy{}pin = \PYGZlt{}4\PYGZgt{};}
+\PYG{g+go}{  cs\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 27 0\PYGZgt{},\PYGZlt{}\PYGZam{}gpio0 5 0\PYGZgt{};}
+\PYG{g+go}{  st7789v@0 \PYGZob{}}
+\PYG{g+go}{          compatible = \PYGZdq{}sitronix,st7789v\PYGZdq{};}
+\PYG{g+go}{          label = \PYGZdq{}DISPLAY\PYGZdq{};}
+\PYG{g+go}{          spi\PYGZhy{}max\PYGZhy{}frequency = \PYGZlt{}8000000\PYGZgt{};}
+\PYG{g+go}{          reg = \PYGZlt{}0\PYGZgt{};}
+\PYG{g+go}{          cmd\PYGZhy{}data\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 18 0\PYGZgt{};}
+\PYG{g+go}{          reset\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 26 0\PYGZgt{};}
+\PYG{g+go}{          width = \PYGZlt{}240\PYGZgt{};}
+\PYG{g+go}{          height = \PYGZlt{}240\PYGZgt{};}
+\PYG{g+go}{          x\PYGZhy{}offset = \PYGZlt{}0\PYGZgt{};}
+\PYG{g+go}{          y\PYGZhy{}offset = \PYGZlt{}0\PYGZgt{};}
+\PYG{g+go}{          vcom = \PYGZlt{}0x19\PYGZgt{};}
+\PYG{g+go}{          gctrl = \PYGZlt{}0x35\PYGZgt{};}
+\PYG{g+go}{          vrhs = \PYGZlt{}0x12\PYGZgt{};}
+\PYG{g+go}{          vdvs = \PYGZlt{}0x20\PYGZgt{};}
+\PYG{g+go}{          mdac = \PYGZlt{}0x00\PYGZgt{};}
+\PYG{g+go}{          gamma = \PYGZlt{}0x01\PYGZgt{};}
+\PYG{g+go}{          colmod = \PYGZlt{}0x05\PYGZgt{};}
+\PYG{g+go}{          lcm = \PYGZlt{}0x2c\PYGZgt{};}
+\PYG{g+go}{          porch\PYGZhy{}param = [0c 0c 00 33 33];}
+\PYG{g+go}{          cmd2en\PYGZhy{}param = [5a 69 02 01];}
+\PYG{g+go}{          pwctrl1\PYGZhy{}param = [a4 a1];}
+\PYG{g+go}{          pvgam\PYGZhy{}param = [D0 04 0D 11 13 2B 3F 54 4C 18 0D 0B 1F 23];}
+\PYG{g+go}{          nvgam\PYGZhy{}param = [D0 04 0C 11 13 2C 3F 44 51 2F 1F 1F 20 23];}
+\PYG{g+go}{          ram\PYGZhy{}param = [00 F0];}
+\PYG{g+go}{          rgb\PYGZhy{}param = [CD 08 14];}
+
+\PYG{g+go}{  \PYGZcb{};}
+
+\PYG{g+go}{  mx25r64: mx25r6435f@1 \PYGZob{}}
+\PYG{g+go}{          compatible = \PYGZdq{}jedec,spi\PYGZhy{}nor\PYGZdq{};}
+\PYG{g+go}{          reg = \PYGZlt{}1\PYGZgt{};}
+\PYG{g+go}{          spi\PYGZhy{}max\PYGZhy{}frequency = \PYGZlt{}1000000\PYGZgt{};}
+\PYG{g+go}{          label = \PYGZdq{}MX25R64\PYGZdq{};}
+\PYG{g+go}{          jedec\PYGZhy{}id = [0b 40 16];}
+\PYG{g+go}{          size = \PYGZlt{}67108864\PYGZgt{};}
+\PYG{g+go}{          has\PYGZhy{}be32k;}
+\PYG{g+go}{  \PYGZcb{};}
 \end{sphinxVerbatim}
 
 
 \section{Building and Running}
 \label{\detokenize{spinor:building-and-running}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/drivers/spi\PYGZus{}flash}
+\end{sphinxVerbatim}
+
 
 \section{Todo}
-\label{\detokenize{spinor:todo}}\begin{itemize}
+\label{\detokenize{spinor:todo}}\begin{quote}
+\begin{itemize}
 \item {} 
-detect ID memory
-
-\item {} 
-create working board definition
+detect ID memory  : it is not the macronix one as suggestion on the pinetime website
 
 \end{itemize}
+
+I found the following : jedec-id = {[}0b 40 16{]}; (OK: can execute sample program)
+\begin{itemize}
+\item {} 
+create working board definition (OK: see above)
+
+\end{itemize}
+\end{quote}
 
 
 \section{References}
