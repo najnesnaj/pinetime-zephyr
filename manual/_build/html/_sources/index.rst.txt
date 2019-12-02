@@ -40,6 +40,7 @@ suggestion :
    bma280
    menuconfig
    flashing
+   debugging
    writeprotection 
    latexpdf.rst
 

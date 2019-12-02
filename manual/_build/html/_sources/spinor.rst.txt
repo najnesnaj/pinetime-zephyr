@@ -25,15 +25,16 @@ Requirements
 ************
 
 complement the pinetime.dts file with the following (under spi)
+#define JEDEC_ID_MACRONIX_MX25L64      0xC22017
 
 .. code-block:: console
 
-     mx25r64: mx25r6435f@0 {
+     mx25l64: mx25l6435f@0 {
                      compatible = "spi-nor, jedec";
                      reg = <0>;
                      spi-max-frequency = <80000000>;
-                     label = "MX25R64"; 
-                     jedec-id = [c2 28 17];
+                     label = "MX25L64"; 
+                     jedec-id = [c2 20 17];
                      size = <67108864>;
                      has-be32k;
                      has-dpd;

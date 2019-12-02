@@ -306,11 +306,17 @@
     </navPoint>
     <navPoint id="navPoint50" playOrder="41">
       <navLabel>
+        <text>debugging   the pinetime smartwatch</text>
+      </navLabel>
+      <content src="debugging.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint51" playOrder="42">
+      <navLabel>
         <text>howto flash your zephyr image</text>
       </navLabel>
       <content src="writeprotection.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint51" playOrder="42">
+    <navPoint id="navPoint52" playOrder="43">
       <navLabel>
         <text>howto generate pdf documents</text>
       </navLabel>

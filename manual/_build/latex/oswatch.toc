@@ -38,5 +38,6 @@
 \contentsline {chapter}{\numberline {11}Menuconfig}{23}{chapter.11}
 \contentsline {section}{\numberline {11.1}Zephyr is like linux}{23}{section.11.1}
 \contentsline {chapter}{\numberline {12}hacking the pinetime smartwatch}{25}{chapter.12}
-\contentsline {chapter}{\numberline {13}howto flash your zephyr image}{27}{chapter.13}
-\contentsline {chapter}{\numberline {14}howto generate pdf documents}{29}{chapter.14}
+\contentsline {chapter}{\numberline {13}debugging the pinetime smartwatch}{27}{chapter.13}
+\contentsline {chapter}{\numberline {14}howto flash your zephyr image}{29}{chapter.14}
+\contentsline {chapter}{\numberline {15}howto generate pdf documents}{31}{chapter.15}
