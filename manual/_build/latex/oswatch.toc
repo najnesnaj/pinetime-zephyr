@@ -17,27 +17,33 @@
 \contentsline {section}{\numberline {6.3}Building and Running}{13}{section.6.3}
 \contentsline {section}{\numberline {6.4}Todo}{13}{section.6.4}
 \contentsline {section}{\numberline {6.5}References}{14}{section.6.5}
-\contentsline {chapter}{\numberline {7}Serial Nor Flash}{15}{chapter.7}
+\contentsline {chapter}{\numberline {7}LittlevGL Clock Sample}{15}{chapter.7}
 \contentsline {section}{\numberline {7.1}Overview}{15}{section.7.1}
 \contentsline {section}{\numberline {7.2}Requirements}{15}{section.7.2}
-\contentsline {section}{\numberline {7.3}Building and Running}{16}{section.7.3}
+\contentsline {section}{\numberline {7.3}Building and Running}{15}{section.7.3}
 \contentsline {section}{\numberline {7.4}Todo}{16}{section.7.4}
 \contentsline {section}{\numberline {7.5}References}{16}{section.7.5}
-\contentsline {chapter}{\numberline {8}sensors on the I2C bus}{17}{chapter.8}
-\contentsline {chapter}{\numberline {9}configuring I2C}{19}{chapter.9}
-\contentsline {section}{\numberline {9.1}board level definitions}{19}{section.9.1}
-\contentsline {section}{\numberline {9.2}development trajectory}{19}{section.9.2}
-\contentsline {section}{\numberline {9.3}defining an I2C sensor}{19}{section.9.3}
-\contentsline {section}{\numberline {9.4}compiling the sample}{20}{section.9.4}
-\contentsline {chapter}{\numberline {10}Bosch BMA280}{21}{chapter.10}
-\contentsline {section}{\numberline {10.1}Overview}{21}{section.10.1}
-\contentsline {section}{\numberline {10.2}Requirements}{21}{section.10.2}
-\contentsline {section}{\numberline {10.3}Building and Running}{21}{section.10.3}
-\contentsline {section}{\numberline {10.4}Todo}{21}{section.10.4}
-\contentsline {section}{\numberline {10.5}References}{22}{section.10.5}
-\contentsline {chapter}{\numberline {11}Menuconfig}{23}{chapter.11}
-\contentsline {section}{\numberline {11.1}Zephyr is like linux}{23}{section.11.1}
-\contentsline {chapter}{\numberline {12}hacking the pinetime smartwatch}{25}{chapter.12}
-\contentsline {chapter}{\numberline {13}debugging the pinetime smartwatch}{27}{chapter.13}
-\contentsline {chapter}{\numberline {14}howto flash your zephyr image}{29}{chapter.14}
-\contentsline {chapter}{\numberline {15}howto generate pdf documents}{31}{chapter.15}
+\contentsline {chapter}{\numberline {8}Serial Nor Flash}{17}{chapter.8}
+\contentsline {section}{\numberline {8.1}Overview}{17}{section.8.1}
+\contentsline {section}{\numberline {8.2}Requirements}{17}{section.8.2}
+\contentsline {section}{\numberline {8.3}Building and Running}{18}{section.8.3}
+\contentsline {section}{\numberline {8.4}Todo}{18}{section.8.4}
+\contentsline {section}{\numberline {8.5}References}{18}{section.8.5}
+\contentsline {chapter}{\numberline {9}sensors on the I2C bus}{19}{chapter.9}
+\contentsline {chapter}{\numberline {10}configuring I2C}{21}{chapter.10}
+\contentsline {section}{\numberline {10.1}board level definitions}{21}{section.10.1}
+\contentsline {section}{\numberline {10.2}development trajectory}{21}{section.10.2}
+\contentsline {section}{\numberline {10.3}defining an I2C sensor}{21}{section.10.3}
+\contentsline {section}{\numberline {10.4}compiling the sample}{22}{section.10.4}
+\contentsline {chapter}{\numberline {11}Bosch BMA280}{23}{chapter.11}
+\contentsline {section}{\numberline {11.1}Overview}{23}{section.11.1}
+\contentsline {section}{\numberline {11.2}Requirements}{23}{section.11.2}
+\contentsline {section}{\numberline {11.3}Building and Running}{23}{section.11.3}
+\contentsline {section}{\numberline {11.4}Todo}{23}{section.11.4}
+\contentsline {section}{\numberline {11.5}References}{24}{section.11.5}
+\contentsline {chapter}{\numberline {12}Menuconfig}{25}{chapter.12}
+\contentsline {section}{\numberline {12.1}Zephyr is like linux}{25}{section.12.1}
+\contentsline {chapter}{\numberline {13}hacking the pinetime smartwatch}{27}{chapter.13}
+\contentsline {chapter}{\numberline {14}debugging the pinetime smartwatch}{29}{chapter.14}
+\contentsline {chapter}{\numberline {15}howto flash your zephyr image}{31}{chapter.15}
+\contentsline {chapter}{\numberline {16}howto generate pdf documents}{33}{chapter.16}

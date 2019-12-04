@@ -20,6 +20,20 @@ compilation problematic ....
 /root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.c:17:22: error: 'DT_INST_0_JEDEC_SPI_NOR_LABEL' undeclared (first use in this function); did you mean 'DT_INST_0_NORDIC_NRF_RTC_LABEL'?
 
 
+Turns out this is some problem with the board definition file.
+
+I found it to be very useful to consult the generated dts file.
+Here you can check if everything is present.
+
+Guess the dts-file has to be well intended.(structured)
+
+
+.. code-block:: console
+
+     vi /root/zephyrproject/zephyr/build/zephyr/include/generated/generated_dts_board.conf
+
+
+
 
 Requirements
 ************

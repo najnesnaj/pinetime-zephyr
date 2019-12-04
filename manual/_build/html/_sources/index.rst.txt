@@ -34,6 +34,7 @@ suggestion :
    bluetooth 
    display
    lvgl
+   clock
    spinor
    sensors
    i2c

@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Dec 02, 2019}
+\date{Dec 04, 2019}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -448,6 +448,59 @@ lvgl supports lv\_canvas\_rotate(canvas, \&imd\_dsc, angle, x, y, pivot\_x, pivo
 LittlevGL Web Page: \sphinxurl{https://littlevgl.com/}
 
 
+\chapter{LittlevGL Clock Sample}
+\label{\detokenize{clock:littlevgl-clock-sample}}\label{\detokenize{clock:lvgl-clock}}\label{\detokenize{clock::doc}}
+
+\section{Overview}
+\label{\detokenize{clock:overview}}
+This sample application displays a “clockbackground” in the center of the screen.
+
+LittlevGL is a free and open-source graphics library providing everything you need to create embedded GUI with easy-to-use graphical elements, beautiful visual effects and low memory footprint.
+
+\noindent\sphinxincludegraphics{{clockback}.png}
+
+
+\section{Requirements}
+\label{\detokenize{clock:requirements}}
+Make sure the prj.conf contains the following :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{CONFIG\PYGZus{}LVGL}\PYG{o}{=}\PYG{n}{y}
+\PYG{n}{CONFIG\PYGZus{}LVGL\PYGZus{}OBJ\PYGZus{}IMAGE}\PYG{o}{=}\PYG{n}{y}
+\end{sphinxVerbatim}
+
+LitlevGL uses a “c” file to store the image.
+You need to convert a jpg, or png image to this c file.
+There is an online tool : \sphinxurl{https://littlevgl.com/image-to-c-array}
+
+
+\section{Building and Running}
+\label{\detokenize{clock:building-and-running}}
+copy the samples/gui/clock from this repository to the zephyr one.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/gui/clock}
+\end{sphinxVerbatim}
+
+
+\section{Todo}
+\label{\detokenize{clock:todo}}\begin{itemize}
+\item {} 
+create an internal clock (and adjustment mechanism, eg. bluetooth cts)
+
+\item {} 
+lvgl supports lv\_canvas\_rotate(canvas, \&imd\_dsc, angle, x, y, pivot\_x, pivot\_y) should be cool for a clock, chrono…
+
+\end{itemize}
+
+
+\section{References}
+\label{\detokenize{clock:references}}
+\sphinxurl{https://docs.littlevgl.com/en/html/index.html}
+
+LittlevGL Web Page: \sphinxurl{https://littlevgl.com/}
+
+
 \chapter{Serial Nor Flash}
 \label{\detokenize{spinor:serial-nor-flash}}\label{\detokenize{spinor::doc}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -463,6 +516,17 @@ This can be very usefull to store e.g. background for the watch.
 compilation problematic ….
 
 /root/zephyrproject/zephyr/samples/drivers/spi\_flash/src/main.c:17:22: error: ‘DT\_INST\_0\_JEDEC\_SPI\_NOR\_LABEL’ undeclared (first use in this function); did you mean ‘DT\_INST\_0\_NORDIC\_NRF\_RTC\_LABEL’?
+
+Turns out this is some problem with the board definition file.
+
+I found it to be very useful to consult the generated dts file.
+Here you can check if everything is present.
+
+Guess the dts-file has to be well intended.(structured)
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{vi /root/zephyrproject/zephyr/build/zephyr/include/generated/generated\PYGZus{}dts\PYGZus{}board.conf}
+\end{sphinxVerbatim}
 
 
 \section{Requirements}

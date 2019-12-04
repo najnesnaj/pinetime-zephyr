@@ -23,6 +23,13 @@
 This can be very usefull to store e.g. background for the watch.</p>
 <p>compilation problematic ….</p>
 <p>/root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.c:17:22: error: ‘DT_INST_0_JEDEC_SPI_NOR_LABEL’ undeclared (first use in this function); did you mean ‘DT_INST_0_NORDIC_NRF_RTC_LABEL’?</p>
+<p>Turns out this is some problem with the board definition file.</p>
+<p>I found it to be very useful to consult the generated dts file.
+Here you can check if everything is present.</p>
+<p>Guess the dts-file has to be well intended.(structured)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vi /root/zephyrproject/zephyr/build/zephyr/include/generated/generated_dts_board.conf</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements</h2>
