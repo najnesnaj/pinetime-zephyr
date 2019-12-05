@@ -31,7 +31,7 @@ LOG_MODULE_REGISTER(app);
 #define LED             DT_ALIAS_LED1_GPIOS_PIN
 #define LV_IMG_DECLARE(var_name) extern const lv_img_dsc_t var_name;
 LV_IMG_DECLARE(klokje);
-LV_IMG_DECLARE(gezicht);
+//LV_IMG_DECLARE(gezicht);
 int seconden;
 int minuten;
 int uren;
@@ -130,9 +130,9 @@ void main(void)
 	lv_obj_t * img_bin = lv_img_create(lv_scr_act(), NULL);
 
 	/*klokje achtergrond*/
-	//	lv_img_set_src(img_bin, &klokje);
+		lv_img_set_src(img_bin, &klokje);
 	//
-	lv_img_set_src(img_bin, &gezicht);
+//	lv_img_set_src(img_bin, &gezicht);
 
 
 
@@ -200,7 +200,7 @@ void main(void)
 	count_label = lv_label_create(lv_scr_act(), NULL);
 	clock_label = lv_label_create(lv_scr_act(), NULL);
 	lv_obj_align(count_label, NULL, LV_ALIGN_IN_BOTTOM_MID, 0, 0);
-	lv_obj_align(clock_label, NULL, LV_ALIGN_IN_TOP_MID, 0, 0);
+	lv_obj_align(clock_label, NULL, LV_ALIGN_CENTER, 0, 0);
 
 	display_blanking_off(display_dev);
 

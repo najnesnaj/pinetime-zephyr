@@ -27,18 +27,21 @@ https://github.com/zephyrproject-rtos/zephyr/pull/20570/files
 
 ALREADY DONE:
 -------------
+
    -the display
    -bluetooth BLE
-   
+   -graphics library (LittlevGL)
+   -RTC
+   -Serial NOR flash   
 
 
 TODO: 
 -----
+
    -touchscreen
    -accel sensor
    -powermanagement
    -DFU (wireless firmware update)
-   -graphics library (fonts)
    -heart rate sensor (and HR detection) 
-    
+   -CTS (setting time in bluetooth) 
 
