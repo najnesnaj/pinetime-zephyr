@@ -28,7 +28,7 @@ https://github.com/zephyrproject-rtos/zephyr/pull/20570/files
 ALREADY DONE:
 -------------
 
-:
+
 
    -the display
    -bluetooth BLE
@@ -40,7 +40,7 @@ ALREADY DONE:
 TODO: 
 -----
 
-:
+
    -touchscreen
    -accel sensor
    -powermanagement
