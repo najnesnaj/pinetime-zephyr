@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Dec 04, 2019}
+\date{Dec 05, 2019}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -500,6 +500,55 @@ lvgl supports lv\_canvas\_rotate(canvas, \&imd\_dsc, angle, x, y, pivot\_x, pivo
 
 LittlevGL Web Page: \sphinxurl{https://littlevgl.com/}
 
+
+\chapter{Real Time Clock}
+\label{\detokenize{RTC:real-time-clock}}\label{\detokenize{RTC:rtc}}\label{\detokenize{RTC::doc}}
+
+\section{Overview}
+\label{\detokenize{RTC:overview}}
+This sample application “clock” uses the RTC0 timer.
+It uses the counter driver.
+
+
+\section{Requirements}
+\label{\detokenize{RTC:requirements}}
+Make sure the prj.conf contains the following :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{CONFIG\PYGZus{}COUNTER}\PYG{o}{=}\PYG{n}{y}
+\end{sphinxVerbatim}
+
+You need the Kconfig file, which contains :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{config} \PYG{n}{COUNTER\PYGZus{}RTC0}
+        \PYG{n+nb}{bool}
+        \PYG{n}{default} \PYG{n}{y} \PYG{k}{if} \PYG{n}{SOC\PYGZus{}FAMILY\PYGZus{}NRF}
+\end{sphinxVerbatim}
+
+
+\section{Building and Running}
+\label{\detokenize{RTC:building-and-running}}
+copy the samples/gui/clock from this repository to the zephyr one.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/gui/clock}
+\end{sphinxVerbatim}
+
+
+\section{Todo}
+\label{\detokenize{RTC:todo}}\begin{itemize}
+\item {} 
+time of day clock
+
+\item {} 
+setting the time
+
+\end{itemize}
+
+
+\section{References}
+\label{\detokenize{RTC:references}}
 
 \chapter{Serial Nor Flash}
 \label{\detokenize{spinor:serial-nor-flash}}\label{\detokenize{spinor::doc}}

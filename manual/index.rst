@@ -35,6 +35,7 @@ suggestion :
    display
    lvgl
    clock
+   RTC
    spinor
    sensors
    i2c

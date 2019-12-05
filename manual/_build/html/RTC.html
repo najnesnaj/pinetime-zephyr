@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
+  <title>Real Time Clock &mdash; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
   
 
   
@@ -35,8 +34,10 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="author" title="About these documents" href="about.html" />
-    <link rel="index" title="Index" href="#" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Serial Nor Flash" href="spinor.html" />
+    <link rel="prev" title="LittlevGL Clock Sample" href="clock.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,7 +85,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blinky.html">zephyr on the pinetime smartwatch</a></li>
@@ -92,7 +93,14 @@
 <li class="toctree-l1"><a class="reference internal" href="display.html">st7789 display</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lvgl.html">LittlevGL Basic Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clock.html">LittlevGL Clock Sample</a></li>
-<li class="toctree-l1"><a class="reference internal" href="RTC.html">Real Time Clock</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Real Time Clock</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#todo">Todo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="spinor.html">Serial Nor Flash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sensors.html">sensors on the I2C bus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i2c.html">configuring I2C</a></li>
@@ -147,12 +155,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Index</li>
+      <li>Real Time Clock</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/RTC.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -164,11 +174,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="real-time-clock">
+<span id="rtc"></span><h1>Real Time Clock<a class="headerlink" href="#real-time-clock" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This sample application “clock” uses the RTC0 timer.
+It uses the counter driver.</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>Make sure the prj.conf contains the following :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CONFIG_COUNTER</span><span class="o">=</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>You need the Kconfig file, which contains :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="n">COUNTER_RTC0</span>
+        <span class="nb">bool</span>
+        <span class="n">default</span> <span class="n">y</span> <span class="k">if</span> <span class="n">SOC_FAMILY_NRF</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
+<p>copy the samples/gui/clock from this repository to the zephyr one.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/gui/clock</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="todo">
+<h2>Todo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>time of day clock</p></li>
+<li><p>setting the time</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -176,6 +220,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="spinor.html" class="btn btn-neutral float-right" title="Serial Nor Flash" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clock.html" class="btn btn-neutral float-left" title="LittlevGL Clock Sample" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

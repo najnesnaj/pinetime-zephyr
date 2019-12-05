@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.11.17)  4 DEC 2019 16:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.11.17)  5 DEC 2019 20:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1198,7 +1198,7 @@ Chapter 5.
 Chapter 6.
 [13] [14]
 Chapter 7.
-<clockback.png, id=339, 144.54pt x 144.54pt>
+<clockback.png, id=369, 144.54pt x 144.54pt>
 File: clockback.png Graphic file (type png)
 <use clockback.png>
 Package pdftex.def Info: clockback.png  used on input line 460.
@@ -1207,27 +1207,27 @@ Package pdftex.def Info: clockback.png  used on input line 460.
 
  <./clockback.png>] [16]
 Chapter 8.
+[17
 
-Overfull \hbox (14.65001pt too wide) in paragraph at lines 518--519
+] [18
+
+]
+Chapter 9.
+
+Overfull \hbox (14.65001pt too wide) in paragraph at lines 567--568
 []\T1/ptm/m/n/10 /root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.
 c:17:22: er-ror: `DT_INST_0_JEDEC_SPI_NOR_LABEL'
  []
 
-[17
+[19] [20]
+Chapter 10.
+[21
 
-] [18]
-Chapter 9.
-[19
-
-] [20
+] [22
 
 ]
-Chapter 10.
-[21] [22]
 Chapter 11.
-[23
-
-] [24]
+[23] [24]
 Chapter 12.
 [25
 
@@ -1239,30 +1239,35 @@ Chapter 13.
 Chapter 14.
 [29
 
-] [30
-
-]
+] [30]
 Chapter 15.
-[31] [32
+[31
+
+] [32
 
 ]
 Chapter 16.
+[33] [34
+
+]
+Chapter 17.
 (./oswatch.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 983.
- [33]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 983.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1032.
+ [35]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1032.
  (./oswatch.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 983.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 983.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1032.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1032.
+
 Package rerunfilecheck Info: File `oswatch.out' has not changed.
-(rerunfilecheck)             Checksum: 64299208B37E8AF36F1529F0A774C717;6479.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 983.
+(rerunfilecheck)             Checksum: AB4B8B7FF185D348067A348A21AE090E;7156.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1032.
  ) 
 Here is how much of TeX's memory you used:
- 13816 strings out of 494923
- 191372 string characters out of 6180741
- 343837 words of memory out of 5000000
- 16732 multiletter control sequences out of 15000+600000
+ 13838 strings out of 494923
+ 191652 string characters out of 6180741
+ 344152 words of memory out of 5000000
+ 16746 multiletter control sequences out of 15000+600000
  48042 words of font info for 69 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  37i,12n,51p,666b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1275,10 +1280,10 @@ vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on oswatch.pdf (37 pages, 221966 bytes).
+Output written on oswatch.pdf (39 pages, 224537 bytes).
 PDF statistics:
- 488 PDF objects out of 1000 (max. 8388607)
- 428 compressed objects within 5 object streams
- 86 named destinations out of 1000 (max. 500000)
- 410 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 527 PDF objects out of 1000 (max. 8388607)
+ 465 compressed objects within 5 object streams
+ 94 named destinations out of 1000 (max. 500000)
+ 458 words of extra memory for PDF output out of 10000 (max. 10000000)
 

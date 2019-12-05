@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Real Time Clock</title>
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="real-time-clock">
+<span id="rtc"></span><h1>Real Time Clock</h1>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>This sample application “clock” uses the RTC0 timer.
+It uses the counter driver.</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements</h2>
+<p>Make sure the prj.conf contains the following :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CONFIG_COUNTER</span><span class="o">=</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>You need the Kconfig file, which contains :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="n">COUNTER_RTC0</span>
+        <span class="nb">bool</span>
+        <span class="n">default</span> <span class="n">y</span> <span class="k">if</span> <span class="n">SOC_FAMILY_NRF</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running</h2>
+<p>copy the samples/gui/clock from this repository to the zephyr one.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/gui/clock</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="todo">
+<h2>Todo</h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>time of day clock</p></li>
+<li><p>setting the time</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>
