@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Dec 05, 2019}
+\date{Dec 06, 2019}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -85,6 +85,10 @@
 \sphinxtableofcontents
 \pagestyle{normal}
 \phantomsection\label{\detokenize{index::doc}}
+\noindent\sphinxincludegraphics{{zephyr_logo}.png}
+
+\noindent\sphinxincludegraphics{{PineTime-830x400}.png}
+
 
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -806,6 +810,57 @@ since no serial port and no J-LINK, I have to print messages to the screen or tr
 
 \section{References}
 \label{\detokenize{bma280:references}}
+
+\chapter{Touchscreen Hynitron}
+\label{\detokenize{touchscreen:touchscreen-hynitron}}\label{\detokenize{touchscreen::doc}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{git clone https://github.com/lupyuen/hynitron\PYGZus{}i2c\PYGZus{}cst0xxse}
+\end{sphinxVerbatim}
+
+
+\section{Overview}
+\label{\detokenize{touchscreen:overview}}
+this does not exist yet in zephyr, but there is work in progress
+\sphinxurl{https://github.com/zephyrproject-rtos/zephyr/pull/16119}
+
+
+\section{Requirements}
+\label{\detokenize{touchscreen:requirements}}
+complement the pinetime.dts file with the following (under samples/sensor/bma280)
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{\PYGZam{}i2c1 \PYGZob{}}
+\PYG{g+go}{        touch@18 \PYGZob{}}
+\PYG{g+go}{                  \PYGZcb{};}
+\PYG{g+go}{       \PYGZcb{};}
+\end{sphinxVerbatim}
+
+Create a file: \sphinxtitleref{/dts/bindings/sensor/touch.yaml}.
+Which contains:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{compatible}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{touch}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n}{include}\PYG{p}{:} \PYG{n}{i2c}\PYG{o}{\PYGZhy{}}\PYG{n}{device}\PYG{o}{.}\PYG{n}{yaml}
+\PYG{n}{properties}\PYG{p}{:}
+       \PYG{n}{int1}\PYG{o}{\PYGZhy{}}\PYG{n}{gpios}\PYG{p}{:}
+       \PYG{n+nb}{type}\PYG{p}{:} \PYG{n}{phandle}\PYG{o}{\PYGZhy{}}\PYG{n}{array}
+       \PYG{n}{required}\PYG{p}{:} \PYG{n}{false}
+\end{sphinxVerbatim}
+
+
+\section{Building and Running}
+\label{\detokenize{touchscreen:building-and-running}}
+
+\section{Todo}
+\label{\detokenize{touchscreen:todo}}\begin{quote}
+
+-create touchscreen driver
+-create sample
+\end{quote}
+
+
+\section{References}
+\label{\detokenize{touchscreen:references}}
 
 \chapter{Menuconfig}
 \label{\detokenize{menuconfig:menuconfig}}\label{\detokenize{menuconfig::doc}}

@@ -47,9 +47,15 @@
 \contentsline {section}{\numberline {12.3}Building and Running}{25}{section.12.3}
 \contentsline {section}{\numberline {12.4}Todo}{25}{section.12.4}
 \contentsline {section}{\numberline {12.5}References}{26}{section.12.5}
-\contentsline {chapter}{\numberline {13}Menuconfig}{27}{chapter.13}
-\contentsline {section}{\numberline {13.1}Zephyr is like linux}{27}{section.13.1}
-\contentsline {chapter}{\numberline {14}hacking the pinetime smartwatch}{29}{chapter.14}
-\contentsline {chapter}{\numberline {15}debugging the pinetime smartwatch}{31}{chapter.15}
-\contentsline {chapter}{\numberline {16}howto flash your zephyr image}{33}{chapter.16}
-\contentsline {chapter}{\numberline {17}howto generate pdf documents}{35}{chapter.17}
+\contentsline {chapter}{\numberline {13}Touchscreen Hynitron}{27}{chapter.13}
+\contentsline {section}{\numberline {13.1}Overview}{27}{section.13.1}
+\contentsline {section}{\numberline {13.2}Requirements}{27}{section.13.2}
+\contentsline {section}{\numberline {13.3}Building and Running}{27}{section.13.3}
+\contentsline {section}{\numberline {13.4}Todo}{27}{section.13.4}
+\contentsline {section}{\numberline {13.5}References}{27}{section.13.5}
+\contentsline {chapter}{\numberline {14}Menuconfig}{29}{chapter.14}
+\contentsline {section}{\numberline {14.1}Zephyr is like linux}{29}{section.14.1}
+\contentsline {chapter}{\numberline {15}hacking the pinetime smartwatch}{31}{chapter.15}
+\contentsline {chapter}{\numberline {16}debugging the pinetime smartwatch}{33}{chapter.16}
+\contentsline {chapter}{\numberline {17}howto flash your zephyr image}{35}{chapter.17}
+\contentsline {chapter}{\numberline {18}howto generate pdf documents}{37}{chapter.18}

@@ -1,111 +1,227 @@
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="utf-8" />
-    <title>Zephyr for the pinetime smartwatch &#8212; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
-    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Time is relative (A. Einstein) &mdash; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="overview installed packages" href="installedpackages.html" />
-    <link rel="prev" title="creating the DS_D6 board" href="ds6board.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="installedpackages.html" title="overview installed packages"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="ds6board.html" title="creating the DS_D6 board"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</a> &#187;</li> 
-      </ul>
-    </div>  
+    <link rel="next" title="Install zephyr" href="installation.html" />
+    <link rel="prev" title="About" href="about.html" /> 
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> a smart watch based on the Nordic nrf52832 microcontroller
+          
+
+          
+          </a>
+
+          
             
-  <div class="section" id="zephyr-for-the-pinetime-smartwatch">
-<h1>Zephyr for the pinetime smartwatch<a class="headerlink" href="#zephyr-for-the-pinetime-smartwatch" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span> <span class="n">document</span> <span class="n">describes</span> <span class="n">the</span> <span class="n">installation</span> <span class="n">of</span> <span class="n">zephyr</span> <span class="n">RTOS</span> <span class="n">on</span> <span class="n">the</span> <span class="n">Pinetime</span> <span class="n">smartwatch</span><span class="o">.</span>
-<span class="n">it</span> <span class="n">should</span> <span class="n">be</span> <span class="n">applicable</span> <span class="n">on</span> <span class="n">other</span> <span class="n">nordic</span> <span class="n">nrf52832</span> <span class="n">based</span> <span class="n">watches</span>
-</pre></div>
+            
+              <div class="version">
+                beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ow">in</span> <span class="n">the</span> <span class="n">boards</span> <span class="n">directory</span><span class="p">,</span> <span class="n">you</span><span class="s1">&#39;ll find the definitions for the pinetime smartwatch</span>
-</pre></div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr for the pintime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Time is relative (A. Einstein)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blinky.html">zephyr on the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bluetooth.html">bluetooth (BLE) example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display.html">st7789 display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lvgl.html">LittlevGL Basic Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clock.html">LittlevGL Clock Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RTC.html">Real Time Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spinor.html">Serial Nor Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensors.html">sensors on the I2C bus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i2c.html">configuring I2C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bma280.html">Bosch BMA280</a></li>
+<li class="toctree-l1"><a class="reference internal" href="touchscreen.html">Touchscreen Hynitron</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flashing.html">hacking   the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">debugging   the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writeprotection.html">howto flash your zephyr image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="latexpdf.html">howto generate pdf documents</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">a smart watch based on the Nordic nrf52832 microcontroller</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Time is relative (A. Einstein)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/pinetime.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>the pinetime has a swd interface</p>
-</div>
-<p>it is write protected see:   <a class="reference internal" href="flashing.html#flashing"><span class="std std-ref">Howto flash your zephyr image</span></a></p>
-<hr class="docutils" />
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="time-is-relative-a-einstein">
+<h1>Time is relative (A. Einstein)<a class="headerlink" href="#time-is-relative-a-einstein" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/PineTime-830x400.png" src="_images/PineTime-830x400.png" />
 </div>
 
 
+           </div>
+           
           </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="Install zephyr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="about.html" class="btn btn-neutral float-left" title="About" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, jj
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="ds6board.html"
-                        title="previous chapter">creating the DS_D6 board</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="installedpackages.html"
-                        title="next chapter">overview installed packages</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/pinetime.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="installedpackages.html" title="overview installed packages"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="ds6board.html" title="creating the DS_D6 board"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</a> &#187;</li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, jj.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
-    </div>
-  </body>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

@@ -12,395 +12,443 @@
   <navMap>    
     <navPoint id="navPoint1" playOrder="1">
       <navLabel>
-        <text>Zephyr for the pintime smartwatch</text>
+        <text>&lt;no title&gt;</text>
       </navLabel>
       <content src="index.xhtml" />  
     </navPoint>
     <navPoint id="navPoint2" playOrder="2">
       <navLabel>
+        <text>Zephyr for the pintime smartwatch</text>
+      </navLabel>
+      <content src="content.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint3" playOrder="3">
+      <navLabel>
         <text>About</text>
       </navLabel>
       <content src="about.xhtml" />  
-      <navPoint id="navPoint3" playOrder="2">
+      <navPoint id="navPoint4" playOrder="3">
         <navLabel>
           <text>About</text>
         </navLabel>
         <content src="about.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint4" playOrder="3">
+      <navPoint id="navPoint5" playOrder="4">
         <navLabel>
           <text>Todo</text>
         </navLabel>
         <content src="about.xhtml#todo" />  
       </navPoint>
-      <navPoint id="navPoint5" playOrder="4">
+      <navPoint id="navPoint6" playOrder="5">
         <navLabel>
           <text>Fast track</text>
         </navLabel>
         <content src="about.xhtml#fast-track" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint6" playOrder="5">
+    <navPoint id="navPoint7" playOrder="6">
       <navLabel>
         <text>Install zephyr</text>
       </navLabel>
       <content src="installation.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint7" playOrder="6">
+    <navPoint id="navPoint8" playOrder="7">
       <navLabel>
         <text>zephyr on the pinetime smartwatch</text>
       </navLabel>
       <content src="blinky.xhtml" />  
-      <navPoint id="navPoint8" playOrder="6">
+      <navPoint id="navPoint9" playOrder="7">
         <navLabel>
           <text>zephyr on the pinetime smartwatch</text>
         </navLabel>
         <content src="blinky.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint9" playOrder="7">
+      <navPoint id="navPoint10" playOrder="8">
         <navLabel>
           <text>Blinky    example</text>
         </navLabel>
         <content src="blinky.xhtml#blinky-example" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint10" playOrder="8">
+    <navPoint id="navPoint11" playOrder="9">
       <navLabel>
         <text>bluetooth (BLE) example</text>
       </navLabel>
       <content src="bluetooth.xhtml" />  
-      <navPoint id="navPoint11" playOrder="8">
+      <navPoint id="navPoint12" playOrder="9">
         <navLabel>
           <text>bluetooth (BLE) example</text>
         </navLabel>
         <content src="bluetooth.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint12" playOrder="9">
+      <navPoint id="navPoint13" playOrder="10">
         <navLabel>
           <text>Eddy Stone</text>
         </navLabel>
         <content src="bluetooth.xhtml#eddy-stone" />  
       </navPoint>
-      <navPoint id="navPoint13" playOrder="10">
+      <navPoint id="navPoint14" playOrder="11">
         <navLabel>
           <text>Ble Peripheral</text>
         </navLabel>
         <content src="bluetooth.xhtml#ble-peripheral" />  
       </navPoint>
-      <navPoint id="navPoint14" playOrder="11">
+      <navPoint id="navPoint15" playOrder="12">
         <navLabel>
           <text>using Python to read out bluetoothservices</text>
         </navLabel>
         <content src="bluetooth.xhtml#using-python-to-read-out-bluetoothservices" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint15" playOrder="12">
+    <navPoint id="navPoint16" playOrder="13">
       <navLabel>
         <text>st7789 display</text>
       </navLabel>
       <content src="display.xhtml" />  
-      <navPoint id="navPoint16" playOrder="12">
+      <navPoint id="navPoint17" playOrder="13">
         <navLabel>
           <text>st7789 display</text>
         </navLabel>
         <content src="display.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint17" playOrder="13">
+      <navPoint id="navPoint18" playOrder="14">
         <navLabel>
           <text>Display    example</text>
         </navLabel>
         <content src="display.xhtml#display-example" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint18" playOrder="14">
+    <navPoint id="navPoint19" playOrder="15">
       <navLabel>
         <text>LittlevGL Basic Sample</text>
       </navLabel>
       <content src="lvgl.xhtml" />  
-      <navPoint id="navPoint19" playOrder="14">
+      <navPoint id="navPoint20" playOrder="15">
         <navLabel>
           <text>LittlevGL Basic Sample</text>
         </navLabel>
         <content src="lvgl.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint20" playOrder="15">
+      <navPoint id="navPoint21" playOrder="16">
         <navLabel>
           <text>Overview</text>
         </navLabel>
         <content src="lvgl.xhtml#overview" />  
       </navPoint>
-      <navPoint id="navPoint21" playOrder="16">
+      <navPoint id="navPoint22" playOrder="17">
         <navLabel>
           <text>Requirements</text>
         </navLabel>
         <content src="lvgl.xhtml#requirements" />  
       </navPoint>
-      <navPoint id="navPoint22" playOrder="17">
+      <navPoint id="navPoint23" playOrder="18">
         <navLabel>
           <text>Building and Running</text>
         </navLabel>
         <content src="lvgl.xhtml#building-and-running" />  
       </navPoint>
-      <navPoint id="navPoint23" playOrder="18">
+      <navPoint id="navPoint24" playOrder="19">
         <navLabel>
           <text>Todo</text>
         </navLabel>
         <content src="lvgl.xhtml#todo" />  
       </navPoint>
-      <navPoint id="navPoint24" playOrder="19">
+      <navPoint id="navPoint25" playOrder="20">
         <navLabel>
           <text>References</text>
         </navLabel>
         <content src="lvgl.xhtml#references" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint25" playOrder="20">
+    <navPoint id="navPoint26" playOrder="21">
       <navLabel>
         <text>LittlevGL Clock Sample</text>
       </navLabel>
       <content src="clock.xhtml" />  
-      <navPoint id="navPoint26" playOrder="20">
+      <navPoint id="navPoint27" playOrder="21">
         <navLabel>
           <text>LittlevGL Clock Sample</text>
         </navLabel>
         <content src="clock.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint27" playOrder="21">
+      <navPoint id="navPoint28" playOrder="22">
         <navLabel>
           <text>Overview</text>
         </navLabel>
         <content src="clock.xhtml#overview" />  
       </navPoint>
-      <navPoint id="navPoint28" playOrder="22">
+      <navPoint id="navPoint29" playOrder="23">
         <navLabel>
           <text>Requirements</text>
         </navLabel>
         <content src="clock.xhtml#requirements" />  
       </navPoint>
-      <navPoint id="navPoint29" playOrder="23">
+      <navPoint id="navPoint30" playOrder="24">
         <navLabel>
           <text>Building and Running</text>
         </navLabel>
         <content src="clock.xhtml#building-and-running" />  
       </navPoint>
-      <navPoint id="navPoint30" playOrder="24">
+      <navPoint id="navPoint31" playOrder="25">
         <navLabel>
           <text>Todo</text>
         </navLabel>
         <content src="clock.xhtml#todo" />  
       </navPoint>
-      <navPoint id="navPoint31" playOrder="25">
+      <navPoint id="navPoint32" playOrder="26">
         <navLabel>
           <text>References</text>
         </navLabel>
         <content src="clock.xhtml#references" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint32" playOrder="26">
+    <navPoint id="navPoint33" playOrder="27">
       <navLabel>
         <text>Real Time Clock</text>
       </navLabel>
       <content src="RTC.xhtml" />  
-      <navPoint id="navPoint33" playOrder="26">
+      <navPoint id="navPoint34" playOrder="27">
         <navLabel>
           <text>Real Time Clock</text>
         </navLabel>
         <content src="RTC.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint34" playOrder="27">
+      <navPoint id="navPoint35" playOrder="28">
         <navLabel>
           <text>Overview</text>
         </navLabel>
         <content src="RTC.xhtml#overview" />  
       </navPoint>
-      <navPoint id="navPoint35" playOrder="28">
+      <navPoint id="navPoint36" playOrder="29">
         <navLabel>
           <text>Requirements</text>
         </navLabel>
         <content src="RTC.xhtml#requirements" />  
       </navPoint>
-      <navPoint id="navPoint36" playOrder="29">
+      <navPoint id="navPoint37" playOrder="30">
         <navLabel>
           <text>Building and Running</text>
         </navLabel>
         <content src="RTC.xhtml#building-and-running" />  
       </navPoint>
-      <navPoint id="navPoint37" playOrder="30">
+      <navPoint id="navPoint38" playOrder="31">
         <navLabel>
           <text>Todo</text>
         </navLabel>
         <content src="RTC.xhtml#todo" />  
       </navPoint>
-      <navPoint id="navPoint38" playOrder="31">
+      <navPoint id="navPoint39" playOrder="32">
         <navLabel>
           <text>References</text>
         </navLabel>
         <content src="RTC.xhtml#references" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint39" playOrder="32">
+    <navPoint id="navPoint40" playOrder="33">
       <navLabel>
         <text>Serial Nor Flash</text>
       </navLabel>
       <content src="spinor.xhtml" />  
-      <navPoint id="navPoint40" playOrder="32">
+      <navPoint id="navPoint41" playOrder="33">
         <navLabel>
           <text>Serial Nor Flash</text>
         </navLabel>
         <content src="spinor.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint41" playOrder="33">
+      <navPoint id="navPoint42" playOrder="34">
         <navLabel>
           <text>Overview</text>
         </navLabel>
         <content src="spinor.xhtml#overview" />  
       </navPoint>
-      <navPoint id="navPoint42" playOrder="34">
+      <navPoint id="navPoint43" playOrder="35">
         <navLabel>
           <text>Requirements</text>
         </navLabel>
         <content src="spinor.xhtml#requirements" />  
       </navPoint>
-      <navPoint id="navPoint43" playOrder="35">
+      <navPoint id="navPoint44" playOrder="36">
         <navLabel>
           <text>Building and Running</text>
         </navLabel>
         <content src="spinor.xhtml#building-and-running" />  
       </navPoint>
-      <navPoint id="navPoint44" playOrder="36">
+      <navPoint id="navPoint45" playOrder="37">
         <navLabel>
           <text>Todo</text>
         </navLabel>
         <content src="spinor.xhtml#todo" />  
       </navPoint>
-      <navPoint id="navPoint45" playOrder="37">
+      <navPoint id="navPoint46" playOrder="38">
         <navLabel>
           <text>References</text>
         </navLabel>
         <content src="spinor.xhtml#references" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint46" playOrder="38">
+    <navPoint id="navPoint47" playOrder="39">
       <navLabel>
         <text>sensors on the I2C bus</text>
       </navLabel>
       <content src="sensors.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint47" playOrder="39">
+    <navPoint id="navPoint48" playOrder="40">
       <navLabel>
         <text>configuring I2C</text>
       </navLabel>
       <content src="i2c.xhtml" />  
-      <navPoint id="navPoint48" playOrder="39">
+      <navPoint id="navPoint49" playOrder="40">
         <navLabel>
           <text>configuring I2C</text>
         </navLabel>
         <content src="i2c.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint49" playOrder="40">
+      <navPoint id="navPoint50" playOrder="41">
         <navLabel>
           <text>board level definitions</text>
         </navLabel>
         <content src="i2c.xhtml#board-level-definitions" />  
       </navPoint>
-      <navPoint id="navPoint50" playOrder="41">
+      <navPoint id="navPoint51" playOrder="42">
         <navLabel>
           <text>development trajectory</text>
         </navLabel>
         <content src="i2c.xhtml#development-trajectory" />  
       </navPoint>
-      <navPoint id="navPoint51" playOrder="42">
+      <navPoint id="navPoint52" playOrder="43">
         <navLabel>
           <text>defining an I2C sensor</text>
         </navLabel>
         <content src="i2c.xhtml#defining-an-i2c-sensor" />  
       </navPoint>
-      <navPoint id="navPoint52" playOrder="43">
+      <navPoint id="navPoint53" playOrder="44">
         <navLabel>
           <text>compiling the sample</text>
         </navLabel>
         <content src="i2c.xhtml#compiling-the-sample" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint53" playOrder="44">
+    <navPoint id="navPoint54" playOrder="45">
       <navLabel>
         <text>Bosch BMA280</text>
       </navLabel>
       <content src="bma280.xhtml" />  
-      <navPoint id="navPoint54" playOrder="44">
+      <navPoint id="navPoint55" playOrder="45">
         <navLabel>
           <text>Bosch BMA280</text>
         </navLabel>
         <content src="bma280.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint55" playOrder="45">
+      <navPoint id="navPoint56" playOrder="46">
         <navLabel>
           <text>Overview</text>
         </navLabel>
         <content src="bma280.xhtml#overview" />  
       </navPoint>
-      <navPoint id="navPoint56" playOrder="46">
+      <navPoint id="navPoint57" playOrder="47">
         <navLabel>
           <text>Requirements</text>
         </navLabel>
         <content src="bma280.xhtml#requirements" />  
       </navPoint>
-      <navPoint id="navPoint57" playOrder="47">
+      <navPoint id="navPoint58" playOrder="48">
         <navLabel>
           <text>Building and Running</text>
         </navLabel>
         <content src="bma280.xhtml#building-and-running" />  
       </navPoint>
-      <navPoint id="navPoint58" playOrder="48">
+      <navPoint id="navPoint59" playOrder="49">
         <navLabel>
           <text>Todo</text>
         </navLabel>
         <content src="bma280.xhtml#todo" />  
       </navPoint>
-      <navPoint id="navPoint59" playOrder="49">
+      <navPoint id="navPoint60" playOrder="50">
         <navLabel>
           <text>References</text>
         </navLabel>
         <content src="bma280.xhtml#references" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint60" playOrder="50">
+    <navPoint id="navPoint61" playOrder="51">
+      <navLabel>
+        <text>Touchscreen Hynitron</text>
+      </navLabel>
+      <content src="touchscreen.xhtml" />  
+      <navPoint id="navPoint62" playOrder="51">
+        <navLabel>
+          <text>Touchscreen Hynitron</text>
+        </navLabel>
+        <content src="touchscreen.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint63" playOrder="52">
+        <navLabel>
+          <text>Overview</text>
+        </navLabel>
+        <content src="touchscreen.xhtml#overview" />  
+      </navPoint>
+      <navPoint id="navPoint64" playOrder="53">
+        <navLabel>
+          <text>Requirements</text>
+        </navLabel>
+        <content src="touchscreen.xhtml#requirements" />  
+      </navPoint>
+      <navPoint id="navPoint65" playOrder="54">
+        <navLabel>
+          <text>Building and Running</text>
+        </navLabel>
+        <content src="touchscreen.xhtml#building-and-running" />  
+      </navPoint>
+      <navPoint id="navPoint66" playOrder="55">
+        <navLabel>
+          <text>Todo</text>
+        </navLabel>
+        <content src="touchscreen.xhtml#todo" />  
+      </navPoint>
+      <navPoint id="navPoint67" playOrder="56">
+        <navLabel>
+          <text>References</text>
+        </navLabel>
+        <content src="touchscreen.xhtml#references" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint68" playOrder="57">
       <navLabel>
         <text>Menuconfig</text>
       </navLabel>
       <content src="menuconfig.xhtml" />  
-      <navPoint id="navPoint61" playOrder="50">
+      <navPoint id="navPoint69" playOrder="57">
         <navLabel>
           <text>Menuconfig</text>
         </navLabel>
         <content src="menuconfig.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint62" playOrder="51">
+      <navPoint id="navPoint70" playOrder="58">
         <navLabel>
           <text>Zephyr is like linux</text>
         </navLabel>
         <content src="menuconfig.xhtml#zephyr-is-like-linux" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint63" playOrder="52">
+    <navPoint id="navPoint71" playOrder="59">
       <navLabel>
         <text>hacking   the pinetime smartwatch</text>
       </navLabel>
       <content src="flashing.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint64" playOrder="53">
+    <navPoint id="navPoint72" playOrder="60">
       <navLabel>
         <text>debugging   the pinetime smartwatch</text>
       </navLabel>
       <content src="debugging.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint65" playOrder="54">
+    <navPoint id="navPoint73" playOrder="61">
       <navLabel>
         <text>howto flash your zephyr image</text>
       </navLabel>
       <content src="writeprotection.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint66" playOrder="55">
+    <navPoint id="navPoint74" playOrder="62">
       <navLabel>
         <text>howto generate pdf documents</text>
       </navLabel>

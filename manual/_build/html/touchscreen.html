@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
+  <title>Touchscreen Hynitron &mdash; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
   
 
   
@@ -35,8 +34,10 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="author" title="About these documents" href="about.html" />
-    <link rel="index" title="Index" href="#" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Menuconfig" href="menuconfig.html" />
+    <link rel="prev" title="Bosch BMA280" href="bma280.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,7 +85,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr for the pintime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
@@ -98,7 +99,14 @@
 <li class="toctree-l1"><a class="reference internal" href="sensors.html">sensors on the I2C bus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i2c.html">configuring I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bma280.html">Bosch BMA280</a></li>
-<li class="toctree-l1"><a class="reference internal" href="touchscreen.html">Touchscreen Hynitron</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Touchscreen Hynitron</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#todo">Todo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flashing.html">hacking   the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">debugging   the pinetime smartwatch</a></li>
@@ -149,12 +157,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Index</li>
+      <li>Touchscreen Hynitron</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/touchscreen.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -166,11 +176,49 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="touchscreen-hynitron">
+<h1>Touchscreen Hynitron<a class="headerlink" href="#touchscreen-hynitron" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/lupyuen/hynitron_i2c_cst0xxse</span>
+</pre></div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>this does not exist yet in zephyr, but there is work in progress
+<a class="reference external" href="https://github.com/zephyrproject-rtos/zephyr/pull/16119">https://github.com/zephyrproject-rtos/zephyr/pull/16119</a></p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>complement the pinetime.dts file with the following (under samples/sensor/bma280)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&amp;i2c1 {</span>
+<span class="go">        touch@18 {</span>
+<span class="go">                  };</span>
+<span class="go">       };</span>
+</pre></div>
+</div>
+<p>Create a file: <cite>/dts/bindings/sensor/touch.yaml</cite>.
+Which contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compatible</span><span class="p">:</span> <span class="s2">&quot;touch&quot;</span>
+<span class="n">include</span><span class="p">:</span> <span class="n">i2c</span><span class="o">-</span><span class="n">device</span><span class="o">.</span><span class="n">yaml</span>
+<span class="n">properties</span><span class="p">:</span>
+       <span class="n">int1</span><span class="o">-</span><span class="n">gpios</span><span class="p">:</span>
+       <span class="nb">type</span><span class="p">:</span> <span class="n">phandle</span><span class="o">-</span><span class="n">array</span>
+       <span class="n">required</span><span class="p">:</span> <span class="n">false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="todo">
+<h2>Todo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>-create touchscreen driver
+-create sample</p>
+</div></blockquote>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -178,6 +226,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="menuconfig.html" class="btn btn-neutral float-right" title="Menuconfig" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bma280.html" class="btn btn-neutral float-left" title="Bosch BMA280" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
