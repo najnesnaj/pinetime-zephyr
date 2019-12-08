@@ -6,6 +6,7 @@
    about
    installation
    blinky
+   button
    bluetooth 
    display
    lvgl
@@ -19,6 +20,7 @@
    menuconfig
    flashing
    debugging
+   i2cscanning
    writeprotection 
    latexpdf.rst
 

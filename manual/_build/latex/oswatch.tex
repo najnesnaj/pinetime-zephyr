@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Dec 06, 2019}
+\date{Dec 08, 2019}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -267,6 +267,55 @@ have a look at the pinetime.dts file, here you see the definition of the backgro
 
 once the compilation is completed you can upload the firmware
 \textasciitilde{}/zephyrproject/zephyr/build/zephyr/zephyr.bin
+
+
+\chapter{Reading out the button on the watch}
+\label{\detokenize{button:reading-out-the-button-on-the-watch}}\label{\detokenize{button::doc}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{The} \PYG{n}{pinetime} \PYG{n}{does} \PYG{n}{have} \PYG{n}{a} \PYG{n}{button}\PYG{o}{.}
+\PYG{n}{I} \PYG{n}{do} \PYG{o+ow}{not} \PYG{n}{have} \PYG{n}{a} \PYG{n}{segger} \PYG{n}{debugging} \PYG{n}{probe}\PYG{o}{.}
+\PYG{n}{A} \PYG{n}{way} \PYG{n}{around} \PYG{n}{this}\PYG{p}{,} \PYG{n}{it} \PYG{n}{to} \PYG{n}{put} \PYG{n}{a} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{memory} \PYG{n}{at} \PYG{n}{a} \PYG{n}{fixed} \PYG{n}{location}\PYG{o}{.}
+\PYG{n}{With} \PYG{n}{openocd} \PYG{n}{you} \PYG{n}{can} \PYG{n}{peek} \PYG{n}{at} \PYG{n}{this} \PYG{n}{memory} \PYG{n}{location}\PYG{o}{.}
+\end{sphinxVerbatim}
+
+
+\section{Building and Running}
+\label{\detokenize{button:building-and-running}}
+In this repo under samples you will find an adapted basic/button program.
+(copy this to the samples/basic directory)
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/basic/button}
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+\#define MY\_REGISTER (*(volatile uint8\_t*)0x2000F000)
+
+in the program you can set values:
+MY\_REGISTER=(read button value);
+
+this way you know till whether the code executes
+\end{sphinxadmonition}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZsh{}}telnet \PYG{l+m}{127}.0.0.1 \PYG{l+m}{4444}
+\end{sphinxVerbatim}
+
+Peeking
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{once your telnet sessions started:}
+\PYG{g+go}{Trying 127.0.0.1...}
+\PYG{g+go}{Connected to 127.0.0.1.}
+\PYG{g+go}{Escape character is \PYGZsq{}\PYGZca{}]\PYGZsq{}.}
+\PYG{g+go}{Open On\PYGZhy{}Chip Debugger}
+\PYG{g+gp}{\PYGZgt{}}mdw 0x2000F000 0x1
+\PYG{g+go}{0x2000f000: 00000100 (switch pushed)}
+\end{sphinxVerbatim}
+
+\sphinxstyleemphasis{Note:}:
+
+\sphinxtitleref{The watch has a button out port (15) and buttin in port (13). You have to set the out-port high. Took me a while to figure this out…}
 
 
 \chapter{bluetooth (BLE) example}
@@ -1013,7 +1062,7 @@ removing write protection see:   {\hyperref[\detokenize{writeprotection:flashing
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{note}{Note:}
-\#define MY\_REGISTER (\sphinxstyleemphasis{(volatile uint8\_t})0x2000F000)
+\#define MY\_REGISTER (*(volatile uint8\_t*)0x2000F000)
 
 in the program you can set values:
 MY\_REGISTER=1;
@@ -1038,6 +1087,55 @@ programming
 
 \PYG{g+go}{the last byte shows the value of your program trace value}
 \end{sphinxVerbatim}
+
+
+\chapter{scanning the I2C\_1 port}
+\label{\detokenize{i2cscanning:scanning-the-i2c-1-port}}\label{\detokenize{i2cscanning::doc}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{The} \PYG{n}{pinetime} \PYG{n}{does} \PYG{o+ow}{not} \PYG{n}{have} \PYG{n}{a} \PYG{n}{serial} \PYG{n}{port}\PYG{o}{.}
+\PYG{n}{I} \PYG{n}{do} \PYG{o+ow}{not} \PYG{n}{have} \PYG{n}{a} \PYG{n}{segger} \PYG{n}{debugging} \PYG{n}{probe}\PYG{o}{.}
+\PYG{n}{A} \PYG{n}{way} \PYG{n}{around} \PYG{n}{this}\PYG{p}{,} \PYG{n}{it} \PYG{n}{to} \PYG{n}{put} \PYG{n}{a} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{memory} \PYG{n}{at} \PYG{n}{a} \PYG{n}{fixed} \PYG{n}{location}\PYG{o}{.}
+\PYG{n}{With} \PYG{n}{openocd} \PYG{n}{you} \PYG{n}{can} \PYG{n}{peek} \PYG{n}{at} \PYG{n}{this} \PYG{n}{memory} \PYG{n}{location}\PYG{o}{.}
+\end{sphinxVerbatim}
+
+
+\section{Building and Running}
+\label{\detokenize{i2cscanning:building-and-running}}
+In this repo under samples you will find an adapted i2c scanner program.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/drivers/i2c\PYGZus{}scanner}
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+\#define MY\_REGISTER (*(volatile uint8\_t*)0x2000F000)
+
+in the program you can set values:
+MY\_REGISTER=1;
+MY\_REGISTER=8;
+
+this way you know till where the code executes
+\end{sphinxadmonition}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZsh{}}telnet \PYG{l+m}{127}.0.0.1 \PYG{l+m}{4444}
+\end{sphinxVerbatim}
+
+Peeking
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{once your telnet sessions started:}
+\PYG{g+go}{Trying 127.0.0.1...}
+\PYG{g+go}{Connected to 127.0.0.1.}
+\PYG{g+go}{Escape character is \PYGZsq{}\PYGZca{}]\PYGZsq{}.}
+\PYG{g+go}{Open On\PYGZhy{}Chip Debugger}
+\PYG{g+gp}{\PYGZgt{}}mdw 0x2000F000 0x1
+\PYG{g+go}{0x2000f000: 00c24418}
+\end{sphinxVerbatim}
+
+\sphinxstyleemphasis{Note:}:
+
+this corresponds to 0x18, 0x44 and 0xC2 (which is endvalue of scanner, so it does not detect touchscreen, which should be touched first….)
 
 
 \chapter{howto flash your zephyr image}

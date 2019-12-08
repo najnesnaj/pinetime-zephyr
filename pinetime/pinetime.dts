@@ -18,11 +18,6 @@ PO.23 LCD backlight
 		     "nordic,nrf52832";
 
 	chosen {
-/*		zephyr,console = &uart0;
-		zephyr,shell-uart = &uart0;
-		zephyr,uart-mcumgr = &uart0;
-		zephyr,bt-mon-uart = &uart0;
-		zephyr,bt-c2h-uart = &uart0;*/
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 		zephyr,code-partition = &slot0_partition;
@@ -47,7 +42,7 @@ PO.23 LCD backlight
 	buttons {
 		compatible = "gpio-keys";
 		button0: button_0 {
-			gpios = <&gpio0 13 GPIO_PUD_PULL_UP>;
+			gpios = <&gpio0 13 0>;
 			label = "Push button switch 0";
 		};
 	};
@@ -73,46 +68,28 @@ PO.23 LCD backlight
 	status = "okay";
 };
 
-/*
-&uart0 {
-	status = "okay";
-	compatible = "nordic,nrf-uart";
-	current-speed = <115200>;
-	tx-pin = <22>;
-	rx-pin = <23>;
-	rts-pin = <-1>;
-	cts-pin = <-1>; 
-};
-*/
-/*
-&i2c0 {
-	compatible = "nordic,nrf-twi";
-	status = "okay";
-	sda-pin = <6>;
-	scl-pin = <7>;
-};
-*/
+
 &i2c1 {
 	compatible = "nordic,nrf-twi";
 	status = "okay";
 	sda-pin = <6>;
 	scl-pin = <7>;
-/*        adxl372@18 {
-        compatible = "adxl372";
-        reg=<0x18>;
-        label="ADXL372";
-        int1-gpios = <&gpio0 8 0>; 
-        };*/
+        bma280@18 {
+            compatible = "bosch,bma280"; 
+            reg=<0x18>;
+            label="BMA280";
+            int1-gpios = <&gpio0 8 0>; 
+        };
 };
-        /* Cannot be used together with i2c0. */
-        /* status = "okay"; */
+
+
 &spi0 {
         compatible = "nordic,nrf-spi"; 
 	status = "okay";
         sck-pin = <2>;
         mosi-pin = <3>;
         miso-pin = <4>;
-	cs-gpios = <&gpio0 27 0>,<&gpio0 5 0>;
+	cs-gpios = <&gpio0 25 0>,<&gpio0 5 0>;
 	st7789v@0 {
 		compatible = "sitronix,st7789v";
 		label = "DISPLAY";
@@ -142,22 +119,6 @@ PO.23 LCD backlight
 
         };
 
-/*        
-        mx25l64: mx25l6433f@0 {
-                compatible = "jedec,spi-nor";
-                reg = <0>;
-                spi-max-frequency = <8000000>;
-                label = "MX25L64";
-                jedec-id = [c2 28 17];
-                size = <67108864>;
-                has-be32k;
-                has-dpd;
-                t-enter-dpd = <10000>;
-                dpd-wakeup-sequence = <30000 20 45000>;
-                wp-gpios = <&gpio0 5 0>;
-                hold-gpios = <&gpio0 23 0>;
-        };
-*/
         mx25r64: mx25r6435f@1 {
 		compatible = "jedec,spi-nor";
 		reg = <1>;
@@ -166,22 +127,12 @@ PO.23 LCD backlight
 		jedec-id = [0b 40 16];
 		size = <67108864>;
 		has-be32k;
-/*		has-dpd;
-		t-enter-dpd = <10000>;
-		dpd-wakeup-sequence = <30000 20 45000>;
-		wp-gpios = <&gpio0 5 0>;
-		hold-gpios = <&gpio0 23 0>; not connected in schematic */
 	};
 
 
 };
 
 
-&pwm0 {
-	status = "okay";
-	ch0-pin = <22>;
-	ch0-inverted;
-};
 
 &flash0 {
 	/*

@@ -1,12 +1,23 @@
 ===================================
-debugging   the pinetime smartwatch
+Reading out the button on the watch
 ===================================
 ::
 
-    The pinetime does not have a serial port. 
+    The pinetime does have a button. 
     I do not have a segger debugging probe. 
     A way around this, it to put a value in memory at a fixed location.
     With openocd you can peek at this memory location.
+
+Building and Running
+********************
+
+In this repo under samples you will find an adapted basic/button program.
+(copy this to the samples/basic directory)
+
+
+.. code-block:: console
+
+             west build -p -b pinetime samples/basic/button
 
 
     
@@ -16,16 +27,15 @@ debugging   the pinetime smartwatch
 
 
          in the program you can set values:
-         MY_REGISTER=1;
-         MY_REGISTER=8;
+         MY_REGISTER=(read button value);
 
-         this way you know till where the code executes
+         this way you know till whether the code executes
 
 .. code-block:: console
 
       #telnet 127.0.0.1 4444
 
-programming
+Peeking
 
 .. code-block:: console
 
@@ -35,8 +45,12 @@ programming
       Escape character is '^]'.
       Open On-Chip Debugger
       >mdw 0x2000F000 0x1
-      
-      the last byte shows the value of your program trace value
+      0x2000f000: 00000100 (switch pushed)
+
+*Note:*:
+
+
+`The watch has a button out port (15) and buttin in port (13). You have to set the out-port high. Took me a while to figure this out...` 
 
 
 
