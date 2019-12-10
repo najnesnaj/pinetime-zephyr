@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.11.17)  8 DEC 2019 19:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.11.17)  10 DEC 2019 09:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1164,104 +1164,105 @@ File: zephyr_logo.png Graphic file (type png)
 <use zephyr_logo.png>
 Package pdftex.def Info: zephyr_logo.png  used on input line 88.
 (pdftex.def)             Requested size: 170.55678pt x 58.29765pt.
-<PineTime-830x400.png, id=353, 833.1125pt x 401.5pt>
-File: PineTime-830x400.png Graphic file (type png)
-<use PineTime-830x400.png>
-Package pdftex.def Info: PineTime-830x400.png  used on input line 90.
-(pdftex.def)             Requested size: 469.75603pt x 226.39456pt.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 103.
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 110.
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 101.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 108.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [1
+)
+<PineTime-830x400.png, id=354, 833.1125pt x 401.5pt>
+File: PineTime-830x400.png Graphic file (type png)
+<use PineTime-830x400.png>
+Package pdftex.def Info: PineTime-830x400.png  used on input line 127.
+(pdftex.def)             Requested size: 469.75603pt x 226.39456pt.
+ [1
 
  <./zephyr_logo.png> <./PineTime-830x400.png>] [2
 
 ]
 Chapter 1.
-LaTeX Font Info:    Try loading font information for TS1+pcr on input line 148.
+[3] [4
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
-File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-) [3] [4]
+]
 Chapter 2.
-[5
-
-] [6
+[5] [6
 
 ]
 Chapter 3.
-[7] [8
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 244.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
+File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
+) [7] [8
 
 ]
 Chapter 4.
-[9] [10
-
-]
+[9] [10]
 Chapter 5.
-[11] [12]
-Chapter 6.
-[13
+[11
 
-] [14
+] [12
 
 ]
+Chapter 6.
+[13] [14]
 Chapter 7.
-[15] [16]
-Chapter 8.
-<clockback.png, id=433, 144.54pt x 144.54pt>
+<clockback.png, id=423, 144.54pt x 144.54pt>
 File: clockback.png Graphic file (type png)
 <use clockback.png>
-Package pdftex.def Info: clockback.png  used on input line 513.
+Package pdftex.def Info: clockback.png  used on input line 447.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
+[15
+
+ <./clockback.png>] [16]
+Chapter 8.
 [17
 
- <./clockback.png>] [18]
-Chapter 9.
-[19
-
-] [20
+] [18
 
 ]
-Chapter 10.
+Chapter 9.
 
-Overfull \hbox (14.65001pt too wide) in paragraph at lines 620--621
+Overfull \hbox (14.65001pt too wide) in paragraph at lines 554--555
 []\T1/ptm/m/n/10 /root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.
 c:17:22: er-ror: `DT_INST_0_JEDEC_SPI_NOR_LABEL'
  []
 
-[21] [22]
-Chapter 11.
-[23
+[19] [20]
+Chapter 10.
+[21
 
-] [24
+] [22
 
 ]
+Chapter 11.
+[23] [24]
 Chapter 12.
-[25] [26]
+[25
+
+] [26]
 Chapter 13.
 [27
 
-] [28]
-Chapter 14.
-[29
-
-] [30
+] [28
 
 ]
+Chapter 14.
+[29] [30]
 Chapter 15.
-[31] [32]
+[31
+
+] [32]
 Chapter 16.
 [33
 
-] [34]
-Chapter 17.
-[35
+] [34
 
-] [36
+]
+Chapter 17.
+[35] [36
 
 ]
 Chapter 18.
@@ -1273,26 +1274,26 @@ Chapter 19.
 
 ]
 Chapter 20.
-(./oswatch.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1185.
- [41]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1185.
+[41] (./oswatch.ind)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1192.
+ [42]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1192.
  (./oswatch.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1185.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1185.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1192.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1192.
 
 Package rerunfilecheck Info: File `oswatch.out' has not changed.
-(rerunfilecheck)             Checksum: A0588DBBCF53E98A61EA0C87EC343606;8609.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1185.
+(rerunfilecheck)             Checksum: 61488FA33506E611E4A03D5BABA9D228;8603.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1192.
  ) 
 Here is how much of TeX's memory you used:
- 13887 strings out of 494923
- 192514 string characters out of 6180741
- 344777 words of memory out of 5000000
+ 13888 strings out of 494923
+ 192515 string characters out of 6180741
+ 344771 words of memory out of 5000000
  16777 multiletter control sequences out of 15000+600000
  48042 words of font info for 69 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
- 37i,12n,48p,666b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,12n,51p,666b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/f
@@ -1302,10 +1303,10 @@ vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on oswatch.pdf (45 pages, 317697 bytes).
+Output written on oswatch.pdf (46 pages, 318321 bytes).
 PDF statistics:
- 612 PDF objects out of 1000 (max. 8388607)
- 539 compressed objects within 6 object streams
- 110 named destinations out of 1000 (max. 500000)
+ 616 PDF objects out of 1000 (max. 8388607)
+ 542 compressed objects within 6 object streams
+ 111 named destinations out of 1000 (max. 500000)
  548 words of extra memory for PDF output out of 10000 (max. 10000000)
 

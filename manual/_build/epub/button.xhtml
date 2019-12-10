@@ -34,6 +34,11 @@
 MY_REGISTER=(read button value);</p>
 <p>this way you know till whether the code executes</p>
 </div>
+<p>a way to set port 15 high (hard-coded of course :))</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">gpio_pin_configure(gpiob, 15,GPIO_DIR_OUT); //push button out</span>
+<span class="go">gpio_pin_write(gpiob, 15, &amp;button_out); //set port high</span>
+</pre></div>
+</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>telnet <span class="m">127</span>.0.0.1 <span class="m">4444</span>
 </pre></div>
 </div>

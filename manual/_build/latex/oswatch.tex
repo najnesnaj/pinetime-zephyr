@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Dec 08, 2019}
+\date{Dec 10, 2019}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -86,8 +86,6 @@
 \pagestyle{normal}
 \phantomsection\label{\detokenize{index::doc}}
 \noindent\sphinxincludegraphics{{zephyr_logo}.png}
-
-\noindent\sphinxincludegraphics{{PineTime-830x400}.png}
 
 
 
@@ -126,78 +124,7 @@ try out the display
 
 \end{description}
 
-
-\chapter{About}
-\label{\detokenize{about:about}}\label{\detokenize{about::doc}}
-I got a pinetime development kit very early.
-
-I would like to thank the folks from \sphinxurl{https://www.pine64.org/}.
-
-I like to hack stuff, and I like the idea behind Open Source.
-
-The smartwatches I hacked, contained microcontrollers from Nordic Semiconductor.
-
-A lot of resources exist for this breed.
-
-It is an Arm based, 32bit microcontroller with a lot of flash and RAM memory.
-
-In fact it is a small computer on your wrist, with a battery and screen, and capable of bluetooth 4+ wireless communication.
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{A} \PYG{n}{word} \PYG{n}{of} \PYG{n}{warning}\PYG{p}{:} \PYG{n}{this} \PYG{o+ow}{is} \PYG{n}{work} \PYG{o+ow}{in} \PYG{n}{progress}\PYG{o}{.}
-\PYG{n}{You}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{re likely to have a better skillset then me.}
-\PYG{n}{You} \PYG{n}{are} \PYG{n}{invited} \PYG{n}{to} \PYG{n}{add} \PYG{n}{the} \PYG{n}{missing} \PYG{n}{pieces} \PYG{o+ow}{and} \PYG{n}{to} \PYG{n}{improve} \PYG{n}{what}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{s already there.}
-\end{sphinxVerbatim}
-
-
-\section{Todo}
-\label{\detokenize{about:todo}}
-list with suggestions:
-\begin{itemize}
-\item {} 
-better graphics (lvgl using images and rotating stuff)
-
-\item {} 
-NOR flash (here one can store data)
-
-\item {} 
-watchdog
-
-\item {} 
-DFU (update over bluetooth)
-
-\item {} 
-acceleration sensor
-
-\item {} 
-heart rate sensor
-
-\item {} 
-fun stuff
-
-\item {} 
-useless stuff, but somehow cool
-
-\item {} 
-applications, e.g. calculator, cycle computer, step counter, heart attack predictor …
-
-\end{itemize}
-
-
-\section{Fast track}
-\label{\detokenize{about:fast-track}}
-In this repository you can find modified directories, which you can copy to the zephyrproject directory:
-\begin{itemize}
-\item {} 
-pinetime (board definition -\textgreater{} boards/arm)
-
-\item {} 
-st7789v (example -\textgreater{} samples/display)
-
-\item {} 
-blinky (example -\textgreater{} samples/basic)
-
-\end{itemize}
+\noindent\sphinxincludegraphics{{PineTime-830x400}.png}
 
 
 \chapter{Install zephyr}
@@ -296,6 +223,13 @@ MY\_REGISTER=(read button value);
 
 this way you know till whether the code executes
 \end{sphinxadmonition}
+
+a way to set port 15 high (hard-coded of course :))
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{gpio\PYGZus{}pin\PYGZus{}configure(gpiob, 15,GPIO\PYGZus{}DIR\PYGZus{}OUT); //push button out}
+\PYG{g+go}{gpio\PYGZus{}pin\PYGZus{}write(gpiob, 15, \PYGZam{}button\PYGZus{}out); //set port high}
+\end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gp}{\PYGZsh{}}telnet \PYG{l+m}{127}.0.0.1 \PYG{l+m}{4444}
@@ -1177,6 +1111,79 @@ sphinx cannot generate pdf directly, and needs latex
 \PYG{n}{apt}\PYG{o}{\PYGZhy{}}\PYG{n}{get} \PYG{n}{install} \PYG{n}{texlive}\PYG{o}{\PYGZhy{}}\PYG{n}{latex}\PYG{o}{\PYGZhy{}}\PYG{n}{recommended}
 \PYG{n}{apt}\PYG{o}{\PYGZhy{}}\PYG{n}{get} \PYG{n}{install} \PYG{n}{texlive}\PYG{o}{\PYGZhy{}}\PYG{n}{latex}\PYG{o}{\PYGZhy{}}\PYG{n}{extra}
 \end{sphinxVerbatim}
+
+
+\chapter{About}
+\label{\detokenize{about:about}}\label{\detokenize{about::doc}}
+I got a pinetime development kit very early.
+
+I would like to thank the folks from \sphinxurl{https://www.pine64.org/}.
+
+I like to hack stuff, and I like the idea behind Open Source.
+
+The smartwatches I hacked, contained microcontrollers from Nordic Semiconductor.
+
+A lot of resources exist for this breed.
+
+It is an Arm based, 32bit microcontroller with a lot of flash and RAM memory.
+
+In fact it is a small computer on your wrist, with a battery and screen, and capable of bluetooth 4+ wireless communication.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{A} \PYG{n}{word} \PYG{n}{of} \PYG{n}{warning}\PYG{p}{:} \PYG{n}{this} \PYG{o+ow}{is} \PYG{n}{work} \PYG{o+ow}{in} \PYG{n}{progress}\PYG{o}{.}
+\PYG{n}{You}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{re likely to have a better skillset then me.}
+\PYG{n}{You} \PYG{n}{are} \PYG{n}{invited} \PYG{n}{to} \PYG{n}{add} \PYG{n}{the} \PYG{n}{missing} \PYG{n}{pieces} \PYG{o+ow}{and} \PYG{n}{to} \PYG{n}{improve} \PYG{n}{what}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{s already there.}
+\end{sphinxVerbatim}
+
+
+\section{Todo}
+\label{\detokenize{about:todo}}
+list with suggestions:
+\begin{itemize}
+\item {} 
+better graphics (lvgl using images and rotating stuff)
+
+\item {} 
+NOR flash (here one can store data)
+
+\item {} 
+watchdog
+
+\item {} 
+DFU (update over bluetooth)
+
+\item {} 
+acceleration sensor
+
+\item {} 
+heart rate sensor
+
+\item {} 
+fun stuff
+
+\item {} 
+useless stuff, but somehow cool
+
+\item {} 
+applications, e.g. calculator, cycle computer, step counter, heart attack predictor …
+
+\end{itemize}
+
+
+\section{Fast track}
+\label{\detokenize{about:fast-track}}
+In this repository you can find modified directories, which you can copy to the zephyrproject directory:
+\begin{itemize}
+\item {} 
+pinetime (board definition -\textgreater{} boards/arm)
+
+\item {} 
+st7789v (example -\textgreater{} samples/display)
+
+\item {} 
+blinky (example -\textgreater{} samples/basic)
+
+\end{itemize}
 
 
 

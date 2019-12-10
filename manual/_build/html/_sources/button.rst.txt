@@ -31,6 +31,18 @@ In this repo under samples you will find an adapted basic/button program.
 
          this way you know till whether the code executes
 
+
+a way to set port 15 high (hard-coded of course :))
+
+.. code-block:: console
+
+         gpio_pin_configure(gpiob, 15,GPIO_DIR_OUT); //push button out
+         gpio_pin_write(gpiob, 15, &button_out); //set port high
+
+
+
+
+
 .. code-block:: console
 
       #telnet 127.0.0.1 4444

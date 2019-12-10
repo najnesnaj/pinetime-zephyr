@@ -3,7 +3,6 @@
 .. toctree::
    
    content
-   about
    installation
    blinky
    button
@@ -22,7 +21,8 @@
    debugging
    i2cscanning
    writeprotection 
-   latexpdf.rst
+   latexpdf
+   about
 
 
 

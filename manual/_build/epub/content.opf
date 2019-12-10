@@ -12,8 +12,8 @@
     <dc:publisher>in honour of Rick Mayell</dc:publisher>
     <dc:rights>2019, jj</dc:rights>
     <dc:identifier id="unknown">unknown</dc:identifier>
-    <dc:date>2019-12-08T19:18:12Z</dc:date>
-    <meta property="dcterms:modified">2019-12-08T19:18:12Z</meta>
+    <dc:date>2019-12-09T08:53:53Z</dc:date>
+    <meta property="dcterms:modified">2019-12-09T08:53:53Z</meta>
     <meta property="ibooks:version">beta</meta>
     <meta property="ibooks:specified-fonts">true</meta>
     <meta property="ibooks:binding">true</meta>
@@ -72,7 +72,6 @@
   <spine toc="ncx" page-progression-direction="ltr">
     <itemref idref="epub-16" />
     <itemref idref="epub-8" />
-    <itemref idref="epub-1" />
     <itemref idref="epub-17" />
     <itemref idref="epub-2" />
     <itemref idref="epub-6" />
@@ -92,6 +91,7 @@
     <itemref idref="epub-15" />
     <itemref idref="epub-28" />
     <itemref idref="epub-19" />
+    <itemref idref="epub-1" />
     <itemref idref="epub-13" />
     <itemref idref="epub-5" linear="no" />
     <itemref idref="epub-11" linear="no" />
