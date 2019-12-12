@@ -12,8 +12,8 @@
     <dc:publisher>in honour of Rick Mayell</dc:publisher>
     <dc:rights>2019, jj</dc:rights>
     <dc:identifier id="unknown">unknown</dc:identifier>
-    <dc:date>2019-12-09T08:53:53Z</dc:date>
-    <meta property="dcterms:modified">2019-12-09T08:53:53Z</meta>
+    <dc:date>2019-12-11T16:41:16Z</dc:date>
+    <meta property="dcterms:modified">2019-12-11T16:41:16Z</meta>
     <meta property="ibooks:version">beta</meta>
     <meta property="ibooks:specified-fonts">true</meta>
     <meta property="ibooks:binding">true</meta>
@@ -43,31 +43,32 @@
     <item id="epub-18" href="installedpackages.xhtml" media-type="application/xhtml+xml" />
     <item id="epub-19" href="latexpdf.xhtml" media-type="application/xhtml+xml" />
     <item id="epub-20" href="lvgl.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-21" href="menuconfig.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-22" href="pinetime.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-23" href="sensors.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-24" href="serial.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-25" href="spi_nor.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-26" href="spinor.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-27" href="touchscreen.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-28" href="writeprotection.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-29" href="_images/PineTime-830x400.png" media-type="image/png" />
-    <item id="epub-30" href="_images/clockback.png" media-type="image/png" />
-    <item id="epub-31" href="_images/zephyr_logo.png" media-type="image/png" />
-    <item id="epub-32" href="_static/ajax-loader.gif" media-type="image/gif" />
-    <item id="epub-33" href="_static/basic.css" media-type="text/css" />
-    <item id="epub-34" href="_static/comment-bright.png" media-type="image/png" />
-    <item id="epub-35" href="_static/comment-close.png" media-type="image/png" />
-    <item id="epub-36" href="_static/comment.png" media-type="image/png" />
-    <item id="epub-37" href="_static/down-pressed.png" media-type="image/png" />
-    <item id="epub-38" href="_static/down.png" media-type="image/png" />
-    <item id="epub-39" href="_static/epub.css" media-type="text/css" />
-    <item id="epub-40" href="_static/file.png" media-type="image/png" />
-    <item id="epub-41" href="_static/minus.png" media-type="image/png" />
-    <item id="epub-42" href="_static/plus.png" media-type="image/png" />
-    <item id="epub-43" href="_static/pygments.css" media-type="text/css" />
-    <item id="epub-44" href="_static/up-pressed.png" media-type="image/png" />
-    <item id="epub-45" href="_static/up.png" media-type="image/png" />
+    <item id="epub-21" href="lvglbutton.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-22" href="menuconfig.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-23" href="pinetime.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-24" href="sensors.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-25" href="serial.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-26" href="spi_nor.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-27" href="spinor.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-28" href="touchscreen.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-29" href="writeprotection.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-30" href="_images/PineTime-830x400.png" media-type="image/png" />
+    <item id="epub-31" href="_images/clockback.png" media-type="image/png" />
+    <item id="epub-32" href="_images/zephyr_logo.png" media-type="image/png" />
+    <item id="epub-33" href="_static/ajax-loader.gif" media-type="image/gif" />
+    <item id="epub-34" href="_static/basic.css" media-type="text/css" />
+    <item id="epub-35" href="_static/comment-bright.png" media-type="image/png" />
+    <item id="epub-36" href="_static/comment-close.png" media-type="image/png" />
+    <item id="epub-37" href="_static/comment.png" media-type="image/png" />
+    <item id="epub-38" href="_static/down-pressed.png" media-type="image/png" />
+    <item id="epub-39" href="_static/down.png" media-type="image/png" />
+    <item id="epub-40" href="_static/epub.css" media-type="text/css" />
+    <item id="epub-41" href="_static/file.png" media-type="image/png" />
+    <item id="epub-42" href="_static/minus.png" media-type="image/png" />
+    <item id="epub-43" href="_static/plus.png" media-type="image/png" />
+    <item id="epub-44" href="_static/pygments.css" media-type="text/css" />
+    <item id="epub-45" href="_static/up-pressed.png" media-type="image/png" />
+    <item id="epub-46" href="_static/up.png" media-type="image/png" />
   </manifest>
   <spine toc="ncx" page-progression-direction="ltr">
     <itemref idref="epub-16" />
@@ -79,26 +80,27 @@
     <itemref idref="epub-10" />
     <itemref idref="epub-20" />
     <itemref idref="epub-7" />
+    <itemref idref="epub-21" />
     <itemref idref="epub-0" />
-    <itemref idref="epub-26" />
-    <itemref idref="epub-23" />
+    <itemref idref="epub-27" />
+    <itemref idref="epub-24" />
     <itemref idref="epub-14" />
     <itemref idref="epub-4" />
-    <itemref idref="epub-27" />
-    <itemref idref="epub-21" />
+    <itemref idref="epub-28" />
+    <itemref idref="epub-22" />
     <itemref idref="epub-12" />
     <itemref idref="epub-9" />
     <itemref idref="epub-15" />
-    <itemref idref="epub-28" />
+    <itemref idref="epub-29" />
     <itemref idref="epub-19" />
     <itemref idref="epub-1" />
     <itemref idref="epub-13" />
     <itemref idref="epub-5" linear="no" />
     <itemref idref="epub-11" linear="no" />
     <itemref idref="epub-18" linear="no" />
-    <itemref idref="epub-22" linear="no" />
-    <itemref idref="epub-24" linear="no" />
+    <itemref idref="epub-23" linear="no" />
     <itemref idref="epub-25" linear="no" />
+    <itemref idref="epub-26" linear="no" />
   </spine>
   <guide>
     <reference type="toc" title="Table of Contents" href="index.xhtml" />

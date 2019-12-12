@@ -2,7 +2,7 @@ PWD /usr/src/pinetime-zephyr/manual/_build/latex
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
-INPUT /root/.texlive2017/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT oswatch.tex
 OUTPUT oswatch.log
 INPUT sphinxmanual.cls

@@ -1,0 +1,27 @@
+
+[31;01mTheme error:[39;49;00m
+unsupported theme option 'vcs_pageview_mode' given
+make: *** [html] Error 1
+Latexmk: This is Latexmk, John Collins, 1 January 2015, version: 4.41.
+Rule 'pdflatex': File changes, etc:
+   Changed files, or newly in use since previous run(s):
+      'oswatch.tex'
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex   -recorder  "oswatch.tex"'
+------------
+Latexmk: Index file 'oswatch.idx' was written
+Latexmk: Log file says output to 'oswatch.pdf'
+Rule 'pdflatex': File changes, etc:
+   Changed files, or newly in use since previous run(s):
+      'oswatch.aux'
+------------
+Run number 2 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex   -recorder  "oswatch.tex"'
+------------
+Latexmk: Index file 'oswatch.idx' was written
+Latexmk: Log file says output to 'oswatch.pdf'

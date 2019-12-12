@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Dec 10, 2019}
+\date{Dec 11, 2019}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -317,7 +317,7 @@ It just reads out the battery level, and prints it.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{k+kn}{import} \PYG{n+nn}{binascii}
-\PYG{k+kn}{from} \PYG{n+nn}{bluepy}\PYG{n+nn}{.}\PYG{n+nn}{btle} \PYG{k}{import} \PYG{n}{UUID}\PYG{p}{,} \PYG{n}{Peripheral}
+\PYG{k+kn}{from} \PYG{n+nn}{bluepy}\PYG{n+nn}{.}\PYG{n+nn}{btle} \PYG{k+kn}{import} \PYG{n}{UUID}\PYG{p}{,} \PYG{n}{Peripheral}
 
 \PYG{n}{temp\PYGZus{}uuid} \PYG{o}{=} \PYG{n}{UUID}\PYG{p}{(}\PYG{l+m+mh}{0x2A19}\PYG{p}{)}
 
@@ -486,6 +486,30 @@ lvgl supports lv\_canvas\_rotate(canvas, \&imd\_dsc, angle, x, y, pivot\_x, pivo
 \sphinxurl{https://docs.littlevgl.com/en/html/index.html}
 
 LittlevGL Web Page: \sphinxurl{https://littlevgl.com/}
+
+
+\chapter{placing a button on the screen}
+\label{\detokenize{lvglbutton:placing-a-button-on-the-screen}}\label{\detokenize{lvglbutton::doc}}
+
+\section{Building and Running}
+\label{\detokenize{lvglbutton:building-and-running}}
+In this repo under samples you will find an adapted gui/clock program.
+A button from the LVGL library is placed on the screen.
+
+Later on when the touch-screen driver is ready, we’ll be able to manipulate it.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{Make sure that prj.conf file in clock directory contains the following:}
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+CONFIG\_LVGL\_OBJ\_CONTAINER=y
+CONFIG\_LVGL\_OBJ\_BUTTON=y
+\end{sphinxadmonition}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
 
 
 \chapter{Real Time Clock}
@@ -705,7 +729,7 @@ finally we create a driver for the BMA423, based upon the BMA280
 \PYG{o}{\PYGZam{}}\PYG{n}{i2c1} \PYG{p}{\PYGZob{}}
     \PYG{n}{status} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{okay}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
     \PYG{n}{clock}\PYG{o}{\PYGZhy{}}\PYG{n}{frequency} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{n}{I2C\PYGZus{}BITRATE\PYGZus{}STANDARD}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
-    \PYG{n}{adxl372}\PYG{n+nd}{@18} \PYG{p}{\PYGZob{}}
+    \PYG{n}{adxl372}\PYG{o}{@}\PYG{l+m+mi}{18} \PYG{p}{\PYGZob{}}
                \PYG{n}{compatible} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{adi,adxl372}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
                \PYG{n}{reg} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{l+m+mh}{0x18}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
                \PYG{n}{label} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{ADXL372}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}

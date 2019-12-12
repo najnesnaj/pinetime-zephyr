@@ -4,6 +4,7 @@ configuring I2C
 board level definitions
 -----------------------
 
+
 ::
 
 
@@ -24,7 +25,7 @@ board level definitions
               };
 
 
-::
+
 
 
 development trajectory
@@ -33,9 +34,10 @@ development trajectory
         
 The final goal is to use the accel-sensor in the watch (BMA423), which does not exist yet.
 In order to minimize the effort:
-       - we'll use something that looks like it (ADXL372), because there exists an example.
-       - next we adapt it to use the existing BMA280 sensor (under drivers/sensor)
-       - finally we create a driver for the BMA423, based upon the BMA280
+
+        - we'll use something that looks like it (ADXL372), because there exists an example.
+        - next we adapt it to use the existing BMA280 sensor (under drivers/sensor)
+        - finally we create a driver for the BMA423, based upon the BMA280
 
 
 
