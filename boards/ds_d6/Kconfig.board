@@ -1,0 +1,8 @@
+# nRF52832-MDK board configuration
+
+# Copyright (c) 2018 makerdiary.com.
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_DS_D6
+        bool "DS-D6"
+	depends on SOC_NRF52832_QFAA
