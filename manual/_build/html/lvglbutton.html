@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Bosch BMA280 &mdash; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
+  <title>placing a button on the screen &mdash; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
   
 
   
@@ -35,9 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Touchscreen Hynitron" href="touchscreen.html" />
-    <link rel="prev" title="configuring I2C" href="i2c.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,7 +83,7 @@
               
             
             
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr for the pintime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="blinky.html">zephyr on the pinetime smartwatch</a></li>
@@ -98,14 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="spinor.html">Serial Nor Flash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sensors.html">sensors on the I2C bus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i2c.html">configuring I2C</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Bosch BMA280</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#todo">Todo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="bma280.html">Bosch BMA280</a></li>
 <li class="toctree-l1"><a class="reference internal" href="touchscreen.html">Touchscreen Hynitron</a></li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flashing.html">hacking   the pinetime smartwatch</a></li>
@@ -159,13 +150,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Bosch BMA280</li>
+      <li>placing a button on the screen</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/bma280.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/lvglbutton.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -178,54 +169,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="bosch-bma280">
-<h1>Bosch BMA280<a class="headerlink" href="#bosch-bma280" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/drivers/bma280</span>
-</pre></div>
-</div>
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>This sample application mimics the presence of a bosch, bma280 accel sensor.
-For this sensor exists a driver in zephyr, but no sample.
-Remember, I’m not a zephyr expert and am learning on the way.</p>
-</div>
-<div class="section" id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>complement the pinetime.dts file with the following (under samples/sensor/bma280)</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&amp;i2c1 {</span>
-<span class="go">        bma280@18 {</span>
-<span class="go">                   compatible = &quot;bosch,bma280&quot;;</span>
-<span class="go">                   reg = &lt;0x18&gt;;</span>
-<span class="go">                   label = &quot;BMA280&quot;;</span>
-<span class="go">                   int1-gpios = &lt;&amp;gpio0 8 0&gt;;</span>
-<span class="go">                  };</span>
-<span class="go">       };</span>
-</pre></div>
-</div>
-<p>Create a file: <cite>/dts/bindings/sensor/bosch,bma280-i2c.yaml</cite>.
-Which contains:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compatible</span><span class="p">:</span> <span class="s2">&quot;bosch,bma280&quot;</span>
-<span class="n">include</span><span class="p">:</span> <span class="n">i2c</span><span class="o">-</span><span class="n">device</span><span class="o">.</span><span class="n">yaml</span>
-<span class="n">properties</span><span class="p">:</span>
-       <span class="n">int1</span><span class="o">-</span><span class="n">gpios</span><span class="p">:</span>
-       <span class="nb">type</span><span class="p">:</span> <span class="n">phandle</span><span class="o">-</span><span class="n">array</span>
-       <span class="n">required</span><span class="p">:</span> <span class="n">false</span>
-</pre></div>
-</div>
-</div>
+  <div class="section" id="placing-a-button-on-the-screen">
+<h1>placing a button on the screen<a class="headerlink" href="#placing-a-button-on-the-screen" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
+<p>In this repo under samples you will find an adapted gui/clock program.
+A button from the LVGL library is placed on the screen.</p>
+<p>Later on when the touch-screen driver is ready, we’ll be able to manipulate it.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Make sure that prj.conf file in clock directory contains the following:</span>
+</pre></div>
 </div>
-<div class="section" id="todo">
-<h2>Todo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
-<li><p>since no serial port and no J-LINK, I have to print messages to the screen or trough bluetooth serial (which does not exist, or I haven’t found it yet ;) )</p></li>
-</ul>
-</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CONFIG_LVGL_OBJ_CONTAINER=y
+CONFIG_LVGL_OBJ_BUTTON=y</p>
 </div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -234,15 +195,6 @@ Which contains:</p>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="touchscreen.html" class="btn btn-neutral float-right" title="Touchscreen Hynitron" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="i2c.html" class="btn btn-neutral float-left" title="configuring I2C" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

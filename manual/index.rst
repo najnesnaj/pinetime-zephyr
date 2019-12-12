@@ -10,6 +10,7 @@
    display
    lvgl
    clock
+   lvglbutton
    RTC
    spinor
    sensors
