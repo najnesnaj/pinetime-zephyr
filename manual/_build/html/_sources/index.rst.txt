@@ -1,7 +1,8 @@
 .. image:: ./zephyr_logo.png
 
 .. toctree::
-   
+
+   copyright 
    content
    installation
    blinky
