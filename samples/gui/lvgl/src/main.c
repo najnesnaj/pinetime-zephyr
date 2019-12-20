@@ -42,7 +42,7 @@ void main(void)
 	lv_obj_t *hello_world_label;
 	lv_obj_t *count_label;
 	display_dev = device_get_binding(CONFIG_LVGL_DISPLAY_DEV_NAME);
-lv_btn_set_style(obj, LV_BTN_STYLE_REL, &lv_style_plain_color); /*set other style for background*/
+//lv_btn_set_style(obj, LV_BTN_STYLE_REL, &lv_style_plain_color); /*set other style for background*/
 	if (display_dev == NULL) {
 		LOG_ERR("device not found.  Aborting test.");
 		return;

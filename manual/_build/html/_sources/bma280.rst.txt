@@ -56,14 +56,15 @@ Building and Running
 Todo
 ****
 
-    - since no serial port and no J-LINK, I have to print messages to the screen or trough bluetooth serial (which does not exist, or I haven't found it yet ;) ) 
+    - since no serial port and no J-LINK, I have to print messages to the screen (see sample gui/lvaccel) 
+    - I adapted the BMA driver so it accepts the CHIP_ID, further registers are subject to investigation, since no doc
 
 References
 **********
 
+BMA421 is not a part number available to the general public, and therefore all the supporting documentation and design resources are neither discussed in public forums, nor disclosed on GitHub. 
 
-
-
+CHIP_ID=0X11  (so 423 drivers need to be adapted)
 
 
 

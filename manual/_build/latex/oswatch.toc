@@ -1,69 +1,70 @@
 \babel@toc {english}{}
 \contentsline {chapter}{\numberline {1}author:}{3}{chapter.1}
-\contentsline {chapter}{\numberline {2}Zephyr for the pintime smartwatch}{5}{chapter.2}
-\contentsline {chapter}{\numberline {3}Install zephyr}{7}{chapter.3}
-\contentsline {chapter}{\numberline {4}zephyr on the pinetime smartwatch}{9}{chapter.4}
-\contentsline {section}{\numberline {4.1}Blinky example}{9}{section.4.1}
-\contentsline {chapter}{\numberline {5}Reading out the button on the watch}{11}{chapter.5}
-\contentsline {section}{\numberline {5.1}Building and Running}{11}{section.5.1}
-\contentsline {chapter}{\numberline {6}bluetooth (BLE) example}{13}{chapter.6}
-\contentsline {section}{\numberline {6.1}Eddy Stone}{13}{section.6.1}
-\contentsline {section}{\numberline {6.2}Ble Peripheral}{13}{section.6.2}
-\contentsline {section}{\numberline {6.3}using Python to read out bluetoothservices}{14}{section.6.3}
-\contentsline {chapter}{\numberline {7}st7789 display}{15}{chapter.7}
-\contentsline {section}{\numberline {7.1}Display example}{15}{section.7.1}
-\contentsline {chapter}{\numberline {8}LittlevGL Basic Sample}{17}{chapter.8}
-\contentsline {section}{\numberline {8.1}Overview}{17}{section.8.1}
-\contentsline {section}{\numberline {8.2}Requirements}{17}{section.8.2}
-\contentsline {section}{\numberline {8.3}Building and Running}{17}{section.8.3}
-\contentsline {section}{\numberline {8.4}Todo}{17}{section.8.4}
-\contentsline {section}{\numberline {8.5}References}{18}{section.8.5}
-\contentsline {chapter}{\numberline {9}LittlevGL Clock Sample}{19}{chapter.9}
+\contentsline {chapter}{\numberline {2}LICENSE:}{5}{chapter.2}
+\contentsline {chapter}{\numberline {3}Zephyr for the pintime smartwatch}{7}{chapter.3}
+\contentsline {chapter}{\numberline {4}Install zephyr}{9}{chapter.4}
+\contentsline {chapter}{\numberline {5}zephyr on the pinetime smartwatch}{11}{chapter.5}
+\contentsline {section}{\numberline {5.1}Blinky example}{11}{section.5.1}
+\contentsline {chapter}{\numberline {6}Reading out the button on the watch}{13}{chapter.6}
+\contentsline {section}{\numberline {6.1}Building and Running}{13}{section.6.1}
+\contentsline {chapter}{\numberline {7}bluetooth (BLE) example}{15}{chapter.7}
+\contentsline {section}{\numberline {7.1}Eddy Stone}{15}{section.7.1}
+\contentsline {section}{\numberline {7.2}Ble Peripheral}{15}{section.7.2}
+\contentsline {section}{\numberline {7.3}using Python to read out bluetoothservices}{16}{section.7.3}
+\contentsline {chapter}{\numberline {8}st7789 display}{17}{chapter.8}
+\contentsline {section}{\numberline {8.1}Display example}{17}{section.8.1}
+\contentsline {chapter}{\numberline {9}LittlevGL Basic Sample}{19}{chapter.9}
 \contentsline {section}{\numberline {9.1}Overview}{19}{section.9.1}
 \contentsline {section}{\numberline {9.2}Requirements}{19}{section.9.2}
 \contentsline {section}{\numberline {9.3}Building and Running}{19}{section.9.3}
-\contentsline {section}{\numberline {9.4}Todo}{20}{section.9.4}
+\contentsline {section}{\numberline {9.4}Todo}{19}{section.9.4}
 \contentsline {section}{\numberline {9.5}References}{20}{section.9.5}
-\contentsline {chapter}{\numberline {10}placing a button on the screen}{21}{chapter.10}
-\contentsline {section}{\numberline {10.1}Building and Running}{21}{section.10.1}
-\contentsline {chapter}{\numberline {11}Real Time Clock}{23}{chapter.11}
-\contentsline {section}{\numberline {11.1}Overview}{23}{section.11.1}
-\contentsline {section}{\numberline {11.2}Requirements}{23}{section.11.2}
-\contentsline {section}{\numberline {11.3}Building and Running}{23}{section.11.3}
-\contentsline {section}{\numberline {11.4}Todo}{23}{section.11.4}
-\contentsline {section}{\numberline {11.5}References}{23}{section.11.5}
-\contentsline {chapter}{\numberline {12}Serial Nor Flash}{25}{chapter.12}
+\contentsline {chapter}{\numberline {10}LittlevGL Clock Sample}{21}{chapter.10}
+\contentsline {section}{\numberline {10.1}Overview}{21}{section.10.1}
+\contentsline {section}{\numberline {10.2}Requirements}{21}{section.10.2}
+\contentsline {section}{\numberline {10.3}Building and Running}{21}{section.10.3}
+\contentsline {section}{\numberline {10.4}Todo}{22}{section.10.4}
+\contentsline {section}{\numberline {10.5}References}{22}{section.10.5}
+\contentsline {chapter}{\numberline {11}placing a button on the screen}{23}{chapter.11}
+\contentsline {section}{\numberline {11.1}Building and Running}{23}{section.11.1}
+\contentsline {chapter}{\numberline {12}Real Time Clock}{25}{chapter.12}
 \contentsline {section}{\numberline {12.1}Overview}{25}{section.12.1}
 \contentsline {section}{\numberline {12.2}Requirements}{25}{section.12.2}
-\contentsline {section}{\numberline {12.3}Building and Running}{26}{section.12.3}
-\contentsline {section}{\numberline {12.4}Todo}{26}{section.12.4}
-\contentsline {section}{\numberline {12.5}References}{26}{section.12.5}
-\contentsline {chapter}{\numberline {13}sensors on the I2C bus}{27}{chapter.13}
-\contentsline {chapter}{\numberline {14}configuring I2C}{29}{chapter.14}
-\contentsline {section}{\numberline {14.1}board level definitions}{29}{section.14.1}
-\contentsline {section}{\numberline {14.2}development trajectory}{29}{section.14.2}
-\contentsline {section}{\numberline {14.3}defining an I2C sensor}{29}{section.14.3}
-\contentsline {section}{\numberline {14.4}compiling the sample}{30}{section.14.4}
-\contentsline {chapter}{\numberline {15}Bosch BMA280}{31}{chapter.15}
-\contentsline {section}{\numberline {15.1}Overview}{31}{section.15.1}
-\contentsline {section}{\numberline {15.2}Requirements}{31}{section.15.2}
-\contentsline {section}{\numberline {15.3}Building and Running}{31}{section.15.3}
-\contentsline {section}{\numberline {15.4}Todo}{31}{section.15.4}
-\contentsline {section}{\numberline {15.5}References}{32}{section.15.5}
-\contentsline {chapter}{\numberline {16}Touchscreen Hynitron}{33}{chapter.16}
+\contentsline {section}{\numberline {12.3}Building and Running}{25}{section.12.3}
+\contentsline {section}{\numberline {12.4}Todo}{25}{section.12.4}
+\contentsline {section}{\numberline {12.5}References}{25}{section.12.5}
+\contentsline {chapter}{\numberline {13}Serial Nor Flash}{27}{chapter.13}
+\contentsline {section}{\numberline {13.1}Overview}{27}{section.13.1}
+\contentsline {section}{\numberline {13.2}Requirements}{27}{section.13.2}
+\contentsline {section}{\numberline {13.3}Building and Running}{28}{section.13.3}
+\contentsline {section}{\numberline {13.4}Todo}{28}{section.13.4}
+\contentsline {section}{\numberline {13.5}References}{28}{section.13.5}
+\contentsline {chapter}{\numberline {14}sensors on the I2C bus}{29}{chapter.14}
+\contentsline {chapter}{\numberline {15}configuring I2C}{31}{chapter.15}
+\contentsline {section}{\numberline {15.1}board level definitions}{31}{section.15.1}
+\contentsline {section}{\numberline {15.2}development trajectory}{31}{section.15.2}
+\contentsline {section}{\numberline {15.3}defining an I2C sensor}{31}{section.15.3}
+\contentsline {section}{\numberline {15.4}compiling the sample}{32}{section.15.4}
+\contentsline {chapter}{\numberline {16}Bosch BMA280}{33}{chapter.16}
 \contentsline {section}{\numberline {16.1}Overview}{33}{section.16.1}
 \contentsline {section}{\numberline {16.2}Requirements}{33}{section.16.2}
 \contentsline {section}{\numberline {16.3}Building and Running}{33}{section.16.3}
 \contentsline {section}{\numberline {16.4}Todo}{33}{section.16.4}
-\contentsline {section}{\numberline {16.5}References}{33}{section.16.5}
-\contentsline {chapter}{\numberline {17}Menuconfig}{35}{chapter.17}
-\contentsline {section}{\numberline {17.1}Zephyr is like linux}{35}{section.17.1}
-\contentsline {chapter}{\numberline {18}hacking the pinetime smartwatch}{37}{chapter.18}
-\contentsline {chapter}{\numberline {19}debugging the pinetime smartwatch}{39}{chapter.19}
-\contentsline {chapter}{\numberline {20}scanning the I2C\_1 port}{41}{chapter.20}
-\contentsline {section}{\numberline {20.1}Building and Running}{41}{section.20.1}
-\contentsline {chapter}{\numberline {21}howto flash your zephyr image}{43}{chapter.21}
-\contentsline {chapter}{\numberline {22}howto generate pdf documents}{45}{chapter.22}
-\contentsline {chapter}{\numberline {23}About}{47}{chapter.23}
-\contentsline {section}{\numberline {23.1}Todo}{47}{section.23.1}
-\contentsline {section}{\numberline {23.2}Fast track}{47}{section.23.2}
+\contentsline {section}{\numberline {16.5}References}{34}{section.16.5}
+\contentsline {chapter}{\numberline {17}Touchscreen Hynitron}{35}{chapter.17}
+\contentsline {section}{\numberline {17.1}Overview}{35}{section.17.1}
+\contentsline {section}{\numberline {17.2}Requirements}{35}{section.17.2}
+\contentsline {section}{\numberline {17.3}Building and Running}{35}{section.17.3}
+\contentsline {section}{\numberline {17.4}Todo}{35}{section.17.4}
+\contentsline {section}{\numberline {17.5}References}{35}{section.17.5}
+\contentsline {chapter}{\numberline {18}Menuconfig}{37}{chapter.18}
+\contentsline {section}{\numberline {18.1}Zephyr is like linux}{37}{section.18.1}
+\contentsline {chapter}{\numberline {19}hacking the pinetime smartwatch}{39}{chapter.19}
+\contentsline {chapter}{\numberline {20}debugging the pinetime smartwatch}{41}{chapter.20}
+\contentsline {chapter}{\numberline {21}scanning the I2C\_1 port}{43}{chapter.21}
+\contentsline {section}{\numberline {21.1}Building and Running}{43}{section.21.1}
+\contentsline {chapter}{\numberline {22}howto flash your zephyr image}{45}{chapter.22}
+\contentsline {chapter}{\numberline {23}howto generate pdf documents}{47}{chapter.23}
+\contentsline {chapter}{\numberline {24}About}{49}{chapter.24}
+\contentsline {section}{\numberline {24.1}Todo}{49}{section.24.1}
+\contentsline {section}{\numberline {24.2}Fast track}{49}{section.24.2}

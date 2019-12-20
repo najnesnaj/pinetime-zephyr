@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Dec 17, 2019}
+\date{Dec 20, 2019}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -100,6 +100,11 @@ You cannot use the book, or parts of the book into your own publications, withou
 \label{\detokenize{copyright:author}}
 Jan Jansen
 \sphinxhref{mailto:najnesnaj@yahoo.com}{najnesnaj@yahoo.com}
+
+
+\chapter{LICENSE:}
+\label{\detokenize{copyright:license}}
+All the software is subject to the Apache 2.0 license (same as zephyr), which is very liberal.
 
 
 \chapter{Zephyr for the pintime smartwatch}
@@ -827,13 +832,20 @@ Which contains:
 \section{Todo}
 \label{\detokenize{bma280:todo}}\begin{itemize}
 \item {} 
-since no serial port and no J-LINK, I have to print messages to the screen or trough bluetooth serial (which does not exist, or I haven’t found it yet ;) )
+since no serial port and no J-LINK, I have to print messages to the screen (see sample gui/lvaccel)
+
+\item {} 
+I adapted the BMA driver so it accepts the CHIP\_ID, further registers are subject to investigation, since no doc
 
 \end{itemize}
 
 
 \section{References}
 \label{\detokenize{bma280:references}}
+BMA421 is not a part number available to the general public, and therefore all the supporting documentation and design resources are neither discussed in public forums, nor disclosed on GitHub.
+
+CHIP\_ID=0X11  (so 423 drivers need to be adapted)
+
 
 \chapter{Touchscreen Hynitron}
 \label{\detokenize{touchscreen:touchscreen-hynitron}}\label{\detokenize{touchscreen::doc}}

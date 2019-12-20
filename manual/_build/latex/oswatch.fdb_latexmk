@@ -1,10 +1,10 @@
 # Fdb version 3
-["makeindex oswatch.idx"] 1574020780 "oswatch.idx" "oswatch.ind" "oswatch" 1576565368
-  "oswatch.idx" 1576565367 0 d41d8cd98f00b204e9800998ecf8427e ""
+["makeindex oswatch.idx"] 1574020780 "oswatch.idx" "oswatch.ind" "oswatch" 1576839472
+  "oswatch.idx" 1576839471 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
-  "oswatch.ind"
   "oswatch.ilg"
-["pdflatex"] 1576565366 "oswatch.tex" "oswatch.pdf" "oswatch" 1576565368
+  "oswatch.ind"
+["pdflatex"] 1576839471 "oswatch.tex" "oswatch.pdf" "oswatch" 1576839472
   "/etc/texmf/web2c/texmf.cnf" 1575903685 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
@@ -155,21 +155,21 @@
   "PineTime-830x400.png" 1575903803 65514 f8ca4140c39d695b63b937aa5e72b07b ""
   "clockback.png" 1575903803 67359 c1b30c39d9b7b54a3d897ebabada2d39 ""
   "footnotehyper-sphinx.sty" 1575972137 8888 1bbd7bdeae8c8bed1d10d551bddb1cc9 ""
-  "oswatch.aux" 1576565368 16153 8474689730e5d1a5b40bbc8064d98753 ""
+  "oswatch.aux" 1576839472 16403 83c8a3ebf0abf403d33b019d619bc824 ""
   "oswatch.ind" 1575903803 0 d41d8cd98f00b204e9800998ecf8427e "makeindex oswatch.idx"
-  "oswatch.out" 1576565368 9298 f5e3f667d8e0171e06e3f89ee2f15ebc ""
-  "oswatch.tex" 1576565364 53752 e4c5f89052dc87d016f36760aca7aef9 ""
-  "oswatch.toc" 1576565368 5185 4a495cea270eb57acf0e0af56596aae3 ""
+  "oswatch.out" 1576839472 9393 cd267c22c0587cd0afc4c762f3451b2b ""
+  "oswatch.tex" 1576839468 54221 1df5862fadb6b91d337fa2978ae40fec ""
+  "oswatch.toc" 1576839472 5262 01408d5e96ab4213b9602b96b95def89 ""
   "sphinx.sty" 1575972137 77684 8fb97306ac83d50d8517c97072345a1d ""
-  "sphinxhighlight.sty" 1576565363 8137 38a433148fcb7611515a989ff1750dd5 ""
+  "sphinxhighlight.sty" 1576839468 8137 38a433148fcb7611515a989ff1750dd5 ""
   "sphinxmanual.cls" 1575972137 3764 e7c0a8da02dc45450256dd4cfdafb426 ""
-  "sphinxmessages.sty" 1576565364 731 4c7a75a0ce6092b44bece19aa46febe9 ""
+  "sphinxmessages.sty" 1576839468 731 4c7a75a0ce6092b44bece19aa46febe9 ""
   "sphinxmulticell.sty" 1575972137 14606 0b6edc2b1a83546ed92026d1f6a311b5 ""
   "zephyr_logo.png" 1575903803 20861 4f710d2641dcb0a34102c3671d7bc961 ""
   (generated)
-  "oswatch.aux"
-  "oswatch.log"
-  "oswatch.toc"
-  "oswatch.out"
   "oswatch.idx"
+  "oswatch.log"
+  "oswatch.aux"
   "oswatch.pdf"
+  "oswatch.out"
+  "oswatch.toc"
