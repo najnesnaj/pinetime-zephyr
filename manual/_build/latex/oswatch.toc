@@ -51,20 +51,30 @@
 \contentsline {section}{\numberline {16.3}Building and Running}{33}{section.16.3}
 \contentsline {section}{\numberline {16.4}Todo}{33}{section.16.4}
 \contentsline {section}{\numberline {16.5}References}{34}{section.16.5}
-\contentsline {chapter}{\numberline {17}Touchscreen Hynitron}{35}{chapter.17}
+\contentsline {chapter}{\numberline {17}Bosch BMA421}{35}{chapter.17}
 \contentsline {section}{\numberline {17.1}Overview}{35}{section.17.1}
 \contentsline {section}{\numberline {17.2}Requirements}{35}{section.17.2}
-\contentsline {section}{\numberline {17.3}Building and Running}{35}{section.17.3}
-\contentsline {section}{\numberline {17.4}Todo}{35}{section.17.4}
-\contentsline {section}{\numberline {17.5}References}{35}{section.17.5}
-\contentsline {chapter}{\numberline {18}Menuconfig}{37}{chapter.18}
-\contentsline {section}{\numberline {18.1}Zephyr is like linux}{37}{section.18.1}
-\contentsline {chapter}{\numberline {19}hacking the pinetime smartwatch}{39}{chapter.19}
-\contentsline {chapter}{\numberline {20}debugging the pinetime smartwatch}{41}{chapter.20}
-\contentsline {chapter}{\numberline {21}scanning the I2C\_1 port}{43}{chapter.21}
-\contentsline {section}{\numberline {21.1}Building and Running}{43}{section.21.1}
-\contentsline {chapter}{\numberline {22}howto flash your zephyr image}{45}{chapter.22}
-\contentsline {chapter}{\numberline {23}howto generate pdf documents}{47}{chapter.23}
-\contentsline {chapter}{\numberline {24}About}{49}{chapter.24}
-\contentsline {section}{\numberline {24.1}Todo}{49}{section.24.1}
-\contentsline {section}{\numberline {24.2}Fast track}{49}{section.24.2}
+\contentsline {subsection}{\numberline {17.2.1}adapt CMakeLists.txt}{35}{subsection.17.2.1}
+\contentsline {subsection}{\numberline {17.2.2}add yaml file}{35}{subsection.17.2.2}
+\contentsline {subsection}{\numberline {17.2.3}edit KConfig}{35}{subsection.17.2.3}
+\contentsline {subsection}{\numberline {17.2.4}create driver}{36}{subsection.17.2.4}
+\contentsline {section}{\numberline {17.3}Building and Running}{36}{section.17.3}
+\contentsline {section}{\numberline {17.4}Todo}{36}{section.17.4}
+\contentsline {section}{\numberline {17.5}References}{36}{section.17.5}
+\contentsline {chapter}{\numberline {18}Touchscreen Hynitron}{37}{chapter.18}
+\contentsline {section}{\numberline {18.1}Overview}{37}{section.18.1}
+\contentsline {section}{\numberline {18.2}Requirements}{37}{section.18.2}
+\contentsline {section}{\numberline {18.3}Building and Running}{37}{section.18.3}
+\contentsline {section}{\numberline {18.4}Todo}{37}{section.18.4}
+\contentsline {section}{\numberline {18.5}References}{37}{section.18.5}
+\contentsline {chapter}{\numberline {19}Menuconfig}{39}{chapter.19}
+\contentsline {section}{\numberline {19.1}Zephyr is like linux}{39}{section.19.1}
+\contentsline {chapter}{\numberline {20}hacking the pinetime smartwatch}{41}{chapter.20}
+\contentsline {chapter}{\numberline {21}debugging the pinetime smartwatch}{43}{chapter.21}
+\contentsline {chapter}{\numberline {22}scanning the I2C\_1 port}{45}{chapter.22}
+\contentsline {section}{\numberline {22.1}Building and Running}{45}{section.22.1}
+\contentsline {chapter}{\numberline {23}howto flash your zephyr image}{47}{chapter.23}
+\contentsline {chapter}{\numberline {24}howto generate pdf documents}{49}{chapter.24}
+\contentsline {chapter}{\numberline {25}About}{51}{chapter.25}
+\contentsline {section}{\numberline {25.1}Todo}{51}{section.25.1}
+\contentsline {section}{\numberline {25.2}Fast track}{51}{section.25.2}

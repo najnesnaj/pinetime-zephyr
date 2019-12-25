@@ -2,6 +2,10 @@ Bosch BMA421
 ############
 
 
+this driver does not exist, so it has been created.
+Still work in progress ....
+
+
 .. code-block:: console
 
       west build -p -b pinetime samples/gui/lvaccel 

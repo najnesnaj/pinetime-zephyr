@@ -847,6 +847,105 @@ BMA421 is not a part number available to the general public, and therefore all t
 CHIP\_ID=0X11  (so 423 drivers need to be adapted)
 
 
+\chapter{Bosch BMA421}
+\label{\detokenize{bma421:bosch-bma421}}\label{\detokenize{bma421::doc}}
+this driver does not exist, so it has been created.
+Still work in progress ….
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/gui/lvaccel}
+\end{sphinxVerbatim}
+
+
+\section{Overview}
+\label{\detokenize{bma421:overview}}
+BMA421 is not a part number available to the general public, and therefore all the supporting documentation and design resources are neither discussed in public forums, nor disclosed on GitHub.
+
+CHIP\_ID=0X11  (so the Bosch BMA423 drivers need to be adapted)
+
+The Bosch documentation on the bma423 seems to apply to the bma421.
+
+
+\section{Requirements}
+\label{\detokenize{bma421:requirements}}
+for this sensor does not exist any driver, so here’s what I did to create one under zephyr
+
+
+\subsection{adapt CMakeLists.txt}
+\label{\detokenize{bma421:adapt-cmakelists-txt}}
+\textasciitilde{}/zephyrproject-2/zephyr/drivers/sensor
+add\_subdirectory\_ifdef(CONFIG\_BMA280            bma280)
+add\_subdirectory\_ifdef(CONFIG\_BMA421            bma421)
+
+
+\subsection{add yaml file}
+\label{\detokenize{bma421:add-yaml-file}}
+\textasciitilde{}/zephyrproject-2/zephyr/dts/bindings/sensor
+cp bosch,bma280-i2c.yaml  bosch,bma421-i2c.yaml
+
+
+\subsection{edit KConfig}
+\label{\detokenize{bma421:edit-kconfig}}\begin{description}
+\item[{source “drivers/sensor/bma280/Kconfig”}] \leavevmode
+source “drivers/sensor/bma421/Kconfig”
+
+\end{description}
+
+source “drivers/sensor/bmc150\_magn/Kconfig”
+
+source “drivers/sensor/bme280/Kconfig”
+
+
+\subsection{create driver}
+\label{\detokenize{bma421:create-driver}}
+see under drivers/sensor/bma421
+
+complement the pinetime.dts file with the following (under samples/sensor/bma280)
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{\PYGZam{}i2c1 \PYGZob{}}
+\PYG{g+go}{        bma421@18 \PYGZob{}}
+\PYG{g+go}{                   compatible = \PYGZdq{}bosch,bma421\PYGZdq{};}
+\PYG{g+go}{                   reg = \PYGZlt{}0x18\PYGZgt{};}
+\PYG{g+go}{                   label = \PYGZdq{}BMA421\PYGZdq{};}
+\PYG{g+go}{                   int1\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 8 0\PYGZgt{};}
+\PYG{g+go}{                  \PYGZcb{};}
+\PYG{g+go}{       \PYGZcb{};}
+\end{sphinxVerbatim}
+
+Create a file: \sphinxtitleref{/dts/bindings/sensor/bosch,bma421-i2c.yaml}.
+Which contains:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{compatible}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{bosch,bma421}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n}{include}\PYG{p}{:} \PYG{n}{i2c}\PYG{o}{\PYGZhy{}}\PYG{n}{device}\PYG{o}{.}\PYG{n}{yaml}
+\PYG{n}{properties}\PYG{p}{:}
+       \PYG{n}{int1}\PYG{o}{\PYGZhy{}}\PYG{n}{gpios}\PYG{p}{:}
+       \PYG{n+nb}{type}\PYG{p}{:} \PYG{n}{phandle}\PYG{o}{\PYGZhy{}}\PYG{n}{array}
+       \PYG{n}{required}\PYG{p}{:} \PYG{n}{false}
+\end{sphinxVerbatim}
+
+
+\section{Building and Running}
+\label{\detokenize{bma421:building-and-running}}
+
+\section{Todo}
+\label{\detokenize{bma421:todo}}\begin{itemize}
+\item {} 
+the driver is interrupt driven as well \textendash{} need to adapt software
+
+\item {} 
+the sensor has algorithm for steps \textendash{} read out register
+
+\item {} 
+temperature some attempt has been made, but …
+
+\end{itemize}
+
+
+\section{References}
+\label{\detokenize{bma421:references}}
+
 \chapter{Touchscreen Hynitron}
 \label{\detokenize{touchscreen:touchscreen-hynitron}}\label{\detokenize{touchscreen::doc}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]

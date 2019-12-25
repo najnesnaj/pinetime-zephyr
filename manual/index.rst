@@ -17,6 +17,7 @@
    sensors
    i2c
    bma280
+   bma421
    touchscreen
    menuconfig
    flashing
