@@ -23,6 +23,7 @@ LOG_MODULE_REGISTER(app);
 #define LED_PORT        DT_ALIAS_LED1_GPIOS_CONTROLLER
 #define LED             DT_ALIAS_LED1_GPIOS_PIN
 #define MY_REGISTER1 (*(volatile uint8_t*)0x2000F000)
+#define MY_REGISTER2 (*(volatile uint8_t*)0x2000F001)
 
 static void backlight_init(void)
 {
@@ -41,12 +42,15 @@ void main(void)
 
 
 	struct sensor_value accel[3];
+//	struct sensor_value temp;
+//	int temp=99;
 
-	struct device *dev = device_get_binding(DT_INST_0_BOSCH_BMA280_LABEL);
+	struct device *dev = device_get_binding(DT_INST_0_BOSCH_BMA421_LABEL);
+		MY_REGISTER1=0x00;
 
 	if (dev == NULL) {
-		MY_REGISTER1=0x33;
-		printf("Could not get %s device\n", DT_INST_0_BOSCH_BMA280_LABEL);
+		MY_REGISTER1=0x77;
+		printf("Could not get %s device\n", DT_INST_0_BOSCH_BMA421_LABEL);
 		return;
 	}
 
@@ -54,15 +58,18 @@ void main(void)
 		.type = SENSOR_TRIG_DATA_READY,
 		.chan = SENSOR_CHAN_ACCEL_XYZ,
 	};
+	lv_obj_t *hello_world_label;
 
 
+	hello_world_label = lv_label_create(lv_scr_act(), NULL);
 
 	if (sensor_sample_fetch(dev)) {
-		MY_REGISTER1=0xEE;
+	lv_label_set_text(hello_world_label, "FAILED BMA");
 		printf("sensor_sample_fetch failed\n");
 	}
 	else
-		MY_REGISTER1=0xAA;
+	lv_label_set_text(hello_world_label, "BMA OK");
+		//MY_REGISTER1=0xAA;
 
 	sensor_channel_get(dev, SENSOR_CHAN_ACCEL_XYZ, accel);
 
@@ -70,24 +77,30 @@ void main(void)
 	u32_t count = 0U;
 	char count_str[11] = {0};
 	char accel_str[11] = {0};
+	char accel_str2[11] = {0};
+	char accel_str3[11] = {0};
+	char temp_str[11] = {0};
 	struct device *display_dev;
-	lv_obj_t *hello_world_label;
 	lv_obj_t *count_label;
 	lv_obj_t *accel_label;
+	lv_obj_t *accel_label2;
+	lv_obj_t *accel_label3;
+	lv_obj_t *temp_label;
 	display_dev = device_get_binding(CONFIG_LVGL_DISPLAY_DEV_NAME);
 	//lv_btn_set_style(obj, LV_BTN_STYLE_REL, &lv_style_plain_color); /*set other style for background*/
 	if (display_dev == NULL) {
 		LOG_ERR("device not found.  Aborting test.");
+		MY_REGISTER1=0xEE;
 		return;
 	}
 	else
 		backlight_init();
 
 
-	hello_world_label = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_long_mode(hello_world_label, LV_LABEL_LONG_BREAK);     /*Break the long lines*/
-	lv_label_set_recolor(hello_world_label, true);                      /*Enable re-coloring by commands in the text*/
-	lv_label_set_text(hello_world_label, "#0000ff Hello world!");
+//	lv_label_set_long_mode(hello_world_label, LV_LABEL_LONG_BREAK);     /*Break the long lines*/
+//	lv_label_set_recolor(hello_world_label, true);                      /*Enable re-coloring by commands in the text*/
+//	lv_label_set_text(hello_world_label, "Hello world!");
+	//lv_label_set_text(hello_world_label, "#0000ff Hello world!");
 
 	lv_obj_align(hello_world_label, NULL, LV_ALIGN_CENTER, 0, 0);
 
@@ -103,14 +116,33 @@ void main(void)
 	lv_obj_align(count_label, NULL, LV_ALIGN_IN_BOTTOM_MID, 0, 0);
 	accel_label = lv_label_create(lv_scr_act(), NULL);
 	lv_obj_align(accel_label, NULL, LV_ALIGN_IN_TOP_MID, 0, 0);
+	accel_label2 = lv_label_create(lv_scr_act(), NULL);
+	lv_obj_align(accel_label2, NULL, LV_ALIGN_IN_TOP_MID, 0, 25);
+	accel_label3 = lv_label_create(lv_scr_act(), NULL);
+	lv_obj_align(accel_label3, NULL, LV_ALIGN_IN_TOP_MID, 0, 50);
+	temp_label = lv_label_create(lv_scr_act(), NULL);
+	lv_obj_align(temp_label, NULL, LV_ALIGN_IN_TOP_MID, 0, 75);
 
 	display_blanking_off(display_dev);
 
 	while (1) {
 		if ((count % 100) == 0U) {
 			sensor_channel_get(dev, SENSOR_CHAN_ACCEL_XYZ, accel);
-			sprintf(accel_str, "%d", accel[0]);
-			lv_label_set_text(count_label, accel_str);
+		//	sensor_channel_get(dev, SENSOR_CHAN_DIE_TEMP, &temp);
+			//MY_REGISTER2=temp;
+			if (sensor_value_to_double(&accel[0]) != 0) MY_REGISTER1=0x99;
+			sprintf(accel_str, "%.1f", sensor_value_to_double(&accel[0]));
+			lv_label_set_text(accel_label, accel_str);
+			
+			sprintf(accel_str2, "%.1f", sensor_value_to_double(&accel[1]));
+			lv_label_set_text(accel_label2, accel_str2);
+
+			sprintf(accel_str3, "%.1f", sensor_value_to_double(&accel[2]));
+			lv_label_set_text(accel_label3, accel_str3);
+
+			//sprintf(accel_str3, "%.1f", sensor_value_to_double(&temp)); //temperature
+			//lv_label_set_text(temp_label, temp_str);
+			
 			sprintf(count_str, "%d", count/100U);
 			lv_label_set_text(count_label, count_str);
 		}

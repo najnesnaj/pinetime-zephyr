@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bosch BMA421</title>
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="bosch-bma421">
+<h1>Bosch BMA421</h1>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/gui/lvaccel</span>
+</pre></div>
+</div>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>BMA421 is not a part number available to the general public, and therefore all the supporting documentation and design resources are neither discussed in public forums, nor disclosed on GitHub.</p>
+<p>CHIP_ID=0X11  (so the Bosch BMA423 drivers need to be adapted)</p>
+<p>The Bosch documentation on the bma423 seems to apply to the bma421.</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements</h2>
+<p>for this sensor does not exist any driver, so here’s what I did to create one under zephyr</p>
+<div class="section" id="adapt-cmakelists-txt">
+<h3>adapt CMakeLists.txt</h3>
+<p>~/zephyrproject-2/zephyr/drivers/sensor
+add_subdirectory_ifdef(CONFIG_BMA280            bma280)
+add_subdirectory_ifdef(CONFIG_BMA421            bma421)</p>
+</div>
+<div class="section" id="add-yaml-file">
+<h3>add yaml file</h3>
+<p>~/zephyrproject-2/zephyr/dts/bindings/sensor
+cp bosch,bma280-i2c.yaml  bosch,bma421-i2c.yaml</p>
+</div>
+<div class="section" id="edit-kconfig">
+<h3>edit KConfig</h3>
+<dl class="simple">
+<dt>source “drivers/sensor/bma280/Kconfig”</dt><dd><p>source “drivers/sensor/bma421/Kconfig”</p>
+</dd>
+</dl>
+<p>source “drivers/sensor/bmc150_magn/Kconfig”</p>
+<p>source “drivers/sensor/bme280/Kconfig”</p>
+</div>
+<div class="section" id="create-driver">
+<h3>create driver</h3>
+<p>see under drivers/sensor/bma421</p>
+<p>complement the pinetime.dts file with the following (under samples/sensor/bma280)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&amp;i2c1 {</span>
+<span class="go">        bma421@18 {</span>
+<span class="go">                   compatible = &quot;bosch,bma421&quot;;</span>
+<span class="go">                   reg = &lt;0x18&gt;;</span>
+<span class="go">                   label = &quot;BMA421&quot;;</span>
+<span class="go">                   int1-gpios = &lt;&amp;gpio0 8 0&gt;;</span>
+<span class="go">                  };</span>
+<span class="go">       };</span>
+</pre></div>
+</div>
+<p>Create a file: <cite>/dts/bindings/sensor/bosch,bma421-i2c.yaml</cite>.
+Which contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compatible</span><span class="p">:</span> <span class="s2">&quot;bosch,bma421&quot;</span>
+<span class="n">include</span><span class="p">:</span> <span class="n">i2c</span><span class="o">-</span><span class="n">device</span><span class="o">.</span><span class="n">yaml</span>
+<span class="n">properties</span><span class="p">:</span>
+       <span class="n">int1</span><span class="o">-</span><span class="n">gpios</span><span class="p">:</span>
+       <span class="nb">type</span><span class="p">:</span> <span class="n">phandle</span><span class="o">-</span><span class="n">array</span>
+       <span class="n">required</span><span class="p">:</span> <span class="n">false</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running</h2>
+</div>
+<div class="section" id="todo">
+<h2>Todo</h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>the driver is interrupt driven as well – need to adapt software</p></li>
+<li><p>the sensor has algorithm for steps – read out register</p></li>
+<li><p>temperature some attempt has been made, but …</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

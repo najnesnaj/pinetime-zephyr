@@ -67,18 +67,22 @@ PO.23 LCD backlight
 &gpio0 {
 	status = "okay";
 };
-
-
+/*
+&i2c0 {
+	status = "okay";
+      }
+*/
 &i2c1 {
-	compatible = "nordic,nrf-twi";
+        compatible = "nordic,nrf-twi"; 
 	status = "okay";
 	sda-pin = <6>;
 	scl-pin = <7>;
-        bma280@18 {
-            compatible = "bosch,bma280"; 
+        clock-frequency = <100000>; 
+        bma421@18 {
+            compatible = "bosch,bma421"; 
             reg=<0x18>;
-            label="BMA280";
-            int1-gpios = <&gpio0 8 0>; 
+            label="BMA421";
+      /*      int1-gpios = <&gpio0 8 0>; */
         };
 };
 
@@ -128,7 +132,6 @@ PO.23 LCD backlight
 		size = <67108864>;
 		has-be32k;
 	};
-
 
 };
 
