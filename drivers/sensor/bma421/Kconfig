@@ -23,24 +23,17 @@ config BMA421_CHIP_BMA421
 	help
 	  Choose this option to enable the BMA421 chip.
 
-config BMA421_CHIP_BMC150_ACCEL
-	bool "BMC150_ACCEL"
-	help
-	  Choose this option to enable the accelerometer of the BMC150 chip.
-
 endchoice
 
 config BMA421_NAME
 	string "Driver name"
 	default "BMA421" if BMA421_CHIP_BMA421
-	default "BMC150_ACCEL" if BMA421_CHIP_BMC150_ACCEL
 	help
 	  Device name with which the sensor is identified.
 
 config BMA421_I2C_ADDR
 	hex "BMA421 I2C address"
 	default 0x18 if BMA421_CHIP_BMA421
-	default 0x10 if BMA421_CHIP_BMC150_ACCEL
 	help
 	  I2C address of the BMA421 sensor.
 
@@ -90,7 +83,7 @@ config BMA421_GPIO_DEV_NAME
 
 config BMA421_GPIO_PIN_NUM
 	int "Interrupt GPIO pin number"
-	default 0
+	default 8
 	depends on BMA421_TRIGGER
 	help
 	  The number of the GPIO on which the interrupt signal from the chip
@@ -112,52 +105,67 @@ config BMA421_THREAD_STACK_SIZE
 
 choice
 	prompt "Acceleration measurement range"
-	default BMA421_PMU_RANGE_2G
+	default BMA421_ACC_RANGE_2G
 	help
 	  Measurement range for acceleration values.
 
-config BMA421_PMU_RANGE_2G
+config BMA421_ACC_RANGE_2G
 	bool "+/-2g"
 
-config BMA421_PMU_RANGE_4G
+config BMA421_ACC_RANGE_4G
 	bool "+/-4g"
 
-config BMA421_PMU_RANGE_8G
+config BMA421_ACC_RANGE_8G
 	bool "+/-8g"
 
-config BMA421_PMU_RANGE_16G
+config BMA421_ACC_RANGE_16G
 	bool "+/-16g"
 
 endchoice
 
 choice
 	prompt "Acceleration data filter bandwidth"
-	default BMA421_PMU_BW_7
+	default BMA421_ACC_ODR_7
 	help
 	  Bandwidth of filtered acceleration data.
 
-config BMA421_PMU_BW_1
+config BMA421_ACC_ODR_1
 	bool "7.81Hz"
 
-config BMA421_PMU_BW_2
+config BMA421_ACC_ODR_2
 	bool "15.63HZ"
 
-config BMA421_PMU_BW_3
+config BMA421_ACC_ODR_3
 	bool "31.25Hz"
 
-config BMA421_PMU_BW_4
+config BMA421_ACC_ODR_4
 	bool "62.5Hz"
 
-config BMA421_PMU_BW_5
+config BMA421_ACC_ODR_5
 	bool "125Hz"
 
-config BMA421_PMU_BW_6
+config BMA421_ACC_ODR_6
 	bool "250HZ"
 
-config BMA421_PMU_BW_7
+config BMA421_ACC_ODR_7
 	bool "500Hz"
 
-config BMA421_PMU_BW_8
+config BMA421_ACC_ODR_8
+	bool "1000Hz"
+
+config BMA421_ACC_ODR_9
+	bool "2000Hz"
+
+config BMA421_ACC_ODR_10
+	bool "4000Hz"
+
+config BMA421_ACC_ODR_11
+	bool "8000Hz"
+
+config BMA421_ACC_ODR_12
+	bool "16000Hz"
+
+config BMA421_PMU_ODR_13
 	bool "unfiltered"
 
 endchoice

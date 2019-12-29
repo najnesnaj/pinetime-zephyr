@@ -46,8 +46,6 @@ static int bma421_sample_fetch(struct device *dev, enum sensor_channel chan)
 	i2c_delay(1000);
 
 	__ASSERT_NO_MSG(chan == SENSOR_CHAN_ALL);
-i2c_reg_update_byte(drv_data->i2c, BMA421_I2C_ADDRESS, BMA421_REG_PWR_CTRL , 0x04, 0x04); //enable accelerometer
-	//	i2c_reg_update_byte(drv_data->i2c, BMA421_I2C_ADDRESS, BMA421_REG_CMD, 0xB6, 0xB6);  //soft reset todo temporary till I find out why it does not update automaticaly
 
 	/*
 	 * since all accel data register addresses are consecutive,
@@ -84,7 +82,7 @@ static void bma421_channel_accel_convert(struct sensor_value *val,
 	 * accel_val = (sample * BMA280_PMU_FULL_RAGE) /
 	 *             (2^data_width * 10^6)
 	 */
-	raw_val = (raw_val * BMA421_PMU_FULL_RANGE) /
+	raw_val = (raw_val * BMA421_ACC_FULL_RANGE) /
 		(1 << (8 + BMA421_ACCEL_LSB_BITS));
 	val->val1 = raw_val / 1000000;
 	val->val2 = raw_val % 1000000;
@@ -94,6 +92,12 @@ static void bma421_channel_accel_convert(struct sensor_value *val,
 		val->val1 -= 1;
 		val->val2 += 1000000;
 	}
+}
+
+static void bma421_channel_value_add(struct sensor_value *val)
+{
+	val->val1 = 32; //todo -- here values can be read from REG 0x1E step counter
+	val->val2 = 88; 
 }
 
 static int bma421_channel_get(struct device *dev,
@@ -116,6 +120,7 @@ static int bma421_channel_get(struct device *dev,
 		bma421_channel_accel_convert(val, drv_data->x_sample);
 		bma421_channel_accel_convert(val + 1, drv_data->y_sample);
 		bma421_channel_accel_convert(val + 2, drv_data->z_sample);
+		bma421_channel_value_add(val + 3); //todo check how extra data can be passed
 	} else if (chan == SENSOR_CHAN_DIE_TEMP) {
 		/* temperature_val = 23 + sample / 2 */
 		val->val1 = (drv_data->temp_sample >> 1) + 23;
@@ -129,9 +134,9 @@ static int bma421_channel_get(struct device *dev,
 }
 
 static const struct sensor_driver_api bma421_driver_api = {
-#if CONFIG_BMA280_TRIGGER
-	.attr_set = bma280_attr_set,
-	.trigger_set = bma280_trigger_set,
+#if CONFIG_BMA421_TRIGGER
+	.attr_set = bma421_attr_set,
+	.trigger_set = bma421_trigger_set,
 #endif
 	.sample_fetch = bma421_sample_fetch,
 	.channel_get = bma421_channel_get,
@@ -163,82 +168,68 @@ int bma421_init(struct device *dev)
 		LOG_DBG("Unexpected chip id (%x)", id);
 		return -EIO;
 	}
-	MY_REGISTER1=0x00;
-	MY_REGISTER2=0x00;
-	MY_REGISTER3=0x00;
-	MY_REGISTER4=0x00;
-	MY_REGISTER5=0x00;
-	MY_REGISTER6=0x00;
-	id=0xB6;
 
 
-	if (i2c_reg_update_byte(drv_data->i2c, BMA421_I2C_ADDRESS, BMA421_REG_CMD, 0xB6, 0xB6) < 0) { //soft reset
-		MY_REGISTER5=0x33;
+	if (i2c_reg_update_byte(drv_data->i2c, BMA421_I2C_ADDRESS, BMA421_REG_CMD, BMA421_CMD_SOFT_RESET_MASK, BMA421_CMD_SOFT_RESET) < 0) { //soft reset
+		//		MY_REGISTER5=0x33;
 	}
+//todo clean up debug registers
 
-	//	if (i2c_reg_write_byte(drv_data->i2c, BMA421_I2C_ADDRESS, 0x7E , id) < 0 )
-	//	{
-	//soft reset failed
-	//		MY_REGISTER1=0xFF;
-	//	}
-	//	MY_REGISTER2=BMA421_I2C_ADDRESS;
-	i2c_delay(1000);
+	i2c_delay(100);
 
-	// set power mode
-	//
-	//		MY_REGISTER3=0xFF;
-	//	}
-	/*	id |= (1<<7);
-		if (i2c_reg_write_byte(drv_data->i2c, BMA421_I2C_ADDRESS, 0x40, id) < 0) { //hardcoded todo
-		MY_REGISTER1=0x22;
-		}
-		*/
-	//	if (i2c_reg_update_byte(drv_data->i2c, BMA421_I2C_ADDRESS, 0x40, 7, 1) < 0) { //acc performance mode continues
 	if (i2c_reg_update_byte(drv_data->i2c, BMA421_I2C_ADDRESS, BMA421_REG_ACC_CONF, 0x80, 0x80) < 0) { //acc performance 1
-		MY_REGISTER4=0x33;
+		//		MY_REGISTER4=0x33;
 	}
-i2c_delay(1000);
-if (i2c_reg_update_byte(drv_data->i2c, BMA421_I2C_ADDRESS, BMA421_REG_PWR_CTRL , 0x04, 0x04) < 0) { //enable accelerometer
-	MY_REGISTER5=0x33;
-}
-i2c_delay(1000);
-if (i2c_reg_update_byte(drv_data->i2c, BMA421_I2C_ADDRESS, BMA421_REG_PWR_CONF , 0x03, 0x00) < 0) { //disable powersave for testing (todo powersave)
-	MY_REGISTER5=0x33;
-}
-i2c_delay(1000);
-if (i2c_reg_read_byte(drv_data->i2c, BMA421_I2C_ADDRESS, 0x40, &id) < 0) {
-	//could not read 0x40
-	MY_REGISTER3=0xFF;
-}
-MY_REGISTER3=id; // read statement to check if update took place -- useless afterwards todo delete
-/*
-   if (i2c_reg_write_byte(drv_data->i2c, BMA421_I2C_ADDRESS,
-   BMA421_REG_PMU_BW, 0x88) < 0) { //hardcoded todo
-   MY_REGISTER5=0xCC;
-   LOG_DBG("Could not set data filter bandwidth");
-   return -EIO;
-   }
-   */
-/* set g-range */
-i2c_reg_read_byte(drv_data->i2c, BMA421_I2C_ADDRESS,BMA421_REG_PMU_RANGE, &id); 
-id=id && 0xCF; // bit 5 and 4 of 0x41 are set to 0
-if (i2c_reg_write_byte(drv_data->i2c, BMA421_I2C_ADDRESS,
-			BMA421_REG_PMU_RANGE, id) < 0) {
-	MY_REGISTER5=0xCC;
-	LOG_DBG("Could not set data g-range");
-	return -EIO;
-}
-i2c_delay(1000);
-i2c_reg_read_byte(drv_data->i2c, BMA421_I2C_ADDRESS,0x40, &id); 
-//todo set output data rate 
-#ifdef CONFIG_BMA280_TRIGGER
-if (bma280_init_interrupt(dev) < 0) {
-	LOG_DBG("Could not initialize interrupts");
-	return -EIO;
-}
+
+	//todo create names for hardcoded stuff, review masks - should cover multiple bits...
+	i2c_delay(100);
+	if (i2c_reg_update_byte(drv_data->i2c, BMA421_I2C_ADDRESS, BMA421_REG_PWR_CTRL , 0x04, 0x04) < 0) { //enable accelerometer
+		//		MY_REGISTER5=0x33;
+	}
+	i2c_delay(100);
+	if (i2c_reg_update_byte(drv_data->i2c, BMA421_I2C_ADDRESS, BMA421_REG_PWR_CONF , 0x03, 0x00) < 0) { //disable powersave for testing (todo powersave)
+		//		MY_REGISTER5=0x33;
+	}
+	i2c_delay(100);
+	if (i2c_reg_read_byte(drv_data->i2c, BMA421_I2C_ADDRESS, 0x40, &id) < 0) {
+		//could not read 0x40
+		//		MY_REGISTER3=0xFF;
+	}
+	MY_REGISTER3=id; // read statement to check if update took place -- useless afterwards todo delete
+	/* set g-range */
+	i2c_reg_read_byte(drv_data->i2c, BMA421_I2C_ADDRESS,BMA421_REG_ACC_RANGE, &id); 
+	id=id & 0xFC; // bit 1 and 0 of 0x41 are set to 0
+	id=id | BMA421_ACC_RANGE; //this is set with a variable from Kconfig
+
+
+	//todo use update_byte instead of write_byte
+	if (i2c_reg_write_byte(drv_data->i2c, BMA421_I2C_ADDRESS,
+				BMA421_REG_ACC_RANGE, id) < 0) {
+		MY_REGISTER5=0xCC;
+		LOG_DBG("Could not set data g-range");
+		return -EIO;
+	}
+	else
+		MY_REGISTER5=id; //todo remove
+
+	i2c_delay(100);
+	i2c_reg_read_byte(drv_data->i2c, BMA421_I2C_ADDRESS,BMA421_REG_ACC_CONF, &id); 
+	id=id & 0xF0; //bit 3,2,1,0 are set to 0
+	id=id | BMA421_ACC_ODR; 
+	if (i2c_reg_write_byte(drv_data->i2c, BMA421_I2C_ADDRESS, BMA421_REG_ACC_CONF, id) < 0) {
+		MY_REGISTER6=0xCC;
+	}
+	else
+		MY_REGISTER6=id; //todo remove 
+
+#ifdef CONFIG_BMA421_TRIGGER
+	if (bma421_init_interrupt(dev) < 0) {
+		LOG_DBG("Could not initialize interrupts");
+		return -EIO;
+	}
 #endif
 
-return 0;
+	return 0;
 }
 
 struct bma421_data bma421_driver;

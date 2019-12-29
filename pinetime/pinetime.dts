@@ -82,7 +82,7 @@ PO.23 LCD backlight
             compatible = "bosch,bma421"; 
             reg=<0x18>;
             label="BMA421";
-      /*      int1-gpios = <&gpio0 8 0>; */
+            int1-gpios = <&gpio0 8 0>; 
         };
 };
 
