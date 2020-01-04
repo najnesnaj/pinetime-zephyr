@@ -34,6 +34,10 @@ Still work in progress ….</p>
 add_subdirectory_ifdef(CONFIG_BMA280            bma280)
 add_subdirectory_ifdef(CONFIG_BMA421            bma421)</p>
 </div>
+<div class="section" id="adapt-kconfig">
+<h3>adapt Kconfig</h3>
+<p>~/zephyrproject-2/zephyr/drivers/sensor</p>
+</div>
 <div class="section" id="add-yaml-file">
 <h3>add yaml file</h3>
 <p>~/zephyrproject-2/zephyr/dts/bindings/sensor
@@ -81,14 +85,20 @@ Which contains:</p>
 <h2>Todo</h2>
 <blockquote>
 <div><ul class="simple">
-<li><p>the driver is interrupt driven as well – need to adapt software</p></li>
+<li><p>the driver is interrupt driven as well – need to test software</p></li>
 <li><p>the sensor has algorithm for steps – read out register</p></li>
-<li><p>temperature some attempt has been made, but …</p></li>
+<li><p>temperature some attempt has been made, but … (OK, temp can be read)</p></li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="references">
 <h2>References</h2>
+<p>Bosch has documented the BMA423 very well.
+I kind of hope it will apply to the bma421.</p>
+<p>A mechanism to adapt the 0x5E register is provided.
+(burst read/write)</p>
+<p>All kind of parameters can be set to trigger an interrupt.
+(e.g. number of steps taken : think of the 10000 steps threshold)</p>
 </div>
 </div>
 

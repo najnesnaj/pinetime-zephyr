@@ -84,6 +84,13 @@ PO.23 LCD backlight
             label="BMA421";
             int1-gpios = <&gpio0 8 0>; 
         };
+        hrs3300@44 {
+            compatible = "hx,hrs3300";
+            reg = <0x44>;
+            label = "HRS3300";
+        };
+
+
 };
 
 

@@ -18,6 +18,7 @@
    i2c
    bma280
    bma421
+   hrs3300
    touchscreen
    menuconfig
    flashing

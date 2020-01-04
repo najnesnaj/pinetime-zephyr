@@ -442,162 +442,246 @@
         </navPoint>
         <navPoint id="navPoint73" playOrder="59">
           <navLabel>
+            <text>adapt Kconfig</text>
+          </navLabel>
+          <content src="bma421.xhtml#adapt-kconfig" />  
+        </navPoint>
+        <navPoint id="navPoint74" playOrder="60">
+          <navLabel>
             <text>add yaml file</text>
           </navLabel>
           <content src="bma421.xhtml#add-yaml-file" />  
         </navPoint>
-        <navPoint id="navPoint74" playOrder="60">
+        <navPoint id="navPoint75" playOrder="61">
           <navLabel>
             <text>edit KConfig</text>
           </navLabel>
           <content src="bma421.xhtml#edit-kconfig" />  
         </navPoint>
-        <navPoint id="navPoint75" playOrder="61">
+        <navPoint id="navPoint76" playOrder="62">
           <navLabel>
             <text>create driver</text>
           </navLabel>
           <content src="bma421.xhtml#create-driver" />  
         </navPoint>
       </navPoint>
-      <navPoint id="navPoint76" playOrder="62">
+      <navPoint id="navPoint77" playOrder="63">
         <navLabel>
           <text>Building and Running</text>
         </navLabel>
         <content src="bma421.xhtml#building-and-running" />  
       </navPoint>
-      <navPoint id="navPoint77" playOrder="63">
+      <navPoint id="navPoint78" playOrder="64">
         <navLabel>
           <text>Todo</text>
         </navLabel>
         <content src="bma421.xhtml#todo" />  
       </navPoint>
-      <navPoint id="navPoint78" playOrder="64">
+      <navPoint id="navPoint79" playOrder="65">
         <navLabel>
           <text>References</text>
         </navLabel>
         <content src="bma421.xhtml#references" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint79" playOrder="65">
+    <navPoint id="navPoint80" playOrder="66">
+      <navLabel>
+        <text>HX HRS3300</text>
+      </navLabel>
+      <content src="hrs3300.xhtml" />  
+      <navPoint id="navPoint81" playOrder="66">
+        <navLabel>
+          <text>HX HRS3300</text>
+        </navLabel>
+        <content src="hrs3300.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint82" playOrder="67">
+        <navLabel>
+          <text>Overview</text>
+        </navLabel>
+        <content src="hrs3300.xhtml#overview" />  
+      </navPoint>
+      <navPoint id="navPoint83" playOrder="68">
+        <navLabel>
+          <text>Requirements</text>
+        </navLabel>
+        <content src="hrs3300.xhtml#requirements" />  
+        <navPoint id="navPoint84" playOrder="68">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="hrs3300.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint85" playOrder="69">
+          <navLabel>
+            <text>adapt CMakeLists.txt</text>
+          </navLabel>
+          <content src="hrs3300.xhtml#adapt-cmakelists-txt" />  
+        </navPoint>
+        <navPoint id="navPoint86" playOrder="70">
+          <navLabel>
+            <text>adapt Kconfig</text>
+          </navLabel>
+          <content src="hrs3300.xhtml#adapt-kconfig" />  
+        </navPoint>
+        <navPoint id="navPoint87" playOrder="71">
+          <navLabel>
+            <text>add yaml file</text>
+          </navLabel>
+          <content src="hrs3300.xhtml#add-yaml-file" />  
+        </navPoint>
+        <navPoint id="navPoint88" playOrder="72">
+          <navLabel>
+            <text>edit KConfig</text>
+          </navLabel>
+          <content src="hrs3300.xhtml#edit-kconfig" />  
+        </navPoint>
+        <navPoint id="navPoint89" playOrder="73">
+          <navLabel>
+            <text>create driver</text>
+          </navLabel>
+          <content src="hrs3300.xhtml#create-driver" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint90" playOrder="74">
+        <navLabel>
+          <text>Building and Running</text>
+        </navLabel>
+        <content src="hrs3300.xhtml#building-and-running" />  
+      </navPoint>
+      <navPoint id="navPoint91" playOrder="75">
+        <navLabel>
+          <text>Todo</text>
+        </navLabel>
+        <content src="hrs3300.xhtml#todo" />  
+      </navPoint>
+      <navPoint id="navPoint92" playOrder="76">
+        <navLabel>
+          <text>References</text>
+        </navLabel>
+        <content src="hrs3300.xhtml#references" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint93" playOrder="77">
       <navLabel>
         <text>Touchscreen Hynitron</text>
       </navLabel>
       <content src="touchscreen.xhtml" />  
-      <navPoint id="navPoint80" playOrder="65">
+      <navPoint id="navPoint94" playOrder="77">
         <navLabel>
           <text>Touchscreen Hynitron</text>
         </navLabel>
         <content src="touchscreen.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint81" playOrder="66">
+      <navPoint id="navPoint95" playOrder="78">
         <navLabel>
           <text>Overview</text>
         </navLabel>
         <content src="touchscreen.xhtml#overview" />  
       </navPoint>
-      <navPoint id="navPoint82" playOrder="67">
+      <navPoint id="navPoint96" playOrder="79">
         <navLabel>
           <text>Requirements</text>
         </navLabel>
         <content src="touchscreen.xhtml#requirements" />  
       </navPoint>
-      <navPoint id="navPoint83" playOrder="68">
+      <navPoint id="navPoint97" playOrder="80">
         <navLabel>
           <text>Building and Running</text>
         </navLabel>
         <content src="touchscreen.xhtml#building-and-running" />  
       </navPoint>
-      <navPoint id="navPoint84" playOrder="69">
+      <navPoint id="navPoint98" playOrder="81">
         <navLabel>
           <text>Todo</text>
         </navLabel>
         <content src="touchscreen.xhtml#todo" />  
       </navPoint>
-      <navPoint id="navPoint85" playOrder="70">
+      <navPoint id="navPoint99" playOrder="82">
         <navLabel>
           <text>References</text>
         </navLabel>
         <content src="touchscreen.xhtml#references" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint86" playOrder="71">
+    <navPoint id="navPoint100" playOrder="83">
       <navLabel>
         <text>Menuconfig</text>
       </navLabel>
       <content src="menuconfig.xhtml" />  
-      <navPoint id="navPoint87" playOrder="71">
+      <navPoint id="navPoint101" playOrder="83">
         <navLabel>
           <text>Menuconfig</text>
         </navLabel>
         <content src="menuconfig.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint88" playOrder="72">
+      <navPoint id="navPoint102" playOrder="84">
         <navLabel>
           <text>Zephyr is like linux</text>
         </navLabel>
         <content src="menuconfig.xhtml#zephyr-is-like-linux" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint89" playOrder="73">
+    <navPoint id="navPoint103" playOrder="85">
       <navLabel>
         <text>hacking   the pinetime smartwatch</text>
       </navLabel>
       <content src="flashing.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint90" playOrder="74">
+    <navPoint id="navPoint104" playOrder="86">
       <navLabel>
         <text>debugging   the pinetime smartwatch</text>
       </navLabel>
       <content src="debugging.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint91" playOrder="75">
+    <navPoint id="navPoint105" playOrder="87">
       <navLabel>
         <text>scanning the I2C_1 port</text>
       </navLabel>
       <content src="i2cscanning.xhtml" />  
-      <navPoint id="navPoint92" playOrder="75">
+      <navPoint id="navPoint106" playOrder="87">
         <navLabel>
           <text>scanning the I2C_1 port</text>
         </navLabel>
         <content src="i2cscanning.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint93" playOrder="76">
+      <navPoint id="navPoint107" playOrder="88">
         <navLabel>
           <text>Building and Running</text>
         </navLabel>
         <content src="i2cscanning.xhtml#building-and-running" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint94" playOrder="77">
+    <navPoint id="navPoint108" playOrder="89">
       <navLabel>
         <text>howto flash your zephyr image</text>
       </navLabel>
       <content src="writeprotection.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint95" playOrder="78">
+    <navPoint id="navPoint109" playOrder="90">
       <navLabel>
         <text>howto generate pdf documents</text>
       </navLabel>
       <content src="latexpdf.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint96" playOrder="79">
+    <navPoint id="navPoint110" playOrder="91">
       <navLabel>
         <text>About</text>
       </navLabel>
       <content src="about.xhtml" />  
-      <navPoint id="navPoint97" playOrder="79">
+      <navPoint id="navPoint111" playOrder="91">
         <navLabel>
           <text>About</text>
         </navLabel>
         <content src="about.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint98" playOrder="80">
+      <navPoint id="navPoint112" playOrder="92">
         <navLabel>
           <text>Todo</text>
         </navLabel>
         <content src="about.xhtml#todo" />  
       </navPoint>
-      <navPoint id="navPoint99" playOrder="81">
+      <navPoint id="navPoint113" playOrder="93">
         <navLabel>
           <text>Fast track</text>
         </navLabel>

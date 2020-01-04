@@ -1,0 +1,11 @@
+# Copyright (c) 2018, NXP
+# SPDX-License-Identifier: Apache-2.0
+
+title: HRS3300  heart rate sensor
+
+description: |
+    This is a representation of the HRS3300 heart rate sensor
+
+compatible: "hx,hrs3300"
+
+include: i2c-device.yaml
