@@ -2,6 +2,7 @@
 
 
 in this repository you will find a manual, created with sphinx:
+
 ::
 
             -html
@@ -35,13 +36,13 @@ ALREADY DONE:
 
 ::
 
-   -the display
-   -bluetooth BLE
-   -graphics library (LittlevGL)
-   -RTC
-   -Serial NOR flash   
-   -accel sensor
-   -heart rate sensor (and HR detection) 
+          -the display
+          -bluetooth BLE
+          -graphics library (LittlevGL)
+          -RTC
+          -Serial NOR flash   
+          -accel sensor
+          -heart rate sensor 
 
 
 TODO: 
@@ -49,8 +50,10 @@ TODO:
 
 ::
 
-   -touchscreen
-   -powermanagement
-   -DFU (wireless firmware update)
-   -CTS (setting time in bluetooth) 
+          -HR detection (algorithm)
+          -testing accel sensor interrupt
+          -touchscreen
+          -powermanagement
+          -DFU (wireless firmware update)
+          -CTS (setting time in bluetooth) 
 
