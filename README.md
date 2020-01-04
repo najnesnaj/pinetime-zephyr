@@ -2,6 +2,8 @@
 
 
 in this repository you will find a manual, created with sphinx:
+::
+
             -html
             -pdf
             -epub
@@ -13,10 +15,13 @@ Once you install zephyr, you only have to copy the board definition file.
 
 You can compile all the samples and try them out.
 
-In this repository you can find modified directories, which you can copy to the zephyrproject directory
-           -pinetime (board definition -> boards/arm)
+In this repository you can find modified directories.
+You can copy them to the zephyrproject directory.
+
+::
+           -pinetime (contains the board definition -> boards/arm)
            -st7789v (samples/display)
-           -blinky (samples/basic)
+           -blinky etc  (samples/.... contains all modified and added samples)
 
 IMPORTANT:
 ----------
@@ -35,6 +40,8 @@ ALREADY DONE:
    -graphics library (LittlevGL)
    -RTC
    -Serial NOR flash   
+   -accel sensor
+   -heart rate sensor (and HR detection) 
 
 
 TODO: 
@@ -42,9 +49,7 @@ TODO:
 
 
    -touchscreen
-   -accel sensor
    -powermanagement
    -DFU (wireless firmware update)
-   -heart rate sensor (and HR detection) 
    -CTS (setting time in bluetooth) 
 
