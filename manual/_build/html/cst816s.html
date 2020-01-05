@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
+  <title>HYNITRON CST816S &mdash; a smart watch based on the Nordic nrf52832 microcontroller 1.0.0 documentation</title>
   
 
   
@@ -25,7 +25,6 @@
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
         <script type="text/javascript" src="_static/language_data.js"></script>
-        <script type="text/javascript" src="_static/searchtools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -36,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" /> 
 </head>
 
@@ -68,7 +67,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -104,7 +103,6 @@
 <li class="toctree-l1"><a class="reference internal" href="bma421.html">Bosch BMA421</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hrs3300.html">HX HRS3300</a></li>
 <li class="toctree-l1"><a class="reference internal" href="touchscreen.html">Touchscreen Hynitron</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cst816s.html">HYNITRON CST816S</a></li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flashing.html">hacking   the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">debugging   the pinetime smartwatch</a></li>
@@ -157,12 +155,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Search</li>
+      <li>HYNITRON CST816S</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/cst816s.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -174,19 +174,68 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="hynitron-cst816s">
+<h1>HYNITRON CST816S<a class="headerlink" href="#hynitron-cst816s" title="Permalink to this headline">¶</a></h1>
+<p>this driver does not exist, so it has been created.
+Still work in progress ….</p>
+<p>there is a sample in this repository which can be copied to the zephyr samples directory</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/sensor/cst816s</span>
+</pre></div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>the Hynitron cst816s is a touchscreen.
+In zephyr is no touchscreen driver yet.
+In order to investigate, the touchscreen driver has been created as a sensor.
+In fact it senses you finger ;)</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>for this sensor does not exist any driver, so here’s what I did to create one under zephyr</p>
+<div class="section" id="adapt-cmakelists-txt">
+<h3>adapt CMakeLists.txt<a class="headerlink" href="#adapt-cmakelists-txt" title="Permalink to this headline">¶</a></h3>
+<p>~/zephyrproject-2/zephyr/drivers/sensor
+add_subdirectory_ifdef(CONFIG_CST816S           cst816s)</p>
+</div>
+<div class="section" id="adapt-kconfig">
+<h3>adapt Kconfig<a class="headerlink" href="#adapt-kconfig" title="Permalink to this headline">¶</a></h3>
+<p>~/zephyrproject-2/zephyr/drivers/sensor</p>
+</div>
+<div class="section" id="add-yaml-file">
+<h3>add yaml file<a class="headerlink" href="#add-yaml-file" title="Permalink to this headline">¶</a></h3>
+<p>~/zephyrproject-2/zephyr/dts/bindings/sensor
+add  hynitron,cst816s.yaml</p>
+</div>
+<div class="section" id="edit-kconfig">
+<h3>edit KConfig<a class="headerlink" href="#edit-kconfig" title="Permalink to this headline">¶</a></h3>
+<p>source “drivers/sensor/cst816s/Kconfig”</p>
+</div>
+<div class="section" id="create-driver">
+<h3>create driver<a class="headerlink" href="#create-driver" title="Permalink to this headline">¶</a></h3>
+<p>see under drivers/sensor/cst816s</p>
+<p>complement the pinetime.dts file with the following (under samples/sensor/bma280)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&amp;i2c1 {</span>
+<span class="go">        cst816s@15 {</span>
+<span class="go">                   compatible = &quot;hynitron,cst816s&quot;;</span>
+<span class="go">                   reg = &lt;0x15&gt;;</span>
+<span class="go">                   label = &quot;CST816S&quot;;</span>
+<span class="go">                   };</span>
+<span class="go">       };</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="todo">
+<h2>Todo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
@@ -224,14 +273,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>

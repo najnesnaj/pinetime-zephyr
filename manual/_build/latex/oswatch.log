@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.12.10)  4 JAN 2020 10:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.12.10)  5 JAN 2020 21:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1156,7 +1156,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
  [3] [4
 
 ]
-<zephyr_logo.png, id=444, 170.5572pt x 58.2978pt>
+<zephyr_logo.png, id=474, 170.5572pt x 58.2978pt>
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 88.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
@@ -1185,7 +1185,7 @@ LaTeX Font Info:    Try loading font information for TS1+ptm on input line 128.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<PineTime-830x400.png, id=475, 833.1125pt x 401.5pt>
+<PineTime-830x400.png, id=506, 833.1125pt x 401.5pt>
 File: PineTime-830x400.png Graphic file (type png)
 <use PineTime-830x400.png>
 Package pdftex.def Info: PineTime-830x400.png  used on input line 147.
@@ -1220,7 +1220,7 @@ Chapter 8.
 Chapter 9.
 [19] [20]
 Chapter 10.
-<clockback.png, id=544, 144.54pt x 144.54pt>
+<clockback.png, id=574, 144.54pt x 144.54pt>
 File: clockback.png Graphic file (type png)
 <use clockback.png>
 Package pdftex.def Info: clockback.png  used on input line 467.
@@ -1287,11 +1287,11 @@ Chapter 21.
 Chapter 22.
 [45
 
-] [46
-
-]
+] [46]
 Chapter 23.
-[47] [48
+[47
+
+] [48
 
 ]
 Chapter 24.
@@ -1303,26 +1303,30 @@ Chapter 25.
 
 ]
 Chapter 26.
-[53] (./oswatch.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1451.
- [54]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1451.
+[53] [54
+
+]
+Chapter 27.
+[55] (./oswatch.ind)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1524.
+ [56]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1524.
  (./oswatch.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1451.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1451.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1524.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1524.
 
 Package rerunfilecheck Info: File `oswatch.out' has not changed.
-(rerunfilecheck)             Checksum: A241026664308CE9F6319A43867049D2;10721.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1451.
+(rerunfilecheck)             Checksum: BC80DAEF902F781535C84A320D292736;11410.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1524.
  ) 
 Here is how much of TeX's memory you used:
- 13987 strings out of 494923
- 194085 string characters out of 6180741
- 346230 words of memory out of 5000000
- 16833 multiletter control sequences out of 15000+600000
+ 14018 strings out of 494923
+ 194601 string characters out of 6180741
+ 346774 words of memory out of 5000000
+ 16851 multiletter control sequences out of 15000+600000
  51422 words of font info for 71 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
- 37i,12n,51p,666b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,12n,51p,666b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/f
@@ -1332,10 +1336,10 @@ vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on oswatch.pdf (60 pages, 331941 bytes).
+Output written on oswatch.pdf (62 pages, 334968 bytes).
 PDF statistics:
- 780 PDF objects out of 1000 (max. 8388607)
- 691 compressed objects within 7 object streams
- 152 named destinations out of 1000 (max. 500000)
- 684 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 827 PDF objects out of 1000 (max. 8388607)
+ 735 compressed objects within 8 object streams
+ 165 named destinations out of 1000 (max. 500000)
+ 732 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Jan 04, 2020}
+\date{Jan 05, 2020}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1103,6 +1103,79 @@ Which contains:
 
 \section{References}
 \label{\detokenize{touchscreen:references}}
+
+\chapter{HYNITRON CST816S}
+\label{\detokenize{cst816s:hynitron-cst816s}}\label{\detokenize{cst816s::doc}}
+this driver does not exist, so it has been created.
+Still work in progress ….
+
+there is a sample in this repository which can be copied to the zephyr samples directory
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/sensor/cst816s}
+\end{sphinxVerbatim}
+
+
+\section{Overview}
+\label{\detokenize{cst816s:overview}}
+the Hynitron cst816s is a touchscreen.
+In zephyr is no touchscreen driver yet.
+In order to investigate, the touchscreen driver has been created as a sensor.
+In fact it senses you finger ;)
+
+
+\section{Requirements}
+\label{\detokenize{cst816s:requirements}}
+for this sensor does not exist any driver, so here’s what I did to create one under zephyr
+
+
+\subsection{adapt CMakeLists.txt}
+\label{\detokenize{cst816s:adapt-cmakelists-txt}}
+\textasciitilde{}/zephyrproject-2/zephyr/drivers/sensor
+add\_subdirectory\_ifdef(CONFIG\_CST816S           cst816s)
+
+
+\subsection{adapt Kconfig}
+\label{\detokenize{cst816s:adapt-kconfig}}
+\textasciitilde{}/zephyrproject-2/zephyr/drivers/sensor
+
+
+\subsection{add yaml file}
+\label{\detokenize{cst816s:add-yaml-file}}
+\textasciitilde{}/zephyrproject-2/zephyr/dts/bindings/sensor
+add  hynitron,cst816s.yaml
+
+
+\subsection{edit KConfig}
+\label{\detokenize{cst816s:edit-kconfig}}
+source “drivers/sensor/cst816s/Kconfig”
+
+
+\subsection{create driver}
+\label{\detokenize{cst816s:create-driver}}
+see under drivers/sensor/cst816s
+
+complement the pinetime.dts file with the following (under samples/sensor/bma280)
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{\PYGZam{}i2c1 \PYGZob{}}
+\PYG{g+go}{        cst816s@15 \PYGZob{}}
+\PYG{g+go}{                   compatible = \PYGZdq{}hynitron,cst816s\PYGZdq{};}
+\PYG{g+go}{                   reg = \PYGZlt{}0x15\PYGZgt{};}
+\PYG{g+go}{                   label = \PYGZdq{}CST816S\PYGZdq{};}
+\PYG{g+go}{                   \PYGZcb{};}
+\PYG{g+go}{       \PYGZcb{};}
+\end{sphinxVerbatim}
+
+
+\section{Building and Running}
+\label{\detokenize{cst816s:building-and-running}}
+
+\section{Todo}
+\label{\detokenize{cst816s:todo}}
+
+\section{References}
+\label{\detokenize{cst816s:references}}
 
 \chapter{Menuconfig}
 \label{\detokenize{menuconfig:menuconfig}}\label{\detokenize{menuconfig::doc}}

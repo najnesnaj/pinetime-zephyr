@@ -20,6 +20,7 @@
    bma421
    hrs3300
    touchscreen
+   cst816s
    menuconfig
    flashing
    debugging

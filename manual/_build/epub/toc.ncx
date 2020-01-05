@@ -606,82 +606,160 @@
     </navPoint>
     <navPoint id="navPoint100" playOrder="83">
       <navLabel>
+        <text>HYNITRON CST816S</text>
+      </navLabel>
+      <content src="cst816s.xhtml" />  
+      <navPoint id="navPoint101" playOrder="83">
+        <navLabel>
+          <text>HYNITRON CST816S</text>
+        </navLabel>
+        <content src="cst816s.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint102" playOrder="84">
+        <navLabel>
+          <text>Overview</text>
+        </navLabel>
+        <content src="cst816s.xhtml#overview" />  
+      </navPoint>
+      <navPoint id="navPoint103" playOrder="85">
+        <navLabel>
+          <text>Requirements</text>
+        </navLabel>
+        <content src="cst816s.xhtml#requirements" />  
+        <navPoint id="navPoint104" playOrder="85">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="cst816s.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint105" playOrder="86">
+          <navLabel>
+            <text>adapt CMakeLists.txt</text>
+          </navLabel>
+          <content src="cst816s.xhtml#adapt-cmakelists-txt" />  
+        </navPoint>
+        <navPoint id="navPoint106" playOrder="87">
+          <navLabel>
+            <text>adapt Kconfig</text>
+          </navLabel>
+          <content src="cst816s.xhtml#adapt-kconfig" />  
+        </navPoint>
+        <navPoint id="navPoint107" playOrder="88">
+          <navLabel>
+            <text>add yaml file</text>
+          </navLabel>
+          <content src="cst816s.xhtml#add-yaml-file" />  
+        </navPoint>
+        <navPoint id="navPoint108" playOrder="89">
+          <navLabel>
+            <text>edit KConfig</text>
+          </navLabel>
+          <content src="cst816s.xhtml#edit-kconfig" />  
+        </navPoint>
+        <navPoint id="navPoint109" playOrder="90">
+          <navLabel>
+            <text>create driver</text>
+          </navLabel>
+          <content src="cst816s.xhtml#create-driver" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint110" playOrder="91">
+        <navLabel>
+          <text>Building and Running</text>
+        </navLabel>
+        <content src="cst816s.xhtml#building-and-running" />  
+      </navPoint>
+      <navPoint id="navPoint111" playOrder="92">
+        <navLabel>
+          <text>Todo</text>
+        </navLabel>
+        <content src="cst816s.xhtml#todo" />  
+      </navPoint>
+      <navPoint id="navPoint112" playOrder="93">
+        <navLabel>
+          <text>References</text>
+        </navLabel>
+        <content src="cst816s.xhtml#references" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint113" playOrder="94">
+      <navLabel>
         <text>Menuconfig</text>
       </navLabel>
       <content src="menuconfig.xhtml" />  
-      <navPoint id="navPoint101" playOrder="83">
+      <navPoint id="navPoint114" playOrder="94">
         <navLabel>
           <text>Menuconfig</text>
         </navLabel>
         <content src="menuconfig.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint102" playOrder="84">
+      <navPoint id="navPoint115" playOrder="95">
         <navLabel>
           <text>Zephyr is like linux</text>
         </navLabel>
         <content src="menuconfig.xhtml#zephyr-is-like-linux" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint103" playOrder="85">
+    <navPoint id="navPoint116" playOrder="96">
       <navLabel>
         <text>hacking   the pinetime smartwatch</text>
       </navLabel>
       <content src="flashing.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint104" playOrder="86">
+    <navPoint id="navPoint117" playOrder="97">
       <navLabel>
         <text>debugging   the pinetime smartwatch</text>
       </navLabel>
       <content src="debugging.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint105" playOrder="87">
+    <navPoint id="navPoint118" playOrder="98">
       <navLabel>
         <text>scanning the I2C_1 port</text>
       </navLabel>
       <content src="i2cscanning.xhtml" />  
-      <navPoint id="navPoint106" playOrder="87">
+      <navPoint id="navPoint119" playOrder="98">
         <navLabel>
           <text>scanning the I2C_1 port</text>
         </navLabel>
         <content src="i2cscanning.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint107" playOrder="88">
+      <navPoint id="navPoint120" playOrder="99">
         <navLabel>
           <text>Building and Running</text>
         </navLabel>
         <content src="i2cscanning.xhtml#building-and-running" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint108" playOrder="89">
+    <navPoint id="navPoint121" playOrder="100">
       <navLabel>
         <text>howto flash your zephyr image</text>
       </navLabel>
       <content src="writeprotection.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint109" playOrder="90">
+    <navPoint id="navPoint122" playOrder="101">
       <navLabel>
         <text>howto generate pdf documents</text>
       </navLabel>
       <content src="latexpdf.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint110" playOrder="91">
+    <navPoint id="navPoint123" playOrder="102">
       <navLabel>
         <text>About</text>
       </navLabel>
       <content src="about.xhtml" />  
-      <navPoint id="navPoint111" playOrder="91">
+      <navPoint id="navPoint124" playOrder="102">
         <navLabel>
           <text>About</text>
         </navLabel>
         <content src="about.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint112" playOrder="92">
+      <navPoint id="navPoint125" playOrder="103">
         <navLabel>
           <text>Todo</text>
         </navLabel>
         <content src="about.xhtml#todo" />  
       </navPoint>
-      <navPoint id="navPoint113" playOrder="93">
+      <navPoint id="navPoint126" playOrder="104">
         <navLabel>
           <text>Fast track</text>
         </navLabel>
