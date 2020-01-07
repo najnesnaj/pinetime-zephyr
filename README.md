@@ -36,7 +36,9 @@ In this repository you can find modified directories that need to be copied to t
 ### DONE
 - the display
 - bluetooth BLE
-- graphics library (LittlevGL)
+- graphics libraries
+- - LittlevGL
+- - Adafruit GFX
 - RTC
 - Serial NOR flash   
 - accel sensor
