@@ -1,6 +1,7 @@
 
 #include "common.h"
 
+// >>> [1] Source: https://www.techiedelight.com/implement-itoa-function-in-c/
 // inline function to swap two numbers
 inline void swap(char *x, char *y) {
 	char t = *x; *x = *y; *y = t;
@@ -53,19 +54,11 @@ char* itoa(int value, char* buffer, int base)
 	// reverse the string and return it
 	return reverse(buffer, 0, i - 1);
 }
+// <<< [1]
 
-
-char * utoa(unsigned int val, char * s, int radix) { return itoa(val, s, radix); }
-char * ultoa(unsigned int val, char * s, int radix) { return utoa(val, s, radix); }
-char * ltoa(unsigned int val, char * s, int radix) { return ltoa(val, s, radix); }
-
-
-char *dtostrf (double val, signed char width, unsigned char prec, char *sout) {
-  asm(".global _printf_float");
-
-  char fmt[20];
-  sprintf(fmt, "%%%d.%df", width, prec);
-  sprintf(sout, fmt, val);
-  return sout;
-}
+// lame reuse of the above for different data types
+// TODO: improve
+char* utoa(unsigned int val, char * s, int radix) { return itoa(val, s, radix); }
+char* ultoa(unsigned int val, char * s, int radix) { return utoa(val, s, radix); }
+char* ltoa(unsigned int val, char * s, int radix) { return ltoa(val, s, radix); }
 
