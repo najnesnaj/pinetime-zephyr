@@ -684,82 +684,112 @@
     </navPoint>
     <navPoint id="navPoint113" playOrder="94">
       <navLabel>
+        <text>Battery</text>
+      </navLabel>
+      <content src="battery.xhtml" />  
+      <navPoint id="navPoint114" playOrder="94">
+        <navLabel>
+          <text>Battery</text>
+        </navLabel>
+        <content src="battery.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint115" playOrder="95">
+        <navLabel>
+          <text>Overview</text>
+        </navLabel>
+        <content src="battery.xhtml#overview" />  
+      </navPoint>
+      <navPoint id="navPoint116" playOrder="96">
+        <navLabel>
+          <text>Todo</text>
+        </navLabel>
+        <content src="battery.xhtml#todo" />  
+      </navPoint>
+      <navPoint id="navPoint117" playOrder="97">
+        <navLabel>
+          <text>References</text>
+        </navLabel>
+        <content src="battery.xhtml#references" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint118" playOrder="98">
+      <navLabel>
         <text>Menuconfig</text>
       </navLabel>
       <content src="menuconfig.xhtml" />  
-      <navPoint id="navPoint114" playOrder="94">
+      <navPoint id="navPoint119" playOrder="98">
         <navLabel>
           <text>Menuconfig</text>
         </navLabel>
         <content src="menuconfig.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint115" playOrder="95">
+      <navPoint id="navPoint120" playOrder="99">
         <navLabel>
           <text>Zephyr is like linux</text>
         </navLabel>
         <content src="menuconfig.xhtml#zephyr-is-like-linux" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint116" playOrder="96">
+    <navPoint id="navPoint121" playOrder="100">
       <navLabel>
         <text>hacking   the pinetime smartwatch</text>
       </navLabel>
       <content src="flashing.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint117" playOrder="97">
+    <navPoint id="navPoint122" playOrder="101">
       <navLabel>
         <text>debugging   the pinetime smartwatch</text>
       </navLabel>
       <content src="debugging.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint118" playOrder="98">
+    <navPoint id="navPoint123" playOrder="102">
       <navLabel>
         <text>scanning the I2C_1 port</text>
       </navLabel>
       <content src="i2cscanning.xhtml" />  
-      <navPoint id="navPoint119" playOrder="98">
+      <navPoint id="navPoint124" playOrder="102">
         <navLabel>
           <text>scanning the I2C_1 port</text>
         </navLabel>
         <content src="i2cscanning.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint120" playOrder="99">
+      <navPoint id="navPoint125" playOrder="103">
         <navLabel>
           <text>Building and Running</text>
         </navLabel>
         <content src="i2cscanning.xhtml#building-and-running" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint121" playOrder="100">
+    <navPoint id="navPoint126" playOrder="104">
       <navLabel>
         <text>howto flash your zephyr image</text>
       </navLabel>
       <content src="writeprotection.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint122" playOrder="101">
+    <navPoint id="navPoint127" playOrder="105">
       <navLabel>
         <text>howto generate pdf documents</text>
       </navLabel>
       <content src="latexpdf.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint123" playOrder="102">
+    <navPoint id="navPoint128" playOrder="106">
       <navLabel>
         <text>About</text>
       </navLabel>
       <content src="about.xhtml" />  
-      <navPoint id="navPoint124" playOrder="102">
+      <navPoint id="navPoint129" playOrder="106">
         <navLabel>
           <text>About</text>
         </navLabel>
         <content src="about.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint125" playOrder="103">
+      <navPoint id="navPoint130" playOrder="107">
         <navLabel>
           <text>Todo</text>
         </navLabel>
         <content src="about.xhtml#todo" />  
       </navPoint>
-      <navPoint id="navPoint126" playOrder="104">
+      <navPoint id="navPoint131" playOrder="108">
         <navLabel>
           <text>Fast track</text>
         </navLabel>

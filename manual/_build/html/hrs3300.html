@@ -119,6 +119,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="touchscreen.html">Touchscreen Hynitron</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cst816s.html">HYNITRON CST816S</a></li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flashing.html">hacking   the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">debugging   the pinetime smartwatch</a></li>
@@ -200,8 +201,9 @@ Still work in progress ….</p>
 </div>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The HX HRS3300 sensor is a heart rate sensor, it produces 2 values, which have to be processed by an algorithm.
-I have copied the settings of an arduino port of this library.</p>
+<p>The HX HRS3300 sensor is a heart rate sensor, it produces 2 values: ALS and HRS. Ambient LIGHT SENSOR and HEART RATE SENSOR. Which have to be processed by an algorithm. I have no knowledge of a good open source algorithm yet.</p>
+<p>I have used the settings of an arduino port of this library.</p>
+<img alt="_images/hrs3300.jpg" src="_images/hrs3300.jpg" />
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>

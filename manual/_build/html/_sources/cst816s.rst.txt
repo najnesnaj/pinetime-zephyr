@@ -57,7 +57,7 @@ create driver
 -------------
 see under drivers/sensor/cst816s
 
-complement the pinetime.dts file with the following (under samples/sensor/bma280) 
+complement the pinetime.dts file with the following (under boards/arm/pinetime) 
 
 .. code-block:: console
 

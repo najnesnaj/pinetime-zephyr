@@ -27,10 +27,20 @@ MY_REGISTER1=0xee;
 		/* Print green LED data*/
 		printf("GREEN=%d\n", green.val1);
 if (green.val1 > 0) MY_REGISTER2=0xaa; 
-/*
- *green.val2 exists as well
+/*green.val1 ALS (ambient light sensor)
+ *green.val2 HRS (heart rate sensor) 
  these two values are raw readings and have to be processed by an algorithm in order to get a heart rate
  * */
-		k_sleep(K_MSEC(20));
+		k_sleep(K_MSEC(20000));
+//MY_REGISTER2=0x44;
+		sensor_channel_get(dev, SENSOR_CHAN_RED, &green);
+
+ sensor_attr_set(dev, SENSOR_CHAN_RED, SENSOR_ATTR_FULL_SCALE, &green); //switching off heart rate sensor
+
+//MY_REGISTER1=0x44;
+
+//		k_sleep(K_MSEC(200));
+// sensor_attr_set(dev, SENSOR_CHAN_RED, SENSOR_ATTR_FULL_SCALE, &green); //switching off heart rate sensor
+		k_sleep(K_MSEC(20000));
 	}
 }

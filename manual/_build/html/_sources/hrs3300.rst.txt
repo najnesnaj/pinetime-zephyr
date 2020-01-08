@@ -19,10 +19,13 @@ Overview
 ********
 
 
-The HX HRS3300 sensor is a heart rate sensor, it produces 2 values, which have to be processed by an algorithm.
-I have copied the settings of an arduino port of this library.
+The HX HRS3300 sensor is a heart rate sensor, it produces 2 values: ALS and HRS. Ambient LIGHT SENSOR and HEART RATE SENSOR. Which have to be processed by an algorithm. I have no knowledge of a good open source algorithm yet.
 
 
+
+I have used the settings of an arduino port of this library.
+
+.. image:: ./hrs3300.jpg
 
 Requirements
 ************

@@ -8,7 +8,7 @@
 
 #include "hrs3300.h"
 #include "hrs3300_reg_init.h"
-
+#define MY_REGISTER3 (*(volatile uint8_t*)0x2000F002)
 LOG_MODULE_REGISTER(HRS3300, CONFIG_SENSOR_LOG_LEVEL);
 
 static int hrs3300_sample_fetch(struct device *dev, enum sensor_channel chan)
@@ -38,13 +38,13 @@ static int hrs3300_sample_fetch(struct device *dev, enum sensor_channel chan)
 	dataA = ((databuf[0]<<8)|((databuf[1]&0x0F)<<4)|(databuf[2]&0x0F));
 
 
-//	databuf[0] = Hrs3300_read_reg(0x08);
+	//	databuf[0] = Hrs3300_read_reg(0x08);
 	if (i2c_reg_read_byte(data->i2c, HRS3300_I2C_ADDRESS,
 				0x08, &databuf[0])) {}
-//	databuf[1] = Hrs3300_read_reg(0x0d);
+	//	databuf[1] = Hrs3300_read_reg(0x0d);
 	if (i2c_reg_read_byte(data->i2c, HRS3300_I2C_ADDRESS,
 				0x0d, &databuf[0])) {}
-//	databuf[2] = Hrs3300_read_reg(0x0e);
+	//	databuf[2] = Hrs3300_read_reg(0x0e);
 	if (i2c_reg_read_byte(data->i2c, HRS3300_I2C_ADDRESS,
 				0x0e, &databuf[0])) {}
 
@@ -66,17 +66,59 @@ static int hrs3300_sample_fetch(struct device *dev, enum sensor_channel chan)
 
 	/*	fifo_chan = 0;
 		for (i = 0; i < num_bytes; i += 3) {
-	 Each channel is 18-bits 
-	fifo_data = (buffer[i] << 16) | (buffer[i + 1] << 8) |
-	(buffer[i + 2]);
-	fifo_data &= MAX30101_FIFO_DATA_MASK;
+		Each channel is 18-bits 
+		fifo_data = (buffer[i] << 16) | (buffer[i + 1] << 8) |
+		(buffer[i + 2]);
+		fifo_data &= MAX30101_FIFO_DATA_MASK;
 
-	data->raw[fifo_chan++] = fifo_data;
-	}
-	*/
+		data->raw[fifo_chan++] = fifo_data;
+		}
+		*/
 
-		return 0;
+	return 0;
 }
+//todo method to switch heart rate sensor off
+int hrs3300_attr_set(struct device *dev,
+		enum sensor_channel chan,
+		enum sensor_attribute attr,
+		const struct sensor_value *val)
+{
+	struct hrs3300_data *drv_data = dev->driver_data;
+	if (chan == SENSOR_CHAN_RED) {
+		MY_REGISTER3=0x53;
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x00); //led driver
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x00); //led driver
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x00); //led driver
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x00); //led driver
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x00); //led driver
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x00); //led driver
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x00); //led driver
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x00); //led driver
+/*		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x01, 0x08);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x02, 0x80);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x4e);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x16, 0x88);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x22);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x01, 0xf0);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x02);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x22);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x01, 0xf0);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x02);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x22);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x01, 0xf0);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x02);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x22);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x01, 0xf0);
+		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x02);*/
+	}
+
+
+	return 0;
+}
+
+
+
+
 
 static int hrs3300_channel_get(struct device *dev, enum sensor_channel chan,
 		struct sensor_value *val)
@@ -84,24 +126,29 @@ static int hrs3300_channel_get(struct device *dev, enum sensor_channel chan,
 	struct hrs3300_data *data = dev->driver_data;
 	//enum hrs3300_led_channel led_chan;
 	int fifo_chan;
-
-/*	switch (chan) {
+//	struct hrs3300_data *drv_data = dev->driver_data; //todo remove
+ 
+/*		switch (chan) {
 		case SENSOR_CHAN_GREEN:
-			//led_chan = HRS3300_LED_CHANNEL_GREEN;
-			led_chan = 1;
-			break;
-
-		default:
-			LOG_ERR("Unsupported sensor channel");
-			return -ENOTSUP;
+	//led_chan = HRS3300_LED_CHANNEL_GREEN;
+	                      //led_chan = 1;
+	                      break;
+		case SENSOR_CHAN_RED:
+			     // MY_REGISTER3=0x33;
+//		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x00); //led driver kicked out finally
+//		i2c_reg_write_byte(drv_data->i2c, HRS3300_I2C_ADDRESS, 0x0c, 0x00); //led driver todo remove
+                              break;
+	default:
+	        LOG_ERR("Unsupported sensor channel");
+	        return -ENOTSUP;
 	}*/
-/*
-	fifo_chan = data->map[led_chan];
-	if (fifo_chan >= HRS3300_MAX_NUM_CHANNELS) {
-		LOG_ERR("Inactive sensor channel");
-		return -ENOTSUP;
-	}
-*/
+	/*
+	   fifo_chan = data->map[led_chan];
+	   if (fifo_chan >= HRS3300_MAX_NUM_CHANNELS) {
+	   LOG_ERR("Inactive sensor channel");
+	   return -ENOTSUP;
+	   }
+	   */
 	val->val1 = data->raw[0];
 	val->val2 = data->raw[1];
 
@@ -112,6 +159,7 @@ static int hrs3300_channel_get(struct device *dev, enum sensor_channel chan,
 static const struct sensor_driver_api hrs3300_driver_api = {
 	.sample_fetch = hrs3300_sample_fetch,
 	.channel_get = hrs3300_channel_get,
+	.attr_set = hrs3300_attr_set,
 };
 
 static int hrs3300_init(struct device *dev)
@@ -189,41 +237,41 @@ static int hrs3300_init(struct device *dev)
 static struct hrs3300_config hrs3300_config;
 static struct hrs3300_data hrs3300_data;
 /*
-static struct max30101_config max30101_config = {
-	.fifo = (CONFIG_MAX30101_SMP_AVE << MAX30101_FIFO_CFG_SMP_AVE_SHIFT) |
+   static struct max30101_config max30101_config = {
+   .fifo = (CONFIG_MAX30101_SMP_AVE << MAX30101_FIFO_CFG_SMP_AVE_SHIFT) |
 #ifdef CONFIG_MAX30101_FIFO_ROLLOVER_EN
-		MAX30101_FIFO_CFG_ROLLOVER_EN_MASK |
+MAX30101_FIFO_CFG_ROLLOVER_EN_MASK |
 #endif
-		(CONFIG_MAX30101_FIFO_A_FULL <<
-		 MAX30101_FIFO_CFG_FIFO_FULL_SHIFT),
+(CONFIG_MAX30101_FIFO_A_FULL <<
+MAX30101_FIFO_CFG_FIFO_FULL_SHIFT),
 
 #if defined(CONFIG_MAX30101_HEART_RATE_MODE)
-	.mode = MAX30101_MODE_HEART_RATE,
-	.slot[0] = MAX30101_SLOT_RED_LED1_PA,
-	.slot[1] = MAX30101_SLOT_DISABLED,
-	.slot[2] = MAX30101_SLOT_DISABLED,
-	.slot[3] = MAX30101_SLOT_DISABLED,
+.mode = MAX30101_MODE_HEART_RATE,
+.slot[0] = MAX30101_SLOT_RED_LED1_PA,
+.slot[1] = MAX30101_SLOT_DISABLED,
+.slot[2] = MAX30101_SLOT_DISABLED,
+.slot[3] = MAX30101_SLOT_DISABLED,
 #elif defined(CONFIG_MAX30101_SPO2_MODE)
-	.mode = MAX30101_MODE_SPO2,
-	.slot[0] = MAX30101_SLOT_RED_LED1_PA,
-	.slot[1] = MAX30101_SLOT_IR_LED2_PA,
-	.slot[2] = MAX30101_SLOT_DISABLED,
-	.slot[3] = MAX30101_SLOT_DISABLED,
+.mode = MAX30101_MODE_SPO2,
+.slot[0] = MAX30101_SLOT_RED_LED1_PA,
+.slot[1] = MAX30101_SLOT_IR_LED2_PA,
+.slot[2] = MAX30101_SLOT_DISABLED,
+.slot[3] = MAX30101_SLOT_DISABLED,
 #else
-	.mode = MAX30101_MODE_MULTI_LED,
-	.slot[0] = CONFIG_MAX30101_SLOT1,
-	.slot[1] = CONFIG_MAX30101_SLOT2,
-	.slot[2] = CONFIG_MAX30101_SLOT3,
-	.slot[3] = CONFIG_MAX30101_SLOT4,
+.mode = MAX30101_MODE_MULTI_LED,
+.slot[0] = CONFIG_MAX30101_SLOT1,
+.slot[1] = CONFIG_MAX30101_SLOT2,
+.slot[2] = CONFIG_MAX30101_SLOT3,
+.slot[3] = CONFIG_MAX30101_SLOT4,
 #endif
 
-	.spo2 = (CONFIG_MAX30101_ADC_RGE << MAX30101_SPO2_ADC_RGE_SHIFT) |
-		(CONFIG_MAX30101_SR << MAX30101_SPO2_SR_SHIFT) |
-		(MAX30101_PW_18BITS << MAX30101_SPO2_PW_SHIFT),
+.spo2 = (CONFIG_MAX30101_ADC_RGE << MAX30101_SPO2_ADC_RGE_SHIFT) |
+(CONFIG_MAX30101_SR << MAX30101_SPO2_SR_SHIFT) |
+(MAX30101_PW_18BITS << MAX30101_SPO2_PW_SHIFT),
 
-	.led_pa[0] = CONFIG_MAX30101_LED1_PA,
-	.led_pa[1] = CONFIG_MAX30101_LED2_PA,
-	.led_pa[2] = CONFIG_MAX30101_LED3_PA,
+.led_pa[0] = CONFIG_MAX30101_LED1_PA,
+.led_pa[1] = CONFIG_MAX30101_LED2_PA,
+.led_pa[2] = CONFIG_MAX30101_LED3_PA,
 };
 
 static struct max30101_data max30101_data;

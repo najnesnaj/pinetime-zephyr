@@ -8,6 +8,10 @@
 #include <drivers/i2c.h>
 #include <drivers/gpio.h>
 #define HRS3300_I2C_ADDRESS  0x44
+
+//int hrs3300_attr_set(struct device *dev, enum sensor_channel chan, enum sensor_attribute attr, const struct sensor_value *val);
+
+
 struct hrs3300_config {
 };
 

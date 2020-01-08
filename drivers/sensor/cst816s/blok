@@ -1,0 +1,6 @@
+//#define MY_REGISTER1 (*(volatile uint8_t*)0x2000F005)
+//#define MY_REGISTER2 (*(volatile uint8_t*)0x2000F006)
+//#define MY_REGISTER3 (*(volatile uint8_t*)0x2000F007)
+//#define MY_REGISTER4 (*(volatile uint8_t*)0x2000F008)
+//#define MY_REGISTER5 (*(volatile uint8_t*)0x2000F009)
+//#define MY_REGISTER6 (*(volatile uint8_t*)0x2000F00A)

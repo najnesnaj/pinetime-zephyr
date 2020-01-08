@@ -11,12 +11,12 @@
 #include <logging/log.h>
 
 #include "cst816s.h"
-#define MY_REGISTER1 (*(volatile uint8_t*)0x2000F005)
-#define MY_REGISTER2 (*(volatile uint8_t*)0x2000F006)
-#define MY_REGISTER3 (*(volatile uint8_t*)0x2000F007)
-#define MY_REGISTER4 (*(volatile uint8_t*)0x2000F008)
-#define MY_REGISTER5 (*(volatile uint8_t*)0x2000F009)
-#define MY_REGISTER6 (*(volatile uint8_t*)0x2000F00A)
+#define MY_REGISTER1 (*(volatile uint8_t*)0x2000F000)
+//#define MY_REGISTER2 (*(volatile uint8_t*)0x2000F006)
+//#define MY_REGISTER3 (*(volatile uint8_t*)0x2000F007)
+//#define MY_REGISTER4 (*(volatile uint8_t*)0x2000F008)
+//#define MY_REGISTER5 (*(volatile uint8_t*)0x2000F009)
+//#define MY_REGISTER6 (*(volatile uint8_t*)0x2000F00A)
 
 
 
@@ -26,6 +26,7 @@ static int cst816s_sample_fetch(struct device *dev, enum sensor_channel chan)
 {
 	struct cst816s_data *drv_data = dev->driver_data;
 	u8_t buf[64];
+	u8_t msb;
 	u8_t lsb;
 	u8_t id = 0U;
 	__ASSERT_NO_MSG(chan == SENSOR_CHAN_ALL);
@@ -35,16 +36,25 @@ static int cst816s_sample_fetch(struct device *dev, enum sensor_channel chan)
 	 * a burst read can be used to read all the samples
 	 */
 //	MY_REGISTER6=0x00;
-/*	if (i2c_burst_read(drv_data->i2c, CST816S_I2C_ADDRESS,
+	if (i2c_burst_read(drv_data->i2c, CST816S_I2C_ADDRESS,
 				CST816S_REG_DATA, buf, 64) < 0) {
 		LOG_DBG("Could not read data");
 //		MY_REGISTER6=0xEE;
 		return -EIO;
 	}
-*/
-	drv_data->x_sample = 100; //todo assign value
+// bytes 3 to 8 are repeated 10 times
+// byte 3 (MSB bit 3..0)
+// byte 4 (LSB)
+// only first is relevant
+//
+	msb = buf[3] & 0x0f;
+        lsb = buf[4];
+MY_REGISTER1=lsb;
+	drv_data->x_sample = (msb<<8)|lsb; 
 
-	drv_data->y_sample = 100;
+	msb = buf[5] & 0x0f;
+        lsb = buf[6];
+	drv_data->y_sample = (msb<<8)|lsb; // todo check if buf[5] is indeed Y
 
 
 	return 0;
@@ -119,7 +129,7 @@ int cst816s_init(struct device *dev)
 	/* read device ID */
 //i2c_reg_read_byte(drv_data->i2c, BMA421_I2C_ADDRESS,0x40, &id); 
 
-#ifdef CONFIG_BMA280_TRIGGER
+#ifdef CONFIG_CST816S_TRIGGER
 if (cst816s_init_interrupt(dev) < 0) {
 	LOG_DBG("Could not initialize interrupts");
 	return -EIO;

@@ -12,6 +12,15 @@
 #include "cst816s.h"
 
 #include <logging/log.h>
+
+
+#define MY_REGISTER1 (*(volatile uint8_t*)0x2000F005)
+#define MY_REGISTER2 (*(volatile uint8_t*)0x2000F006)
+#define MY_REGISTER3 (*(volatile uint8_t*)0x2000F007)
+#define MY_REGISTER4 (*(volatile uint8_t*)0x2000F008)
+#define MY_REGISTER5 (*(volatile uint8_t*)0x2000F009)
+#define MY_REGISTER6 (*(volatile uint8_t*)0x2000F00A)
+
 LOG_MODULE_DECLARE(CST816S, CONFIG_SENSOR_LOG_LEVEL);
 
 int cst816s_attr_set(struct device *dev,
@@ -40,6 +49,7 @@ static void cst816s_gpio_callback(struct device *dev,
 	gpio_pin_disable_callback(dev, CONFIG_CST816S_GPIO_PIN_NUM);
 
 #if defined(CONFIG_CST816S_TRIGGER_OWN_THREAD)
+	MY_REGISTER1=0xaa;
 	k_sem_give(&drv_data->gpio_sem);
 #elif defined(CONFIG_CST816S_TRIGGER_GLOBAL_THREAD)
 	k_work_submit(&drv_data->work);
@@ -52,7 +62,9 @@ static void cst816s_thread_cb(void *arg)
 	struct cst816s_data *drv_data = dev->driver_data;
 	u8_t status = 0U;
 	int err = 0;
-
+//dit wordt aangeroepen als interrupt op pin komt
+//
+MY_REGISTER3=0xaa;
 	/* check for data ready */
 /*	err = i2c_reg_read_byte(drv_data->i2c, CST816S_I2C_ADDRESS,
 				CST816S_REG_INT_STATUS_1, &status);
@@ -69,16 +81,20 @@ static void cst816s_thread_cb(void *arg)
 }
 
 #ifdef CONFIG_CST816S_TRIGGER_OWN_THREAD
+int teller;
 static void cst816s_thread(int dev_ptr, int unused)
 {
 	struct device *dev = INT_TO_POINTER(dev_ptr);
 	struct cst816s_data *drv_data = dev->driver_data;
-
+teller++;
+if (teller > 200) teller=0;
 	ARG_UNUSED(unused);
 
 	while (1) {
+		MY_REGISTER4=0xaa;
 		k_sem_take(&drv_data->gpio_sem, K_FOREVER);
 		cst816s_thread_cb(dev);
+MY_REGISTER6=teller;
 	}
 }
 #endif
@@ -133,7 +149,12 @@ int cst816s_trigger_set(struct device *dev,
 int cst816s_init_interrupt(struct device *dev)
 {
 	struct cst816s_data *drv_data = dev->driver_data;
-
+MY_REGISTER1=0x00;
+MY_REGISTER2=0x00;
+MY_REGISTER3=0x00;
+MY_REGISTER4=0x00;
+MY_REGISTER5=0x00;
+MY_REGISTER6=0x00;
 	/* set latched interrupts */
 /*	if (i2c_reg_write_byte(drv_data->i2c, CST816S_I2C_ADDRESS,
 			       CST816S_REG_INT_RST_LATCH,
@@ -160,6 +181,7 @@ int cst816s_init_interrupt(struct device *dev)
 			   BIT(CONFIG_CST816S_GPIO_PIN_NUM));
 
 	if (gpio_add_callback(drv_data->gpio, &drv_data->gpio_cb) < 0) {
+		MY_REGISTER2=0xee;
 		LOG_DBG("Could not set gpio callback");
 		return -EIO;
 	}

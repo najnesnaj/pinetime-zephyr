@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Jan 05, 2020}
+\date{Jan 08, 2020}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -974,8 +974,11 @@ there is a sample in this repository which can be copied to the zephyr samples d
 
 \section{Overview}
 \label{\detokenize{hrs3300:overview}}
-The HX HRS3300 sensor is a heart rate sensor, it produces 2 values, which have to be processed by an algorithm.
-I have copied the settings of an arduino port of this library.
+The HX HRS3300 sensor is a heart rate sensor, it produces 2 values: ALS and HRS. Ambient LIGHT SENSOR and HEART RATE SENSOR. Which have to be processed by an algorithm. I have no knowledge of a good open source algorithm yet.
+
+I have used the settings of an arduino port of this library.
+
+\noindent\sphinxincludegraphics{{hrs3300}.jpg}
 
 
 \section{Requirements}
@@ -1155,7 +1158,7 @@ source “drivers/sensor/cst816s/Kconfig”
 \label{\detokenize{cst816s:create-driver}}
 see under drivers/sensor/cst816s
 
-complement the pinetime.dts file with the following (under samples/sensor/bma280)
+complement the pinetime.dts file with the following (under boards/arm/pinetime)
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+go}{\PYGZam{}i2c1 \PYGZob{}}
@@ -1176,6 +1179,35 @@ complement the pinetime.dts file with the following (under samples/sensor/bma280
 
 \section{References}
 \label{\detokenize{cst816s:references}}
+
+\chapter{Battery}
+\label{\detokenize{battery:battery}}\label{\detokenize{battery::doc}}
+the samples just gets an analog reading from the battery
+
+there is a sample in this repository which can be copied to the zephyr samples directory
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/sensor/battery}
+\end{sphinxVerbatim}
+
+
+\section{Overview}
+\label{\detokenize{battery:overview}}
+The battery level is measured on port 31, trough an ADC conversion.
+
+voltage = (value * 6)/1024
+percentage remaining  ((voltage - 3.55)*100)*3.9;
+
+
+\section{Todo}
+\label{\detokenize{battery:todo}}
+check pin when charging
+
+
+\section{References}
+\label{\detokenize{battery:references}}
+\sphinxurl{https://forum.pine64.org/showthread.php?tid=8147}
+
 
 \chapter{Menuconfig}
 \label{\detokenize{menuconfig:menuconfig}}\label{\detokenize{menuconfig::doc}}

@@ -64,40 +64,44 @@
 \contentsline {section}{\numberline {17.5}References}{36}{section.17.5}
 \contentsline {chapter}{\numberline {18}HX HRS3300}{37}{chapter.18}
 \contentsline {section}{\numberline {18.1}Overview}{37}{section.18.1}
-\contentsline {section}{\numberline {18.2}Requirements}{37}{section.18.2}
-\contentsline {subsection}{\numberline {18.2.1}adapt CMakeLists.txt}{37}{subsection.18.2.1}
-\contentsline {subsection}{\numberline {18.2.2}adapt Kconfig}{37}{subsection.18.2.2}
-\contentsline {subsection}{\numberline {18.2.3}add yaml file}{37}{subsection.18.2.3}
-\contentsline {subsection}{\numberline {18.2.4}edit KConfig}{37}{subsection.18.2.4}
-\contentsline {subsection}{\numberline {18.2.5}create driver}{38}{subsection.18.2.5}
-\contentsline {section}{\numberline {18.3}Building and Running}{38}{section.18.3}
-\contentsline {section}{\numberline {18.4}Todo}{38}{section.18.4}
-\contentsline {section}{\numberline {18.5}References}{38}{section.18.5}
-\contentsline {chapter}{\numberline {19}Touchscreen Hynitron}{39}{chapter.19}
-\contentsline {section}{\numberline {19.1}Overview}{39}{section.19.1}
-\contentsline {section}{\numberline {19.2}Requirements}{39}{section.19.2}
-\contentsline {section}{\numberline {19.3}Building and Running}{39}{section.19.3}
-\contentsline {section}{\numberline {19.4}Todo}{39}{section.19.4}
-\contentsline {section}{\numberline {19.5}References}{39}{section.19.5}
-\contentsline {chapter}{\numberline {20}HYNITRON CST816S}{41}{chapter.20}
-\contentsline {section}{\numberline {20.1}Overview}{41}{section.20.1}
-\contentsline {section}{\numberline {20.2}Requirements}{41}{section.20.2}
-\contentsline {subsection}{\numberline {20.2.1}adapt CMakeLists.txt}{41}{subsection.20.2.1}
-\contentsline {subsection}{\numberline {20.2.2}adapt Kconfig}{41}{subsection.20.2.2}
-\contentsline {subsection}{\numberline {20.2.3}add yaml file}{41}{subsection.20.2.3}
-\contentsline {subsection}{\numberline {20.2.4}edit KConfig}{41}{subsection.20.2.4}
-\contentsline {subsection}{\numberline {20.2.5}create driver}{42}{subsection.20.2.5}
-\contentsline {section}{\numberline {20.3}Building and Running}{42}{section.20.3}
-\contentsline {section}{\numberline {20.4}Todo}{42}{section.20.4}
-\contentsline {section}{\numberline {20.5}References}{42}{section.20.5}
-\contentsline {chapter}{\numberline {21}Menuconfig}{43}{chapter.21}
-\contentsline {section}{\numberline {21.1}Zephyr is like linux}{43}{section.21.1}
-\contentsline {chapter}{\numberline {22}hacking the pinetime smartwatch}{45}{chapter.22}
-\contentsline {chapter}{\numberline {23}debugging the pinetime smartwatch}{47}{chapter.23}
-\contentsline {chapter}{\numberline {24}scanning the I2C\_1 port}{49}{chapter.24}
-\contentsline {section}{\numberline {24.1}Building and Running}{49}{section.24.1}
-\contentsline {chapter}{\numberline {25}howto flash your zephyr image}{51}{chapter.25}
-\contentsline {chapter}{\numberline {26}howto generate pdf documents}{53}{chapter.26}
-\contentsline {chapter}{\numberline {27}About}{55}{chapter.27}
-\contentsline {section}{\numberline {27.1}Todo}{55}{section.27.1}
-\contentsline {section}{\numberline {27.2}Fast track}{55}{section.27.2}
+\contentsline {section}{\numberline {18.2}Requirements}{38}{section.18.2}
+\contentsline {subsection}{\numberline {18.2.1}adapt CMakeLists.txt}{38}{subsection.18.2.1}
+\contentsline {subsection}{\numberline {18.2.2}adapt Kconfig}{38}{subsection.18.2.2}
+\contentsline {subsection}{\numberline {18.2.3}add yaml file}{38}{subsection.18.2.3}
+\contentsline {subsection}{\numberline {18.2.4}edit KConfig}{39}{subsection.18.2.4}
+\contentsline {subsection}{\numberline {18.2.5}create driver}{39}{subsection.18.2.5}
+\contentsline {section}{\numberline {18.3}Building and Running}{39}{section.18.3}
+\contentsline {section}{\numberline {18.4}Todo}{39}{section.18.4}
+\contentsline {section}{\numberline {18.5}References}{39}{section.18.5}
+\contentsline {chapter}{\numberline {19}Touchscreen Hynitron}{41}{chapter.19}
+\contentsline {section}{\numberline {19.1}Overview}{41}{section.19.1}
+\contentsline {section}{\numberline {19.2}Requirements}{41}{section.19.2}
+\contentsline {section}{\numberline {19.3}Building and Running}{41}{section.19.3}
+\contentsline {section}{\numberline {19.4}Todo}{41}{section.19.4}
+\contentsline {section}{\numberline {19.5}References}{41}{section.19.5}
+\contentsline {chapter}{\numberline {20}HYNITRON CST816S}{43}{chapter.20}
+\contentsline {section}{\numberline {20.1}Overview}{43}{section.20.1}
+\contentsline {section}{\numberline {20.2}Requirements}{43}{section.20.2}
+\contentsline {subsection}{\numberline {20.2.1}adapt CMakeLists.txt}{43}{subsection.20.2.1}
+\contentsline {subsection}{\numberline {20.2.2}adapt Kconfig}{43}{subsection.20.2.2}
+\contentsline {subsection}{\numberline {20.2.3}add yaml file}{43}{subsection.20.2.3}
+\contentsline {subsection}{\numberline {20.2.4}edit KConfig}{43}{subsection.20.2.4}
+\contentsline {subsection}{\numberline {20.2.5}create driver}{44}{subsection.20.2.5}
+\contentsline {section}{\numberline {20.3}Building and Running}{44}{section.20.3}
+\contentsline {section}{\numberline {20.4}Todo}{44}{section.20.4}
+\contentsline {section}{\numberline {20.5}References}{44}{section.20.5}
+\contentsline {chapter}{\numberline {21}Battery}{45}{chapter.21}
+\contentsline {section}{\numberline {21.1}Overview}{45}{section.21.1}
+\contentsline {section}{\numberline {21.2}Todo}{45}{section.21.2}
+\contentsline {section}{\numberline {21.3}References}{45}{section.21.3}
+\contentsline {chapter}{\numberline {22}Menuconfig}{47}{chapter.22}
+\contentsline {section}{\numberline {22.1}Zephyr is like linux}{47}{section.22.1}
+\contentsline {chapter}{\numberline {23}hacking the pinetime smartwatch}{49}{chapter.23}
+\contentsline {chapter}{\numberline {24}debugging the pinetime smartwatch}{51}{chapter.24}
+\contentsline {chapter}{\numberline {25}scanning the I2C\_1 port}{53}{chapter.25}
+\contentsline {section}{\numberline {25.1}Building and Running}{53}{section.25.1}
+\contentsline {chapter}{\numberline {26}howto flash your zephyr image}{55}{chapter.26}
+\contentsline {chapter}{\numberline {27}howto generate pdf documents}{57}{chapter.27}
+\contentsline {chapter}{\numberline {28}About}{59}{chapter.28}
+\contentsline {section}{\numberline {28.1}Todo}{59}{section.28.1}
+\contentsline {section}{\numberline {28.2}Fast track}{59}{section.28.2}

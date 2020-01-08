@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Battery</title>
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="battery">
+<h1>Battery</h1>
+<p>the samples just gets an analog reading from the battery</p>
+<p>there is a sample in this repository which can be copied to the zephyr samples directory</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/sensor/battery</span>
+</pre></div>
+</div>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>The battery level is measured on port 31, trough an ADC conversion.</p>
+<p>voltage = (value * 6)/1024
+percentage remaining  ((voltage - 3.55)*100)*3.9;</p>
+</div>
+<div class="section" id="todo">
+<h2>Todo</h2>
+<p>check pin when charging</p>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+<p><a class="reference external" href="https://forum.pine64.org/showthread.php?tid=8147">https://forum.pine64.org/showthread.php?tid=8147</a></p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

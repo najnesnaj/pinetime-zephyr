@@ -7,11 +7,10 @@
 #	help
 #	 Enable driver for hynitron touchscreen. 
 menuconfig CST816S
-        bool "BMA280 Three Axis Accelerometer Family"
+        bool "CST816S Touchscreen"
         depends on I2C
         help
-          Enable driver for BMA280 I2C-based triaxial accelerometer sensor
-          family.
+          Enable driver for hynitron touchscreen. 
 
 if CST816S
 
@@ -83,7 +82,7 @@ config CST816S_THREAD_PRIORITY
 
 config CST816S_THREAD_STACK_SIZE
 	int "Thread stack size"
-	depends on BMA280_TRIGGER_OWN_THREAD
+	depends on CST816S_TRIGGER_OWN_THREAD
 	default 1024
 	help
 	  Stack size of thread used by the driver to handle interrupts.
