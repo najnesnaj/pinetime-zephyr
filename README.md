@@ -1,59 +1,53 @@
-# pinetime-zephyr
+# PineTime Zephyr
 
+[PineTime](https://www.pine64.org/pinetime/) firmware toolkit based on [Zephyr Project](https://www.zephyrproject.org/) RTOS.
 
-in this repository you will find a manual, created with sphinx:
+A collection of drivers, libraries and samples to build your own PineTime smart watch firmware.
 
-::
+## Where To Start?
+Read the tutorial! A helpful manual is included in the repository:
+ - [pdf](oswatch.pdf)
+ - [epub](asmartwatchbasedontheNordicnrf52832microcontroller.epub)
+ - [html](manual/_build/html/index.html)
 
-            -html
-            -pdf
-            -epub
+## Installation Overview
+1. Follow the Zephyr [Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html) to create a new project
+2. Copy the contents of this repository (board definition, drivers and samples) into your project
+2. Build a sample firmware
+```
+$ west build -p -b pinetime samples/basic/blinky
+```
+3. Connect a PineTime and flash your firmware
+```
+$ west flash
+```
+4. Enjoy!
 
-In the manual is explained how you can create programs (firmware) for the pinetime open source watch.
+See the manual above for more details.
 
+## What Is Included?
+In this repository you can find modified directories that need to be copied to the base Zephyr project directory to add support for the PineTime board.
 
-Once you install zephyr, you only have to copy the board definition file.
+* **pinetime** Contains the board definition -> boards/arm.
+* **samples** Added and updated samples for blinky, ST7789V display etc.
+* ...
 
-You can compile all the samples and try them out.
+## Project Roadmap
+### DONE
+- the display
+- bluetooth BLE
+- graphics libraries
+- - LittlevGL
+- - Adafruit GFX
+- RTC
+- Serial NOR flash   
+- accel sensor
+          - heart rate sensor 
 
-In this repository you can find modified directories.
-You can copy them to the zephyrproject directory.
-
-::
-           -pinetime (contains the board definition -> boards/arm)
-           -st7789v (samples/display)
-           -blinky etc  (samples/.... contains all modified and added samples)
-
-IMPORTANT:
-----------
-in order to work properly you need to install a zephyr patch : 
-https://github.com/zephyrproject-rtos/zephyr/pull/20570/files
-
-
-
-ALREADY DONE:
--------------
-
-::
-
-          -the display
-          -bluetooth BLE
-          -graphics library (LittlevGL)
-          -RTC
-          -Serial NOR flash   
-          -accel sensor
-          -heart rate sensor 
-
-
-TODO: 
------
-
-::
-
-          -HR detection (algorithm)
-          -testing accel sensor interrupt
-          -touchscreen
-          -powermanagement
-          -DFU (wireless firmware update)
-          -CTS (setting time in bluetooth) 
-
+### TODO
+- HR detection (algorithm)
+- testing accel sensor interrupt
+- touchscreen
+- powermanagement
+- DFU (wireless firmware update)
+- CTS (setting time in bluetooth) 
