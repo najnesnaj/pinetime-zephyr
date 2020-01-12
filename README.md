@@ -11,19 +11,36 @@ Read the tutorial! A helpful manual is included in the repository:
  - [html](manual/_build/html/index.html)
 
 ## Installation Overview
-1. Follow the Zephyr [Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html) to create a new project
-2. Copy the contents of this repository (board definition, drivers and samples) into your project
-2. Build a sample firmware
+1. Follow the Zephyr [Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html) to install zephyr SDK and tools.
+2. Install `west` meta tool (https://docs.zephyrproject.org/latest/guides/west/install.html).
+3. Create a working directory and enter it.
 ```
-$ west build -p -b pinetime samples/basic/blinky
+mkdir work
+cd work
 ```
-3. Connect a PineTime and flash your firmware
+3. Use west to clone pinetime repository and initialize pinetime project.
 ```
-$ west flash
+west init -m https://github.com/najnesnaj/pinetime-zephyr
 ```
-4. Enjoy!
+Alternatively, you can also clone using manifest from specific branch or tag:
+```
+west init -m https://github.com/<user>/pinetime-zephyr --mr <branch>
+```
+4. Use `west` to use clone and checkout all dependant repositories specified in `west.yml` (inluding zephyr).
+```
+west update
+```
+5. Enjoy!
 
-See the manual above for more details.
+
+If you used zephyr and west before and want to stick to the same zephyr copy then you can clone pinetime next to zephyr in working directory and update manifest and west.
+```
+west config manifest.path pinetime
+```
+
+Resources:
+- West documentation: https://docs.zephyrproject.org/latest/guides/west
+- nRF Connect SDK is using zephyr in similar way and its documentation can be helpful as well: https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/gs_installing.html
 
 ## What Is Included?
 In this repository you can find modified directories that need to be copied to the base Zephyr project directory to add support for the PineTime board.
