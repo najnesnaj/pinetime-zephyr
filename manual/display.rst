@@ -1,3 +1,5 @@
+.. _display-sample:
+
 st7789 display 
 ==============
 
