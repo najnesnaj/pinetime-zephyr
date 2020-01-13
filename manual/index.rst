@@ -9,6 +9,7 @@
    button
    bluetooth 
    display
+   gfx
    lvgl
    clock
    lvglbutton
