@@ -6,31 +6,9 @@ A collection of drivers, libraries and samples to build your own PineTime smart 
 
 
 
+## Contributing to this project
 
-
-
-## A Word of warning ......
-
-It's the first time I accepted "merge pull requests"
-
-The last one messed everything up.
-
-I work on this project on my free time.
-
-I simply do not have enough time to debug.
-
-So if you want to use this project, ignore the latest commit...
-
-Simply copying the board definition and samples into an existing install, will get you going.
-
-
-
-
-
-
-
-
-
+All aid is welcome, but I do not have time to test and debug your contributions.
 
 
 
