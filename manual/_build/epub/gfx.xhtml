@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>GFX Library Sample</title>
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gfx-library-sample">
+<span id="gfx-sample"></span><h1>GFX Library Sample</h1>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>This sample is built on top of the ST7789 display sample (<a class="reference internal" href="display.xhtml#display-sample"><span class="std std-ref">st7789 display</span></a>), extending it with the <a class="reference external" href="https://github.com/adafruit/Adafruit-GFX-Library">Adafruit GFX Library</a><span class="link-target"> [https://github.com/adafruit/Adafruit-GFX-Library]</span>.
+The library was ported from Arduino and has the same functionality and API.
+See <code class="docutils literal notranslate"><span class="pre">src/main.cpp</span></code> for examples on the GFX API usage.</p>
+<p>See <a class="reference internal" href="display.xhtml#display-sample"><span class="std std-ref">st7789 display</span></a> for more details on working with the display itself.</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage</h2>
+<p>Add the gfx sample from this repo into your project:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cp samples/gui/gfx ~/zephyrproject/zephyr/samples/gui/
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to make the library work the sample is built with C++ support. This is achieved by having the following line in the sample’s <cite>prj.conf</cite> configuration:</p>
+<p><code class="docutils literal notranslate"><span class="pre">CONFIG_CPLUSPLUS=y</span></code></p>
+</div>
+<p>Build &amp; flash the sample:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b pinetime samples/gui/gfx
+<span class="gp">$</span>  west flash
+</pre></div>
+</div>
+<p>If all goes well, you should see a looping graphical test: drawing lines, rectangles, triangles etc.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

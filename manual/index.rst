@@ -14,20 +14,17 @@
    clock
    lvglbutton
    RTC
-   spinor
+   drivers/spinor
    sensors
    i2c
-   bma280
-   bma421
-   hrs3300
-   touchscreen
-   cst816s
-   battery
+   drivers/drivers.rst
+   samples/index.rst
    menuconfig
    flashing
-   debugging
-   i2cscanning
-   writeprotection 
+   hacking/debugging
+   hacking/troubleshoot
+   hacking/i2cscanning
+   hacking/writeprotection 
    latexpdf
    about
 

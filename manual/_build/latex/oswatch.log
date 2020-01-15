@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.12.10)  8 JAN 2020 21:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.12.10)  14 JAN 2020 17:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1149,14 +1149,12 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
  [1
 
-] [2])
+])
 \tf@toc=\write6
 \openout6 = `oswatch.toc'.
 
- [3] [4
-
-]
-<zephyr_logo.png, id=494, 170.5572pt x 58.2978pt>
+ [2]
+<zephyr_logo.png, id=386, 170.5572pt x 58.2978pt>
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 88.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
@@ -1166,7 +1164,9 @@ File: zephyr_logo.png Graphic file (type png)
 <use zephyr_logo.png>
 Package pdftex.def Info: zephyr_logo.png  used on input line 88.
 (pdftex.def)             Requested size: 170.55678pt x 58.29765pt.
- [1 <./zephyr_logo.png>] [2
+ [1
+
+ <./zephyr_logo.png>] [2
 
 ]
 Chapter 1.
@@ -1185,7 +1185,7 @@ LaTeX Font Info:    Try loading font information for TS1+ptm on input line 128.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<PineTime-830x400.png, id=526, 833.1125pt x 401.5pt>
+<PineTime-830x400.png, id=417, 833.1125pt x 401.5pt>
 File: PineTime-830x400.png Graphic file (type png)
 <use PineTime-830x400.png>
 Package pdftex.def Info: PineTime-830x400.png  used on input line 147.
@@ -1218,137 +1218,126 @@ Chapter 8.
 
 ]
 Chapter 9.
-[19] [20]
-Chapter 10.
-<clockback.png, id=594, 144.54pt x 144.54pt>
-File: clockback.png Graphic file (type png)
-<use clockback.png>
-Package pdftex.def Info: clockback.png  used on input line 467.
-(pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
-[21
-
- <./clockback.png>] [22]
-Chapter 11.
-[23
-
-] [24
+[19] [20
 
 ]
+Chapter 10.
+[21] [22]
+Chapter 11.
+<clockback.png, id=497, 144.54pt x 144.54pt>
+File: clockback.png Graphic file (type png)
+<use clockback.png>
+Package pdftex.def Info: clockback.png  used on input line 503.
+(pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
+[23
+
+ <./clockback.png>] [24]
 Chapter 12.
-[25] [26
+[25
+
+] [26
 
 ]
 Chapter 13.
+[27] [28
 
-Overfull \hbox (14.65001pt too wide) in paragraph at lines 600--601
+]
+Chapter 14.
+
+Overfull \hbox (14.65001pt too wide) in paragraph at lines 636--637
 []\T1/ptm/m/n/10 /root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.
 c:17:22: er-ror: `DT_INST_0_JEDEC_SPI_NOR_LABEL'
  []
 
-[27] [28]
-Chapter 14.
-[29
+[29] [30]
+Chapter 15.
+[31
 
-] [30
+] [32
 
 ]
-Chapter 15.
-[31] [32]
 Chapter 16.
-[33
-
-] [34]
+[33] [34]
 Chapter 17.
-
-Underfull \hbox (badness 10000) in paragraph at lines 876--879
-\T1/ptm/m/n/10 ~/zephyrproject-2/zephyr/drivers/sensor add_subdirectory_ifdef(C
-ONFIG_BMA280 bma280)
- []
-
 [35
 
-] [36]
+] [36
+
+]
 Chapter 18.
-<hrs3300.jpg, id=673, 459.51675pt x 374.5995pt>
-File: hrs3300.jpg Graphic file (type jpg)
-<use hrs3300.jpg>
-Package pdftex.def Info: hrs3300.jpg  used on input line 981.
-(pdftex.def)             Requested size: 459.51563pt x 374.59859pt.
-[37
+[37] [38] [39] [40] [41] [42]
+Underfull \hbox (badness 10000) in paragraph at lines 1313--1316
+[][][][][]$\T1/ptm/m/n/8 https : / / www . nxp . com / products / processors-[]
+and-[]microcontrollers / arm-[]based-[]processors-[]and-[]mcus / i . mx-[]appli
+cations-[]processors / i .
+ []
 
-] [38 <./hrs3300.jpg>] [39] [40
-
-]
+[43] [44] [45] [46]
 Chapter 19.
-[41] [42
+[47
 
-]
+] [48]
 Chapter 20.
-[43] [44]
-Chapter 21.
-[45
-
-] [46
-
-]
-Chapter 22.
-[47] [48]
-Chapter 23.
 [49
 
 ] [50]
-Chapter 24.
+Chapter 21.
 [51
 
 ] [52
 
 ]
-Chapter 25.
-[53] [54
+Chapter 22.
+[53] [54]
+Chapter 23.
+[55
+
+] [56
 
 ]
-Chapter 26.
-[55] [56
-
-]
-Chapter 27.
+Chapter 24.
 [57] [58
 
 ]
-Chapter 28.
-[59] (./oswatch.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1556.
- [60]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1556.
+Chapter 25.
+[59] [60
+
+]
+Chapter 26.
+[61] (./oswatch.ind)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1942.
+ [62]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1942.
  (./oswatch.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1556.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1556.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1942.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1942.
 
 Package rerunfilecheck Info: File `oswatch.out' has not changed.
-(rerunfilecheck)             Checksum: 0BA3F033FD8C36B296E0EA26784E9761;11771.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1556.
+(rerunfilecheck)             Checksum: FD4A0F24F86752FC3774726962ED7275;9661.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1942.
  ) 
 Here is how much of TeX's memory you used:
- 14041 strings out of 494923
- 194890 string characters out of 6180741
- 346952 words of memory out of 5000000
- 16864 multiletter control sequences out of 15000+600000
- 51422 words of font info for 71 fonts, out of 8000000 for 9000
+ 14188 strings out of 494923
+ 200646 string characters out of 6180741
+ 351923 words of memory out of 5000000
+ 16949 multiletter control sequences out of 15000+600000
+ 61120 words of font info for 88 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
- 37i,12n,51p,666b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,12n,48p,666b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uh
 vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/times/utmri8a.pfb>
-Output written on oswatch.pdf (66 pages, 415420 bytes).
+usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/times/utmri8a.pfb>
+Output written on oswatch.pdf (66 pages, 351428 bytes).
 PDF statistics:
- 866 PDF objects out of 1000 (max. 8388607)
- 769 compressed objects within 8 object streams
- 173 named destinations out of 1000 (max. 500000)
- 769 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 860 PDF objects out of 1000 (max. 8388607)
+ 763 compressed objects within 8 object streams
+ 217 named destinations out of 1000 (max. 500000)
+ 604 words of extra memory for PDF output out of 10000 (max. 10000000)
 

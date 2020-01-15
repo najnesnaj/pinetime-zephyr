@@ -87,6 +87,17 @@ static void cst816s_thread(int dev_ptr, int unused)
 	struct device *dev = INT_TO_POINTER(dev_ptr);
 	struct cst816s_data *drv_data = dev->driver_data;
 teller++;
+
+//reset touchscreen
+
+
+
+        gpio_pin_configure(drv_data->gpio, 10,GPIO_DIR_OUT); //push button out
+        gpio_pin_write(drv_data->gpio, 10, &button_out); //set port high
+//
+
+
+
 if (teller > 200) teller=0;
 	ARG_UNUSED(unused);
 
@@ -172,9 +183,15 @@ MY_REGISTER6=0x00;
 		return -EINVAL;
 	}
 
+
+
+	//
+	//
+	//
 	gpio_pin_configure(drv_data->gpio, CONFIG_CST816S_GPIO_PIN_NUM,
 			   GPIO_DIR_IN | GPIO_INT | GPIO_INT_LEVEL |
 			   GPIO_INT_ACTIVE_HIGH | GPIO_INT_DEBOUNCE);
+MY_REGISTER6=CONFIG_CST816S_GPIO_PIN_NUM;
 
 	gpio_init_callback(&drv_data->gpio_cb,
 			   cst816s_gpio_callback,

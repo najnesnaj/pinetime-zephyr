@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bosch BMA421 &mdash; open source watch 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="HX HRS3300" href="hrs3300.html" />
+    <link rel="prev" title="Bosch BMA280" href="bma280.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> open source watch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr for the pintime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blinky.html">zephyr on the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../button.html">Reading out the button on the watch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bluetooth.html">bluetooth (BLE) example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">st7789 display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gfx.html">GFX Library Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lvgl.html">LittlevGL Basic Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clock.html">LittlevGL Clock Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lvglbutton.html">placing a button on the screen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RTC.html">Real Time Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spinor.html">Serial Nor Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensors.html">sensors on the I2C bus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../i2c.html">configuring I2C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bma280.html">Bosch BMA280</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bosch BMA421</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adapt-cmakelists-txt">adapt CMakeLists.txt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adapt-kconfig">adapt Kconfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-yaml-file">add yaml file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edit-kconfig">edit KConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-driver">create driver</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#todo">Todo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hrs3300.html">HX HRS3300</a></li>
+<li class="toctree-l1"><a class="reference internal" href="touchscreen.html">Touchscreen Hynitron</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cst816s.html">HYNITRON CST816S</a></li>
+<li class="toctree-l1"><a class="reference internal" href="battery.html">Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flashing.html">hacking   the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hacking/debugging.html">debugging   the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hacking/troubleshoot.html">Troubleshooting drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hacking/i2cscanning.html">scanning the I2C_1 port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hacking/writeprotection.html">howto flash your zephyr image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../latexpdf.html">howto generate pdf documents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">open source watch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Bosch BMA421</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/drivers/bma421.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bosch-bma421">
+<h1>Bosch BMA421<a class="headerlink" href="#bosch-bma421" title="Permalink to this headline">¶</a></h1>
+<p>this driver does not exist, so it has been created.
+Still work in progress ….</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/gui/lvaccel</span>
+</pre></div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>BMA421 is not a part number available to the general public, and therefore all the supporting documentation and design resources are neither discussed in public forums, nor disclosed on GitHub.</p>
+<p>CHIP_ID=0X11  (so the Bosch BMA423 drivers need to be adapted)</p>
+<p>The Bosch documentation on the bma423 seems to apply to the bma421.</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>for this sensor does not exist any driver, so here’s what I did to create one under zephyr</p>
+<div class="section" id="adapt-cmakelists-txt">
+<h3>adapt CMakeLists.txt<a class="headerlink" href="#adapt-cmakelists-txt" title="Permalink to this headline">¶</a></h3>
+<p>~/zephyrproject-2/zephyr/drivers/sensor
+add_subdirectory_ifdef(CONFIG_BMA280            bma280)
+add_subdirectory_ifdef(CONFIG_BMA421            bma421)</p>
+</div>
+<div class="section" id="adapt-kconfig">
+<h3>adapt Kconfig<a class="headerlink" href="#adapt-kconfig" title="Permalink to this headline">¶</a></h3>
+<p>~/zephyrproject-2/zephyr/drivers/sensor</p>
+</div>
+<div class="section" id="add-yaml-file">
+<h3>add yaml file<a class="headerlink" href="#add-yaml-file" title="Permalink to this headline">¶</a></h3>
+<p>~/zephyrproject-2/zephyr/dts/bindings/sensor
+cp bosch,bma280-i2c.yaml  bosch,bma421-i2c.yaml</p>
+</div>
+<div class="section" id="edit-kconfig">
+<h3>edit KConfig<a class="headerlink" href="#edit-kconfig" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>source “drivers/sensor/bma280/Kconfig”</dt><dd><p>source “drivers/sensor/bma421/Kconfig”</p>
+</dd>
+</dl>
+<p>source “drivers/sensor/bmc150_magn/Kconfig”</p>
+<p>source “drivers/sensor/bme280/Kconfig”</p>
+</div>
+<div class="section" id="create-driver">
+<h3>create driver<a class="headerlink" href="#create-driver" title="Permalink to this headline">¶</a></h3>
+<p>see under drivers/sensor/bma421</p>
+<p>complement the pinetime.dts file with the following (under samples/sensor/bma280)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&amp;i2c1 {</span>
+<span class="go">        bma421@18 {</span>
+<span class="go">                   compatible = &quot;bosch,bma421&quot;;</span>
+<span class="go">                   reg = &lt;0x18&gt;;</span>
+<span class="go">                   label = &quot;BMA421&quot;;</span>
+<span class="go">                   int1-gpios = &lt;&amp;gpio0 8 0&gt;;</span>
+<span class="go">                  };</span>
+<span class="go">       };</span>
+</pre></div>
+</div>
+<p>Create a file: <cite>/dts/bindings/sensor/bosch,bma421-i2c.yaml</cite>.
+Which contains:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compatible</span><span class="p">:</span> <span class="s2">&quot;bosch,bma421&quot;</span>
+<span class="n">include</span><span class="p">:</span> <span class="n">i2c</span><span class="o">-</span><span class="n">device</span><span class="o">.</span><span class="n">yaml</span>
+<span class="n">properties</span><span class="p">:</span>
+       <span class="n">int1</span><span class="o">-</span><span class="n">gpios</span><span class="p">:</span>
+       <span class="nb">type</span><span class="p">:</span> <span class="n">phandle</span><span class="o">-</span><span class="n">array</span>
+       <span class="n">required</span><span class="p">:</span> <span class="n">false</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="todo">
+<h2>Todo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>the driver is interrupt driven as well – need to test software</p></li>
+<li><p>the sensor has algorithm for steps – read out register</p></li>
+<li><p>temperature some attempt has been made, but … (OK, temp can be read)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>Bosch has documented the BMA423 very well.
+I kind of hope it will apply to the bma421.</p>
+<p>A mechanism to adapt the 0x5E register is provided.
+(burst read/write)</p>
+<p>All kind of parameters can be set to trigger an interrupt.
+(e.g. number of steps taken : think of the 10000 steps threshold)</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hrs3300.html" class="btn btn-neutral float-right" title="HX HRS3300" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bma280.html" class="btn btn-neutral float-left" title="Bosch BMA280" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; <a href="../copyright.html">Copyright</a> 2019, jj
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

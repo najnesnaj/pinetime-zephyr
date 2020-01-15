@@ -19,9 +19,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'a smart watch based on the Nordic nrf52832 microcontroller'
+project = 'open source watch'
 copyright = '2019, jj'
-author = 'in honour of Rick Mayell'
+author = 'najnesnaj@yahoo.com'
 
 # The short X.Y version
 version = 'beta'

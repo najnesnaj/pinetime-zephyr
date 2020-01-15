@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Serial Nor Flash</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="serial-nor-flash">
+<h1>Serial Nor Flash</h1>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/drivers/spi_flash -DCONF=prj.conf</span>
+</pre></div>
+</div>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>This sample application should unlock the serial nor flash memory.
+This can be very usefull to store e.g. background for the watch.</p>
+<p>compilation problematic ….</p>
+<p>/root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.c:17:22: error: ‘DT_INST_0_JEDEC_SPI_NOR_LABEL’ undeclared (first use in this function); did you mean ‘DT_INST_0_NORDIC_NRF_RTC_LABEL’?</p>
+<p>Turns out this is some problem with the board definition file.</p>
+<p>I found it to be very useful to consult the generated dts file.
+Here you can check if everything is present.</p>
+<p>Guess the dts-file has to be well intended.(structured)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vi /root/zephyrproject/zephyr/build/zephyr/include/generated/generated_dts_board.conf</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements</h2>
+<p>complement the pinetime.dts file with the following (under spi)
+#define JEDEC_ID_MACRONIX_MX25L64      0xC22017</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&amp;spi0 {</span>
+<span class="go">  compatible = &quot;nordic,nrf-spi&quot;;</span>
+<span class="go">  status = &quot;okay&quot;;</span>
+<span class="go">  sck-pin = &lt;2&gt;;</span>
+<span class="go">  mosi-pin = &lt;3&gt;;</span>
+<span class="go">  miso-pin = &lt;4&gt;;</span>
+<span class="go">  cs-gpios = &lt;&amp;gpio0 27 0&gt;,&lt;&amp;gpio0 5 0&gt;;</span>
+<span class="go">  st7789v@0 {</span>
+<span class="go">          compatible = &quot;sitronix,st7789v&quot;;</span>
+<span class="go">          label = &quot;DISPLAY&quot;;</span>
+<span class="go">          spi-max-frequency = &lt;8000000&gt;;</span>
+<span class="go">          reg = &lt;0&gt;;</span>
+<span class="go">          cmd-data-gpios = &lt;&amp;gpio0 18 0&gt;;</span>
+<span class="go">          reset-gpios = &lt;&amp;gpio0 26 0&gt;;</span>
+<span class="go">          width = &lt;240&gt;;</span>
+<span class="go">          height = &lt;240&gt;;</span>
+<span class="go">          x-offset = &lt;0&gt;;</span>
+<span class="go">          y-offset = &lt;0&gt;;</span>
+<span class="go">          vcom = &lt;0x19&gt;;</span>
+<span class="go">          gctrl = &lt;0x35&gt;;</span>
+<span class="go">          vrhs = &lt;0x12&gt;;</span>
+<span class="go">          vdvs = &lt;0x20&gt;;</span>
+<span class="go">          mdac = &lt;0x00&gt;;</span>
+<span class="go">          gamma = &lt;0x01&gt;;</span>
+<span class="go">          colmod = &lt;0x05&gt;;</span>
+<span class="go">          lcm = &lt;0x2c&gt;;</span>
+<span class="go">          porch-param = [0c 0c 00 33 33];</span>
+<span class="go">          cmd2en-param = [5a 69 02 01];</span>
+<span class="go">          pwctrl1-param = [a4 a1];</span>
+<span class="go">          pvgam-param = [D0 04 0D 11 13 2B 3F 54 4C 18 0D 0B 1F 23];</span>
+<span class="go">          nvgam-param = [D0 04 0C 11 13 2C 3F 44 51 2F 1F 1F 20 23];</span>
+<span class="go">          ram-param = [00 F0];</span>
+<span class="go">          rgb-param = [CD 08 14];</span>
+
+<span class="go">  };</span>
+
+<span class="go">  mx25r64: mx25r6435f@1 {</span>
+<span class="go">          compatible = &quot;jedec,spi-nor&quot;;</span>
+<span class="go">          reg = &lt;1&gt;;</span>
+<span class="go">          spi-max-frequency = &lt;1000000&gt;;</span>
+<span class="go">          label = &quot;MX25R64&quot;;</span>
+<span class="go">          jedec-id = [0b 40 16];</span>
+<span class="go">          size = &lt;67108864&gt;;</span>
+<span class="go">          has-be32k;</span>
+<span class="go">  };</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running</h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/drivers/spi_flash</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="todo">
+<h2>Todo</h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>detect ID memory  : it is not the macronix one as suggestion on the pinetime website</p></li>
+</ul>
+<p>I found the following : jedec-id = [0b 40 16]; (OK: can execute sample program)</p>
+<ul class="simple">
+<li><p>create working board definition (OK: see above)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+<p><a class="reference external" href="http://files.pine64.org/doc/datasheet/pinetime/MX25L6433F,%203V,%2064Mb,%20v1.6.pdf">http://files.pine64.org/doc/datasheet/pinetime/MX25L6433F,%203V,%2064Mb,%20v1.6.pdf</a></p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>HYNITRON CST816S</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="hynitron-cst816s">
+<h1>HYNITRON CST816S</h1>
+<p>this driver does not exist, so it has been created.
+Still work in progress ….</p>
+<p>there is a sample in this repository which can be copied to the zephyr samples directory</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/sensor/cst816s</span>
+</pre></div>
+</div>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>the Hynitron cst816s is a touchscreen.
+In zephyr is no touchscreen driver yet.
+In order to investigate, the touchscreen driver has been created as a sensor.
+In fact it senses you finger ;)</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements</h2>
+<p>for this sensor does not exist any driver, so here’s what I did to create one under zephyr</p>
+<div class="section" id="adapt-cmakelists-txt">
+<h3>adapt CMakeLists.txt</h3>
+<p>~/zephyrproject-2/zephyr/drivers/sensor
+add_subdirectory_ifdef(CONFIG_CST816S           cst816s)</p>
+</div>
+<div class="section" id="adapt-kconfig">
+<h3>adapt Kconfig</h3>
+<p>~/zephyrproject-2/zephyr/drivers/sensor</p>
+</div>
+<div class="section" id="add-yaml-file">
+<h3>add yaml file</h3>
+<p>~/zephyrproject-2/zephyr/dts/bindings/sensor
+add  hynitron,cst816s.yaml</p>
+</div>
+<div class="section" id="edit-kconfig">
+<h3>edit KConfig</h3>
+<p>source “drivers/sensor/cst816s/Kconfig”</p>
+</div>
+<div class="section" id="create-driver">
+<h3>create driver</h3>
+<p>see under drivers/sensor/cst816s</p>
+<p>complement the pinetime.dts file with the following (under boards/arm/pinetime)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&amp;i2c1 {</span>
+<span class="go">        cst816s@15 {</span>
+<span class="go">                   compatible = &quot;hynitron,cst816s&quot;;</span>
+<span class="go">                   reg = &lt;0x15&gt;;</span>
+<span class="go">                   label = &quot;CST816S&quot;;</span>
+<span class="go">                   };</span>
+<span class="go">       };</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running</h2>
+</div>
+<div class="section" id="todo">
+<h2>Todo</h2>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>I2C Scanner sample</title>
+    <link rel="stylesheet" href="../../../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="i2c-scanner-sample">
+<span id="i2c-scanner"></span><h1>I2C Scanner sample</h1>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>This sample sends I2C messages without any data (i.e. stop condition
+after sending just the address). If there is an ACK for the
+address, it prints the address as <code class="docutils literal notranslate"><span class="pre">FOUND</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As  there  is  no  standard I2C detection command, this sample
+uses arbitrary SMBus commands (namely SMBus quick write and SMBus
+receive byte) to probe for devices.  This sample program can confuse
+your I2C bus, cause data loss, and is known to corrupt
+the Atmel AT24RF08 EEPROM found on many IBM Thinkpad laptops.
+See also the <a class="reference external" href="http://manpages.ubuntu.com/manpages/bionic/man8/i2cdetect.8.html">i2cdetect man page</a><span class="link-target"> [http://manpages.ubuntu.com/manpages/bionic/man8/i2cdetect.8.html]</span></p>
+</div>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running</h2>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

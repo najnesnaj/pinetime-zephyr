@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BMA280: Three Axis High-g I2C/SPI Accelerometer &mdash; open source watch 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> open source watch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../content.html">Zephyr for the pintime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Install zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../blinky.html">zephyr on the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../button.html">Reading out the button on the watch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bluetooth.html">bluetooth (BLE) example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../display.html">st7789 display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gfx.html">GFX Library Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lvgl.html">LittlevGL Basic Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../clock.html">LittlevGL Clock Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../lvglbutton.html">placing a button on the screen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../RTC.html">Real Time Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers/spinor.html">Serial Nor Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sensors.html">sensors on the I2C bus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../i2c.html">configuring I2C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers/bma280.html">Bosch BMA280</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers/bma421.html">Bosch BMA421</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers/hrs3300.html">HX HRS3300</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers/touchscreen.html">Touchscreen Hynitron</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers/cst816s.html">HYNITRON CST816S</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers/battery.html">Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../flashing.html">hacking   the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hacking/debugging.html">debugging   the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hacking/troubleshoot.html">Troubleshooting drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hacking/i2cscanning.html">scanning the I2C_1 port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hacking/writeprotection.html">howto flash your zephyr image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../latexpdf.html">howto generate pdf documents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">open source watch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>BMA280: Three Axis High-g I2C/SPI Accelerometer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/samples/sensor/bma280/README.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bma280-three-axis-high-g-i2c-spi-accelerometer">
+<span id="bma280"></span><h1>BMA280: Three Axis High-g I2C/SPI Accelerometer<a class="headerlink" href="#bma280-three-axis-high-g-i2c-spi-accelerometer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>This sample application produces slightly different outputs based on the chosen
+driver configuration mode:</p>
+<ul class="simple">
+<li><p>In <strong>Measuring Mode with trigger support</strong>,
+the acceleration on all three axis is printed in m/s^2 at the sampling rate (ODR).</p></li>
+<li><p>In <strong>Polled Measuring Mode</strong>, the instantaneous acceleration is polled every 2 seconds.</p></li>
+<li><p>In <strong>Max Peak Detect Mode</strong>, the device returns only the over-threshold
+peak acceleration between two consecutive sample fetches or trigger events.
+(In most high-g applications, a single 3-axis acceleration sample at the peak
+of an impact event contains sufficient information about the event, and the
+full acceleration history is not required.) Instead of printing the acceleration
+on all three axis, the sample application calculates the vector magnitude
+(root sum squared) and displays the result in g’s rather than in m/s^2,
+together with an bar graph.</p></li>
+</ul>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>BMA280: <a class="reference external" href="http://www.analog.com/bma280">http://www.analog.com/bma280</a></p></li>
+</ul>
+</div>
+<div class="section" id="wiring">
+<h2>Wiring<a class="headerlink" href="#wiring" title="Permalink to this headline">¶</a></h2>
+<p>This sample uses the BMA280 sensor controlled either using the I2C or SPI interface.
+Connect supply <strong>VDD</strong>, <strong>VS</strong> and <strong>GND</strong>. The supply voltage can be in
+the 1.6V to 3.5V range.</p>
+<div class="section" id="i2c-mode">
+<h3>I2C mode<a class="headerlink" href="#i2c-mode" title="Permalink to this headline">¶</a></h3>
+<p>Connect Interface: <strong>SDA</strong>, <strong>SCL</strong> and optionally connect the <strong>INT1</strong> to a
+interrupt capable GPIO. It is a requirement that <strong>SCLK</strong> must be connected to
+<strong>GND</strong> in I2C mode. Depending on the baseboard used, the <strong>SDA</strong> and <strong>SCL</strong>
+lines require Pull-Up resistors. With the <strong>MISO</strong> pin low, the I2C address for
+the device is 0x1D, and an alternate I2C address of 0x53 can be chosen by
+pulling the <strong>MISO</strong> pin high.</p>
+<p>I2C Address:</p>
+<ul class="simple">
+<li><p><strong>0x1D</strong>: if MISO is pulled low</p></li>
+<li><p><strong>0x53</strong>: if MISO is pulled high</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When sharing an SDA bus, the BMA280 Silicon Revision &lt; 3  may prevent
+communication with other devices on that bus.</p>
+</div>
+</div>
+<div class="section" id="spi-mode">
+<h3>SPI mode<a class="headerlink" href="#spi-mode" title="Permalink to this headline">¶</a></h3>
+<p>Connect Interface: <strong>SCLK</strong>, <strong>MISO</strong>, <strong>MOSI</strong> and <strong>/CS</strong> and optionally
+connect the <strong>INT1</strong> to a interrupt capable GPIO.</p>
+</div>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
+<p>This project outputs sensor data to the console. It requires an BMA280
+sensor. It should work with any platform featuring a I2C/SPI peripheral interface.
+It does not work on QEMU.
+In this example below the <span class="xref std std-ref">nrf52_pca10040</span> board is used.</p>
+<div class="section" id="sample-output-max-peak-detect-mode">
+<h3>Sample Output: Max Peak Detect Mode<a class="headerlink" href="#sample-output-max-peak-detect-mode" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Waiting for a threshold event</span>
+<span class="go"> 23.94 g: ########################</span>
+<span class="go">Waiting for a threshold event</span>
+<span class="go"> 38.01 g: #######################################</span>
+<span class="go">Waiting for a threshold event</span>
+<span class="go"> 51.40 g: ####################################################</span>
+<span class="go">Waiting for a threshold event</span>
+<span class="go"> 63.63 g: ################################################################</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-output-measurement-mode">
+<h3>Sample Output: Measurement Mode<a class="headerlink" href="#sample-output-measurement-mode" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">AX=      2.94 AY=     -5.88 AZ=      0.98 (m/s^2)</span>
+<span class="go">AX=     -4.90 AY=      6.86 AZ=     -1.96 (m/s^2)</span>
+<span class="go">AX=      2.94 AY=     -2.94 AZ=      8.83 (m/s^2)</span>
+<span class="go">AX=     -0.98 AY=     -6.86 AZ=     -0.98 (m/s^2)</span>
+<span class="go">AX=      6.86 AY=      2.94 AZ=      3.92 (m/s^2)</span>
+<span class="go">AX=     -0.98 AY=      4.90 AZ=     -3.92 (m/s^2)</span>
+
+<span class="go">&lt;repeats endlessly&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; <a href="../../../copyright.html">Copyright</a> 2019, jj
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

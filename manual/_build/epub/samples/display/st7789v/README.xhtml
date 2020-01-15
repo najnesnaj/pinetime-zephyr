@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>ST7789V Display driver</title>
+    <link rel="stylesheet" href="../../../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="st7789v-display-driver">
+<span id="st7789v-sample"></span><h1>ST7789V Display driver</h1>
+<p>make sure this patch is applied :
+<a class="reference external" href="https://github.com/zephyrproject-rtos/zephyr/pull/20570/files">https://github.com/zephyrproject-rtos/zephyr/pull/20570/files</a></p>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>This sample will draw some basic rectangles onto the display.
+The rectangle colors and positions are chosen so that you can check the
+orientation of the LCD and correct RGB bit order. The rectangles are drawn
+in clockwise order, from top left corner: Red, Green, Blue, grey. The shade of
+grey changes from black through to white. (if the grey looks too green or red
+at any point then the LCD may be endian swapped).</p>
+<p>Note: The display driver rotates the display so that the ‘natural’ LCD
+orientation is effectively 270 degrees clockwise of the default display
+controller orientation.</p>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running</h2>
+<p>The sample has a board overlay for a nrf52832 based board with the following
+pin assignments:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><div class="line-block">
+<div class="line">nRF52832</div>
+<div class="line">Pin</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">LCD module</div>
+<div class="line">signal</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>P0.03</p></td>
+<td><p>SPI_SCK</p></td>
+</tr>
+<tr class="row-odd"><td><p>P0.05</p></td>
+<td><p>SPI_MOSI</p></td>
+</tr>
+<tr class="row-even"><td><p>P0.26</p></td>
+<td><p>SPI_MISO</p></td>
+</tr>
+<tr class="row-odd"><td><p>P0.27</p></td>
+<td><p>CS</p></td>
+</tr>
+<tr class="row-even"><td><p>P0.25</p></td>
+<td><p>DATA/CMD</p></td>
+</tr>
+<tr class="row-odd"><td><p>P0.02</p></td>
+<td><p>RESET</p></td>
+</tr>
+</tbody>
+</table>
+<p>You might need to alter these according to your specific board/LCD configuration.</p>
+<p>For <span class="xref std std-ref">nrf52_pca10040</span>, build this sample application with the following commands:</p>
+<p>See <span class="xref std std-ref">nrf52_pca10040</span> on how to flash the build.</p>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.crystalfontz.com/controllers/Sitronix/ST7789V/">ST7789V datasheet</a><span class="link-target"> [https://www.crystalfontz.com/controllers/Sitronix/ST7789V/]</span></p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

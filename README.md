@@ -4,6 +4,36 @@
 
 A collection of drivers, libraries and samples to build your own PineTime smart watch firmware.
 
+
+
+
+
+
+## A Word of warning ......
+
+It's the first time I accepted "merge pull requests"
+
+The last one messed everything up.
+
+I work on this project on my free time.
+
+I simply do not have enough time to debug.
+
+So if you want to use this project, ignore the latest commit...
+
+Simply copying the board definition and samples into an existing install, will get you going.
+
+
+
+
+
+
+
+
+
+
+
+
 ## Where To Start?
 Read the tutorial! A helpful manual is included in the repository:
  - [pdf](oswatch.pdf)

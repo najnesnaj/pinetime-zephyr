@@ -1,6 +1,0 @@
-HOW TO GENERATE PYTHON DOC
-==========================
-
-
-sphinx-apidoc -f -o source ./mycode
-edit conf.py ``uncomment import modules etc``

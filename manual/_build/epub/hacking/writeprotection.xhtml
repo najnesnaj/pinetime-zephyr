@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>howto flash your zephyr image</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="howto-flash-your-zephyr-image">
+<span id="flashing"></span><h1>howto flash your zephyr image</h1>
+<p>Once you completed your <code class="docutils literal notranslate"><span class="pre">west</span> <span class="pre">build</span></code> , your image is located under the build directory</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> ~/zephyrproject/zephyr/build/zephyr
+<span class="go">here you can find zephyr.bin which you can flash</span>
+</pre></div>
+</div>
+<p>I have an orange pi (single board computer) in my network.</p>
+<p>I copy the image using $scp -P 8888 zephyr.bin 192.168.0.77:/usr/src/pinetime
+(secure copy using my user defined port 8888 which is normally port 22)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the PineTime watch is read/write protected
+executing the following : nrf52.dap apreg 1 0x0c shows 0x0</p>
+<p>Mind you st-link does not allow you to execute that command, you need J-link.
+There is a workaround using the GPIO of a raspberry pi or a Orangepi.
+You have to reconfigure Openocd with the –enable-cmsis-dap option.</p>
+<p>Unlock the chip by executing the command:
+&gt; nrf52.dap apreg 1 0x04 0x01</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

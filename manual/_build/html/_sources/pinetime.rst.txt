@@ -1,6 +1,0 @@
-Time is relative (A. Einstein)
-------------------------------
-
-
-
-.. image:: ./PineTime-830x400.png
