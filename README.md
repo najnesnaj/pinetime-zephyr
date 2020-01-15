@@ -41,31 +41,19 @@ Read the tutorial! A helpful manual is included in the repository:
  - [html](manual/_build/html/index.html)
 
 ## Installation Overview
-1. Follow the Zephyr [Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html) install `west` meta tool (https://docs.zephyrproject.org/latest/guides/west/install.html).
-2. Create a top level directory and enter it.
+1. Follow the Zephyr [Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html) to create a new project
+2. Copy the contents of this repository (board definition, drivers and samples) into your project
+2. Build a sample firmware
 ```
-mkdir pinetime
-cd pinetime
+$ west build -p -b pinetime samples/basic/blinky
 ```
-3. Clone this repository
+3. Connect a PineTime and flash your firmware
 ```
-git clone https://github.com/<user>/pinetime-zephyr.git pinetime
+$ west flash
 ```
-4. Init `west` to use pinetime manifest
-```
-west init -l pinetime
-```
-5. Fetch all repositories
-```
-west update
-```
-6. Enjoy!
+4. Enjoy!
 
 See the manual above for more details.
-
-If you used zephyr and west before then you can clone pinetime to top level
-directory and edit west configuration file (`<top level dir>/.west/config`) to
-point to pinetime and call `west update`.
 
 ## What Is Included?
 In this repository you can find modified directories that need to be copied to the base Zephyr project directory to add support for the PineTime board.
