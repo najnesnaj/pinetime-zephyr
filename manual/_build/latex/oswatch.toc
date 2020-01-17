@@ -3,6 +3,8 @@
 \contentsline {chapter}{\numberline {2}LICENSE:}{5}{chapter.2}
 \contentsline {chapter}{\numberline {3}Zephyr for the pintime smartwatch}{7}{chapter.3}
 \contentsline {chapter}{\numberline {4}Install zephyr}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}In case you already have zephyr installed:}{9}{section.4.1}
+\contentsline {section}{\numberline {4.2}In case you start from scratch :}{9}{section.4.2}
 \contentsline {chapter}{\numberline {5}zephyr on the pinetime smartwatch}{11}{chapter.5}
 \contentsline {section}{\numberline {5.1}Blinky example}{11}{section.5.1}
 \contentsline {chapter}{\numberline {6}Reading out the button on the watch}{13}{chapter.6}
@@ -85,49 +87,49 @@
 \contentsline {subsubsection}{Building and Running}{40}{subsubsection*.27}
 \contentsline {paragraph}{Sample Output: X \& Y coordinates}{40}{paragraph*.28}
 \contentsline {paragraph}{Sample Output: Measurement Mode}{40}{paragraph*.29}
-\contentsline {subsection}{\numberline {18.2.3}MAX30101 Heart Rate Sensor}{41}{subsection.18.2.3}
-\contentsline {subsubsection}{Overview}{41}{subsubsection*.30}
-\contentsline {subsubsection}{Building and Running}{41}{subsubsection*.31}
-\contentsline {paragraph}{Sample Output}{41}{paragraph*.32}
+\contentsline {subsection}{\numberline {18.2.3}MAX30101 Heart Rate Sensor}{40}{subsection.18.2.3}
+\contentsline {subsubsection}{Overview}{40}{subsubsection*.30}
+\contentsline {subsubsection}{Building and Running}{40}{subsubsection*.31}
+\contentsline {paragraph}{Sample Output}{40}{paragraph*.32}
 \contentsline {section}{\numberline {18.3}Driver Samples}{41}{section.18.3}
 \contentsline {subsection}{\numberline {18.3.1}I2C Scanner sample}{41}{subsection.18.3.1}
 \contentsline {subsubsection}{Overview}{41}{subsubsection*.33}
 \contentsline {subsubsection}{Building and Running}{41}{subsubsection*.34}
 \contentsline {subsection}{\numberline {18.3.2}I2C Scanner sample}{41}{subsection.18.3.2}
-\contentsline {subsubsection}{Overview}{42}{subsubsection*.35}
-\contentsline {subsubsection}{Building and Running}{42}{subsubsection*.36}
-\contentsline {section}{\numberline {18.4}Display Samples}{42}{section.18.4}
-\contentsline {subsection}{\numberline {18.4.1}ST7789V Display driver}{42}{subsection.18.4.1}
+\contentsline {subsubsection}{Overview}{41}{subsubsection*.35}
+\contentsline {subsubsection}{Building and Running}{41}{subsubsection*.36}
+\contentsline {section}{\numberline {18.4}Display Samples}{41}{section.18.4}
+\contentsline {subsection}{\numberline {18.4.1}ST7789V Display driver}{41}{subsection.18.4.1}
 \contentsline {subsubsection}{Overview}{42}{subsubsection*.37}
 \contentsline {subsubsection}{Building and Running}{42}{subsubsection*.38}
-\contentsline {subsubsection}{References}{43}{subsubsection*.39}
-\contentsline {section}{\numberline {18.5}GUI Samples}{43}{section.18.5}
-\contentsline {subsection}{\numberline {18.5.1}LittlevGL Basic Sample}{43}{subsection.18.5.1}
-\contentsline {subsubsection}{Overview}{43}{subsubsection*.40}
-\contentsline {subsubsection}{Requirements}{43}{subsubsection*.41}
-\contentsline {subsubsection}{Building and Running}{43}{subsubsection*.42}
+\contentsline {subsubsection}{References}{42}{subsubsection*.39}
+\contentsline {section}{\numberline {18.5}GUI Samples}{42}{section.18.5}
+\contentsline {subsection}{\numberline {18.5.1}LittlevGL Basic Sample}{42}{subsection.18.5.1}
+\contentsline {subsubsection}{Overview}{42}{subsubsection*.40}
+\contentsline {subsubsection}{Requirements}{42}{subsubsection*.41}
+\contentsline {subsubsection}{Building and Running}{42}{subsubsection*.42}
 \contentsline {subsubsection}{References}{43}{subsubsection*.43}
 \contentsline {subsection}{\numberline {18.5.2}Adafruit GFX Library on ST7789V Display}{43}{subsection.18.5.2}
-\contentsline {subsubsection}{Overview}{44}{subsubsection*.44}
-\contentsline {subsection}{\numberline {18.5.3}LittlevGL Basic Sample}{44}{subsection.18.5.3}
-\contentsline {subsubsection}{Overview}{44}{subsubsection*.45}
-\contentsline {subsubsection}{Requirements}{44}{subsubsection*.46}
-\contentsline {subsubsection}{Building and Running}{44}{subsubsection*.47}
-\contentsline {subsubsection}{References}{44}{subsubsection*.48}
-\contentsline {subsection}{\numberline {18.5.4}BMA280: Three Axis High-g I2C/SPI Accelerometer}{44}{subsection.18.5.4}
-\contentsline {subsubsection}{Description}{44}{subsubsection*.49}
-\contentsline {subsubsection}{References}{44}{subsubsection*.50}
+\contentsline {subsubsection}{Overview}{43}{subsubsection*.44}
+\contentsline {subsection}{\numberline {18.5.3}LittlevGL Basic Sample}{43}{subsection.18.5.3}
+\contentsline {subsubsection}{Overview}{43}{subsubsection*.45}
+\contentsline {subsubsection}{Requirements}{43}{subsubsection*.46}
+\contentsline {subsubsection}{Building and Running}{43}{subsubsection*.47}
+\contentsline {subsubsection}{References}{43}{subsubsection*.48}
+\contentsline {subsection}{\numberline {18.5.4}BMA280: Three Axis High-g I2C/SPI Accelerometer}{43}{subsection.18.5.4}
+\contentsline {subsubsection}{Description}{43}{subsubsection*.49}
+\contentsline {subsubsection}{References}{43}{subsubsection*.50}
 \contentsline {subsubsection}{Wiring}{44}{subsubsection*.51}
-\contentsline {paragraph}{I2C mode}{45}{paragraph*.52}
-\contentsline {paragraph}{SPI mode}{45}{paragraph*.53}
-\contentsline {subsubsection}{Building and Running}{45}{subsubsection*.54}
-\contentsline {paragraph}{Sample Output: Max Peak Detect Mode}{45}{paragraph*.55}
-\contentsline {paragraph}{Sample Output: Measurement Mode}{45}{paragraph*.56}
-\contentsline {subsection}{\numberline {18.5.5}LittlevGL Basic Sample}{46}{subsection.18.5.5}
-\contentsline {subsubsection}{Overview}{46}{subsubsection*.57}
-\contentsline {subsubsection}{Requirements}{46}{subsubsection*.58}
-\contentsline {subsubsection}{Building and Running}{46}{subsubsection*.59}
-\contentsline {subsubsection}{References}{46}{subsubsection*.60}
+\contentsline {paragraph}{I2C mode}{44}{paragraph*.52}
+\contentsline {paragraph}{SPI mode}{44}{paragraph*.53}
+\contentsline {subsubsection}{Building and Running}{44}{subsubsection*.54}
+\contentsline {paragraph}{Sample Output: Max Peak Detect Mode}{44}{paragraph*.55}
+\contentsline {paragraph}{Sample Output: Measurement Mode}{44}{paragraph*.56}
+\contentsline {subsection}{\numberline {18.5.5}LittlevGL Basic Sample}{45}{subsection.18.5.5}
+\contentsline {subsubsection}{Overview}{45}{subsubsection*.57}
+\contentsline {subsubsection}{Requirements}{45}{subsubsection*.58}
+\contentsline {subsubsection}{Building and Running}{45}{subsubsection*.59}
+\contentsline {subsubsection}{References}{45}{subsubsection*.60}
 \contentsline {chapter}{\numberline {19}Menuconfig}{47}{chapter.19}
 \contentsline {section}{\numberline {19.1}Zephyr is like linux}{47}{section.19.1}
 \contentsline {chapter}{\numberline {20}hacking the pinetime smartwatch}{49}{chapter.20}

@@ -1,0 +1,43 @@
+The target system is: Generic - 2.1.99 - arm
+The host system is: Linux - 4.4.0-18362-Microsoft - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc 
+Build flags: 
+Id flags: -c 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+
+The C compiler identification is GNU, found in "/root/work/pinetime/build/CMakeFiles/3.16.0/CompilerIdC/CMakeCCompilerId.o"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-g++ 
+Build flags: 
+Id flags: -c 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
+
+The CXX compiler identification is GNU, found in "/root/work/pinetime/build/CMakeFiles/3.16.0/CompilerIdCXX/CMakeCXXCompilerId.o"
+
+Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
+arm-zephyr-eabi-gcc (crosstool-NG 1.24.0-rc2-dirty) 8.3.0
+Copyright (C) 2018 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Performing C SOURCE FILE Test check_fmacro_prefix_map__root_work_pinetime_samples_basic_testirq_CMAKE_SOURCE_DIR_C__nostartfiles__nostdlib__isystem___root_zephyr_sdk_0_10_3_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_8_3_0_include___isystem___root_zephyr_sdk_0_10_3_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_8_3_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /root/work/pinetime/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_9cd09 && [1/2] Building C object CMakeFiles/cmTC_9cd09.dir/src.c.obj
+[2/2] Linking C executable cmTC_9cd09
+
+
+Source file was:
+int main(void) { return 0; }

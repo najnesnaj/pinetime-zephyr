@@ -89,7 +89,11 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr for the pintime smartwatch</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Install zephyr</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Install zephyr</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#in-case-you-already-have-zephyr-installed">In case you already have zephyr installed:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#in-case-you-start-from-scratch">In case you start from scratch :</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="blinky.html">zephyr on the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="button.html">Reading out the button on the watch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bluetooth.html">bluetooth (BLE) example</a></li>
@@ -102,12 +106,8 @@
 <li class="toctree-l1"><a class="reference internal" href="drivers/spinor.html">Serial Nor Flash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sensors.html">sensors on the I2C bus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i2c.html">configuring I2C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="drivers/bma280.html">Bosch BMA280</a></li>
-<li class="toctree-l1"><a class="reference internal" href="drivers/bma421.html">Bosch BMA421</a></li>
-<li class="toctree-l1"><a class="reference internal" href="drivers/hrs3300.html">HX HRS3300</a></li>
-<li class="toctree-l1"><a class="reference internal" href="drivers/touchscreen.html">Touchscreen Hynitron</a></li>
-<li class="toctree-l1"><a class="reference internal" href="drivers/cst816s.html">HYNITRON CST816S</a></li>
-<li class="toctree-l1"><a class="reference internal" href="drivers/battery.html">Battery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flashing.html">hacking   the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hacking/debugging.html">debugging   the pinetime smartwatch</a></li>
@@ -182,25 +182,52 @@
             
   <div class="section" id="install-zephyr">
 <h1>Install zephyr<a class="headerlink" href="#install-zephyr" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="in-case-you-already-have-zephyr-installed">
+<h2>In case you already have zephyr installed:<a class="headerlink" href="#in-case-you-already-have-zephyr-installed" title="Permalink to this headline">¶</a></h2>
+<p>Pinetime works as external (out of tree) application.
+You can clone pinetime next to zephyr in the working directory and update manifest and west.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">west</span> <span class="n">config</span> <span class="n">manifest</span><span class="o">.</span><span class="n">path</span> <span class="n">pinetime</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="in-case-you-start-from-scratch">
+<h2>In case you start from scratch :<a class="headerlink" href="#in-case-you-start-from-scratch" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://docs.zephyrproject.org/latest/getting_started/index.html">https://docs.zephyrproject.org/latest/getting_started/index.html</a></p>
 <p>the documentation describes an installation process under Ubuntu/macOS/Windows</p>
 <p>I picked Debian (which is not listed)
 …. and soon afterwards ran into trouble</p>
 <p><cite>this behaviour is known as : stuborn or stupid, but I remain convinced it could work</cite></p>
-<p>But even after following the rules, I got a problem with the <code class="docutils literal notranslate"><span class="pre">dtc</span> <span class="pre">(device</span> <span class="pre">tree</span> <span class="pre">compiler)</span></code></p>
-<blockquote>
-<div><ul class="simple">
-<li><p>I solved this by creating a link from the development-tools to /usr/bin/dtc (here you need to make sure you got a very recent one)</p></li>
-</ul>
-</div></blockquote>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd  /root/zephyr-sdk-0.10.3/sysroots/x86_64-pokysdk-linux/usr/bin/</span>
-<span class="go">mv dtc dtc-orig</span>
-<span class="go">ln -s /usr/bin/dtc dtc</span>
+<p>In the Zephyr getting started page :</p>
+<ol class="arabic simple">
+<li><p>select and update OS</p></li>
+<li><p>install dependencies</p></li>
+<li><p>Get the source code</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">instead</span> <span class="n">of</span> <span class="n">following</span> <span class="n">the</span> <span class="n">procedure</span><span class="p">:</span>
+       <span class="n">cd</span> <span class="o">~</span>
+       <span class="n">west</span> <span class="n">init</span> <span class="n">zephyrproject</span>
+       <span class="n">cd</span> <span class="n">zephyrproject</span>
+       <span class="n">west</span> <span class="n">update</span>
+
+<span class="n">you</span> <span class="n">should</span> <span class="n">to</span> <span class="n">this</span> <span class="p">:</span>
+        <span class="n">cd</span> <span class="o">~</span>
+        <span class="n">mkdir</span> <span class="n">work</span>
+        <span class="n">cd</span> <span class="n">work</span>
+        <span class="n">west</span> <span class="n">init</span> <span class="o">-</span><span class="n">m</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">najnesnaj</span><span class="o">/</span><span class="n">pinetime</span><span class="o">-</span><span class="n">zephyr</span>
+        <span class="n">west</span> <span class="n">update</span>
 </pre></div>
 </div>
+<ol class="arabic simple" start="4">
+<li><p>complete the other steps</p></li>
+</ol>
+<p>to test if your install works :</p>
+<p>cd ~/work/pinetime</p>
+<p>west build -p -b pinetime samples/basic/blinky</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Note : sometimes you run into trouble compiling: removing the build directory can help in that case</p>
 <p><strong>Note : in order to get the display st7789 Picture-Perfect, you might need a zephyr patch</strong></p>
 <p>have a look at : <a class="reference external" href="https://github.com/zephyrproject-rtos/zephyr/pull/20570/files">https://github.com/zephyrproject-rtos/zephyr/pull/20570/files</a>
 You will find them in this repo under patches-zephyr.</p>
+</div>
 </div>
 
 

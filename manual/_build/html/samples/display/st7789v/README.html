@@ -36,7 +36,9 @@
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="copyright" title="Copyright" href="../../../copyright.html" /> 
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" />
+    <link rel="next" title="GUI Samples" href="../../gui/gui.html" />
+    <link rel="prev" title="Display Samples" href="../display.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,7 +86,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Copyright</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../content.html">Zephyr for the pintime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Install zephyr</a></li>
@@ -100,13 +102,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../drivers/spinor.html">Serial Nor Flash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../sensors.html">sensors on the I2C bus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../i2c.html">configuring I2C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../drivers/bma280.html">Bosch BMA280</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../drivers/bma421.html">Bosch BMA421</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../drivers/hrs3300.html">HX HRS3300</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../drivers/touchscreen.html">Touchscreen Hynitron</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../drivers/cst816s.html">HYNITRON CST816S</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../drivers/battery.html">Battery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers/drivers.html">Drivers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Samples and Demos</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../basic/basic.html">Basic Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sensor/sensor.html">Sensor Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers/drivers.html">Driver Samples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../display.html">Display Samples</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ST7789V Display driver</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../gui/gui.html">GUI Samples</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../menuconfig.html">Menuconfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../flashing.html">hacking   the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../hacking/debugging.html">debugging   the pinetime smartwatch</a></li>
@@ -159,6 +171,10 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Samples and Demos</a> &raquo;</li>
+        
+          <li><a href="../display.html">Display Samples</a> &raquo;</li>
         
       <li>ST7789V Display driver</li>
     
@@ -239,8 +255,8 @@ pin assignments:</p>
 </tbody>
 </table>
 <p>You might need to alter these according to your specific board/LCD configuration.</p>
-<p>For <span class="xref std std-ref">nrf52_pca10040</span>, build this sample application with the following commands:</p>
-<p>See <span class="xref std std-ref">nrf52_pca10040</span> on how to flash the build.</p>
+<p>For <span class="xref std std-ref">pinetime</span>, build this sample application with the following commands:</p>
+<p>See <span class="xref std std-ref">pinetime</span> on how to flash the build.</p>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
@@ -255,6 +271,15 @@ pin assignments:</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../gui/gui.html" class="btn btn-neutral float-right" title="GUI Samples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../display.html" class="btn btn-neutral float-left" title="Display Samples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

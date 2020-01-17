@@ -4,9 +4,6 @@ Drivers
 #######
 
 
-.. toctree::
-   :maxdepth: 1
-
     battery.rst
     bma280.rst
     bma421.rst

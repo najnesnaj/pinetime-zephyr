@@ -72,33 +72,12 @@ connect the <strong>INT1</strong> to a interrupt capable GPIO.</p>
 <h2>Building and Running</h2>
 <p>This project outputs sensor data to the console. It requires an BMA280
 sensor. It should work with any platform featuring a I2C/SPI peripheral interface.
-It does not work on QEMU.
-In this example below the <span class="xref std std-ref">nrf52_pca10040</span> board is used.</p>
+It does not work on QEMU.</p>
 <div class="section" id="sample-output-max-peak-detect-mode">
 <h3>Sample Output: Max Peak Detect Mode</h3>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Waiting for a threshold event</span>
-<span class="go"> 23.94 g: ########################</span>
-<span class="go">Waiting for a threshold event</span>
-<span class="go"> 38.01 g: #######################################</span>
-<span class="go">Waiting for a threshold event</span>
-<span class="go"> 51.40 g: ####################################################</span>
-<span class="go">Waiting for a threshold event</span>
-<span class="go"> 63.63 g: ################################################################</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="sample-output-measurement-mode">
 <h3>Sample Output: Measurement Mode</h3>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">AX=      2.94 AY=     -5.88 AZ=      0.98 (m/s^2)</span>
-<span class="go">AX=     -4.90 AY=      6.86 AZ=     -1.96 (m/s^2)</span>
-<span class="go">AX=      2.94 AY=     -2.94 AZ=      8.83 (m/s^2)</span>
-<span class="go">AX=     -0.98 AY=     -6.86 AZ=     -0.98 (m/s^2)</span>
-<span class="go">AX=      6.86 AY=      2.94 AZ=      3.92 (m/s^2)</span>
-<span class="go">AX=     -0.98 AY=      4.90 AZ=     -3.92 (m/s^2)</span>
-
-<span class="go">&lt;repeats endlessly&gt;</span>
-</pre></div>
-</div>
 </div>
 </div>
 </div>

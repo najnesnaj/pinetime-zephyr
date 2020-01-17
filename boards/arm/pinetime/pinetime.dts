@@ -89,7 +89,12 @@ PO.23 LCD backlight
             reg = <0x44>;
             label = "HRS3300";
         };
-
+        cst816s@15 {
+                compatible = "hynitron,cst816s";
+                label = "CST816S";
+                reg = <0x15>;
+                int1-gpios = <&gpio0 28 0>;
+        };
 
 };
 

@@ -79,7 +79,6 @@ void main(void)
 	MY_REGISTER1=0x00;
 	MY_REGISTER3=0x00; 
 	struct device *gpiob;
-//	u32_t button_out = 1U;
 
 	printk("Press the user defined button on the board\n");
 	gpiob = device_get_binding(PORT);
@@ -88,36 +87,27 @@ void main(void)
 		MY_REGISTER3=0xEE; //error
 		return;
 	}
+	/*this is a procedure for resetting the touchscreen*/
 
 	gpio_pin_configure(gpiob, 10, GPIO_DIR_OUT );
 
-	/*this is a procedure for resetting the touchscreen*/
-//	gpio_pin_write(gpiob, 10, 1); //set port high
+	//	gpio_pin_write(gpiob, 10, 1); //set port high
 	//		k_sleep(SLEEP_TIME);
-//	gpio_pin_write(gpiob, 10, 0); //set port high
-//		k_sleep(SLEEP_TIME);
+	//	gpio_pin_write(gpiob, 10, 0); //set port high
+	//		k_sleep(SLEEP_TIME);
 
 
 	gpio_pin_configure(gpiob, 28, GPIO_DIR_IN | GPIO_INT |  PULL_UP | EDGE | GPIO_INT_ACTIVE_HIGH);
 
 	gpio_init_callback(&gpio_cb, touched, BIT(28));
 
-		gpio_add_callback(gpiob, &gpio_cb);
-		gpio_pin_enable_callback(gpiob, 28);
+	gpio_add_callback(gpiob, &gpio_cb);
+	gpio_pin_enable_callback(gpiob, 28);
 
 
 
 
-	u32_t val = 0U;
 	while (1) {
-		val = 0U;
-	//	teller++;
-	//	if (teller > 233) teller=0;
-	//	gpio_pin_read(gpiob, 28, &val);
-	//	MY_REGISTER1=teller;
-	//	if (val=0){
-	//		MY_REGISTER2=teller; //is 1 in case button is pressed
-	//	}
 		k_sleep(SLEEP_TIME);
 	}
 }

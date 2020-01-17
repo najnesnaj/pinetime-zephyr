@@ -66,39 +66,14 @@ Building and Running
 This project outputs sensor data to the console. It requires an BMA280
 sensor. It should work with any platform featuring a I2C/SPI peripheral interface.
 It does not work on QEMU.
-In this example below the :ref:`nrf52_pca10040` board is used.
 
 
-.. zephyr-app-commands::
-   :zephyr-app: samples/sensor/bma280
-   :board: nrf52_pca10040
-   :goals: build flash
 
 
 Sample Output: Max Peak Detect Mode
 ===================================
 
-.. code-block:: console
-
-   Waiting for a threshold event
-    23.94 g: ########################
-   Waiting for a threshold event
-    38.01 g: #######################################
-   Waiting for a threshold event
-    51.40 g: ####################################################
-   Waiting for a threshold event
-    63.63 g: ################################################################
 
 Sample Output: Measurement Mode
 ===============================
 
-.. code-block:: console
-
-   AX=      2.94 AY=     -5.88 AZ=      0.98 (m/s^2)
-   AX=     -4.90 AY=      6.86 AZ=     -1.96 (m/s^2)
-   AX=      2.94 AY=     -2.94 AZ=      8.83 (m/s^2)
-   AX=     -0.98 AY=     -6.86 AZ=     -0.98 (m/s^2)
-   AX=      6.86 AY=      2.94 AZ=      3.92 (m/s^2)
-   AX=     -0.98 AY=      4.90 AZ=     -3.92 (m/s^2)
-
-   <repeats endlessly>
