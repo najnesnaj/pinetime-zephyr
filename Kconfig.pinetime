@@ -1,5 +1,6 @@
 menu "Pinetime"
 
 rsource "drivers/sensor/Kconfig"
+rsource "subsys/Kconfig"
 
 endmenu
