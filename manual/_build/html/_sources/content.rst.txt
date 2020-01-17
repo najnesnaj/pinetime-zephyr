@@ -15,14 +15,14 @@ Zephyr for the pintime smartwatch
 ::
 
     the approach in this manual is to get quick results :
-        - minimal effort install
+        - minimal effort install (pinetime works as an external (out of tree)
+          application for zephyr)
         - try out the samples 
         - inspire you to modify and enhance
 
     
 suggestion : 
-	- install zephyr, https://docs.zephyrproject.org 
-        - copy the board definition
+	- follow the installation instructions 
         - try some examples
         - try out bluetooth
         - try out the display 

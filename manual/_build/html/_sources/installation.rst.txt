@@ -2,6 +2,23 @@
 Install zephyr 
 ========================
 
+
+In case you already have zephyr installed:
+------------------------------------------
+
+
+Pinetime works as external (out of tree) application.
+You can clone pinetime next to zephyr in the working directory and update manifest and west.
+
+::
+
+     west config manifest.path pinetime
+
+
+In case you start from scratch :
+--------------------------------
+
+
 https://docs.zephyrproject.org/latest/getting_started/index.html
 
 the documentation describes an installation process under Ubuntu/macOS/Windows
@@ -14,15 +31,41 @@ I picked Debian (which is not listed)
 `this behaviour is known as : stuborn or stupid, but I remain convinced it could work`
 
 
-But even after following the rules, I got a problem with the ``dtc (device tree compiler)``
 
-  - I solved this by creating a link from the development-tools to /usr/bin/dtc (here you need to make sure you got a very recent one)
+In the Zephyr getting started page :
 
-.. code-block:: console 
+1) select and update OS
+2)  install dependencies
+3) Get the source code
 
-             cd  /root/zephyr-sdk-0.10.3/sysroots/x86_64-pokysdk-linux/usr/bin/
-             mv dtc dtc-orig
-             ln -s /usr/bin/dtc dtc
+::   
+
+      instead of following the procedure:
+             cd ~
+             west init zephyrproject
+             cd zephyrproject
+             west update
+
+      you should to this :
+              cd ~
+              mkdir work
+              cd work
+              west init -m https://github.com/najnesnaj/pinetime-zephyr
+              west update
+
+
+4) complete the other steps
+
+
+to test if your install works : 
+
+cd ~/work/pinetime
+
+west build -p -b pinetime samples/basic/blinky
+
+
+**Note : sometimes you run into trouble compiling: removing the build directory can help in that case
+
 
 
 

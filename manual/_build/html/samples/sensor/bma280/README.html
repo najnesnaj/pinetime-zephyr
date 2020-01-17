@@ -36,7 +36,9 @@
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="copyright" title="Copyright" href="../../../copyright.html" /> 
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" />
+    <link rel="next" title="CST816S HYNITRON TOUCHSCREEN" href="../cst816s/README.html" />
+    <link rel="prev" title="Sensor Samples" href="../sensor.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,7 +86,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Copyright</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../content.html">Zephyr for the pintime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Install zephyr</a></li>
@@ -100,13 +102,26 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../drivers/spinor.html">Serial Nor Flash</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../sensors.html">sensors on the I2C bus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../i2c.html">configuring I2C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../drivers/bma280.html">Bosch BMA280</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../drivers/bma421.html">Bosch BMA421</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../drivers/hrs3300.html">HX HRS3300</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../drivers/touchscreen.html">Touchscreen Hynitron</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../drivers/cst816s.html">HYNITRON CST816S</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../drivers/battery.html">Battery</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers/drivers.html">Drivers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Samples and Demos</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../basic/basic.html">Basic Samples</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../sensor.html">Sensor Samples</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BMA280: Three Axis High-g I2C/SPI Accelerometer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wiring">Wiring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cst816s/README.html">CST816S HYNITRON TOUCHSCREEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hrs3300/README.html">MAX30101 Heart Rate Sensor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers/drivers.html">Driver Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../display/display.html">Display Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gui/gui.html">GUI Samples</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../menuconfig.html">Menuconfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../flashing.html">hacking   the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../hacking/debugging.html">debugging   the pinetime smartwatch</a></li>
@@ -159,6 +174,10 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Samples and Demos</a> &raquo;</li>
+        
+          <li><a href="../sensor.html">Sensor Samples</a> &raquo;</li>
         
       <li>BMA280: Three Axis High-g I2C/SPI Accelerometer</li>
     
@@ -239,33 +258,12 @@ connect the <strong>INT1</strong> to a interrupt capable GPIO.</p>
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
 <p>This project outputs sensor data to the console. It requires an BMA280
 sensor. It should work with any platform featuring a I2C/SPI peripheral interface.
-It does not work on QEMU.
-In this example below the <span class="xref std std-ref">nrf52_pca10040</span> board is used.</p>
+It does not work on QEMU.</p>
 <div class="section" id="sample-output-max-peak-detect-mode">
 <h3>Sample Output: Max Peak Detect Mode<a class="headerlink" href="#sample-output-max-peak-detect-mode" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Waiting for a threshold event</span>
-<span class="go"> 23.94 g: ########################</span>
-<span class="go">Waiting for a threshold event</span>
-<span class="go"> 38.01 g: #######################################</span>
-<span class="go">Waiting for a threshold event</span>
-<span class="go"> 51.40 g: ####################################################</span>
-<span class="go">Waiting for a threshold event</span>
-<span class="go"> 63.63 g: ################################################################</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="sample-output-measurement-mode">
 <h3>Sample Output: Measurement Mode<a class="headerlink" href="#sample-output-measurement-mode" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">AX=      2.94 AY=     -5.88 AZ=      0.98 (m/s^2)</span>
-<span class="go">AX=     -4.90 AY=      6.86 AZ=     -1.96 (m/s^2)</span>
-<span class="go">AX=      2.94 AY=     -2.94 AZ=      8.83 (m/s^2)</span>
-<span class="go">AX=     -0.98 AY=     -6.86 AZ=     -0.98 (m/s^2)</span>
-<span class="go">AX=      6.86 AY=      2.94 AZ=      3.92 (m/s^2)</span>
-<span class="go">AX=     -0.98 AY=      4.90 AZ=     -3.92 (m/s^2)</span>
-
-<span class="go">&lt;repeats endlessly&gt;</span>
-</pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -275,6 +273,15 @@ In this example below the <span class="xref std std-ref">nrf52_pca10040</span> b
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cst816s/README.html" class="btn btn-neutral float-right" title="CST816S HYNITRON TOUCHSCREEN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../sensor.html" class="btn btn-neutral float-left" title="Sensor Samples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

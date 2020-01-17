@@ -46,15 +46,15 @@ pin assignments:
 
 You might need to alter these according to your specific board/LCD configuration.
 
-For :ref:`nrf52_pca10040`, build this sample application with the following commands:
+For :ref:`pinetime`, build this sample application with the following commands:
 
 .. zephyr-app-commands::
    :zephyr-app: samples/display/st7789v
-   :board: nrf52_pca10040
+   :board: pinetime 
    :goals: build
    :compact:
 
-See :ref:`nrf52_pca10040` on how to flash the build.
+See :ref:`pinetime` on how to flash the build.
 
 
 References

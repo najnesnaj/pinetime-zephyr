@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Jan 14, 2020}
+\date{Jan 17, 2020}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -119,17 +119,15 @@ All the software is subject to the Apache 2.0 license (same as zephyr), which is
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{the} \PYG{n}{approach} \PYG{o+ow}{in} \PYG{n}{this} \PYG{n}{manual} \PYG{o+ow}{is} \PYG{n}{to} \PYG{n}{get} \PYG{n}{quick} \PYG{n}{results} \PYG{p}{:}
-    \PYG{o}{\PYGZhy{}} \PYG{n}{minimal} \PYG{n}{effort} \PYG{n}{install}
+    \PYG{o}{\PYGZhy{}} \PYG{n}{minimal} \PYG{n}{effort} \PYG{n}{install} \PYG{p}{(}\PYG{n}{pinetime} \PYG{n}{works} \PYG{k}{as} \PYG{n}{an} \PYG{n}{external} \PYG{p}{(}\PYG{n}{out} \PYG{n}{of} \PYG{n}{tree}\PYG{p}{)}
+      \PYG{n}{application} \PYG{k}{for} \PYG{n}{zephyr}\PYG{p}{)}
     \PYG{o}{\PYGZhy{}} \PYG{k}{try} \PYG{n}{out} \PYG{n}{the} \PYG{n}{samples}
     \PYG{o}{\PYGZhy{}} \PYG{n}{inspire} \PYG{n}{you} \PYG{n}{to} \PYG{n}{modify} \PYG{o+ow}{and} \PYG{n}{enhance}
 \end{sphinxVerbatim}
 \begin{description}
 \item[{suggestion :}] \leavevmode\begin{itemize}
 \item {} 
-install zephyr, \sphinxurl{https://docs.zephyrproject.org}
-
-\item {} 
-copy the board definition
+follow the installation instructions
 
 \item {} 
 try some examples
@@ -149,6 +147,19 @@ try out the display
 
 \chapter{Install zephyr}
 \label{\detokenize{installation:install-zephyr}}\label{\detokenize{installation::doc}}
+
+\section{In case you already have zephyr installed:}
+\label{\detokenize{installation:in-case-you-already-have-zephyr-installed}}
+Pinetime works as external (out of tree) application.
+You can clone pinetime next to zephyr in the working directory and update manifest and west.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{west} \PYG{n}{config} \PYG{n}{manifest}\PYG{o}{.}\PYG{n}{path} \PYG{n}{pinetime}
+\end{sphinxVerbatim}
+
+
+\section{In case you start from scratch :}
+\label{\detokenize{installation:in-case-you-start-from-scratch}}
 \sphinxurl{https://docs.zephyrproject.org/latest/getting\_started/index.html}
 
 the documentation describes an installation process under Ubuntu/macOS/Windows
@@ -158,18 +169,49 @@ I picked Debian (which is not listed)
 
 \sphinxtitleref{this behaviour is known as : stuborn or stupid, but I remain convinced it could work}
 
-But even after following the rules, I got a problem with the \sphinxcode{\sphinxupquote{dtc (device tree compiler)}}
-\begin{itemize}
+In the Zephyr getting started page :
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{)}%
 \item {} 
-I solved this by creating a link from the development-tools to /usr/bin/dtc (here you need to make sure you got a very recent one)
+select and update OS
 
-\end{itemize}
+\item {} 
+install dependencies
+
+\item {} 
+Get the source code
+
+\end{enumerate}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{cd  /root/zephyr\PYGZhy{}sdk\PYGZhy{}0.10.3/sysroots/x86\PYGZus{}64\PYGZhy{}pokysdk\PYGZhy{}linux/usr/bin/}
-\PYG{g+go}{mv dtc dtc\PYGZhy{}orig}
-\PYG{g+go}{ln \PYGZhy{}s /usr/bin/dtc dtc}
+\PYG{n}{instead} \PYG{n}{of} \PYG{n}{following} \PYG{n}{the} \PYG{n}{procedure}\PYG{p}{:}
+       \PYG{n}{cd} \PYG{o}{\PYGZti{}}
+       \PYG{n}{west} \PYG{n}{init} \PYG{n}{zephyrproject}
+       \PYG{n}{cd} \PYG{n}{zephyrproject}
+       \PYG{n}{west} \PYG{n}{update}
+
+\PYG{n}{you} \PYG{n}{should} \PYG{n}{to} \PYG{n}{this} \PYG{p}{:}
+        \PYG{n}{cd} \PYG{o}{\PYGZti{}}
+        \PYG{n}{mkdir} \PYG{n}{work}
+        \PYG{n}{cd} \PYG{n}{work}
+        \PYG{n}{west} \PYG{n}{init} \PYG{o}{\PYGZhy{}}\PYG{n}{m} \PYG{n}{https}\PYG{p}{:}\PYG{o}{/}\PYG{o}{/}\PYG{n}{github}\PYG{o}{.}\PYG{n}{com}\PYG{o}{/}\PYG{n}{najnesnaj}\PYG{o}{/}\PYG{n}{pinetime}\PYG{o}{\PYGZhy{}}\PYG{n}{zephyr}
+        \PYG{n}{west} \PYG{n}{update}
 \end{sphinxVerbatim}
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{)}%
+\setcounter{enumi}{3}
+\item {} 
+complete the other steps
+
+\end{enumerate}
+
+to test if your install works :
+
+cd \textasciitilde{}/work/pinetime
+
+west build -p -b pinetime samples/basic/blinky
+
+{\color{red}\bfseries{}**}Note : sometimes you run into trouble compiling: removing the build directory can help in that case
 
 \sphinxstylestrong{Note : in order to get the display st7789 Picture-Perfect, you might need a zephyr patch}
 
@@ -190,30 +232,17 @@ You will find them in this repo under patches-zephyr.
 \PYG{n}{Once} \PYG{n}{lit}\PYG{p}{,} \PYG{n}{you} \PYG{n}{can} \PYG{n}{barely} \PYG{n}{see} \PYG{n}{it}\PYG{p}{,} \PYG{n}{cause} \PYG{n}{the} \PYG{n}{screen} \PYG{o+ow}{is} \PYG{n}{black}\PYG{o}{.}
 \end{sphinxVerbatim}
 
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{copy the board definition for the pinetime to the zephyrproject directory}
-\PYG{g+gp}{\PYGZdl{}} cp \PYG{o}{(}this repo\PYG{o}{)}pinetime  \PYGZti{}/zephyrproject/zephyr/boards/arm/pinetime
-
-\PYG{g+go}{replace the blinky sample with the one in this repo}
-\PYG{g+gp}{\PYGZdl{}} cp \PYG{o}{(}this repo\PYG{o}{)}blinky  \PYGZti{}/zephyrproject/zephyr/samples/basic
-\end{sphinxVerbatim}
-
 have a look at the pinetime.dts file, here you see the definition of the background leds.
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{gpios = \PYGZlt{}\PYGZam{}gpio0 14 GPIO\PYGZus{}INT\PYGZus{}ACTIVE\PYGZus{}LOW\PYGZgt{};}
-\PYG{g+go}{gpios = \PYGZlt{}\PYGZam{}gpio0 22 GPIO\PYGZus{}INT\PYGZus{}ACTIVE\PYGZus{}LOW\PYGZgt{};}
-\PYG{g+go}{gpios = \PYGZlt{}\PYGZam{}gpio0 23 GPIO\PYGZus{}INT\PYGZus{}ACTIVE\PYGZus{}LOW\PYGZgt{};}
-\end{sphinxVerbatim}
 
 \sphinxtitleref{building an image, which can be found under the build directory}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZdl{}} \PYG{n+nb}{cd} \PYGZti{}/work/pinetime
 \PYG{g+gp}{\PYGZdl{}} west build \PYGZhy{}p \PYGZhy{}b pinetime samples/basic/blinky
 \end{sphinxVerbatim}
 
 once the compilation is completed you can upload the firmware
-\textasciitilde{}/zephyrproject/zephyr/build/zephyr/zephyr.bin
+\textasciitilde{}/work/pinetime/build/zephyr/zephyr.bin
 
 
 \chapter{Reading out the button on the watch}
@@ -821,7 +850,20 @@ finally we create a driver for the BMA423, based upon the BMA280
 
 
 \chapter{Drivers}
-\label{\detokenize{drivers/drivers:drivers}}\label{\detokenize{drivers/drivers:id1}}\label{\detokenize{drivers/drivers::doc}}
+\label{\detokenize{drivers/drivers:drivers}}\label{\detokenize{drivers/drivers:id1}}\label{\detokenize{drivers/drivers::doc}}\begin{quote}
+
+battery.rst
+bma280.rst
+bma421.rst
+cst816s.rst
+drivers.rst
+hrs3300.jpg
+hrs3300.rst
+index.rst
+spinor.rst
+touchscreen.rst
+\end{quote}
+
 
 \chapter{Samples and Demos}
 \label{\detokenize{samples/index:samples-and-demos}}\label{\detokenize{samples/index:id1}}\label{\detokenize{samples/index::doc}}
@@ -1028,36 +1070,13 @@ connect the \sphinxstylestrong{INT1} to a interrupt capable GPIO.
 This project outputs sensor data to the console. It requires an BMA280
 sensor. It should work with any platform featuring a I2C/SPI peripheral interface.
 It does not work on QEMU.
-In this example below the \DUrole{xref,std,std-ref}{nrf52\_pca10040} board is used.
 
 
 \paragraph{Sample Output: Max Peak Detect Mode}
 \label{\detokenize{samples/sensor/bma280/README:sample-output-max-peak-detect-mode}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{Waiting for a threshold event}
-\PYG{g+go}{ 23.94 g: \PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
-\PYG{g+go}{Waiting for a threshold event}
-\PYG{g+go}{ 38.01 g: \PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
-\PYG{g+go}{Waiting for a threshold event}
-\PYG{g+go}{ 51.40 g: \PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
-\PYG{g+go}{Waiting for a threshold event}
-\PYG{g+go}{ 63.63 g: \PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
-\end{sphinxVerbatim}
-
 
 \paragraph{Sample Output: Measurement Mode}
 \label{\detokenize{samples/sensor/bma280/README:sample-output-measurement-mode}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{AX=      2.94 AY=     \PYGZhy{}5.88 AZ=      0.98 (m/s\PYGZca{}2)}
-\PYG{g+go}{AX=     \PYGZhy{}4.90 AY=      6.86 AZ=     \PYGZhy{}1.96 (m/s\PYGZca{}2)}
-\PYG{g+go}{AX=      2.94 AY=     \PYGZhy{}2.94 AZ=      8.83 (m/s\PYGZca{}2)}
-\PYG{g+go}{AX=     \PYGZhy{}0.98 AY=     \PYGZhy{}6.86 AZ=     \PYGZhy{}0.98 (m/s\PYGZca{}2)}
-\PYG{g+go}{AX=      6.86 AY=      2.94 AZ=      3.92 (m/s\PYGZca{}2)}
-\PYG{g+go}{AX=     \PYGZhy{}0.98 AY=      4.90 AZ=     \PYGZhy{}3.92 (m/s\PYGZca{}2)}
-
-\PYG{g+go}{\PYGZlt{}repeats endlessly\PYGZgt{}}
-\end{sphinxVerbatim}
-
 
 \subsection{CST816S HYNITRON TOUCHSCREEN}
 \label{\detokenize{samples/sensor/cst816s/README:cst816s-hynitron-touchscreen}}\label{\detokenize{samples/sensor/cst816s/README:cst816s}}\label{\detokenize{samples/sensor/cst816s/README::doc}}
@@ -1251,9 +1270,9 @@ RESET
 
 You might need to alter these according to your specific board/LCD configuration.
 
-For \DUrole{xref,std,std-ref}{nrf52\_pca10040}, build this sample application with the following commands:
+For \DUrole{xref,std,std-ref}{pinetime}, build this sample application with the following commands:
 
-See \DUrole{xref,std,std-ref}{nrf52\_pca10040} on how to flash the build.
+See \DUrole{xref,std,std-ref}{pinetime} on how to flash the build.
 
 
 \subsubsection{References}
@@ -1278,62 +1297,9 @@ and a counter at the bottom which increments every second.
 
 \subsubsection{Requirements}
 \label{\detokenize{samples/gui/clock/README:requirements}}
-Display shield and a board which provides a configuration
-for Arduino connectors, for example:
-\begin{itemize}
-\item {} 
-\DUrole{xref,std,std-ref}{adafruit\_2\_8\_tft\_touch\_v2} and \DUrole{xref,std,std-ref}{nrf52840\_pca10056}
-
-\item {} 
-\DUrole{xref,std,std-ref}{ssd1306\_128x64\_shield} and \DUrole{xref,std,std-ref}{frdm\_k64f}
-
-\end{itemize}
-
-or a simulated display environment in a native Posix application:
-\begin{itemize}
-\item {} 
-\DUrole{xref,std,std-ref}{native\_posix}
-
-\item {} 
-\sphinxhref{https://www.libsdl.org}{SDL2} %
-\begin{footnote}[1]\sphinxAtStartFootnote
-\sphinxurl{https://www.libsdl.org}
-%
-\end{footnote}
-
-\end{itemize}
-
-or
-\begin{itemize}
-\item {} 
-\DUrole{xref,std,std-ref}{mimxrt1050\_evk}
-
-\item {} 
-\sphinxhref{https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/i.mx-applications-processors/i.mx-rt-series/4.3-lcd-panel:RK043FN02H-CT}{RK043FN02H-CT} %
-\begin{footnote}[2]\sphinxAtStartFootnote
-\sphinxurl{https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/i.mx-applications-processors/i.mx-rt-series/4.3-lcd-panel:RK043FN02H-CT}
-%
-\end{footnote}
-
-\end{itemize}
-
-or
-\begin{itemize}
-\item {} 
-\DUrole{xref,std,std-ref}{mimxrt1060\_evk}
-
-\item {} 
-\sphinxhref{https://www.nxp.com/products/processors-and-microcontrollers/arm-based-processors-and-mcus/i.mx-applications-processors/i.mx-rt-series/4.3-lcd-panel:RK043FN02H-CT}{RK043FN02H-CT} \sphinxfootnotemark[2]
-
-\end{itemize}
-
 
 \subsubsection{Building and Running}
 \label{\detokenize{samples/gui/clock/README:building-and-running}}
-Example building for \DUrole{xref,std,std-ref}{nrf52840\_pca10056}:
-
-Example building for \DUrole{xref,std,std-ref}{native\_posix}:
-
 
 \subsubsection{References}
 \label{\detokenize{samples/gui/clock/README:references}}
