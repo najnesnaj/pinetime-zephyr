@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="copyright" title="Copyright" href="../../../copyright.html" />
-    <link rel="next" title="Touchscreen IRQ" href="../testirq/README.html" />
+    <link rel="next" title="I2C Scanner sample" href="../scani2c/README.html" />
     <link rel="prev" title="Blinky Application" href="../blinky/README.html" /> 
 </head>
 
@@ -88,12 +88,11 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../content.html">Zephyr for the pintime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../content.html">Zephyr for the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Install zephyr</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../blinky.html">zephyr on the pinetime smartwatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../button.html">Reading out the button on the watch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../bluetooth.html">bluetooth (BLE) example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../display.html">st7789 display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../display.html">display (st7789)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gfx.html">GFX Library Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../lvgl.html">LittlevGL Basic Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../clock.html">LittlevGL Clock Sample</a></li>
@@ -112,6 +111,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../scani2c/README.html">I2C Scanner sample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../testirq/README.html">Touchscreen IRQ</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../touchpoints/README.html">Touchpoints</a></li>
 </ul>
@@ -202,7 +202,9 @@
 <span id="button-sample"></span><h1>Button demo<a class="headerlink" href="#button-demo" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>A simple button demo showcasing the use of GPIO input with interrupts.</p>
+<p>A simple button demo showcasing the use of GPIO input with interrupts.
+If the button is pressed, it will set a value at the location 0x2000F000 in memory.
+With openocd or any other debugger you can peek at this location.</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
@@ -221,7 +223,7 @@ devicetree description file.</p>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
 <p>This sample can be built for multiple boards, in this example we will build it
-for the nucleo_f103rb board:</p>
+for the pinetime</p>
 <p>After startup, the program looks up a predefined GPIO device, and configures the
 pin in input mode, enabling interrupt generation on falling edge. During each
 iteration of the main loop, the state of GPIO line is monitored and printed to
@@ -238,7 +240,7 @@ will print an information about this event along with its timestamp.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../testirq/README.html" class="btn btn-neutral float-right" title="Touchscreen IRQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../scani2c/README.html" class="btn btn-neutral float-right" title="I2C Scanner sample" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../blinky/README.html" class="btn btn-neutral float-left" title="Blinky Application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -1,42 +1,35 @@
 .. _display-sample:
 
-st7789 display 
-==============
+display (st7789)
+================
 
 
 Display    example
 ~~~~~~~~~~~~~~~~~~~
 
-**Note: I think you need to connect the 5V, just connecting the SWD cable (3.3V) is likely not enough to light up the leds**
-**While connecting 5V, do not connect 3.3V**
+This is just a simple display test.
+It displays coloured squares, but it allows you to check if the screen is OK.
+
+
+
+
+**TIP: While connecting 5V, do not connect 3.3V at the same time**
 
 ::
 
     The watch has background leds for the LCD. 
     
     They need to be on (LOW) to visualize the display.
+    Have a look in the source code.
 
-
-.. code-block:: console
-
-
-     replace the display sample with the one in this repo 
-     $ cp (this repo)st7789  ~/zephyrproject/zephyr/samples/display
-
-
-
-
-
-`building an image, which can be found under the build directory`
 
 .. code-block:: console
 
     $  west build -p -b pinetime samples/display/st7789v 
 
-once the compilation is completed you can upload the firmware
-~/zephyrproject/zephyr/build/zephyr/zephyr.bin 
+Once the compilation is completed you can upload the firmware.
 
-if all goes well, you should see some coloured squares on your screen
+If all goes well, you should see some coloured squares on your screen.
 
 
 

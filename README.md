@@ -15,7 +15,7 @@ All aid is welcome, but I do not have time to test and debug your contributions.
 ## Where To Start?
 Read the tutorial! A helpful manual is included in the repository:
  - [pdf](oswatch.pdf)
- - [epub](asmartwatchbasedontheNordicnrf52832microcontroller.epub)
+ - [epub](opensourcewatch.epub)
  - [html](manual/_build/html/index.html)
 
 ## Installation Overview
@@ -51,11 +51,11 @@ Resources:
 - nRF Connect SDK is using zephyr in similar way and its documentation can be helpful as well: https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/gs_installing.html
 
 ## What Is Included?
-In this repository you can find modified directories that need to be copied to the base Zephyr project directory to add support for the PineTime board.
+In this repository you can find files that supplement a zephyr installation. 
 
-* **pinetime** Contains the board definition -> boards/arm.
-* **samples** Added and updated samples for blinky, ST7789V display etc.
-* ...
+* **board definition** Contains the board definition for the pinetime.
+* **drivers** Contains the drivers for the pinetime.
+* **samples** Modified samples for blinky, new samples for the ST7789V display etc.
 
 ## Project Roadmap
 ### DONE

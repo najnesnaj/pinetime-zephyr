@@ -1,6 +1,6 @@
-.. _userspace-samples:
+.. _userspace-drivers:
 
-Userspace Samples
+Userspace Drivers
 #################
 
 .. toctree::

@@ -93,7 +93,8 @@ teller++;
 
 
         gpio_pin_configure(drv_data->gpio, 10,GPIO_DIR_OUT); //push button out
-        gpio_pin_write(drv_data->gpio, 10, &button_out); //set port high
+        gpio_pin_write(drv_data->gpio, 10, 0); //set port low 
+        gpio_pin_write(drv_data->gpio, 10, 1); //set port high
 //
 
 

@@ -11,8 +11,6 @@ Reading out the button on the watch
 Building and Running
 ********************
 
-In this repo under samples you will find an adapted basic/button program.
-(copy this to the samples/basic directory)
 
 
 .. code-block:: console

@@ -18,6 +18,9 @@
 <h2>Overview</h2>
 <p>This sample application “clock” uses the RTC0 timer.
 It uses the counter driver.</p>
+<p>It will serve as a building block for a “time of the day” clock.</p>
+<p>In addition it will need a function to set the time.</p>
+<p>In bluetooth one can use CTS (central time service)</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements</h2>
@@ -31,10 +34,10 @@ It uses the counter driver.</p>
         <span class="n">default</span> <span class="n">y</span> <span class="k">if</span> <span class="n">SOC_FAMILY_NRF</span>
 </pre></div>
 </div>
+<p>see : <a class="reference internal" href="samples/gui/clock/README.xhtml#clock-sample"><span class="std std-ref">LittlevGL Clock Sample</span></a></p>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running</h2>
-<p>copy the samples/gui/clock from this repository to the zephyr one.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/gui/clock</span>
 </pre></div>
 </div>

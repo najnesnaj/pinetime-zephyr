@@ -37,8 +37,8 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="Samples and Demos" href="../samples/index.html" />
-    <link rel="prev" title="configuring I2C" href="../i2c.html" /> 
+    <link rel="next" title="configuring I2C" href="i2c.html" />
+    <link rel="prev" title="Real Time Clock" href="../RTC.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,21 +88,27 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr for the pintime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr for the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../blinky.html">zephyr on the pinetime smartwatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../button.html">Reading out the button on the watch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bluetooth.html">bluetooth (BLE) example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../display.html">st7789 display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">display (st7789)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gfx.html">GFX Library Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lvgl.html">LittlevGL Basic Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clock.html">LittlevGL Clock Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lvglbutton.html">placing a button on the screen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../RTC.html">Real Time Clock</a></li>
-<li class="toctree-l1"><a class="reference internal" href="spinor.html">Serial Nor Flash</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../sensors.html">sensors on the I2C bus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../i2c.html">configuring I2C</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Drivers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Drivers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">configuring I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensors.html">sensors on the I2C bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spinor.html">Serial Nor Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battery.html">Battery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bma421.html">Bosch BMA421</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cst816s.html">HYNITRON CST816S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hrs3300.html">HX HRS3300</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../behind/behind.html">Behind the scene</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../flashing.html">hacking   the pinetime smartwatch</a></li>
@@ -178,18 +184,80 @@
             
   <div class="section" id="drivers">
 <span id="id1"></span><h1>Drivers<a class="headerlink" href="#drivers" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>battery.rst
-bma280.rst
-bma421.rst
-cst816s.rst
-drivers.rst
-hrs3300.jpg
-hrs3300.rst
-index.rst
-spinor.rst
-touchscreen.rst</p>
-</div></blockquote>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="i2c.html">configuring I2C</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html#board-level-definitions">board level definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html#development-trajectory">development trajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html#defining-an-i2c-sensor">defining an I2C sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2c.html#compiling-the-sample">compiling the sample</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sensors.html">sensors on the I2C bus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spinor.html">Serial Nor Flash</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spinor.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spinor.html#consulting-the-generated-board-definition-file">consulting the generated board definition file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spinor.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spinor.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spinor.html#todo">Todo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spinor.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="battery.html">Battery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="battery.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battery.html#todo">Todo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battery.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bma421.html">Bosch BMA421</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bma421.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bma421.html#requirements">Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bma421.html#adapt-cmakelists-txt">adapt CMakeLists.txt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bma421.html#adapt-kconfig">adapt Kconfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bma421.html#add-yaml-file">add yaml file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bma421.html#edit-kconfig">edit KConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bma421.html#create-driver">create driver</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bma421.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bma421.html#todo">Todo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bma421.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cst816s.html">HYNITRON CST816S</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cst816s.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cst816s.html#requirements">Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cst816s.html#adapt-cmakelists-txt">adapt CMakeLists.txt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cst816s.html#adapt-kconfig">adapt Kconfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cst816s.html#add-yaml-file">add yaml file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cst816s.html#edit-kconfig">edit KConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cst816s.html#create-driver">create driver</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cst816s.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cst816s.html#todo">Todo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cst816s.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hrs3300.html">HX HRS3300</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hrs3300.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hrs3300.html#requirements">Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hrs3300.html#adapt-cmakelists-txt">adapt CMakeLists.txt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hrs3300.html#adapt-kconfig">adapt Kconfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hrs3300.html#add-yaml-file">add yaml file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hrs3300.html#edit-kconfig">edit KConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hrs3300.html#create-driver">create driver</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hrs3300.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hrs3300.html#todo">Todo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hrs3300.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 
 
@@ -200,10 +268,10 @@ touchscreen.rst</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../samples/index.html" class="btn btn-neutral float-right" title="Samples and Demos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="i2c.html" class="btn btn-neutral float-right" title="configuring I2C" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../i2c.html" class="btn btn-neutral float-left" title="configuring I2C" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../RTC.html" class="btn btn-neutral float-left" title="Real Time Clock" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

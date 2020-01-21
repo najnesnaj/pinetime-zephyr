@@ -66,13 +66,8 @@ Building and Running
 This project outputs sensor data to the console. It requires an BMA280
 sensor. It should work with any platform featuring a I2C/SPI peripheral interface.
 It does not work on QEMU.
-In this example below the :ref:`nrf52_pca10040` board is used.
 
 
-.. zephyr-app-commands::
-   :zephyr-app: samples/sensor/bma280
-   :board: nrf52_pca10040
-   :goals: build flash
 
 
 Sample Output: Max Peak Detect Mode

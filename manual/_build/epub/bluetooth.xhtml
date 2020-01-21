@@ -14,15 +14,33 @@
             
   <div class="section" id="bluetooth-ble-example">
 <h1>bluetooth (BLE) example</h1>
+<p>The PineTime uses a Nordic nrf52832 chip, which has BLE functionality build into it.</p>
+<p>To test, you can compile a standard application : Eddy Stone.</p>
+<p>The watch will behave as a bluetooth beacon, and you should be able to detect it with your smartphone or with bluez under linux.</p>
+<div class="section" id="using-a-standard-zephyr-application-under-pinetime">
+<h2>Using a standard zephyr application under pinetime:</h2>
+<p>Each sample has its own directory.
+In this directory you will notice a file : “CMakeLists.txt”.</p>
+<p>In order to use a standard, you can just copy it under the pinetime directory.</p>
+<p>In order to be able to compile it, you just have to add one line in the CMakeList.txt :</p>
+<p><cite>include($ENV{ZEPHYR_BASE}/../pinetime/cmake/boilerplate.cmake)</cite></p>
+<p>Have a look in the samples/bluetooth/eddystone directory.</p>
+</div>
 <div class="section" id="eddy-stone">
 <h2>Eddy Stone</h2>
+<blockquote>
+<div><p>see:   <a class="reference internal" href="samples/bluetooth/eddystone/README.xhtml#bluetooth-eddystone-sample"><span class="std std-ref">Bluetooth: Eddystone</span></a></p>
+</div></blockquote>
 <p><strong>Note:</strong>  compile the provided example, so a build directory gets created</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> west build -p -b pinetime samples/bluetooth/eddystone
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">this</span> <span class="pre">builds</span> <span class="pre">an</span> <span class="pre">image,</span> <span class="pre">which</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">found</span> <span class="pre">under</span> <span class="pre">the</span> <span class="pre">build</span> <span class="pre">directory</span></code></p>
+</div>
+<div class="section" id="using-the-created-bluetooth-sample">
+<h2>Using the created bluetooth sample:</h2>
 <p>I use linux with a bluetoothadapter 4.0.
-You need bluez.</p>
+You need to install bluez.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>bluetoothctl
 <span class="gp">[bluetooth]#</span>scan on
 </pre></div>
@@ -34,11 +52,10 @@ You need bluez.</p>
 <h2>Ble Peripheral</h2>
 <p>this example is a demo of the services under bluetooth</p>
 <p>first build the image</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b pinetime samples/bluetooth/peripheral -D <span class="nv">CONF_FILE</span><span class="o">=</span><span class="s2">&quot;prj.conf&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b pinetime samples/bluetooth/peripheral
 </pre></div>
 </div>
-<p>the image, can be found under the build directory, and has to be flashed to the pinetime</p>
-<p>with linux you can have a look using bluetoothctl</p>
+<p>With linux you can have a look using bluetoothctl:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>bluetoothctl
 <span class="gp">[bluetooth]#</span>scan on
 

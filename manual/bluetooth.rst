@@ -1,9 +1,34 @@
 bluetooth (BLE) example 
 =======================
 
+The PineTime uses a Nordic nrf52832 chip, which has BLE functionality build into it.
+
+To test, you can compile a standard application : Eddy Stone.
+
+The watch will behave as a bluetooth beacon, and you should be able to detect it with your smartphone or with bluez under linux.
+
+
+Using a standard zephyr application under pinetime:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Each sample has its own directory.
+In this directory you will notice a file : "CMakeLists.txt".
+
+
+In order to use a standard, you can just copy it under the pinetime directory.
+
+In order to be able to compile it, you just have to add one line in the CMakeList.txt :
+
+`include($ENV{ZEPHYR_BASE}/../pinetime/cmake/boilerplate.cmake)`
+
+Have a look in the samples/bluetooth/eddystone directory.
+
 
 Eddy Stone
 ~~~~~~~~~~
+
+ see:   :ref:`bluetooth-eddystone-sample`
+
 
 **Note:**  compile the provided example, so a build directory gets created 
 
@@ -14,9 +39,12 @@ Eddy Stone
 
 ``this builds an image, which can be found under the build directory``
 
+Using the created bluetooth sample:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 I use linux with a bluetoothadapter 4.0.
-You need bluez.
+You need to install bluez.
 
 .. code-block:: console
 
@@ -40,12 +68,11 @@ first build the image
 .. code-block:: console
 
 
-        $  west build -p -b pinetime samples/bluetooth/peripheral -D CONF_FILE="prj.conf" 
+        $  west build -p -b pinetime samples/bluetooth/peripheral 
 
 
-the image, can be found under the build directory, and has to be flashed to the pinetime
 
-with linux you can have a look using bluetoothctl
+With linux you can have a look using bluetoothctl:
 
 
 

@@ -3,6 +3,8 @@
 LittlevGL Clock Sample
 ######################
 
+see : :ref:`clock-sample`
+
 Overview
 ********
 
@@ -36,7 +38,6 @@ There is an online tool : https://littlevgl.com/image-to-c-array
 Building and Running
 ********************
 
-copy the samples/gui/clock from this repository to the zephyr one.
 
 
 .. code-block:: console

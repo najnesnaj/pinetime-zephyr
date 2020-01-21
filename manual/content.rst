@@ -1,8 +1,8 @@
 
 
-=================================
-Zephyr for the pintime smartwatch
-=================================
+==================================
+Zephyr for the pinetime smartwatch
+==================================
 ::
 
     this document describes the installation of zephyr RTOS on the PineTime smartwatch. 

@@ -13,6 +13,7 @@ Samples and Demos
    drivers/drivers.rst
    display/*
    gui/*
+   bluetooth/*
 
 .. comment
    To add a new sample document, please use the template available under

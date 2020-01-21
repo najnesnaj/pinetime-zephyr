@@ -1,16 +1,16 @@
 .. _drivers:
 
+
+
 Drivers
 #######
 
+.. toctree::
 
-    battery.rst
-    bma280.rst
-    bma421.rst
-    cst816s.rst
-    drivers.rst
-    hrs3300.jpg
-    hrs3300.rst
-    index.rst
-    spinor.rst
-    touchscreen.rst
+    i2c
+    sensors
+    spinor
+    battery
+    bma421
+    cst816s
+    hrs3300

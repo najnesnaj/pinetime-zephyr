@@ -9,6 +9,8 @@ Serial Nor Flash
 
 
 
+
+
 Overview
 ********
 
@@ -26,6 +28,13 @@ I found it to be very useful to consult the generated dts file.
 Here you can check if everything is present.
 
 Guess the dts-file has to be well intended.(structured)
+
+
+**TIP: consult the generated dts board file **
+
+
+consulting the generated board definition file
+----------------------------------------------
 
 
 .. code-block:: console

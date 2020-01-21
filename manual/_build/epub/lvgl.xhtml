@@ -19,19 +19,12 @@
 <p>This sample application displays “Hello World” in the center of the screen
 and a counter at the bottom which increments every second.</p>
 <p>LittlevGL is a free and open-source graphics library providing everything you need to create embedded GUI with easy-to-use graphical elements, beautiful visual effects and low memory footprint.</p>
+<p>see : <a class="reference internal" href="samples/gui/lvgl/README.xhtml#lvgl-sample"><span class="std std-ref">LittlevGL Basic Sample</span></a></p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements</h2>
-<dl class="simple">
-<dt>definitions can be found under the boards sub-directory</dt><dd><ul class="simple">
-<li><p>pinetime.conf</p></li>
-<li><p>pinetime.overlay</p></li>
-</ul>
-</dd>
-</dl>
-<p>The program has been modified to light up the background leds.
-Might be unnecessary…
-can be found in this repo</p>
+<p>The program has been modified to light up the background leds.</p>
+<p><strong>TIP: matching label : DISPLAY</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Matching labels are necessary!
 pinetime.conf:CONFIG_LVGL_DISPLAY_DEV_NAME=&quot;DISPLAY&quot;
 pinetime.overlay:               label = &quot;DISPLAY&quot;; (spi definition)
@@ -40,15 +33,30 @@ pinetime.overlay:               label = &quot;DISPLAY&quot;; (spi definition)
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running</h2>
-<p>Make sure you copied the board definitions.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/gui/lvgl</span>
 </pre></div>
 </div>
-<p>modifying the font size :</p>
-<p>west build -t menuconfig
-goto additional libraries / lvgl gui library
-(look for fonts, and adapt according to your need)</p>
-<p>west build</p>
+<div class="section" id="modifying-the-font-size">
+<h3>modifying the font size :</h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -t menuconfig</span>
+</pre></div>
+</div>
+<dl>
+<dt>goto:</dt><dd><ul class="simple">
+<li><p>additional libraries</p></li>
+<li><p>lvgl gui library</p></li>
+</ul>
+<p>(look for fonts, and adapt according to your need)</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="apply-changes-of-the-changed-config">
+<h3>apply changes of the changed config:</h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build</span>
+</pre></div>
+</div>
+<p>(instead of west build -p (pristine) which wipes out your customisation)</p>
+</div>
 </div>
 <div class="section" id="todo">
 <h2>Todo</h2>

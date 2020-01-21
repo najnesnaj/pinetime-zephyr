@@ -1,0 +1,45 @@
+Running Sphinx v2.2.2
+loading pickled environment... done
+building [mo]: targets for 0 po files that are out of date
+building [html]: targets for 0 source files that are out of date
+updating environment: 0 added, 0 changed, 0 removed
+looking for now-outdated files... none found
+no targets are out of date.
+build succeeded.
+
+The HTML pages are in _build/html.
+Running Sphinx v2.2.2
+loading pickled environment... done
+building [mo]: targets for 0 po files that are out of date
+building [latex]: all documents
+updating environment: 0 added, 0 changed, 0 removed
+looking for now-outdated files... none found
+processing oswatch.tex... index copyright content installation basicapplications bluetooth display gfx lvgl clock lvglbutton RTC drivers/spinor sensors i2c drivers/drivers samples/index samples/basic/basic samples/basic/blinky/README samples/basic/button/README samples/basic/scani2c/README samples/basic/testirq/README samples/basic/touchpoints/README samples/sensor/sensor samples/sensor/bma280/README samples/sensor/cst816s/README samples/sensor/hrs3300/README samples/drivers/drivers samples/drivers/ds6_scanner/README samples/drivers/i2c_scanner/README samples/display/display samples/display/st7789v/README samples/gui/gui samples/gui/clock/README samples/gui/gfx/README samples/gui/lvaccel/README samples/gui/lvaccel/src/bma280/README samples/gui/lvgl/README menuconfig flashing hacking/debugging hacking/troubleshoot hacking/i2cscanning hacking/writeprotection latexpdf about 
+resolving references...
+done
+writing... done
+copying images... [ 33%] ./zephyr_logo.png
+copying images... [ 66%] ./PineTime-830x400.png
+copying images... [100%] clockback.png
+
+copying TeX support files... copying TeX support files...
+done
+build succeeded, 4 warnings.
+
+The LaTeX files are in _build/latex.
+Run 'make' in that directory to run these through (pdf)latex
+(use `make latexpdf' here to do that automatically).
+make[1]: Entering directory '/root/work/pinetime/manual/_build/latex'
+latexmk -pdf -dvi- -ps-  'oswatch.tex'
+Latexmk: All targets (oswatch.pdf) are up-to-date
+make[1]: Leaving directory '/root/work/pinetime/manual/_build/latex'
+Running Sphinx v2.2.2
+loading pickled environment... done
+building [mo]: targets for 0 po files that are out of date
+building [epub]: targets for 0 source files that are out of date
+updating environment: 0 added, 0 changed, 0 removed
+looking for now-outdated files... none found
+no targets are out of date.
+build succeeded.
+
+The ePub file is in _build/epub.

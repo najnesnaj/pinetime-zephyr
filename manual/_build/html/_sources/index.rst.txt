@@ -5,8 +5,7 @@
    copyright 
    content
    installation
-   blinky
-   button
+   basicapplications
    bluetooth 
    display
    gfx
@@ -14,15 +13,12 @@
    clock
    lvglbutton
    RTC
-   drivers/spinor
-   sensors
-   i2c
    drivers/drivers.rst
+   behind/behind.rst
    samples/index.rst
    menuconfig
    flashing
    hacking/debugging
-   hacking/troubleshoot
    hacking/i2cscanning
    hacking/writeprotection 
    latexpdf

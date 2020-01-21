@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
-    <link rel="next" title="Serial Nor Flash" href="drivers/spinor.html" />
+    <link rel="next" title="Drivers" href="drivers/drivers.html" />
     <link rel="prev" title="placing a button on the screen" href="lvglbutton.html" /> 
 </head>
 
@@ -88,12 +88,11 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr for the pintime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr for the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
-<li class="toctree-l1"><a class="reference internal" href="blinky.html">zephyr on the pinetime smartwatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="button.html">Reading out the button on the watch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bluetooth.html">bluetooth (BLE) example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="display.html">st7789 display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display.html">display (st7789)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gfx.html">GFX Library Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lvgl.html">LittlevGL Basic Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clock.html">LittlevGL Clock Sample</a></li>
@@ -106,10 +105,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="drivers/spinor.html">Serial Nor Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Drivers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sensors.html">sensors on the I2C bus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i2c.html">configuring I2C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Drivers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flashing.html">hacking   the pinetime smartwatch</a></li>
@@ -189,6 +187,9 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>This sample application “clock” uses the RTC0 timer.
 It uses the counter driver.</p>
+<p>It will serve as a building block for a “time of the day” clock.</p>
+<p>In addition it will need a function to set the time.</p>
+<p>In bluetooth one can use CTS (central time service)</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
@@ -202,10 +203,10 @@ It uses the counter driver.</p>
         <span class="n">default</span> <span class="n">y</span> <span class="k">if</span> <span class="n">SOC_FAMILY_NRF</span>
 </pre></div>
 </div>
+<p>see : <a class="reference internal" href="samples/gui/clock/README.html#clock-sample"><span class="std std-ref">LittlevGL Clock Sample</span></a></p>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
-<p>copy the samples/gui/clock from this repository to the zephyr one.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/gui/clock</span>
 </pre></div>
 </div>
@@ -232,7 +233,7 @@ It uses the counter driver.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="drivers/spinor.html" class="btn btn-neutral float-right" title="Serial Nor Flash" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="drivers/drivers.html" class="btn btn-neutral float-right" title="Drivers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="lvglbutton.html" class="btn btn-neutral float-left" title="placing a button on the screen" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

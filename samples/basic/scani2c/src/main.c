@@ -40,6 +40,7 @@ void main(void)
 	//		             gpio_pin_write(drv_data->gpio, 10, 1); //set port high
 	struct device *i2c_dev;
 	int teller=0;
+	int gelezen=0;
 	printk("Starting i2c scanner...\n");
 	MY_REGISTER1=0xFF; //debug
 	MY_REGISTER2=0xFF;
@@ -57,57 +58,56 @@ void main(void)
 	while (1){
 		struct i2c_msg msgs[2];
 		u8_t dst=0;
-		u8_t rxt;
+		u8_t rxt, ryt;
 		u8_t buffer[64];
+		int coor_x, coor_y;
 		//buf[0]=0x00;
 		/* Send the address to read from */
 		msgs[0].buf = &dst;
 		msgs[0].len = 1U;
-		msgs[0].flags = I2C_MSG_WRITE | I2C_MSG_STOP | I2C_MSG_RESTART;
-		teller++;
+		//msgs[0].flags = I2C_MSG_WRITE | I2C_MSG_STOP | I2C_MSG_RESTART;
+		//msgs[0].flags = I2C_MSG_WRITE;
+		msgs[0].flags = 0 ;
 		if (teller > 200) teller=0;
-		if (i2c_transfer(i2c_dev, &msgs[0], 1, 0x15) == 0) {
-			/* burst read 63 values from the touchscreen */
-			MY_REGISTER2=teller;
-			/*
-			 *
-			 *
-			 msg[1].buf = (u8_t *)read_buf;
-			 msg[1].len = num_read;
-			 msg[1].flags = I2C_MSG_RESTART | I2C_MSG_READ | I2C_MSG_STOP;
+		if (i2c_transfer(i2c_dev, &msgs[0], 1, 0x15) == 0) {MY_REGISTER3=teller;}
+		//			MY_REGISTER2=teller;
+		buffer[0]=0;
+		msgs[1].buf = &buffer[0];
+		msgs[1].len = 63U;
+		//msgs[1].flags = I2C_MSG_READ | I2C_MSG_STOP;
+		msgs[1].flags = I2C_MSG_RESTART | I2C_MSG_READ | I2C_MSG_STOP  ;
+		/*			 if (i2c_burst_read(i2c_dev, 0x15, 0, buffer, 63) < 0) {
+					 MY_REGISTER2=teller;
 
-			 *
-			 *
-			 *
-			 */
-
-			//msgs[1].buf = &rxt;
-			msgs[1].buf = &buffer[0];
-			msgs[1].len = 63U;
-			msgs[1].flags = I2C_MSG_READ | I2C_MSG_STOP;
-			//msgs[1].flags = I2C_MSG_READ;
-			/* if (i2c_burst_read(i2c_dev, 0x15, 0, buf, 63) < 0) {
-			   MY_REGISTER1=0xaa;
-
-			   }*/
-			buffer[0]=0;
-			buffer[3]=0;
-			buffer[4]=0;
-			buffer[5]=0;
-			buffer[6]=0;
-			if (i2c_transfer(i2c_dev, &msgs[1], 1, 0x15) == 0) {
-				MY_REGISTER1=teller;
-				//buffer= &rxt;
-				//MY_REGISTER5=msgs[3].buf & 0x0f;
-				MY_REGISTER5=buffer[3] ;
-				MY_REGISTER6=buffer[4];
-				//MY_REGISTER7=msgs[5].buf & 0x0f;
-				MY_REGISTER7=buffer[5] ;
-				MY_REGISTER8=buffer[6];
-			}
-			else
-				MY_REGISTER1=0xee;
-
+					 }*/
+		buffer[0]=0;
+		buffer[3]=0;
+		buffer[4]=0;
+		buffer[5]=0;
+		buffer[6]=0;
+		if (i2c_transfer(i2c_dev, &msgs[1], 1, 0x15) == 0) {
+			gelezen++;
+			MY_REGISTER2=gelezen;
+			//buffer= &rxt;
+		        //rxt=buffer[3];
+			//ryt=buffer[4];
+			//coor_x= (rxt << 8) & ryt;
+		        //rxt=buffer[5];
+			//ryt=buffer[6];
+			//coor_y= (rxt << 8) & ryt;
+			//coor_y= (msgs[5].buf << 8) & msgs[6].buf;
+			//MY_REGISTER5=msgs[3].buf & 0x0f;
+			MY_REGISTER5=buffer[4];
+			MY_REGISTER6=buffer[3];
+			MY_REGISTER7=buffer[5];
+			MY_REGISTER8=buffer[6];
+			//MY_REGISTER7=buffer[5];
+			//MY_REGISTER8=buffer[6];
+			 k_sleep(500);
 		}
-	}
+		else
+			MY_REGISTER1=0xee;
+
+		//}
+}
 }

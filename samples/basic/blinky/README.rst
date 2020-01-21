@@ -30,7 +30,7 @@ flashed to a board as follows:
 
 .. zephyr-app-commands::
    :zephyr-app: samples/basic/blinky
-   :board: reel_board
+   :board: pinetime 
    :goals: build flash
    :compact:
 

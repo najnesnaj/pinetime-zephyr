@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>LittlevGL Basic Sample &mdash; open source watch 1.0.0 documentation</title>
+  <title>LittlevGL Clock Sample &mdash; open source watch 1.0.0 documentation</title>
   
 
   
@@ -88,28 +88,26 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../content.html">Zephyr for the pintime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../content.html">Zephyr for the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Install zephyr</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../blinky.html">zephyr on the pinetime smartwatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../button.html">Reading out the button on the watch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../bluetooth.html">bluetooth (BLE) example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../display.html">st7789 display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../display.html">display (st7789)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../gfx.html">GFX Library Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../lvgl.html">LittlevGL Basic Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../clock.html">LittlevGL Clock Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../lvglbutton.html">placing a button on the screen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../RTC.html">Real Time Clock</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../drivers/spinor.html">Serial Nor Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drivers/drivers.html">Drivers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../sensors.html">sensors on the I2C bus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../i2c.html">configuring I2C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../drivers/drivers.html">Drivers</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Samples and Demos</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../basic/basic.html">Basic Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../sensor/sensor.html">Sensor Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../drivers/drivers.html">Driver Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../display/display.html">Display Samples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../gui.html">GUI Samples</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">LittlevGL Basic Sample</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">LittlevGL Clock Sample</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
@@ -181,7 +179,7 @@
         
           <li><a href="../gui.html">GUI Samples</a> &raquo;</li>
         
-      <li>LittlevGL Basic Sample</li>
+      <li>LittlevGL Clock Sample</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -200,15 +198,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="littlevgl-basic-sample">
-<span id="lvgl-sample"></span><h1>LittlevGL Basic Sample<a class="headerlink" href="#littlevgl-basic-sample" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="littlevgl-clock-sample">
+<span id="clock-sample"></span><h1>LittlevGL Clock Sample<a class="headerlink" href="#littlevgl-clock-sample" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>This sample application displays “Hello World” in the center of the screen
-and a counter at the bottom which increments every second.</p>
+<p>This sample application displays a clock background.</p>
+<p>This samples demonstrates the use of the counter.
+Have a look at the test_counter_interrupt_fn function in src/main.c</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>You have to convert a graphical file to a “C” file, which is like a giant array.</p>
+<p>Have a look at the prj.conf file.</p>
+<p>It should contain CONFIG_LVGL=y and
+CONFIG_LVGL_OBJ_IMAGE=y.</p>
+<p>For the clock function it needs  CONFIG_COUNTER=y.</p>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>

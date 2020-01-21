@@ -7,6 +7,8 @@ Overview
 ********
 
 A simple button demo showcasing the use of GPIO input with interrupts.
+If the button is pressed, it will set a value at the location 0x2000F000 in memory.
+With openocd or any other debugger you can peek at this location.
 
 Requirements
 ************
@@ -29,11 +31,11 @@ Building and Running
 ********************
 
 This sample can be built for multiple boards, in this example we will build it
-for the nucleo_f103rb board:
+for the pinetime 
 
 .. zephyr-app-commands::
    :zephyr-app: samples/basic/button
-   :board: nucleo_f103rb
+   :board: pinetime 
    :goals: build
    :compact:
 

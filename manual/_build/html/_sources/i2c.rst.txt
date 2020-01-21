@@ -14,7 +14,7 @@ board level definitions
         - pinetime_defconfig
 
 
-        The sensors in the pintime use the I2C bus.
+        The sensors in the pinetime use the I2C bus.
 
         &i2c1 {
                 compatible = "nordic,nrf-twi";

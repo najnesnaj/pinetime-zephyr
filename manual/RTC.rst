@@ -10,6 +10,12 @@ This sample application "clock" uses the RTC0 timer.
 It uses the counter driver.
 
 
+It will serve as a building block for a "time of the day" clock.
+
+In addition it will need a function to set the time.
+
+In bluetooth one can use CTS (central time service)
+
 Requirements
 ************
 
@@ -31,11 +37,12 @@ You need the Kconfig file, which contains :
                 default y if SOC_FAMILY_NRF
 
 
+see : :ref:`clock-sample`
+
 
 Building and Running
 ********************
 
-copy the samples/gui/clock from this repository to the zephyr one.
 
 
 .. code-block:: console

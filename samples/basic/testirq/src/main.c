@@ -10,6 +10,7 @@
 #include <zephyr.h>
 #include <device.h>
 #include <drivers/gpio.h>
+#include <drivers/i2c.h>
 #include <sys/util.h>
 #include <sys/printk.h>
 #include <inttypes.h>
@@ -54,11 +55,16 @@
 #define PULL_UP  (1<<8)
 /* Sleep time */
 #define SLEEP_TIME	500
-
+#define I2C_DEV "I2C_1"
 #define MY_REGISTER1 (*(volatile uint8_t*)0x2000F000)
 #define MY_REGISTER2 (*(volatile uint8_t*)0x2000F001)
 #define MY_REGISTER3 (*(volatile uint8_t*)0x2000F002)
 int teller;
+
+
+
+K_SEM_DEFINE(sem,0,1);
+
 
 /*each time the touchscreen is touched , the interrupt triggers this function and the counter is increased*/
 void touched(struct device *gpiob, struct gpio_callback *cb,
@@ -69,6 +75,7 @@ void touched(struct device *gpiob, struct gpio_callback *cb,
 	MY_REGISTER2=teller;
 
 	printk("Button pressed at %" PRIu32 "\n", k_cycle_get_32());
+	k_sem_give(&sem);
 }
 
 static struct gpio_callback gpio_cb;
@@ -79,6 +86,13 @@ void main(void)
 	MY_REGISTER1=0x00;
 	MY_REGISTER3=0x00; 
 	struct device *gpiob;
+	u8_t buf[64];
+
+	struct device *i2c_dev;
+	i2c_dev = device_get_binding(I2C_DEV);
+	if (i2c_dev == NULL){ MY_REGISTER1=0xEE;
+	}
+
 
 	printk("Press the user defined button on the board\n");
 	gpiob = device_get_binding(PORT);
@@ -107,7 +121,10 @@ void main(void)
 
 
 
-	while (1) {
+	while (1) { 
+		k_sem_take(&sem, K_FOREVER);
+		if (i2c_burst_read(i2c_dev, 0x15, 1, buf, 63) < 0){MY_REGISTER2=0xee;}	
+		else {MY_REGISTER2=0xaa;}
 		k_sleep(SLEEP_TIME);
 	}
 }

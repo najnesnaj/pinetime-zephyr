@@ -86,7 +86,7 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr for the pintime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr for the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../blinky.html">zephyr on the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../button.html">Reading out the button on the watch</a></li>
@@ -177,7 +177,6 @@
   <div class="section" id="battery">
 <h1>Battery<a class="headerlink" href="#battery" title="Permalink to this headline">¶</a></h1>
 <p>the samples just gets an analog reading from the battery</p>
-<p>there is a sample in this repository which can be copied to the zephyr samples directory</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/sensor/battery</span>
 </pre></div>
 </div>
@@ -186,6 +185,13 @@
 <p>The battery level is measured on port 31, trough an ADC conversion.</p>
 <p>voltage = (value * 6)/1024
 percentage remaining  ((voltage - 3.55)*100)*3.9;</p>
+<p>A module should be able to report battery status in milivolts and charge level in percentage. Additionally, it should notify when external power is connected and when battery is being charged.
+Module will use adc (saadc peripheral) to measure battery voltage and gpio driver to monitor charge indication pin (pin 0.12) and power presence pin (0.19).
+Battery voltage can be in range from 3.0V - 4.2V (?). Unfortunately, internal reference (0.6V) can only be used for voltages up to 3.6V (due to minimal gain of 1/6). VDD/4 reference can be used with 1/6 gain to measure voltages up to 4.95V. Test is needed to check how accurate is VDD as reference.
+Discharge curve (<a class="reference external" href="https://forum.pine64.org/showthread.php?tid=8147">https://forum.pine64.org/showthread.php?tid=8147</a>) will be used to calculate charge level in percent.
+Things to consider:
+saadc periodical calibration (spec suggests calibration if temperature changes by 10’C)
+inaccuracy of results: oversampling? never report higher level than before (if charge not connected), etc.</p>
 </div>
 <div class="section" id="todo">
 <h2>Todo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
