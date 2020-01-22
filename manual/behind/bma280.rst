@@ -1,3 +1,22 @@
+development trajectory
+######################
+
+        
+The final goal is to use the accel-sensor in the watch (BMA423), which does not exist yet.
+In order to minimize the effort:
+
+        - we'll use something that looks like it (ADXL372), because there exists an example.
+        - next we adapt it to use the existing BMA280 sensor (under drivers/sensor), so we get a sample that works with the BMA280.
+        - we create a driver for the BMA423, based upon the BMA280
+        - we adapt the sample for the BMA280 to BMA423
+
+
+
+
+
+
+
+
 Bosch BMA280
 ############
 
@@ -22,7 +41,9 @@ Remember, I'm not a zephyr expert and am learning on the way.
 Requirements
 ************
 
-complement the pinetime.dts file with the following (under samples/sensor/bma280) 
+complement the pinetime.dts file with the following (under samples/sensor/bma280)
+
+This will supplement / override what's already definition on the board level (boards/arm/pinetime)
 
 .. code-block:: console
 
