@@ -46,7 +46,7 @@ In the Zephyr getting started page :
              cd zephyrproject
              west update
 
-      you should to this :
+      you should do this :
               cd ~
               mkdir work
               cd work
@@ -64,12 +64,8 @@ cd ~/work/pinetime
 west build -p -b pinetime samples/basic/blinky
 
 
-**Note : sometimes you run into trouble compiling: removing the build directory can help in that case
+**TIP : sometimes you run into trouble compiling: removing the build directory can help in that case**
 
 
 
 
-**Note : in order to get the display st7789 Picture-Perfect, you might need a zephyr patch**
-
-have a look at : https://github.com/zephyrproject-rtos/zephyr/pull/20570/files
-You will find them in this repo under patches-zephyr.
