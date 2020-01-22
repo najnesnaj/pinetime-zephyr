@@ -3,6 +3,8 @@
 Samples and Demos
 #################
 
+In each sample directory is a Readme file.
+This is just a collection of them.
 
 .. toctree::
    :maxdepth: 2

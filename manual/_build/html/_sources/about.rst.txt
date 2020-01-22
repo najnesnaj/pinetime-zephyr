@@ -41,12 +41,3 @@ list with suggestions:
        - applications, e.g. calculator, cycle computer, step counter, heart attack predictor ...
 
 
-Fast track
-----------
-
-
-In this repository you can find modified directories, which you can copy to the zephyrproject directory:
-
-         - pinetime (board definition -> boards/arm)
-         - st7789v (example -> samples/display)
-         - blinky (example -> samples/basic)

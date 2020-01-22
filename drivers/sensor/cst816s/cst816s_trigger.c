@@ -77,6 +77,39 @@ MY_REGISTER3=0xaa;
 */
 	//todo
 
+
+
+
+	u8_t buf[64];
+	u8_t msb;
+	u8_t lsb;
+	u8_t id = 0U;
+	if (i2c_burst_read(drv_data->i2c, CST816S_I2C_ADDRESS,
+				CST816S_REG_DATA, buf, 64) < 0) {
+		LOG_DBG("Could not read data");
+//		MY_REGISTER6=0xEE;
+		return -EIO;
+	}
+// bytes 3 to 8 are repeated 10 times
+// byte 3 (MSB bit 3..0)
+// byte 4 (LSB)
+// only first is relevant
+//
+	msb = buf[3] & 0x0f;
+        lsb = buf[4];
+MY_REGISTER1=lsb;
+	drv_data->x_sample = (msb<<8)|lsb; 
+
+	msb = buf[5] & 0x0f;
+        lsb = buf[6];
+	drv_data->y_sample = (msb<<8)|lsb; // todo check if buf[5] is indeed Y
+
+
+
+
+
+
+
 	gpio_pin_enable_callback(drv_data->gpio, CONFIG_CST816S_GPIO_PIN_NUM);
 }
 

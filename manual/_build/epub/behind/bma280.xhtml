@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
   <head>
     <meta charset="utf-8" />
-    <title>Bosch BMA280</title>
+    <title>development trajectory</title>
     <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
   </head><body>
@@ -12,7 +12,20 @@
       <div class="documentwrapper">
           <div class="body" role="main">
             
-  <div class="section" id="bosch-bma280">
+  <div class="section" id="development-trajectory">
+<h1>development trajectory</h1>
+<p>The final goal is to use the accel-sensor in the watch (BMA423), which does not exist yet.
+In order to minimize the effort:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>we’ll use something that looks like it (ADXL372), because there exists an example.</p></li>
+<li><p>next we adapt it to use the existing BMA280 sensor (under drivers/sensor), so we get a sample that works with the BMA280.</p></li>
+<li><p>we create a driver for the BMA423, based upon the BMA280</p></li>
+<li><p>we adapt the sample for the BMA280 to BMA423</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="bosch-bma280">
 <h1>Bosch BMA280</h1>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/drivers/bma280</span>
 </pre></div>
@@ -26,6 +39,7 @@ Remember, I’m not a zephyr expert and am learning on the way.</p>
 <div class="section" id="requirements">
 <h2>Requirements</h2>
 <p>complement the pinetime.dts file with the following (under samples/sensor/bma280)</p>
+<p>This will supplement / override what’s already definition on the board level (boards/arm/pinetime)</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&amp;i2c1 {</span>
 <span class="go">        bma280@18 {</span>
 <span class="go">                   compatible = &quot;bosch,bma280&quot;;</span>

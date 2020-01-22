@@ -9,8 +9,8 @@ Drivers
 
     i2c
     sensors
-    spinor
-    battery
     bma421
     cst816s
     hrs3300
+    spinor
+    battery

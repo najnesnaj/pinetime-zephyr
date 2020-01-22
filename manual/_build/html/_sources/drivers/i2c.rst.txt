@@ -28,49 +28,15 @@ board level definitions
 
 
 
-development trajectory
-----------------------
+definition on project level
+---------------------------
 
-        
-The final goal is to use the accel-sensor in the watch (BMA423), which does not exist yet.
-In order to minimize the effort:
-
-        - we'll use something that looks like it (ADXL372), because there exists an example.
-        - next we adapt it to use the existing BMA280 sensor (under drivers/sensor)
-        - finally we create a driver for the BMA423, based upon the BMA280
-
-
-
-
-
-defining an I2C sensor
-----------------------
-
+In the directory of a sample, you will find a prj.conf file.
+Here you can set values specific for you project/sample.
 
 ::
 
-    under samples/sensor/axl372 we create : "pinetime.overlay"
-    &i2c1 {
-        status = "okay";
-        clock-frequency = <I2C_BITRATE_STANDARD>;
-        adxl372@18 {
-                   compatible = "adi,adxl372";
-                   reg = <0x18>;
-                   label = "ADXL372";
-                   int1-gpios = <&gpio0 8 0>;
-                   };
-        };
-
-**note: this gets somehow merged with the board definition pinetime.dts**
-
-
-
-
-:: 
-
-
-
-       In the "prj.conf" file we define the sensor
+       In the "prj.conf" file we define the sensor (eg adxl372)
 
        CONFIG_STDOUT_CONSOLE=y
        CONFIG_LOG=y
@@ -80,13 +46,7 @@ defining an I2C sensor
        CONFIG_ADXL372_I2C=y
        CONFIG_SENSOR_LOG_LEVEL_WRN=y
 
-**note: this gets somehow merged with the board definition pinetime_defconfig**
+**note: this gets somehow merged (overlayed) with the board definition pinetime_defconfig**
 
 
        
-compiling the sample
---------------------
-
-::
-
-         west build -p -b pinetime samples/sensor/adxl372 -DCONF=prj.conf

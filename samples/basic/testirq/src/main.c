@@ -59,6 +59,11 @@
 #define MY_REGISTER1 (*(volatile uint8_t*)0x2000F000)
 #define MY_REGISTER2 (*(volatile uint8_t*)0x2000F001)
 #define MY_REGISTER3 (*(volatile uint8_t*)0x2000F002)
+#define MY_REGISTER4 (*(volatile uint8_t*)0x2000F003)
+#define MY_REGISTER5 (*(volatile uint8_t*)0x2000F004)
+#define MY_REGISTER6 (*(volatile uint8_t*)0x2000F005)
+#define MY_REGISTER7 (*(volatile uint8_t*)0x2000F006)
+#define MY_REGISTER8 (*(volatile uint8_t*)0x2000F007)
 int teller;
 
 
@@ -72,7 +77,7 @@ void touched(struct device *gpiob, struct gpio_callback *cb,
 {
 	teller++;
 	if (teller > 200) teller=0;
-	MY_REGISTER2=teller;
+	MY_REGISTER4=teller;
 
 	printk("Button pressed at %" PRIu32 "\n", k_cycle_get_32());
 	k_sem_give(&sem);
@@ -82,9 +87,13 @@ static struct gpio_callback gpio_cb;
 
 void main(void)
 {
-	MY_REGISTER2=0x00; //debugging
 	MY_REGISTER1=0x00;
+	MY_REGISTER2=0x00; //debugging
 	MY_REGISTER3=0x00; 
+	MY_REGISTER5=0x00; 
+	MY_REGISTER6=0x00; 
+	MY_REGISTER7=0x00; 
+	MY_REGISTER8=0x00; 
 	struct device *gpiob;
 	u8_t buf[64];
 
@@ -105,13 +114,13 @@ void main(void)
 
 	gpio_pin_configure(gpiob, 10, GPIO_DIR_OUT );
 
-	//	gpio_pin_write(gpiob, 10, 1); //set port high
-	//		k_sleep(SLEEP_TIME);
-	//	gpio_pin_write(gpiob, 10, 0); //set port high
-	//		k_sleep(SLEEP_TIME);
+		gpio_pin_write(gpiob, 10, 1); //set port high
+			k_sleep(SLEEP_TIME);
+		gpio_pin_write(gpiob, 10, 0); //set port high
+			k_sleep(SLEEP_TIME);
 
-
-	gpio_pin_configure(gpiob, 28, GPIO_DIR_IN | GPIO_INT |  PULL_UP | EDGE | GPIO_INT_ACTIVE_HIGH);
+// CONFIG_CST816S_GPIO_PIN_NUM = 28
+	gpio_pin_configure(gpiob,  28, GPIO_DIR_IN | GPIO_INT |  PULL_UP | EDGE | GPIO_INT_ACTIVE_HIGH);
 
 	gpio_init_callback(&gpio_cb, touched, BIT(28));
 
@@ -123,8 +132,23 @@ void main(void)
 
 	while (1) { 
 		k_sem_take(&sem, K_FOREVER);
-		if (i2c_burst_read(i2c_dev, 0x15, 1, buf, 63) < 0){MY_REGISTER2=0xee;}	
-		else {MY_REGISTER2=0xaa;}
-		k_sleep(SLEEP_TIME);
+
+// @param dev Pointer to the device structure for the driver instance.
+// @param dev_addr Address of the I2C device for reading.
+// @param start_addr Internal address from which the data is being read.
+// @param buf Memory pool that stores the retrieved data.
+// @param num_bytes Number of bytes being read.
+		if (i2c_burst_read(i2c_dev, 0x15, 0x00, buf, 63) < 0){MY_REGISTER2=0xee;}	
+		else {
+			
+			MY_REGISTER2=0xaa;
+	                MY_REGISTER5=buf[3];	
+	                MY_REGISTER6=buf[4];	
+	                MY_REGISTER7=buf[5];	
+	                MY_REGISTER8=buf[6];	
+		
+		
+		}
+//		k_sleep(SLEEP_TIME);
 	}
 }

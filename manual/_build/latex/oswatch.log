@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.12.10)  21 JAN 2020 16:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.12.10)  22 JAN 2020 11:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -425,31 +425,31 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/02/14 3.18 The Babel package
 
-! Interruption.
-\DeclareSymbolFont ...1\endcsname }\version@list }
-                                                  \else \@latex@error {Encod...
-l.59 \DeclareSymbolFont{AMSa}{U}{msa}{m}{n}
-                                           
-? 
-! Emergency stop.
-\DeclareSymbolFont ...1\endcsname }\version@list }
-                                                  \else \@latex@error {Encod...
-l.59 \DeclareSymbolFont{AMSa}{U}{msa}{m}{n}
-                                           
-End of file on the terminal!
+(/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
 
- 
-Here is how much of TeX's memory you used:
- 1419 strings out of 494923
- 14690 string characters out of 6180741
- 64628 words of memory out of 5000000
- 4770 multiletter control sequences out of 15000+600000
- 4403 words of font info for 15 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 29i,0n,23p,221b,42s stack positions out of 5000i,500n,10000p,200000b,80000s
-!  ==> Fatal error occurred, no output PDF file produced!
- = a dialect from \language\l@british 
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/02/14 3.18 Babel common definitions
+\babel@savecnt=\count100
+\U@D=\dimen112
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count101
+)
+\l@british = a dialect from \language\l@english 
+\l@UKenglish = a dialect from \language\l@english 
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
@@ -929,26 +929,17 @@ File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 Package hyperref Info: Option `unicode' set `true' on input line 4383.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
-! Interruption.
-l.11 
-     %% 2001-2012 Heiko Oberdiek.
-? 
-! Emergency stop.
-l.11 
-     %% 2001-2012 Heiko Oberdiek.
-End of file on the terminal!
-
- 
-Here is how much of TeX's memory you used:
- 8385 strings out of 494923
- 115542 string characters out of 6180741
- 207768 words of memory out of 5000000
- 11545 multiletter control sequences out of 15000+600000
- 4403 words of font info for 15 fonts, out of 8000000 for 9000
- 15 hyphenation exceptions out of 8191
- 37i,0n,45p,279b,42s stack positions out of 5000i,500n,10000p,200000b,80000s
-!  ==> Fatal error occurred, no output PDF file produced!
-ine 4529.
+File: puenc.def 2018/02/06 v6.86b Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 4383.
+Package hyperref Info: Option `breaklinks' set `true' on input line 4383.
+Package hyperref Info: Hyper figures OFF on input line 4509.
+Package hyperref Info: Link nesting OFF on input line 4514.
+Package hyperref Info: Hyper index ON on input line 4517.
+Package hyperref Info: Plain pages OFF on input line 4524.
+Package hyperref Info: Backreferencing OFF on input line 4529.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4762.
 \c@Hy@tempcnt=\count123
@@ -1000,7 +991,11 @@ Package: sphinxmessages 2019/01/04 v2.0 Localized LaTeX macros (Sphinx team)
 
 
 Writing index file oswatch.idx
-(./oswatch.aux)
+(./oswatch.aux
+
+LaTeX Warning: Label `hacking/debugging::doc' multiply defined.
+
+)
 \openout1 = `oswatch.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
@@ -1208,7 +1203,7 @@ Chapter 5.
 [11
 
 ]
-LaTeX Font Info:    Try loading font information for TS1+pcr on input line 303.
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 298.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
@@ -1245,37 +1240,37 @@ Chapter 11.
 
 ]
 Chapter 12.
-[25] [26
-
-]
-Chapter 13.
-[27]
-Overfull \hbox (14.65001pt too wide) in paragraph at lines 804--805
-[]\T1/ptm/m/n/10 /root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.
-c:17:22: er-ror: `DT_INST_0_JEDEC_SPI_NOR_LABEL'
- []
-
-[28] [29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 967--970
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 749--752
 \T1/ptm/m/n/10 ~/zephyrproject-2/zephyr/drivers/sensor add_subdirectory_ifdef(C
 ONFIG_BMA280 bma280)
  []
 
-[31] [32] [33]
-<hrs3300.jpg, id=607, 459.51675pt x 374.5995pt>
+[26] [27] [28]
+<hrs3300.jpg, id=569, 459.51675pt x 374.5995pt>
 File: hrs3300.jpg Graphic file (type jpg)
 <use hrs3300.jpg>
-Package pdftex.def Info: hrs3300.jpg  used on input line 1145.
+Package pdftex.def Info: hrs3300.jpg  used on input line 927.
 (pdftex.def)             Requested size: 459.51563pt x 374.59859pt.
- [34 <./hrs3300.jpg>] [35] [36
+ [29 <./hrs3300.jpg>] [30]
+Overfull \hbox (14.65001pt too wide) in paragraph at lines 1019--1020
+[]\T1/ptm/m/n/10 /root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.
+c:17:22: er-ror: `DT_INST_0_JEDEC_SPI_NOR_LABEL'
+ []
+
+[31] [32] [33] [34
 
 ]
+Chapter 13.
+[35] [36] [37] [38]
 Chapter 14.
-[37] [38] [39] [40]
-Chapter 15.
-[41
+[39
 
-] [42] [43] [44] [45] [46] [47] [48] [49] [50]
+] [40] [41] [42] [43] [44] [45] [46] [47] [48]
+Chapter 15.
+[49
+
+] [50]
 Chapter 16.
 [51
 
@@ -1283,11 +1278,11 @@ Chapter 16.
 Chapter 17.
 [53
 
-] [54]
-Chapter 18.
-[55
+] [54
 
-] [56
+]
+Chapter 18.
+[55] [56
 
 ]
 Chapter 19.
@@ -1303,23 +1298,27 @@ Chapter 21.
 
 ]
 Chapter 22.
-[63] (./oswatch.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2421.
- [64]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2421.
+(./oswatch.ind)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2435.
+ [63]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2435.
  (./oswatch.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2421.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2421.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2435.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2435.
 
 Package rerunfilecheck Info: File `oswatch.out' has not changed.
-(rerunfilecheck)             Checksum: D96818AF6C07FBE85D4127501D25144D;10282.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2421.
+(rerunfilecheck)             Checksum: 659DBAF2731C1957363081195189A4ED;10413.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2435.
  ) 
 Here is how much of TeX's memory you used:
- 14322 strings out of 494923
- 204697 string characters out of 6180741
- 388400 words of memory out of 5000000
- 17026 multiletter control sequences out of 15000+600000
+ 14331 strings out of 494923
+ 205083 string characters out of 6180741
+ 371799 words of memory out of 5000000
+ 17032 multiletter control sequences out of 15000+600000
  51422 words of font info for 71 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  37i,12n,48p,666b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1332,10 +1331,10 @@ vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on oswatch.pdf (68 pages, 440715 bytes).
+Output written on oswatch.pdf (67 pages, 440744 bytes).
 PDF statistics:
- 961 PDF objects out of 1000 (max. 8388607)
- 861 compressed objects within 9 object streams
- 292 named destinations out of 1000 (max. 500000)
+ 964 PDF objects out of 1000 (max. 8388607)
+ 865 compressed objects within 9 object streams
+ 295 named destinations out of 1000 (max. 500000)
  609 words of extra memory for PDF output out of 10000 (max. 10000000)
 

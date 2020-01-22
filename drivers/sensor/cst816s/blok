@@ -1,6 +1,37 @@
-//#define MY_REGISTER1 (*(volatile uint8_t*)0x2000F005)
-//#define MY_REGISTER2 (*(volatile uint8_t*)0x2000F006)
-//#define MY_REGISTER3 (*(volatile uint8_t*)0x2000F007)
-//#define MY_REGISTER4 (*(volatile uint8_t*)0x2000F008)
-//#define MY_REGISTER5 (*(volatile uint8_t*)0x2000F009)
-//#define MY_REGISTER6 (*(volatile uint8_t*)0x2000F00A)
+static int cst816s_sample_fetch(struct device *dev, enum sensor_channel chan)
+{
+	struct cst816s_data *drv_data = dev->driver_data;
+	u8_t buf[64];
+	u8_t msb;
+	u8_t lsb;
+	u8_t id = 0U;
+	__ASSERT_NO_MSG(chan == SENSOR_CHAN_ALL);
+
+	/*
+	 * since all accel data register addresses are consecutive,
+	 * a burst read can be used to read all the samples
+	 */
+//	MY_REGISTER6=0x00;
+	if (i2c_burst_read(drv_data->i2c, CST816S_I2C_ADDRESS,
+				CST816S_REG_DATA, buf, 64) < 0) {
+		LOG_DBG("Could not read data");
+//		MY_REGISTER6=0xEE;
+		return -EIO;
+	}
+// bytes 3 to 8 are repeated 10 times
+// byte 3 (MSB bit 3..0)
+// byte 4 (LSB)
+// only first is relevant
+//
+	msb = buf[3] & 0x0f;
+        lsb = buf[4];
+MY_REGISTER1=lsb;
+	drv_data->x_sample = (msb<<8)|lsb; 
+
+	msb = buf[5] & 0x0f;
+        lsb = buf[6];
+	drv_data->y_sample = (msb<<8)|lsb; // todo check if buf[5] is indeed Y
+
+
+	return 0;
+}

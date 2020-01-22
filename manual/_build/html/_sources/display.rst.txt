@@ -32,4 +32,8 @@ Once the compilation is completed you can upload the firmware.
 If all goes well, you should see some coloured squares on your screen.
 
 
+**Note : in order to get the display st7789 Picture-Perfect, you might need a zephyr patch**
+
+have a look at : https://github.com/zephyrproject-rtos/zephyr/pull/20570/files
+You will find them in this repo under patches-zephyr.
 

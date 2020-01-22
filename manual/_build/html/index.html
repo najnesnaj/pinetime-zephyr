@@ -95,7 +95,6 @@
 <li class="toctree-l1"><a class="reference internal" href="gfx.html">GFX Library Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lvgl.html">LittlevGL Basic Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clock.html">LittlevGL Clock Sample</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lvglbutton.html">placing a button on the screen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="RTC.html">Real Time Clock</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Drivers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="behind/behind.html">Behind the scene</a></li>
@@ -105,6 +104,7 @@
 <li class="toctree-l1"><a class="reference internal" href="hacking/debugging.html">debugging   the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hacking/i2cscanning.html">scanning the I2C_1 port</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hacking/writeprotection.html">howto flash your zephyr image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hacking/writeprotection.html#howto-remove-the-write-protection">howto remove the write protection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="latexpdf.html">howto generate pdf documents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 </ul>
@@ -230,10 +230,6 @@
 <li class="toctree-l2"><a class="reference internal" href="clock.html#references">References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="lvglbutton.html">placing a button on the screen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="lvglbutton.html#building-and-running">Building and Running</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="RTC.html">Real Time Clock</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="RTC.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RTC.html#requirements">Requirements</a></li>
@@ -245,29 +241,10 @@
 <li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Drivers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="drivers/i2c.html">configuring I2C</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="drivers/i2c.html#board-level-definitions">board level definitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="drivers/i2c.html#development-trajectory">development trajectory</a></li>
-<li class="toctree-l3"><a class="reference internal" href="drivers/i2c.html#defining-an-i2c-sensor">defining an I2C sensor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="drivers/i2c.html#compiling-the-sample">compiling the sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drivers/i2c.html#definition-on-project-level">definition on project level</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="drivers/sensors.html">sensors on the I2C bus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="drivers/spinor.html">Serial Nor Flash</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="drivers/spinor.html#overview">Overview</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="drivers/spinor.html#consulting-the-generated-board-definition-file">consulting the generated board definition file</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="drivers/spinor.html#requirements">Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="drivers/spinor.html#building-and-running">Building and Running</a></li>
-<li class="toctree-l3"><a class="reference internal" href="drivers/spinor.html#todo">Todo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="drivers/spinor.html#references">References</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="drivers/battery.html">Battery</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="drivers/battery.html#overview">Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="drivers/battery.html#todo">Todo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="drivers/battery.html#references">References</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="drivers/bma421.html">Bosch BMA421</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="drivers/bma421.html#overview">Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="drivers/bma421.html#requirements">Requirements</a><ul>
@@ -313,6 +290,23 @@
 <li class="toctree-l3"><a class="reference internal" href="drivers/hrs3300.html#references">References</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="drivers/spinor.html">Serial Nor Flash</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="drivers/spinor.html#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="drivers/spinor.html#consulting-the-generated-board-definition-file">consulting the generated board definition file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="drivers/spinor.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drivers/spinor.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drivers/spinor.html#todo">Todo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drivers/spinor.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="drivers/battery.html">Battery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="drivers/battery.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drivers/battery.html#todo">Todo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drivers/battery.html#references">References</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="behind/behind.html">Behind the scene</a><ul>
@@ -320,7 +314,8 @@
 <li class="toctree-l3"><a class="reference internal" href="behind/behind-the-scene.html#overview">Overview</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="behind/bma280.html">Bosch BMA280</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="behind/bma280.html">development trajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="behind/bma280.html#bosch-bma280">Bosch BMA280</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="behind/bma280.html#overview">Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="behind/bma280.html#requirements">Requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="behind/bma280.html#building-and-running">Building and Running</a></li>
@@ -346,6 +341,10 @@
 <li class="toctree-l4"><a class="reference internal" href="behind/troubleshoot.html#a-samples-to-handle-semaphores">a samples to handle semaphores</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="behind/lvglbutton.html">placing a button on the screen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="behind/lvglbutton.html#building-and-running">Building and Running</a></li>
 </ul>
 </li>
 </ul>
@@ -486,6 +485,13 @@
 <li class="toctree-l4"><a class="reference internal" href="samples/gui/lvgl/README.html#references">References</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="samples/gui/lvtouch/README.html">LittlevGL Basic Sample</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="samples/gui/lvtouch/README.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="samples/gui/lvtouch/README.html#requirements">Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="samples/gui/lvtouch/README.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l4"><a class="reference internal" href="samples/gui/lvtouch/README.html#references">References</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="samples/bluetooth/bluetooth.html">Bluetooth Samples</a><ul>
@@ -516,10 +522,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="hacking/writeprotection.html">howto flash your zephyr image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hacking/writeprotection.html#howto-remove-the-write-protection">howto remove the write protection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="latexpdf.html">howto generate pdf documents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="about.html#todo">Todo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="about.html#fast-track">Fast track</a></li>
 </ul>
 </li>
 </ul>

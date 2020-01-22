@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/pinetime/samples/basic/testirq
+# Install script for directory: /root/work/pinetime/samples/sensor/cst816s
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

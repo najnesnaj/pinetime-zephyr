@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Jan 21, 2020}
+\date{Jan 22, 2020}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -190,7 +190,7 @@ Get the source code
        \PYG{n}{cd} \PYG{n}{zephyrproject}
        \PYG{n}{west} \PYG{n}{update}
 
-\PYG{n}{you} \PYG{n}{should} \PYG{n}{to} \PYG{n}{this} \PYG{p}{:}
+\PYG{n}{you} \PYG{n}{should} \PYG{n}{do} \PYG{n}{this} \PYG{p}{:}
         \PYG{n}{cd} \PYG{o}{\PYGZti{}}
         \PYG{n}{mkdir} \PYG{n}{work}
         \PYG{n}{cd} \PYG{n}{work}
@@ -211,12 +211,7 @@ cd \textasciitilde{}/work/pinetime
 
 west build -p -b pinetime samples/basic/blinky
 
-{\color{red}\bfseries{}**}Note : sometimes you run into trouble compiling: removing the build directory can help in that case
-
-\sphinxstylestrong{Note : in order to get the display st7789 Picture-Perfect, you might need a zephyr patch}
-
-have a look at : \sphinxurl{https://github.com/zephyrproject-rtos/zephyr/pull/20570/files}
-You will find them in this repo under patches-zephyr.
+\sphinxstylestrong{TIP : sometimes you run into trouble compiling: removing the build directory can help in that case}
 
 
 \chapter{Starting with some basic applications}
@@ -436,6 +431,11 @@ Once the compilation is completed you can upload the firmware.
 
 If all goes well, you should see some coloured squares on your screen.
 
+\sphinxstylestrong{Note : in order to get the display st7789 Picture-Perfect, you might need a zephyr patch}
+
+have a look at : \sphinxurl{https://github.com/zephyrproject-rtos/zephyr/pull/20570/files}
+You will find them in this repo under patches-zephyr.
+
 
 \chapter{GFX Library Sample}
 \label{\detokenize{gfx:gfx-library-sample}}\label{\detokenize{gfx:gfx-sample}}\label{\detokenize{gfx::doc}}
@@ -483,7 +483,7 @@ and a counter at the bottom which increments every second.
 
 LittlevGL is a free and open-source graphics library providing everything you need to create embedded GUI with easy-to-use graphical elements, beautiful visual effects and low memory footprint.
 
-see : {\hyperref[\detokenize{samples/gui/lvgl/README:lvgl-sample}]{\sphinxcrossref{\DUrole{std,std-ref}{LittlevGL Basic Sample}}}}
+see : {\hyperref[\detokenize{samples/gui/lvtouch/README:lvgl-sample}]{\sphinxcrossref{\DUrole{std,std-ref}{LittlevGL Basic Sample}}}}
 
 
 \section{Requirements}
@@ -609,36 +609,6 @@ lvgl supports lv\_canvas\_rotate(canvas, \&imd\_dsc, angle, x, y, pivot\_x, pivo
 LittlevGL Web Page: \sphinxurl{https://littlevgl.com/}
 
 
-\chapter{placing a button on the screen}
-\label{\detokenize{lvglbutton:placing-a-button-on-the-screen}}\label{\detokenize{lvglbutton::doc}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{This} \PYG{n}{sample} \PYG{o+ow}{is} \PYG{o+ow}{not} \PYG{n}{really} \PYG{n}{important}\PYG{p}{,} \PYG{n}{but} \PYG{n}{it} \PYG{n}{will} \PYG{n}{teach} \PYG{n}{you} \PYG{n}{that} \PYG{n}{you} \PYG{n}{need} \PYG{n}{to} \PYG{n+nb}{set} \PYG{n}{LVGL\PYGZus{}CONFIG} \PYG{n}{values}\PYG{p}{,} \PYG{o+ow}{in} \PYG{n}{order}    \PYG{n}{to} \PYG{n}{be} \PYG{n}{able} \PYG{n}{to} \PYG{n}{use} \PYG{n}{LVGL} \PYG{n}{functions}\PYG{o}{.}
-\end{sphinxVerbatim}
-
-
-\section{Building and Running}
-\label{\detokenize{lvglbutton:building-and-running}}
-In this repo under samples you will find an adapted gui/clock program.
-A button from the LVGL library is placed on the screen.
-
-Later on when the touch-screen driver is ready, we’ll be able to manipulate it.
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{Make sure that prj.conf file in clock directory contains the following:}
-\end{sphinxVerbatim}
-
-\begin{sphinxadmonition}{note}{Note:}
-CONFIG\_LVGL\_OBJ\_CONTAINER=y
-CONFIG\_LVGL\_OBJ\_BUTTON=y
-\end{sphinxadmonition}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-
-\end{sphinxVerbatim}
-
-\sphinxstyleemphasis{problem} the canvas heigh*width eats up RAM and exceeds once \textgreater{} 40
-
-
 \chapter{Real Time Clock}
 \label{\detokenize{RTC:real-time-clock}}\label{\detokenize{RTC:rtc}}\label{\detokenize{RTC::doc}}
 
@@ -720,43 +690,13 @@ setting the time
 \end{sphinxVerbatim}
 
 
-\subsection{development trajectory}
-\label{\detokenize{drivers/i2c:development-trajectory}}
-The final goal is to use the accel-sensor in the watch (BMA423), which does not exist yet.
-In order to minimize the effort:
-\begin{itemize}
-\item {} 
-we’ll use something that looks like it (ADXL372), because there exists an example.
-
-\item {} 
-next we adapt it to use the existing BMA280 sensor (under drivers/sensor)
-
-\item {} 
-finally we create a driver for the BMA423, based upon the BMA280
-
-\end{itemize}
-
-
-\subsection{defining an I2C sensor}
-\label{\detokenize{drivers/i2c:defining-an-i2c-sensor}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{under} \PYG{n}{samples}\PYG{o}{/}\PYG{n}{sensor}\PYG{o}{/}\PYG{n}{axl372} \PYG{n}{we} \PYG{n}{create} \PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{pinetime.overlay}\PYG{l+s+s2}{\PYGZdq{}}
-\PYG{o}{\PYGZam{}}\PYG{n}{i2c1} \PYG{p}{\PYGZob{}}
-    \PYG{n}{status} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{okay}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
-    \PYG{n}{clock}\PYG{o}{\PYGZhy{}}\PYG{n}{frequency} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{n}{I2C\PYGZus{}BITRATE\PYGZus{}STANDARD}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
-    \PYG{n}{adxl372}\PYG{o}{@}\PYG{l+m+mi}{18} \PYG{p}{\PYGZob{}}
-               \PYG{n}{compatible} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{adi,adxl372}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
-               \PYG{n}{reg} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{l+m+mh}{0x18}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
-               \PYG{n}{label} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{ADXL372}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
-               \PYG{n}{int1}\PYG{o}{\PYGZhy{}}\PYG{n}{gpios} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZam{}}\PYG{n}{gpio0} \PYG{l+m+mi}{8} \PYG{l+m+mi}{0}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
-               \PYG{p}{\PYGZcb{}}\PYG{p}{;}
-    \PYG{p}{\PYGZcb{}}\PYG{p}{;}
-\end{sphinxVerbatim}
-
-\sphinxstylestrong{note: this gets somehow merged with the board definition pinetime.dts}
+\subsection{definition on project level}
+\label{\detokenize{drivers/i2c:definition-on-project-level}}
+In the directory of a sample, you will find a prj.conf file.
+Here you can set values specific for you project/sample.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{In} \PYG{n}{the} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{prj.conf}\PYG{l+s+s2}{\PYGZdq{}} \PYG{n}{file} \PYG{n}{we} \PYG{n}{define} \PYG{n}{the} \PYG{n}{sensor}
+\PYG{n}{In} \PYG{n}{the} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{prj.conf}\PYG{l+s+s2}{\PYGZdq{}} \PYG{n}{file} \PYG{n}{we} \PYG{n}{define} \PYG{n}{the} \PYG{n}{sensor} \PYG{p}{(}\PYG{n}{eg} \PYG{n}{adxl372}\PYG{p}{)}
 
 \PYG{n}{CONFIG\PYGZus{}STDOUT\PYGZus{}CONSOLE}\PYG{o}{=}\PYG{n}{y}
 \PYG{n}{CONFIG\PYGZus{}LOG}\PYG{o}{=}\PYG{n}{y}
@@ -767,14 +707,7 @@ finally we create a driver for the BMA423, based upon the BMA280
 \PYG{n}{CONFIG\PYGZus{}SENSOR\PYGZus{}LOG\PYGZus{}LEVEL\PYGZus{}WRN}\PYG{o}{=}\PYG{n}{y}
 \end{sphinxVerbatim}
 
-\sphinxstylestrong{note: this gets somehow merged with the board definition pinetime\_defconfig}
-
-
-\subsection{compiling the sample}
-\label{\detokenize{drivers/i2c:compiling-the-sample}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{west} \PYG{n}{build} \PYG{o}{\PYGZhy{}}\PYG{n}{p} \PYG{o}{\PYGZhy{}}\PYG{n}{b} \PYG{n}{pinetime} \PYG{n}{samples}\PYG{o}{/}\PYG{n}{sensor}\PYG{o}{/}\PYG{n}{adxl372} \PYG{o}{\PYGZhy{}}\PYG{n}{DCONF}\PYG{o}{=}\PYG{n}{prj}\PYG{o}{.}\PYG{n}{conf}
-\end{sphinxVerbatim}
+\sphinxstylestrong{note: this gets somehow merged (overlayed) with the board definition pinetime\_defconfig}
 
 
 \section{sensors on the I2C bus}
@@ -785,157 +718,6 @@ finally we create a driver for the BMA423, based upon the BMA280
 0x44: Heart Rate Sensor: HRS3300\_Heart
 
 0x15: Touch Controller: Hynitron CST816S Touch Controller
-
-
-\section{Serial Nor Flash}
-\label{\detokenize{drivers/spinor:serial-nor-flash}}\label{\detokenize{drivers/spinor::doc}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/drivers/spi\PYGZus{}flash \PYGZhy{}DCONF=prj.conf}
-\end{sphinxVerbatim}
-
-
-\subsection{Overview}
-\label{\detokenize{drivers/spinor:overview}}
-This sample application should unlock the serial nor flash memory.
-This can be very usefull to store e.g. background for the watch.
-
-compilation problematic ….
-
-/root/zephyrproject/zephyr/samples/drivers/spi\_flash/src/main.c:17:22: error: ‘DT\_INST\_0\_JEDEC\_SPI\_NOR\_LABEL’ undeclared (first use in this function); did you mean ‘DT\_INST\_0\_NORDIC\_NRF\_RTC\_LABEL’?
-
-Turns out this is some problem with the board definition file.
-
-I found it to be very useful to consult the generated dts file.
-Here you can check if everything is present.
-
-Guess the dts-file has to be well intended.(structured)
-
-{\color{red}\bfseries{}**}TIP: consult the generated dts board file **
-
-
-\subsubsection{consulting the generated board definition file}
-\label{\detokenize{drivers/spinor:consulting-the-generated-board-definition-file}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{vi /root/zephyrproject/zephyr/build/zephyr/include/generated/generated\PYGZus{}dts\PYGZus{}board.conf}
-\end{sphinxVerbatim}
-
-
-\subsection{Requirements}
-\label{\detokenize{drivers/spinor:requirements}}
-complement the pinetime.dts file with the following (under spi)
-\#define JEDEC\_ID\_MACRONIX\_MX25L64      0xC22017
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{\PYGZam{}spi0 \PYGZob{}}
-\PYG{g+go}{  compatible = \PYGZdq{}nordic,nrf\PYGZhy{}spi\PYGZdq{};}
-\PYG{g+go}{  status = \PYGZdq{}okay\PYGZdq{};}
-\PYG{g+go}{  sck\PYGZhy{}pin = \PYGZlt{}2\PYGZgt{};}
-\PYG{g+go}{  mosi\PYGZhy{}pin = \PYGZlt{}3\PYGZgt{};}
-\PYG{g+go}{  miso\PYGZhy{}pin = \PYGZlt{}4\PYGZgt{};}
-\PYG{g+go}{  cs\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 27 0\PYGZgt{},\PYGZlt{}\PYGZam{}gpio0 5 0\PYGZgt{};}
-\PYG{g+go}{  st7789v@0 \PYGZob{}}
-\PYG{g+go}{          compatible = \PYGZdq{}sitronix,st7789v\PYGZdq{};}
-\PYG{g+go}{          label = \PYGZdq{}DISPLAY\PYGZdq{};}
-\PYG{g+go}{          spi\PYGZhy{}max\PYGZhy{}frequency = \PYGZlt{}8000000\PYGZgt{};}
-\PYG{g+go}{          reg = \PYGZlt{}0\PYGZgt{};}
-\PYG{g+go}{          cmd\PYGZhy{}data\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 18 0\PYGZgt{};}
-\PYG{g+go}{          reset\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 26 0\PYGZgt{};}
-\PYG{g+go}{          width = \PYGZlt{}240\PYGZgt{};}
-\PYG{g+go}{          height = \PYGZlt{}240\PYGZgt{};}
-\PYG{g+go}{          x\PYGZhy{}offset = \PYGZlt{}0\PYGZgt{};}
-\PYG{g+go}{          y\PYGZhy{}offset = \PYGZlt{}0\PYGZgt{};}
-\PYG{g+go}{          vcom = \PYGZlt{}0x19\PYGZgt{};}
-\PYG{g+go}{          gctrl = \PYGZlt{}0x35\PYGZgt{};}
-\PYG{g+go}{          vrhs = \PYGZlt{}0x12\PYGZgt{};}
-\PYG{g+go}{          vdvs = \PYGZlt{}0x20\PYGZgt{};}
-\PYG{g+go}{          mdac = \PYGZlt{}0x00\PYGZgt{};}
-\PYG{g+go}{          gamma = \PYGZlt{}0x01\PYGZgt{};}
-\PYG{g+go}{          colmod = \PYGZlt{}0x05\PYGZgt{};}
-\PYG{g+go}{          lcm = \PYGZlt{}0x2c\PYGZgt{};}
-\PYG{g+go}{          porch\PYGZhy{}param = [0c 0c 00 33 33];}
-\PYG{g+go}{          cmd2en\PYGZhy{}param = [5a 69 02 01];}
-\PYG{g+go}{          pwctrl1\PYGZhy{}param = [a4 a1];}
-\PYG{g+go}{          pvgam\PYGZhy{}param = [D0 04 0D 11 13 2B 3F 54 4C 18 0D 0B 1F 23];}
-\PYG{g+go}{          nvgam\PYGZhy{}param = [D0 04 0C 11 13 2C 3F 44 51 2F 1F 1F 20 23];}
-\PYG{g+go}{          ram\PYGZhy{}param = [00 F0];}
-\PYG{g+go}{          rgb\PYGZhy{}param = [CD 08 14];}
-
-\PYG{g+go}{  \PYGZcb{};}
-
-\PYG{g+go}{  mx25r64: mx25r6435f@1 \PYGZob{}}
-\PYG{g+go}{          compatible = \PYGZdq{}jedec,spi\PYGZhy{}nor\PYGZdq{};}
-\PYG{g+go}{          reg = \PYGZlt{}1\PYGZgt{};}
-\PYG{g+go}{          spi\PYGZhy{}max\PYGZhy{}frequency = \PYGZlt{}1000000\PYGZgt{};}
-\PYG{g+go}{          label = \PYGZdq{}MX25R64\PYGZdq{};}
-\PYG{g+go}{          jedec\PYGZhy{}id = [0b 40 16];}
-\PYG{g+go}{          size = \PYGZlt{}67108864\PYGZgt{};}
-\PYG{g+go}{          has\PYGZhy{}be32k;}
-\PYG{g+go}{  \PYGZcb{};}
-\end{sphinxVerbatim}
-
-
-\subsection{Building and Running}
-\label{\detokenize{drivers/spinor:building-and-running}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/drivers/spi\PYGZus{}flash}
-\end{sphinxVerbatim}
-
-
-\subsection{Todo}
-\label{\detokenize{drivers/spinor:todo}}\begin{quote}
-\begin{itemize}
-\item {} 
-detect ID memory  : it is not the macronix one as suggestion on the pinetime website
-
-\end{itemize}
-
-I found the following : jedec-id = {[}0b 40 16{]}; (OK: can execute sample program)
-\begin{itemize}
-\item {} 
-create working board definition (OK: see above)
-
-\end{itemize}
-\end{quote}
-
-
-\subsection{References}
-\label{\detokenize{drivers/spinor:references}}
-\sphinxurl{http://files.pine64.org/doc/datasheet/pinetime/MX25L6433F,\%203V,\%2064Mb,\%20v1.6.pdf}
-
-
-\section{Battery}
-\label{\detokenize{drivers/battery:battery}}\label{\detokenize{drivers/battery::doc}}
-the samples just gets an analog reading from the battery
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/sensor/battery}
-\end{sphinxVerbatim}
-
-
-\subsection{Overview}
-\label{\detokenize{drivers/battery:overview}}
-The battery level is measured on port 31, trough an ADC conversion.
-
-voltage = (value * 6)/1024
-percentage remaining  ((voltage - 3.55)*100)*3.9;
-
-A module should be able to report battery status in milivolts and charge level in percentage. Additionally, it should notify when external power is connected and when battery is being charged.
-Module will use adc (saadc peripheral) to measure battery voltage and gpio driver to monitor charge indication pin (pin 0.12) and power presence pin (0.19).
-Battery voltage can be in range from 3.0V - 4.2V (?). Unfortunately, internal reference (0.6V) can only be used for voltages up to 3.6V (due to minimal gain of 1/6). VDD/4 reference can be used with 1/6 gain to measure voltages up to 4.95V. Test is needed to check how accurate is VDD as reference.
-Discharge curve (\sphinxurl{https://forum.pine64.org/showthread.php?tid=8147}) will be used to calculate charge level in percent.
-Things to consider:
-saadc periodical calibration (spec suggests calibration if temperature changes by 10’C)
-inaccuracy of results: oversampling? never report higher level than before (if charge not connected), etc.
-
-
-\subsection{Todo}
-\label{\detokenize{drivers/battery:todo}}
-check pin when charging
-
-
-\subsection{References}
-\label{\detokenize{drivers/battery:references}}
-\sphinxurl{https://forum.pine64.org/showthread.php?tid=8147}
 
 
 \section{Bosch BMA421}
@@ -1220,6 +1002,157 @@ HRS3300 Heart Rate Sensor.pdf
 \sphinxurl{https://github.com/atc1441/HRS3300-Arduino-Library}
 
 
+\section{Serial Nor Flash}
+\label{\detokenize{drivers/spinor:serial-nor-flash}}\label{\detokenize{drivers/spinor::doc}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/drivers/spi\PYGZus{}flash \PYGZhy{}DCONF=prj.conf}
+\end{sphinxVerbatim}
+
+
+\subsection{Overview}
+\label{\detokenize{drivers/spinor:overview}}
+This sample application should unlock the serial nor flash memory.
+This can be very usefull to store e.g. background for the watch.
+
+compilation problematic ….
+
+/root/zephyrproject/zephyr/samples/drivers/spi\_flash/src/main.c:17:22: error: ‘DT\_INST\_0\_JEDEC\_SPI\_NOR\_LABEL’ undeclared (first use in this function); did you mean ‘DT\_INST\_0\_NORDIC\_NRF\_RTC\_LABEL’?
+
+Turns out this is some problem with the board definition file.
+
+I found it to be very useful to consult the generated dts file.
+Here you can check if everything is present.
+
+Guess the dts-file has to be well intended.(structured)
+
+{\color{red}\bfseries{}**}TIP: consult the generated dts board file **
+
+
+\subsubsection{consulting the generated board definition file}
+\label{\detokenize{drivers/spinor:consulting-the-generated-board-definition-file}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{vi /root/zephyrproject/zephyr/build/zephyr/include/generated/generated\PYGZus{}dts\PYGZus{}board.conf}
+\end{sphinxVerbatim}
+
+
+\subsection{Requirements}
+\label{\detokenize{drivers/spinor:requirements}}
+complement the pinetime.dts file with the following (under spi)
+\#define JEDEC\_ID\_MACRONIX\_MX25L64      0xC22017
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{\PYGZam{}spi0 \PYGZob{}}
+\PYG{g+go}{  compatible = \PYGZdq{}nordic,nrf\PYGZhy{}spi\PYGZdq{};}
+\PYG{g+go}{  status = \PYGZdq{}okay\PYGZdq{};}
+\PYG{g+go}{  sck\PYGZhy{}pin = \PYGZlt{}2\PYGZgt{};}
+\PYG{g+go}{  mosi\PYGZhy{}pin = \PYGZlt{}3\PYGZgt{};}
+\PYG{g+go}{  miso\PYGZhy{}pin = \PYGZlt{}4\PYGZgt{};}
+\PYG{g+go}{  cs\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 27 0\PYGZgt{},\PYGZlt{}\PYGZam{}gpio0 5 0\PYGZgt{};}
+\PYG{g+go}{  st7789v@0 \PYGZob{}}
+\PYG{g+go}{          compatible = \PYGZdq{}sitronix,st7789v\PYGZdq{};}
+\PYG{g+go}{          label = \PYGZdq{}DISPLAY\PYGZdq{};}
+\PYG{g+go}{          spi\PYGZhy{}max\PYGZhy{}frequency = \PYGZlt{}8000000\PYGZgt{};}
+\PYG{g+go}{          reg = \PYGZlt{}0\PYGZgt{};}
+\PYG{g+go}{          cmd\PYGZhy{}data\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 18 0\PYGZgt{};}
+\PYG{g+go}{          reset\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 26 0\PYGZgt{};}
+\PYG{g+go}{          width = \PYGZlt{}240\PYGZgt{};}
+\PYG{g+go}{          height = \PYGZlt{}240\PYGZgt{};}
+\PYG{g+go}{          x\PYGZhy{}offset = \PYGZlt{}0\PYGZgt{};}
+\PYG{g+go}{          y\PYGZhy{}offset = \PYGZlt{}0\PYGZgt{};}
+\PYG{g+go}{          vcom = \PYGZlt{}0x19\PYGZgt{};}
+\PYG{g+go}{          gctrl = \PYGZlt{}0x35\PYGZgt{};}
+\PYG{g+go}{          vrhs = \PYGZlt{}0x12\PYGZgt{};}
+\PYG{g+go}{          vdvs = \PYGZlt{}0x20\PYGZgt{};}
+\PYG{g+go}{          mdac = \PYGZlt{}0x00\PYGZgt{};}
+\PYG{g+go}{          gamma = \PYGZlt{}0x01\PYGZgt{};}
+\PYG{g+go}{          colmod = \PYGZlt{}0x05\PYGZgt{};}
+\PYG{g+go}{          lcm = \PYGZlt{}0x2c\PYGZgt{};}
+\PYG{g+go}{          porch\PYGZhy{}param = [0c 0c 00 33 33];}
+\PYG{g+go}{          cmd2en\PYGZhy{}param = [5a 69 02 01];}
+\PYG{g+go}{          pwctrl1\PYGZhy{}param = [a4 a1];}
+\PYG{g+go}{          pvgam\PYGZhy{}param = [D0 04 0D 11 13 2B 3F 54 4C 18 0D 0B 1F 23];}
+\PYG{g+go}{          nvgam\PYGZhy{}param = [D0 04 0C 11 13 2C 3F 44 51 2F 1F 1F 20 23];}
+\PYG{g+go}{          ram\PYGZhy{}param = [00 F0];}
+\PYG{g+go}{          rgb\PYGZhy{}param = [CD 08 14];}
+
+\PYG{g+go}{  \PYGZcb{};}
+
+\PYG{g+go}{  mx25r64: mx25r6435f@1 \PYGZob{}}
+\PYG{g+go}{          compatible = \PYGZdq{}jedec,spi\PYGZhy{}nor\PYGZdq{};}
+\PYG{g+go}{          reg = \PYGZlt{}1\PYGZgt{};}
+\PYG{g+go}{          spi\PYGZhy{}max\PYGZhy{}frequency = \PYGZlt{}1000000\PYGZgt{};}
+\PYG{g+go}{          label = \PYGZdq{}MX25R64\PYGZdq{};}
+\PYG{g+go}{          jedec\PYGZhy{}id = [0b 40 16];}
+\PYG{g+go}{          size = \PYGZlt{}67108864\PYGZgt{};}
+\PYG{g+go}{          has\PYGZhy{}be32k;}
+\PYG{g+go}{  \PYGZcb{};}
+\end{sphinxVerbatim}
+
+
+\subsection{Building and Running}
+\label{\detokenize{drivers/spinor:building-and-running}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/drivers/spi\PYGZus{}flash}
+\end{sphinxVerbatim}
+
+
+\subsection{Todo}
+\label{\detokenize{drivers/spinor:todo}}\begin{quote}
+\begin{itemize}
+\item {} 
+detect ID memory  : it is not the macronix one as suggestion on the pinetime website
+
+\end{itemize}
+
+I found the following : jedec-id = {[}0b 40 16{]}; (OK: can execute sample program)
+\begin{itemize}
+\item {} 
+create working board definition (OK: see above)
+
+\end{itemize}
+\end{quote}
+
+
+\subsection{References}
+\label{\detokenize{drivers/spinor:references}}
+\sphinxurl{http://files.pine64.org/doc/datasheet/pinetime/MX25L6433F,\%203V,\%2064Mb,\%20v1.6.pdf}
+
+
+\section{Battery}
+\label{\detokenize{drivers/battery:battery}}\label{\detokenize{drivers/battery::doc}}
+the samples just gets an analog reading from the battery
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/sensor/battery}
+\end{sphinxVerbatim}
+
+
+\subsection{Overview}
+\label{\detokenize{drivers/battery:overview}}
+The battery level is measured on port 31, trough an ADC conversion.
+
+voltage = (value * 6)/1024
+percentage remaining  ((voltage - 3.55)*100)*3.9;
+
+A module should be able to report battery status in milivolts and charge level in percentage. Additionally, it should notify when external power is connected and when battery is being charged.
+Module will use adc (saadc peripheral) to measure battery voltage and gpio driver to monitor charge indication pin (pin 0.12) and power presence pin (0.19).
+Battery voltage can be in range from 3.0V - 4.2V (?). Unfortunately, internal reference (0.6V) can only be used for voltages up to 3.6V (due to minimal gain of 1/6). VDD/4 reference can be used with 1/6 gain to measure voltages up to 4.95V. Test is needed to check how accurate is VDD as reference.
+Discharge curve (\sphinxurl{https://forum.pine64.org/showthread.php?tid=8147}) will be used to calculate charge level in percent.
+Things to consider:
+saadc periodical calibration (spec suggests calibration if temperature changes by 10’C)
+inaccuracy of results: oversampling? never report higher level than before (if charge not connected), etc.
+
+
+\subsection{Todo}
+\label{\detokenize{drivers/battery:todo}}
+check pin when charging
+
+
+\subsection{References}
+\label{\detokenize{drivers/battery:references}}
+\sphinxurl{https://forum.pine64.org/showthread.php?tid=8147}
+
+
 \chapter{Behind the scene}
 \label{\detokenize{behind/behind:behind-the-scene}}\label{\detokenize{behind/behind:id1}}\label{\detokenize{behind/behind::doc}}
 
@@ -1242,8 +1175,28 @@ This allowed me to detect problems easier.
 The created samples might be of some use, if you run into trouble or if you want to extend the functionality.
 
 
+\section{development trajectory}
+\label{\detokenize{behind/bma280:development-trajectory}}\label{\detokenize{behind/bma280::doc}}
+The final goal is to use the accel-sensor in the watch (BMA423), which does not exist yet.
+In order to minimize the effort:
+\begin{itemize}
+\item {} 
+we’ll use something that looks like it (ADXL372), because there exists an example.
+
+\item {} 
+next we adapt it to use the existing BMA280 sensor (under drivers/sensor), so we get a sample that works with the BMA280.
+
+\item {} 
+we create a driver for the BMA423, based upon the BMA280
+
+\item {} 
+we adapt the sample for the BMA280 to BMA423
+
+\end{itemize}
+
+
 \section{Bosch BMA280}
-\label{\detokenize{behind/bma280:bosch-bma280}}\label{\detokenize{behind/bma280::doc}}
+\label{\detokenize{behind/bma280:bosch-bma280}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/drivers/bma280}
 \end{sphinxVerbatim}
@@ -1259,6 +1212,8 @@ Remember, I’m not a zephyr expert and am learning on the way.
 \subsection{Requirements}
 \label{\detokenize{behind/bma280:requirements}}
 complement the pinetime.dts file with the following (under samples/sensor/bma280)
+
+This will supplement / override what’s already definition on the board level (boards/arm/pinetime)
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+go}{\PYGZam{}i2c1 \PYGZob{}}
@@ -1433,8 +1388,41 @@ I did add a write of 1 to register 0x00.
 samples/basic/testsemaphore
 
 
+\section{placing a button on the screen}
+\label{\detokenize{behind/lvglbutton:placing-a-button-on-the-screen}}\label{\detokenize{behind/lvglbutton::doc}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{This} \PYG{n}{sample} \PYG{o+ow}{is} \PYG{o+ow}{not} \PYG{n}{really} \PYG{n}{important}\PYG{p}{,} \PYG{n}{but} \PYG{n}{it} \PYG{n}{will} \PYG{n}{teach} \PYG{n}{you} \PYG{n}{that} \PYG{n}{you} \PYG{n}{need} \PYG{n}{to} \PYG{n+nb}{set} \PYG{n}{LVGL\PYGZus{}CONFIG} \PYG{n}{values}\PYG{p}{,} \PYG{o+ow}{in} \PYG{n}{order}    \PYG{n}{to} \PYG{n}{be} \PYG{n}{able} \PYG{n}{to} \PYG{n}{use} \PYG{n}{LVGL} \PYG{n}{functions}\PYG{o}{.}
+\end{sphinxVerbatim}
+
+
+\subsection{Building and Running}
+\label{\detokenize{behind/lvglbutton:building-and-running}}
+In this repo under samples you will find an adapted gui/clock program.
+A button from the LVGL library is placed on the screen.
+
+Later on when the touch-screen driver is ready, we’ll be able to manipulate it.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{Make sure that prj.conf file in clock directory contains the following:}
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+CONFIG\_LVGL\_OBJ\_CONTAINER=y
+CONFIG\_LVGL\_OBJ\_BUTTON=y
+\end{sphinxadmonition}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+
+\sphinxstyleemphasis{problem} the canvas heigh*width eats up RAM and exceeds once \textgreater{} 40
+
+
 \chapter{Samples and Demos}
 \label{\detokenize{samples/index:samples-and-demos}}\label{\detokenize{samples/index:id1}}\label{\detokenize{samples/index::doc}}
+In each sample directory is a Readme file.
+This is just a collection of them.
+
 
 \section{Basic Samples}
 \label{\detokenize{samples/basic/basic:basic-samples}}\label{\detokenize{samples/basic/basic:basic-sample}}\label{\detokenize{samples/basic/basic::doc}}
@@ -2010,6 +1998,37 @@ west build -p -b pinetime samples/gui/lvgl
 \subsubsection{References}
 \label{\detokenize{samples/gui/lvgl/README:references}}
 
+\subsection{LittlevGL Basic Sample}
+\label{\detokenize{samples/gui/lvtouch/README:littlevgl-basic-sample}}\label{\detokenize{samples/gui/lvtouch/README:lvgl-sample}}\label{\detokenize{samples/gui/lvtouch/README::doc}}
+
+\subsubsection{Overview}
+\label{\detokenize{samples/gui/lvtouch/README:overview}}
+This sample application displays “Hello World” in the center of the screen
+and a counter at the bottom which increments every second.
+
+
+\subsubsection{Requirements}
+\label{\detokenize{samples/gui/lvtouch/README:requirements}}
+Pinetime watch
+definitions can be found under the boards sub-directory
+\begin{itemize}
+\item {} 
+pinetime.conf
+
+\item {} 
+pinetime.overlay
+
+\end{itemize}
+
+
+\subsubsection{Building and Running}
+\label{\detokenize{samples/gui/lvtouch/README:building-and-running}}
+west build -p -b pinetime samples/gui/lvgl
+
+
+\subsubsection{References}
+\label{\detokenize{samples/gui/lvtouch/README:references}}
+
 \section{Bluetooth Samples}
 \label{\detokenize{samples/bluetooth/bluetooth:bluetooth-samples}}\label{\detokenize{samples/bluetooth/bluetooth:id1}}\label{\detokenize{samples/bluetooth/bluetooth::doc}}
 
@@ -2216,7 +2235,7 @@ removing write protection see:   {\hyperref[\detokenize{hacking/writeprotection:
 
 
 \chapter{debugging   the pinetime smartwatch}
-\label{\detokenize{hacking/debugging:debugging-the-pinetime-smartwatch}}\label{\detokenize{hacking/debugging::doc}}
+\label{\detokenize{hacking/debugging:debugging-the-pinetime-smartwatch}}\label{\detokenize{hacking/debugging::doc}}\label{\detokenize{hacking/debugging::doc}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{The} \PYG{n}{pinetime} \PYG{n}{does} \PYG{o+ow}{not} \PYG{n}{have} \PYG{n}{a} \PYG{n}{serial} \PYG{n}{port}\PYG{o}{.}
 \PYG{n}{I} \PYG{n}{do} \PYG{o+ow}{not} \PYG{n}{have} \PYG{n}{a} \PYG{n}{segger} \PYG{n}{debugging} \PYG{n}{probe}\PYG{o}{.}
@@ -2306,26 +2325,37 @@ this corresponds to 0x18, 0x44 and 0xC2 (which is endvalue of scanner, so it doe
 Once you completed your \sphinxcode{\sphinxupquote{west build}} , your image is located under the build directory
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+gp}{\PYGZdl{}} \PYG{n+nb}{cd} \PYGZti{}/zephyrproject/zephyr/build/zephyr
-\PYG{g+go}{here you can find zephyr.bin which you can flash}
+\PYG{g+gp}{   \PYGZdl{}} \PYG{n+nb}{cd} \PYGZti{}/work/pinetime/zephyr/build/zephyr
+\PYG{g+go}{   here you can find zephyr.bin which you can flash}
+
+
+
+
+\PYG{g+go}{I use Openocd to flash.}
+\PYG{g+go}{Just connect : telnet 127.0.0.1 4444}
+
+\PYG{g+go}{.. code\PYGZhy{}block:: console}
+
+\PYG{g+go}{    program zephyr.bin}
 \end{sphinxVerbatim}
 
-I have an orange pi (single board computer) in my network.
 
-I copy the image using \$scp -P 8888 zephyr.bin 192.168.0.77:/usr/src/pinetime
-(secure copy using my user defined port 8888 which is normally port 22)
-
-\begin{sphinxadmonition}{note}{Note:}
-the PineTime watch is read/write protected
+\chapter{howto remove the write protection}
+\label{\detokenize{hacking/writeprotection:howto-remove-the-write-protection}}\begin{description}
+\item[{::}] \leavevmode
+the PineTime watch is read/write protected (at least the one I got)
 executing the following : nrf52.dap apreg 1 0x0c shows 0x0
 
-Mind you st-link does not allow you to execute that command, you need J-link.
-There is a workaround using the GPIO of a raspberry pi or a Orangepi.
+Mind you, st-link does not allow you to execute that command, for this you will need a J-link.
+
+There is a workaround using the GPIO of a raspberry pi or an Orangepi. (in this case you won’t need an external programmer at all)
+(You can find an example for the orange pi in my repo :\sphinxurl{https://github.com/najnesnaj/openocd}.)
 You have to reconfigure Openocd with the \textendash{}enable-cmsis-dap option.
 
 Unlock the chip by executing the command:
 \textgreater{} nrf52.dap apreg 1 0x04 0x01
-\end{sphinxadmonition}
+
+\end{description}
 
 
 \chapter{howto generate pdf documents}
@@ -2395,22 +2425,6 @@ useless stuff, but somehow cool
 
 \item {} 
 applications, e.g. calculator, cycle computer, step counter, heart attack predictor …
-
-\end{itemize}
-
-
-\section{Fast track}
-\label{\detokenize{about:fast-track}}
-In this repository you can find modified directories, which you can copy to the zephyrproject directory:
-\begin{itemize}
-\item {} 
-pinetime (board definition -\textgreater{} boards/arm)
-
-\item {} 
-st7789v (example -\textgreater{} samples/display)
-
-\item {} 
-blinky (example -\textgreater{} samples/basic)
 
 \end{itemize}
 

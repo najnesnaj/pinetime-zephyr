@@ -33,35 +33,11 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="development-trajectory">
-<h2>development trajectory</h2>
-<p>The final goal is to use the accel-sensor in the watch (BMA423), which does not exist yet.
-In order to minimize the effort:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>we’ll use something that looks like it (ADXL372), because there exists an example.</p></li>
-<li><p>next we adapt it to use the existing BMA280 sensor (under drivers/sensor)</p></li>
-<li><p>finally we create a driver for the BMA423, based upon the BMA280</p></li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="defining-an-i2c-sensor">
-<h2>defining an I2C sensor</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">under</span> <span class="n">samples</span><span class="o">/</span><span class="n">sensor</span><span class="o">/</span><span class="n">axl372</span> <span class="n">we</span> <span class="n">create</span> <span class="p">:</span> <span class="s2">&quot;pinetime.overlay&quot;</span>
-<span class="o">&amp;</span><span class="n">i2c1</span> <span class="p">{</span>
-    <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;okay&quot;</span><span class="p">;</span>
-    <span class="n">clock</span><span class="o">-</span><span class="n">frequency</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">I2C_BITRATE_STANDARD</span><span class="o">&gt;</span><span class="p">;</span>
-    <span class="n">adxl372</span><span class="o">@</span><span class="mi">18</span> <span class="p">{</span>
-               <span class="n">compatible</span> <span class="o">=</span> <span class="s2">&quot;adi,adxl372&quot;</span><span class="p">;</span>
-               <span class="n">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0x18</span><span class="o">&gt;</span><span class="p">;</span>
-               <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;ADXL372&quot;</span><span class="p">;</span>
-               <span class="n">int1</span><span class="o">-</span><span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">8</span> <span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
-               <span class="p">};</span>
-    <span class="p">};</span>
-</pre></div>
-</div>
-<p><strong>note: this gets somehow merged with the board definition pinetime.dts</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="n">the</span> <span class="s2">&quot;prj.conf&quot;</span> <span class="n">file</span> <span class="n">we</span> <span class="n">define</span> <span class="n">the</span> <span class="n">sensor</span>
+<div class="section" id="definition-on-project-level">
+<h2>definition on project level</h2>
+<p>In the directory of a sample, you will find a prj.conf file.
+Here you can set values specific for you project/sample.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="n">the</span> <span class="s2">&quot;prj.conf&quot;</span> <span class="n">file</span> <span class="n">we</span> <span class="n">define</span> <span class="n">the</span> <span class="n">sensor</span> <span class="p">(</span><span class="n">eg</span> <span class="n">adxl372</span><span class="p">)</span>
 
 <span class="n">CONFIG_STDOUT_CONSOLE</span><span class="o">=</span><span class="n">y</span>
 <span class="n">CONFIG_LOG</span><span class="o">=</span><span class="n">y</span>
@@ -72,13 +48,7 @@ In order to minimize the effort:</p>
 <span class="n">CONFIG_SENSOR_LOG_LEVEL_WRN</span><span class="o">=</span><span class="n">y</span>
 </pre></div>
 </div>
-<p><strong>note: this gets somehow merged with the board definition pinetime_defconfig</strong></p>
-</div>
-<div class="section" id="compiling-the-sample">
-<h2>compiling the sample</h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">west</span> <span class="n">build</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">b</span> <span class="n">pinetime</span> <span class="n">samples</span><span class="o">/</span><span class="n">sensor</span><span class="o">/</span><span class="n">adxl372</span> <span class="o">-</span><span class="n">DCONF</span><span class="o">=</span><span class="n">prj</span><span class="o">.</span><span class="n">conf</span>
-</pre></div>
-</div>
+<p><strong>note: this gets somehow merged (overlayed) with the board definition pinetime_defconfig</strong></p>
 </div>
 </div>
 
