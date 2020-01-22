@@ -18,9 +18,7 @@
    samples/index.rst
    menuconfig
    flashing
-   hacking/debugging
-   hacking/i2cscanning
-   hacking/writeprotection 
+   hacking/hacking.rst
    latexpdf
    about
 
