@@ -29,9 +29,10 @@ howto remove the write protection
          the PineTime watch is read/write protected (at least the one I got)
          executing the following : nrf52.dap apreg 1 0x0c shows 0x0
 
-         Mind you st-link does not allow you to execute that command, you need J-link.
+         Mind you, st-link does not allow you to execute that command, for this you will need a J-link.
          
-         There is a workaround using the GPIO of a raspberry pi or a Orangepi.
+         There is a workaround using the GPIO of a raspberry pi or an Orangepi. (in this case you won't need an external programmer at all)
+         (You can find an example for the orange pi in my repo :https://github.com/najnesnaj/openocd.)
          You have to reconfigure Openocd with the --enable-cmsis-dap option.
 
          Unlock the chip by executing the command:
