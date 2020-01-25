@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>LittlevGL Basic Sample &mdash; open source watch 1.0.0 documentation</title>
+  <title>Touchscreen Basic Sample &mdash; open source watch 1.0.0 documentation</title>
   
 
   
@@ -107,10 +107,9 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../gui.html">GUI Samples</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../clock/README.html">LittlevGL Clock Sample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../gfx/README.html">Adafruit GFX Library on ST7789V Display</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lvaccel/README.html">LittlevGL Basic Sample</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lvaccel/src/bma280/README.html">BMA280: Three Axis High-g I2C/SPI Accelerometer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lvaccel/README.html">Display accel values</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../lvgl/README.html">LittlevGL Basic Sample</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">LittlevGL Basic Sample</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Touchscreen Basic Sample</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
@@ -179,7 +178,7 @@
         
           <li><a href="../gui.html">GUI Samples</a> &raquo;</li>
         
-      <li>LittlevGL Basic Sample</li>
+      <li>Touchscreen Basic Sample</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -198,27 +197,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="littlevgl-basic-sample">
-<span id="lvgl-sample"></span><h1>LittlevGL Basic Sample<a class="headerlink" href="#littlevgl-basic-sample" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="touchscreen-basic-sample">
+<span id="touchscreen-sample"></span><h1>Touchscreen Basic Sample<a class="headerlink" href="#touchscreen-basic-sample" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>This sample application displays “Hello World” in the center of the screen
-and a counter at the bottom which increments every second.</p>
+<p>This sample application displays touchscreen-values x and y in the center of the screen.</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>Pinetime watch
-definitions can be found under the boards sub-directory</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>pinetime.conf</p></li>
-<li><p>pinetime.overlay</p></li>
-</ul>
-</div></blockquote>
+zephyr cst816s driver</p>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
-<p>west build -p -b pinetime samples/gui/lvgl</p>
+<p>west build -p -b pinetime samples/gui/lvtouch</p>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>

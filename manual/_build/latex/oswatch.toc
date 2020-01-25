@@ -153,7 +153,7 @@
 \contentsline {paragraph}{I2C mode}{42}{paragraph*.48}
 \contentsline {subsubsection}{Building and Running}{42}{subsubsection*.49}
 \contentsline {paragraph}{Sample Output: X \& Y coordinates}{42}{paragraph*.50}
-\contentsline {paragraph}{Sample Output: Measurement Mode}{42}{paragraph*.51}
+\contentsline {paragraph}{Sample Output: Measurement Mode}{43}{paragraph*.51}
 \contentsline {subsection}{\numberline {14.2.3}HRS3300 Heart Rate Sensor}{43}{subsection.14.2.3}
 \contentsline {subsubsection}{Overview}{43}{subsubsection*.52}
 \contentsline {subsubsection}{Building and Running}{43}{subsubsection*.53}
@@ -178,39 +178,30 @@
 \contentsline {subsubsection}{References}{44}{subsubsection*.65}
 \contentsline {subsection}{\numberline {14.5.2}Adafruit GFX Library on ST7789V Display}{44}{subsection.14.5.2}
 \contentsline {subsubsection}{Overview}{45}{subsubsection*.66}
-\contentsline {subsection}{\numberline {14.5.3}LittlevGL Basic Sample}{45}{subsection.14.5.3}
+\contentsline {subsection}{\numberline {14.5.3}Display accel values}{45}{subsection.14.5.3}
 \contentsline {subsubsection}{Overview}{45}{subsubsection*.67}
 \contentsline {subsubsection}{Requirements}{45}{subsubsection*.68}
 \contentsline {subsubsection}{Building and Running}{45}{subsubsection*.69}
 \contentsline {subsubsection}{References}{45}{subsubsection*.70}
-\contentsline {subsection}{\numberline {14.5.4}BMA280: Three Axis High-g I2C/SPI Accelerometer}{45}{subsection.14.5.4}
-\contentsline {subsubsection}{Description}{45}{subsubsection*.71}
-\contentsline {subsubsection}{References}{45}{subsubsection*.72}
-\contentsline {subsubsection}{Wiring}{45}{subsubsection*.73}
-\contentsline {paragraph}{I2C mode}{46}{paragraph*.74}
-\contentsline {paragraph}{SPI mode}{46}{paragraph*.75}
-\contentsline {subsubsection}{Building and Running}{46}{subsubsection*.76}
-\contentsline {paragraph}{Sample Output: Max Peak Detect Mode}{46}{paragraph*.77}
-\contentsline {paragraph}{Sample Output: Measurement Mode}{46}{paragraph*.78}
-\contentsline {subsection}{\numberline {14.5.5}LittlevGL Basic Sample}{47}{subsection.14.5.5}
-\contentsline {subsubsection}{Overview}{47}{subsubsection*.79}
-\contentsline {subsubsection}{Requirements}{47}{subsubsection*.80}
-\contentsline {subsubsection}{Building and Running}{47}{subsubsection*.81}
-\contentsline {subsubsection}{References}{47}{subsubsection*.82}
-\contentsline {subsection}{\numberline {14.5.6}LittlevGL Basic Sample}{47}{subsection.14.5.6}
-\contentsline {subsubsection}{Overview}{47}{subsubsection*.83}
-\contentsline {subsubsection}{Requirements}{47}{subsubsection*.84}
-\contentsline {subsubsection}{Building and Running}{47}{subsubsection*.85}
-\contentsline {subsubsection}{References}{47}{subsubsection*.86}
-\contentsline {section}{\numberline {14.6}Bluetooth Samples}{47}{section.14.6}
-\contentsline {subsection}{\numberline {14.6.1}Bluetooth: Eddystone}{47}{subsection.14.6.1}
-\contentsline {subsubsection}{Overview}{47}{subsubsection*.87}
-\contentsline {subsubsection}{Requirements}{48}{subsubsection*.88}
-\contentsline {subsubsection}{Building and Running}{48}{subsubsection*.89}
-\contentsline {subsection}{\numberline {14.6.2}Bluetooth: Peripheral}{48}{subsection.14.6.2}
-\contentsline {subsubsection}{Overview}{48}{subsubsection*.90}
-\contentsline {subsubsection}{Requirements}{48}{subsubsection*.91}
-\contentsline {subsubsection}{Building and Running}{48}{subsubsection*.92}
+\contentsline {subsection}{\numberline {14.5.4}LittlevGL Basic Sample}{45}{subsection.14.5.4}
+\contentsline {subsubsection}{Overview}{45}{subsubsection*.71}
+\contentsline {subsubsection}{Requirements}{45}{subsubsection*.72}
+\contentsline {subsubsection}{Building and Running}{45}{subsubsection*.73}
+\contentsline {subsubsection}{References}{46}{subsubsection*.74}
+\contentsline {subsection}{\numberline {14.5.5}Touchscreen Basic Sample}{46}{subsection.14.5.5}
+\contentsline {subsubsection}{Overview}{46}{subsubsection*.75}
+\contentsline {subsubsection}{Requirements}{46}{subsubsection*.76}
+\contentsline {subsubsection}{Building and Running}{46}{subsubsection*.77}
+\contentsline {subsubsection}{References}{46}{subsubsection*.78}
+\contentsline {section}{\numberline {14.6}Bluetooth Samples}{46}{section.14.6}
+\contentsline {subsection}{\numberline {14.6.1}Bluetooth: Eddystone}{46}{subsection.14.6.1}
+\contentsline {subsubsection}{Overview}{46}{subsubsection*.79}
+\contentsline {subsubsection}{Requirements}{46}{subsubsection*.80}
+\contentsline {subsubsection}{Building and Running}{46}{subsubsection*.81}
+\contentsline {subsection}{\numberline {14.6.2}Bluetooth: Peripheral}{46}{subsection.14.6.2}
+\contentsline {subsubsection}{Overview}{46}{subsubsection*.82}
+\contentsline {subsubsection}{Requirements}{47}{subsubsection*.83}
+\contentsline {subsubsection}{Building and Running}{47}{subsubsection*.84}
 \contentsline {chapter}{\numberline {15}Menuconfig}{49}{chapter.15}
 \contentsline {section}{\numberline {15.1}Zephyr is like linux}{49}{section.15.1}
 \contentsline {chapter}{\numberline {16}hacking the pinetime smartwatch}{51}{chapter.16}

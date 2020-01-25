@@ -12,8 +12,8 @@
     <dc:publisher>najnesnaj@yahoo.com</dc:publisher>
     <dc:rights>2019, jj</dc:rights>
     <dc:identifier id="unknown">unknown</dc:identifier>
-    <dc:date>2020-01-22T11:42:51Z</dc:date>
-    <meta property="dcterms:modified">2020-01-22T11:42:51Z</meta>
+    <dc:date>2020-01-25T22:24:40Z</dc:date>
+    <meta property="dcterms:modified">2020-01-25T22:24:40Z</meta>
     <meta property="ibooks:version">beta</meta>
     <meta property="ibooks:specified-fonts">true</meta>
     <meta property="ibooks:binding">true</meta>
@@ -148,7 +148,6 @@
     <itemref idref="epub-69" />
     <itemref idref="epub-70" />
     <itemref idref="epub-71" />
-    <itemref idref="epub-72" />
     <itemref idref="epub-73" />
     <itemref idref="epub-74" />
     <itemref idref="epub-60" />
@@ -172,6 +171,7 @@
     <itemref idref="epub-47" linear="no" />
     <itemref idref="epub-49" linear="no" />
     <itemref idref="epub-51" linear="no" />
+    <itemref idref="epub-72" linear="no" />
   </spine>
   <guide>
     <reference type="toc" title="Table of Contents" href="index.xhtml" />

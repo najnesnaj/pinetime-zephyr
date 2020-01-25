@@ -5,7 +5,11 @@ CST816S HYNITRON TOUCHSCREEN
 
 Description
 ***********
+When touched the touchscreen triggers an interrupt.
+This is handled in the driver.
 
+In the sample a handler is defined.
+This one gets actived by the driver.
 
 
 References
