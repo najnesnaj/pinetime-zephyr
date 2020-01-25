@@ -10,6 +10,7 @@
 #include <logging/log.h>
 
 #include "bma421.h"
+
 #define MY_REGISTER1 (*(volatile uint8_t*)0x2000F005)
 #define MY_REGISTER2 (*(volatile uint8_t*)0x2000F006)
 #define MY_REGISTER3 (*(volatile uint8_t*)0x2000F007)

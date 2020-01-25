@@ -4,7 +4,7 @@ static int cst816s_sample_fetch(struct device *dev, enum sensor_channel chan)
 	u8_t buf[64];
 	u8_t msb;
 	u8_t lsb;
-	u8_t id = 0U;
+	//u8_t id = 0U;
 	__ASSERT_NO_MSG(chan == SENSOR_CHAN_ALL);
 
 	/*
@@ -15,7 +15,7 @@ static int cst816s_sample_fetch(struct device *dev, enum sensor_channel chan)
 	if (i2c_burst_read(drv_data->i2c, CST816S_I2C_ADDRESS,
 				CST816S_REG_DATA, buf, 64) < 0) {
 		LOG_DBG("Could not read data");
-//		MY_REGISTER6=0xEE;
+		MY_REGISTER2=0xEE;
 		return -EIO;
 	}
 // bytes 3 to 8 are repeated 10 times
@@ -25,7 +25,7 @@ static int cst816s_sample_fetch(struct device *dev, enum sensor_channel chan)
 //
 	msb = buf[3] & 0x0f;
         lsb = buf[4];
-MY_REGISTER1=lsb;
+//MY_REGISTER1=lsb;
 	drv_data->x_sample = (msb<<8)|lsb; 
 
 	msb = buf[5] & 0x0f;

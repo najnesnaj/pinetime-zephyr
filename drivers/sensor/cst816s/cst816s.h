@@ -28,9 +28,10 @@ struct cst816s_data {
 	struct sensor_trigger data_ready_trigger;
 	sensor_trigger_handler_t data_ready_handler;
 
+	/*K_THREAD_STACK_MEMBER(thread_stack, CONFIG_CST816S_THREAD_STACK_SIZE);*/
 
 #if defined(CONFIG_CST816S_TRIGGER_OWN_THREAD)
-	K_THREAD_STACK_MEMBER(thread_stack, CONFIG_CST816S_THREAD_STACK_SIZE);
+	K_THREAD_STACK_MEMBER(thread_stack, 10);
 	struct k_thread thread;
 	struct k_sem gpio_sem;
 #elif defined(CONFIG_CST816S_TRIGGER_GLOBAL_THREAD)

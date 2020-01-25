@@ -298,6 +298,7 @@
 /root/work/zephyr/drivers/sensor/bmi160/Kconfig
 /root/work/zephyr/drivers/sensor/bmm150/Kconfig
 /root/work/zephyr/drivers/sensor/ccs811/Kconfig
+/root/work/zephyr/drivers/sensor/cst816s/Kconfig
 /root/work/zephyr/drivers/sensor/dht/Kconfig
 /root/work/zephyr/drivers/sensor/ens210/Kconfig
 /root/work/zephyr/drivers/sensor/fxas21002/Kconfig

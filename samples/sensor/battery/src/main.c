@@ -93,7 +93,9 @@ int read_battery(void)
 
 
 void main(void)
-{       
+{      
+        MY_REGISTER1 =0x00;	
+        MY_REGISTER2 =0x00;	
 	int voltage;
         voltage = read_battery() ;
 }

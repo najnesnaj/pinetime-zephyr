@@ -278,6 +278,7 @@
  *   10  /leds/led_0
  *   11  /leds/led_1
  *   12  /leds/led_2
+ *   27  /soc/i2c@40004000/bma421@18
  *   28  /soc/i2c@40004000/cst816s@15
  *   38  /soc/spi@40003000
  *   40  /soc/spi@40003000/st7789v@0
@@ -361,6 +362,40 @@
 
 /*
  * Devicetree node:
+ *   /soc/i2c@40004000/bma421@18
+ *
+ * Binding (compatible = bosch,bma421):
+ *   /root/work/pinetime/cmake/../dts/bindings/sensor/bosch,bma421-i2c.yaml
+ *
+ * Dependency Ordinal: 27
+ *
+ * Requires:
+ *   4   /soc/gpio@50000000
+ *   26  /soc/i2c@40004000
+ *
+ * Description:
+ *   This is a representation of the BME280 Integrated environmental sensor
+ */
+#define DT_NORDIC_NRF_TWI_40004000_BOSCH_BMA421_18_BASE_ADDRESS 0x18
+#define DT_INST_0_BOSCH_BMA421_BASE_ADDRESS         DT_NORDIC_NRF_TWI_40004000_BOSCH_BMA421_18_BASE_ADDRESS
+#define DT_NORDIC_NRF_TWI_40004000_BOSCH_BMA421_18_INT1_GPIOS_CONTROLLER "GPIO_0"
+#define DT_INST_0_BOSCH_BMA421_INT1_GPIOS_CONTROLLER DT_NORDIC_NRF_TWI_40004000_BOSCH_BMA421_18_INT1_GPIOS_CONTROLLER
+#define DT_NORDIC_NRF_TWI_40004000_BOSCH_BMA421_18_INT1_GPIOS_PIN 8
+#define DT_INST_0_BOSCH_BMA421_INT1_GPIOS_PIN       DT_NORDIC_NRF_TWI_40004000_BOSCH_BMA421_18_INT1_GPIOS_PIN
+#define DT_NORDIC_NRF_TWI_40004000_BOSCH_BMA421_18_INT1_GPIOS_FLAGS 0
+#define DT_INST_0_BOSCH_BMA421_INT1_GPIOS_FLAGS     DT_NORDIC_NRF_TWI_40004000_BOSCH_BMA421_18_INT1_GPIOS_FLAGS
+#define DT_NORDIC_NRF_TWI_40004000_BOSCH_BMA421_18_INT1_GPIOS {"GPIO_0", 8, 0}
+#define DT_INST_0_BOSCH_BMA421_INT1_GPIOS           DT_NORDIC_NRF_TWI_40004000_BOSCH_BMA421_18_INT1_GPIOS
+/* Human readable string describing the device (used by Zephyr for API name) */
+#define DT_NORDIC_NRF_TWI_40004000_BOSCH_BMA421_18_LABEL "BMA421"
+#define DT_INST_0_BOSCH_BMA421_LABEL                DT_NORDIC_NRF_TWI_40004000_BOSCH_BMA421_18_LABEL
+#define DT_NORDIC_NRF_TWI_40004000_BOSCH_BMA421_18_BUS_NAME "I2C_1"
+#define DT_INST_0_BOSCH_BMA421_BUS_NAME             DT_NORDIC_NRF_TWI_40004000_BOSCH_BMA421_18_BUS_NAME
+#define DT_BOSCH_BMA421_BUS_I2C                     1
+#define DT_INST_0_BOSCH_BMA421                      1
+
+/*
+ * Devicetree node:
  *   /soc/i2c@40004000/hrs3300@44
  *
  * Binding (compatible = hx,hrs3300):
@@ -389,7 +424,7 @@
  *   /soc/i2c@40004000/cst816s@15
  *
  * Binding (compatible = hynitron,cst816s):
- *   /root/work/pinetime/cmake/../dts/bindings/sensor/hynitron,cst816s.yaml
+ *   $ZEPHYR_BASE/dts/bindings/sensor/hynitron,cst816s.yaml
  *
  * Dependency Ordinal: 28
  *
@@ -1397,6 +1432,7 @@
 /* Active compatibles (mentioned in DTS + binding found) */
 #define DT_COMPAT_ARM_CORTEX_M4F                    1
 #define DT_COMPAT_ARM_V7M_NVIC                      1
+#define DT_COMPAT_BOSCH_BMA421                      1
 #define DT_COMPAT_GPIO_KEYS                         1
 #define DT_COMPAT_GPIO_LEDS                         1
 #define DT_COMPAT_HX_HRS3300                        1

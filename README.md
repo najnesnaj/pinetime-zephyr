@@ -107,12 +107,12 @@ In this repository you can find files that supplement a zephyr installation.
 - Serial NOR flash
 - accel sensor
 - heart rate sensor
+- touchscreen
 
 ### TODO
 - HR detection (algorithm)
 - build-in features of bosch accel sensor (eg step counter)
-- testing accel sensor interrupt
-- touchscreen
+- testing interrupt/semaphore mechanism on accel sensor and touchscreen
 - powermanagement
 - DFU (wireless firmware update)
 - CTS (setting time in bluetooth)

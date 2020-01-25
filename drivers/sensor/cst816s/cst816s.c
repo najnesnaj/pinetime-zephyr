@@ -11,8 +11,8 @@
 #include <logging/log.h>
 
 #include "cst816s.h"
-#define MY_REGISTER1 (*(volatile uint8_t*)0x2000F000)
-//#define MY_REGISTER2 (*(volatile uint8_t*)0x2000F006)
+//#define MY_REGISTER1 (*(volatile uint8_t*)0x2000F000)
+#define MY_REGISTER2 (*(volatile uint8_t*)0x2000F006)
 //#define MY_REGISTER3 (*(volatile uint8_t*)0x2000F007)
 //#define MY_REGISTER4 (*(volatile uint8_t*)0x2000F008)
 //#define MY_REGISTER5 (*(volatile uint8_t*)0x2000F009)
@@ -28,7 +28,7 @@ static int cst816s_sample_fetch(struct device *dev, enum sensor_channel chan)
 	u8_t buf[64];
 	u8_t msb;
 	u8_t lsb;
-	u8_t id = 0U;
+	//u8_t id = 0U;
 	__ASSERT_NO_MSG(chan == SENSOR_CHAN_ALL);
 
 	/*
@@ -39,7 +39,7 @@ static int cst816s_sample_fetch(struct device *dev, enum sensor_channel chan)
 	if (i2c_burst_read(drv_data->i2c, CST816S_I2C_ADDRESS,
 				CST816S_REG_DATA, buf, 64) < 0) {
 		LOG_DBG("Could not read data");
-//		MY_REGISTER6=0xEE;
+		MY_REGISTER2=0xEE;
 		return -EIO;
 	}
 // bytes 3 to 8 are repeated 10 times
@@ -49,7 +49,7 @@ static int cst816s_sample_fetch(struct device *dev, enum sensor_channel chan)
 //
 	msb = buf[3] & 0x0f;
         lsb = buf[4];
-MY_REGISTER1=lsb;
+//MY_REGISTER1=lsb;
 	drv_data->x_sample = (msb<<8)|lsb; 
 
 	msb = buf[5] & 0x0f;
@@ -81,6 +81,10 @@ static int cst816s_channel_get(struct device *dev,
 		struct sensor_value *val)
 {
 	struct cst816s_data *drv_data = dev->driver_data;
+	 val->val1=drv_data->x_sample; //todo demo value
+	// val->val1=99; //todo demo value
+	 val->val2=drv_data->y_sample;
+	 //val->val2=77;
 
 	/*
 	 */
@@ -104,27 +108,18 @@ static const struct sensor_driver_api cst816s_driver_api = {
 };
 
 
-static void i2c_delay(unsigned int cycles_to_wait)
-{
-	u32_t start = k_cycle_get_32();
-
-	/* Wait until the given number of cycles have passed */
-	while (k_cycle_get_32() - start < cycles_to_wait) {
-	}
-}
-
 
 
 int cst816s_init(struct device *dev)
 {
-/*	struct cst816s_data *drv_data = dev->driver_data;
+	struct cst816s_data *drv_data = dev->driver_data;
 	u8_t id = 0U;
 	drv_data->i2c = device_get_binding(CONFIG_CST816S_I2C_MASTER_DEV_NAME);
 	if (drv_data->i2c == NULL) {
 		LOG_DBG("Could not get pointer to %s device",
 				CONFIG_CST816S_I2C_MASTER_DEV_NAME);
 		return -EINVAL;
-	}*/
+	}
 
 	/* read device ID */
 //i2c_reg_read_byte(drv_data->i2c, BMA421_I2C_ADDRESS,0x40, &id); 
@@ -132,10 +127,11 @@ int cst816s_init(struct device *dev)
 #ifdef CONFIG_CST816S_TRIGGER
 if (cst816s_init_interrupt(dev) < 0) {
 	LOG_DBG("Could not initialize interrupts");
+//	MY_REGISTER2=0xe3;
 	return -EIO;
 }
 #endif
-
+//MY_REGISTER2=0x01;
 return 0;
 }
 

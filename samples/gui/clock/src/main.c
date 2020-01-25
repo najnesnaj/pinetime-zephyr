@@ -11,7 +11,7 @@
 #include <string.h>
 #include <zephyr.h>
 #include <drivers/gpio.h>
-#include <misc/byteorder.h>
+#include <sys/byteorder.h>
 #include <stdlib.h>
 #include <sys/printk.h> //have to remove this later on, since makes no sense
 #include <drivers/counter.h>

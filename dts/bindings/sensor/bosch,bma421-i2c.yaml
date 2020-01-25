@@ -1,11 +1,10 @@
+# Copyright (c) 2019, Linaro Limited
 # SPDX-License-Identifier: Apache-2.0
 
-title: Hynitron,CST816S touchscreen sensor
 
-description: |
-    This is a representation of the Hynitron,CST816S touchscreen sensor
+description:  This is a representation of the BME280 Integrated environmental sensor
 
-compatible: "hynitron,cst816s"
+compatible: "bosch,bma421"
 
 include: i2c-device.yaml
 

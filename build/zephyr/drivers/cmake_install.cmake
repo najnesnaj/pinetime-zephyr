@@ -40,7 +40,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/root/work/pinetime/build/zephyr/drivers/gpio/cmake_install.cmake")
   include("/root/work/pinetime/build/zephyr/drivers/i2c/cmake_install.cmake")
   include("/root/work/pinetime/build/zephyr/drivers/sensor/cmake_install.cmake")
-  include("/root/work/pinetime/build/zephyr/drivers/spi/cmake_install.cmake")
   include("/root/work/pinetime/build/zephyr/drivers/timer/cmake_install.cmake")
 
 endif()

@@ -13,6 +13,8 @@
 
 #include <logging/log.h>
 
+#define PULL_UP  (1<<8)
+#define EDGE    (GPIO_INT_EDGE | GPIO_INT_ACTIVE_LOW)
 
 #define MY_REGISTER1 (*(volatile uint8_t*)0x2000F005)
 #define MY_REGISTER2 (*(volatile uint8_t*)0x2000F006)
@@ -28,7 +30,7 @@ int cst816s_attr_set(struct device *dev,
 		    enum sensor_attribute attr,
 		    const struct sensor_value *val)
 {
-	struct cst816s_data *drv_data = dev->driver_data;
+	//struct cst816s_data *drv_data = dev->driver_data;
 
 	if (chan != SENSOR_CHAN_ACCEL_XYZ) {
 		return -ENOTSUP;
@@ -60,11 +62,10 @@ static void cst816s_thread_cb(void *arg)
 {
 	struct device *dev = arg;
 	struct cst816s_data *drv_data = dev->driver_data;
-	u8_t status = 0U;
+//	u8_t status = 0U;
 	int err = 0;
 //dit wordt aangeroepen als interrupt op pin komt
 //
-MY_REGISTER3=0xaa;
 	/* check for data ready */
 /*	err = i2c_reg_read_byte(drv_data->i2c, CST816S_I2C_ADDRESS,
 				CST816S_REG_INT_STATUS_1, &status);
@@ -77,18 +78,15 @@ MY_REGISTER3=0xaa;
 */
 	//todo
 
-
-
-
+/*
 	u8_t buf[64];
 	u8_t msb;
 	u8_t lsb;
-	u8_t id = 0U;
 	if (i2c_burst_read(drv_data->i2c, CST816S_I2C_ADDRESS,
 				CST816S_REG_DATA, buf, 64) < 0) {
 		LOG_DBG("Could not read data");
-//		MY_REGISTER6=0xEE;
-		return -EIO;
+		MY_REGISTER2=0xEE;
+//		return -EIO;
 	}
 // bytes 3 to 8 are repeated 10 times
 // byte 3 (MSB bit 3..0)
@@ -97,16 +95,20 @@ MY_REGISTER3=0xaa;
 //
 	msb = buf[3] & 0x0f;
         lsb = buf[4];
-MY_REGISTER1=lsb;
+//MY_REGISTER1=lsb;
 	drv_data->x_sample = (msb<<8)|lsb; 
 
 	msb = buf[5] & 0x0f;
         lsb = buf[6];
 	drv_data->y_sample = (msb<<8)|lsb; // todo check if buf[5] is indeed Y
 
+*/
 
 
-
+	if (drv_data->data_ready_handler != NULL) {
+		drv_data->data_ready_handler(dev, &drv_data->data_ready_trigger);
+                MY_REGISTER3=0xaa;
+	    }
 
 
 
@@ -119,15 +121,15 @@ static void cst816s_thread(int dev_ptr, int unused)
 {
 	struct device *dev = INT_TO_POINTER(dev_ptr);
 	struct cst816s_data *drv_data = dev->driver_data;
-teller++;
+        teller++;
 
 //reset touchscreen
 
 
 
-        gpio_pin_configure(drv_data->gpio, 10,GPIO_DIR_OUT); //push button out
-        gpio_pin_write(drv_data->gpio, 10, 0); //set port low 
-        gpio_pin_write(drv_data->gpio, 10, 1); //set port high
+     //   gpio_pin_configure(drv_data->gpio, 10,GPIO_DIR_OUT); //push button out
+      //  gpio_pin_write(drv_data->gpio, 10, 0); //set port low 
+       // gpio_pin_write(drv_data->gpio, 10, 1); //set port high
 //
 
 
@@ -161,13 +163,6 @@ int cst816s_trigger_set(struct device *dev,
 	struct cst816s_data *drv_data = dev->driver_data;
 
 	if (trig->type == SENSOR_TRIG_DATA_READY) {
-		/* disable data ready interrupt while changing trigger params */
-		/*if (i2c_reg_update_byte(drv_data->i2c, CST816S_I2C_ADDRESS,
-					CST816S_REG_INT_EN_1,
-					CST816S_BIT_DATA_EN, 0) < 0) {
-			LOG_DBG("Could not disable data ready interrupt");
-			return -EIO;
-		}*/
 
 		drv_data->data_ready_handler = handler;
 		if (handler == NULL) {
@@ -175,14 +170,6 @@ int cst816s_trigger_set(struct device *dev,
 		}
 		drv_data->data_ready_trigger = *trig;
 
-		/* enable data ready interrupt */
-/*		if (i2c_reg_update_byte(drv_data->i2c, CST816S_I2C_ADDRESS,
-					CST816S_REG_INT_EN_1,
-					CST816S_BIT_DATA_EN,
-					CST816S_BIT_DATA_EN) < 0) {
-			LOG_DBG("Could not enable data ready interrupt");
-			return -EIO;
-		}*/
 	} 
 	else {
 		return -ENOTSUP;
@@ -222,9 +209,11 @@ MY_REGISTER6=0x00;
 	//
 	//
 	//
-	gpio_pin_configure(drv_data->gpio, CONFIG_CST816S_GPIO_PIN_NUM,
-			   GPIO_DIR_IN | GPIO_INT | GPIO_INT_LEVEL |
-			   GPIO_INT_ACTIVE_HIGH | GPIO_INT_DEBOUNCE);
+	gpio_pin_configure(drv_data->gpio, CONFIG_CST816S_GPIO_PIN_NUM ,GPIO_DIR_IN | GPIO_INT | PULL_UP| EDGE | GPIO_INT_ACTIVE_HIGH );
+
+//	gpio_pin_configure(drv_data->gpio, CONFIG_CST816S_GPIO_PIN_NUM
+//			   GPIO_DIR_IN | GPIO_INT | GPIO_INT_LEVEL |
+//			   GPIO_INT_ACTIVE_HIGH | GPIO_INT_DEBOUNCE);
 MY_REGISTER6=CONFIG_CST816S_GPIO_PIN_NUM;
 
 	gpio_init_callback(&drv_data->gpio_cb,
@@ -249,6 +238,7 @@ MY_REGISTER6=CONFIG_CST816S_GPIO_PIN_NUM;
 
 #if defined(CONFIG_CST816S_TRIGGER_OWN_THREAD)
 	k_sem_init(&drv_data->gpio_sem, 0, UINT_MAX);
+	//k_sem_init(&drv_data->gpio_sem, 0, 1);
 
 	k_thread_create(&drv_data->thread, drv_data->thread_stack,
 			CONFIG_CST816S_THREAD_STACK_SIZE,

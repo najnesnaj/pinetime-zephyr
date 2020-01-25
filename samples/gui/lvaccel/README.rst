@@ -1,13 +1,16 @@
-.. _lvgl-sample:
+.. _lvaccel-sample:
 
-LittlevGL Basic Sample
-######################
+Display accel values
+####################
 
 Overview
 ********
 
 This sample application displays "Hello World" in the center of the screen
 and a counter at the bottom which increments every second.
+
+It display the values x,y,z from the bosch BMA421 accel sensor.
+
 
 Requirements
 ************

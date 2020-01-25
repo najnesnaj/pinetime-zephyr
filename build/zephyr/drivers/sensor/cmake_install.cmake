@@ -35,6 +35,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/root/work/pinetime/build/zephyr/drivers/sensor/grove/cmake_install.cmake")
+  include("/root/work/pinetime/build/zephyr/drivers/sensor/cst816s/cmake_install.cmake")
 
 endif()
 
