@@ -198,8 +198,8 @@
 \contentsline {subsubsection}{Overview}{46}{subsubsection*.79}
 \contentsline {subsubsection}{Requirements}{46}{subsubsection*.80}
 \contentsline {subsubsection}{Building and Running}{46}{subsubsection*.81}
-\contentsline {subsection}{\numberline {14.6.2}Bluetooth: Peripheral}{46}{subsection.14.6.2}
-\contentsline {subsubsection}{Overview}{46}{subsubsection*.82}
+\contentsline {subsection}{\numberline {14.6.2}Bluetooth: Peripheral}{47}{subsection.14.6.2}
+\contentsline {subsubsection}{Overview}{47}{subsubsection*.82}
 \contentsline {subsubsection}{Requirements}{47}{subsubsection*.83}
 \contentsline {subsubsection}{Building and Running}{47}{subsubsection*.84}
 \contentsline {chapter}{\numberline {15}Menuconfig}{49}{chapter.15}

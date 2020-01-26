@@ -60,40 +60,21 @@ static int cst816s_sample_fetch(struct device *dev, enum sensor_channel chan)
 	return 0;
 }
 
-static void cst816s_channel_convert(struct sensor_value *val,
-		s64_t raw_val)
-{
-	/*
-	raw_val = (raw_val * BMA280_PMU_FULL_RANGE) /
-		(1 << (8 + BMA280_ACCEL_LSB_BITS));
-	val->val1 = raw_val / 1000000;
-	val->val2 = raw_val % 1000000;
-
-	if (val->val2 < 0) {
-		val->val1 -= 1;
-		val->val2 += 1000000;
-	}
-	 */
-}
 
 static int cst816s_channel_get(struct device *dev,
 		enum sensor_channel chan,
 		struct sensor_value *val)
 {
 	struct cst816s_data *drv_data = dev->driver_data;
-	 val->val1=drv_data->x_sample; //todo demo value
-	// val->val1=99; //todo demo value
+	 val->val1=drv_data->x_sample;
 	 val->val2=drv_data->y_sample;
-	 //val->val2=77;
 
-	/*
-	 */
-	if (chan == SENSOR_CHAN_ACCEL_XYZ) {
+	//if (chan == SENSOR_CHAN_ACCEL_XYZ) {
 	//	cst816s_channel_convert(val, drv_data->x_sample);
 	//	cst816s_channel_convert(val + 1, drv_data->y_sample);
-	} else {
-		return -ENOTSUP;
-	}
+	//} else {
+	//	return -ENOTSUP;
+	//}
 
 	return 0;
 }
@@ -113,7 +94,7 @@ static const struct sensor_driver_api cst816s_driver_api = {
 int cst816s_init(struct device *dev)
 {
 	struct cst816s_data *drv_data = dev->driver_data;
-	u8_t id = 0U;
+	//u8_t id = 0U;
 	drv_data->i2c = device_get_binding(CONFIG_CST816S_I2C_MASTER_DEV_NAME);
 	if (drv_data->i2c == NULL) {
 		LOG_DBG("Could not get pointer to %s device",

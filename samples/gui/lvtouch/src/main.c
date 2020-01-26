@@ -87,17 +87,6 @@ void main(void)
 
 
 	hello_world_label = lv_label_create(lv_scr_act(), NULL);
-	/*
-	   if (sensor_sample_fetch(dev)) {
-	   lv_label_set_text(hello_world_label, "FAILED touch");
-	   printf("sensor_sample_fetch failed\n");
-	   }
-	   else
-	   lv_label_set_text(hello_world_label, "touch OK");
-
-
-	   sensor_channel_get(dev, SENSOR_CHAN_ACCEL_XYZ, touch);
-	   */
 
 	u32_t count = 0U;
 	char count_str[11] = {0};

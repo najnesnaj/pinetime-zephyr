@@ -26,7 +26,6 @@ static void trigger_handler(struct device *dev, struct sensor_trigger *trigger)
 void main(void)
 {
 	MY_REGISTER1=0xff;
-	struct sensor_value accel[3];
 	struct device *dev = device_get_binding(DT_INST_0_HYNITRON_CST816S_LABEL);
 	if (dev == NULL) {
 		printf("Could not get %s device\n", DT_INST_0_HYNITRON_CST816S_LABEL);

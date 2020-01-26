@@ -62,47 +62,6 @@ static void cst816s_thread_cb(void *arg)
 {
 	struct device *dev = arg;
 	struct cst816s_data *drv_data = dev->driver_data;
-//	u8_t status = 0U;
-	int err = 0;
-//dit wordt aangeroepen als interrupt op pin komt
-//
-	/* check for data ready */
-/*	err = i2c_reg_read_byte(drv_data->i2c, CST816S_I2C_ADDRESS,
-				CST816S_REG_INT_STATUS_1, &status);
-	if (status & CST816S_BIT_DATA_INT_STATUS &&
-	    drv_data->data_ready_handler != NULL &&
-	    err == 0) {
-		drv_data->data_ready_handler(dev,
-					     &drv_data->data_ready_trigger);
-	}
-*/
-	//todo
-
-/*
-	u8_t buf[64];
-	u8_t msb;
-	u8_t lsb;
-	if (i2c_burst_read(drv_data->i2c, CST816S_I2C_ADDRESS,
-				CST816S_REG_DATA, buf, 64) < 0) {
-		LOG_DBG("Could not read data");
-		MY_REGISTER2=0xEE;
-//		return -EIO;
-	}
-// bytes 3 to 8 are repeated 10 times
-// byte 3 (MSB bit 3..0)
-// byte 4 (LSB)
-// only first is relevant
-//
-	msb = buf[3] & 0x0f;
-        lsb = buf[4];
-//MY_REGISTER1=lsb;
-	drv_data->x_sample = (msb<<8)|lsb; 
-
-	msb = buf[5] & 0x0f;
-        lsb = buf[6];
-	drv_data->y_sample = (msb<<8)|lsb; // todo check if buf[5] is indeed Y
-
-*/
 
 
 	if (drv_data->data_ready_handler != NULL) {
@@ -116,12 +75,12 @@ static void cst816s_thread_cb(void *arg)
 }
 
 #ifdef CONFIG_CST816S_TRIGGER_OWN_THREAD
-int teller;
+int tellerio;
 static void cst816s_thread(int dev_ptr, int unused)
 {
 	struct device *dev = INT_TO_POINTER(dev_ptr);
 	struct cst816s_data *drv_data = dev->driver_data;
-        teller++;
+        tellerio++;
 
 //reset touchscreen
 
@@ -134,14 +93,14 @@ static void cst816s_thread(int dev_ptr, int unused)
 
 
 
-if (teller > 200) teller=0;
+if (tellerio > 200) tellerio=0;
 	ARG_UNUSED(unused);
 
 	while (1) {
 		MY_REGISTER4=0xaa;
 		k_sem_take(&drv_data->gpio_sem, K_FOREVER);
 		cst816s_thread_cb(dev);
-MY_REGISTER6=teller;
+MY_REGISTER6=tellerio;
 	}
 }
 #endif
@@ -187,15 +146,6 @@ MY_REGISTER3=0x00;
 MY_REGISTER4=0x00;
 MY_REGISTER5=0x00;
 MY_REGISTER6=0x00;
-	/* set latched interrupts */
-/*	if (i2c_reg_write_byte(drv_data->i2c, CST816S_I2C_ADDRESS,
-			       CST816S_REG_INT_RST_LATCH,
-			       CST816S_BIT_INT_LATCH_RESET |
-			       CST816S_INT_MODE_LATCH) < 0) {
-		LOG_DBG("Could not set latched interrupts");
-		return -EIO;
-	}
-*/
 	/* setup data ready gpio interrupt */
 	drv_data->gpio = device_get_binding(CONFIG_CST816S_GPIO_DEV_NAME);
 	if (drv_data->gpio == NULL) {
@@ -206,9 +156,6 @@ MY_REGISTER6=0x00;
 
 
 
-	//
-	//
-	//
 	gpio_pin_configure(drv_data->gpio, CONFIG_CST816S_GPIO_PIN_NUM ,GPIO_DIR_IN | GPIO_INT | PULL_UP| EDGE | GPIO_INT_ACTIVE_HIGH );
 
 //	gpio_pin_configure(drv_data->gpio, CONFIG_CST816S_GPIO_PIN_NUM
@@ -226,19 +173,9 @@ MY_REGISTER6=CONFIG_CST816S_GPIO_PIN_NUM;
 		return -EIO;
 	}
 
-	/* map data ready interrupt to INT1 */
-/*	if (i2c_reg_update_byte(drv_data->i2c, CST816S_I2C_ADDRESS,
-				CST816S_REG_INT_MAP_1,
-				CST816S_INT_MAP_1_BIT_DATA,
-				CST816S_INT_MAP_1_BIT_DATA) < 0) {
-		LOG_DBG("Could not map data ready interrupt pin");
-		return -EIO;
-	}
-*/
 
 #if defined(CONFIG_CST816S_TRIGGER_OWN_THREAD)
 	k_sem_init(&drv_data->gpio_sem, 0, UINT_MAX);
-	//k_sem_init(&drv_data->gpio_sem, 0, 1);
 
 	k_thread_create(&drv_data->thread, drv_data->thread_stack,
 			CONFIG_CST816S_THREAD_STACK_SIZE,

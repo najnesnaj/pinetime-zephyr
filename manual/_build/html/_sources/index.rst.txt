@@ -11,7 +11,6 @@
    gfx
    lvgl
    clock
-   lvglbutton
    RTC
    drivers/drivers.rst
    behind/behind.rst

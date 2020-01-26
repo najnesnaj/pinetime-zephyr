@@ -11,7 +11,6 @@ and a counter at the bottom which increments every second.
 
 LittlevGL is a free and open-source graphics library providing everything you need to create embedded GUI with easy-to-use graphical elements, beautiful visual effects and low memory footprint. 
 
-see : :ref:`lvgl-sample`
 
 
 Requirements

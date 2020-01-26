@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Jan 25, 2020}
+\date{Jan 26, 2020}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -482,8 +482,6 @@ This sample application displays “Hello World” in the center of the screen
 and a counter at the bottom which increments every second.
 
 LittlevGL is a free and open-source graphics library providing everything you need to create embedded GUI with easy-to-use graphical elements, beautiful visual effects and low memory footprint.
-
-see : \DUrole{xref,std,std-ref}{lvgl-sample}
 
 
 \section{Requirements}
@@ -1904,6 +1902,12 @@ west build -p -b pinetime samples/gui/lvgl
 \label{\detokenize{samples/gui/lvtouch/README:overview}}
 This sample application displays touchscreen-values x and y in the center of the screen.
 
+The touchscreen triggers an interrupt when touched.
+This means that data is ready and can be collected.
+
+However, using the interrupt with the handler, does not seem to work within the GUI.
+When used in samples/sensor/cst816s, it runs….
+
 
 \subsubsection{Requirements}
 \label{\detokenize{samples/gui/lvtouch/README:requirements}}
@@ -1988,6 +1992,8 @@ See {\hyperref[\detokenize{samples/bluetooth/bluetooth:bluetooth-samples}]{\sphi
 
 \section{Zephyr is like linux}
 \label{\detokenize{menuconfig:zephyr-is-like-linux}}
+\sphinxstylestrong{TIP: the pinetime specific drivers are located under Modules}
+
 \sphinxstylestrong{Note:}  to get a feel, compile a program, for example
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]

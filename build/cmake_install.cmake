@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/pinetime/samples/sensor/cst816s
+# Install script for directory: /root/work/pinetime/samples/gui/lvtouch
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

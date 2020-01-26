@@ -5,6 +5,10 @@ Menuconfig
 Zephyr is like linux
 ~~~~~~~~~~~~~~~~~~~~
 
+
+**TIP: the pinetime specific drivers are located under Modules**
+
+
 **Note:**  to get a feel, compile a program, for example
 
 .. code-block:: console
