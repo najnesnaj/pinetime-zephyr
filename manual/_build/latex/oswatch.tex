@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Jan 26, 2020}
+\date{Jan 27, 2020}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -253,7 +253,7 @@ once the compilation is completed,  you can find the firmware under :
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{The} \PYG{n}{pinetime} \PYG{n}{does} \PYG{n}{have} \PYG{n}{a} \PYG{n}{button} \PYG{n}{on} \PYG{n}{the} \PYG{n}{side}\PYG{o}{.}
 
-\PYG{n}{In} \PYG{n}{order} \PYG{n}{to} \PYG{n}{check} \PYG{k}{if} \PYG{n}{the} \PYG{n}{button} \PYG{o+ow}{is} \PYG{n}{pressed}\PYG{p}{,} \PYG{n}{it} \PYG{n+nb}{set} \PYG{n}{a} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{memory}\PYG{o}{.}
+\PYG{n}{In} \PYG{n}{order} \PYG{n}{to} \PYG{n}{check} \PYG{k}{if} \PYG{n}{the} \PYG{n}{button} \PYG{o+ow}{is} \PYG{n}{pressed}\PYG{p}{,} \PYG{n}{it} \PYG{n}{sets} \PYG{n}{a} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{memory}\PYG{o}{.}
 \PYG{n}{With} \PYG{n}{openocd} \PYG{n}{you} \PYG{n}{can} \PYG{n}{peek} \PYG{n}{at} \PYG{n}{this} \PYG{n}{memory} \PYG{n}{location}\PYG{o}{.}
 \end{sphinxVerbatim}
 
@@ -263,7 +263,7 @@ once the compilation is completed,  you can find the firmware under :
 see : {\hyperref[\detokenize{samples/basic/button/README:button-sample}]{\sphinxcrossref{\DUrole{std,std-ref}{Button demo}}}}
 
 \sphinxstyleemphasis{Note:}:
-\sphinxtitleref{The watch has a button out port (15) and buttin in port (13). You have to set the out-port high. Took me a while to figure this out…}
+\sphinxtitleref{The watch has a button out port (15) and button in port (13). You have to set the out-port high. Took me a while to figure this out…}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/basic/button}
@@ -846,43 +846,28 @@ there is a sample in this repository which can be copied to the zephyr samples d
 \subsection{Overview}
 \label{\detokenize{drivers/cst816s:overview}}
 the Hynitron cst816s is a touchscreen.
-In zephyr is no touchscreen driver yet.
+In zephyr doesn’t handle touchscreens yet.
 In order to investigate, the touchscreen driver has been created as a sensor.
-In fact it senses you finger ;)
+In fact it senses your finger ;)
 
 
 \subsection{Requirements}
 \label{\detokenize{drivers/cst816s:requirements}}
 for this sensor does not exist any driver, so here’s what I did to create one under zephyr
 
-
-\subsubsection{adapt CMakeLists.txt}
-\label{\detokenize{drivers/cst816s:adapt-cmakelists-txt}}
-\textasciitilde{}/zephyrproject-2/zephyr/drivers/sensor
-add\_subdirectory\_ifdef(CONFIG\_CST816S           cst816s)
-
-
-\subsubsection{adapt Kconfig}
-\label{\detokenize{drivers/cst816s:adapt-kconfig}}
-\textasciitilde{}/zephyrproject-2/zephyr/drivers/sensor
-
-
-\subsubsection{add yaml file}
-\label{\detokenize{drivers/cst816s:add-yaml-file}}
-\textasciitilde{}/zephyrproject-2/zephyr/dts/bindings/sensor
-add  hynitron,cst816s.yaml
-
-
-\subsubsection{edit KConfig}
-\label{\detokenize{drivers/cst816s:edit-kconfig}}
-source “drivers/sensor/cst816s/Kconfig”
+adapt CMakeLists.txt
+adapt Kconfig
+add yaml file
 
 
 \subsubsection{create driver}
 \label{\detokenize{drivers/cst816s:create-driver}}
+The driver reads only one position.
+Multitouch is possible, but the screen is small….
+
 see under drivers/sensor/cst816s
 
-complement the pinetime.dts file with the following (under boards/arm/pinetime)
+have a look at the pinetime.dts (under board/arm/pinetime) file:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+go}{\PYGZam{}i2c1 \PYGZob{}}
@@ -896,13 +881,28 @@ complement the pinetime.dts file with the following (under boards/arm/pinetime)
 
 
 \subsection{Building and Running}
-\label{\detokenize{drivers/cst816s:building-and-running}}
+\label{\detokenize{drivers/cst816s:building-and-running}}\begin{description}
+\item[{There are two samples :}] \leavevmode\begin{itemize}
+\item {} 
+samples/gui/lvtouch (graphical)
+
+\item {} 
+samples/sensor/cst816s (no graphics)
+
+\end{itemize}
+
+\end{description}
+
 
 \subsection{Todo}
 \label{\detokenize{drivers/cst816s:todo}}
+The graphical sample doesn’t handle interrupts.
+
 
 \subsection{References}
 \label{\detokenize{drivers/cst816s:references}}
+There is little available for this touchscreen.
+
 
 \section{HX HRS3300}
 \label{\detokenize{drivers/hrs3300:hx-hrs3300}}\label{\detokenize{drivers/hrs3300::doc}}
@@ -1802,6 +1802,7 @@ controller orientation.
 This sample application displays a clock background.
 
 This samples demonstrates the use of the counter.
+
 Have a look at the test\_counter\_interrupt\_fn function in src/main.c
 
 

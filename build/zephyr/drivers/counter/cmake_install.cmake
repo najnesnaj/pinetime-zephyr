@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/pinetime/drivers/sensor/cst816s
+# Install script for directory: /root/work/zephyr/drivers/counter
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

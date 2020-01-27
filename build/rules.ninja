@@ -299,6 +299,25 @@ rule C_STATIC_LIBRARY_LINKER__soc__arm__nordic_nrf__nrf52
 #############################################
 # Rule for compiling C files.
 
+rule C_COMPILER__drivers__counter
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER__drivers__counter
+  command = $PRE_LINK && ccache /usr/bin/cmake -E remove $TARGET_FILE && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
 rule C_COMPILER__drivers__gpio
   depfile = $DEP_FILE
   deps = gcc
@@ -348,25 +367,6 @@ rule C_COMPILER__drivers__spi
 # Rule for linking C static library.
 
 rule C_STATIC_LIBRARY_LINKER__drivers__spi
-  command = $PRE_LINK && ccache /usr/bin/cmake -E remove $TARGET_FILE && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
-  description = Linking C static library $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
-# Rule for compiling C files.
-
-rule C_COMPILER__.2e.2e__pinetime__drivers__sensor__cst816s
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
-  description = Building C object $out
-
-
-#############################################
-# Rule for linking C static library.
-
-rule C_STATIC_LIBRARY_LINKER__.2e.2e__pinetime__drivers__sensor__cst816s
   command = $PRE_LINK && ccache /usr/bin/cmake -E remove $TARGET_FILE && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -433,7 +433,7 @@ rule C_STATIC_LIBRARY_LINKER__kernel
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake -S/root/work/pinetime/samples/gui/lvtouch -B/root/work/pinetime/build
+  command = /usr/bin/cmake -S/root/work/pinetime/samples/gui/clock -B/root/work/pinetime/build
   description = Re-running CMake...
   generator = 1
 

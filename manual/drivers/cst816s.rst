@@ -20,9 +20,9 @@ Overview
 
 
 the Hynitron cst816s is a touchscreen.
-In zephyr is no touchscreen driver yet.
+In zephyr doesn't handle touchscreens yet.
 In order to investigate, the touchscreen driver has been created as a sensor.
-In fact it senses you finger ;)
+In fact it senses your finger ;)
 
 
 Requirements
@@ -32,32 +32,21 @@ Requirements
 for this sensor does not exist any driver, so here's what I did to create one under zephyr
 
 adapt CMakeLists.txt
---------------------
-~/zephyrproject-2/zephyr/drivers/sensor
-add_subdirectory_ifdef(CONFIG_CST816S           cst816s)
-
-
 adapt Kconfig
---------------
-
-~/zephyrproject-2/zephyr/drivers/sensor
-
-
 add yaml file
--------------
-~/zephyrproject-2/zephyr/dts/bindings/sensor
-add  hynitron,cst816s.yaml
-
-edit KConfig
-------------
-
-source "drivers/sensor/cst816s/Kconfig"
 
 create driver
 -------------
+
+The driver reads only one position.
+Multitouch is possible, but the screen is small....
+
+
+
+
 see under drivers/sensor/cst816s
 
-complement the pinetime.dts file with the following (under boards/arm/pinetime) 
+have a look at the pinetime.dts (under board/arm/pinetime) file:
 
 .. code-block:: console
 
@@ -75,12 +64,26 @@ complement the pinetime.dts file with the following (under boards/arm/pinetime)
 Building and Running
 ********************
 
+There are two samples : 
+           - samples/gui/lvtouch (graphical)
+           - samples/sensor/cst816s (no graphics)
 
+
+
+
+           
 Todo
 ****
 
+The graphical sample doesn't handle interrupts.
 
 References
 **********
+
+There is little available for this touchscreen.
+
+
+
+
 
 

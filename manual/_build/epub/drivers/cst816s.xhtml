@@ -23,35 +23,22 @@ Still work in progress ….</p>
 <div class="section" id="overview">
 <h2>Overview</h2>
 <p>the Hynitron cst816s is a touchscreen.
-In zephyr is no touchscreen driver yet.
+In zephyr doesn’t handle touchscreens yet.
 In order to investigate, the touchscreen driver has been created as a sensor.
-In fact it senses you finger ;)</p>
+In fact it senses your finger ;)</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements</h2>
 <p>for this sensor does not exist any driver, so here’s what I did to create one under zephyr</p>
-<div class="section" id="adapt-cmakelists-txt">
-<h3>adapt CMakeLists.txt</h3>
-<p>~/zephyrproject-2/zephyr/drivers/sensor
-add_subdirectory_ifdef(CONFIG_CST816S           cst816s)</p>
-</div>
-<div class="section" id="adapt-kconfig">
-<h3>adapt Kconfig</h3>
-<p>~/zephyrproject-2/zephyr/drivers/sensor</p>
-</div>
-<div class="section" id="add-yaml-file">
-<h3>add yaml file</h3>
-<p>~/zephyrproject-2/zephyr/dts/bindings/sensor
-add  hynitron,cst816s.yaml</p>
-</div>
-<div class="section" id="edit-kconfig">
-<h3>edit KConfig</h3>
-<p>source “drivers/sensor/cst816s/Kconfig”</p>
-</div>
+<p>adapt CMakeLists.txt
+adapt Kconfig
+add yaml file</p>
 <div class="section" id="create-driver">
 <h3>create driver</h3>
+<p>The driver reads only one position.
+Multitouch is possible, but the screen is small….</p>
 <p>see under drivers/sensor/cst816s</p>
-<p>complement the pinetime.dts file with the following (under boards/arm/pinetime)</p>
+<p>have a look at the pinetime.dts (under board/arm/pinetime) file:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&amp;i2c1 {</span>
 <span class="go">        cst816s@15 {</span>
 <span class="go">                   compatible = &quot;hynitron,cst816s&quot;;</span>
@@ -65,12 +52,21 @@ add  hynitron,cst816s.yaml</p>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running</h2>
+<dl class="simple">
+<dt>There are two samples :</dt><dd><ul class="simple">
+<li><p>samples/gui/lvtouch (graphical)</p></li>
+<li><p>samples/sensor/cst816s (no graphics)</p></li>
+</ul>
+</dd>
+</dl>
 </div>
 <div class="section" id="todo">
 <h2>Todo</h2>
+<p>The graphical sample doesn’t handle interrupts.</p>
 </div>
 <div class="section" id="references">
 <h2>References</h2>
+<p>There is little available for this touchscreen.</p>
 </div>
 </div>
 

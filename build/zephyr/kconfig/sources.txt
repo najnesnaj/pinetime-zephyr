@@ -7,7 +7,7 @@
 /root/work/pinetime/drivers/sensor/bma421/Kconfig
 /root/work/pinetime/drivers/sensor/cst816s/Kconfig
 /root/work/pinetime/drivers/sensor/hrs3300/Kconfig
-/root/work/zephyr/Kconfig
+/root/work/pinetime/samples/gui/clock/Kconfig
 /root/work/zephyr/Kconfig.zephyr
 /root/work/zephyr/arch/Kconfig
 /root/work/zephyr/arch/arm/Kconfig

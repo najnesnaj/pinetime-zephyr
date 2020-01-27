@@ -62,7 +62,7 @@ Reading out the button on the watch
 
     The pinetime does have a button on the side. 
     
-    In order to check if the button is pressed, it set a value in memory.
+    In order to check if the button is pressed, it sets a value in memory.
     With openocd you can peek at this memory location.
 
 Building and Running
@@ -71,7 +71,7 @@ Building and Running
 see : :ref:`button-sample` 
 
 *Note:*:
-`The watch has a button out port (15) and buttin in port (13). You have to set the out-port high. Took me a while to figure this out...` 
+`The watch has a button out port (15) and button in port (13). You have to set the out-port high. Took me a while to figure this out...` 
 
 .. code-block:: console
 
