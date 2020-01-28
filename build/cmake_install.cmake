@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/pinetime/samples/gui/clock
+# Install script for directory: /root/work/pinetime/samples/gui/clock-cts
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -341,10 +341,10 @@ void main(void)
 		cts_notify();
 
 		/* Heartrate measurements simulation */
-		hrs_notify();
+//		hrs_notify();
 
 		/* Battery level simulation */
-		bas_notify();
+//		bas_notify();
 
 		/* Vendor indication simulation */
 		if (simulate_vnd) {

@@ -63,6 +63,10 @@ _vector_end = .;
  *(.glue_7t) *(.glue_7) *(.vfp11_veneer) *(.v4_bx)
  } > FLASH
  _image_text_end = .;
+ .ARM.extab :
+ {
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ } > FLASH
  .ARM.exidx :
  {
  __exidx_start = .;
@@ -74,6 +78,22 @@ _vector_end = .;
  {
   . = ALIGN(0);
   *(.gnu.linkonce.sw_isr_table)
+ } > FLASH
+ ctors :
+ {
+  . = ALIGN(4);
+  __CTOR_LIST__ = .;
+  LONG((__CTOR_END__ - __CTOR_LIST__) / 4 - 2)
+  KEEP(*(SORT(".ctors*")))
+  LONG(0)
+  __CTOR_END__ = .;
+ } > FLASH
+ init_array :
+ {
+  . = ALIGN(4);
+  __init_array_start = .;
+  KEEP(*(SORT(".init_array*")))
+  __init_array_end = .;
  } > FLASH
  app_shmem_regions :
  {
@@ -107,6 +127,12 @@ _vector_end = .;
   KEEP(*(SORT("._bt_gatt_service_static.static.*")))
   _bt_gatt_service_static_list_end = .;
  } > FLASH
+ _settings_handlers_area : ALIGN_WITH_INPUT SUBALIGN(4)
+ {
+  _settings_handler_static_list_start = .;
+  KEEP(*(SORT("._settings_handler_static.static.*")))
+  _settings_handler_static_list_end = .;
+ } > FLASH
  log_const_sections : ALIGN_WITH_INPUT
  {
   __log_const_start = .;
@@ -137,6 +163,10 @@ _vector_end = .;
  *(".rodata.*")
  *(.gnu.linkonce.r.*)
  . = ALIGN(4);
+ } > FLASH
+ .gcc_except_table : ONLY_IF_RO
+ {
+ *(.gcc_except_table .gcc_except_table.*)
  } > FLASH
  _image_rodata_end = .;
  . = ALIGN(_region_min_align); . = ALIGN( 1 << LOG2CEIL(_image_rodata_end -_image_rom_start));
@@ -308,6 +338,10 @@ _ramfunc_rom_start = LOADADDR(.ramfunc);
         *(".priv_stacks.noinit")
         z_priv_stacks_ram_end = .;
         } > SRAM AT> FLASH
+ .gcc_except_table : ONLY_IF_RW
+ {
+ *(.gcc_except_table .gcc_except_table.*)
+ } > SRAM
     __data_ram_end = .;
     _image_ram_end = .;
     _end = .;

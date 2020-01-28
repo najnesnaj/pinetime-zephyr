@@ -49,11 +49,11 @@ rule C_COMPILER__zephyr_final
 
 
 #############################################
-# Rule for linking C executable.
+# Rule for linking CXX executable.
 
-rule C_EXECUTABLE_LINKER__zephyr_final
-  command = $PRE_LINK && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $FLAGS  $LINK_FLAGS $in  -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
-  description = Linking C executable $TARGET_FILE
+rule CXX_EXECUTABLE_LINKER__zephyr_final
+  command = $PRE_LINK && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-g++  $FLAGS  $LINK_FLAGS $in  -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
+  description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
 
@@ -68,11 +68,21 @@ rule C_COMPILER__zephyr
 
 
 #############################################
-# Rule for linking C static library.
+# Rule for compiling CXX files.
 
-rule C_STATIC_LIBRARY_LINKER__zephyr
+rule CXX_COMPILER__zephyr
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-g++  $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building CXX object $out
+
+
+#############################################
+# Rule for linking CXX static library.
+
+rule CXX_STATIC_LIBRARY_LINKER__zephyr
   command = $PRE_LINK && ccache /usr/bin/cmake -E remove $TARGET_FILE && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
-  description = Linking C static library $TARGET_FILE
+  description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
 
@@ -87,11 +97,11 @@ rule C_COMPILER__zephyr_prebuilt
 
 
 #############################################
-# Rule for linking C executable.
+# Rule for linking CXX executable.
 
-rule C_EXECUTABLE_LINKER__zephyr_prebuilt
-  command = $PRE_LINK && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $FLAGS  $LINK_FLAGS $in  -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
-  description = Linking C executable $TARGET_FILE
+rule CXX_EXECUTABLE_LINKER__zephyr_prebuilt
+  command = $PRE_LINK && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-g++  $FLAGS  $LINK_FLAGS $in  -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
+  description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
 
@@ -204,7 +214,7 @@ rule C_STATIC_LIBRARY_LINKER__arch__arm__core__aarch32__cortex_m__mpu
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__lib__libc__minimal
+rule C_COMPILER__lib__libc__newlib
   depfile = $DEP_FILE
   deps = gcc
   command = ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
@@ -214,7 +224,7 @@ rule C_COMPILER__lib__libc__minimal
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER__lib__libc__minimal
+rule C_STATIC_LIBRARY_LINKER__lib__libc__newlib
   command = $PRE_LINK && ccache /usr/bin/cmake -E remove $TARGET_FILE && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -299,7 +309,7 @@ rule C_STATIC_LIBRARY_LINKER__soc__arm__nordic_nrf__nrf52
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__drivers__counter
+rule C_COMPILER__subsys__bluetooth__common
   depfile = $DEP_FILE
   deps = gcc
   command = ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
@@ -309,7 +319,83 @@ rule C_COMPILER__drivers__counter
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER__drivers__counter
+rule C_STATIC_LIBRARY_LINKER__subsys__bluetooth__common
+  command = $PRE_LINK && ccache /usr/bin/cmake -E remove $TARGET_FILE && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__subsys__bluetooth__host
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER__subsys__bluetooth__host
+  command = $PRE_LINK && ccache /usr/bin/cmake -E remove $TARGET_FILE && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__subsys__bluetooth__controller
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER__subsys__bluetooth__controller
+  command = $PRE_LINK && ccache /usr/bin/cmake -E remove $TARGET_FILE && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__subsys__net
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER__subsys__net
+  command = $PRE_LINK && ccache /usr/bin/cmake -E remove $TARGET_FILE && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__subsys__random
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER__subsys__random
   command = $PRE_LINK && ccache /usr/bin/cmake -E remove $TARGET_FILE && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -367,6 +453,44 @@ rule C_COMPILER__drivers__spi
 # Rule for linking C static library.
 
 rule C_STATIC_LIBRARY_LINKER__drivers__spi
+  command = $PRE_LINK && ccache /usr/bin/cmake -E remove $TARGET_FILE && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__drivers__flash
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER__drivers__flash
+  command = $PRE_LINK && ccache /usr/bin/cmake -E remove $TARGET_FILE && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__drivers__entropy
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out   -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER__drivers__entropy
   command = $PRE_LINK && ccache /usr/bin/cmake -E remove $TARGET_FILE && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk-0.10.3/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -433,7 +557,7 @@ rule C_STATIC_LIBRARY_LINKER__kernel
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake -S/root/work/pinetime/samples/gui/clock -B/root/work/pinetime/build
+  command = /usr/bin/cmake -S/root/work/pinetime/samples/gui/clock-cts -B/root/work/pinetime/build
   description = Re-running CMake...
   generator = 1
 

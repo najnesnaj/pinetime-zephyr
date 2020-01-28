@@ -42,11 +42,7 @@ static void test_counter_interrupt_fn(struct device *counter_dev,
 		u8_t chan_id, u32_t ticks,
 		void *user_data)
 {
-	//u32_t now_ticks = counter_read(counter_dev);
-	//u64_t now_usec = counter_ticks_to_us(counter_dev, now_ticks);
-//	int now_sec = (int)(now_usec / USEC_PER_SEC);
-//	struct counter_alarm_cfg *config = user_data;
-
+	int err;
 
 	seconden++;
 	if (seconden > 59) {
@@ -65,11 +61,13 @@ static void test_counter_interrupt_fn(struct device *counter_dev,
 
 
 
+	// after expiring the alarm is set again
+	err = counter_set_channel_alarm(counter_dev, ALARM_CHANNEL_ID,
+			user_data);
 
-	//	err = counter_set_channel_alarm(counter_dev, ALARM_CHANNEL_ID,
-	//			user_data);
-
-
+	if (err != 0) {
+		printk("Alarm could not be set\n");
+	}
 }
 
 
@@ -100,7 +98,10 @@ void main(void)
 	struct device *counter_dev;
 	counter_dev = device_get_binding(DT_RTC_0_NAME);
 	counter_start(counter_dev);
-
+	if (counter_dev == NULL) {
+		printk("Device not found\n");
+		return;
+	}
 	alarm_cfg.flags = 0;
 	alarm_cfg.ticks = counter_us_to_ticks(counter_dev, DELAY);
 	alarm_cfg.callback = test_counter_interrupt_fn;
@@ -109,7 +110,7 @@ void main(void)
 	err=counter_set_channel_alarm(counter_dev, ALARM_CHANNEL_ID, &alarm_cfg);
 
 
-
+	//todo catch err
 
 
 	//lv_obj_t *scr = lv_scr_act();
@@ -133,10 +134,10 @@ void main(void)
 
 
 	/*Create a style*/
-//	static lv_style_t style1;
+	//	static lv_style_t style1;
 
-//	lv_style_copy(&style1, &lv_style_plain);        /*Copy a built-in style*/
-//	style1.body.main_color = LV_COLOR_RED;          /*Main color*/
+	//	lv_style_copy(&style1, &lv_style_plain);        /*Copy a built-in style*/
+	//	style1.body.main_color = LV_COLOR_RED;          /*Main color*/
 
 
 	if (display_dev == NULL) {
