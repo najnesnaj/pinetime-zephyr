@@ -151,7 +151,7 @@ void main(void)
 	lv_label_set_long_mode(hello_world_label, LV_LABEL_LONG_BREAK);     //Break the long lines
 	lv_label_set_recolor(hello_world_label, true);                      //Enable re-coloring by commands in the text
 	lv_obj_set_width(hello_world_label, 240);
-	lv_label_set_text(hello_world_label, "#0000ff Hello world! Still Space Here"); //recoloring should be blue ...
+	lv_label_set_text(hello_world_label, "#00ffff Open Source Watch"); //recoloring should be blue ...
 
 
 
@@ -165,6 +165,7 @@ void main(void)
 	while (1) {
 
 		sprintf(snum, "%2d:%2d:%2d", uren, minuten,seconden); //seconden gets updated by interrupt
+		lv_label_set_text(clock_label, "00ffff"); 
 		lv_label_set_text(clock_label, snum); 
 
 		if ((count % 100) == 0U) {
