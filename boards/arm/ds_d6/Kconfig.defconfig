@@ -1,0 +1,28 @@
+# nRF52832-MDK board configuration
+
+# Copyright (c) 2018 makerdiary.com.
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_DS_D6
+
+config BOARD
+	default "ds_d6"
+
+if I2C
+
+config I2C_0
+	default y
+
+endif # I2C
+
+if PWM
+
+config PWM_0
+	default y
+
+endif # PWM
+
+config BT_CTLR
+	default BT
+
+endif # BOARD_DS_D6

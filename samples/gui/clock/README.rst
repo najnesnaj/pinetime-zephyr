@@ -9,6 +9,7 @@ Overview
 This sample application displays a clock background.
 
 This samples demonstrates the use of the counter.
+
 Have a look at the test_counter_interrupt_fn function in src/main.c
 
 Requirements
