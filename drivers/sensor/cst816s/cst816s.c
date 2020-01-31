@@ -11,12 +11,6 @@
 #include <logging/log.h>
 
 #include "cst816s.h"
-//#define MY_REGISTER1 (*(volatile uint8_t*)0x2000F000)
-#define MY_REGISTER2 (*(volatile uint8_t*)0x2000F006)
-//#define MY_REGISTER3 (*(volatile uint8_t*)0x2000F007)
-//#define MY_REGISTER4 (*(volatile uint8_t*)0x2000F008)
-//#define MY_REGISTER5 (*(volatile uint8_t*)0x2000F009)
-//#define MY_REGISTER6 (*(volatile uint8_t*)0x2000F00A)
 
 
 
@@ -35,25 +29,22 @@ static int cst816s_sample_fetch(struct device *dev, enum sensor_channel chan)
 	 * since all accel data register addresses are consecutive,
 	 * a burst read can be used to read all the samples
 	 */
-//	MY_REGISTER6=0x00;
 	if (i2c_burst_read(drv_data->i2c, CST816S_I2C_ADDRESS,
 				CST816S_REG_DATA, buf, 64) < 0) {
 		LOG_DBG("Could not read data");
-		MY_REGISTER2=0xEE;
 		return -EIO;
 	}
-// bytes 3 to 8 are repeated 10 times
-// byte 3 (MSB bit 3..0)
-// byte 4 (LSB)
-// only first is relevant
-//
+	// bytes 3 to 8 are repeated 10 times
+	// byte 3 (MSB bit 3..0)
+	// byte 4 (LSB)
+	// only first is relevant
+	//
 	msb = buf[3] & 0x0f;
-        lsb = buf[4];
-//MY_REGISTER1=lsb;
+	lsb = buf[4];
 	drv_data->x_sample = (msb<<8)|lsb; 
 
 	msb = buf[5] & 0x0f;
-        lsb = buf[6];
+	lsb = buf[6];
 	drv_data->y_sample = (msb<<8)|lsb; // todo check if buf[5] is indeed Y
 
 
@@ -66,8 +57,8 @@ static int cst816s_channel_get(struct device *dev,
 		struct sensor_value *val)
 {
 	struct cst816s_data *drv_data = dev->driver_data;
-	 val->val1=drv_data->x_sample;
-	 val->val2=drv_data->y_sample;
+	val->val1=drv_data->x_sample;
+	val->val2=drv_data->y_sample;
 
 	//if (chan == SENSOR_CHAN_ACCEL_XYZ) {
 	//	cst816s_channel_convert(val, drv_data->x_sample);
@@ -103,17 +94,15 @@ int cst816s_init(struct device *dev)
 	}
 
 	/* read device ID */
-//i2c_reg_read_byte(drv_data->i2c, BMA421_I2C_ADDRESS,0x40, &id); 
+	//i2c_reg_read_byte(drv_data->i2c, BMA421_I2C_ADDRESS,0x40, &id); 
 
 #ifdef CONFIG_CST816S_TRIGGER
-if (cst816s_init_interrupt(dev) < 0) {
-	LOG_DBG("Could not initialize interrupts");
-//	MY_REGISTER2=0xe3;
-	return -EIO;
-}
+	if (cst816s_init_interrupt(dev) < 0) {
+		LOG_DBG("Could not initialize interrupts");
+		return -EIO;
+	}
 #endif
-//MY_REGISTER2=0x01;
-return 0;
+	return 0;
 }
 
 struct cst816s_data cst816s_driver;

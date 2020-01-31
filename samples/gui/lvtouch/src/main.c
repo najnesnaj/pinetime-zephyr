@@ -25,8 +25,6 @@ LOG_MODULE_REGISTER(app);
 
 #define LED_PORT        DT_ALIAS_LED1_GPIOS_CONTROLLER
 #define LED             DT_ALIAS_LED1_GPIOS_PIN
-#define MY_REGISTER1 (*(volatile uint8_t*)0x2000F000)
-#define MY_REGISTER2 (*(volatile uint8_t*)0x2000F001)
 
 static void backlight_init(void)
 {
@@ -41,17 +39,17 @@ K_SEM_DEFINE(sem, 0, 1);
 
 static void trigger_handler(struct device *dev, struct sensor_trigger *trig)
 {
-	 ARG_UNUSED(trig);
-//	switch (trig->type) {
-//		case SENSOR_TRIG_DATA_READY:
+	ARG_UNUSED(trig);
+	//	switch (trig->type) {
+	//		case SENSOR_TRIG_DATA_READY:
 	//					if (sensor_sample_fetch(dev) < 0) {
 	//						printf("Sample fetch error\n");
 	//						return;
 	//					}
-			k_sem_give(&sem);
-//			break;
-//		default:
-//			printf("Unknown trigger\n");
+	k_sem_give(&sem);
+	//			break;
+	//		default:
+	//			printf("Unknown trigger\n");
 	//}
 }
 
@@ -59,27 +57,23 @@ static void trigger_handler(struct device *dev, struct sensor_trigger *trig)
 void main(void)
 {
 
-	MY_REGISTER1=0xcc;
-	MY_REGISTER2=0xcc; //debugging
 
 	struct sensor_value touch[1];
 
 
 	struct device *devtouch = device_get_binding(DT_INST_0_HYNITRON_CST816S_LABEL);
 	if (devtouch == NULL) {
-		MY_REGISTER1=0xe1;
 		printf("Could not get %s device\n", DT_INST_0_HYNITRON_CST816S_LABEL);
 		return;
 	}
-		struct sensor_trigger trig = {
-			.type = SENSOR_TRIG_DATA_READY,
-			.chan = SENSOR_CHAN_ACCEL_XYZ,
-		};
+	struct sensor_trigger trig = {
+		.type = SENSOR_TRIG_DATA_READY,
+		.chan = SENSOR_CHAN_ACCEL_XYZ,
+	};
 	if (IS_ENABLED(CONFIG_CST816S_TRIGGER)) {
 
 		if (sensor_trigger_set(devtouch, &trig, trigger_handler)){
 			printf("Trigger set error\n");
-			MY_REGISTER1=0xe2;
 		}
 
 	}
@@ -101,7 +95,6 @@ void main(void)
 
 	if (display_dev == NULL) {
 		LOG_ERR("device not found.  Aborting test.");
-		MY_REGISTER1=0xEE;
 		return;
 	}
 	else
@@ -126,7 +119,6 @@ void main(void)
 	while (1) {
 		count++;
 		if (count > 200) count=0;
-		MY_REGISTER2=count;
 		sprintf(count_str, "%d", count);
 		lv_label_set_text(count_label, count_str);  //this is just a counter that keeps track on number of executions
 		lv_task_handler();
@@ -139,7 +131,7 @@ void main(void)
 		{
 			sensor_sample_fetch(devtouch); 
 			sensor_channel_get(devtouch, SENSOR_CHAN_ACCEL_XYZ, touch);
-		//	sensor_sample_fetch(dev);  //this is useless if there's no interrupt
+			//	sensor_sample_fetch(dev);  //this is useless if there's no interrupt
 		}
 		//sprintf(touch_strx, "X: %.1f", sensor_value_to_double(&touch[0]));
 		sprintf(touch_strx, "X: %d", touch[0].val2);

@@ -12,6 +12,7 @@
    lvgl
    clock
    RTC
+   CTS
    drivers/drivers.rst
    behind/behind.rst
    samples/index.rst

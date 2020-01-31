@@ -1,0 +1,13 @@
+# SPDX-License-Identifier: Apache-2.0
+
+
+description: This is a representation of the Hynitron,CST816S touchscreen sensor
+
+compatible: "hynitron,cst816s"
+
+include: i2c-device.yaml
+
+properties:
+            int1-gpios:
+                      type: phandle-array
+                      required: false

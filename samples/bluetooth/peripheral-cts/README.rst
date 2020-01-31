@@ -33,7 +33,4 @@ Requirements
 Building and Running
 ********************
 
-This sample can be found under :pinetime_file:`samples/bluetooth/peripheral_cts` in the
-Zephyr tree.
-
-See :ref:`bluetooth samples section <bluetooth-samples>` for details.
+this is under development and is not working at all (yet)

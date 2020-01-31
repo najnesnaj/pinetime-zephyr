@@ -16,19 +16,13 @@
 #define PULL_UP  (1<<8)
 #define EDGE    (GPIO_INT_EDGE | GPIO_INT_ACTIVE_LOW)
 
-#define MY_REGISTER1 (*(volatile uint8_t*)0x2000F005)
-#define MY_REGISTER2 (*(volatile uint8_t*)0x2000F006)
-#define MY_REGISTER3 (*(volatile uint8_t*)0x2000F007)
-#define MY_REGISTER4 (*(volatile uint8_t*)0x2000F008)
-#define MY_REGISTER5 (*(volatile uint8_t*)0x2000F009)
-#define MY_REGISTER6 (*(volatile uint8_t*)0x2000F00A)
 
 LOG_MODULE_DECLARE(CST816S, CONFIG_SENSOR_LOG_LEVEL);
 
 int cst816s_attr_set(struct device *dev,
-		    enum sensor_channel chan,
-		    enum sensor_attribute attr,
-		    const struct sensor_value *val)
+		enum sensor_channel chan,
+		enum sensor_attribute attr,
+		const struct sensor_value *val)
 {
 	//struct cst816s_data *drv_data = dev->driver_data;
 
@@ -41,7 +35,7 @@ int cst816s_attr_set(struct device *dev,
 }
 
 static void cst816s_gpio_callback(struct device *dev,
-				 struct gpio_callback *cb, u32_t pins)
+		struct gpio_callback *cb, u32_t pins)
 {
 	struct cst816s_data *drv_data =
 		CONTAINER_OF(cb, struct cst816s_data, gpio_cb);
@@ -51,7 +45,6 @@ static void cst816s_gpio_callback(struct device *dev,
 	gpio_pin_disable_callback(dev, CONFIG_CST816S_GPIO_PIN_NUM);
 
 #if defined(CONFIG_CST816S_TRIGGER_OWN_THREAD)
-	MY_REGISTER1=0xaa;
 	k_sem_give(&drv_data->gpio_sem);
 #elif defined(CONFIG_CST816S_TRIGGER_GLOBAL_THREAD)
 	k_work_submit(&drv_data->work);
@@ -66,8 +59,7 @@ static void cst816s_thread_cb(void *arg)
 
 	if (drv_data->data_ready_handler != NULL) {
 		drv_data->data_ready_handler(dev, &drv_data->data_ready_trigger);
-                MY_REGISTER3=0xaa;
-	    }
+	}
 
 
 
@@ -80,27 +72,25 @@ static void cst816s_thread(int dev_ptr, int unused)
 {
 	struct device *dev = INT_TO_POINTER(dev_ptr);
 	struct cst816s_data *drv_data = dev->driver_data;
-        tellerio++;
+	tellerio++;
 
-//reset touchscreen
-
-
-
-     //   gpio_pin_configure(drv_data->gpio, 10,GPIO_DIR_OUT); //push button out
-      //  gpio_pin_write(drv_data->gpio, 10, 0); //set port low 
-       // gpio_pin_write(drv_data->gpio, 10, 1); //set port high
-//
+	//reset touchscreen
 
 
 
-if (tellerio > 200) tellerio=0;
+	//   gpio_pin_configure(drv_data->gpio, 10,GPIO_DIR_OUT); //push button out
+	//  gpio_pin_write(drv_data->gpio, 10, 0); //set port low 
+	// gpio_pin_write(drv_data->gpio, 10, 1); //set port high
+	//
+
+
+
+	if (tellerio > 200) tellerio=0;
 	ARG_UNUSED(unused);
 
 	while (1) {
-		MY_REGISTER4=0xaa;
 		k_sem_take(&drv_data->gpio_sem, K_FOREVER);
 		cst816s_thread_cb(dev);
-MY_REGISTER6=tellerio;
 	}
 }
 #endif
@@ -116,8 +106,8 @@ static void cst816s_work_cb(struct k_work *work)
 #endif
 
 int cst816s_trigger_set(struct device *dev,
-		       const struct sensor_trigger *trig,
-		       sensor_trigger_handler_t handler)
+		const struct sensor_trigger *trig,
+		sensor_trigger_handler_t handler)
 {
 	struct cst816s_data *drv_data = dev->driver_data;
 
@@ -140,17 +130,11 @@ int cst816s_trigger_set(struct device *dev,
 int cst816s_init_interrupt(struct device *dev)
 {
 	struct cst816s_data *drv_data = dev->driver_data;
-MY_REGISTER1=0x00;
-MY_REGISTER2=0x00;
-MY_REGISTER3=0x00;
-MY_REGISTER4=0x00;
-MY_REGISTER5=0x00;
-MY_REGISTER6=0x00;
 	/* setup data ready gpio interrupt */
 	drv_data->gpio = device_get_binding(CONFIG_CST816S_GPIO_DEV_NAME);
 	if (drv_data->gpio == NULL) {
 		LOG_DBG("Cannot get pointer to %s device",
-		    CONFIG_CST816S_GPIO_DEV_NAME);
+				CONFIG_CST816S_GPIO_DEV_NAME);
 		return -EINVAL;
 	}
 
@@ -158,17 +142,15 @@ MY_REGISTER6=0x00;
 
 	gpio_pin_configure(drv_data->gpio, CONFIG_CST816S_GPIO_PIN_NUM ,GPIO_DIR_IN | GPIO_INT | PULL_UP| EDGE | GPIO_INT_ACTIVE_HIGH );
 
-//	gpio_pin_configure(drv_data->gpio, CONFIG_CST816S_GPIO_PIN_NUM
-//			   GPIO_DIR_IN | GPIO_INT | GPIO_INT_LEVEL |
-//			   GPIO_INT_ACTIVE_HIGH | GPIO_INT_DEBOUNCE);
-MY_REGISTER6=CONFIG_CST816S_GPIO_PIN_NUM;
+	//	gpio_pin_configure(drv_data->gpio, CONFIG_CST816S_GPIO_PIN_NUM
+	//			   GPIO_DIR_IN | GPIO_INT | GPIO_INT_LEVEL |
+	//			   GPIO_INT_ACTIVE_HIGH | GPIO_INT_DEBOUNCE);
 
 	gpio_init_callback(&drv_data->gpio_cb,
-			   cst816s_gpio_callback,
-			   BIT(CONFIG_CST816S_GPIO_PIN_NUM));
+			cst816s_gpio_callback,
+			BIT(CONFIG_CST816S_GPIO_PIN_NUM));
 
 	if (gpio_add_callback(drv_data->gpio, &drv_data->gpio_cb) < 0) {
-		MY_REGISTER2=0xee;
 		LOG_DBG("Could not set gpio callback");
 		return -EIO;
 	}

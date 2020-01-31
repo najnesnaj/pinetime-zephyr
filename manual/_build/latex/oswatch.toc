@@ -39,173 +39,183 @@
 \contentsline {section}{\numberline {11.2}Requirements}{23}{section.11.2}
 \contentsline {section}{\numberline {11.3}Building and Running}{23}{section.11.3}
 \contentsline {section}{\numberline {11.4}Todo}{23}{section.11.4}
-\contentsline {section}{\numberline {11.5}References}{23}{section.11.5}
-\contentsline {chapter}{\numberline {12}Drivers}{25}{chapter.12}
-\contentsline {section}{\numberline {12.1}configuring I2C}{25}{section.12.1}
-\contentsline {subsection}{\numberline {12.1.1}board level definitions}{25}{subsection.12.1.1}
-\contentsline {subsection}{\numberline {12.1.2}definition on project level}{25}{subsection.12.1.2}
-\contentsline {section}{\numberline {12.2}sensors on the I2C bus}{25}{section.12.2}
-\contentsline {section}{\numberline {12.3}Bosch BMA421}{26}{section.12.3}
-\contentsline {subsection}{\numberline {12.3.1}Overview}{26}{subsection.12.3.1}
-\contentsline {subsection}{\numberline {12.3.2}Requirements}{26}{subsection.12.3.2}
-\contentsline {subsubsection}{adapt CMakeLists.txt}{26}{subsubsection*.3}
-\contentsline {subsubsection}{adapt Kconfig}{26}{subsubsection*.4}
-\contentsline {subsubsection}{add yaml file}{26}{subsubsection*.5}
-\contentsline {subsubsection}{edit KConfig}{26}{subsubsection*.6}
-\contentsline {subsubsection}{create driver}{27}{subsubsection*.7}
-\contentsline {subsection}{\numberline {12.3.3}Building and Running}{27}{subsection.12.3.3}
-\contentsline {subsection}{\numberline {12.3.4}Todo}{27}{subsection.12.3.4}
-\contentsline {subsection}{\numberline {12.3.5}References}{27}{subsection.12.3.5}
-\contentsline {section}{\numberline {12.4}HYNITRON CST816S}{27}{section.12.4}
-\contentsline {subsection}{\numberline {12.4.1}Overview}{28}{subsection.12.4.1}
-\contentsline {subsection}{\numberline {12.4.2}Requirements}{28}{subsection.12.4.2}
-\contentsline {subsubsection}{create driver}{28}{subsubsection*.8}
-\contentsline {subsection}{\numberline {12.4.3}Building and Running}{28}{subsection.12.4.3}
-\contentsline {subsection}{\numberline {12.4.4}Todo}{28}{subsection.12.4.4}
-\contentsline {subsection}{\numberline {12.4.5}References}{28}{subsection.12.4.5}
-\contentsline {section}{\numberline {12.5}HX HRS3300}{28}{section.12.5}
-\contentsline {subsection}{\numberline {12.5.1}Overview}{29}{subsection.12.5.1}
-\contentsline {subsection}{\numberline {12.5.2}Requirements}{29}{subsection.12.5.2}
-\contentsline {subsubsection}{adapt CMakeLists.txt}{29}{subsubsection*.9}
-\contentsline {subsubsection}{adapt Kconfig}{29}{subsubsection*.10}
-\contentsline {subsubsection}{add yaml file}{30}{subsubsection*.11}
-\contentsline {subsubsection}{edit KConfig}{30}{subsubsection*.12}
-\contentsline {subsubsection}{create driver}{30}{subsubsection*.13}
-\contentsline {subsection}{\numberline {12.5.3}Building and Running}{30}{subsection.12.5.3}
-\contentsline {subsection}{\numberline {12.5.4}Todo}{30}{subsection.12.5.4}
-\contentsline {subsection}{\numberline {12.5.5}References}{30}{subsection.12.5.5}
-\contentsline {section}{\numberline {12.6}Serial Nor Flash}{30}{section.12.6}
-\contentsline {subsection}{\numberline {12.6.1}Overview}{31}{subsection.12.6.1}
-\contentsline {subsubsection}{consulting the generated board definition file}{31}{subsubsection*.14}
-\contentsline {subsection}{\numberline {12.6.2}Requirements}{31}{subsection.12.6.2}
-\contentsline {subsection}{\numberline {12.6.3}Building and Running}{32}{subsection.12.6.3}
-\contentsline {subsection}{\numberline {12.6.4}Todo}{32}{subsection.12.6.4}
-\contentsline {subsection}{\numberline {12.6.5}References}{32}{subsection.12.6.5}
-\contentsline {section}{\numberline {12.7}Battery}{32}{section.12.7}
-\contentsline {subsection}{\numberline {12.7.1}Overview}{32}{subsection.12.7.1}
-\contentsline {subsection}{\numberline {12.7.2}Todo}{33}{subsection.12.7.2}
-\contentsline {subsection}{\numberline {12.7.3}References}{33}{subsection.12.7.3}
-\contentsline {chapter}{\numberline {13}Behind the scene}{35}{chapter.13}
-\contentsline {section}{\numberline {13.1}Behind the scene}{35}{section.13.1}
-\contentsline {subsection}{\numberline {13.1.1}Overview}{35}{subsection.13.1.1}
-\contentsline {section}{\numberline {13.2}development trajectory}{35}{section.13.2}
-\contentsline {section}{\numberline {13.3}Bosch BMA280}{35}{section.13.3}
-\contentsline {subsection}{\numberline {13.3.1}Overview}{35}{subsection.13.3.1}
-\contentsline {subsection}{\numberline {13.3.2}Requirements}{36}{subsection.13.3.2}
-\contentsline {subsection}{\numberline {13.3.3}Building and Running}{36}{subsection.13.3.3}
-\contentsline {subsection}{\numberline {13.3.4}Todo}{36}{subsection.13.3.4}
-\contentsline {subsection}{\numberline {13.3.5}References}{36}{subsection.13.3.5}
-\contentsline {section}{\numberline {13.4}Touchscreen Hynitron}{36}{section.13.4}
-\contentsline {subsection}{\numberline {13.4.1}Overview}{36}{subsection.13.4.1}
-\contentsline {subsection}{\numberline {13.4.2}Requirements}{37}{subsection.13.4.2}
-\contentsline {subsection}{\numberline {13.4.3}Building and Running}{37}{subsection.13.4.3}
-\contentsline {subsection}{\numberline {13.4.4}Todo}{37}{subsection.13.4.4}
-\contentsline {subsection}{\numberline {13.4.5}References}{37}{subsection.13.4.5}
-\contentsline {section}{\numberline {13.5}Troubleshooting drivers}{37}{section.13.5}
-\contentsline {subsection}{\numberline {13.5.1}Overview}{37}{subsection.13.5.1}
-\contentsline {subsection}{\numberline {13.5.2}Example}{37}{subsection.13.5.2}
-\contentsline {subsection}{\numberline {13.5.3}Requirements}{38}{subsection.13.5.3}
-\contentsline {subsubsection}{a sample to detect interrupt}{38}{subsubsection*.15}
-\contentsline {subsubsection}{a sample to scan the I2C-BUS}{38}{subsubsection*.16}
-\contentsline {subsubsection}{a sample to read the I2C-BUS}{38}{subsubsection*.17}
-\contentsline {subsubsection}{a samples to handle semaphores}{38}{subsubsection*.18}
-\contentsline {section}{\numberline {13.6}placing a button on the screen}{38}{section.13.6}
-\contentsline {subsection}{\numberline {13.6.1}Building and Running}{38}{subsection.13.6.1}
-\contentsline {chapter}{\numberline {14}Samples and Demos}{39}{chapter.14}
-\contentsline {section}{\numberline {14.1}Basic Samples}{39}{section.14.1}
-\contentsline {subsection}{\numberline {14.1.1}Blinky Application}{39}{subsection.14.1.1}
-\contentsline {subsubsection}{Overview}{39}{subsubsection*.19}
-\contentsline {subsubsection}{Requirements}{39}{subsubsection*.20}
-\contentsline {subsubsection}{Building and Running}{39}{subsubsection*.21}
-\contentsline {subsection}{\numberline {14.1.2}Button demo}{39}{subsection.14.1.2}
-\contentsline {subsubsection}{Overview}{39}{subsubsection*.22}
-\contentsline {subsubsection}{Requirements}{40}{subsubsection*.23}
-\contentsline {subsubsection}{Building and Running}{40}{subsubsection*.24}
-\contentsline {subsection}{\numberline {14.1.3}I2C Scanner sample}{40}{subsection.14.1.3}
-\contentsline {subsubsection}{Overview}{40}{subsubsection*.25}
-\contentsline {subsubsection}{Building and Running}{40}{subsubsection*.26}
-\contentsline {subsection}{\numberline {14.1.4}Touchscreen IRQ}{40}{subsection.14.1.4}
-\contentsline {subsubsection}{Overview}{40}{subsubsection*.27}
-\contentsline {subsubsection}{Requirements}{40}{subsubsection*.28}
-\contentsline {subsubsection}{Building and Running}{41}{subsubsection*.29}
-\contentsline {subsection}{\numberline {14.1.5}Touchpoints}{41}{subsection.14.1.5}
-\contentsline {subsubsection}{Overview}{41}{subsubsection*.30}
-\contentsline {subsubsection}{Requirements}{41}{subsubsection*.31}
-\contentsline {subsubsection}{Building and Running}{41}{subsubsection*.32}
-\contentsline {section}{\numberline {14.2}Sensor Samples}{41}{section.14.2}
-\contentsline {subsection}{\numberline {14.2.1}BMA280: Three Axis High-g I2C/SPI Accelerometer}{41}{subsection.14.2.1}
-\contentsline {subsubsection}{Description}{41}{subsubsection*.33}
-\contentsline {subsubsection}{References}{41}{subsubsection*.34}
-\contentsline {subsubsection}{Wiring}{41}{subsubsection*.35}
-\contentsline {paragraph}{I2C mode}{42}{paragraph*.36}
-\contentsline {paragraph}{SPI mode}{42}{paragraph*.37}
-\contentsline {subsubsection}{Building and Running}{42}{subsubsection*.38}
-\contentsline {paragraph}{Sample Output: Max Peak Detect Mode}{42}{paragraph*.39}
-\contentsline {paragraph}{Sample Output: Measurement Mode}{42}{paragraph*.40}
-\contentsline {subsection}{\numberline {14.2.2}CST816S HYNITRON TOUCHSCREEN}{42}{subsection.14.2.2}
-\contentsline {subsubsection}{Description}{42}{subsubsection*.41}
-\contentsline {subsubsection}{References}{42}{subsubsection*.42}
-\contentsline {subsubsection}{Wiring}{42}{subsubsection*.43}
-\contentsline {paragraph}{I2C mode}{42}{paragraph*.44}
-\contentsline {subsubsection}{Building and Running}{42}{subsubsection*.45}
-\contentsline {paragraph}{Sample Output: X \& Y coordinates}{42}{paragraph*.46}
-\contentsline {paragraph}{Sample Output: Measurement Mode}{43}{paragraph*.47}
-\contentsline {subsection}{\numberline {14.2.3}HRS3300 Heart Rate Sensor}{43}{subsection.14.2.3}
-\contentsline {subsubsection}{Overview}{43}{subsubsection*.48}
-\contentsline {subsubsection}{Building and Running}{43}{subsubsection*.49}
-\contentsline {paragraph}{Sample Output}{43}{paragraph*.50}
-\contentsline {section}{\numberline {14.3}Driver Samples}{43}{section.14.3}
-\contentsline {subsection}{\numberline {14.3.1}I2C Scanner sample}{43}{subsection.14.3.1}
-\contentsline {subsubsection}{Overview}{43}{subsubsection*.51}
-\contentsline {subsubsection}{Building and Running}{43}{subsubsection*.52}
-\contentsline {subsection}{\numberline {14.3.2}I2C Scanner sample}{43}{subsection.14.3.2}
-\contentsline {subsubsection}{Overview}{43}{subsubsection*.53}
-\contentsline {subsubsection}{Building and Running}{44}{subsubsection*.54}
-\contentsline {section}{\numberline {14.4}Display Samples}{44}{section.14.4}
-\contentsline {subsection}{\numberline {14.4.1}ST7789V Display driver}{44}{subsection.14.4.1}
-\contentsline {subsubsection}{Overview}{44}{subsubsection*.55}
-\contentsline {subsubsection}{Building and Running}{44}{subsubsection*.56}
-\contentsline {subsubsection}{References}{44}{subsubsection*.57}
-\contentsline {section}{\numberline {14.5}GUI Samples}{44}{section.14.5}
-\contentsline {subsection}{\numberline {14.5.1}LittlevGL Clock Sample}{44}{subsection.14.5.1}
-\contentsline {subsubsection}{Overview}{44}{subsubsection*.58}
-\contentsline {subsubsection}{Requirements}{44}{subsubsection*.59}
-\contentsline {subsubsection}{Building and Running}{45}{subsubsection*.60}
-\contentsline {subsubsection}{References}{45}{subsubsection*.61}
-\contentsline {subsection}{\numberline {14.5.2}Adafruit GFX Library on ST7789V Display}{45}{subsection.14.5.2}
-\contentsline {subsubsection}{Overview}{45}{subsubsection*.62}
-\contentsline {subsection}{\numberline {14.5.3}Display accel values}{45}{subsection.14.5.3}
-\contentsline {subsubsection}{Overview}{45}{subsubsection*.63}
-\contentsline {subsubsection}{Requirements}{45}{subsubsection*.64}
-\contentsline {subsubsection}{Building and Running}{45}{subsubsection*.65}
-\contentsline {subsubsection}{References}{45}{subsubsection*.66}
-\contentsline {subsection}{\numberline {14.5.4}LittlevGL Basic Sample}{45}{subsection.14.5.4}
-\contentsline {subsubsection}{Overview}{45}{subsubsection*.67}
-\contentsline {subsubsection}{Requirements}{45}{subsubsection*.68}
-\contentsline {subsubsection}{Building and Running}{46}{subsubsection*.69}
-\contentsline {subsubsection}{References}{46}{subsubsection*.70}
-\contentsline {subsection}{\numberline {14.5.5}Touchscreen Basic Sample}{46}{subsection.14.5.5}
-\contentsline {subsubsection}{Overview}{46}{subsubsection*.71}
-\contentsline {subsubsection}{Requirements}{46}{subsubsection*.72}
-\contentsline {subsubsection}{Building and Running}{46}{subsubsection*.73}
-\contentsline {subsubsection}{References}{46}{subsubsection*.74}
-\contentsline {section}{\numberline {14.6}Bluetooth Samples}{46}{section.14.6}
-\contentsline {subsection}{\numberline {14.6.1}Bluetooth: Eddystone}{46}{subsection.14.6.1}
-\contentsline {subsubsection}{Overview}{46}{subsubsection*.75}
-\contentsline {subsubsection}{Requirements}{46}{subsubsection*.76}
-\contentsline {subsubsection}{Building and Running}{46}{subsubsection*.77}
-\contentsline {subsection}{\numberline {14.6.2}Bluetooth: Peripheral}{47}{subsection.14.6.2}
-\contentsline {subsubsection}{Overview}{47}{subsubsection*.78}
-\contentsline {subsubsection}{Requirements}{47}{subsubsection*.79}
-\contentsline {subsubsection}{Building and Running}{47}{subsubsection*.80}
-\contentsline {chapter}{\numberline {15}Menuconfig}{49}{chapter.15}
-\contentsline {section}{\numberline {15.1}Zephyr is like linux}{49}{section.15.1}
-\contentsline {chapter}{\numberline {16}hacking the pinetime smartwatch}{51}{chapter.16}
-\contentsline {chapter}{\numberline {17}debugging the pinetime smartwatch}{53}{chapter.17}
-\contentsline {chapter}{\numberline {18}scanning the I2C\_1 port}{55}{chapter.18}
-\contentsline {section}{\numberline {18.1}Building and Running}{55}{section.18.1}
-\contentsline {chapter}{\numberline {19}howto flash your zephyr image}{57}{chapter.19}
-\contentsline {chapter}{\numberline {20}howto remove the write protection}{59}{chapter.20}
-\contentsline {chapter}{\numberline {21}howto generate pdf documents}{61}{chapter.21}
-\contentsline {chapter}{\numberline {22}About}{63}{chapter.22}
-\contentsline {section}{\numberline {22.1}Todo}{63}{section.22.1}
+\contentsline {section}{\numberline {11.5}References}{24}{section.11.5}
+\contentsline {chapter}{\numberline {12}Current Time Service}{25}{chapter.12}
+\contentsline {section}{\numberline {12.1}Overview}{25}{section.12.1}
+\contentsline {section}{\numberline {12.2}Requirements}{25}{section.12.2}
+\contentsline {section}{\numberline {12.3}Building and Running}{25}{section.12.3}
+\contentsline {section}{\numberline {12.4}Todo}{25}{section.12.4}
+\contentsline {section}{\numberline {12.5}References}{25}{section.12.5}
+\contentsline {chapter}{\numberline {13}Drivers}{27}{chapter.13}
+\contentsline {section}{\numberline {13.1}configuring I2C}{27}{section.13.1}
+\contentsline {subsection}{\numberline {13.1.1}board level definitions}{27}{subsection.13.1.1}
+\contentsline {subsection}{\numberline {13.1.2}definition on project level}{27}{subsection.13.1.2}
+\contentsline {section}{\numberline {13.2}sensors on the I2C bus}{27}{section.13.2}
+\contentsline {section}{\numberline {13.3}Bosch BMA421}{28}{section.13.3}
+\contentsline {subsection}{\numberline {13.3.1}Overview}{28}{subsection.13.3.1}
+\contentsline {subsection}{\numberline {13.3.2}Requirements}{28}{subsection.13.3.2}
+\contentsline {subsubsection}{adapt CMakeLists.txt}{28}{subsubsection*.3}
+\contentsline {subsubsection}{adapt Kconfig}{28}{subsubsection*.4}
+\contentsline {subsubsection}{add yaml file}{28}{subsubsection*.5}
+\contentsline {subsubsection}{edit KConfig}{28}{subsubsection*.6}
+\contentsline {subsubsection}{create driver}{29}{subsubsection*.7}
+\contentsline {subsection}{\numberline {13.3.3}Building and Running}{29}{subsection.13.3.3}
+\contentsline {subsection}{\numberline {13.3.4}Todo}{29}{subsection.13.3.4}
+\contentsline {subsection}{\numberline {13.3.5}References}{29}{subsection.13.3.5}
+\contentsline {section}{\numberline {13.4}HYNITRON CST816S}{29}{section.13.4}
+\contentsline {subsection}{\numberline {13.4.1}Overview}{30}{subsection.13.4.1}
+\contentsline {subsection}{\numberline {13.4.2}Requirements}{30}{subsection.13.4.2}
+\contentsline {subsubsection}{create driver}{30}{subsubsection*.8}
+\contentsline {subsection}{\numberline {13.4.3}Building and Running}{30}{subsection.13.4.3}
+\contentsline {subsection}{\numberline {13.4.4}Todo}{30}{subsection.13.4.4}
+\contentsline {subsection}{\numberline {13.4.5}References}{30}{subsection.13.4.5}
+\contentsline {section}{\numberline {13.5}HX HRS3300}{30}{section.13.5}
+\contentsline {subsection}{\numberline {13.5.1}Overview}{31}{subsection.13.5.1}
+\contentsline {subsection}{\numberline {13.5.2}Requirements}{31}{subsection.13.5.2}
+\contentsline {subsubsection}{adapt CMakeLists.txt}{31}{subsubsection*.9}
+\contentsline {subsubsection}{adapt Kconfig}{31}{subsubsection*.10}
+\contentsline {subsubsection}{add yaml file}{32}{subsubsection*.11}
+\contentsline {subsubsection}{edit KConfig}{32}{subsubsection*.12}
+\contentsline {subsubsection}{create driver}{32}{subsubsection*.13}
+\contentsline {subsection}{\numberline {13.5.3}Building and Running}{32}{subsection.13.5.3}
+\contentsline {subsection}{\numberline {13.5.4}Todo}{32}{subsection.13.5.4}
+\contentsline {subsection}{\numberline {13.5.5}References}{32}{subsection.13.5.5}
+\contentsline {section}{\numberline {13.6}Serial Nor Flash}{32}{section.13.6}
+\contentsline {subsection}{\numberline {13.6.1}Overview}{33}{subsection.13.6.1}
+\contentsline {subsubsection}{consulting the generated board definition file}{33}{subsubsection*.14}
+\contentsline {subsection}{\numberline {13.6.2}Requirements}{33}{subsection.13.6.2}
+\contentsline {subsection}{\numberline {13.6.3}Building and Running}{34}{subsection.13.6.3}
+\contentsline {subsection}{\numberline {13.6.4}Todo}{34}{subsection.13.6.4}
+\contentsline {subsection}{\numberline {13.6.5}References}{34}{subsection.13.6.5}
+\contentsline {section}{\numberline {13.7}Battery}{34}{section.13.7}
+\contentsline {subsection}{\numberline {13.7.1}Overview}{34}{subsection.13.7.1}
+\contentsline {subsection}{\numberline {13.7.2}Todo}{35}{subsection.13.7.2}
+\contentsline {subsection}{\numberline {13.7.3}References}{35}{subsection.13.7.3}
+\contentsline {chapter}{\numberline {14}Behind the scene}{37}{chapter.14}
+\contentsline {section}{\numberline {14.1}Behind the scene}{37}{section.14.1}
+\contentsline {subsection}{\numberline {14.1.1}Overview}{37}{subsection.14.1.1}
+\contentsline {section}{\numberline {14.2}development trajectory}{37}{section.14.2}
+\contentsline {section}{\numberline {14.3}Bosch BMA280}{37}{section.14.3}
+\contentsline {subsection}{\numberline {14.3.1}Overview}{37}{subsection.14.3.1}
+\contentsline {subsection}{\numberline {14.3.2}Requirements}{38}{subsection.14.3.2}
+\contentsline {subsection}{\numberline {14.3.3}Building and Running}{38}{subsection.14.3.3}
+\contentsline {subsection}{\numberline {14.3.4}Todo}{38}{subsection.14.3.4}
+\contentsline {subsection}{\numberline {14.3.5}References}{38}{subsection.14.3.5}
+\contentsline {section}{\numberline {14.4}Touchscreen Hynitron}{38}{section.14.4}
+\contentsline {subsection}{\numberline {14.4.1}Overview}{38}{subsection.14.4.1}
+\contentsline {subsection}{\numberline {14.4.2}Requirements}{39}{subsection.14.4.2}
+\contentsline {subsection}{\numberline {14.4.3}Building and Running}{39}{subsection.14.4.3}
+\contentsline {subsection}{\numberline {14.4.4}Todo}{39}{subsection.14.4.4}
+\contentsline {subsection}{\numberline {14.4.5}References}{39}{subsection.14.4.5}
+\contentsline {section}{\numberline {14.5}Troubleshooting drivers}{39}{section.14.5}
+\contentsline {subsection}{\numberline {14.5.1}Overview}{39}{subsection.14.5.1}
+\contentsline {subsection}{\numberline {14.5.2}Example}{39}{subsection.14.5.2}
+\contentsline {subsection}{\numberline {14.5.3}Requirements}{40}{subsection.14.5.3}
+\contentsline {subsubsection}{a sample to detect interrupt}{40}{subsubsection*.15}
+\contentsline {subsubsection}{a sample to scan the I2C-BUS}{40}{subsubsection*.16}
+\contentsline {subsubsection}{a sample to read the I2C-BUS}{40}{subsubsection*.17}
+\contentsline {subsubsection}{a samples to handle semaphores}{40}{subsubsection*.18}
+\contentsline {section}{\numberline {14.6}placing a button on the screen}{40}{section.14.6}
+\contentsline {subsection}{\numberline {14.6.1}Building and Running}{40}{subsection.14.6.1}
+\contentsline {chapter}{\numberline {15}Samples and Demos}{41}{chapter.15}
+\contentsline {section}{\numberline {15.1}Basic Samples}{41}{section.15.1}
+\contentsline {subsection}{\numberline {15.1.1}Blinky Application}{41}{subsection.15.1.1}
+\contentsline {subsubsection}{Overview}{41}{subsubsection*.19}
+\contentsline {subsubsection}{Requirements}{41}{subsubsection*.20}
+\contentsline {subsubsection}{Building and Running}{41}{subsubsection*.21}
+\contentsline {subsection}{\numberline {15.1.2}Button demo}{41}{subsection.15.1.2}
+\contentsline {subsubsection}{Overview}{41}{subsubsection*.22}
+\contentsline {subsubsection}{Requirements}{42}{subsubsection*.23}
+\contentsline {subsubsection}{Building and Running}{42}{subsubsection*.24}
+\contentsline {subsection}{\numberline {15.1.3}I2C Scanner sample}{42}{subsection.15.1.3}
+\contentsline {subsubsection}{Overview}{42}{subsubsection*.25}
+\contentsline {subsubsection}{Building and Running}{42}{subsubsection*.26}
+\contentsline {subsection}{\numberline {15.1.4}Touchscreen IRQ}{42}{subsection.15.1.4}
+\contentsline {subsubsection}{Overview}{42}{subsubsection*.27}
+\contentsline {subsubsection}{Requirements}{42}{subsubsection*.28}
+\contentsline {subsubsection}{Building and Running}{43}{subsubsection*.29}
+\contentsline {subsection}{\numberline {15.1.5}Touchpoints}{43}{subsection.15.1.5}
+\contentsline {subsubsection}{Overview}{43}{subsubsection*.30}
+\contentsline {subsubsection}{Requirements}{43}{subsubsection*.31}
+\contentsline {subsubsection}{Building and Running}{43}{subsubsection*.32}
+\contentsline {section}{\numberline {15.2}Sensor Samples}{43}{section.15.2}
+\contentsline {subsection}{\numberline {15.2.1}BMA280: Three Axis High-g I2C/SPI Accelerometer}{43}{subsection.15.2.1}
+\contentsline {subsubsection}{Description}{43}{subsubsection*.33}
+\contentsline {subsubsection}{References}{43}{subsubsection*.34}
+\contentsline {subsubsection}{Wiring}{43}{subsubsection*.35}
+\contentsline {paragraph}{I2C mode}{44}{paragraph*.36}
+\contentsline {paragraph}{SPI mode}{44}{paragraph*.37}
+\contentsline {subsubsection}{Building and Running}{44}{subsubsection*.38}
+\contentsline {paragraph}{Sample Output: Max Peak Detect Mode}{44}{paragraph*.39}
+\contentsline {paragraph}{Sample Output: Measurement Mode}{44}{paragraph*.40}
+\contentsline {subsection}{\numberline {15.2.2}CST816S HYNITRON TOUCHSCREEN}{44}{subsection.15.2.2}
+\contentsline {subsubsection}{Description}{44}{subsubsection*.41}
+\contentsline {subsubsection}{References}{44}{subsubsection*.42}
+\contentsline {subsubsection}{Wiring}{44}{subsubsection*.43}
+\contentsline {paragraph}{I2C mode}{44}{paragraph*.44}
+\contentsline {subsubsection}{Building and Running}{44}{subsubsection*.45}
+\contentsline {paragraph}{Sample Output: X \& Y coordinates}{44}{paragraph*.46}
+\contentsline {paragraph}{Sample Output: Measurement Mode}{45}{paragraph*.47}
+\contentsline {subsection}{\numberline {15.2.3}HRS3300 Heart Rate Sensor}{45}{subsection.15.2.3}
+\contentsline {subsubsection}{Overview}{45}{subsubsection*.48}
+\contentsline {subsubsection}{Building and Running}{45}{subsubsection*.49}
+\contentsline {paragraph}{Sample Output}{45}{paragraph*.50}
+\contentsline {section}{\numberline {15.3}Driver Samples}{45}{section.15.3}
+\contentsline {subsection}{\numberline {15.3.1}I2C Scanner sample}{45}{subsection.15.3.1}
+\contentsline {subsubsection}{Overview}{45}{subsubsection*.51}
+\contentsline {subsubsection}{Building and Running}{45}{subsubsection*.52}
+\contentsline {subsection}{\numberline {15.3.2}I2C Scanner sample}{45}{subsection.15.3.2}
+\contentsline {subsubsection}{Overview}{45}{subsubsection*.53}
+\contentsline {subsubsection}{Building and Running}{46}{subsubsection*.54}
+\contentsline {section}{\numberline {15.4}Display Samples}{46}{section.15.4}
+\contentsline {subsection}{\numberline {15.4.1}ST7789V Display driver}{46}{subsection.15.4.1}
+\contentsline {subsubsection}{Overview}{46}{subsubsection*.55}
+\contentsline {subsubsection}{Building and Running}{46}{subsubsection*.56}
+\contentsline {subsubsection}{References}{46}{subsubsection*.57}
+\contentsline {section}{\numberline {15.5}GUI Samples}{46}{section.15.5}
+\contentsline {subsection}{\numberline {15.5.1}LittlevGL Clock Sample}{46}{subsection.15.5.1}
+\contentsline {subsubsection}{Overview}{46}{subsubsection*.58}
+\contentsline {subsubsection}{Requirements}{46}{subsubsection*.59}
+\contentsline {subsubsection}{Building and Running}{47}{subsubsection*.60}
+\contentsline {subsubsection}{References}{47}{subsubsection*.61}
+\contentsline {subsection}{\numberline {15.5.2}Adafruit GFX Library on ST7789V Display}{47}{subsection.15.5.2}
+\contentsline {subsubsection}{Overview}{47}{subsubsection*.62}
+\contentsline {subsection}{\numberline {15.5.3}Display accel values}{47}{subsection.15.5.3}
+\contentsline {subsubsection}{Overview}{47}{subsubsection*.63}
+\contentsline {subsubsection}{Requirements}{47}{subsubsection*.64}
+\contentsline {subsubsection}{Building and Running}{47}{subsubsection*.65}
+\contentsline {subsubsection}{References}{47}{subsubsection*.66}
+\contentsline {subsection}{\numberline {15.5.4}LittlevGL Basic Sample}{47}{subsection.15.5.4}
+\contentsline {subsubsection}{Overview}{47}{subsubsection*.67}
+\contentsline {subsubsection}{Requirements}{47}{subsubsection*.68}
+\contentsline {subsubsection}{Building and Running}{48}{subsubsection*.69}
+\contentsline {subsubsection}{References}{48}{subsubsection*.70}
+\contentsline {subsection}{\numberline {15.5.5}Touchscreen Basic Sample}{48}{subsection.15.5.5}
+\contentsline {subsubsection}{Overview}{48}{subsubsection*.71}
+\contentsline {subsubsection}{Requirements}{48}{subsubsection*.72}
+\contentsline {subsubsection}{Building and Running}{48}{subsubsection*.73}
+\contentsline {subsubsection}{References}{48}{subsubsection*.74}
+\contentsline {section}{\numberline {15.6}Bluetooth Samples}{48}{section.15.6}
+\contentsline {subsection}{\numberline {15.6.1}Bluetooth: Eddystone}{48}{subsection.15.6.1}
+\contentsline {subsubsection}{Overview}{48}{subsubsection*.75}
+\contentsline {subsubsection}{Requirements}{48}{subsubsection*.76}
+\contentsline {subsubsection}{Building and Running}{48}{subsubsection*.77}
+\contentsline {subsection}{\numberline {15.6.2}Bluetooth: Peripheral\_cts}{49}{subsection.15.6.2}
+\contentsline {subsubsection}{Overview}{49}{subsubsection*.78}
+\contentsline {subsubsection}{Requirements}{49}{subsubsection*.79}
+\contentsline {subsubsection}{Building and Running}{49}{subsubsection*.80}
+\contentsline {subsection}{\numberline {15.6.3}Bluetooth: Peripheral}{49}{subsection.15.6.3}
+\contentsline {subsubsection}{Overview}{49}{subsubsection*.81}
+\contentsline {subsubsection}{Requirements}{49}{subsubsection*.82}
+\contentsline {subsubsection}{Building and Running}{49}{subsubsection*.83}
+\contentsline {chapter}{\numberline {16}Menuconfig}{51}{chapter.16}
+\contentsline {section}{\numberline {16.1}Zephyr is like linux}{51}{section.16.1}
+\contentsline {chapter}{\numberline {17}hacking the pinetime smartwatch}{53}{chapter.17}
+\contentsline {chapter}{\numberline {18}debugging the pinetime smartwatch}{55}{chapter.18}
+\contentsline {chapter}{\numberline {19}scanning the I2C\_1 port}{57}{chapter.19}
+\contentsline {section}{\numberline {19.1}Building and Running}{57}{section.19.1}
+\contentsline {chapter}{\numberline {20}howto flash your zephyr image}{59}{chapter.20}
+\contentsline {chapter}{\numberline {21}howto remove the write protection}{61}{chapter.21}
+\contentsline {chapter}{\numberline {22}howto generate pdf documents}{63}{chapter.22}
+\contentsline {chapter}{\numberline {23}About}{65}{chapter.23}
+\contentsline {section}{\numberline {23.1}Todo}{65}{section.23.1}

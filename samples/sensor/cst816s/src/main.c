@@ -52,7 +52,6 @@ void main(void)
 	backlight_init(); // test if interrupt still works with backlight
 	MY_REGISTER1=0x93;
 	MY_REGISTER2=0x93;
-	struct sensor_value accel[3];
 	struct device *dev = device_get_binding(DT_INST_0_HYNITRON_CST816S_LABEL);
 	if (dev == NULL) {
 		printf("Could not get %s device\n", DT_INST_0_HYNITRON_CST816S_LABEL);
@@ -88,16 +87,6 @@ void main(void)
 		} else {
 			MY_REGISTER1=0x25;
 		}
-		//	MY_REGISTER1=counter;
-
-		//		sensor_channel_get(dev, SENSOR_CHAN_ACCEL_XYZ, accel);
-
-		//	printf("AX=%10.2f AY=%10.2f \n",
-		//				sensor_value_to_double(&accel[0]),
-		//				sensor_value_to_double(&accel[1]));
 	}
 
-	//	if (!IS_ENABLED(CONFIG_CST816S_TRIGGER)) {
-	//		k_sleep(K_MSEC(2000));
-	//	}
 }

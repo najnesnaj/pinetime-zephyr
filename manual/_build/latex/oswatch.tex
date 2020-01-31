@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Jan 27, 2020}
+\date{Jan 31, 2020}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -613,7 +613,10 @@ LittlevGL Web Page: \sphinxurl{https://littlevgl.com/}
 \section{Overview}
 \label{\detokenize{RTC:overview}}
 This sample application “clock” uses the RTC0 timer.
-It uses the counter driver.
+It uses the counter driver. (based on the alarm sample)
+
+Basically an interrupt is set to go off after 1 second.
+The number of seconds is incremented and the interrupt is launched again.
 
 It will serve as a building block for a “time of the day” clock.
 
@@ -661,6 +664,50 @@ setting the time
 
 \section{References}
 \label{\detokenize{RTC:references}}
+
+\chapter{Current Time Service}
+\label{\detokenize{CTS:current-time-service}}\label{\detokenize{CTS:cts}}\label{\detokenize{CTS::doc}}
+
+\section{Overview}
+\label{\detokenize{CTS:overview}}
+The bluetooth peripheral sample has a cts server in place.
+By installing this sample on a bluetoothboard, one can simulate the CTS.
+
+Another option is to use a smartphone or computer to connect and bond to your Pinetime.
+As soon as a device is bonded, Pinetime will look for a CTS server (Current Time Service) on the connected device.
+
+Here is how to do it with an Android smartphone running NRFConnect:
+Build and program the firmware on the Pinetime
+Install NRFConnect (\sphinxurl{https://www.nordicsemi.com/Software-and-Tools/Development-Tools/nRF-Connect-for-desktop})
+Start NRFConnect and create a CTS server :
+Tap the hamburger button on the top left and select “Configure GATT server”
+Tap “Add service” on the bottom
+Select server configuration “Current Time Service” and tap OK
+Go back to the main screen and scan for BLE devices. A device called “PineTime” should appear
+Tap the button “Connect” next to the PineTime device. It should connect to the PineTime and switch to a new tab.
+On this tab, on the top right, there is a 3 dots button. Tap on it and select Bond. The bonding process begins, and if it is sucessful, the PineTime should update its time and display it on the screen.
+
+
+\section{Requirements}
+\label{\detokenize{CTS:requirements}}
+
+\section{Building and Running}
+\label{\detokenize{CTS:building-and-running}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/bluetooth/peripheral\PYGZhy{}cts}
+\end{sphinxVerbatim}
+
+
+\section{Todo}
+\label{\detokenize{CTS:todo}}\begin{itemize}
+\item {} 
+make it work
+
+\end{itemize}
+
+
+\section{References}
+\label{\detokenize{CTS:references}}
 
 \chapter{Drivers}
 \label{\detokenize{drivers/drivers:drivers}}\label{\detokenize{drivers/drivers:id1}}\label{\detokenize{drivers/drivers::doc}}
@@ -1955,6 +2002,48 @@ A board with BLE support
 \subsubsection{Building and Running}
 \label{\detokenize{samples/bluetooth/eddystone/README:building-and-running}}
 This sample can be found under {\color{red}\bfseries{}:zephyr\_file:{}`samples/bluetooth/eddystone{}`} in the
+Zephyr tree.
+
+See {\hyperref[\detokenize{samples/bluetooth/bluetooth:bluetooth-samples}]{\sphinxcrossref{\DUrole{std,std-ref}{bluetooth samples section}}}} for details.
+
+
+\subsection{Bluetooth: Peripheral\_cts}
+\label{\detokenize{samples/bluetooth/peripheral-cts/README:bluetooth-peripheral-cts}}\label{\detokenize{samples/bluetooth/peripheral-cts/README:ble-peripheral-cts}}\label{\detokenize{samples/bluetooth/peripheral-cts/README::doc}}
+
+\subsubsection{Overview}
+\label{\detokenize{samples/bluetooth/peripheral-cts/README:overview}}
+Application demonstrating reading the time from a CTS service.
+
+(reading out the cts service with bluez)
+
+{[}Ds D6 sample cts server:/service0014/char0015{]}\# read
+Attempting to read /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015
+{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0xdf
+{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x07
+{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x05
+{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x1e
+{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x0c
+{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x2d
+{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x1e
+{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x01
+{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x00
+{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x00
+
+
+\subsubsection{Requirements}
+\label{\detokenize{samples/bluetooth/peripheral-cts/README:requirements}}\begin{itemize}
+\item {} 
+a bluetoothdevice running the CTS service  (I used the bluetooth/samples/peripheral for this, it simulates a cts server)
+
+\item {} 
+a board with this software (pinetime)
+
+\end{itemize}
+
+
+\subsubsection{Building and Running}
+\label{\detokenize{samples/bluetooth/peripheral-cts/README:building-and-running}}
+This sample can be found under {\color{red}\bfseries{}:pinetime\_file:{}`samples/bluetooth/peripheral\_cts{}`} in the
 Zephyr tree.
 
 See {\hyperref[\detokenize{samples/bluetooth/bluetooth:bluetooth-samples}]{\sphinxcrossref{\DUrole{std,std-ref}{bluetooth samples section}}}} for details.

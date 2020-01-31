@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bluetooth: Peripheral_cts</title>
+    <link rel="stylesheet" href="../../../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="bluetooth-peripheral-cts">
+<span id="ble-peripheral-cts"></span><h1>Bluetooth: Peripheral_cts</h1>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>Application demonstrating reading the time from a CTS service.</p>
+<p>(reading out the cts service with bluez)</p>
+<p>[Ds D6 sample cts server:/service0014/char0015]# read
+Attempting to read /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015
+[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0xdf
+[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x07
+[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x05
+[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x1e
+[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x0c
+[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x2d
+[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x1e
+[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x01
+[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x00
+[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x00</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements</h2>
+<ul class="simple">
+<li><p>a bluetoothdevice running the CTS service  (I used the bluetooth/samples/peripheral for this, it simulates a cts server)</p></li>
+<li><p>a board with this software (pinetime)</p></li>
+</ul>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running</h2>
+<p>This sample can be found under <a href="#id1"><span class="problematic" id="id2">:pinetime_file:`samples/bluetooth/peripheral_cts`</span></a> in the
+Zephyr tree.</p>
+<p>See <a class="reference internal" href="../bluetooth.xhtml#bluetooth-samples"><span class="std std-ref">bluetooth samples section</span></a> for details.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>
