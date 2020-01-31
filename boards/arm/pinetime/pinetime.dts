@@ -4,7 +4,7 @@
  *
  * SPDX-License-Identifier: Apache-2.0
 
-PO.23 LCD backlight 
+PO.23 LCD backlight
 #include <nordic/nrf52832_qfaa.dtsi>
 
  */
@@ -70,25 +70,25 @@ PO.23 LCD backlight
 /*
 &i2c0 {
 	status = "okay";
-      }
+}
 */
 &i2c1 {
-        compatible = "nordic,nrf-twi"; 
+	compatible = "nordic,nrf-twi";
 	status = "okay";
 	sda-pin = <6>;
 	scl-pin = <7>;
-        clock-frequency = <100000>; 
-        bma421@18 {
-            compatible = "bosch,bma421"; 
-            reg=<0x18>;
-            label="BMA421";
-            int1-gpios = <&gpio0 8 0>; 
-        };
-        hrs3300@44 {
-            compatible = "hx,hrs3300";
-            reg = <0x44>;
-            label = "HRS3300";
-        };
+	clock-frequency = <100000>;
+	bma421@18 {
+		compatible = "bosch,bma421";
+		reg=<0x18>;
+		label="BMA421";
+		int1-gpios = <&gpio0 8 0>;
+	};
+	hrs3300@44 {
+		compatible = "hx,hrs3300";
+		reg = <0x44>;
+		label = "HRS3300";
+	};
         cst816s@15 {
                 compatible = "hynitron,cst816s";
                 label = "CST816S";
@@ -100,11 +100,11 @@ PO.23 LCD backlight
 
 
 &spi0 {
-        compatible = "nordic,nrf-spi"; 
+	compatible = "nordic,nrf-spi";
 	status = "okay";
-        sck-pin = <2>;
-        mosi-pin = <3>;
-        miso-pin = <4>;
+	sck-pin = <2>;
+	mosi-pin = <3>;
+	miso-pin = <4>;
 	cs-gpios = <&gpio0 25 0>,<&gpio0 5 0>;
 	st7789v@0 {
 		compatible = "sitronix,st7789v";
@@ -117,7 +117,7 @@ PO.23 LCD backlight
 		height = <240>;
 		x-offset = <0>;
 		y-offset = <0>;
-                vcom = <0x19>;
+		vcom = <0x19>;
 		gctrl = <0x35>;
 		vrhs = <0x12>;
 		vdvs = <0x20>;
@@ -128,14 +128,14 @@ PO.23 LCD backlight
 		porch-param = [0c 0c 00 33 33];
 		cmd2en-param = [5a 69 02 01];
 		pwctrl1-param = [a4 a1];
-                pvgam-param = [D0 04 0D 11 13 2B 3F 54 4C 18 0D 0B 1F 23];
+		pvgam-param = [D0 04 0D 11 13 2B 3F 54 4C 18 0D 0B 1F 23];
 		nvgam-param = [D0 04 0C 11 13 2C 3F 44 51 2F 1F 1F 20 23];
 		ram-param = [00 F0];
 		rgb-param = [CD 08 14];
 
-        };
+		};
 
-        mx25r64: mx25r6435f@1 {
+		mx25r64: mx25r6435f@1 {
 		compatible = "jedec,spi-nor";
 		reg = <1>;
 		spi-max-frequency = <1000000>;
@@ -180,4 +180,8 @@ PO.23 LCD backlight
 			reg = <0x0007a000 0x00006000>;
 		};
 	};
+};
+
+&adc {
+	status = "okay";
 };

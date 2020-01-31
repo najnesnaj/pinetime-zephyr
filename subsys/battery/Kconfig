@@ -1,0 +1,18 @@
+config BATTERY
+    bool "Battery measurement"
+    select ADC
+    select ADC_0
+    #select CONFIG_NRFX_SAADC #if battery skips adc api
+    help
+      Enable battery measurement
+
+if BATTERY
+
+config BATTERY_SHELL
+    bool "Shell commands"
+    default y
+    depends on SHELL
+    help
+      Enable shell commands for battery
+
+endif
