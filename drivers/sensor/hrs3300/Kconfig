@@ -4,9 +4,17 @@
 
 menuconfig HRS3300
 	bool "HRS3300 Pulse Oximeter and Heart Rate Sensor"
+	select SENSOR
 	depends on I2C && HAS_DTS_I2C
 
 if HRS3300
+
+config HRS3300_CMDS
+	bool "Shell commands"
+	depends on SHELL
+	default y
+	help
+	  Enable shell commands for HRS3300 sensor.
 
 config HRS3300_SMP_AVE
 	int "Sample averaging"
