@@ -195,6 +195,45 @@
 
 /*
  * Devicetree node:
+ *   /soc/adc@40007000
+ *
+ * Binding (compatible = nordic,nrf-saadc):
+ *   $ZEPHYR_BASE/dts/bindings/iio/adc/nordic,nrf-saadc.yaml
+ *
+ * Dependency Ordinal: 14
+ *
+ * Requires:
+ *   3   /soc
+ *   13  /soc/interrupt-controller@e000e100
+ *
+ * Description:
+ *   Nordic Semiconductor nRF family SAADC node
+ */
+#define DT_NORDIC_NRF_SAADC_40007000_BASE_ADDRESS   0x40007000
+#define DT_ALIAS_ADC_0_BASE_ADDRESS                 DT_NORDIC_NRF_SAADC_40007000_BASE_ADDRESS
+#define DT_NORDIC_NRF_SAADC_ADC_0_BASE_ADDRESS      DT_NORDIC_NRF_SAADC_40007000_BASE_ADDRESS
+#define DT_INST_0_NORDIC_NRF_SAADC_BASE_ADDRESS     DT_NORDIC_NRF_SAADC_40007000_BASE_ADDRESS
+#define DT_NORDIC_NRF_SAADC_40007000_SIZE           4096
+#define DT_ALIAS_ADC_0_SIZE                         DT_NORDIC_NRF_SAADC_40007000_SIZE
+#define DT_NORDIC_NRF_SAADC_ADC_0_SIZE              DT_NORDIC_NRF_SAADC_40007000_SIZE
+#define DT_INST_0_NORDIC_NRF_SAADC_SIZE             DT_NORDIC_NRF_SAADC_40007000_SIZE
+#define DT_NORDIC_NRF_SAADC_40007000_IRQ_0          7
+#define DT_ALIAS_ADC_0_IRQ_0                        DT_NORDIC_NRF_SAADC_40007000_IRQ_0
+#define DT_NORDIC_NRF_SAADC_ADC_0_IRQ_0             DT_NORDIC_NRF_SAADC_40007000_IRQ_0
+#define DT_INST_0_NORDIC_NRF_SAADC_IRQ_0            DT_NORDIC_NRF_SAADC_40007000_IRQ_0
+#define DT_NORDIC_NRF_SAADC_40007000_IRQ_0_PRIORITY 1
+#define DT_ALIAS_ADC_0_IRQ_0_PRIORITY               DT_NORDIC_NRF_SAADC_40007000_IRQ_0_PRIORITY
+#define DT_NORDIC_NRF_SAADC_ADC_0_IRQ_0_PRIORITY    DT_NORDIC_NRF_SAADC_40007000_IRQ_0_PRIORITY
+#define DT_INST_0_NORDIC_NRF_SAADC_IRQ_0_PRIORITY   DT_NORDIC_NRF_SAADC_40007000_IRQ_0_PRIORITY
+/* Human readable string describing the device (used by Zephyr for API name) */
+#define DT_NORDIC_NRF_SAADC_40007000_LABEL          "ADC_0"
+#define DT_ALIAS_ADC_0_LABEL                        DT_NORDIC_NRF_SAADC_40007000_LABEL
+#define DT_NORDIC_NRF_SAADC_ADC_0_LABEL             DT_NORDIC_NRF_SAADC_40007000_LABEL
+#define DT_INST_0_NORDIC_NRF_SAADC_LABEL            DT_NORDIC_NRF_SAADC_40007000_LABEL
+#define DT_INST_0_NORDIC_NRF_SAADC                  1
+
+/*
+ * Devicetree node:
  *   /soc/clock@40000000
  *
  * Binding (compatible = nordic,nrf-clock):
@@ -1443,6 +1482,7 @@
 #define DT_COMPAT_NORDIC_NRF_GPIO                   1
 #define DT_COMPAT_NORDIC_NRF_GPIOTE                 1
 #define DT_COMPAT_NORDIC_NRF_RTC                    1
+#define DT_COMPAT_NORDIC_NRF_SAADC                  1
 #define DT_COMPAT_NORDIC_NRF_SPI                    1
 #define DT_COMPAT_NORDIC_NRF_TEMP                   1
 #define DT_COMPAT_NORDIC_NRF_TIMER                  1

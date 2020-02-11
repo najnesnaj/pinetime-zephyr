@@ -41,11 +41,11 @@
 \contentsline {section}{\numberline {11.4}Todo}{23}{section.11.4}
 \contentsline {section}{\numberline {11.5}References}{24}{section.11.5}
 \contentsline {chapter}{\numberline {12}Current Time Service}{25}{chapter.12}
-\contentsline {section}{\numberline {12.1}Overview}{25}{section.12.1}
-\contentsline {section}{\numberline {12.2}Requirements}{25}{section.12.2}
-\contentsline {section}{\numberline {12.3}Building and Running}{25}{section.12.3}
-\contentsline {section}{\numberline {12.4}Todo}{25}{section.12.4}
-\contentsline {section}{\numberline {12.5}References}{25}{section.12.5}
+\contentsline {section}{\numberline {12.1}Requirements:}{25}{section.12.1}
+\contentsline {section}{\numberline {12.2}BLE Peripheral CTS sample for zephyr}{25}{section.12.2}
+\contentsline {section}{\numberline {12.3}Using bluez on linux to connect}{25}{section.12.3}
+\contentsline {section}{\numberline {12.4}Howto use Bluez on linux to set up a time service}{26}{section.12.4}
+\contentsline {section}{\numberline {12.5}Howto use Android to set up a time service}{26}{section.12.5}
 \contentsline {chapter}{\numberline {13}Drivers}{27}{chapter.13}
 \contentsline {section}{\numberline {13.1}configuring I2C}{27}{section.13.1}
 \contentsline {subsection}{\numberline {13.1.1}board level definitions}{27}{subsection.13.1.1}
@@ -196,18 +196,22 @@
 \contentsline {subsubsection}{Building and Running}{48}{subsubsection*.73}
 \contentsline {subsubsection}{References}{48}{subsubsection*.74}
 \contentsline {section}{\numberline {15.6}Bluetooth Samples}{48}{section.15.6}
-\contentsline {subsection}{\numberline {15.6.1}Bluetooth: Eddystone}{48}{subsection.15.6.1}
+\contentsline {subsection}{\numberline {15.6.1}Bluetooth: Central / Heart-rate Monitor}{48}{subsection.15.6.1}
 \contentsline {subsubsection}{Overview}{48}{subsubsection*.75}
 \contentsline {subsubsection}{Requirements}{48}{subsubsection*.76}
 \contentsline {subsubsection}{Building and Running}{48}{subsubsection*.77}
-\contentsline {subsection}{\numberline {15.6.2}Bluetooth: Peripheral\_cts}{49}{subsection.15.6.2}
+\contentsline {subsection}{\numberline {15.6.2}Bluetooth: Eddystone}{49}{subsection.15.6.2}
 \contentsline {subsubsection}{Overview}{49}{subsubsection*.78}
 \contentsline {subsubsection}{Requirements}{49}{subsubsection*.79}
 \contentsline {subsubsection}{Building and Running}{49}{subsubsection*.80}
-\contentsline {subsection}{\numberline {15.6.3}Bluetooth: Peripheral}{49}{subsection.15.6.3}
+\contentsline {subsection}{\numberline {15.6.3}Bluetooth: Peripheral\_cts}{49}{subsection.15.6.3}
 \contentsline {subsubsection}{Overview}{49}{subsubsection*.81}
 \contentsline {subsubsection}{Requirements}{49}{subsubsection*.82}
 \contentsline {subsubsection}{Building and Running}{49}{subsubsection*.83}
+\contentsline {subsection}{\numberline {15.6.4}Bluetooth: Peripheral}{50}{subsection.15.6.4}
+\contentsline {subsubsection}{Overview}{50}{subsubsection*.84}
+\contentsline {subsubsection}{Requirements}{50}{subsubsection*.85}
+\contentsline {subsubsection}{Building and Running}{50}{subsubsection*.86}
 \contentsline {chapter}{\numberline {16}Menuconfig}{51}{chapter.16}
 \contentsline {section}{\numberline {16.1}Zephyr is like linux}{51}{section.16.1}
 \contentsline {chapter}{\numberline {17}hacking the pinetime smartwatch}{53}{chapter.17}

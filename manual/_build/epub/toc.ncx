@@ -338,42 +338,42 @@
       <navLabel>
         <text>Current Time Service</text>
       </navLabel>
-      <content src="CTS.xhtml" />  
+      <content src="current-time.xhtml" />  
       <navPoint id="navPoint56" playOrder="44">
         <navLabel>
           <text>Current Time Service</text>
         </navLabel>
-        <content src="CTS.xhtml" />  
+        <content src="current-time.xhtml" />  
       </navPoint>
       <navPoint id="navPoint57" playOrder="45">
         <navLabel>
-          <text>Overview</text>
+          <text>Requirements:</text>
         </navLabel>
-        <content src="CTS.xhtml#overview" />  
+        <content src="current-time.xhtml#requirements" />  
       </navPoint>
       <navPoint id="navPoint58" playOrder="46">
         <navLabel>
-          <text>Requirements</text>
+          <text>BLE Peripheral CTS sample for zephyr</text>
         </navLabel>
-        <content src="CTS.xhtml#requirements" />  
+        <content src="current-time.xhtml#ble-peripheral-cts-sample-for-zephyr" />  
       </navPoint>
       <navPoint id="navPoint59" playOrder="47">
         <navLabel>
-          <text>Building and Running</text>
+          <text>Using bluez on linux to connect</text>
         </navLabel>
-        <content src="CTS.xhtml#building-and-running" />  
+        <content src="current-time.xhtml#using-bluez-on-linux-to-connect" />  
       </navPoint>
       <navPoint id="navPoint60" playOrder="48">
         <navLabel>
-          <text>Todo</text>
+          <text>Howto use Bluez on linux to set up a time service</text>
         </navLabel>
-        <content src="CTS.xhtml#todo" />  
+        <content src="current-time.xhtml#howto-use-bluez-on-linux-to-set-up-a-time-service" />  
       </navPoint>
       <navPoint id="navPoint61" playOrder="49">
         <navLabel>
-          <text>References</text>
+          <text>Howto use Android to set up a time service</text>
         </navLabel>
-        <content src="CTS.xhtml#references" />  
+        <content src="current-time.xhtml#howto-use-android-to-set-up-a-time-service" />  
       </navPoint>
     </navPoint>
     <navPoint id="navPoint62" playOrder="50">
@@ -964,17 +964,23 @@
         </navPoint>
         <navPoint id="navPoint160" playOrder="128">
           <navLabel>
+            <text>Bluetooth: Central / Heart-rate Monitor</text>
+          </navLabel>
+          <content src="samples/bluetooth/central_hr/README.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint161" playOrder="129">
+          <navLabel>
             <text>Bluetooth: Eddystone</text>
           </navLabel>
           <content src="samples/bluetooth/eddystone/README.xhtml" />  
         </navPoint>
-        <navPoint id="navPoint161" playOrder="129">
+        <navPoint id="navPoint162" playOrder="130">
           <navLabel>
             <text>Bluetooth: Peripheral_cts</text>
           </navLabel>
           <content src="samples/bluetooth/peripheral-cts/README.xhtml" />  
         </navPoint>
-        <navPoint id="navPoint162" playOrder="130">
+        <navPoint id="navPoint163" playOrder="131">
           <navLabel>
             <text>Bluetooth: Peripheral</text>
           </navLabel>
@@ -982,84 +988,84 @@
         </navPoint>
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint163" playOrder="131">
+    <navPoint id="navPoint164" playOrder="132">
       <navLabel>
         <text>Menuconfig</text>
       </navLabel>
       <content src="menuconfig.xhtml" />  
-      <navPoint id="navPoint164" playOrder="131">
+      <navPoint id="navPoint165" playOrder="132">
         <navLabel>
           <text>Menuconfig</text>
         </navLabel>
         <content src="menuconfig.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint165" playOrder="132">
+      <navPoint id="navPoint166" playOrder="133">
         <navLabel>
           <text>Zephyr is like linux</text>
         </navLabel>
         <content src="menuconfig.xhtml#zephyr-is-like-linux" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint166" playOrder="133">
+    <navPoint id="navPoint167" playOrder="134">
       <navLabel>
         <text>hacking   the pinetime smartwatch</text>
       </navLabel>
       <content src="flashing.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint167" playOrder="134">
+    <navPoint id="navPoint168" playOrder="135">
       <navLabel>
         <text>debugging   the pinetime smartwatch</text>
       </navLabel>
       <content src="hacking/debugging.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint168" playOrder="135">
+    <navPoint id="navPoint169" playOrder="136">
       <navLabel>
         <text>scanning the I2C_1 port</text>
       </navLabel>
       <content src="hacking/i2cscanning.xhtml" />  
-      <navPoint id="navPoint169" playOrder="135">
+      <navPoint id="navPoint170" playOrder="136">
         <navLabel>
           <text>scanning the I2C_1 port</text>
         </navLabel>
         <content src="hacking/i2cscanning.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint170" playOrder="136">
+      <navPoint id="navPoint171" playOrder="137">
         <navLabel>
           <text>Building and Running</text>
         </navLabel>
         <content src="hacking/i2cscanning.xhtml#building-and-running" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint171" playOrder="137">
+    <navPoint id="navPoint172" playOrder="138">
       <navLabel>
         <text>howto flash your zephyr image</text>
       </navLabel>
       <content src="hacking/writeprotection.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint172" playOrder="138">
+    <navPoint id="navPoint173" playOrder="139">
       <navLabel>
         <text>howto remove the write protection</text>
       </navLabel>
       <content src="hacking/writeprotection.xhtml#howto-remove-the-write-protection" />  
     </navPoint>
-    <navPoint id="navPoint173" playOrder="139">
+    <navPoint id="navPoint174" playOrder="140">
       <navLabel>
         <text>howto generate pdf documents</text>
       </navLabel>
       <content src="latexpdf.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint174" playOrder="140">
+    <navPoint id="navPoint175" playOrder="141">
       <navLabel>
         <text>About</text>
       </navLabel>
       <content src="about.xhtml" />  
-      <navPoint id="navPoint175" playOrder="140">
+      <navPoint id="navPoint176" playOrder="141">
         <navLabel>
           <text>About</text>
         </navLabel>
         <content src="about.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint176" playOrder="141">
+      <navPoint id="navPoint177" playOrder="142">
         <navLabel>
           <text>Todo</text>
         </navLabel>

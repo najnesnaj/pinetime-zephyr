@@ -1,0 +1,11 @@
+-- west build: making build dir /root/work/pinetime/build pristine
+-- west build: build configuration:
+       source directory: /root/work/pinetime/samples/gui/clock
+       build directory: /root/work/pinetime/build
+       BOARD: pinetime (origin: command line)
+-- west build: generating a build system
+-- Zephyr version: 2.1.99
+-- Found PythonInterp: /usr/bin/python3.6 (found suitable version "3.6.9", minimum required is "3.6") 
+-- Selected BOARD pinetime
+-- Found west: /root/.local/bin/west (found suitable version "0.6.3", minimum required is "0.6.0")
+-- Loading /root/work/pinetime/boards/arm/pinetime/pinetime.dts as base

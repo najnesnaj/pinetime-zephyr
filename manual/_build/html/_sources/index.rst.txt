@@ -12,7 +12,7 @@
    lvgl
    clock
    RTC
-   CTS
+   current-time.rst
    drivers/drivers.rst
    behind/behind.rst
    samples/index.rst

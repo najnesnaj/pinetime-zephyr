@@ -10,7 +10,6 @@ project(peripheral-cts)
 
 target_sources(app PRIVATE
   src/main.c
-  src/cts.c
   src/cts_sync.c
 )
 
