@@ -41,6 +41,7 @@ The pinetime zephyr sample behaves as a peripheral:
                            -connect to the pinetime with bluetoothctl
     
 Using bluetoothctl:
+
 .. code-block:: console
 
     #bluetoothctl
