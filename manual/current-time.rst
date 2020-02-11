@@ -65,6 +65,7 @@ https://github.com/bosmoment/gatt-cts/blob/master/gatt-cts-server.py
 You might have to install extra packages:
 
 .. code-block:: console
+
 		apt-get install python-dbus 
  		apt-get install python-gi 
 		apt-get install python-gobject
