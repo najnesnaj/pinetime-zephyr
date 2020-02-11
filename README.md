@@ -108,6 +108,7 @@ In this repository you can find files that supplement a zephyr installation.
 - accel sensor
 - heart rate sensor
 - touchscreen
+- CTS (setting time in bluetooth)
 
 ### TODO
 - HR detection (algorithm)
@@ -115,4 +116,4 @@ In this repository you can find files that supplement a zephyr installation.
 - testing interrupt/semaphore mechanism on accel sensor and touchscreen
 - powermanagement
 - DFU (wireless firmware update)
-- CTS (setting time in bluetooth)
+
