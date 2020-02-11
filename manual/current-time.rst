@@ -55,6 +55,7 @@ Using bluetoothctl:
 
 Howto use Bluez on linux to set up a time service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Within the bluez source distribution there is an example GATT (Generic Attribute Profile)server. It advertises some standard service such as heart rate, battery ...
 Koen zandberg adapted this script, so it advertises the current time :
 https://github.com/bosmoment/gatt-cts/blob/master/gatt-cts-server.py
@@ -66,5 +67,16 @@ You might have to install extra packages:
 		apt-get install python-dbus 
  		apt-get install python-gi 
 		apt-get install python-gobject
+
+
+Howto use Android to set up a time service
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As soon as a device is bonded, Pinetime will look for a CTS server (Current Time Service) on the connected device.
+Here is how to do it with an Android smartphone running NRFConnect: 
+
+Build and program the firmware on the Pinetime Install NRFConnect (https://www.nordicsemi.com/Software-and-Tools/Development-Tools/nRF-Connect-for-desktop) 
+
+Start NRFConnect and create a CTS server : Tap the hamburger button on the top left and select "Configure GATT server" Tap "Add service" on the bottom Select server configuration "Current Time Service" and tap OK Go back to the main screen and scan for BLE devices. A device called "PineTime" should appear Tap the button "Connect" next to the PineTime device. It should connect to the PineTime and switch to a new tab. On this tab, on the top right, there is a 3 dots button. Tap on it and select Bond. The bonding process begins, and if it is sucessful, the PineTime should update its time and display it on the screen.
 
   
