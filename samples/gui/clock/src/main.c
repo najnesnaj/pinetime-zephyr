@@ -35,7 +35,7 @@ LOG_MODULE_REGISTER(app);
 #define LED_PORT        DT_ALIAS_LED1_GPIOS_CONTROLLER
 #define LED             DT_ALIAS_LED1_GPIOS_PIN
 #define LV_IMG_DECLARE(var_name) extern const lv_img_dsc_t var_name;
-
+LV_IMG_DECLARE(klokje);
 
 
 #include <zephyr/types.h>
@@ -247,6 +247,16 @@ void main(void)
 	}
 	else
 		backlight_init();
+
+lv_obj_t *scr = lv_scr_act();
+        lv_obj_t * img_bin = lv_img_create(lv_scr_act(), NULL);
+ //
+ //                /*clock background*/
+                        lv_img_set_src(img_bin, &klokje);
+ //
+ //
+
+
 
 	hello_world_label = lv_label_create(lv_scr_act(), NULL);
 	lv_label_set_long_mode(hello_world_label, LV_LABEL_LONG_BREAK);     //Break the long lines
