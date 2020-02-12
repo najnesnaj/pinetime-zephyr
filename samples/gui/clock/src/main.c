@@ -99,7 +99,7 @@ static void bt_ready(void)
 
 struct counter_alarm_cfg alarm_cfg;
 //struct time* clock_get_datetime();
-typedef struct {
+/*typedef struct {
 	uint16_t year;
 	uint8_t month;
 	uint8_t day;
@@ -110,7 +110,7 @@ typedef struct {
 	uint8_t exact_time_256;
 	uint8_t adjust_reason;
 } cts_datetime_t;
-
+*/
 cts_datetime_t pinetime_datetime;
 
 void init_clock(cts_datetime_t* datetime)
