@@ -191,7 +191,7 @@ void main(void)
 	err = bt_enable(NULL);
 	if (err) {
 		printk("Bluetooth init failed (err %d)\n", err);
-		return;
+//		return;
 	}
 
 	bt_ready();
@@ -205,7 +205,7 @@ void main(void)
 	counter_start(counter_dev);
 	if (counter_dev == NULL) {
 		printk("Counter device not found\n");
-		return;
+//		return;
 	}
 	alarm_cfg.flags = 0;
 	alarm_cfg.ticks = counter_us_to_ticks(counter_dev, DELAY);
