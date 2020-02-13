@@ -8,29 +8,23 @@ Overview
 
 Application demonstrating reading the time from a CTS service. 
 
-(reading out the cts service with bluez)
+I used bluez on linux + a gatt server script that presents a current time service.
 
-[Ds D6 sample cts server:/service0014/char0015]# read
-Attempting to read /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0xdf
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x07
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x05
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x1e
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x0c
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x2d
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x1e
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x01
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x00
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x00
+
+This program tests if it can get the time of a cts service. In order to get the time, you will have to connect the device first.
 
 
 Requirements
 ************
 
-* a bluetoothdevice running the CTS service  (I used the bluetooth/samples/peripheral for this, it simulates a cts server)
+* a bluetoothdevice running the CTS service  
 * a board with this software (pinetime) 
+
+
+You will need a serial port to read the output of the "printk" messages.
+
+
 
 Building and Running
 ********************
 
-this is under development and is not working at all (yet)

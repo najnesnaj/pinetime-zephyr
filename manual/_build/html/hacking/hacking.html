@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; open source watch 1.0.0 documentation</title>
+  <title>Hacking stuff &mdash; open source watch 1.0.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="debugging the pinetime smartwatch" href="debugging.html" />
-    <link rel="prev" title="hacking the pinetime smartwatch" href="../flashing.html" /> 
+    <link rel="next" title="hacking the pinetime smartwatch" href="flashing.html" />
+    <link rel="prev" title="Menuconfig" href="../menuconfig.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,7 +86,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr for the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
@@ -97,15 +97,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../lvgl.html">LittlevGL Basic Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clock.html">LittlevGL Clock Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../RTC.html">Real Time Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../current-time.html">Current Time Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../drivers/drivers.html">Drivers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../behind/behind.html">Behind the scene</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../flashing.html">hacking   the pinetime smartwatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="debugging.html">debugging   the pinetime smartwatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="i2cscanning.html">scanning the I2C_1 port</a></li>
-<li class="toctree-l1"><a class="reference internal" href="writeprotection.html">howto flash your zephyr image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="writeprotection.html#howto-remove-the-write-protection">howto remove the write protection</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hacking stuff</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="flashing.html">hacking   the pinetime smartwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">debugging   the pinetime smartwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2cscanning.html">scanning the I2C_1 port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="writeprotection.html">howto flash your zephyr image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="writeprotection.html#howto-remove-the-write-protection">howto remove the write protection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="infrastructure.html">howto configure gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openocd.html">howto use 2 openocd sessions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../latexpdf.html">howto generate pdf documents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
 </ul>
@@ -153,7 +159,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Hacking stuff</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -172,8 +178,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="toctree-wrapper compound">
+  <div class="section" id="hacking-stuff">
+<span id="hacking"></span><h1>Hacking stuff<a class="headerlink" href="#hacking-stuff" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="flashing.html">hacking   the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">debugging   the pinetime smartwatch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="i2cscanning.html">scanning the I2C_1 port</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="i2cscanning.html#building-and-running">Building and Running</a></li>
@@ -181,7 +190,15 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="writeprotection.html">howto flash your zephyr image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="writeprotection.html#howto-remove-the-write-protection">howto remove the write protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure.html">howto configure gateway</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openocd.html">howto use 2 openocd sessions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="openocd.html#suppose-you-have-2-microcontrollers">Suppose you have 2 microcontrollers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openocd.html#howto-setup-a-second-openocd-session-on-a-different-port">Howto setup a second openocd session on a different port?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openocd.html#howto-use-the-gpio-header-of-a-single-board-computer">Howto use the GPIO header of a Single Board computer</a></li>
 </ul>
+</li>
+</ul>
+</div>
 </div>
 
 
@@ -192,10 +209,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="debugging.html" class="btn btn-neutral float-right" title="debugging the pinetime smartwatch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="flashing.html" class="btn btn-neutral float-right" title="hacking the pinetime smartwatch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../flashing.html" class="btn btn-neutral float-left" title="hacking the pinetime smartwatch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../menuconfig.html" class="btn btn-neutral float-left" title="Menuconfig" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

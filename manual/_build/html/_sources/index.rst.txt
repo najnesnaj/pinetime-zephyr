@@ -17,7 +17,6 @@
    behind/behind.rst
    samples/index.rst
    menuconfig
-   flashing
    hacking/hacking.rst
    latexpdf
    about

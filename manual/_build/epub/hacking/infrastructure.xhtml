@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>howto configure gateway</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="howto-configure-gateway">
+<span id="infrastructure"></span><h1>howto configure gateway</h1>
+<p>Once you completed your <code class="docutils literal notranslate"><span class="pre">west</span> <span class="pre">build</span></code> , your image is located under the build directory</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> ~/work/pinetime/zephyr/build/zephyr
+<span class="go">here you can find zephyr.bin which you can flash</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">use</span> <span class="n">an</span> <span class="n">orange</span> <span class="n">pi</span> <span class="n">single</span> <span class="n">board</span> <span class="n">computer</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">pinetime</span> <span class="n">watch</span> <span class="ow">is</span> <span class="n">attached</span> <span class="n">to</span> <span class="n">this</span><span class="o">.</span>
+<span class="n">My</span> <span class="n">development</span> <span class="ow">is</span> <span class="n">done</span> <span class="n">on</span> <span class="n">a</span> <span class="n">laptop</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>How can you copy from one environment (laptop) to another (SBC) without typing password?
+</pre></div>
+</div>
+<p>On the laptop :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ssh-keygen -b 8092 -t rsa -C &quot;fota gw access key&quot; -f ~/.ssh/orange</span>
+<span class="go">Generating public/private rsa key pair.</span>
+<span class="go">Enter passphrase (empty for no passphrase):          (LEAVE EMPTY!)</span>
+<span class="go">Enter same passphrase again:</span>
+<span class="go">Your identification has been saved in /root/.ssh/orange.</span>
+<span class="go">Your public key has been saved in /root/.ssh/orange.pub.</span>
+<span class="go">The key fingerprint is:</span>
+<span class="go">SHA256:xCM5Fk1LAVjEWqrM6LKM8Y6+Y12ONt6eV8vDa/KdRUM fota gw access key</span>
+<span class="go">The key&#39;s randomart image is:</span>
+<span class="go">+---[RSA 8092]----+</span>
+<span class="go">|     ==++.       |</span>
+<span class="go">|B*B.o+. +ooo     |</span>
+<span class="go">+----[SHA256]-----+</span>
+
+<span class="gp gp-VirtualEnv">(the standard port is 22 and not 9988 which is my custom port)</span>
+
+<span class="go">copy the certificate to the SBC (which name is orange in my case):</span>
+<span class="go">ssh-copy-id -p 9988 -i ~/.ssh/orange.pub root@orange</span>
+
+
+<span class="go">create config file :  ~/.ssh/config</span>
+<span class="go">      Host orange</span>
+<span class="go">      HostName orange</span>
+<span class="go">      User root</span>
+<span class="go">      Port 9988</span>
+<span class="go">      IdentityFile ~/.ssh/orange</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Now</span> <span class="n">you</span> <span class="n">can</span> <span class="n">copy</span> <span class="n">without</span> <span class="n">a</span> <span class="n">password</span> <span class="p">:</span>
+<span class="n">scp</span> <span class="n">build</span><span class="o">/</span><span class="n">zephyr</span><span class="o">/</span><span class="n">zephyr</span><span class="o">.</span><span class="n">bin</span> <span class="n">orange</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">src</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

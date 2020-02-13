@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Feb 11, 2020}
+\date{Feb 13, 2020}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1894,6 +1894,32 @@ controller orientation.
 \section{GUI Samples}
 \label{\detokenize{samples/gui/gui:gui-samples}}\label{\detokenize{samples/gui/gui:id1}}\label{\detokenize{samples/gui/gui::doc}}
 
+\subsection{LittlevGL Clock Sample with CTS time adjustment}
+\label{\detokenize{samples/gui/clock-cts/README:littlevgl-clock-sample-with-cts-time-adjustment}}\label{\detokenize{samples/gui/clock-cts/README:clock-sample}}\label{\detokenize{samples/gui/clock-cts/README::doc}}
+
+\subsubsection{Overview}
+\label{\detokenize{samples/gui/clock-cts/README:overview}}
+This samples demonstrates the use of the counter.
+
+Have a look at the test\_counter\_interrupt\_fn function in src/main.c
+
+
+\subsubsection{Requirements}
+\label{\detokenize{samples/gui/clock-cts/README:requirements}}
+Have a look at the prj.conf file.
+
+It should contain CONFIG\_LVGL=y and
+CONFIG\_LVGL\_OBJ\_IMAGE=y.
+
+For the clock function it needs  CONFIG\_COUNTER=y.
+
+
+\subsubsection{Building and Running}
+\label{\detokenize{samples/gui/clock-cts/README:building-and-running}}
+
+\subsubsection{References}
+\label{\detokenize{samples/gui/clock-cts/README:references}}
+
 \subsection{LittlevGL Clock Sample}
 \label{\detokenize{samples/gui/clock/README:littlevgl-clock-sample}}\label{\detokenize{samples/gui/clock/README:clock-sample}}\label{\detokenize{samples/gui/clock/README::doc}}
 
@@ -2096,37 +2122,26 @@ See {\hyperref[\detokenize{samples/bluetooth/bluetooth:bluetooth-samples}]{\sphi
 \label{\detokenize{samples/bluetooth/peripheral-cts/README:overview}}
 Application demonstrating reading the time from a CTS service.
 
-(reading out the cts service with bluez)
+I used bluez on linux + a gatt server script that presents a current time service.
 
-{[}Ds D6 sample cts server:/service0014/char0015{]}\# read
-Attempting to read /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015
-{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0xdf
-{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x07
-{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x05
-{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x1e
-{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x0c
-{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x2d
-{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x1e
-{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x01
-{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x00
-{[}CHG{]} Attribute /org/bluez/hci0/dev\_75\_D3\_E5\_20\_20\_26/service0014/char0015 Value: 0x00
+This program tests if it can get the time of a cts service. In order to get the time, you will have to connect the device first.
 
 
 \subsubsection{Requirements}
 \label{\detokenize{samples/bluetooth/peripheral-cts/README:requirements}}\begin{itemize}
 \item {} 
-a bluetoothdevice running the CTS service  (I used the bluetooth/samples/peripheral for this, it simulates a cts server)
+a bluetoothdevice running the CTS service
 
 \item {} 
 a board with this software (pinetime)
 
 \end{itemize}
 
+You will need a serial port to read the output of the “printk” messages.
+
 
 \subsubsection{Building and Running}
 \label{\detokenize{samples/bluetooth/peripheral-cts/README:building-and-running}}
-this is under development and is not working at all (yet)
-
 
 \subsection{Bluetooth: Peripheral}
 \label{\detokenize{samples/bluetooth/peripheral/README:bluetooth-peripheral}}\label{\detokenize{samples/bluetooth/peripheral/README:ble-peripheral}}\label{\detokenize{samples/bluetooth/peripheral/README::doc}}
@@ -2234,8 +2249,11 @@ now you can have a look in the configurationfile (and modify if needed)
 \end{sphinxVerbatim}
 
 
-\chapter{hacking   the pinetime smartwatch}
-\label{\detokenize{flashing:hacking-the-pinetime-smartwatch}}\label{\detokenize{flashing::doc}}
+\chapter{Hacking stuff}
+\label{\detokenize{hacking/hacking:hacking-stuff}}\label{\detokenize{hacking/hacking:hacking}}\label{\detokenize{hacking/hacking::doc}}
+
+\section{hacking   the pinetime smartwatch}
+\label{\detokenize{hacking/flashing:hacking-the-pinetime-smartwatch}}\label{\detokenize{hacking/flashing::doc}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{The} \PYG{n}{pinetime} \PYG{o+ow}{is} \PYG{n}{preloaded} \PYG{k}{with} \PYG{n}{firmware}\PYG{o}{.}
 \PYG{n}{This} \PYG{n}{firmware} \PYG{o+ow}{is} \PYG{n}{secured}\PYG{p}{,} \PYG{n}{you} \PYG{n}{cannot} \PYG{n}{peek} \PYG{n}{into} \PYG{n}{it}\PYG{o}{.}
@@ -2299,8 +2317,8 @@ programming
 removing write protection see:   {\hyperref[\detokenize{hacking/writeprotection:flashing}]{\sphinxcrossref{\DUrole{std,std-ref}{howto flash your zephyr image}}}}
 
 
-\chapter{debugging   the pinetime smartwatch}
-\label{\detokenize{hacking/debugging:debugging-the-pinetime-smartwatch}}\label{\detokenize{hacking/debugging::doc}}\label{\detokenize{hacking/debugging::doc}}
+\section{debugging   the pinetime smartwatch}
+\label{\detokenize{hacking/debugging:debugging-the-pinetime-smartwatch}}\label{\detokenize{hacking/debugging::doc}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{The} \PYG{n}{pinetime} \PYG{n}{does} \PYG{o+ow}{not} \PYG{n}{have} \PYG{n}{a} \PYG{n}{serial} \PYG{n}{port}\PYG{o}{.}
 \PYG{n}{I} \PYG{n}{do} \PYG{o+ow}{not} \PYG{n}{have} \PYG{n}{a} \PYG{n}{segger} \PYG{n}{debugging} \PYG{n}{probe}\PYG{o}{.}
@@ -2336,7 +2354,7 @@ programming
 \end{sphinxVerbatim}
 
 
-\chapter{scanning the I2C\_1 port}
+\section{scanning the I2C\_1 port}
 \label{\detokenize{hacking/i2cscanning:scanning-the-i2c-1-port}}\label{\detokenize{hacking/i2cscanning:i2cscanning}}\label{\detokenize{hacking/i2cscanning::doc}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{The} \PYG{n}{pinetime} \PYG{n}{does} \PYG{o+ow}{not} \PYG{n}{have} \PYG{n}{a} \PYG{n}{serial} \PYG{n}{port}\PYG{o}{.}
@@ -2346,7 +2364,7 @@ programming
 \end{sphinxVerbatim}
 
 
-\section{Building and Running}
+\subsection{Building and Running}
 \label{\detokenize{hacking/i2cscanning:building-and-running}}
 In this repo under samples you will find an adapted i2c scanner program.
 
@@ -2385,7 +2403,7 @@ Peeking
 this corresponds to 0x18, 0x44 and 0xC2 (which is endvalue of scanner, so it does not detect touchscreen, which should be touched first….)
 
 
-\chapter{howto flash your zephyr image}
+\section{howto flash your zephyr image}
 \label{\detokenize{hacking/writeprotection:howto-flash-your-zephyr-image}}\label{\detokenize{hacking/writeprotection:flashing}}\label{\detokenize{hacking/writeprotection::doc}}
 Once you completed your \sphinxcode{\sphinxupquote{west build}} , your image is located under the build directory
 
@@ -2405,7 +2423,7 @@ Once you completed your \sphinxcode{\sphinxupquote{west build}} , your image is 
 \end{sphinxVerbatim}
 
 
-\chapter{howto remove the write protection}
+\section{howto remove the write protection}
 \label{\detokenize{hacking/writeprotection:howto-remove-the-write-protection}}\begin{description}
 \item[{::}] \leavevmode
 the PineTime watch is read/write protected (at least the one I got)
@@ -2421,6 +2439,109 @@ Unlock the chip by executing the command:
 \textgreater{} nrf52.dap apreg 1 0x04 0x01
 
 \end{description}
+
+
+\section{howto configure gateway}
+\label{\detokenize{hacking/infrastructure:howto-configure-gateway}}\label{\detokenize{hacking/infrastructure:infrastructure}}\label{\detokenize{hacking/infrastructure::doc}}
+Once you completed your \sphinxcode{\sphinxupquote{west build}} , your image is located under the build directory
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZdl{}} \PYG{n+nb}{cd} \PYGZti{}/work/pinetime/zephyr/build/zephyr
+\PYG{g+go}{here you can find zephyr.bin which you can flash}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{I} \PYG{n}{use} \PYG{n}{an} \PYG{n}{orange} \PYG{n}{pi} \PYG{n}{single} \PYG{n}{board} \PYG{n}{computer}\PYG{o}{.}
+\PYG{n}{The} \PYG{n}{pinetime} \PYG{n}{watch} \PYG{o+ow}{is} \PYG{n}{attached} \PYG{n}{to} \PYG{n}{this}\PYG{o}{.}
+\PYG{n}{My} \PYG{n}{development} \PYG{o+ow}{is} \PYG{n}{done} \PYG{n}{on} \PYG{n}{a} \PYG{n}{laptop}\PYG{o}{.}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+How can you copy from one environment (laptop) to another (SBC) without typing password?
+\end{sphinxVerbatim}
+
+On the laptop :
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{ssh\PYGZhy{}keygen \PYGZhy{}b 8092 \PYGZhy{}t rsa \PYGZhy{}C \PYGZdq{}fota gw access key\PYGZdq{} \PYGZhy{}f \PYGZti{}/.ssh/orange}
+\PYG{g+go}{Generating public/private rsa key pair.}
+\PYG{g+go}{Enter passphrase (empty for no passphrase):          (LEAVE EMPTY!)}
+\PYG{g+go}{Enter same passphrase again:}
+\PYG{g+go}{Your identification has been saved in /root/.ssh/orange.}
+\PYG{g+go}{Your public key has been saved in /root/.ssh/orange.pub.}
+\PYG{g+go}{The key fingerprint is:}
+\PYG{g+go}{SHA256:xCM5Fk1LAVjEWqrM6LKM8Y6+Y12ONt6eV8vDa/KdRUM fota gw access key}
+\PYG{g+go}{The key\PYGZsq{}s randomart image is:}
+\PYG{g+go}{+\PYGZhy{}\PYGZhy{}\PYGZhy{}[RSA 8092]\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+}
+\PYG{g+go}{\textbar{}     ==++.       \textbar{}}
+\PYG{g+go}{\textbar{}B*B.o+. +ooo     \textbar{}}
+\PYG{g+go}{+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}[SHA256]\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}+}
+
+\PYG{g+gp+gpVirtualEnv}{(the standard port is 22 and not 9988 which is my custom port)}
+
+\PYG{g+go}{copy the certificate to the SBC (which name is orange in my case):}
+\PYG{g+go}{ssh\PYGZhy{}copy\PYGZhy{}id \PYGZhy{}p 9988 \PYGZhy{}i \PYGZti{}/.ssh/orange.pub root@orange}
+
+
+\PYG{g+go}{create config file :  \PYGZti{}/.ssh/config}
+\PYG{g+go}{      Host orange}
+\PYG{g+go}{      HostName orange}
+\PYG{g+go}{      User root}
+\PYG{g+go}{      Port 9988}
+\PYG{g+go}{      IdentityFile \PYGZti{}/.ssh/orange}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{Now} \PYG{n}{you} \PYG{n}{can} \PYG{n}{copy} \PYG{n}{without} \PYG{n}{a} \PYG{n}{password} \PYG{p}{:}
+\PYG{n}{scp} \PYG{n}{build}\PYG{o}{/}\PYG{n}{zephyr}\PYG{o}{/}\PYG{n}{zephyr}\PYG{o}{.}\PYG{n}{bin} \PYG{n}{orange}\PYG{p}{:}\PYG{o}{/}\PYG{n}{usr}\PYG{o}{/}\PYG{n}{src}
+\end{sphinxVerbatim}
+\phantomsection\label{\detokenize{hacking/openocd:openocd}}
+w
+
+
+\section{howto use 2 openocd sessions}
+\label{\detokenize{hacking/openocd:howto-use-2-openocd-sessions}}\label{\detokenize{hacking/openocd::doc}}
+Once you completed your \sphinxcode{\sphinxupquote{west build}} , your image is located under the build directory
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{   \PYGZdl{}} \PYG{n+nb}{cd} \PYGZti{}/work/pinetime/zephyr/build/zephyr
+\PYG{g+go}{   here you can find zephyr.bin which you can flash}
+
+
+
+
+\PYG{g+go}{I use Openocd to flash.}
+\PYG{g+go}{Just connect : telnet 127.0.0.1 4444}
+
+\PYG{g+go}{.. code\PYGZhy{}block:: console}
+
+\PYG{g+go}{    program zephyr.bin}
+\end{sphinxVerbatim}
+
+
+\subsection{Suppose you have 2 microcontrollers}
+\label{\detokenize{hacking/openocd:suppose-you-have-2-microcontrollers}}\begin{quote}
+
+Just connect : telnet 127.0.0.1 7777 for the second.
+\end{quote}
+
+
+\subsection{Howto setup a second openocd session on a different port?}
+\label{\detokenize{hacking/openocd:howto-setup-a-second-openocd-session-on-a-different-port}}
+In this case an ST-LINK/V2 an in-circuit debugger and programmer is used.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{openocd} \PYG{o}{\PYGZhy{}}\PYG{n}{c} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{telnet\PYGZus{}port 7777}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZhy{}}\PYG{n}{c} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{tcl\PYGZus{}port 6667}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZhy{}}\PYG{n}{c} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{gdb\PYGZus{}port 3332}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZhy{}}\PYG{n}{s} \PYG{o}{/}\PYG{n}{usr}\PYG{o}{/}\PYG{n}{local}\PYG{o}{/}\PYG{n}{share}\PYG{o}{/}\PYG{n}{openocd}\PYG{o}{/}\PYG{n}{scripts} \PYG{o}{\PYGZhy{}}\PYG{n}{f} \PYG{n}{interface}\PYG{o}{/}\PYG{n}{stlink}\PYG{o}{.}\PYG{n}{cfg}  \PYG{o}{\PYGZhy{}}\PYG{n}{f} \PYG{n}{target}\PYG{o}{/}\PYG{n}{nrf52}\PYG{o}{.}\PYG{n}{cfg}
+\end{sphinxVerbatim}
+
+
+\subsection{Howto use the GPIO header of a Single Board computer}
+\label{\detokenize{hacking/openocd:howto-use-the-gpio-header-of-a-single-board-computer}}
+This works really well, and does not require a seperate programmer.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{openocd} \PYG{o}{\PYGZhy{}}\PYG{n}{f} \PYG{o}{/}\PYG{n}{usr}\PYG{o}{/}\PYG{n}{local}\PYG{o}{/}\PYG{n}{share}\PYG{o}{/}\PYG{n}{openocd}\PYG{o}{/}\PYG{n}{scripts}\PYG{o}{/}\PYG{n}{interface}\PYG{o}{/}\PYG{n}{sysfsgpio}\PYG{o}{\PYGZhy{}}\PYG{n}{raspberrypi}\PYG{o}{.}\PYG{n}{cfg} \PYG{o}{\PYGZhy{}}\PYG{n}{c} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{transport select swd}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{\PYGZhy{}}\PYG{n}{f} \PYG{o}{/}\PYG{n}{usr}\PYG{o}{/}\PYG{n}{local}\PYG{o}{/}\PYG{n}{share}\PYG{o}{/}\PYG{n}{openocd}\PYG{o}{/}\PYG{n}{scripts}\PYG{o}{/}\PYG{n}{target}\PYG{o}{/}\PYG{n}{nrf52}\PYG{o}{.}\PYG{n}{cfg}  \PYG{o}{\PYGZhy{}}\PYG{n}{c} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{bindto 0.0.0.0}\PYG{l+s+s1}{\PYGZsq{}}
+\end{sphinxVerbatim}
 
 
 \chapter{howto generate pdf documents}

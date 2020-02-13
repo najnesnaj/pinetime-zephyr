@@ -922,65 +922,71 @@
         </navPoint>
         <navPoint id="navPoint153" playOrder="122">
           <navLabel>
+            <text>LittlevGL Clock Sample with CTS time adjustment</text>
+          </navLabel>
+          <content src="samples/gui/clock-cts/README.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint154" playOrder="123">
+          <navLabel>
             <text>LittlevGL Clock Sample</text>
           </navLabel>
           <content src="samples/gui/clock/README.xhtml" />  
         </navPoint>
-        <navPoint id="navPoint154" playOrder="123">
+        <navPoint id="navPoint155" playOrder="124">
           <navLabel>
             <text>Adafruit GFX Library on ST7789V Display</text>
           </navLabel>
           <content src="samples/gui/gfx/README.xhtml" />  
         </navPoint>
-        <navPoint id="navPoint155" playOrder="124">
+        <navPoint id="navPoint156" playOrder="125">
           <navLabel>
             <text>Display accel values</text>
           </navLabel>
           <content src="samples/gui/lvaccel/README.xhtml" />  
         </navPoint>
-        <navPoint id="navPoint156" playOrder="125">
+        <navPoint id="navPoint157" playOrder="126">
           <navLabel>
             <text>LittlevGL Basic Sample</text>
           </navLabel>
           <content src="samples/gui/lvgl/README.xhtml" />  
         </navPoint>
-        <navPoint id="navPoint157" playOrder="126">
+        <navPoint id="navPoint158" playOrder="127">
           <navLabel>
             <text>Touchscreen Basic Sample</text>
           </navLabel>
           <content src="samples/gui/lvtouch/README.xhtml" />  
         </navPoint>
       </navPoint>
-      <navPoint id="navPoint158" playOrder="127">
+      <navPoint id="navPoint159" playOrder="128">
         <navLabel>
           <text>Bluetooth Samples</text>
         </navLabel>
         <content src="samples/bluetooth/bluetooth.xhtml" />  
-        <navPoint id="navPoint159" playOrder="127">
+        <navPoint id="navPoint160" playOrder="128">
           <navLabel>
             <text>Bluetooth Samples</text>
           </navLabel>
           <content src="samples/bluetooth/bluetooth.xhtml" />  
         </navPoint>
-        <navPoint id="navPoint160" playOrder="128">
+        <navPoint id="navPoint161" playOrder="129">
           <navLabel>
             <text>Bluetooth: Central / Heart-rate Monitor</text>
           </navLabel>
           <content src="samples/bluetooth/central_hr/README.xhtml" />  
         </navPoint>
-        <navPoint id="navPoint161" playOrder="129">
+        <navPoint id="navPoint162" playOrder="130">
           <navLabel>
             <text>Bluetooth: Eddystone</text>
           </navLabel>
           <content src="samples/bluetooth/eddystone/README.xhtml" />  
         </navPoint>
-        <navPoint id="navPoint162" playOrder="130">
+        <navPoint id="navPoint163" playOrder="131">
           <navLabel>
             <text>Bluetooth: Peripheral_cts</text>
           </navLabel>
           <content src="samples/bluetooth/peripheral-cts/README.xhtml" />  
         </navPoint>
-        <navPoint id="navPoint163" playOrder="131">
+        <navPoint id="navPoint164" playOrder="132">
           <navLabel>
             <text>Bluetooth: Peripheral</text>
           </navLabel>
@@ -988,84 +994,132 @@
         </navPoint>
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint164" playOrder="132">
+    <navPoint id="navPoint165" playOrder="133">
       <navLabel>
         <text>Menuconfig</text>
       </navLabel>
       <content src="menuconfig.xhtml" />  
-      <navPoint id="navPoint165" playOrder="132">
+      <navPoint id="navPoint166" playOrder="133">
         <navLabel>
           <text>Menuconfig</text>
         </navLabel>
         <content src="menuconfig.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint166" playOrder="133">
+      <navPoint id="navPoint167" playOrder="134">
         <navLabel>
           <text>Zephyr is like linux</text>
         </navLabel>
         <content src="menuconfig.xhtml#zephyr-is-like-linux" />  
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint167" playOrder="134">
-      <navLabel>
-        <text>hacking   the pinetime smartwatch</text>
-      </navLabel>
-      <content src="flashing.xhtml" />  
-    </navPoint>
     <navPoint id="navPoint168" playOrder="135">
       <navLabel>
-        <text>debugging   the pinetime smartwatch</text>
+        <text>Hacking stuff</text>
       </navLabel>
-      <content src="hacking/debugging.xhtml" />  
-    </navPoint>
-    <navPoint id="navPoint169" playOrder="136">
-      <navLabel>
-        <text>scanning the I2C_1 port</text>
-      </navLabel>
-      <content src="hacking/i2cscanning.xhtml" />  
+      <content src="hacking/hacking.xhtml" />  
+      <navPoint id="navPoint169" playOrder="135">
+        <navLabel>
+          <text>Hacking stuff</text>
+        </navLabel>
+        <content src="hacking/hacking.xhtml" />  
+      </navPoint>
       <navPoint id="navPoint170" playOrder="136">
+        <navLabel>
+          <text>hacking   the pinetime smartwatch</text>
+        </navLabel>
+        <content src="hacking/flashing.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint171" playOrder="137">
+        <navLabel>
+          <text>debugging   the pinetime smartwatch</text>
+        </navLabel>
+        <content src="hacking/debugging.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint172" playOrder="138">
         <navLabel>
           <text>scanning the I2C_1 port</text>
         </navLabel>
         <content src="hacking/i2cscanning.xhtml" />  
+        <navPoint id="navPoint173" playOrder="138">
+          <navLabel>
+            <text>scanning the I2C_1 port</text>
+          </navLabel>
+          <content src="hacking/i2cscanning.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint174" playOrder="139">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="hacking/i2cscanning.xhtml#building-and-running" />  
+        </navPoint>
       </navPoint>
-      <navPoint id="navPoint171" playOrder="137">
+      <navPoint id="navPoint175" playOrder="140">
         <navLabel>
-          <text>Building and Running</text>
+          <text>howto flash your zephyr image</text>
         </navLabel>
-        <content src="hacking/i2cscanning.xhtml#building-and-running" />  
+        <content src="hacking/writeprotection.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint176" playOrder="141">
+        <navLabel>
+          <text>howto remove the write protection</text>
+        </navLabel>
+        <content src="hacking/writeprotection.xhtml#howto-remove-the-write-protection" />  
+      </navPoint>
+      <navPoint id="navPoint177" playOrder="142">
+        <navLabel>
+          <text>howto configure gateway</text>
+        </navLabel>
+        <content src="hacking/infrastructure.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint178" playOrder="143">
+        <navLabel>
+          <text>howto use 2 openocd sessions</text>
+        </navLabel>
+        <content src="hacking/openocd.xhtml" />  
+        <navPoint id="navPoint179" playOrder="143">
+          <navLabel>
+            <text>howto use 2 openocd sessions</text>
+          </navLabel>
+          <content src="hacking/openocd.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint180" playOrder="144">
+          <navLabel>
+            <text>Suppose you have 2 microcontrollers</text>
+          </navLabel>
+          <content src="hacking/openocd.xhtml#suppose-you-have-2-microcontrollers" />  
+        </navPoint>
+        <navPoint id="navPoint181" playOrder="145">
+          <navLabel>
+            <text>Howto setup a second openocd session on a different port?</text>
+          </navLabel>
+          <content src="hacking/openocd.xhtml#howto-setup-a-second-openocd-session-on-a-different-port" />  
+        </navPoint>
+        <navPoint id="navPoint182" playOrder="146">
+          <navLabel>
+            <text>Howto use the GPIO header of a Single Board computer</text>
+          </navLabel>
+          <content src="hacking/openocd.xhtml#howto-use-the-gpio-header-of-a-single-board-computer" />  
+        </navPoint>
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint172" playOrder="138">
-      <navLabel>
-        <text>howto flash your zephyr image</text>
-      </navLabel>
-      <content src="hacking/writeprotection.xhtml" />  
-    </navPoint>
-    <navPoint id="navPoint173" playOrder="139">
-      <navLabel>
-        <text>howto remove the write protection</text>
-      </navLabel>
-      <content src="hacking/writeprotection.xhtml#howto-remove-the-write-protection" />  
-    </navPoint>
-    <navPoint id="navPoint174" playOrder="140">
+    <navPoint id="navPoint183" playOrder="147">
       <navLabel>
         <text>howto generate pdf documents</text>
       </navLabel>
       <content src="latexpdf.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint175" playOrder="141">
+    <navPoint id="navPoint184" playOrder="148">
       <navLabel>
         <text>About</text>
       </navLabel>
       <content src="about.xhtml" />  
-      <navPoint id="navPoint176" playOrder="141">
+      <navPoint id="navPoint185" playOrder="148">
         <navLabel>
           <text>About</text>
         </navLabel>
         <content src="about.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint177" playOrder="142">
+      <navPoint id="navPoint186" playOrder="149">
         <navLabel>
           <text>Todo</text>
         </navLabel>

@@ -126,6 +126,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../hacking/i2cscanning.html">scanning the I2C_1 port</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../hacking/writeprotection.html">howto flash your zephyr image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../hacking/writeprotection.html#howto-remove-the-write-protection">howto remove the write protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hacking/infrastructure.html">howto configure gateway</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hacking/openocd.html">howto use 2 openocd sessions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../latexpdf.html">howto generate pdf documents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
 </ul>
@@ -201,30 +203,19 @@
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>Application demonstrating reading the time from a CTS service.</p>
-<p>(reading out the cts service with bluez)</p>
-<p>[Ds D6 sample cts server:/service0014/char0015]# read
-Attempting to read /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0xdf
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x07
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x05
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x1e
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x0c
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x2d
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x1e
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x01
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x00
-[CHG] Attribute /org/bluez/hci0/dev_75_D3_E5_20_20_26/service0014/char0015 Value: 0x00</p>
+<p>I used bluez on linux + a gatt server script that presents a current time service.</p>
+<p>This program tests if it can get the time of a cts service. In order to get the time, you will have to connect the device first.</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>a bluetoothdevice running the CTS service  (I used the bluetooth/samples/peripheral for this, it simulates a cts server)</p></li>
+<li><p>a bluetoothdevice running the CTS service</p></li>
 <li><p>a board with this software (pinetime)</p></li>
 </ul>
+<p>You will need a serial port to read the output of the “printk” messages.</p>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
-<p>this is under development and is not working at all (yet)</p>
 </div>
 </div>
 
