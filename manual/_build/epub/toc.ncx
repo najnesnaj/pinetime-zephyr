@@ -922,7 +922,7 @@
         </navPoint>
         <navPoint id="navPoint153" playOrder="122">
           <navLabel>
-            <text>LittlevGL Clock Sample with CTS time adjustment</text>
+            <text>Clock Sample Current Time Service</text>
           </navLabel>
           <content src="samples/gui/clock-cts/README.xhtml" />  
         </navPoint>

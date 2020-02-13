@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>LittlevGL Clock Sample with CTS time adjustment &mdash; open source watch 1.0.0 documentation</title>
+  <title>Clock Sample Current Time Service &mdash; open source watch 1.0.0 documentation</title>
   
 
   
@@ -106,7 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../drivers/drivers.html">Driver Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../display/display.html">Display Samples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../gui.html">GUI Samples</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">LittlevGL Clock Sample with CTS time adjustment</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Clock Sample Current Time Service</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
@@ -124,13 +124,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../menuconfig.html">Menuconfig</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../flashing.html">hacking   the pinetime smartwatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hacking/debugging.html">debugging   the pinetime smartwatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hacking/i2cscanning.html">scanning the I2C_1 port</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hacking/writeprotection.html">howto flash your zephyr image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hacking/writeprotection.html#howto-remove-the-write-protection">howto remove the write protection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hacking/infrastructure.html">howto configure gateway</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../hacking/openocd.html">howto use 2 openocd sessions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hacking/hacking.html">Hacking stuff</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../latexpdf.html">howto generate pdf documents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
 </ul>
@@ -182,7 +176,7 @@
         
           <li><a href="../gui.html">GUI Samples</a> &raquo;</li>
         
-      <li>LittlevGL Clock Sample with CTS time adjustment</li>
+      <li>Clock Sample Current Time Service</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -201,19 +195,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="littlevgl-clock-sample-with-cts-time-adjustment">
-<span id="clock-sample"></span><h1>LittlevGL Clock Sample with CTS time adjustment<a class="headerlink" href="#littlevgl-clock-sample-with-cts-time-adjustment" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="clock-sample-current-time-service">
+<span id="clock-sample-cts"></span><h1>Clock Sample Current Time Service<a class="headerlink" href="#clock-sample-current-time-service" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>This samples demonstrates the use of the counter.</p>
-<p>Have a look at the test_counter_interrupt_fn function in src/main.c</p>
+<p>This program gets the time of the bluetooth cts server and displays it.</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>Have a look at the prj.conf file.</p>
-<p>It should contain CONFIG_LVGL=y and
-CONFIG_LVGL_OBJ_IMAGE=y.</p>
-<p>For the clock function it needs  CONFIG_COUNTER=y.</p>
+<p>A cts server.
+On linux, bluez together with a python script was used.</p>
+<p>You need to connect to the pinetime first!
+(bluetoothctl, connect &lt;MAC&gt;)</p>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>

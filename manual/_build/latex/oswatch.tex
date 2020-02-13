@@ -1894,24 +1894,21 @@ controller orientation.
 \section{GUI Samples}
 \label{\detokenize{samples/gui/gui:gui-samples}}\label{\detokenize{samples/gui/gui:id1}}\label{\detokenize{samples/gui/gui::doc}}
 
-\subsection{LittlevGL Clock Sample with CTS time adjustment}
-\label{\detokenize{samples/gui/clock-cts/README:littlevgl-clock-sample-with-cts-time-adjustment}}\label{\detokenize{samples/gui/clock-cts/README:clock-sample}}\label{\detokenize{samples/gui/clock-cts/README::doc}}
+\subsection{Clock Sample Current Time Service}
+\label{\detokenize{samples/gui/clock-cts/README:clock-sample-current-time-service}}\label{\detokenize{samples/gui/clock-cts/README:clock-sample-cts}}\label{\detokenize{samples/gui/clock-cts/README::doc}}
 
 \subsubsection{Overview}
 \label{\detokenize{samples/gui/clock-cts/README:overview}}
-This samples demonstrates the use of the counter.
-
-Have a look at the test\_counter\_interrupt\_fn function in src/main.c
+This program gets the time of the bluetooth cts server and displays it.
 
 
 \subsubsection{Requirements}
 \label{\detokenize{samples/gui/clock-cts/README:requirements}}
-Have a look at the prj.conf file.
+A cts server.
+On linux, bluez together with a python script was used.
 
-It should contain CONFIG\_LVGL=y and
-CONFIG\_LVGL\_OBJ\_IMAGE=y.
-
-For the clock function it needs  CONFIG\_COUNTER=y.
+You need to connect to the pinetime first!
+(bluetoothctl, connect \textless{}MAC\textgreater{})
 
 
 \subsubsection{Building and Running}

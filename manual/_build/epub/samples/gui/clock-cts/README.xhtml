@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
   <head>
     <meta charset="utf-8" />
-    <title>LittlevGL Clock Sample with CTS time adjustment</title>
+    <title>Clock Sample Current Time Service</title>
     <link rel="stylesheet" href="../../../_static/epub.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" /> 
   </head><body>
@@ -12,19 +12,18 @@
       <div class="documentwrapper">
           <div class="body" role="main">
             
-  <div class="section" id="littlevgl-clock-sample-with-cts-time-adjustment">
-<span id="clock-sample"></span><h1>LittlevGL Clock Sample with CTS time adjustment</h1>
+  <div class="section" id="clock-sample-current-time-service">
+<span id="clock-sample-cts"></span><h1>Clock Sample Current Time Service</h1>
 <div class="section" id="overview">
 <h2>Overview</h2>
-<p>This samples demonstrates the use of the counter.</p>
-<p>Have a look at the test_counter_interrupt_fn function in src/main.c</p>
+<p>This program gets the time of the bluetooth cts server and displays it.</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements</h2>
-<p>Have a look at the prj.conf file.</p>
-<p>It should contain CONFIG_LVGL=y and
-CONFIG_LVGL_OBJ_IMAGE=y.</p>
-<p>For the clock function it needs  CONFIG_COUNTER=y.</p>
+<p>A cts server.
+On linux, bluez together with a python script was used.</p>
+<p>You need to connect to the pinetime first!
+(bluetoothctl, connect &lt;MAC&gt;)</p>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running</h2>

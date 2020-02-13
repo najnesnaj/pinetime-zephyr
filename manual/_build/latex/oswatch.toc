@@ -173,13 +173,13 @@
 \contentsline {subsubsection}{Building and Running}{46}{subsubsection*.56}
 \contentsline {subsubsection}{References}{46}{subsubsection*.57}
 \contentsline {section}{\numberline {15.5}GUI Samples}{46}{section.15.5}
-\contentsline {subsection}{\numberline {15.5.1}LittlevGL Clock Sample with CTS time adjustment}{46}{subsection.15.5.1}
+\contentsline {subsection}{\numberline {15.5.1}Clock Sample Current Time Service}{46}{subsection.15.5.1}
 \contentsline {subsubsection}{Overview}{46}{subsubsection*.58}
 \contentsline {subsubsection}{Requirements}{46}{subsubsection*.59}
 \contentsline {subsubsection}{Building and Running}{46}{subsubsection*.60}
 \contentsline {subsubsection}{References}{46}{subsubsection*.61}
 \contentsline {subsection}{\numberline {15.5.2}LittlevGL Clock Sample}{46}{subsection.15.5.2}
-\contentsline {subsubsection}{Overview}{47}{subsubsection*.62}
+\contentsline {subsubsection}{Overview}{46}{subsubsection*.62}
 \contentsline {subsubsection}{Requirements}{47}{subsubsection*.63}
 \contentsline {subsubsection}{Building and Running}{47}{subsubsection*.64}
 \contentsline {subsubsection}{References}{47}{subsubsection*.65}
@@ -189,9 +189,9 @@
 \contentsline {subsubsection}{Overview}{47}{subsubsection*.67}
 \contentsline {subsubsection}{Requirements}{47}{subsubsection*.68}
 \contentsline {subsubsection}{Building and Running}{47}{subsubsection*.69}
-\contentsline {subsubsection}{References}{48}{subsubsection*.70}
-\contentsline {subsection}{\numberline {15.5.5}LittlevGL Basic Sample}{48}{subsection.15.5.5}
-\contentsline {subsubsection}{Overview}{48}{subsubsection*.71}
+\contentsline {subsubsection}{References}{47}{subsubsection*.70}
+\contentsline {subsection}{\numberline {15.5.5}LittlevGL Basic Sample}{47}{subsection.15.5.5}
+\contentsline {subsubsection}{Overview}{47}{subsubsection*.71}
 \contentsline {subsubsection}{Requirements}{48}{subsubsection*.72}
 \contentsline {subsubsection}{Building and Running}{48}{subsubsection*.73}
 \contentsline {subsubsection}{References}{48}{subsubsection*.74}
@@ -202,8 +202,8 @@
 \contentsline {subsubsection}{References}{48}{subsubsection*.78}
 \contentsline {section}{\numberline {15.6}Bluetooth Samples}{48}{section.15.6}
 \contentsline {subsection}{\numberline {15.6.1}Bluetooth: Central / Heart-rate Monitor}{48}{subsection.15.6.1}
-\contentsline {subsubsection}{Overview}{49}{subsubsection*.79}
-\contentsline {subsubsection}{Requirements}{49}{subsubsection*.80}
+\contentsline {subsubsection}{Overview}{48}{subsubsection*.79}
+\contentsline {subsubsection}{Requirements}{48}{subsubsection*.80}
 \contentsline {subsubsection}{Building and Running}{49}{subsubsection*.81}
 \contentsline {subsection}{\numberline {15.6.2}Bluetooth: Eddystone}{49}{subsection.15.6.2}
 \contentsline {subsubsection}{Overview}{49}{subsubsection*.82}
@@ -211,7 +211,7 @@
 \contentsline {subsubsection}{Building and Running}{49}{subsubsection*.84}
 \contentsline {subsection}{\numberline {15.6.3}Bluetooth: Peripheral\_cts}{49}{subsection.15.6.3}
 \contentsline {subsubsection}{Overview}{49}{subsubsection*.85}
-\contentsline {subsubsection}{Requirements}{50}{subsubsection*.86}
+\contentsline {subsubsection}{Requirements}{49}{subsubsection*.86}
 \contentsline {subsubsection}{Building and Running}{50}{subsubsection*.87}
 \contentsline {subsection}{\numberline {15.6.4}Bluetooth: Peripheral}{50}{subsection.15.6.4}
 \contentsline {subsubsection}{Overview}{50}{subsubsection*.88}

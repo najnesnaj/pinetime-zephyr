@@ -1,26 +1,23 @@
-.. _clock-sample:
+.. _clock-sample-cts:
 
-LittlevGL Clock Sample with CTS time adjustment
-###############################################
+Clock Sample Current Time Service
+#################################
 
 Overview
 ********
 
-
-This samples demonstrates the use of the counter.
-
-Have a look at the test_counter_interrupt_fn function in src/main.c
+This program gets the time of the bluetooth cts server and displays it.
 
 Requirements
 ************
 
-Have a look at the prj.conf file.
+A cts server.
+On linux, bluez together with a python script was used.
 
-It should contain CONFIG_LVGL=y and
-CONFIG_LVGL_OBJ_IMAGE=y.
+You need to connect to the pinetime first!
+(bluetoothctl, connect <MAC>)
 
 
-For the clock function it needs  CONFIG_COUNTER=y.
 
 Building and Running
 ********************
