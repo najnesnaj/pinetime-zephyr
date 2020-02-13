@@ -31,7 +31,7 @@ void cts_sync_loop();
 		uint8_t adjust_reason;
 	} cts_datetime_t;
 
-	void cts_get_datetime(cts_datetime_t*);
+void cts_get_datetime(cts_datetime_t*);
 
 
 

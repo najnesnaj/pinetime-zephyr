@@ -1,5 +1,4 @@
 /*
- * Copyright (c) 2018 Jan Van Winkel <jan.van_winkel@dxplore.eu>
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -9,7 +8,7 @@
  *
  *
  */
-
+#define MY_REGISTER1 (*(volatile uint8_t*)0x2000F000)
 #include <device.h>
 #include <drivers/display.h>
 #include <lvgl.h>
@@ -55,38 +54,35 @@ LV_IMG_DECLARE(klokje);
 #include <bluetooth/gatt.h>
 
 #include "cts_sync.h"
-
-
-
 static const struct bt_data ad[] = {
-	BT_DATA_BYTES(BT_DATA_FLAGS, BT_LE_AD_NO_BREDR),
-	BT_DATA_BYTES(BT_DATA_UUID16_ALL, 0xaa, 0xfe),
-	BT_DATA_BYTES(BT_DATA_SVC_DATA16,
-			0xaa, 0xfe, /* Eddystone UUID */
-			0x10, /* Eddystone-URL frame type */
-			0x00, /* Calibrated Tx power at 0m */
-			0x00, /* URL Scheme Prefix http://www. */
-			'P', 'i', 'n', 'e', 'T', 'i',
-			'm', 'e', '-', '2', '0', '2', '0',
-			0x08) /* .org */
+	BT_DATA_BYTES(BT_DATA_FLAGS, (BT_LE_AD_GENERAL | BT_LE_AD_NO_BREDR)),
+	BT_DATA_BYTES(BT_DATA_UUID16_ALL,
+			0x0d, 0x18, 0x0f, 0x18, 0x05, 0x18),
+	BT_DATA_BYTES(BT_DATA_UUID128_ALL,
+			0xf0, 0xde, 0xbc, 0x9a, 0x78, 0x56, 0x34, 0x12,
+			0x78, 0x56, 0x34, 0x12, 0x78, 0x56, 0x34, 0x12),
 };
 
+	
 static void bt_ready(void)
 {
 	int err;
 
 	printk("Bluetooth initialized\n");
 
-
+	MY_REGISTER1=0xb1;
 	if (IS_ENABLED(CONFIG_SETTINGS)) {
 		settings_load();
+		MY_REGISTER1=0xb2;
 	}
 	printk("bt_le_adv_start\n");
 	err = bt_le_adv_start(BT_LE_ADV_CONN_NAME, ad, ARRAY_SIZE(ad), NULL, 0);
 	if (err) {
+		MY_REGISTER1=0xb3;
 		printk("Advertising failed to start (err %d)\n", err);
 		return;
 	}
+	MY_REGISTER1=0xb4;
 
 	printk("Advertising successfully started\n");
 }
@@ -128,45 +124,45 @@ void init_clock(cts_datetime_t* datetime)
 }
 
 
+/*
 
-
-static void test_counter_interrupt_fn(struct device *counter_dev,
-		u8_t chan_id, u32_t ticks,
-		void *user_data)
+   static void test_counter_interrupt_fn(struct device *counter_dev,
+   u8_t chan_id, u32_t ticks,
+   void *user_data)
+   {
+   int err;
+//todo replace this with proper internal time system, that keeps track of date
+pinetime_datetime.seconds++;
+if (pinetime_datetime.seconds > 59) {
+pinetime_datetime.seconds=0;
+pinetime_datetime.minutes++;
+if (pinetime_datetime.minutes > 59){
+pinetime_datetime.minutes=0;
+pinetime_datetime.hours++;
+if (pinetime_datetime.hours > 23)
 {
-	int err;
-	//todo replace this with proper internal time system, that keeps track of date
-	pinetime_datetime.seconds++;
-	if (pinetime_datetime.seconds > 59) {
-		pinetime_datetime.seconds=0;
-		pinetime_datetime.minutes++;
-		if (pinetime_datetime.minutes > 59){
-			pinetime_datetime.minutes=0;
-			pinetime_datetime.hours++;
-			if (pinetime_datetime.hours > 23)
-			{
-				pinetime_datetime.hours=0;
-			}
-		}
+pinetime_datetime.hours=0;
+}
+}
 
-	}
+}
 
 
 
-	// after expiring the alarm is set again
-	err = counter_set_channel_alarm(counter_dev, ALARM_CHANNEL_ID,
-			user_data);
+// after expiring the alarm is set again
+err = counter_set_channel_alarm(counter_dev, ALARM_CHANNEL_ID,
+user_data);
 
-	if (err != 0) {
-		printk("Alarm could not be set\n");
-	}
+if (err != 0) {
+printk("Alarm could not be set\n");
+}
 }
 
 
 
 
 
-
+*/
 
 
 
@@ -191,32 +187,36 @@ void main(void)
 	err = bt_enable(NULL);
 	if (err) {
 		printk("Bluetooth init failed (err %d)\n", err);
+		MY_REGISTER1=0xb9;
 		return;
 	}
 
 	bt_ready();
 	cts_sync_init();
+	cts_get_datetime(&pinetime_datetime); //this already should get dummy value to show on screen
 
+	//	MY_REGISTER1=0x01;
 
+	/*
 
+	   counter_dev = device_get_binding(DT_RTC_0_NAME);
+	   counter_start(counter_dev);
+	   if (counter_dev == NULL) {
+	   printk("Counter device not found\n");
+	   return;
+	   }
+	   alarm_cfg.flags = 0;
+	   alarm_cfg.ticks = counter_us_to_ticks(counter_dev, DELAY);
+	   alarm_cfg.callback = test_counter_interrupt_fn;
+	   alarm_cfg.user_data = &alarm_cfg;
 
-
-	counter_dev = device_get_binding(DT_RTC_0_NAME);
-	counter_start(counter_dev);
-	if (counter_dev == NULL) {
-		printk("Counter device not found\n");
-		return;
-	}
-	alarm_cfg.flags = 0;
-	alarm_cfg.ticks = counter_us_to_ticks(counter_dev, DELAY);
-	alarm_cfg.callback = test_counter_interrupt_fn;
-	alarm_cfg.user_data = &alarm_cfg;
-
-	err=counter_set_channel_alarm(counter_dev, ALARM_CHANNEL_ID, &alarm_cfg);
+	   err=counter_set_channel_alarm(counter_dev, ALARM_CHANNEL_ID, &alarm_cfg);
+	   */
 
 	cts_datetime_t localtime;
 	init_clock(&localtime);
 	//todo catch err
+	//	MY_REGISTER1=0x02;
 
 
 
@@ -231,23 +231,26 @@ void main(void)
 	display_dev = device_get_binding(CONFIG_LVGL_DISPLAY_DEV_NAME);
 
 
+	//	MY_REGISTER1=0x03;
 
 
 	if (display_dev == NULL) {
 		LOG_ERR("device not found.  Aborting test.");
 		return;
+		MY_REGISTER1=0xe1;
 	}
 	else
 		backlight_init();
 
 	lv_obj_t *scr = lv_scr_act();
-	lv_obj_t * img_bin = lv_img_create(lv_scr_act(), NULL);
+	//lv_obj_t * img_bin = lv_img_create(lv_scr_act(), NULL);
 	//
 	//                /*clock background*/
-	lv_img_set_src(img_bin, &klokje);
+	//lv_img_set_src(img_bin, &klokje);
 	//
 	//
 
+	//	MY_REGISTER1=0x04;
 
 
 	hello_world_label = lv_label_create(lv_scr_act(), NULL);
@@ -279,5 +282,8 @@ void main(void)
 		k_sleep(K_MSEC(10));
 		++count;
 		cts_sync_loop();  //todo this should be activated by button or something - not looped
+		//		MY_REGISTER1=0x05;
+		cts_get_datetime(&pinetime_datetime);
+		//MY_REGISTER1=0x06;
 	}
 }

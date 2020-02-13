@@ -12,13 +12,14 @@ static struct bt_gatt_discover_params cts_discovery_params;
 static struct bt_uuid_16 uuid = BT_UUID_INIT_16(0);
 static struct bt_gatt_read_params read_params;
 
+cts_datetime_t clock_datetime;
+
 static void sync_cts_to_clock(cts_datetime_t* cts_datetime)
 {
     printk("CTS sync to clock started.\n Y%04d D%03d T%2d:%2d:%2d",
         cts_datetime->year, cts_datetime->day,
         cts_datetime->hours, cts_datetime->minutes, cts_datetime->seconds);
 
-    cts_datetime_t clock_datetime;
     memset(&clock_datetime, 0, sizeof(cts_datetime_t));
     clock_datetime.year = cts_datetime->year;
     clock_datetime.month = cts_datetime->month;
@@ -34,8 +35,24 @@ static void sync_cts_to_clock(cts_datetime_t* cts_datetime)
     time_sync_timeout = TIME_SYNC_WAIT;
 }
 
+
+void cts_get_datetime(cts_datetime_t*  cts_time)
+{
+
+	cts_time->hours=clock_datetime.hours;
+	cts_time->minutes=clock_datetime.minutes;
+	cts_time->seconds=clock_datetime.seconds;
+
+
+}
+
+
 static void sync_local_cts_to_clock()
 {
+	clock_datetime.hours=12;
+	clock_datetime.minutes=13;
+	clock_datetime.seconds=14;
+
 //    cts_datetime_t cts_datetime;
 //   cts_get_datetime(&cts_datetime);
 //  sync_cts_to_clock(&cts_datetime);
@@ -126,7 +143,7 @@ void cts_sync_init()
 {
     bt_conn_cb_register(&conn_callbacks);
  //   cts_register_write_cb(cts_write_cb);
- //  sync_local_cts_to_clock();
+   sync_local_cts_to_clock();
 }
 
 void cts_sync_loop()

@@ -107,12 +107,6 @@ _vector_end = .;
   KEEP(*(SORT("._bt_gatt_service_static.static.*")))
   _bt_gatt_service_static_list_end = .;
  } > FLASH
- _settings_handlers_area : ALIGN_WITH_INPUT SUBALIGN(4)
- {
-  _settings_handler_static_list_start = .;
-  KEEP(*(SORT("._settings_handler_static.static.*")))
-  _settings_handler_static_list_end = .;
- } > FLASH
  log_const_sections : ALIGN_WITH_INPUT
  {
   __log_const_start = .;
