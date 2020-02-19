@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Signing an application</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="signing-an-application">
+<span id="signing"></span><h1>Signing an application</h1>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">imgtool.py sign --key ../../root-rsa-2048.pem \</span>
+<span class="go">    --header-size 0x200 \</span>
+<span class="go">    --align 8 \</span>
+<span class="go">    --version 1.2 \</span>
+<span class="go">    --slot-size 0x60000 \</span>
+<span class="go">    ../mcuboot/samples/zephyr/build/ds_d6/hello1/zephyr/zephyr.bin \</span>
+<span class="go">    signed-hello1.bin</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

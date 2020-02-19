@@ -98,6 +98,7 @@
 <li class="toctree-l1"><a class="reference internal" href="RTC.html">Real Time Clock</a></li>
 <li class="toctree-l1"><a class="reference internal" href="current-time.html">Current Time Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="behind/behind.html">Behind the scene</a></li>
 <li class="toctree-l1"><a class="reference internal" href="samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
@@ -310,6 +311,39 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="fota/fota.html">Firmware Over The Air (FOTA)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fota/mcuboot.html">Wireless Device Firmware Upgrade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fota/mcuboot.html#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fota/mcuboot.html#id1">MCUboot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fota/mcuboot.html#mcuboot-with-zephyr">MCUboot with zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota/signing.html">Signing an application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fota/smp_svr.html">SMP Server Sample</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="fota/smp_svr.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fota/smp_svr.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fota/smp_svr.html#building-and-running">Building and Running</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fota/smp_svr.html#step-1-build-smp-svr">Step 1: Build smp_svr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fota/smp_svr.html#step-2-sign-the-image">Step 2: Sign the image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fota/smp_svr.html#step-3-flash-the-smp-svr-image">Step 3: Flash the smp_svr image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fota/smp_svr.html#step-4-run-it">Step 4: Run it!</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fota/smp_svr.html#step-5-device-firmware-upgrade">Step 5: Device Firmware Upgrade</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fota/smp_svr.html#build-a-second-sample">Build a second sample</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fota/smp_svr.html#sign-the-second-sample">Sign the second sample</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fota/smp_svr.html#upload-the-image-over-ble">Upload the image over BLE</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fota/smp_svr.html#list-the-images">List the images</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fota/smp_svr.html#test-the-image">Test the image</a></li>
+<li class="toctree-l5"><a class="reference internal" href="fota/smp_svr.html#reset-remotely">Reset remotely</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="behind/behind.html">Behind the scene</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="behind/behind-the-scene.html">Behind the scene</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="behind/behind-the-scene.html#overview">Overview</a></li>
@@ -446,6 +480,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="samples/gui/gui.html">GUI Samples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="samples/gui/clock-cts-rtc2/README.html">Clock Sample Current Time Service</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="samples/gui/clock-cts-rtc2/README.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="samples/gui/clock-cts-rtc2/README.html#requirements">Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="samples/gui/clock-cts-rtc2/README.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l4"><a class="reference internal" href="samples/gui/clock-cts-rtc2/README.html#references">References</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="samples/gui/clock-cts/README.html">Clock Sample Current Time Service</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="samples/gui/clock-cts/README.html#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="samples/gui/clock-cts/README.html#requirements">Requirements</a></li>

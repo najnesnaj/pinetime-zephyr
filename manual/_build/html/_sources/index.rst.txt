@@ -14,6 +14,7 @@
    RTC
    current-time.rst
    drivers/drivers.rst
+   fota/fota.rst
    behind/behind.rst
    samples/index.rst
    menuconfig
