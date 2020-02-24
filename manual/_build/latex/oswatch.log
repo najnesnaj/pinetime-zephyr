@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.12.10)  18 FEB 2020 17:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.12.10)  24 FEB 2020 08:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1156,7 +1156,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
  [3] [4
 
 ]
-<zephyr_logo.png, id=459, 170.5572pt x 58.2978pt>
+<zephyr_logo.png, id=464, 170.5572pt x 58.2978pt>
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 88.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
@@ -1185,7 +1185,7 @@ LaTeX Font Info:    Try loading font information for TS1+ptm on input line 129.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<PineTime-830x400.png, id=489, 833.1125pt x 401.5pt>
+<PineTime-830x400.png, id=494, 833.1125pt x 401.5pt>
 File: PineTime-830x400.png Graphic file (type png)
 <use PineTime-830x400.png>
 Package pdftex.def Info: PineTime-830x400.png  used on input line 145.
@@ -1221,7 +1221,7 @@ Chapter 8.
 Chapter 9.
 [19] [20]
 Chapter 10.
-<clockback.png, id=576, 144.54pt x 144.54pt>
+<clockback.png, id=581, 144.54pt x 144.54pt>
 File: clockback.png Graphic file (type png)
 <use clockback.png>
 Package pdftex.def Info: clockback.png  used on input line 568.
@@ -1235,7 +1235,7 @@ Chapter 11.
 ] [24]
 Chapter 12.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--674
+Underfull \hbox (badness 10000) in paragraph at lines 1--678
 [][]$\T1/ptm/m/n/10 https : / / www . bluetooth . com / speci^^\cations / gatt 
 / services/$[][] [][]$https : / / www . bluetooth . com / speci^^\cations / gat
 t /
@@ -1244,7 +1244,7 @@ t /
 [25
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 760--761
+Underfull \hbox (badness 10000) in paragraph at lines 764--765
 []\T1/ptm/m/n/10 Build and pro-gram the firmware on the Pine-time In-stall NR-F
 -Con-nect ([][]$https : / / www . nordicsemi . com /
  []
@@ -1254,19 +1254,19 @@ Chapter 13.
 [27
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 847--850
+Underfull \hbox (badness 10000) in paragraph at lines 851--854
 \T1/ptm/m/n/10 ~/zephyrproject-2/zephyr/drivers/sensor add_subdirectory_ifdef(C
 ONFIG_BMA280 bma280)
  []
 
 [28] [29] [30]
-<hrs3300.jpg, id=652, 459.51675pt x 374.5995pt>
+<hrs3300.jpg, id=657, 459.51675pt x 374.5995pt>
 File: hrs3300.jpg Graphic file (type jpg)
 <use hrs3300.jpg>
-Package pdftex.def Info: hrs3300.jpg  used on input line 1025.
+Package pdftex.def Info: hrs3300.jpg  used on input line 1029.
 (pdftex.def)             Requested size: 459.51563pt x 374.59859pt.
  [31 <./hrs3300.jpg>]
-Overfull \hbox (14.65001pt too wide) in paragraph at lines 1117--1118
+Overfull \hbox (14.65001pt too wide) in paragraph at lines 1121--1122
 []\T1/ptm/m/n/10 /root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.
 c:17:22: er-ror: `DT_INST_0_JEDEC_SPI_NOR_LABEL'
  []
@@ -1276,24 +1276,24 @@ c:17:22: er-ror: `DT_INST_0_JEDEC_SPI_NOR_LABEL'
 ]
 Chapter 14.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 1301.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 1283.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1322--1325
+Underfull \hbox (badness 10000) in paragraph at lines 1304--1307
 []\T1/ptm/m/n/10 This is han-dled in-ter-nally by the Zephyr con-fig-u-ra-tion 
 sys-tem and is wrapped in the \T1/ptm/m/it/10 CON-
  []
 
-[37]
-Underfull \hbox (badness 6758) in paragraph at lines 1326--1331
+
+Underfull \hbox (badness 6758) in paragraph at lines 1308--1313
 \T1/ptm/m/n/10 org / reference / kcon^^\g / CONFIG _ BOOTLOADER _ MCUBOOT . htm
 l$[][]) pro-vides ad-di-tional de-tails re-gard-ing the
  []
 
-[38] [39] [40] [41] [42
-
-]
+[37] [38] [39] [40] [41] [42]
 Chapter 15.
-[43] [44] [45] [46]
+[43
+
+] [44] [45] [46]
 Chapter 16.
 [47
 
@@ -1309,27 +1309,23 @@ Chapter 18.
 
 ]
 Chapter 19.
-[65] [66
-
-]
-Chapter 20.
 (./oswatch.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2963.
- [67]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2963.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3005.
+ [65]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3005.
  (./oswatch.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2963.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2963.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3005.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3005.
 
 Package rerunfilecheck Info: File `oswatch.out' has not changed.
-(rerunfilecheck)             Checksum: F54A1BDC2CEDF10086359C365AC96D8D;13093.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2963.
+(rerunfilecheck)             Checksum: 80C9609090AC9236398971E56AA94EA6;13212.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3005.
  ) 
 Here is how much of TeX's memory you used:
- 14455 strings out of 494923
- 208265 string characters out of 6180741
- 376188 words of memory out of 5000000
- 17108 multiletter control sequences out of 15000+600000
+ 14466 strings out of 494923
+ 208618 string characters out of 6180741
+ 376577 words of memory out of 5000000
+ 17116 multiletter control sequences out of 15000+600000
  52159 words of font info for 73 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  37i,12n,48p,756b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1343,10 +1339,10 @@ sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmri8a.pfb>
-Output written on oswatch.pdf (73 pages, 470132 bytes).
+Output written on oswatch.pdf (71 pages, 470431 bytes).
 PDF statistics:
  1103 PDF objects out of 1200 (max. 8388607)
- 996 compressed objects within 10 object streams
- 340 named destinations out of 1000 (max. 500000)
- 713 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 998 compressed objects within 10 object streams
+ 343 named destinations out of 1000 (max. 500000)
+ 721 words of extra memory for PDF output out of 10000 (max. 10000000)
 

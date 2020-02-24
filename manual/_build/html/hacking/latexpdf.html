@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Wireless Device Firmware Upgrade &mdash; open source watch 1.0.0 documentation</title>
+  <title>howto generate pdf documents &mdash; open source watch 1.0.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="Partitions" href="partitions.html" />
-    <link rel="prev" title="Firmware Over The Air (FOTA)" href="fota.html" /> 
+    <link rel="next" title="About" href="../about.html" />
+    <link rel="prev" title="howto use 2 openocd sessions" href="openocd.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -99,21 +99,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../RTC.html">Real Time Clock</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../current-time.html">Current Time Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../drivers/drivers.html">Drivers</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="fota.html">Firmware Over The Air (FOTA)</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Wireless Device Firmware Upgrade</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#mcuboot-with-zephyr">MCUboot with zephyr</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partitions.html">Partitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="signing.html">Signing an application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="smp_svr.html">SMP Server Sample</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../behind/behind.html">Behind the scene</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../hacking/hacking.html">Hacking stuff</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="hacking.html">Hacking stuff</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flashing.html">hacking   the pinetime smartwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">debugging   the pinetime smartwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2cscanning.html">scanning the I2C_1 port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="writeprotection.html">howto flash your zephyr image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="writeprotection.html#howto-remove-the-write-protection">howto remove the write protection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="infrastructure.html">howto configure gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openocd.html">howto use 2 openocd sessions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">howto generate pdf documents</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
 </ul>
 
@@ -160,15 +160,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="fota.html">Firmware Over The Air (FOTA)</a> &raquo;</li>
+          <li><a href="hacking.html">Hacking stuff</a> &raquo;</li>
         
-      <li>Wireless Device Firmware Upgrade</li>
+      <li>howto generate pdf documents</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/fota/mcuboot.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/hacking/latexpdf.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -181,59 +181,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="wireless-device-firmware-upgrade">
-<span id="mcuboot"></span><h1>Wireless Device Firmware Upgrade<a class="headerlink" href="#wireless-device-firmware-upgrade" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>In order to perform a FOTA (firmware over the air) update on zephyr you need 2 basic components:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>MCUboot   (a bootloader)</p></li>
-<li><p>SMP Server (a bluetooth service)</p></li>
-</ul>
-</div></blockquote>
-</div>
-</div>
-<div class="section" id="mcuboot-with-zephyr">
-<span id="id1"></span><h1>MCUboot with zephyr<a class="headerlink" href="#mcuboot-with-zephyr" title="Permalink to this headline">¶</a></h1>
-<p>Clone MCUBOOT for zephyr from github.
-Install additional packages required for development with mcuboot:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">mcuboot</span>  <span class="c1"># or to your directory where mcuboot is cloned</span>
-<span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="o">-</span><span class="n">r</span> <span class="n">scripts</span><span class="o">/</span><span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+  <div class="section" id="howto-generate-pdf-documents">
+<h1>howto generate pdf documents<a class="headerlink" href="#howto-generate-pdf-documents" title="Permalink to this headline">¶</a></h1>
+<p>sphinx cannot generate pdf directly, and needs latex</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">latexmk</span>
+<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">texlive</span><span class="o">-</span><span class="n">fonts</span><span class="o">-</span><span class="n">recommended</span>
+<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">xzdec</span>
+<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">cmap</span>
+<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">texlive</span><span class="o">-</span><span class="n">latex</span><span class="o">-</span><span class="n">recommended</span>
+<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">texlive</span><span class="o">-</span><span class="n">latex</span><span class="o">-</span><span class="n">extra</span>
 </pre></div>
 </div>
-<p>To build MCUboot, create a build directory in boot/zephyr, and build
-it as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">boot</span><span class="o">/</span><span class="n">zephyr</span>
-<span class="n">mkdir</span> <span class="n">build</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="n">build</span>
-<span class="n">cmake</span> <span class="o">-</span><span class="n">GNinja</span> <span class="o">-</span><span class="n">DBOARD</span><span class="o">=</span><span class="n">pinetime</span> <span class="o">..</span>
-<span class="n">ninja</span>
-</pre></div>
-</div>
-<p>After building the bootloader, the binaries should reside in
-<cite>build/zephyr/zephyr.{bin,hex,elf}</cite>.</p>
-<p>This image can be flashed as a normal application.</p>
-<p>Some additional configuration is required to build applications for MCUboot.</p>
-<p>This is handled internally by the Zephyr configuration system and is wrapped
-in the <cite>CONFIG_BOOTLOADER_MCUBOOT</cite> Kconfig variable, which must be enabled in
-the application’s <cite>prj.conf</cite> file.</p>
-<p>The Zephyr <cite>CONFIG_BOOTLOADER_MCUBOOT</cite> configuration option
-[documentation](<a class="reference external" href="http://docs.zephyrproject.org/reference/kconfig/CONFIG_BOOTLOADER_MCUBOOT.html">http://docs.zephyrproject.org/reference/kconfig/CONFIG_BOOTLOADER_MCUBOOT.html</a>)
-provides additional details regarding the changes it makes to the image
-placement and generation in order for an application to be bootable by
-MCUboot.</p>
-<p>In order to upgrade to an image (or even boot it, if
-<cite>MCUBOOT_VALIDATE_PRIMARY_SLOT</cite> is enabled), the images must be signed.</p>
-<p>To make development easier, MCUboot is distributed with some example
-keys.  It is important to stress that these should never be used for
-production, since the private key is publicly available in this
-repository.  See below on how to make your own signatures.</p>
-<p>Images can be signed with the <cite>scripts/imgtool.py</cite> script.  It is best
-to look at <cite>samples/zephyr/Makefile</cite> for examples on how to use this.</p>
-<p>Since the bootloader is already in place, you cannot flash your application.bin to 0x00000.</p>
-<p>Eg. in openocd : program application.bin 0x0c000. (which corresponds to the flash layout of slot 0)</p>
-<p>These images can also be marked for upgrade, and loaded into the secondary slot,
-at which point the bootloader should perform an upgrade.</p>
 </div>
 
 
@@ -244,10 +202,10 @@ at which point the bootloader should perform an upgrade.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="partitions.html" class="btn btn-neutral float-right" title="Partitions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../about.html" class="btn btn-neutral float-right" title="About" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="fota.html" class="btn btn-neutral float-left" title="Firmware Over The Air (FOTA)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="openocd.html" class="btn btn-neutral float-left" title="howto use 2 openocd sessions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Feb 18, 2020}
+\date{Feb 24, 2020}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -623,6 +623,10 @@ It will serve as a building block for a “time of the day” clock.
 In addition it will need a function to set the time.
 
 In bluetooth one can use CTS (central time service)
+
+{\color{red}\bfseries{}**}NOTE: as I found out there is a conflict between RTC0 and bluetooth **
+
+\sphinxstylestrong{An example of using RTC2 is included}
 
 
 \section{Requirements}
@@ -1265,36 +1269,14 @@ In order to perform a FOTA (firmware over the air) update on zephyr you need 2 b
 MCUboot   (a bootloader)
 
 \item {} 
-SMP Server Sample (a bluetooth service)
+SMP Server (a bluetooth service)
 
 \end{itemize}
 
-
-\subsubsection{MCUboot}
-\label{\detokenize{fota/mcuboot:id1}}\label{\detokenize{fota/mcuboot:id2}}
 
 \section{MCUboot with zephyr}
-\label{\detokenize{fota/mcuboot:mcuboot-with-zephyr}}
-The first step required for Zephyr is making sure your board has flash
-partitions defined in its device tree. These partitions are:
-\begin{itemize}
-\item {} 
-\sphinxtitleref{boot\_partition}: for MCUboot itself
-
-\item {} 
-\sphinxtitleref{image\_0\_primary\_partition}: the primary slot of Image 0
-
-\item {} 
-\sphinxtitleref{image\_0\_secondary\_partition}: the secondary slot of Image 0
-
-\item {} 
-\sphinxtitleref{scratch\_partition}: the scratch slot
-
-\end{itemize}
-
-The flash partitions are defined in the pinetime boards folder, in a
-file named \sphinxtitleref{boards/arm/pinetime/pinetime.dts}.
-
+\label{\detokenize{fota/mcuboot:mcuboot-with-zephyr}}\label{\detokenize{fota/mcuboot:id1}}
+Clone MCUBOOT for zephyr from github.
 Install additional packages required for development with mcuboot:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -1347,6 +1329,61 @@ Eg. in openocd : program application.bin 0x0c000. (which corresponds to the flas
 These images can also be marked for upgrade, and loaded into the secondary slot,
 at which point the bootloader should perform an upgrade.
 
+
+\section{Partitions}
+\label{\detokenize{fota/partitions:partitions}}\label{\detokenize{fota/partitions:signing}}\label{\detokenize{fota/partitions::doc}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{have a look at boards/arm/pinetime/pinetime.dts}
+\end{sphinxVerbatim}
+
+
+\subsection{Defining partitions for MCUboot}
+\label{\detokenize{fota/partitions:defining-partitions-for-mcuboot}}
+The first step required for Zephyr is making sure your board has flash
+partitions defined in its device tree. These partitions are:
+\begin{itemize}
+\item {} 
+\sphinxtitleref{boot\_partition}: for MCUboot itself
+
+\item {} 
+\sphinxtitleref{image\_0\_primary\_partition}: the primary slot of Image 0
+
+\item {} 
+\sphinxtitleref{image\_0\_secondary\_partition}: the secondary slot of Image 0
+
+\item {} 
+\sphinxtitleref{scratch\_partition}: the scratch slot
+
+\end{itemize}
+
+The flash partitions are defined in the pinetime boards folder, in a
+file named \sphinxtitleref{boards/arm/pinetime/pinetime.dts}.
+
+
+\subsection{Using NOR flash in partitions}
+\label{\detokenize{fota/partitions:using-nor-flash-in-partitions}}
+The flash space on the Nordic nrf52 is 512K.
+Basically with the partitioning you end up with less space for your program.
+
+As the pinetime has an extra spi nor flash chip, we can use this.
+
+The flashlay-out can be modified so as 1 chunk is on system flash and 1 chunk is on SPI NOR flash.
+This way the space for your firmware remains almost the same.
+
+
+\section{Signing an application}
+\label{\detokenize{fota/signing:signing-an-application}}\label{\detokenize{fota/signing:signing}}\label{\detokenize{fota/signing::doc}}
+In order to improve the security, only signed images can be uploaded.
+
+There is a public and private key.
+The Bootloader is compiled with the public key.
+Each time you want to upload firmware, you have to sign it with a private key.
+
+\sphinxstylestrong{NOTE: it is important to keep the private key hidden}
+
+
+\subsection{Generating a new keypair}
+\label{\detokenize{fota/signing:generating-a-new-keypair}}
 Generating a keypair with imgtool is a matter of running the keygen
 subcommand:
 
@@ -1354,6 +1391,9 @@ subcommand:
 \PYG{g+gp}{\PYGZdl{}} ./scripts/imgtool.py keygen \PYGZhy{}k mykey.pem \PYGZhy{}t rsa\PYGZhy{}2048
 \end{sphinxVerbatim}
 
+
+\subsection{Extracting the public key}
+\label{\detokenize{fota/signing:extracting-the-public-key}}
 The generated keypair above contains both the public and the private
 key.  It is necessary to extract the public key and insert it into the
 bootloader.
@@ -1366,8 +1406,10 @@ This will output the public key as a C array that can be dropped
 directly into the \sphinxtitleref{keys.c} file.
 
 
-\section{Signing an application}
-\label{\detokenize{fota/signing:signing-an-application}}\label{\detokenize{fota/signing:signing}}\label{\detokenize{fota/signing::doc}}
+\subsection{Example}
+\label{\detokenize{fota/signing:example}}
+sign the compiled zephyr.bin firmware with the root-rsa-2048.pem, private key:
+
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+go}{imgtool.py sign \PYGZhy{}\PYGZhy{}key ../../root\PYGZhy{}rsa\PYGZhy{}2048.pem \PYGZbs{}}
 \PYG{g+go}{    \PYGZhy{}\PYGZhy{}header\PYGZhy{}size 0x200 \PYGZbs{}}
@@ -2886,8 +2928,8 @@ This works really well, and does not require a seperate programmer.
 \end{sphinxVerbatim}
 
 
-\chapter{howto generate pdf documents}
-\label{\detokenize{latexpdf:howto-generate-pdf-documents}}\label{\detokenize{latexpdf::doc}}
+\section{howto generate pdf documents}
+\label{\detokenize{hacking/latexpdf:howto-generate-pdf-documents}}\label{\detokenize{hacking/latexpdf::doc}}
 sphinx cannot generate pdf directly, and needs latex
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]

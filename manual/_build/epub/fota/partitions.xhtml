@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>Partitions</title>
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="partitions">
+<span id="signing"></span><h1>Partitions</h1>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">have a look at boards/arm/pinetime/pinetime.dts</span>
+</pre></div>
+</div>
+<div class="section" id="defining-partitions-for-mcuboot">
+<h2>Defining partitions for MCUboot</h2>
+<p>The first step required for Zephyr is making sure your board has flash
+partitions defined in its device tree. These partitions are:</p>
+<ul class="simple">
+<li><p><cite>boot_partition</cite>: for MCUboot itself</p></li>
+<li><p><cite>image_0_primary_partition</cite>: the primary slot of Image 0</p></li>
+<li><p><cite>image_0_secondary_partition</cite>: the secondary slot of Image 0</p></li>
+<li><p><cite>scratch_partition</cite>: the scratch slot</p></li>
+</ul>
+<p>The flash partitions are defined in the pinetime boards folder, in a
+file named <cite>boards/arm/pinetime/pinetime.dts</cite>.</p>
+</div>
+<div class="section" id="using-nor-flash-in-partitions">
+<h2>Using NOR flash in partitions</h2>
+<p>The flash space on the Nordic nrf52 is 512K.
+Basically with the partitioning you end up with less space for your program.</p>
+<p>As the pinetime has an extra spi nor flash chip, we can use this.</p>
+<p>The flashlay-out can be modified so as 1 chunk is on system flash and 1 chunk is on SPI NOR flash.
+This way the space for your firmware remains almost the same.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

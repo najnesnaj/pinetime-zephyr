@@ -1,0 +1,28 @@
+
+
+Generating a new keypair
+------------------------
+Generating a keypair with imgtool is a matter of running the keygen
+subcommand:
+
+.. code-block:: console
+
+
+    $ ./scripts/imgtool.py keygen -k mykey.pem -t rsa-2048
+
+
+
+Extracting the public key
+-------------------------
+
+The generated keypair above contains both the public and the private
+key.  It is necessary to extract the public key and insert it into the
+bootloader.  
+
+.. code-block:: console
+
+    $ ./scripts/imgtool.py getpub -k mykey.pem
+
+This will output the public key as a C array that can be dropped
+directly into the `keys.c` file.
+

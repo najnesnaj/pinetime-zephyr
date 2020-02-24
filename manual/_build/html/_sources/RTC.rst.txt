@@ -20,6 +20,11 @@ In addition it will need a function to set the time.
 
 In bluetooth one can use CTS (central time service)
 
+
+**NOTE: as I found out there is a conflict between RTC0 and bluetooth **
+
+**An example of using RTC2 is included**
+
 Requirements
 ************
 

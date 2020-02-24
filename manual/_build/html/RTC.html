@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
-    <link rel="next" title="Current Time Service" href="CTS.html" />
+    <link rel="next" title="Current Time Service" href="current-time.html" />
     <link rel="prev" title="LittlevGL Clock Sample" href="clock.html" /> 
 </head>
 
@@ -104,17 +104,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="CTS.html">Current Time Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="current-time.html">Current Time Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="behind/behind.html">Behind the scene</a></li>
 <li class="toctree-l1"><a class="reference internal" href="samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
-<li class="toctree-l1"><a class="reference internal" href="flashing.html">hacking   the pinetime smartwatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hacking/debugging.html">debugging   the pinetime smartwatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hacking/i2cscanning.html">scanning the I2C_1 port</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hacking/writeprotection.html">howto flash your zephyr image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hacking/writeprotection.html#howto-remove-the-write-protection">howto remove the write protection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="latexpdf.html">howto generate pdf documents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hacking/hacking.html">Hacking stuff</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 </ul>
 
@@ -191,6 +187,8 @@ The number of seconds is incremented and the interrupt is launched again.</p>
 <p>It will serve as a building block for a “time of the day” clock.</p>
 <p>In addition it will need a function to set the time.</p>
 <p>In bluetooth one can use CTS (central time service)</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>NOTE: as I found out there is a conflict between RTC0 and bluetooth **</p>
+<p><strong>An example of using RTC2 is included</strong></p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
@@ -234,7 +232,7 @@ The number of seconds is incremented and the interrupt is launched again.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="CTS.html" class="btn btn-neutral float-right" title="Current Time Service" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="current-time.html" class="btn btn-neutral float-right" title="Current Time Service" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="clock.html" class="btn btn-neutral float-left" title="LittlevGL Clock Sample" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

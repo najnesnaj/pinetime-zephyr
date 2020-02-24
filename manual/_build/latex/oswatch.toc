@@ -94,24 +94,29 @@
 \contentsline {chapter}{\numberline {14}Firmware Over The Air (FOTA)}{37}{chapter.14}
 \contentsline {section}{\numberline {14.1}Wireless Device Firmware Upgrade}{37}{section.14.1}
 \contentsline {subsection}{\numberline {14.1.1}Overview}{37}{subsection.14.1.1}
-\contentsline {subsubsection}{MCUboot}{37}{subsubsection*.15}
 \contentsline {section}{\numberline {14.2}MCUboot with zephyr}{37}{section.14.2}
-\contentsline {section}{\numberline {14.3}Signing an application}{38}{section.14.3}
-\contentsline {section}{\numberline {14.4}SMP Server Sample}{38}{section.14.4}
-\contentsline {subsection}{\numberline {14.4.1}Overview}{38}{subsection.14.4.1}
-\contentsline {subsection}{\numberline {14.4.2}Requirements}{39}{subsection.14.4.2}
-\contentsline {subsection}{\numberline {14.4.3}Building and Running}{39}{subsection.14.4.3}
-\contentsline {subsubsection}{Step 1: Build smp\_svr}{39}{subsubsection*.16}
-\contentsline {subsubsection}{Step 2: Sign the image}{39}{subsubsection*.17}
-\contentsline {subsubsection}{Step 3: Flash the smp\_svr image}{39}{subsubsection*.18}
-\contentsline {subsubsection}{Step 4: Run it!}{39}{subsubsection*.19}
-\contentsline {subsubsection}{Step 5: Device Firmware Upgrade}{40}{subsubsection*.20}
-\contentsline {paragraph}{Build a second sample}{40}{paragraph*.21}
-\contentsline {paragraph}{Sign the second sample}{40}{paragraph*.22}
-\contentsline {paragraph}{Upload the image over BLE}{40}{paragraph*.23}
-\contentsline {paragraph}{List the images}{40}{paragraph*.24}
-\contentsline {paragraph}{Test the image}{41}{paragraph*.25}
-\contentsline {paragraph}{Reset remotely}{41}{paragraph*.26}
+\contentsline {section}{\numberline {14.3}Partitions}{38}{section.14.3}
+\contentsline {subsection}{\numberline {14.3.1}Defining partitions for MCUboot}{38}{subsection.14.3.1}
+\contentsline {subsection}{\numberline {14.3.2}Using NOR flash in partitions}{38}{subsection.14.3.2}
+\contentsline {section}{\numberline {14.4}Signing an application}{38}{section.14.4}
+\contentsline {subsection}{\numberline {14.4.1}Generating a new keypair}{38}{subsection.14.4.1}
+\contentsline {subsection}{\numberline {14.4.2}Extracting the public key}{39}{subsection.14.4.2}
+\contentsline {subsection}{\numberline {14.4.3}Example}{39}{subsection.14.4.3}
+\contentsline {section}{\numberline {14.5}SMP Server Sample}{39}{section.14.5}
+\contentsline {subsection}{\numberline {14.5.1}Overview}{39}{subsection.14.5.1}
+\contentsline {subsection}{\numberline {14.5.2}Requirements}{39}{subsection.14.5.2}
+\contentsline {subsection}{\numberline {14.5.3}Building and Running}{39}{subsection.14.5.3}
+\contentsline {subsubsection}{Step 1: Build smp\_svr}{39}{subsubsection*.15}
+\contentsline {subsubsection}{Step 2: Sign the image}{40}{subsubsection*.16}
+\contentsline {subsubsection}{Step 3: Flash the smp\_svr image}{40}{subsubsection*.17}
+\contentsline {subsubsection}{Step 4: Run it!}{40}{subsubsection*.18}
+\contentsline {subsubsection}{Step 5: Device Firmware Upgrade}{40}{subsubsection*.19}
+\contentsline {paragraph}{Build a second sample}{40}{paragraph*.20}
+\contentsline {paragraph}{Sign the second sample}{41}{paragraph*.21}
+\contentsline {paragraph}{Upload the image over BLE}{41}{paragraph*.22}
+\contentsline {paragraph}{List the images}{41}{paragraph*.23}
+\contentsline {paragraph}{Test the image}{41}{paragraph*.24}
+\contentsline {paragraph}{Reset remotely}{41}{paragraph*.25}
 \contentsline {chapter}{\numberline {15}Behind the scene}{43}{chapter.15}
 \contentsline {section}{\numberline {15.1}Behind the scene}{43}{section.15.1}
 \contentsline {subsection}{\numberline {15.1.1}Overview}{43}{subsection.15.1.1}
@@ -132,117 +137,117 @@
 \contentsline {subsection}{\numberline {15.5.1}Overview}{45}{subsection.15.5.1}
 \contentsline {subsection}{\numberline {15.5.2}Example}{45}{subsection.15.5.2}
 \contentsline {subsection}{\numberline {15.5.3}Requirements}{46}{subsection.15.5.3}
-\contentsline {subsubsection}{a sample to detect interrupt}{46}{subsubsection*.27}
-\contentsline {subsubsection}{a sample to scan the I2C-BUS}{46}{subsubsection*.28}
-\contentsline {subsubsection}{a sample to read the I2C-BUS}{46}{subsubsection*.29}
-\contentsline {subsubsection}{a samples to handle semaphores}{46}{subsubsection*.30}
+\contentsline {subsubsection}{a sample to detect interrupt}{46}{subsubsection*.26}
+\contentsline {subsubsection}{a sample to scan the I2C-BUS}{46}{subsubsection*.27}
+\contentsline {subsubsection}{a sample to read the I2C-BUS}{46}{subsubsection*.28}
+\contentsline {subsubsection}{a samples to handle semaphores}{46}{subsubsection*.29}
 \contentsline {section}{\numberline {15.6}placing a button on the screen}{46}{section.15.6}
 \contentsline {subsection}{\numberline {15.6.1}Building and Running}{46}{subsection.15.6.1}
 \contentsline {chapter}{\numberline {16}Samples and Demos}{47}{chapter.16}
 \contentsline {section}{\numberline {16.1}Basic Samples}{47}{section.16.1}
 \contentsline {subsection}{\numberline {16.1.1}Blinky Application}{47}{subsection.16.1.1}
-\contentsline {subsubsection}{Overview}{47}{subsubsection*.31}
-\contentsline {subsubsection}{Requirements}{47}{subsubsection*.32}
-\contentsline {subsubsection}{Building and Running}{47}{subsubsection*.33}
+\contentsline {subsubsection}{Overview}{47}{subsubsection*.30}
+\contentsline {subsubsection}{Requirements}{47}{subsubsection*.31}
+\contentsline {subsubsection}{Building and Running}{47}{subsubsection*.32}
 \contentsline {subsection}{\numberline {16.1.2}Button demo}{47}{subsection.16.1.2}
-\contentsline {subsubsection}{Overview}{47}{subsubsection*.34}
-\contentsline {subsubsection}{Requirements}{48}{subsubsection*.35}
-\contentsline {subsubsection}{Building and Running}{48}{subsubsection*.36}
+\contentsline {subsubsection}{Overview}{47}{subsubsection*.33}
+\contentsline {subsubsection}{Requirements}{48}{subsubsection*.34}
+\contentsline {subsubsection}{Building and Running}{48}{subsubsection*.35}
 \contentsline {subsection}{\numberline {16.1.3}I2C Scanner sample}{48}{subsection.16.1.3}
-\contentsline {subsubsection}{Overview}{48}{subsubsection*.37}
-\contentsline {subsubsection}{Building and Running}{48}{subsubsection*.38}
+\contentsline {subsubsection}{Overview}{48}{subsubsection*.36}
+\contentsline {subsubsection}{Building and Running}{48}{subsubsection*.37}
 \contentsline {subsection}{\numberline {16.1.4}Touchscreen IRQ}{48}{subsection.16.1.4}
-\contentsline {subsubsection}{Overview}{48}{subsubsection*.39}
-\contentsline {subsubsection}{Requirements}{48}{subsubsection*.40}
-\contentsline {subsubsection}{Building and Running}{49}{subsubsection*.41}
+\contentsline {subsubsection}{Overview}{48}{subsubsection*.38}
+\contentsline {subsubsection}{Requirements}{48}{subsubsection*.39}
+\contentsline {subsubsection}{Building and Running}{49}{subsubsection*.40}
 \contentsline {subsection}{\numberline {16.1.5}Touchpoints}{49}{subsection.16.1.5}
-\contentsline {subsubsection}{Overview}{49}{subsubsection*.42}
-\contentsline {subsubsection}{Requirements}{49}{subsubsection*.43}
-\contentsline {subsubsection}{Building and Running}{49}{subsubsection*.44}
+\contentsline {subsubsection}{Overview}{49}{subsubsection*.41}
+\contentsline {subsubsection}{Requirements}{49}{subsubsection*.42}
+\contentsline {subsubsection}{Building and Running}{49}{subsubsection*.43}
 \contentsline {section}{\numberline {16.2}Sensor Samples}{49}{section.16.2}
 \contentsline {subsection}{\numberline {16.2.1}BMA280: Three Axis High-g I2C/SPI Accelerometer}{49}{subsection.16.2.1}
-\contentsline {subsubsection}{Description}{49}{subsubsection*.45}
-\contentsline {subsubsection}{References}{49}{subsubsection*.46}
-\contentsline {subsubsection}{Wiring}{49}{subsubsection*.47}
-\contentsline {paragraph}{I2C mode}{50}{paragraph*.48}
-\contentsline {paragraph}{SPI mode}{50}{paragraph*.49}
-\contentsline {subsubsection}{Building and Running}{50}{subsubsection*.50}
-\contentsline {paragraph}{Sample Output: Max Peak Detect Mode}{50}{paragraph*.51}
-\contentsline {paragraph}{Sample Output: Measurement Mode}{50}{paragraph*.52}
+\contentsline {subsubsection}{Description}{49}{subsubsection*.44}
+\contentsline {subsubsection}{References}{49}{subsubsection*.45}
+\contentsline {subsubsection}{Wiring}{49}{subsubsection*.46}
+\contentsline {paragraph}{I2C mode}{50}{paragraph*.47}
+\contentsline {paragraph}{SPI mode}{50}{paragraph*.48}
+\contentsline {subsubsection}{Building and Running}{50}{subsubsection*.49}
+\contentsline {paragraph}{Sample Output: Max Peak Detect Mode}{50}{paragraph*.50}
+\contentsline {paragraph}{Sample Output: Measurement Mode}{50}{paragraph*.51}
 \contentsline {subsection}{\numberline {16.2.2}CST816S HYNITRON TOUCHSCREEN}{50}{subsection.16.2.2}
-\contentsline {subsubsection}{Description}{50}{subsubsection*.53}
-\contentsline {subsubsection}{References}{50}{subsubsection*.54}
-\contentsline {subsubsection}{Wiring}{50}{subsubsection*.55}
-\contentsline {paragraph}{I2C mode}{50}{paragraph*.56}
-\contentsline {subsubsection}{Building and Running}{50}{subsubsection*.57}
-\contentsline {paragraph}{Sample Output: X \& Y coordinates}{50}{paragraph*.58}
-\contentsline {paragraph}{Sample Output: Measurement Mode}{51}{paragraph*.59}
+\contentsline {subsubsection}{Description}{50}{subsubsection*.52}
+\contentsline {subsubsection}{References}{50}{subsubsection*.53}
+\contentsline {subsubsection}{Wiring}{50}{subsubsection*.54}
+\contentsline {paragraph}{I2C mode}{50}{paragraph*.55}
+\contentsline {subsubsection}{Building and Running}{50}{subsubsection*.56}
+\contentsline {paragraph}{Sample Output: X \& Y coordinates}{50}{paragraph*.57}
+\contentsline {paragraph}{Sample Output: Measurement Mode}{51}{paragraph*.58}
 \contentsline {subsection}{\numberline {16.2.3}HRS3300 Heart Rate Sensor}{51}{subsection.16.2.3}
-\contentsline {subsubsection}{Overview}{51}{subsubsection*.60}
-\contentsline {subsubsection}{Building and Running}{51}{subsubsection*.61}
-\contentsline {paragraph}{Sample Output}{51}{paragraph*.62}
+\contentsline {subsubsection}{Overview}{51}{subsubsection*.59}
+\contentsline {subsubsection}{Building and Running}{51}{subsubsection*.60}
+\contentsline {paragraph}{Sample Output}{51}{paragraph*.61}
 \contentsline {section}{\numberline {16.3}Driver Samples}{51}{section.16.3}
 \contentsline {subsection}{\numberline {16.3.1}I2C Scanner sample}{51}{subsection.16.3.1}
-\contentsline {subsubsection}{Overview}{51}{subsubsection*.63}
-\contentsline {subsubsection}{Building and Running}{51}{subsubsection*.64}
+\contentsline {subsubsection}{Overview}{51}{subsubsection*.62}
+\contentsline {subsubsection}{Building and Running}{51}{subsubsection*.63}
 \contentsline {subsection}{\numberline {16.3.2}I2C Scanner sample}{51}{subsection.16.3.2}
-\contentsline {subsubsection}{Overview}{51}{subsubsection*.65}
-\contentsline {subsubsection}{Building and Running}{52}{subsubsection*.66}
+\contentsline {subsubsection}{Overview}{51}{subsubsection*.64}
+\contentsline {subsubsection}{Building and Running}{52}{subsubsection*.65}
 \contentsline {section}{\numberline {16.4}Display Samples}{52}{section.16.4}
 \contentsline {subsection}{\numberline {16.4.1}ST7789V Display driver}{52}{subsection.16.4.1}
-\contentsline {subsubsection}{Overview}{52}{subsubsection*.67}
-\contentsline {subsubsection}{Building and Running}{52}{subsubsection*.68}
-\contentsline {subsubsection}{References}{52}{subsubsection*.69}
+\contentsline {subsubsection}{Overview}{52}{subsubsection*.66}
+\contentsline {subsubsection}{Building and Running}{52}{subsubsection*.67}
+\contentsline {subsubsection}{References}{52}{subsubsection*.68}
 \contentsline {section}{\numberline {16.5}GUI Samples}{52}{section.16.5}
 \contentsline {subsection}{\numberline {16.5.1}Clock Sample Current Time Service}{52}{subsection.16.5.1}
-\contentsline {subsubsection}{Overview}{52}{subsubsection*.70}
-\contentsline {subsubsection}{Requirements}{52}{subsubsection*.71}
-\contentsline {subsubsection}{Building and Running}{52}{subsubsection*.72}
-\contentsline {subsubsection}{References}{52}{subsubsection*.73}
+\contentsline {subsubsection}{Overview}{52}{subsubsection*.69}
+\contentsline {subsubsection}{Requirements}{52}{subsubsection*.70}
+\contentsline {subsubsection}{Building and Running}{52}{subsubsection*.71}
+\contentsline {subsubsection}{References}{52}{subsubsection*.72}
 \contentsline {subsection}{\numberline {16.5.2}Clock Sample Current Time Service}{52}{subsection.16.5.2}
-\contentsline {subsubsection}{Overview}{52}{subsubsection*.74}
-\contentsline {subsubsection}{Requirements}{53}{subsubsection*.75}
-\contentsline {subsubsection}{Building and Running}{53}{subsubsection*.76}
-\contentsline {subsubsection}{References}{53}{subsubsection*.77}
+\contentsline {subsubsection}{Overview}{52}{subsubsection*.73}
+\contentsline {subsubsection}{Requirements}{53}{subsubsection*.74}
+\contentsline {subsubsection}{Building and Running}{53}{subsubsection*.75}
+\contentsline {subsubsection}{References}{53}{subsubsection*.76}
 \contentsline {subsection}{\numberline {16.5.3}LittlevGL Clock Sample}{53}{subsection.16.5.3}
-\contentsline {subsubsection}{Overview}{53}{subsubsection*.78}
-\contentsline {subsubsection}{Requirements}{53}{subsubsection*.79}
-\contentsline {subsubsection}{Building and Running}{53}{subsubsection*.80}
-\contentsline {subsubsection}{References}{53}{subsubsection*.81}
+\contentsline {subsubsection}{Overview}{53}{subsubsection*.77}
+\contentsline {subsubsection}{Requirements}{53}{subsubsection*.78}
+\contentsline {subsubsection}{Building and Running}{53}{subsubsection*.79}
+\contentsline {subsubsection}{References}{53}{subsubsection*.80}
 \contentsline {subsection}{\numberline {16.5.4}Adafruit GFX Library on ST7789V Display}{53}{subsection.16.5.4}
-\contentsline {subsubsection}{Overview}{53}{subsubsection*.82}
+\contentsline {subsubsection}{Overview}{53}{subsubsection*.81}
 \contentsline {subsection}{\numberline {16.5.5}Display accel values}{53}{subsection.16.5.5}
-\contentsline {subsubsection}{Overview}{53}{subsubsection*.83}
-\contentsline {subsubsection}{Requirements}{54}{subsubsection*.84}
-\contentsline {subsubsection}{Building and Running}{54}{subsubsection*.85}
-\contentsline {subsubsection}{References}{54}{subsubsection*.86}
+\contentsline {subsubsection}{Overview}{53}{subsubsection*.82}
+\contentsline {subsubsection}{Requirements}{54}{subsubsection*.83}
+\contentsline {subsubsection}{Building and Running}{54}{subsubsection*.84}
+\contentsline {subsubsection}{References}{54}{subsubsection*.85}
 \contentsline {subsection}{\numberline {16.5.6}LittlevGL Basic Sample}{54}{subsection.16.5.6}
-\contentsline {subsubsection}{Overview}{54}{subsubsection*.87}
-\contentsline {subsubsection}{Requirements}{54}{subsubsection*.88}
-\contentsline {subsubsection}{Building and Running}{54}{subsubsection*.89}
-\contentsline {subsubsection}{References}{54}{subsubsection*.90}
+\contentsline {subsubsection}{Overview}{54}{subsubsection*.86}
+\contentsline {subsubsection}{Requirements}{54}{subsubsection*.87}
+\contentsline {subsubsection}{Building and Running}{54}{subsubsection*.88}
+\contentsline {subsubsection}{References}{54}{subsubsection*.89}
 \contentsline {subsection}{\numberline {16.5.7}Touchscreen Basic Sample}{54}{subsection.16.5.7}
-\contentsline {subsubsection}{Overview}{54}{subsubsection*.91}
-\contentsline {subsubsection}{Requirements}{54}{subsubsection*.92}
-\contentsline {subsubsection}{Building and Running}{55}{subsubsection*.93}
-\contentsline {subsubsection}{References}{55}{subsubsection*.94}
+\contentsline {subsubsection}{Overview}{54}{subsubsection*.90}
+\contentsline {subsubsection}{Requirements}{54}{subsubsection*.91}
+\contentsline {subsubsection}{Building and Running}{55}{subsubsection*.92}
+\contentsline {subsubsection}{References}{55}{subsubsection*.93}
 \contentsline {section}{\numberline {16.6}Bluetooth Samples}{55}{section.16.6}
 \contentsline {subsection}{\numberline {16.6.1}Bluetooth: Central / Heart-rate Monitor}{55}{subsection.16.6.1}
-\contentsline {subsubsection}{Overview}{55}{subsubsection*.95}
-\contentsline {subsubsection}{Requirements}{55}{subsubsection*.96}
-\contentsline {subsubsection}{Building and Running}{55}{subsubsection*.97}
+\contentsline {subsubsection}{Overview}{55}{subsubsection*.94}
+\contentsline {subsubsection}{Requirements}{55}{subsubsection*.95}
+\contentsline {subsubsection}{Building and Running}{55}{subsubsection*.96}
 \contentsline {subsection}{\numberline {16.6.2}Bluetooth: Eddystone}{55}{subsection.16.6.2}
-\contentsline {subsubsection}{Overview}{55}{subsubsection*.98}
-\contentsline {subsubsection}{Requirements}{55}{subsubsection*.99}
-\contentsline {subsubsection}{Building and Running}{55}{subsubsection*.100}
+\contentsline {subsubsection}{Overview}{55}{subsubsection*.97}
+\contentsline {subsubsection}{Requirements}{55}{subsubsection*.98}
+\contentsline {subsubsection}{Building and Running}{55}{subsubsection*.99}
 \contentsline {subsection}{\numberline {16.6.3}Bluetooth: Peripheral\_cts}{56}{subsection.16.6.3}
-\contentsline {subsubsection}{Overview}{56}{subsubsection*.101}
-\contentsline {subsubsection}{Requirements}{56}{subsubsection*.102}
-\contentsline {subsubsection}{Building and Running}{56}{subsubsection*.103}
+\contentsline {subsubsection}{Overview}{56}{subsubsection*.100}
+\contentsline {subsubsection}{Requirements}{56}{subsubsection*.101}
+\contentsline {subsubsection}{Building and Running}{56}{subsubsection*.102}
 \contentsline {subsection}{\numberline {16.6.4}Bluetooth: Peripheral}{56}{subsection.16.6.4}
-\contentsline {subsubsection}{Overview}{56}{subsubsection*.104}
-\contentsline {subsubsection}{Requirements}{56}{subsubsection*.105}
-\contentsline {subsubsection}{Building and Running}{56}{subsubsection*.106}
+\contentsline {subsubsection}{Overview}{56}{subsubsection*.103}
+\contentsline {subsubsection}{Requirements}{56}{subsubsection*.104}
+\contentsline {subsubsection}{Building and Running}{56}{subsubsection*.105}
 \contentsline {chapter}{\numberline {17}Menuconfig}{57}{chapter.17}
 \contentsline {section}{\numberline {17.1}Zephyr is like linux}{57}{section.17.1}
 \contentsline {chapter}{\numberline {18}Hacking stuff}{59}{chapter.18}
@@ -257,6 +262,6 @@
 \contentsline {subsection}{\numberline {18.7.1}Suppose you have 2 microcontrollers}{63}{subsection.18.7.1}
 \contentsline {subsection}{\numberline {18.7.2}Howto setup a second openocd session on a different port?}{63}{subsection.18.7.2}
 \contentsline {subsection}{\numberline {18.7.3}Howto use the GPIO header of a Single Board computer}{63}{subsection.18.7.3}
-\contentsline {chapter}{\numberline {19}howto generate pdf documents}{65}{chapter.19}
-\contentsline {chapter}{\numberline {20}About}{67}{chapter.20}
-\contentsline {section}{\numberline {20.1}Todo}{67}{section.20.1}
+\contentsline {section}{\numberline {18.8}howto generate pdf documents}{63}{section.18.8}
+\contentsline {chapter}{\numberline {19}About}{65}{chapter.19}
+\contentsline {section}{\numberline {19.1}Todo}{65}{section.19.1}

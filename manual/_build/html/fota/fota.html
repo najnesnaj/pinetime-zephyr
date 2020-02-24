@@ -102,6 +102,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Firmware Over The Air (FOTA)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mcuboot.html">Wireless Device Firmware Upgrade</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mcuboot.html#mcuboot-with-zephyr">MCUboot with zephyr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitions.html">Partitions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="signing.html">Signing an application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smp_svr.html">SMP Server Sample</a></li>
 </ul>
@@ -110,7 +111,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hacking/hacking.html">Hacking stuff</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../latexpdf.html">howto generate pdf documents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
 </ul>
 
@@ -181,14 +181,21 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="mcuboot.html">Wireless Device Firmware Upgrade</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mcuboot.html#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mcuboot.html#id1">MCUboot</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="mcuboot.html#overview">Overview</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mcuboot.html#mcuboot-with-zephyr">MCUboot with zephyr</a></li>
-<li class="toctree-l1"><a class="reference internal" href="signing.html">Signing an application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="partitions.html">Partitions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="partitions.html#defining-partitions-for-mcuboot">Defining partitions for MCUboot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitions.html#using-nor-flash-in-partitions">Using NOR flash in partitions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="signing.html">Signing an application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="signing.html#generating-a-new-keypair">Generating a new keypair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signing.html#extracting-the-public-key">Extracting the public key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signing.html#example">Example</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="smp_svr.html">SMP Server Sample</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="smp_svr.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smp_svr.html#requirements">Requirements</a></li>

@@ -15,3 +15,4 @@ Hacking stuff
     writeprotection
     infrastructure
     openocd 
+    latexpdf

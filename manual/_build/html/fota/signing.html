@@ -38,7 +38,7 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="SMP Server Sample" href="smp_svr.html" />
-    <link rel="prev" title="Wireless Device Firmware Upgrade" href="mcuboot.html" /> 
+    <link rel="prev" title="Partitions" href="partitions.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -102,7 +102,13 @@
 <li class="toctree-l1 current"><a class="reference internal" href="fota.html">Firmware Over The Air (FOTA)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="mcuboot.html">Wireless Device Firmware Upgrade</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mcuboot.html#mcuboot-with-zephyr">MCUboot with zephyr</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Signing an application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partitions.html">Partitions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Signing an application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#generating-a-new-keypair">Generating a new keypair</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extracting-the-public-key">Extracting the public key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="smp_svr.html">SMP Server Sample</a></li>
 </ul>
 </li>
@@ -110,7 +116,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hacking/hacking.html">Hacking stuff</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../latexpdf.html">howto generate pdf documents</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
 </ul>
 
@@ -180,6 +185,33 @@
             
   <div class="section" id="signing-an-application">
 <span id="signing"></span><h1>Signing an application<a class="headerlink" href="#signing-an-application" title="Permalink to this headline">¶</a></h1>
+<p>In order to improve the security, only signed images can be uploaded.</p>
+<p>There is a public and private key.
+The Bootloader is compiled with the public key.
+Each time you want to upload firmware, you have to sign it with a private key.</p>
+<p><strong>NOTE: it is important to keep the private key hidden</strong></p>
+<div class="section" id="generating-a-new-keypair">
+<h2>Generating a new keypair<a class="headerlink" href="#generating-a-new-keypair" title="Permalink to this headline">¶</a></h2>
+<p>Generating a keypair with imgtool is a matter of running the keygen
+subcommand:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./scripts/imgtool.py keygen -k mykey.pem -t rsa-2048
+</pre></div>
+</div>
+</div>
+<div class="section" id="extracting-the-public-key">
+<h2>Extracting the public key<a class="headerlink" href="#extracting-the-public-key" title="Permalink to this headline">¶</a></h2>
+<p>The generated keypair above contains both the public and the private
+key.  It is necessary to extract the public key and insert it into the
+bootloader.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./scripts/imgtool.py getpub -k mykey.pem
+</pre></div>
+</div>
+<p>This will output the public key as a C array that can be dropped
+directly into the <cite>keys.c</cite> file.</p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>sign the compiled zephyr.bin firmware with the root-rsa-2048.pem, private key:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">imgtool.py sign --key ../../root-rsa-2048.pem \</span>
 <span class="go">    --header-size 0x200 \</span>
 <span class="go">    --align 8 \</span>
@@ -188,6 +220,7 @@
 <span class="go">    ../mcuboot/samples/zephyr/build/ds_d6/hello1/zephyr/zephyr.bin \</span>
 <span class="go">    signed-hello1.bin</span>
 </pre></div>
+</div>
 </div>
 </div>
 
@@ -202,7 +235,7 @@
         <a href="smp_svr.html" class="btn btn-neutral float-right" title="SMP Server Sample" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="mcuboot.html" class="btn btn-neutral float-left" title="Wireless Device Firmware Upgrade" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="partitions.html" class="btn btn-neutral float-left" title="Partitions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

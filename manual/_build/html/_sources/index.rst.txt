@@ -19,7 +19,6 @@
    samples/index.rst
    menuconfig
    hacking/hacking.rst
-   latexpdf
    about
 
 
