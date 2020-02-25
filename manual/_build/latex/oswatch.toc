@@ -39,7 +39,7 @@
 \contentsline {section}{\numberline {11.2}Requirements}{23}{section.11.2}
 \contentsline {section}{\numberline {11.3}Building and Running}{23}{section.11.3}
 \contentsline {section}{\numberline {11.4}Todo}{23}{section.11.4}
-\contentsline {section}{\numberline {11.5}References}{24}{section.11.5}
+\contentsline {section}{\numberline {11.5}References}{23}{section.11.5}
 \contentsline {chapter}{\numberline {12}Current Time Service}{25}{chapter.12}
 \contentsline {section}{\numberline {12.1}Requirements:}{25}{section.12.1}
 \contentsline {section}{\numberline {12.2}BLE Peripheral CTS sample for zephyr}{25}{section.12.2}

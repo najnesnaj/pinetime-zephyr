@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Feb 24, 2020}
+\date{Feb 25, 2020}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -612,7 +612,9 @@ LittlevGL Web Page: \sphinxurl{https://littlevgl.com/}
 
 \section{Overview}
 \label{\detokenize{RTC:overview}}
-This sample application “clock” uses the RTC0 timer.
+This sample application “clock” uses the RTC2 timer.
+(the standard sample with RTC0 is not usable together with bluetooth)
+
 It uses the counter driver. (based on the alarm sample)
 
 Basically an interrupt is set to go off after 1 second.
@@ -626,8 +628,6 @@ In bluetooth one can use CTS (central time service)
 
 {\color{red}\bfseries{}**}NOTE: as I found out there is a conflict between RTC0 and bluetooth **
 
-\sphinxstylestrong{An example of using RTC2 is included}
-
 
 \section{Requirements}
 \label{\detokenize{RTC:requirements}}
@@ -637,23 +637,9 @@ Make sure the prj.conf contains the following :
 \PYG{n}{CONFIG\PYGZus{}COUNTER}\PYG{o}{=}\PYG{n}{y}
 \end{sphinxVerbatim}
 
-You need the Kconfig file, which contains :
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{config} \PYG{n}{COUNTER\PYGZus{}RTC0}
-        \PYG{n+nb}{bool}
-        \PYG{n}{default} \PYG{n}{y} \PYG{k}{if} \PYG{n}{SOC\PYGZus{}FAMILY\PYGZus{}NRF}
-\end{sphinxVerbatim}
-
-see : {\hyperref[\detokenize{samples/gui/clock/README:clock-sample}]{\sphinxcrossref{\DUrole{std,std-ref}{LittlevGL Clock Sample}}}}
-
 
 \section{Building and Running}
 \label{\detokenize{RTC:building-and-running}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/gui/clock}
-\end{sphinxVerbatim}
-
 
 \section{Todo}
 \label{\detokenize{RTC:todo}}\begin{itemize}

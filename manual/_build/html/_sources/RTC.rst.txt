@@ -6,7 +6,9 @@ Real Time Clock
 Overview
 ********
 
-This sample application "clock" uses the RTC0 timer.
+This sample application "clock" uses the RTC2 timer.
+(the standard sample with RTC0 is not usable together with bluetooth)
+
 It uses the counter driver. (based on the alarm sample)
 
 
@@ -23,7 +25,6 @@ In bluetooth one can use CTS (central time service)
 
 **NOTE: as I found out there is a conflict between RTC0 and bluetooth **
 
-**An example of using RTC2 is included**
 
 Requirements
 ************
@@ -37,16 +38,8 @@ Make sure the prj.conf contains the following :
 
 
 
-You need the Kconfig file, which contains :
-
-::
-
-        config COUNTER_RTC0
-                bool
-                default y if SOC_FAMILY_NRF
 
 
-see : :ref:`clock-sample`
 
 
 Building and Running
@@ -55,8 +48,7 @@ Building and Running
 
 
 .. code-block:: console
-
-       west build -p -b pinetime samples/gui/clock
+       west build -p -b pinetime samples/gui/clock-cts-rtc2
 
 
 Todo
