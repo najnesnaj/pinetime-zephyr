@@ -1255,6 +1255,22 @@ check pin when charging
 \sphinxurl{https://forum.pine64.org/showthread.php?tid=8147}
 
 
+\section{Watchdog}
+\label{\detokenize{drivers/watchdog:watchdog}}\label{\detokenize{drivers/watchdog::doc}}\begin{quote}
+
+west build -p -b pinetime samples/drivers/watchdog
+\end{quote}
+
+
+\subsection{Overview}
+\label{\detokenize{drivers/watchdog:overview}}
+
+\subsection{Todo}
+\label{\detokenize{drivers/watchdog:todo}}
+
+\subsection{References}
+\label{\detokenize{drivers/watchdog:references}}
+
 \chapter{Firmware Over The Air (FOTA)}
 \label{\detokenize{fota/fota:firmware-over-the-air-fota}}\label{\detokenize{fota/fota:fota}}\label{\detokenize{fota/fota::doc}}
 
@@ -1367,8 +1383,85 @@ Basically with the partitioning you end up with less space for your program.
 
 As the pinetime has an extra spi nor flash chip, we can use this.
 
-The flashlay-out can be modified so as 1 chunk is on system flash and 1 chunk is on SPI NOR flash.
+The flash-layout can be modified so as 1 chunk is on system flash and 1 chunk is on SPI NOR flash.
 This way the space for your firmware remains almost the same.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{chosen \PYGZob{}}
+\PYG{g+go}{        zephyr,flash = \PYGZam{}flash0;}
+\PYG{g+go}{        //zephyr,flash = \PYGZam{}flash1;}
+\PYG{g+go}{        zephyr,code\PYGZhy{}partition = \PYGZam{}slot0\PYGZus{}partition;}
+\PYG{g+go}{\PYGZcb{};}
+
+
+\PYG{g+go}{Rename the SPI JEDEC NOR Flash definition to : flash1}
+
+\PYG{g+go}{flash1: mx25r6435f@1 \PYGZob{}}
+\PYG{g+go}{        compatible = \PYGZdq{}jedec,spi\PYGZhy{}nor\PYGZdq{};}
+\PYG{g+go}{        reg = \PYGZlt{}1\PYGZgt{};}
+\PYG{g+go}{        spi\PYGZhy{}max\PYGZhy{}frequency = \PYGZlt{}80000000\PYGZgt{};}
+\PYG{g+go}{        label = \PYGZdq{}MX25R64\PYGZdq{};}
+\PYG{g+go}{        jedec\PYGZhy{}id = [0b 40 16];}
+\PYG{g+go}{        size = \PYGZlt{}67108864\PYGZgt{};}
+\PYG{g+go}{        has\PYGZhy{}be32k;}
+\PYG{g+go}{        erase\PYGZhy{}block\PYGZhy{}size = \PYGZlt{}4096\PYGZgt{};}
+\PYG{g+go}{        write\PYGZhy{}block\PYGZhy{}size = \PYGZlt{}4\PYGZgt{};}
+\PYG{g+go}{\PYGZcb{};}
+
+
+
+
+\PYG{g+go}{ \PYGZam{}flash0 \PYGZob{}}
+\PYG{g+go}{        /*}
+\PYG{g+go}{         * For more information, see:}
+\PYG{g+go}{         * http://docs.zephyrproject.org/latest/guides/dts/index.html\PYGZsh{}flash\PYGZhy{}partitions}
+\PYG{g+go}{         */}
+\PYG{g+go}{        partitions \PYGZob{}}
+\PYG{g+go}{                compatible = \PYGZdq{}fixed\PYGZhy{}partitions\PYGZdq{};}
+\PYG{g+gp}{                \PYGZsh{}}address\PYGZhy{}cells \PYG{o}{=} \PYGZlt{}\PYG{l+m}{1}\PYGZgt{}\PYG{p}{;}
+\PYG{g+gp}{                \PYGZsh{}}size\PYGZhy{}cells \PYG{o}{=} \PYGZlt{}\PYG{l+m}{1}\PYGZgt{}\PYG{p}{;}
+
+\PYG{g+go}{                boot\PYGZus{}partition: partition@0 \PYGZob{}}
+\PYG{g+go}{                        label = \PYGZdq{}mcuboot\PYGZdq{};}
+\PYG{g+go}{                        reg = \PYGZlt{}0x00000000 0xc000\PYGZgt{};}
+\PYG{g+go}{                \PYGZcb{};}
+\PYG{g+go}{                slot0\PYGZus{}partition: partition@c000 \PYGZob{}}
+\PYG{g+go}{                        label = \PYGZdq{}image\PYGZhy{}0\PYGZdq{};}
+
+\PYG{g+go}{                change the size of partition 0 from 0x32000 to 0x64000}
+
+\PYG{g+go}{                        reg = \PYGZlt{}0x0000C000 0x64000\PYGZgt{};}
+\PYG{g+go}{                \PYGZcb{};}
+
+\PYG{g+go}{                move slot1 partition to \PYGZam{}flash1}
+
+\PYG{g+go}{                //slot1\PYGZus{}partition: partition@3e000 \PYGZob{}}
+\PYG{g+go}{                //      label = \PYGZdq{}image\PYGZhy{}1\PYGZdq{};}
+\PYG{g+go}{                //      reg = \PYGZlt{}0x0003e000 0x32000\PYGZgt{};}
+\PYG{g+go}{                //\PYGZcb{};}
+\PYG{g+go}{                scratch\PYGZus{}partition: partition@70000 \PYGZob{}}
+\PYG{g+go}{                        label = \PYGZdq{}image\PYGZhy{}scratch\PYGZdq{};}
+\PYG{g+go}{                        reg = \PYGZlt{}0x00070000 0xa000\PYGZgt{};}
+\PYG{g+go}{                \PYGZcb{};}
+\PYG{g+go}{                storage\PYGZus{}partition: partition@7a000 \PYGZob{}}
+\PYG{g+go}{                        label = \PYGZdq{}storage\PYGZdq{};}
+\PYG{g+go}{                        reg = \PYGZlt{}0x0007a000 0x00006000\PYGZgt{};}
+\PYG{g+go}{                \PYGZcb{};}
+\PYG{g+go}{        \PYGZcb{};}
+\PYG{g+go}{ \PYGZcb{};}
+
+\PYG{g+go}{ \PYGZam{}flash1 \PYGZob{}}
+\PYG{g+go}{        partitions \PYGZob{}}
+\PYG{g+go}{                compatible = \PYGZdq{}fixed\PYGZhy{}partitions\PYGZdq{};}
+\PYG{g+gp}{                \PYGZsh{}}address\PYGZhy{}cells \PYG{o}{=} \PYGZlt{}\PYG{l+m}{1}\PYGZgt{}\PYG{p}{;}
+\PYG{g+gp}{                \PYGZsh{}}size\PYGZhy{}cells \PYG{o}{=} \PYGZlt{}\PYG{l+m}{1}\PYGZgt{}\PYG{p}{;}
+\PYG{g+go}{                slot1\PYGZus{}partition: partition@3e000 \PYGZob{}}
+\PYG{g+go}{                        label = \PYGZdq{}image\PYGZhy{}1\PYGZdq{};}
+\PYG{g+go}{                        reg = \PYGZlt{}0x00000000 0x64000\PYGZgt{};}
+\PYG{g+go}{                \PYGZcb{};}
+\PYG{g+go}{        \PYGZcb{};}
+\PYG{g+go}{ \PYGZcb{};}
+\end{sphinxVerbatim}
 
 
 \section{Signing an application}
@@ -1447,13 +1540,25 @@ In order to communicate with the smp server sample installed on your pinetime, y
 
 Here is a procedure to install mcumgr on a raspberry pi  (or similar)
 
+It is written in the go-language. You need to adapt the path :   PATH=\$PATH:/root/go/bin.
+
 
 \subsection{Building and Running}
 \label{\detokenize{fota/smp_svr:building-and-running}}
+The sample will let you manage the pinetime over bluetooth. (via SMP protocol)
+
+There are slot0 and slot1 which can both contain firmware.
+
+Suppose you switch from slot0 to slot1, you still want to be able to communicate.
+
+So both slots need smp\_svr software!
+
 
 \subsubsection{Step 1: Build smp\_svr}
 \label{\detokenize{fota/smp_svr:step-1-build-smp-svr}}
 \sphinxcode{\sphinxupquote{smp\_svr}} can be built for the nRF52 as follows:
+
+\sphinxstylestrong{NOTE: to perform a firmware update over the air, you have to build a second sample}
 
 
 \subsubsection{Step 2: Sign the image}
@@ -1506,41 +1611,21 @@ send a string to the remote target device and have it echo it back:
 
 \subsubsection{Step 5: Device Firmware Upgrade}
 \label{\detokenize{fota/smp_svr:step-5-device-firmware-upgrade}}
-Now that the SMP server is running on your board and you are able to communicate
-with it using \sphinxcode{\sphinxupquote{mcumgr}}, you might want to test “OTA DFU”, or Over-The-Air Device Firmware Upgrade.
+Now that the SMP server is running on your pinetime, you are able to communicate
+with it using \sphinxtitleref{mcumgr}.
+
+You might want to test “OTA DFU”, or Over-The-Air Device Firmware Upgrade.
 
 To do this, build a second sample (following the steps below) to verify
 it is sent over the air and properly flashed into slot-1, and then
 swapped into slot-0 by MCUboot.
 
-
-\paragraph{Build a second sample}
-\label{\detokenize{fota/smp_svr:build-a-second-sample}}
-Perhaps the easiest sample to test with is the {\color{red}\bfseries{}:zephyr\_file:{}`samples/hello\_world{}`}
-sample provided by Zephyr, documented in the \DUrole{xref,std,std-ref}{hello\_world} section.
-
-Edit {\color{red}\bfseries{}:zephyr\_file:{}`samples/hello\_world/prj.conf{}`} and enable the required MCUboot
-Kconfig option as described in \DUrole{xref,std,std-ref}{mcuboot} by adding the following line to
-it:
-
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{CONFIG\PYGZus{}BOOTLOADER\PYGZus{}MCUBOOT=y}
+\PYG{o}{*} \PYG{n}{Build} \PYG{n}{a} \PYG{n}{second} \PYG{n}{sample}
+\PYG{o}{*} \PYG{n}{Sign} \PYG{n}{the} \PYG{n}{second} \PYG{n}{sample}
+\PYG{o}{*} \PYG{n}{Upload} \PYG{n}{the} \PYG{n}{image} \PYG{n}{over} \PYG{n}{BLE}
 \end{sphinxVerbatim}
 
-Then build the sample as usual (see \DUrole{xref,std,std-ref}{hello\_world}).
-
-
-\paragraph{Sign the second sample}
-\label{\detokenize{fota/smp_svr:sign-the-second-sample}}
-Next you will need to sign the sample just like you did for \sphinxcode{\sphinxupquote{smp\_svr}},
-since it needs to be loaded by MCUboot.
-Follow the same instructions described in \DUrole{xref,std,std-ref}{smp\_svr\_sample\_sign},
-but this time you must use a \sphinxcode{\sphinxupquote{.bin}} image, since \sphinxcode{\sphinxupquote{mcumgr}} does not
-yet support \sphinxcode{\sphinxupquote{.hex}} files.
-
-
-\paragraph{Upload the image over BLE}
-\label{\detokenize{fota/smp_svr:upload-the-image-over-ble}}
 Now we are ready to send or upload the image over BLE to the target remote
 device.
 
@@ -1595,21 +1680,13 @@ MCUboot swaps the images:
 
 Upon reset MCUboot will swap slot-0 and slot-1.
 
-The new image is the basic \sphinxcode{\sphinxupquote{hello\_world}} sample that does not contain
-SMP or BLE functionality, so we cannot communicate with it using
-\sphinxcode{\sphinxupquote{mcumgr}}. Instead simply reset the board manually to force MCUboot
-to revert (i.e. swap back the images) due to the fact that the new image has
-not been confirmed.
-
-If you had instead built and uploaded a new image based on \sphinxcode{\sphinxupquote{smp\_svr}}
-(or another BLE and SMP enabled sample), you could confirm the
-new image and make the swap permanent by using this command:
+You can confirm the new image and make the swap permanent by using this command:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+go}{sudo mcumgr \PYGZhy{}\PYGZhy{}conntype ble \PYGZhy{}\PYGZhy{}connstring ctlr\PYGZus{}name=hci0,peer\PYGZus{}name=\PYGZsq{}Zephyr\PYGZsq{} image confirm}
 \end{sphinxVerbatim}
 
-Note that if you try to send the very same image that is already flashed in
+\sphinxstylestrong{Note} that if you try to send the very same image that is already flashed in
 slot-0 then the procedure will not complete successfully since the hash values
 for both slots will be identical.
 

@@ -23,9 +23,21 @@ In order to communicate with the smp server sample installed on your pinetime, y
 
 Here is a procedure to install mcumgr on a raspberry pi  (or similar)
 
+It is written in the go-language. You need to adapt the path :   PATH=$PATH:/root/go/bin.
+
 
 Building and Running
 ********************
+
+
+The sample will let you manage the pinetime over bluetooth. (via SMP protocol)
+
+There are slot0 and slot1 which can both contain firmware.
+
+Suppose you switch from slot0 to slot1, you still want to be able to communicate.
+
+So both slots need smp_svr software!
+
 
 
 
@@ -37,6 +49,9 @@ Step 1: Build smp_svr
 .. console::
 
     west build -p -b pinetime samples/mcumgr/smp_svr
+
+
+**NOTE: to perform a firmware update over the air, you have to build a second sample**
 
 
 Step 2: Sign the image
@@ -95,40 +110,20 @@ send a string to the remote target device and have it echo it back:
 Step 5: Device Firmware Upgrade
 ===============================
 
-Now that the SMP server is running on your board and you are able to communicate
-with it using :file:`mcumgr`, you might want to test "OTA DFU", or Over-The-Air Device Firmware Upgrade.
+Now that the SMP server is running on your pinetime, you are able to communicate
+with it using `mcumgr`. 
+
+You might want to test "OTA DFU", or Over-The-Air Device Firmware Upgrade.
 
 To do this, build a second sample (following the steps below) to verify
 it is sent over the air and properly flashed into slot-1, and then
 swapped into slot-0 by MCUboot.
 
-Build a second sample
----------------------
+::
 
-Perhaps the easiest sample to test with is the :zephyr_file:`samples/hello_world`
-sample provided by Zephyr, documented in the :ref:`hello_world` section.
-
-Edit :zephyr_file:`samples/hello_world/prj.conf` and enable the required MCUboot
-Kconfig option as described in :ref:`mcuboot` by adding the following line to
-it:
-
-.. code-block:: console
-
-   CONFIG_BOOTLOADER_MCUBOOT=y
-
-Then build the sample as usual (see :ref:`hello_world`).
-
-Sign the second sample
-----------------------
-
-Next you will need to sign the sample just like you did for :file:`smp_svr`,
-since it needs to be loaded by MCUboot.
-Follow the same instructions described in :ref:`smp_svr_sample_sign`,
-but this time you must use a :file:`.bin` image, since :file:`mcumgr` does not
-yet support :file:`.hex` files.
-
-Upload the image over BLE
--------------------------
+ * Build a second sample
+ * Sign the second sample
+ * Upload the image over BLE
 
 Now we are ready to send or upload the image over BLE to the target remote
 device.
@@ -184,21 +179,13 @@ MCUboot swaps the images:
 
 Upon reset MCUboot will swap slot-0 and slot-1.
 
-The new image is the basic ``hello_world`` sample that does not contain
-SMP or BLE functionality, so we cannot communicate with it using
-:file:`mcumgr`. Instead simply reset the board manually to force MCUboot
-to revert (i.e. swap back the images) due to the fact that the new image has
-not been confirmed.
-
-If you had instead built and uploaded a new image based on ``smp_svr``
-(or another BLE and SMP enabled sample), you could confirm the
-new image and make the swap permanent by using this command:
+You can confirm the new image and make the swap permanent by using this command:
 
 .. code-block:: console
 
    sudo mcumgr --conntype ble --connstring ctlr_name=hci0,peer_name='Zephyr' image confirm
 
-Note that if you try to send the very same image that is already flashed in
+**Note** that if you try to send the very same image that is already flashed in
 slot-0 then the procedure will not complete successfully since the hash values
 for both slots will be identical.
 

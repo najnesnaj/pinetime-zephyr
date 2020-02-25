@@ -209,12 +209,18 @@ For more information about MCUmgr and SMP, please see <span class="xref std std-
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>In order to communicate with the smp server sample installed on your pinetime, you need mcumgr.</p>
 <p>Here is a procedure to install mcumgr on a raspberry pi  (or similar)</p>
+<p>It is written in the go-language. You need to adapt the path :   PATH=$PATH:/root/go/bin.</p>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
+<p>The sample will let you manage the pinetime over bluetooth. (via SMP protocol)</p>
+<p>There are slot0 and slot1 which can both contain firmware.</p>
+<p>Suppose you switch from slot0 to slot1, you still want to be able to communicate.</p>
+<p>So both slots need smp_svr software!</p>
 <div class="section" id="step-1-build-smp-svr">
 <h3>Step 1: Build smp_svr<a class="headerlink" href="#step-1-build-smp-svr" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">smp_svr</span></code> can be built for the nRF52 as follows:</p>
+<p><strong>NOTE: to perform a firmware update over the air, you have to build a second sample</strong></p>
 </div>
 <div class="section" id="step-2-sign-the-image">
 <h3>Step 2: Sign the image<a class="headerlink" href="#step-2-sign-the-image" title="Permalink to this headline">¶</a></h3>
@@ -259,33 +265,17 @@ send a string to the remote target device and have it echo it back:</p>
 </div>
 <div class="section" id="step-5-device-firmware-upgrade">
 <h3>Step 5: Device Firmware Upgrade<a class="headerlink" href="#step-5-device-firmware-upgrade" title="Permalink to this headline">¶</a></h3>
-<p>Now that the SMP server is running on your board and you are able to communicate
-with it using <code class="file docutils literal notranslate"><span class="pre">mcumgr</span></code>, you might want to test “OTA DFU”, or Over-The-Air Device Firmware Upgrade.</p>
+<p>Now that the SMP server is running on your pinetime, you are able to communicate
+with it using <cite>mcumgr</cite>.</p>
+<p>You might want to test “OTA DFU”, or Over-The-Air Device Firmware Upgrade.</p>
 <p>To do this, build a second sample (following the steps below) to verify
 it is sent over the air and properly flashed into slot-1, and then
 swapped into slot-0 by MCUboot.</p>
-<div class="section" id="build-a-second-sample">
-<h4>Build a second sample<a class="headerlink" href="#build-a-second-sample" title="Permalink to this headline">¶</a></h4>
-<p>Perhaps the easiest sample to test with is the <a href="#id1"><span class="problematic" id="id2">:zephyr_file:`samples/hello_world`</span></a>
-sample provided by Zephyr, documented in the <span class="xref std std-ref">hello_world</span> section.</p>
-<p>Edit <a href="#id3"><span class="problematic" id="id4">:zephyr_file:`samples/hello_world/prj.conf`</span></a> and enable the required MCUboot
-Kconfig option as described in <span class="xref std std-ref">mcuboot</span> by adding the following line to
-it:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">CONFIG_BOOTLOADER_MCUBOOT=y</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Build</span> <span class="n">a</span> <span class="n">second</span> <span class="n">sample</span>
+<span class="o">*</span> <span class="n">Sign</span> <span class="n">the</span> <span class="n">second</span> <span class="n">sample</span>
+<span class="o">*</span> <span class="n">Upload</span> <span class="n">the</span> <span class="n">image</span> <span class="n">over</span> <span class="n">BLE</span>
 </pre></div>
 </div>
-<p>Then build the sample as usual (see <span class="xref std std-ref">hello_world</span>).</p>
-</div>
-<div class="section" id="sign-the-second-sample">
-<h4>Sign the second sample<a class="headerlink" href="#sign-the-second-sample" title="Permalink to this headline">¶</a></h4>
-<p>Next you will need to sign the sample just like you did for <code class="file docutils literal notranslate"><span class="pre">smp_svr</span></code>,
-since it needs to be loaded by MCUboot.
-Follow the same instructions described in <span class="xref std std-ref">smp_svr_sample_sign</span>,
-but this time you must use a <code class="file docutils literal notranslate"><span class="pre">.bin</span></code> image, since <code class="file docutils literal notranslate"><span class="pre">mcumgr</span></code> does not
-yet support <code class="file docutils literal notranslate"><span class="pre">.hex</span></code> files.</p>
-</div>
-<div class="section" id="upload-the-image-over-ble">
-<h4>Upload the image over BLE<a class="headerlink" href="#upload-the-image-over-ble" title="Permalink to this headline">¶</a></h4>
 <p>Now we are ready to send or upload the image over BLE to the target remote
 device.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo mcumgr --conntype ble --connstring ctlr_name=hci0,peer_name=&#39;Zephyr&#39; image upload signed.bin</span>
@@ -300,7 +290,6 @@ the image slot, taking several dozen seconds for some targets.  This might
 cause an NMP timeout in the management protocol tool. Use the
 <code class="docutils literal notranslate"><span class="pre">-t</span> <span class="pre">&lt;timeout-in-seconds</span></code> option to increase the response timeout for the
 <code class="docutils literal notranslate"><span class="pre">mcumgr</span></code> command line tool if this occurs.</p>
-</div>
 </div>
 <div class="section" id="list-the-images">
 <h4>List the images<a class="headerlink" href="#list-the-images" title="Permalink to this headline">¶</a></h4>
@@ -328,18 +317,11 @@ MCUboot swaps the images:</p>
 </pre></div>
 </div>
 <p>Upon reset MCUboot will swap slot-0 and slot-1.</p>
-<p>The new image is the basic <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> sample that does not contain
-SMP or BLE functionality, so we cannot communicate with it using
-<code class="file docutils literal notranslate"><span class="pre">mcumgr</span></code>. Instead simply reset the board manually to force MCUboot
-to revert (i.e. swap back the images) due to the fact that the new image has
-not been confirmed.</p>
-<p>If you had instead built and uploaded a new image based on <code class="docutils literal notranslate"><span class="pre">smp_svr</span></code>
-(or another BLE and SMP enabled sample), you could confirm the
-new image and make the swap permanent by using this command:</p>
+<p>You can confirm the new image and make the swap permanent by using this command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo mcumgr --conntype ble --connstring ctlr_name=hci0,peer_name=&#39;Zephyr&#39; image confirm</span>
 </pre></div>
 </div>
-<p>Note that if you try to send the very same image that is already flashed in
+<p><strong>Note</strong> that if you try to send the very same image that is already flashed in
 slot-0 then the procedure will not complete successfully since the hash values
 for both slots will be identical.</p>
 </div>

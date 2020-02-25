@@ -14,3 +14,4 @@ Drivers
     hrs3300
     spinor
     battery
+    watchdog

@@ -35,8 +35,84 @@ file named <cite>boards/arm/pinetime/pinetime.dts</cite>.</p>
 <p>The flash space on the Nordic nrf52 is 512K.
 Basically with the partitioning you end up with less space for your program.</p>
 <p>As the pinetime has an extra spi nor flash chip, we can use this.</p>
-<p>The flashlay-out can be modified so as 1 chunk is on system flash and 1 chunk is on SPI NOR flash.
+<p>The flash-layout can be modified so as 1 chunk is on system flash and 1 chunk is on SPI NOR flash.
 This way the space for your firmware remains almost the same.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">chosen {</span>
+<span class="go">        zephyr,flash = &amp;flash0;</span>
+<span class="go">        //zephyr,flash = &amp;flash1;</span>
+<span class="go">        zephyr,code-partition = &amp;slot0_partition;</span>
+<span class="go">};</span>
+
+
+<span class="go">Rename the SPI JEDEC NOR Flash definition to : flash1</span>
+
+<span class="go">flash1: mx25r6435f@1 {</span>
+<span class="go">        compatible = &quot;jedec,spi-nor&quot;;</span>
+<span class="go">        reg = &lt;1&gt;;</span>
+<span class="go">        spi-max-frequency = &lt;80000000&gt;;</span>
+<span class="go">        label = &quot;MX25R64&quot;;</span>
+<span class="go">        jedec-id = [0b 40 16];</span>
+<span class="go">        size = &lt;67108864&gt;;</span>
+<span class="go">        has-be32k;</span>
+<span class="go">        erase-block-size = &lt;4096&gt;;</span>
+<span class="go">        write-block-size = &lt;4&gt;;</span>
+<span class="go">};</span>
+
+
+
+
+<span class="go"> &amp;flash0 {</span>
+<span class="go">        /*</span>
+<span class="go">         * For more information, see:</span>
+<span class="go">         * http://docs.zephyrproject.org/latest/guides/dts/index.html#flash-partitions</span>
+<span class="go">         */</span>
+<span class="go">        partitions {</span>
+<span class="go">                compatible = &quot;fixed-partitions&quot;;</span>
+<span class="gp">                #</span>address-cells <span class="o">=</span> &lt;<span class="m">1</span>&gt;<span class="p">;</span>
+<span class="gp">                #</span>size-cells <span class="o">=</span> &lt;<span class="m">1</span>&gt;<span class="p">;</span>
+
+<span class="go">                boot_partition: partition@0 {</span>
+<span class="go">                        label = &quot;mcuboot&quot;;</span>
+<span class="go">                        reg = &lt;0x00000000 0xc000&gt;;</span>
+<span class="go">                };</span>
+<span class="go">                slot0_partition: partition@c000 {</span>
+<span class="go">                        label = &quot;image-0&quot;;</span>
+
+<span class="go">                change the size of partition 0 from 0x32000 to 0x64000</span>
+
+<span class="go">                        reg = &lt;0x0000C000 0x64000&gt;;</span>
+<span class="go">                };</span>
+
+<span class="go">                move slot1 partition to &amp;flash1</span>
+
+<span class="go">                //slot1_partition: partition@3e000 {</span>
+<span class="go">                //      label = &quot;image-1&quot;;</span>
+<span class="go">                //      reg = &lt;0x0003e000 0x32000&gt;;</span>
+<span class="go">                //};</span>
+<span class="go">                scratch_partition: partition@70000 {</span>
+<span class="go">                        label = &quot;image-scratch&quot;;</span>
+<span class="go">                        reg = &lt;0x00070000 0xa000&gt;;</span>
+<span class="go">                };</span>
+<span class="go">                storage_partition: partition@7a000 {</span>
+<span class="go">                        label = &quot;storage&quot;;</span>
+<span class="go">                        reg = &lt;0x0007a000 0x00006000&gt;;</span>
+<span class="go">                };</span>
+<span class="go">        };</span>
+<span class="go"> };</span>
+
+<span class="go"> &amp;flash1 {</span>
+<span class="go">        partitions {</span>
+<span class="go">                compatible = &quot;fixed-partitions&quot;;</span>
+<span class="gp">                #</span>address-cells <span class="o">=</span> &lt;<span class="m">1</span>&gt;<span class="p">;</span>
+<span class="gp">                #</span>size-cells <span class="o">=</span> &lt;<span class="m">1</span>&gt;<span class="p">;</span>
+<span class="go">                slot1_partition: partition@3e000 {</span>
+<span class="go">                        label = &quot;image-1&quot;;</span>
+<span class="go">                        reg = &lt;0x00000000 0x64000&gt;;</span>
+<span class="go">                };</span>
+<span class="go">        };</span>
+<span class="go"> };</span>
+</pre></div>
+</div>
 </div>
 </div>
 

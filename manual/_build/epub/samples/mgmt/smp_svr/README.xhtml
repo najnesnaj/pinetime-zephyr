@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <title>SMP Server Sample</title>
+    <link rel="stylesheet" href="../../../_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="smp-server-sample">
+<span id="smp-svr-sample"></span><h1>SMP Server Sample</h1>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>This sample application implements a Simple Management Protocol (SMP) server.
+SMP is a basic transfer encoding for use with the MCUmgr management protocol.
+For more information about MCUmgr and SMP, please see <span class="xref std std-ref">device_mgmt</span>.</p>
+<p>This sample application supports the following mcumgr transports by default:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Shell</p></li>
+<li><p>Bluetooth</p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">smp_svr</span></code> enables support for the following command groups:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fs_mgmt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">img_mgmt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">os_mgmt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stat_mgmt</span></code></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="caveats">
+<h2>Caveats</h2>
+<ul class="simple">
+<li><p>The Zephyr port of <code class="docutils literal notranslate"><span class="pre">smp_svr</span></code> is configured to run on a Nordic nRF52x MCU. The
+application should build and run for other platforms without modification, but
+the file system management commands will not work.  To enable file system
+management for a different platform, adjust the
+<code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_FS_NFFS_FLASH_DEV_NAME</span></code> setting in <code class="file docutils literal notranslate"><span class="pre">prj.conf</span></code> accordingly.</p></li>
+<li><p>The MCUboot bootloader is required for <code class="docutils literal notranslate"><span class="pre">img_mgmt</span></code> to function
+properly. More information about the Device Firmware Upgrade subsystem and
+MCUboot can be found in <span class="xref std std-ref">mcuboot</span>.</p></li>
+<li><p>The <code class="file docutils literal notranslate"><span class="pre">mcumgr</span></code> command-line tool only works with Bluetooth Low Energy (BLE)
+on Linux and macOS. On Windows there is no support for Device Firmware
+Upgrade over BLE yet.</p></li>
+</ul>
+</div>
+<div class="section" id="building-a-ble-controller-optional">
+<h2>Building a BLE Controller (optional)</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section is only relevant for Linux users</p>
+</div>
+<p>If you want to try out Device Firmware Upgrade (DFU) over the air using
+Bluetooth Low Energy (BLE) and do not have a built-in or pluggable BLE radio,
+you can build one and use it following the instructions in
+<span class="xref std std-ref">bluetooth-hci-uart-bluez</span>.</p>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running</h2>
+<p>The below steps describe how to build and run the <code class="docutils literal notranslate"><span class="pre">smp_svr</span></code> sample in
+Zephyr. Where examples are given, they assume the sample is being built for
+the Nordic nRF52 Development Kit (<code class="docutils literal notranslate"><span class="pre">BOARD=nrf52_pca10040</span></code>).</p>
+<p>If you would like to use a more constrained platform, such as the nRF51 DK, you
+should use the <code class="file docutils literal notranslate"><span class="pre">prj_tiny.conf</span></code> configuration file rather than the default
+<code class="file docutils literal notranslate"><span class="pre">prj.conf</span></code>.</p>
+<div class="section" id="step-1-build-mcuboot">
+<h3>Step 1: Build MCUboot</h3>
+<p>Build MCUboot by following the instructions in the <span class="xref std std-ref">mcuboot</span>
+documentation page.</p>
+</div>
+<div class="section" id="step-2-flash-mcuboot">
+<h3>Step 2: Flash MCUboot</h3>
+<p>Flash the resulting image file to address 0x0 of flash memory.
+This can be done in multiple ways.</p>
+<p>Using make or ninja:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make flash</span>
+<span class="gp">#</span> or
+<span class="go">ninja flash</span>
+</pre></div>
+</div>
+<p>Using GDB:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">restore &lt;path-to-mcuboot-zephyr.bin&gt; binary 0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-build-smp-svr">
+<h3>Step 3: Build smp_svr</h3>
+<p><code class="docutils literal notranslate"><span class="pre">smp_svr</span></code> can be built for the nRF52 as follows:</p>
+</div>
+<div class="section" id="step-4-sign-the-image">
+<span id="smp-svr-sample-sign"></span><h3>Step 4: Sign the image</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>From this section onwards you can use either a binary (<code class="docutils literal notranslate"><span class="pre">.bin</span></code>) or an
+Intel Hex (<code class="docutils literal notranslate"><span class="pre">.hex</span></code>) image format. This is written as <code class="docutils literal notranslate"><span class="pre">(bin|hex)</span></code> in this
+document.</p>
+</div>
+<p>Using MCUboot’s <code class="file docutils literal notranslate"><span class="pre">imgtool.py</span></code> script, sign the <code class="file docutils literal notranslate"><span class="pre">zephyr.(bin|hex)</span></code>
+file you built in Step 3. In the below example, the MCUboot repo is located at
+<code class="file docutils literal notranslate"><span class="pre">~/src/mcuboot</span></code>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">~/src/mcuboot/scripts/imgtool.py sign \</span>
+<span class="go">     --key ~/src/mcuboot/root-rsa-2048.pem \</span>
+<span class="go">     --header-size 0x200 \</span>
+<span class="go">     --align 8 \</span>
+<span class="go">     --version 1.0 \</span>
+<span class="go">     --slot-size &lt;image-slot-size&gt; \</span>
+<span class="go">     &lt;path-to-zephyr.(bin|hex)&gt; signed.(bin|hex)</span>
+</pre></div>
+</div>
+<p>The above command creates an image file called <code class="file docutils literal notranslate"><span class="pre">signed.(bin|hex)</span></code> in the
+current directory.</p>
+</div>
+<div class="section" id="step-5-flash-the-smp-svr-image">
+<h3>Step 5: Flash the smp_svr image</h3>
+<p>Upload the <code class="file docutils literal notranslate"><span class="pre">signed.(bin|hex)</span></code> file from Step 4 to image slot-0 of your
+board.  The location of image slot-0 varies by board, as described in
+<span class="xref std std-ref">mcuboot_partitions</span>.  For the nRF52 DK, slot-0 is located at address
+<code class="docutils literal notranslate"><span class="pre">0xc000</span></code>.</p>
+<p>Using <code class="file docutils literal notranslate"><span class="pre">nrfjprog</span></code> you don’t need to specify the slot-0 starting address,
+since <code class="file docutils literal notranslate"><span class="pre">.hex</span></code> files already contain that information:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nrfjprog --program &lt;path-to-signed.hex&gt;</span>
+</pre></div>
+</div>
+<p>Using GDB:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">restore &lt;path-to-signed.bin&gt; binary 0xc000</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-6-run-it">
+<h3>Step 6: Run it!</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you haven’t installed <code class="file docutils literal notranslate"><span class="pre">mcumgr</span></code> yet, then do so by following the
+instructions in the <span class="xref std std-ref">mcumgr_cli</span> section of the Management subsystem
+documentation.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="file docutils literal notranslate"><span class="pre">mcumgr</span></code> command-line tool requires a connection string in order
+to identify the remote target device. In this sample we use a BLE-based
+connection string, and you might need to modify it depending on the
+BLE controller you are using.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">smp_svr</span></code> app is ready to run.  Just reset your board and test the app
+with the <code class="file docutils literal notranslate"><span class="pre">mcumgr</span></code> command-line tool’s <code class="docutils literal notranslate"><span class="pre">echo</span></code> functionality, which will
+send a string to the remote target device and have it echo it back:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo mcumgr --conntype ble --connstring ctlr_name=hci0,peer_name=&#39;Zephyr&#39; echo hello</span>
+<span class="go">hello</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-7-device-firmware-upgrade">
+<h3>Step 7: Device Firmware Upgrade</h3>
+<p>Now that the SMP server is running on your board and you are able to communicate
+with it using <code class="file docutils literal notranslate"><span class="pre">mcumgr</span></code>, you might want to test what is commonly called
+“OTA DFU”, or Over-The-Air Device Firmware Upgrade.</p>
+<p>To do this, build a second sample (following the steps below) to verify
+it is sent over the air and properly flashed into slot-1, and then
+swapped into slot-0 by MCUboot.</p>
+<div class="section" id="build-a-second-sample">
+<h4>Build a second sample</h4>
+<p>Perhaps the easiest sample to test with is the <a href="#id1"><span class="problematic" id="id2">:zephyr_file:`samples/hello_world`</span></a>
+sample provided by Zephyr, documented in the <span class="xref std std-ref">hello_world</span> section.</p>
+<p>Edit <a href="#id3"><span class="problematic" id="id4">:zephyr_file:`samples/hello_world/prj.conf`</span></a> and enable the required MCUboot
+Kconfig option as described in <span class="xref std std-ref">mcuboot</span> by adding the following line to
+it:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">CONFIG_BOOTLOADER_MCUBOOT=y</span>
+</pre></div>
+</div>
+<p>Then build the sample as usual (see <span class="xref std std-ref">hello_world</span>).</p>
+</div>
+<div class="section" id="sign-the-second-sample">
+<h4>Sign the second sample</h4>
+<p>Next you will need to sign the sample just like you did for <code class="file docutils literal notranslate"><span class="pre">smp_svr</span></code>,
+since it needs to be loaded by MCUboot.
+Follow the same instructions described in <a class="reference internal" href="#smp-svr-sample-sign"><span class="std std-ref">Step 4: Sign the image</span></a>,
+but this time you must use a <code class="file docutils literal notranslate"><span class="pre">.bin</span></code> image, since <code class="file docutils literal notranslate"><span class="pre">mcumgr</span></code> does not
+yet support <code class="file docutils literal notranslate"><span class="pre">.hex</span></code> files.</p>
+</div>
+<div class="section" id="upload-the-image-over-ble">
+<h4>Upload the image over BLE</h4>
+<p>Now we are ready to send or upload the image over BLE to the target remote
+device.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo mcumgr --conntype ble --connstring ctlr_name=hci0,peer_name=&#39;Zephyr&#39; image upload signed.bin</span>
+</pre></div>
+</div>
+<p>If all goes well the image will now be stored in slot-1, ready to be swapped
+into slot-0 and executed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the beginning of the upload process, the target might start erasing
+the image slot, taking several dozen seconds for some targets.  This might
+cause an NMP timeout in the management protocol tool. Use the
+<code class="docutils literal notranslate"><span class="pre">-t</span> <span class="pre">&lt;timeout-in-seconds</span></code> option to increase the response timeout for the
+<code class="docutils literal notranslate"><span class="pre">mcumgr</span></code> command line tool if this occurs.</p>
+</div>
+</div>
+<div class="section" id="list-the-images">
+<h4>List the images</h4>
+<p>We can now obtain a list of images (slot-0 and slot-1) present in the remote
+target device by issuing the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo mcumgr --conntype ble --connstring ctlr_name=hci0,peer_name=&#39;Zephyr&#39; image list</span>
+</pre></div>
+</div>
+<p>This should print the status and hash values of each of the images present.</p>
+</div>
+<div class="section" id="test-the-image">
+<h4>Test the image</h4>
+<p>In order to instruct MCUboot to swap the images we need to test the image first,
+making sure it boots:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo mcumgr --conntype ble --connstring ctlr_name=hci0,peer_name=&#39;Zephyr&#39; image test &lt;hash of slot-1 image&gt;</span>
+</pre></div>
+</div>
+<p>Now MCUBoot will swap the image on the next reset.</p>
+</div>
+<div class="section" id="reset-remotely">
+<h4>Reset remotely</h4>
+<p>We can reset the device remotely to observe (use the console output) how
+MCUboot swaps the images:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo mcumgr --conntype ble --connstring ctlr_name=hci0,peer_name=&#39;Zephyr&#39; reset</span>
+</pre></div>
+</div>
+<p>Upon reset MCUboot will swap slot-0 and slot-1.</p>
+<p>The new image is the basic <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> sample that does not contain
+SMP or BLE functionality, so we cannot communicate with it using
+<code class="file docutils literal notranslate"><span class="pre">mcumgr</span></code>. Instead simply reset the board manually to force MCUboot
+to revert (i.e. swap back the images) due to the fact that the new image has
+not been confirmed.</p>
+<p>If you had instead built and uploaded a new image based on <code class="docutils literal notranslate"><span class="pre">smp_svr</span></code>
+(or another BLE and SMP enabled sample), you could confirm the
+new image and make the swap permanent by using this command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo mcumgr --conntype ble --connstring ctlr_name=hci0,peer_name=&#39;Zephyr&#39; image confirm</span>
+</pre></div>
+</div>
+<p>Note that if you try to send the very same image that is already flashed in
+slot-0 then the procedure will not complete successfully since the hash values
+for both slots will be identical.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>
