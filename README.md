@@ -108,7 +108,6 @@ In this repository you can find files that supplement a zephyr installation.
 - accel sensor
 - heart rate sensor
 - touchscreen
-- watchdog
 - CTS (setting time in bluetooth)
 - DFU (wireless firmware update)
 
@@ -117,4 +116,5 @@ In this repository you can find files that supplement a zephyr installation.
 - build-in features of bosch accel sensor (eg step counter)
 - testing interrupt/semaphore mechanism on accel sensor and touchscreen
 - powermanagement
+- watchdog
 

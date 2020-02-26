@@ -71,7 +71,7 @@
 
 
 \title{open source watch Documentation}
-\date{Feb 25, 2020}
+\date{Feb 26, 2020}
 \release{1.0.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1242,17 +1242,41 @@ check pin when charging
 
 
 \section{Watchdog}
-\label{\detokenize{drivers/watchdog:watchdog}}\label{\detokenize{drivers/watchdog::doc}}\begin{quote}
-
-west build -p -b pinetime samples/drivers/watchdog
-\end{quote}
+\label{\detokenize{drivers/watchdog:watchdog}}\label{\detokenize{drivers/watchdog::doc}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/drivers/watchdog}
+\end{sphinxVerbatim}
 
 
 \subsection{Overview}
 \label{\detokenize{drivers/watchdog:overview}}
+Once the pinetime is closed and on your wrist, you still want access.
+
+see : {\hyperref[\detokenize{fota/fota:fota}]{\sphinxcrossref{\DUrole{std,std-ref}{Firmware Over The Air (FOTA)}}}}
+
+Suppose you upload a application which contains a bug, the watch freezes, and … you will have to open it up, connect the SWD …
+
+Here comes the watchdog:
+\begin{itemize}
+\item {} 
+you launch the watchdog
+
+\item {} 
+you launch the application
+
+\item {} 
+the application feeds the watchdog
+
+\item {} 
+if it cannot feed the watchdog, reset to fota, and you can upload another better version …
+
+\end{itemize}
+
 
 \subsection{Todo}
 \label{\detokenize{drivers/watchdog:todo}}
+testing
+
 
 \subsection{References}
 \label{\detokenize{drivers/watchdog:references}}
@@ -1507,7 +1531,6 @@ sign the compiled zephyr.bin firmware with the root-rsa-2048.pem, private key:
 \label{\detokenize{fota/smp_svr:overview}}
 This sample application implements a Simple Management Protocol (SMP) server.
 SMP is a basic transfer encoding for use with the MCUmgr management protocol.
-For more information about MCUmgr and SMP, please see \DUrole{xref,std,std-ref}{device\_mgmt}.
 
 This sample application supports the following mcumgr transports by default:
 \begin{itemize}
@@ -1675,271 +1698,6 @@ You can confirm the new image and make the swap permanent by using this command:
 \sphinxstylestrong{Note} that if you try to send the very same image that is already flashed in
 slot-0 then the procedure will not complete successfully since the hash values
 for both slots will be identical.
-
-
-\chapter{Behind the scene}
-\label{\detokenize{behind/behind:behind-the-scene}}\label{\detokenize{behind/behind:id1}}\label{\detokenize{behind/behind::doc}}
-
-\section{Behind the scene}
-\label{\detokenize{behind/behind-the-scene:behind-the-scene}}\label{\detokenize{behind/behind-the-scene::doc}}
-
-\subsection{Overview}
-\label{\detokenize{behind/behind-the-scene:overview}}
-I’m not a zephyr expert and am learning on the way.
-
-In this chapter I let you glimpse behind the scene. (and notice all the struggle)
-
-In case of the accel sensor, I used the bosch bma280 as a template.
-
-In case of the touchscreen, I soon ran into trouble.
-So I tried splitting a complex problem into simpler ones.
-
-This allowed me to detect problems easier.
-
-The created samples might be of some use, if you run into trouble or if you want to extend the functionality.
-
-
-\section{development trajectory}
-\label{\detokenize{behind/bma280:development-trajectory}}\label{\detokenize{behind/bma280::doc}}
-The final goal is to use the accel-sensor in the watch (BMA423), which does not exist yet.
-In order to minimize the effort:
-\begin{itemize}
-\item {} 
-we’ll use something that looks like it (ADXL372), because there exists an example.
-
-\item {} 
-next we adapt it to use the existing BMA280 sensor (under drivers/sensor), so we get a sample that works with the BMA280.
-
-\item {} 
-we create a driver for the BMA423, based upon the BMA280
-
-\item {} 
-we adapt the sample for the BMA280 to BMA423
-
-\end{itemize}
-
-
-\section{Bosch BMA280}
-\label{\detokenize{behind/bma280:bosch-bma280}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/drivers/bma280}
-\end{sphinxVerbatim}
-
-
-\subsection{Overview}
-\label{\detokenize{behind/bma280:overview}}
-This sample application mimics the presence of a bosch, bma280 accel sensor.
-For this sensor exists a driver in zephyr, but no sample.
-Remember, I’m not a zephyr expert and am learning on the way.
-
-
-\subsection{Requirements}
-\label{\detokenize{behind/bma280:requirements}}
-complement the pinetime.dts file with the following (under samples/sensor/bma280)
-
-This will supplement / override what’s already definition on the board level (boards/arm/pinetime)
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{\PYGZam{}i2c1 \PYGZob{}}
-\PYG{g+go}{        bma280@18 \PYGZob{}}
-\PYG{g+go}{                   compatible = \PYGZdq{}bosch,bma280\PYGZdq{};}
-\PYG{g+go}{                   reg = \PYGZlt{}0x18\PYGZgt{};}
-\PYG{g+go}{                   label = \PYGZdq{}BMA280\PYGZdq{};}
-\PYG{g+go}{                   int1\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 8 0\PYGZgt{};}
-\PYG{g+go}{                  \PYGZcb{};}
-\PYG{g+go}{       \PYGZcb{};}
-\end{sphinxVerbatim}
-
-Create a file: \sphinxtitleref{/dts/bindings/sensor/bosch,bma280-i2c.yaml}.
-Which contains:
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{compatible}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{bosch,bma280}\PYG{l+s+s2}{\PYGZdq{}}
-\PYG{n}{include}\PYG{p}{:} \PYG{n}{i2c}\PYG{o}{\PYGZhy{}}\PYG{n}{device}\PYG{o}{.}\PYG{n}{yaml}
-\PYG{n}{properties}\PYG{p}{:}
-       \PYG{n}{int1}\PYG{o}{\PYGZhy{}}\PYG{n}{gpios}\PYG{p}{:}
-       \PYG{n+nb}{type}\PYG{p}{:} \PYG{n}{phandle}\PYG{o}{\PYGZhy{}}\PYG{n}{array}
-       \PYG{n}{required}\PYG{p}{:} \PYG{n}{false}
-\end{sphinxVerbatim}
-
-
-\subsection{Building and Running}
-\label{\detokenize{behind/bma280:building-and-running}}
-
-\subsection{Todo}
-\label{\detokenize{behind/bma280:todo}}\begin{itemize}
-\item {} 
-since no serial port and no J-LINK, I have to print messages to the screen (see sample gui/lvaccel)
-
-\item {} 
-I adapted the BMA driver so it accepts the CHIP\_ID, further registers are subject to investigation, since no doc
-
-\end{itemize}
-
-
-\subsection{References}
-\label{\detokenize{behind/bma280:references}}
-BMA421 is not a part number available to the general public, and therefore all the supporting documentation and design resources are neither discussed in public forums, nor disclosed on GitHub.
-
-CHIP\_ID=0X11  (so 423 drivers need to be adapted)
-
-
-\section{Touchscreen Hynitron}
-\label{\detokenize{behind/touchscreen:touchscreen-hynitron}}\label{\detokenize{behind/touchscreen::doc}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{git clone https://github.com/lupyuen/hynitron\PYGZus{}i2c\PYGZus{}cst0xxse}
-\end{sphinxVerbatim}
-
-
-\subsection{Overview}
-\label{\detokenize{behind/touchscreen:overview}}
-this does not exist yet in zephyr, but there is work in progress
-\sphinxurl{https://github.com/zephyrproject-rtos/zephyr/pull/16119}
-
-
-\subsection{Requirements}
-\label{\detokenize{behind/touchscreen:requirements}}
-complement the pinetime.dts file with the following (under samples/sensor/bma280)
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{\PYGZam{}i2c1 \PYGZob{}}
-\PYG{g+go}{        touch@18 \PYGZob{}}
-\PYG{g+go}{                  \PYGZcb{};}
-\PYG{g+go}{       \PYGZcb{};}
-\end{sphinxVerbatim}
-
-Create a file: \sphinxtitleref{/dts/bindings/sensor/touch.yaml}.
-Which contains:
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{compatible}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{touch}\PYG{l+s+s2}{\PYGZdq{}}
-\PYG{n}{include}\PYG{p}{:} \PYG{n}{i2c}\PYG{o}{\PYGZhy{}}\PYG{n}{device}\PYG{o}{.}\PYG{n}{yaml}
-\PYG{n}{properties}\PYG{p}{:}
-       \PYG{n}{int1}\PYG{o}{\PYGZhy{}}\PYG{n}{gpios}\PYG{p}{:}
-       \PYG{n+nb}{type}\PYG{p}{:} \PYG{n}{phandle}\PYG{o}{\PYGZhy{}}\PYG{n}{array}
-       \PYG{n}{required}\PYG{p}{:} \PYG{n}{false}
-\end{sphinxVerbatim}
-
-
-\subsection{Building and Running}
-\label{\detokenize{behind/touchscreen:building-and-running}}
-
-\subsection{Todo}
-\label{\detokenize{behind/touchscreen:todo}}\begin{quote}
-
--create touchscreen driver
--create sample
-\end{quote}
-
-
-\subsection{References}
-\label{\detokenize{behind/touchscreen:references}}
-
-\section{Troubleshooting drivers}
-\label{\detokenize{behind/troubleshoot:troubleshooting-drivers}}\label{\detokenize{behind/troubleshoot::doc}}
-Drivers, like the one for the accel sensor BMA421 or the touchscreen CST816S, can deal with interrupts.
-
-Adapting existing drivers did not get me the desired quick results.
-
-Even after analysing the behaviour, setting values at each function step, did not get me any further.
-
-
-\subsection{Overview}
-\label{\detokenize{behind/troubleshoot:overview}}
-The drivers can use interrupts.
-
-In the settings/config one can choose between OWN\_THREAD and GLOBAL\_THREAD.
-
-This affect the behaviour of how threads are handled.
-
-The tread-handling and interrupt-handling occurs in the driver itself.
-
-An interrupt is handled immediatly, the processing is offloaded to the threading.
-
-
-\subsection{Example}
-\label{\detokenize{behind/troubleshoot:example}}\begin{itemize}
-\item {} 
-You touch the touchscreen
-
-\item {} 
-the touchscreen generates an interrupt
-
-\item {} 
-the driver handles the interrupt
-
-\item {} 
-a thread is created by the interrupt
-
-\item {} 
-the threadhandling read the I2C-bus
-
-\end{itemize}
-
-
-\subsection{Requirements}
-\label{\detokenize{behind/troubleshoot:requirements}}
-In order to create a working driver, I took it apart :
-
-(split a complex problem into simple problems)
-
-
-\subsubsection{a sample to detect interrupt}
-\label{\detokenize{behind/troubleshoot:a-sample-to-detect-interrupt}}
-samples/basic/testirq
-
-Each time the touchscreen gets touched, it increases a counter.
-
-
-\subsubsection{a sample to scan the I2C-BUS}
-\label{\detokenize{behind/troubleshoot:a-sample-to-scan-the-i2c-bus}}\begin{quote}
-
-({\hyperref[\detokenize{hacking/i2cscanning:i2cscanning}]{\sphinxcrossref{\DUrole{std,std-ref}{scanning the I2C\_1 port}}}}),
-\end{quote}
-
-
-\subsubsection{a sample to read the I2C-BUS}
-\label{\detokenize{behind/troubleshoot:a-sample-to-read-the-i2c-bus}}
-samples/basic/touched
-It is based on the Hynitron touchscreen code.
-Mass reading 63 bytes was not possible.
-
-I did add a write of 1 to register 0x00.
-
-
-\subsubsection{a samples to handle semaphores}
-\label{\detokenize{behind/troubleshoot:a-samples-to-handle-semaphores}}
-samples/basic/testsemaphore
-
-
-\section{placing a button on the screen}
-\label{\detokenize{behind/lvglbutton:placing-a-button-on-the-screen}}\label{\detokenize{behind/lvglbutton::doc}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{This} \PYG{n}{sample} \PYG{o+ow}{is} \PYG{o+ow}{not} \PYG{n}{really} \PYG{n}{important}\PYG{p}{,} \PYG{n}{but} \PYG{n}{it} \PYG{n}{will} \PYG{n}{teach} \PYG{n}{you} \PYG{n}{that} \PYG{n}{you} \PYG{n}{need} \PYG{n}{to} \PYG{n+nb}{set} \PYG{n}{LVGL\PYGZus{}CONFIG} \PYG{n}{values}\PYG{p}{,} \PYG{o+ow}{in} \PYG{n}{order}    \PYG{n}{to} \PYG{n}{be} \PYG{n}{able} \PYG{n}{to} \PYG{n}{use} \PYG{n}{LVGL} \PYG{n}{functions}\PYG{o}{.}
-\end{sphinxVerbatim}
-
-
-\subsection{Building and Running}
-\label{\detokenize{behind/lvglbutton:building-and-running}}
-In this repo under samples you will find an adapted gui/clock program.
-A button from the LVGL library is placed on the screen.
-
-Later on when the touch-screen driver is ready, we’ll be able to manipulate it.
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{Make sure that prj.conf file in clock directory contains the following:}
-\end{sphinxVerbatim}
-
-\begin{sphinxadmonition}{note}{Note:}
-CONFIG\_LVGL\_OBJ\_CONTAINER=y
-CONFIG\_LVGL\_OBJ\_BUTTON=y
-\end{sphinxadmonition}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-
-\end{sphinxVerbatim}
-
-\sphinxstyleemphasis{problem} the canvas heigh*width eats up RAM and exceeds once \textgreater{} 40
 
 
 \chapter{Samples and Demos}
@@ -3003,6 +2761,271 @@ sphinx cannot generate pdf directly, and needs latex
 \PYG{n}{apt}\PYG{o}{\PYGZhy{}}\PYG{n}{get} \PYG{n}{install} \PYG{n}{texlive}\PYG{o}{\PYGZhy{}}\PYG{n}{latex}\PYG{o}{\PYGZhy{}}\PYG{n}{recommended}
 \PYG{n}{apt}\PYG{o}{\PYGZhy{}}\PYG{n}{get} \PYG{n}{install} \PYG{n}{texlive}\PYG{o}{\PYGZhy{}}\PYG{n}{latex}\PYG{o}{\PYGZhy{}}\PYG{n}{extra}
 \end{sphinxVerbatim}
+
+
+\chapter{Behind the scene}
+\label{\detokenize{behind/behind:behind-the-scene}}\label{\detokenize{behind/behind:id1}}\label{\detokenize{behind/behind::doc}}
+
+\section{Behind the scene}
+\label{\detokenize{behind/behind-the-scene:behind-the-scene}}\label{\detokenize{behind/behind-the-scene::doc}}
+
+\subsection{Overview}
+\label{\detokenize{behind/behind-the-scene:overview}}
+I’m not a zephyr expert and am learning on the way.
+
+In this chapter I let you glimpse behind the scene. (and notice all the struggle)
+
+In case of the accel sensor, I used the bosch bma280 as a template.
+
+In case of the touchscreen, I soon ran into trouble.
+So I tried splitting a complex problem into simpler ones.
+
+This allowed me to detect problems easier.
+
+The created samples might be of some use, if you run into trouble or if you want to extend the functionality.
+
+
+\section{development trajectory}
+\label{\detokenize{behind/bma280:development-trajectory}}\label{\detokenize{behind/bma280::doc}}
+The final goal is to use the accel-sensor in the watch (BMA423), which does not exist yet.
+In order to minimize the effort:
+\begin{itemize}
+\item {} 
+we’ll use something that looks like it (ADXL372), because there exists an example.
+
+\item {} 
+next we adapt it to use the existing BMA280 sensor (under drivers/sensor), so we get a sample that works with the BMA280.
+
+\item {} 
+we create a driver for the BMA423, based upon the BMA280
+
+\item {} 
+we adapt the sample for the BMA280 to BMA423
+
+\end{itemize}
+
+
+\section{Bosch BMA280}
+\label{\detokenize{behind/bma280:bosch-bma280}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/drivers/bma280}
+\end{sphinxVerbatim}
+
+
+\subsection{Overview}
+\label{\detokenize{behind/bma280:overview}}
+This sample application mimics the presence of a bosch, bma280 accel sensor.
+For this sensor exists a driver in zephyr, but no sample.
+Remember, I’m not a zephyr expert and am learning on the way.
+
+
+\subsection{Requirements}
+\label{\detokenize{behind/bma280:requirements}}
+complement the pinetime.dts file with the following (under samples/sensor/bma280)
+
+This will supplement / override what’s already definition on the board level (boards/arm/pinetime)
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{\PYGZam{}i2c1 \PYGZob{}}
+\PYG{g+go}{        bma280@18 \PYGZob{}}
+\PYG{g+go}{                   compatible = \PYGZdq{}bosch,bma280\PYGZdq{};}
+\PYG{g+go}{                   reg = \PYGZlt{}0x18\PYGZgt{};}
+\PYG{g+go}{                   label = \PYGZdq{}BMA280\PYGZdq{};}
+\PYG{g+go}{                   int1\PYGZhy{}gpios = \PYGZlt{}\PYGZam{}gpio0 8 0\PYGZgt{};}
+\PYG{g+go}{                  \PYGZcb{};}
+\PYG{g+go}{       \PYGZcb{};}
+\end{sphinxVerbatim}
+
+Create a file: \sphinxtitleref{/dts/bindings/sensor/bosch,bma280-i2c.yaml}.
+Which contains:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{compatible}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{bosch,bma280}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n}{include}\PYG{p}{:} \PYG{n}{i2c}\PYG{o}{\PYGZhy{}}\PYG{n}{device}\PYG{o}{.}\PYG{n}{yaml}
+\PYG{n}{properties}\PYG{p}{:}
+       \PYG{n}{int1}\PYG{o}{\PYGZhy{}}\PYG{n}{gpios}\PYG{p}{:}
+       \PYG{n+nb}{type}\PYG{p}{:} \PYG{n}{phandle}\PYG{o}{\PYGZhy{}}\PYG{n}{array}
+       \PYG{n}{required}\PYG{p}{:} \PYG{n}{false}
+\end{sphinxVerbatim}
+
+
+\subsection{Building and Running}
+\label{\detokenize{behind/bma280:building-and-running}}
+
+\subsection{Todo}
+\label{\detokenize{behind/bma280:todo}}\begin{itemize}
+\item {} 
+since no serial port and no J-LINK, I have to print messages to the screen (see sample gui/lvaccel)
+
+\item {} 
+I adapted the BMA driver so it accepts the CHIP\_ID, further registers are subject to investigation, since no doc
+
+\end{itemize}
+
+
+\subsection{References}
+\label{\detokenize{behind/bma280:references}}
+BMA421 is not a part number available to the general public, and therefore all the supporting documentation and design resources are neither discussed in public forums, nor disclosed on GitHub.
+
+CHIP\_ID=0X11  (so 423 drivers need to be adapted)
+
+
+\section{Touchscreen Hynitron}
+\label{\detokenize{behind/touchscreen:touchscreen-hynitron}}\label{\detokenize{behind/touchscreen::doc}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{git clone https://github.com/lupyuen/hynitron\PYGZus{}i2c\PYGZus{}cst0xxse}
+\end{sphinxVerbatim}
+
+
+\subsection{Overview}
+\label{\detokenize{behind/touchscreen:overview}}
+this does not exist yet in zephyr, but there is work in progress
+\sphinxurl{https://github.com/zephyrproject-rtos/zephyr/pull/16119}
+
+
+\subsection{Requirements}
+\label{\detokenize{behind/touchscreen:requirements}}
+complement the pinetime.dts file with the following (under samples/sensor/bma280)
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{\PYGZam{}i2c1 \PYGZob{}}
+\PYG{g+go}{        touch@18 \PYGZob{}}
+\PYG{g+go}{                  \PYGZcb{};}
+\PYG{g+go}{       \PYGZcb{};}
+\end{sphinxVerbatim}
+
+Create a file: \sphinxtitleref{/dts/bindings/sensor/touch.yaml}.
+Which contains:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{compatible}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{touch}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{n}{include}\PYG{p}{:} \PYG{n}{i2c}\PYG{o}{\PYGZhy{}}\PYG{n}{device}\PYG{o}{.}\PYG{n}{yaml}
+\PYG{n}{properties}\PYG{p}{:}
+       \PYG{n}{int1}\PYG{o}{\PYGZhy{}}\PYG{n}{gpios}\PYG{p}{:}
+       \PYG{n+nb}{type}\PYG{p}{:} \PYG{n}{phandle}\PYG{o}{\PYGZhy{}}\PYG{n}{array}
+       \PYG{n}{required}\PYG{p}{:} \PYG{n}{false}
+\end{sphinxVerbatim}
+
+
+\subsection{Building and Running}
+\label{\detokenize{behind/touchscreen:building-and-running}}
+
+\subsection{Todo}
+\label{\detokenize{behind/touchscreen:todo}}\begin{quote}
+
+-create touchscreen driver
+-create sample
+\end{quote}
+
+
+\subsection{References}
+\label{\detokenize{behind/touchscreen:references}}
+
+\section{Troubleshooting drivers}
+\label{\detokenize{behind/troubleshoot:troubleshooting-drivers}}\label{\detokenize{behind/troubleshoot::doc}}
+Drivers, like the one for the accel sensor BMA421 or the touchscreen CST816S, can deal with interrupts.
+
+Adapting existing drivers did not get me the desired quick results.
+
+Even after analysing the behaviour, setting values at each function step, did not get me any further.
+
+
+\subsection{Overview}
+\label{\detokenize{behind/troubleshoot:overview}}
+The drivers can use interrupts.
+
+In the settings/config one can choose between OWN\_THREAD and GLOBAL\_THREAD.
+
+This affect the behaviour of how threads are handled.
+
+The tread-handling and interrupt-handling occurs in the driver itself.
+
+An interrupt is handled immediatly, the processing is offloaded to the threading.
+
+
+\subsection{Example}
+\label{\detokenize{behind/troubleshoot:example}}\begin{itemize}
+\item {} 
+You touch the touchscreen
+
+\item {} 
+the touchscreen generates an interrupt
+
+\item {} 
+the driver handles the interrupt
+
+\item {} 
+a thread is created by the interrupt
+
+\item {} 
+the threadhandling read the I2C-bus
+
+\end{itemize}
+
+
+\subsection{Requirements}
+\label{\detokenize{behind/troubleshoot:requirements}}
+In order to create a working driver, I took it apart :
+
+(split a complex problem into simple problems)
+
+
+\subsubsection{a sample to detect interrupt}
+\label{\detokenize{behind/troubleshoot:a-sample-to-detect-interrupt}}
+samples/basic/testirq
+
+Each time the touchscreen gets touched, it increases a counter.
+
+
+\subsubsection{a sample to scan the I2C-BUS}
+\label{\detokenize{behind/troubleshoot:a-sample-to-scan-the-i2c-bus}}\begin{quote}
+
+({\hyperref[\detokenize{hacking/i2cscanning:i2cscanning}]{\sphinxcrossref{\DUrole{std,std-ref}{scanning the I2C\_1 port}}}}),
+\end{quote}
+
+
+\subsubsection{a sample to read the I2C-BUS}
+\label{\detokenize{behind/troubleshoot:a-sample-to-read-the-i2c-bus}}
+samples/basic/touched
+It is based on the Hynitron touchscreen code.
+Mass reading 63 bytes was not possible.
+
+I did add a write of 1 to register 0x00.
+
+
+\subsubsection{a samples to handle semaphores}
+\label{\detokenize{behind/troubleshoot:a-samples-to-handle-semaphores}}
+samples/basic/testsemaphore
+
+
+\section{placing a button on the screen}
+\label{\detokenize{behind/lvglbutton:placing-a-button-on-the-screen}}\label{\detokenize{behind/lvglbutton::doc}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{This} \PYG{n}{sample} \PYG{o+ow}{is} \PYG{o+ow}{not} \PYG{n}{really} \PYG{n}{important}\PYG{p}{,} \PYG{n}{but} \PYG{n}{it} \PYG{n}{will} \PYG{n}{teach} \PYG{n}{you} \PYG{n}{that} \PYG{n}{you} \PYG{n}{need} \PYG{n}{to} \PYG{n+nb}{set} \PYG{n}{LVGL\PYGZus{}CONFIG} \PYG{n}{values}\PYG{p}{,} \PYG{o+ow}{in} \PYG{n}{order}    \PYG{n}{to} \PYG{n}{be} \PYG{n}{able} \PYG{n}{to} \PYG{n}{use} \PYG{n}{LVGL} \PYG{n}{functions}\PYG{o}{.}
+\end{sphinxVerbatim}
+
+
+\subsection{Building and Running}
+\label{\detokenize{behind/lvglbutton:building-and-running}}
+In this repo under samples you will find an adapted gui/clock program.
+A button from the LVGL library is placed on the screen.
+
+Later on when the touch-screen driver is ready, we’ll be able to manipulate it.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{Make sure that prj.conf file in clock directory contains the following:}
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+CONFIG\_LVGL\_OBJ\_CONTAINER=y
+CONFIG\_LVGL\_OBJ\_BUTTON=y
+\end{sphinxadmonition}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+
+\end{sphinxVerbatim}
+
+\sphinxstyleemphasis{problem} the canvas heigh*width eats up RAM and exceeds once \textgreater{} 40
 
 
 \chapter{About}
