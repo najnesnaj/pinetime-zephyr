@@ -8,7 +8,7 @@ A collection of drivers, libraries and samples to build your own PineTime smart 
 
 ## Contributing to this project
 
-All aid is welcome, but I do not have time to test and debug your contributions.
+I took a break from this project (till winter) ; https://github.com/MarcusNordstrom/pinetime-zephyr These guys are doing some work on the accel sensor.
 
 
 
