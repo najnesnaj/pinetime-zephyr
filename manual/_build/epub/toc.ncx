@@ -12,7 +12,7 @@
   <navMap>    
     <navPoint id="navPoint1" playOrder="1">
       <navLabel>
-        <text>&lt;no title&gt;</text>
+        <text>INDEX</text>
       </navLabel>
       <content src="index.xhtml" />  
     </navPoint>
