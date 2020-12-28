@@ -14,6 +14,7 @@ I took a break from this project (till winter) ; https://github.com/MarcusNordst
 
 ## Where To Start?
 Read the tutorial! A helpful manual is included in the repository:
+ - [md](https://najnesnaj.github.io/pinetime-zephyr/)
  - [pdf](oswatch.pdf)
  - [epub](opensourcewatch.epub)
  - [html](manual/_build/html/index.html)
