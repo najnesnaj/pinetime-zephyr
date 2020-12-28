@@ -1,73 +1,73 @@
-content.md
-index.md
-samples/index.md
-samples/basic/testirq/README.md
-samples/basic/blinky/README.md
-samples/basic/button/README.md
-samples/basic/touchpoints/README.md
-samples/basic/basic.md
-samples/basic/scani2c/README.md
-samples/drivers/ds6_scanner/README.md
-samples/drivers/i2c_scanner/README.md
-samples/drivers/drivers.md
-samples/display/st7789v/README.md
-samples/display/display.md
-samples/sensor/hrs3300/README.md
-samples/sensor/bma280/README.md
-samples/sensor/cst816s/README.md
-samples/sensor/sensor.md
-samples/bluetooth/peripheral/README.md
-samples/bluetooth/central_hr/README.md
-samples/bluetooth/eddystone/README.md
-samples/bluetooth/bluetooth.md
-samples/bluetooth/peripheral-cts/README.md
-samples/gui/clock/README.md
-samples/gui/gfx/README.md
-samples/gui/clock-cts/README.md
-samples/gui/gui.md
-samples/gui/lvtouch/README.md
-samples/gui/clock-cts-rtc2/README.md
-samples/gui/lvaccel/README.md
-samples/gui/lvgl/README.md
-samples/mgmt/smp_svr/README.md
-samples/mgmt/smp_wtd/README.md
-hacking/writeprotection.md
-hacking/openocd.md
-hacking/hacking.md
-hacking/flashing.md
-hacking/latexpdf.md
-hacking/infrastructure.md
-hacking/i2cscanning.md
-hacking/debugging.md
-menuconfig.md
-drivers/cst816s.md
-drivers/i2c.md
-drivers/hrs3300.md
-drivers/battery.md
-drivers/drivers.md
-drivers/watchdog.md
-drivers/bma421.md
-drivers/spinor.md
-drivers/sensors.md
-bluetooth.md
-gfx.md
-copyright.md
-behind/bma280.md
-behind/behind-the-scene.md
-behind/troubleshoot.md
-behind/touchscreen.md
-behind/behind.md
-behind/lvglbutton.md
-lvgl.md
-fota/signing.md
-fota/partitions.md
-fota/fota.md
-fota/mcuboot.md
-fota/smp_svr.md
-RTC.md
-about.md
-basicapplications.md
-installation.md
-display.md
-clock.md
-current-time.md
+- content.md
+- index.md
+- samples/index.md
+- samples/basic/testirq/README.md
+- samples/basic/blinky/README.md
+- samples/basic/button/README.md
+- samples/basic/touchpoints/README.md
+- samples/basic/basic.md
+- samples/basic/scani2c/README.md
+- samples/drivers/ds6_scanner/README.md
+- samples/drivers/i2c_scanner/README.md
+- samples/drivers/drivers.md
+- samples/display/st7789v/README.md
+- samples/display/display.md
+- samples/sensor/hrs3300/README.md
+- samples/sensor/bma280/README.md
+- samples/sensor/cst816s/README.md
+- samples/sensor/sensor.md
+- samples/bluetooth/peripheral/README.md
+- samples/bluetooth/central_hr/README.md
+- samples/bluetooth/eddystone/README.md
+- samples/bluetooth/bluetooth.md
+- samples/bluetooth/peripheral-cts/README.md
+- samples/gui/clock/README.md
+- samples/gui/gfx/README.md
+- samples/gui/clock-cts/README.md
+- samples/gui/gui.md
+- samples/gui/lvtouch/README.md
+- samples/gui/clock-cts-rtc2/README.md
+- samples/gui/lvaccel/README.md
+- samples/gui/lvgl/README.md
+- samples/mgmt/smp_svr/README.md
+- samples/mgmt/smp_wtd/README.md
+- hacking/writeprotection.md
+- hacking/openocd.md
+- hacking/hacking.md
+- hacking/flashing.md
+- hacking/latexpdf.md
+- hacking/infrastructure.md
+- hacking/i2cscanning.md
+- hacking/debugging.md
+- menuconfig.md
+- drivers/cst816s.md
+- drivers/i2c.md
+- drivers/hrs3300.md
+- drivers/battery.md
+- drivers/drivers.md
+- drivers/watchdog.md
+- drivers/bma421.md
+- drivers/spinor.md
+- drivers/sensors.md
+- bluetooth.md
+- gfx.md
+- copyright.md
+- behind/bma280.md
+- behind/behind-the-scene.md
+- behind/troubleshoot.md
+- behind/touchscreen.md
+- behind/behind.md
+- behind/lvglbutton.md
+- lvgl.md
+- fota/signing.md
+- fota/partitions.md
+- fota/fota.md
+- fota/mcuboot.md
+- fota/smp_svr.md
+- RTC.md
+- about.md
+- basicapplications.md
+- installation.md
+- display.md
+- clock.md
+- current-time.md
