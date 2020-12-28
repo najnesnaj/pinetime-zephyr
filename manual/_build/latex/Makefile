@@ -10,9 +10,9 @@ ALLIMGS = $(wildcard *.png *.gif *.jpg *.jpeg)
 # Prefix for archive names
 ARCHIVEPREFIX =
 # Additional LaTeX options (passed via variables in latexmkrc/latexmkjarc file)
-export LATEXOPTS =
+export LATEXOPTS ?=
 # Additional latexmk options
-LATEXMKOPTS =
+LATEXMKOPTS ?=
 # format: pdf or dvi (used only by archive targets)
 FMT = pdf
 

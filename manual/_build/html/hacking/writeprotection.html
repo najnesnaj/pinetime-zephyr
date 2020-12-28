@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="howto generate pdf documents" href="../latexpdf.html" />
+    <link rel="next" title="howto configure gateway" href="infrastructure.html" />
     <link rel="prev" title="scanning the I2C_1 port" href="i2cscanning.html" /> 
 </head>
 
@@ -97,16 +97,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../lvgl.html">LittlevGL Basic Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clock.html">LittlevGL Clock Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../RTC.html">Real Time Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../current-time.html">Current Time Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../drivers/drivers.html">Drivers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../behind/behind.html">Behind the scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../flashing.html">hacking   the pinetime smartwatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="debugging.html">debugging   the pinetime smartwatch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="i2cscanning.html">scanning the I2C_1 port</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">howto flash your zephyr image</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#howto-remove-the-write-protection">howto remove the write protection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../latexpdf.html">howto generate pdf documents</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="hacking.html">Hacking stuff</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flashing.html">hacking   the pinetime smartwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">debugging   the pinetime smartwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2cscanning.html">scanning the I2C_1 port</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">howto flash your zephyr image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#howto-remove-the-write-protection">howto remove the write protection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="infrastructure.html">howto configure gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openocd.html">howto use 2 openocd sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="latexpdf.html">howto generate pdf documents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../behind/behind.html">Behind the scene</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
 </ul>
 
@@ -153,7 +160,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="hacking.html">&lt;no title&gt;</a> &raquo;</li>
+          <li><a href="hacking.html">Hacking stuff</a> &raquo;</li>
         
       <li>howto flash your zephyr image</li>
     
@@ -215,7 +222,7 @@ You have to reconfigure Openocd with the –enable-cmsis-dap option.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../latexpdf.html" class="btn btn-neutral float-right" title="howto generate pdf documents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="infrastructure.html" class="btn btn-neutral float-right" title="howto configure gateway" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="i2cscanning.html" class="btn btn-neutral float-left" title="scanning the I2C_1 port" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -1,6 +1,8 @@
 cd manual 
+make markdown
 make html
 make latexpdf
 make epub
 cp _build/latex/*.pdf .. 
 cp _build/epub/*.epub .. 
+cp -rfp _build/markdown/*  ../docs

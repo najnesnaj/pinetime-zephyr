@@ -12,8 +12,8 @@
     <dc:publisher>najnesnaj@yahoo.com</dc:publisher>
     <dc:rights>2019, jj</dc:rights>
     <dc:identifier id="unknown">unknown</dc:identifier>
-    <dc:date>2020-02-26T14:08:59Z</dc:date>
-    <meta property="dcterms:modified">2020-02-26T14:08:59Z</meta>
+    <dc:date>2020-11-15T08:17:06Z</dc:date>
+    <meta property="dcterms:modified">2020-11-15T08:17:06Z</meta>
     <meta property="ibooks:version">beta</meta>
     <meta property="ibooks:specified-fonts">true</meta>
     <meta property="ibooks:binding">true</meta>
@@ -115,10 +115,11 @@
     <item id="epub-90" href="samples/gui/lvgl/README.xhtml" media-type="application/xhtml+xml" />
     <item id="epub-91" href="samples/gui/lvtouch/README.xhtml" media-type="application/xhtml+xml" />
     <item id="epub-92" href="samples/mgmt/smp_svr/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-93" href="samples/sensor/sensor.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-94" href="samples/sensor/bma280/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-95" href="samples/sensor/cst816s/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-96" href="samples/sensor/hrs3300/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-93" href="samples/mgmt/smp_wtd/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-94" href="samples/sensor/sensor.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-95" href="samples/sensor/bma280/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-96" href="samples/sensor/cst816s/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-97" href="samples/sensor/hrs3300/README.xhtml" media-type="application/xhtml+xml" />
   </manifest>
   <spine toc="ncx" page-progression-direction="ltr">
     <itemref idref="epub-16" />
@@ -154,10 +155,10 @@
     <itemref idref="epub-70" />
     <itemref idref="epub-71" />
     <itemref idref="epub-72" />
-    <itemref idref="epub-93" />
     <itemref idref="epub-94" />
     <itemref idref="epub-95" />
     <itemref idref="epub-96" />
+    <itemref idref="epub-97" />
     <itemref idref="epub-80" />
     <itemref idref="epub-81" />
     <itemref idref="epub-82" />
@@ -208,6 +209,7 @@
     <itemref idref="epub-64" linear="no" />
     <itemref idref="epub-89" linear="no" />
     <itemref idref="epub-92" linear="no" />
+    <itemref idref="epub-93" linear="no" />
   </spine>
   <guide>
     <reference type="toc" title="Table of Contents" href="index.xhtml" />

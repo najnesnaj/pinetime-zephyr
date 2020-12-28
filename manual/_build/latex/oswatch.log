@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.12.10)  26 FEB 2020 14:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.9)  28 DEC 2020 12:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -7,7 +7,7 @@ entering extended mode
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 3 language(s) loaded.
 (./sphinxmanual.cls
-Document Class: sphinxmanual 2018/12/23 v2.0 Document class (Sphinx manual)
+Document Class: sphinxmanual 2019/12/01 v2.3.0 Document class (Sphinx manual)
 (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -25,7 +25,9 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-))
+)
+LaTeX Info: Redefining \and on input line 35.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks14
@@ -467,7 +469,7 @@ Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
 \c@AlphaCnt=\count102
 \c@AlphaDecCnt=\count103
 ) (./sphinx.sty
-Package: sphinx 2019/09/02 v2.2.1 LaTeX package (Sphinx markup)
+Package: sphinx 2019/09/02 v2.3.0 LaTeX package (Sphinx markup)
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
@@ -838,6 +840,7 @@ Package etexcmds Info: Could not find \expanded.
 \sphinxcontinuationbox=\box39
 \sphinxvisiblespacebox=\box40
 \sphinxVerbatim@TitleBox=\box41
+\sphinxVerbatim@ContentsBox=\box42
 \py@argswidth=\skip71
 \lineblockindentation=\skip72
 \DUlineblockindent=\skip73
@@ -994,29 +997,29 @@ Writing index file oswatch.idx
 (./oswatch.aux)
 \openout1 = `oswatch.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 81.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 80.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 81.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -1025,7 +1028,7 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count130
 \scratchdimen=\dimen157
-\scratchbox=\box42
+\scratchbox=\box43
 \nofMPsegments=\count131
 \nofMParguments=\count132
 \everyMPshowfont=\toks29
@@ -1085,8 +1088,8 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box43
-Package hyperref Info: Link coloring ON on input line 80.
+\AtBeginShipoutBox=\box44
+Package hyperref Info: Link coloring ON on input line 81.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -1095,47 +1098,47 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count136
 )
-LaTeX Info: Redefining \ref on input line 80.
-LaTeX Info: Redefining \pageref on input line 80.
-LaTeX Info: Redefining \nameref on input line 80.
+LaTeX Info: Redefining \ref on input line 81.
+LaTeX Info: Redefining \pageref on input line 81.
+LaTeX Info: Redefining \nameref on input line 81.
 
 (./oswatch.out) (./oswatch.out)
 \@outlinefile=\write5
 \openout5 = `oswatch.out'.
 
-Package hyperref Info: Option `pageanchor' set `false' on input line 83.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 83.
+Package hyperref Info: Option `pageanchor' set `false' on input line 84.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 84.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 83.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 84.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 83.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 84.
 LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <10> not available
-(Font)              Font shape `T1/phv/b/it' tried instead on input line 83.
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 84.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 83.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 84.
 LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/it' tried instead on input line 83.
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 84.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 83.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 84.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 83.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 84.
 <<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>>
-LaTeX Font Info:    Try loading font information for U+msa on input line 83.
+LaTeX Font Info:    Try loading font information for U+msa on input line 84.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 83.
+LaTeX Font Info:    Try loading font information for U+msb on input line 84.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 83.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 84.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
@@ -1143,7 +1146,7 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 85.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 86.
  (./oswatch.toc
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
@@ -1157,14 +1160,14 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 
 ]
 <zephyr_logo.png, id=469, 170.5572pt x 58.2978pt>
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 88.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 89.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 File: zephyr_logo.png Graphic file (type png)
 <use zephyr_logo.png>
-Package pdftex.def Info: zephyr_logo.png  used on input line 88.
+Package pdftex.def Info: zephyr_logo.png  used on input line 89.
 (pdftex.def)             Requested size: 170.55678pt x 58.29765pt.
  [1 <./zephyr_logo.png>] [2
 
@@ -1179,8 +1182,8 @@ Chapter 2.
 ]
 Chapter 3.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 121.
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 129.
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 122.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 130.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
@@ -1188,7 +1191,7 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 <PineTime-830x400.png, id=499, 833.1125pt x 401.5pt>
 File: PineTime-830x400.png Graphic file (type png)
 <use PineTime-830x400.png>
-Package pdftex.def Info: PineTime-830x400.png  used on input line 145.
+Package pdftex.def Info: PineTime-830x400.png  used on input line 146.
 (pdftex.def)             Requested size: 469.75603pt x 226.39456pt.
  [7 <./PineTime-830x400.png>] [8
 
@@ -1199,7 +1202,7 @@ Chapter 5.
 [11
 
 ]
-LaTeX Font Info:    Try loading font information for TS1+pcr on input line 298.
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 299.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
@@ -1224,7 +1227,7 @@ Chapter 10.
 <clockback.png, id=586, 144.54pt x 144.54pt>
 File: clockback.png Graphic file (type png)
 <use clockback.png>
-Package pdftex.def Info: clockback.png  used on input line 568.
+Package pdftex.def Info: clockback.png  used on input line 569.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
 [21
 
@@ -1232,19 +1235,19 @@ Package pdftex.def Info: clockback.png  used on input line 568.
 Chapter 11.
 [23
 
-] [24
-
-]
+] [24]
 Chapter 12.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--664
+Underfull \hbox (badness 10000) in paragraph at lines 1--665
 [][]$\T1/ptm/m/n/10 https : / / www . bluetooth . com / speci^^\cations / gatt 
 / services/$[][] [][]$https : / / www . bluetooth . com / speci^^\cations / gat
 t /
  []
 
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 750--751
+[25
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 751--752
 []\T1/ptm/m/n/10 Build and pro-gram the firmware on the Pine-time In-stall NR-F
 -Con-nect ([][]$https : / / www . nordicsemi . com /
  []
@@ -1254,81 +1257,84 @@ Chapter 13.
 [27
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 837--840
+Underfull \hbox (badness 10000) in paragraph at lines 838--841
 \T1/ptm/m/n/10 ~/zephyrproject-2/zephyr/drivers/sensor add_subdirectory_ifdef(C
 ONFIG_BMA280 bma280)
  []
 
 [28] [29] [30]
-<hrs3300.jpg, id=661, 459.51675pt x 374.5995pt>
+<hrs3300.jpg, id=659, 459.51675pt x 374.5995pt>
 File: hrs3300.jpg Graphic file (type jpg)
 <use hrs3300.jpg>
-Package pdftex.def Info: hrs3300.jpg  used on input line 1015.
+Package pdftex.def Info: hrs3300.jpg  used on input line 1016.
 (pdftex.def)             Requested size: 459.51563pt x 374.59859pt.
- [31 <./hrs3300.jpg>]
-Overfull \hbox (14.65001pt too wide) in paragraph at lines 1107--1108
+ [31] [32 <./hrs3300.jpg>] [33]
+Overfull \hbox (14.65001pt too wide) in paragraph at lines 1108--1109
 []\T1/ptm/m/n/10 /root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.
 c:17:22: er-ror: `DT_INST_0_JEDEC_SPI_NOR_LABEL'
  []
 
-[32] [33] [34] [35] [36
-
-]
+[34] [35] [36]
 Chapter 14.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 1309.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 1310.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1330--1333
+Underfull \hbox (badness 10000) in paragraph at lines 1331--1334
 []\T1/ptm/m/n/10 This is han-dled in-ter-nally by the Zephyr con-fig-u-ra-tion 
 sys-tem and is wrapped in the \T1/ptm/m/it/10 CON-
  []
 
 
-Underfull \hbox (badness 6758) in paragraph at lines 1334--1339
+Underfull \hbox (badness 6758) in paragraph at lines 1335--1340
 \T1/ptm/m/n/10 org / reference / kcon^^\g / CONFIG _ BOOTLOADER _ MCUBOOT . htm
 l$[][]) pro-vides ad-di-tional de-tails re-gard-ing the
  []
 
-[37] [38] [39] [40] [41] [42] [43] [44
+[37
+
+] [38] [39] [40] [41] [42] [43] [44
 
 ]
 Chapter 15.
-[45] [46] [47] [48] [49] [50] [51] [52] [53] [54]
-Chapter 16.
-[55
-
-] [56]
-Chapter 17.
-[57
-
-] [58] [59] [60] [61] [62
+[45] [46] [47] [48] [49] [50] [51] [52] [53]
+LaTeX Font Info:    Font shape `TS1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `TS1/ptm/b/n' tried instead on input line 2285.
+ [54] [55] [56
 
 ]
+Chapter 16.
+[57] [58]
+Chapter 17.
+[59
+
+] [60] [61] [62] [63] [64]
 Chapter 18.
-[63] [64] [65] [66]
+[65
+
+] [66] [67] [68] [69] [70
+
+]
 Chapter 19.
 (./oswatch.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3091.
- [67
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3091.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3092.
+ [71]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3092.
  (./oswatch.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3091.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3091.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3092.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3092.
 
 Package rerunfilecheck Info: File `oswatch.out' has not changed.
 (rerunfilecheck)             Checksum: 0052D8FCF4DAEEAEDCC43E495D253A11;13309.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3091.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3092.
  ) 
 Here is how much of TeX's memory you used:
- 14472 strings out of 494923
- 208683 string characters out of 6180741
- 447616 words of memory out of 5000000
- 17119 multiletter control sequences out of 15000+600000
- 52159 words of font info for 73 fonts, out of 8000000 for 9000
+ 14489 strings out of 494923
+ 208958 string characters out of 6180743
+ 447834 words of memory out of 5000000
+ 17131 multiletter control sequences out of 15000+600000
+ 52470 words of font info for 74 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
- 37i,12n,48p,756b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,12n,48p,756b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/f
@@ -1339,10 +1345,10 @@ sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmri8a.pfb>
-Output written on oswatch.pdf (73 pages, 472481 bytes).
+Output written on oswatch.pdf (77 pages, 475220 bytes).
 PDF statistics:
- 1119 PDF objects out of 1200 (max. 8388607)
- 1011 compressed objects within 11 object streams
- 346 named destinations out of 1000 (max. 500000)
+ 1136 PDF objects out of 1200 (max. 8388607)
+ 1024 compressed objects within 11 object streams
+ 350 named destinations out of 1000 (max. 500000)
  729 words of extra memory for PDF output out of 10000 (max. 10000000)
 
