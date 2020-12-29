@@ -7,4 +7,4 @@ cp _build/latex/*.pdf ..
 cp _build/epub/*.epub .. 
 cp -rfp _build/markdown/*  ../docs
 cd ../docs
-find -name '*md' |sed -e 's,^\./,,' > index.md
+find -name '*md' |sed -e 's,^\./,,' | awk '{print "["$1"]" "(" $1 ")   "}' > index.md
