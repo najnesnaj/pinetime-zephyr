@@ -18,6 +18,9 @@
 * Install zephyr
 
 
+    * update on 31-12-2020
+
+
     * In case you already have zephyr installed:
 
 

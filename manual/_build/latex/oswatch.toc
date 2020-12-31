@@ -4,8 +4,9 @@
 \contentsline {section}{\numberline {1.2}LICENSE:}{3}{section.1.2}
 \contentsline {chapter}{\numberline {2}Zephyr for the pinetime smartwatch}{5}{chapter.2}
 \contentsline {chapter}{\numberline {3}Install zephyr}{7}{chapter.3}
-\contentsline {section}{\numberline {3.1}In case you already have zephyr installed:}{7}{section.3.1}
-\contentsline {section}{\numberline {3.2}In case you start from scratch :}{7}{section.3.2}
+\contentsline {section}{\numberline {3.1}update on 31\sphinxhyphen {}12\sphinxhyphen {}2020}{7}{section.3.1}
+\contentsline {section}{\numberline {3.2}In case you already have zephyr installed:}{7}{section.3.2}
+\contentsline {section}{\numberline {3.3}In case you start from scratch :}{7}{section.3.3}
 \contentsline {chapter}{\numberline {4}Starting with some basic applications}{9}{chapter.4}
 \contentsline {section}{\numberline {4.1}Blinky example}{9}{section.4.1}
 \contentsline {section}{\numberline {4.2}Reading out the button on the watch}{9}{section.4.2}

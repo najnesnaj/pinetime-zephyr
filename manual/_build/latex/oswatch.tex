@@ -72,8 +72,8 @@
 
 
 \title{open source watch Documentation}
-\date{Dec 29, 2020}
-\release{1.0.0}
+\date{Dec 31, 2020}
+\release{1.1.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{Release}
@@ -151,6 +151,20 @@ try out the display
 
 \chapter{Install zephyr}
 \label{\detokenize{installation:install-zephyr}}\label{\detokenize{installation::doc}}
+
+\section{update on 31\sphinxhyphen{}12\sphinxhyphen{}2020}
+\label{\detokenize{installation:update-on-31-12-2020}}
+Pinetime has become part of the standard zephyr distribution!
+This manual was initially created with Pinetime as an external application.
+As from today you can install zephyr and execute a pinetime sample!
+
+However the drivers for the Heartrate sensor, accell sensor and touch screen are not \sphinxhyphen{} yet \sphinxhyphen{} part of the standard zephyr\sphinxhyphen{}distribution.
+These drivers are work in progress.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{west} \PYG{n}{build} \PYG{o}{\PYGZhy{}}\PYG{n}{p} \PYG{o}{\PYGZhy{}}\PYG{n}{b} \PYG{n}{pinetime\PYGZus{}devkit0} \PYG{n}{samples}\PYG{o}{/}\PYG{n}{boards}\PYG{o}{/}\PYG{n}{pine64\PYGZus{}pinetime}
+\end{sphinxVerbatim}
+
 
 \section{In case you already have zephyr installed:}
 \label{\detokenize{installation:in-case-you-already-have-zephyr-installed}}

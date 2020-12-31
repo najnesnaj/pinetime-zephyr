@@ -3,6 +3,24 @@ Install zephyr
 ========================
 
 
+update on 31-12-2020
+--------------------
+
+
+Pinetime has become part of the standard zephyr distribution!
+This manual was initially created with Pinetime as an external application.
+As from today you can install zephyr and execute a pinetime sample!
+
+
+However the drivers for the Heartrate sensor, accell sensor and touch screen are not - yet - part of the standard zephyr-distribution.
+These drivers are work in progress.
+
+::
+
+	west build -p -b pinetime_devkit0 samples/boards/pine64_pinetime
+
+
+
 In case you already have zephyr installed:
 ------------------------------------------
 

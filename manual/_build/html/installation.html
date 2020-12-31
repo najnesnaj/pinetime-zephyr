@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Install zephyr &mdash; open source watch 1.0.0 documentation</title>
+  <title>Install zephyr &mdash; open source watch 1.1.0 documentation</title>
   
 
   
@@ -90,6 +90,7 @@
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr for the pinetime smartwatch</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Install zephyr</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#update-on-31-12-2020">update on 31-12-2020</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#in-case-you-already-have-zephyr-installed">In case you already have zephyr installed:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#in-case-you-start-from-scratch">In case you start from scratch :</a></li>
 </ul>
@@ -175,6 +176,17 @@
             
   <div class="section" id="install-zephyr">
 <h1>Install zephyr<a class="headerlink" href="#install-zephyr" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="update-on-31-12-2020">
+<h2>update on 31-12-2020<a class="headerlink" href="#update-on-31-12-2020" title="Permalink to this headline">¶</a></h2>
+<p>Pinetime has become part of the standard zephyr distribution!
+This manual was initially created with Pinetime as an external application.
+As from today you can install zephyr and execute a pinetime sample!</p>
+<p>However the drivers for the Heartrate sensor, accell sensor and touch screen are not - yet - part of the standard zephyr-distribution.
+These drivers are work in progress.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">west</span> <span class="n">build</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">b</span> <span class="n">pinetime_devkit0</span> <span class="n">samples</span><span class="o">/</span><span class="n">boards</span><span class="o">/</span><span class="n">pine64_pinetime</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="in-case-you-already-have-zephyr-installed">
 <h2>In case you already have zephyr installed:<a class="headerlink" href="#in-case-you-already-have-zephyr-installed" title="Permalink to this headline">¶</a></h2>
 <p>Pinetime works as external (out of tree) application.

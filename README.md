@@ -8,8 +8,8 @@ A collection of drivers, libraries and samples to build your own PineTime smart 
 
 ## Contributing to this project
 
-I took a break from this project (till winter) ; https://github.com/MarcusNordstrom/pinetime-zephyr These guys are doing some work on the accel sensor.
-
+The pinetime board (watch) has become an integral part of the zephyr distribution.
+This is not the case for the HR-sensor, touchscreen, accell-sensor.....
 
 
 ## Where To Start?
@@ -22,6 +22,15 @@ Read the tutorial! A helpful manual is included in the repository:
 ## Installation Overview
 1. Follow the Zephyr [Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html) to install zephyr SDK and tools.
 2. Install `west` meta tool (https://docs.zephyrproject.org/latest/guides/west/install.html).
+
+
+build your first sample!
+::
+	west build -p -b pinetime_devkit0 samples/boards/pine64_pinetime
+
+
+## if you're in for more adventure : 
+
 3. Create a working directory and enter it.
 ```
 mkdir work
