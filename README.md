@@ -7,9 +7,9 @@ A collection of drivers, libraries and samples to build your own PineTime smart 
 
 
 There are quite a few hackable watches, based on the same nrf52832 microcontroller.
-I have also made a repository for the desay D6, which is ssd1306 OLED based, cheap chinese watch.
+I have also made a repository for the desay D6, which is a ssd1306 OLED based, cheap chinese watch with a serial port.
 [other smartwatches](https://github.com/najnesnaj/dsd6-zephyr)
-
+This watch combined with a "blue-pill" black magic debug probe, which contains a serial port, might be one of the cheapest zephyr dev boards available! 
 
 
 
