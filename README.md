@@ -6,6 +6,14 @@ A collection of drivers, libraries and samples to build your own PineTime smart 
 
 
 
+There are quite a few hackable watches, based on the same nrf52832 microcontroller.
+I have also made a repository for the desay D6, which is ssd1306 OLED based, cheap chinese watch.
+[other smartwatches](https://github.com/najnesnaj/dsd6-zephyr)
+
+
+
+
+
 ## Contributing to this project
 
 The pinetime board (watch) has become an integral part of the zephyr distribution.
@@ -25,11 +33,12 @@ Read the tutorial! A helpful manual is included in the repository:
 
 
 build your first sample!
-::
-	west build -p -b pinetime_devkit0 samples/boards/pine64_pinetime
+
+ - west build -p -b pinetime_devkit0 samples/boards/pine64_pinetime
 
 
 ## if you're in for more adventure : 
+
 
 3. Create a working directory and enter it.
 ```
