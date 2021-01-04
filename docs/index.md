@@ -1,4 +1,4 @@
-[html](https://github.com/najnesnaj/pinetime-zephyr/blob/master/docs/html)   
+[view doc in html](html)   
 [content.md](content.md)   
 [index.md](index.md)   
 [samples/index.md](samples/index.md)   
