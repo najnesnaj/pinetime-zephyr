@@ -25,7 +25,7 @@ Read the tutorial! A helpful manual is included in the repository:
  - [md](https://najnesnaj.github.io/pinetime-zephyr/)
  - [pdf](oswatch.pdf)
  - [epub](opensourcewatch.epub)
- - [html](manual/_build/html/index.html)
+ - [html](https://najnesnaj.github.io/pinetime-zephyr/html)
 
 ## Installation Overview
 1. Follow the Zephyr [Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html) to install zephyr SDK and tools.
