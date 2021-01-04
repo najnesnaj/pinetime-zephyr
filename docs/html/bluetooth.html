@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bluetooth (BLE) example &mdash; open source watch 1.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="display (st7789)" href="display.html" />
+    <link rel="prev" title="Starting with some basic applications" href="basicapplications.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> open source watch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr for the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">bluetooth (BLE) example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-a-standard-zephyr-application-under-pinetime">Using a standard zephyr application under pinetime:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eddy-stone">Eddy Stone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-created-bluetooth-sample">Using the created bluetooth sample:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ble-peripheral">Ble Peripheral</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-python-to-read-out-bluetoothservices">using Python to read out bluetoothservices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="display.html">display (st7789)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gfx.html">GFX Library Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lvgl.html">LittlevGL Basic Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clock.html">LittlevGL Clock Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RTC.html">Real Time Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="current-time.html">Current Time Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fota/fota.html">Firmware Over The Air (FOTA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hacking/hacking.html">Hacking stuff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behind/behind.html">Behind the scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">open source watch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>bluetooth (BLE) example</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/bluetooth.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bluetooth-ble-example">
+<h1>bluetooth (BLE) example<a class="headerlink" href="#bluetooth-ble-example" title="Permalink to this headline">¶</a></h1>
+<p>The PineTime uses a Nordic nrf52832 chip, which has BLE functionality build into it.</p>
+<p>To test, you can compile a standard application : Eddy Stone.</p>
+<p>The watch will behave as a bluetooth beacon, and you should be able to detect it with your smartphone or with bluez under linux.</p>
+<div class="section" id="using-a-standard-zephyr-application-under-pinetime">
+<h2>Using a standard zephyr application under pinetime:<a class="headerlink" href="#using-a-standard-zephyr-application-under-pinetime" title="Permalink to this headline">¶</a></h2>
+<p>Each sample has its own directory.
+In this directory you will notice a file : “CMakeLists.txt”.</p>
+<p>In order to use a standard, you can just copy it under the pinetime directory.</p>
+<p>In order to be able to compile it, you just have to add one line in the CMakeList.txt :</p>
+<p><cite>include($ENV{ZEPHYR_BASE}/../pinetime/cmake/boilerplate.cmake)</cite></p>
+<p>Have a look in the samples/bluetooth/eddystone directory.</p>
+</div>
+<div class="section" id="eddy-stone">
+<h2>Eddy Stone<a class="headerlink" href="#eddy-stone" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>see:   <a class="reference internal" href="samples/bluetooth/eddystone/README.html#bluetooth-eddystone-sample"><span class="std std-ref">Bluetooth: Eddystone</span></a></p>
+</div></blockquote>
+<p><strong>Note:</strong>  compile the provided example, so a build directory gets created</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> west build -p -b pinetime samples/bluetooth/eddystone
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">this</span> <span class="pre">builds</span> <span class="pre">an</span> <span class="pre">image,</span> <span class="pre">which</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">found</span> <span class="pre">under</span> <span class="pre">the</span> <span class="pre">build</span> <span class="pre">directory</span></code></p>
+</div>
+<div class="section" id="using-the-created-bluetooth-sample">
+<h2>Using the created bluetooth sample:<a class="headerlink" href="#using-the-created-bluetooth-sample" title="Permalink to this headline">¶</a></h2>
+<p>I use linux with a bluetoothadapter 4.0.
+You need to install bluez.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>bluetoothctl
+<span class="gp">[bluetooth]#</span>scan on
+</pre></div>
+</div>
+<p>And your Eddy Stone should be visible.</p>
+<p>If you have a smartphone, you can download the nrf utilities app from nordic.</p>
+</div>
+<div class="section" id="ble-peripheral">
+<h2>Ble Peripheral<a class="headerlink" href="#ble-peripheral" title="Permalink to this headline">¶</a></h2>
+<p>this example is a demo of the services under bluetooth</p>
+<p>first build the image</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b pinetime samples/bluetooth/peripheral
+</pre></div>
+</div>
+<p>With linux you can have a look using bluetoothctl:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>bluetoothctl
+<span class="gp">[bluetooth]#</span>scan on
+
+
+<span class="go">[NEW] Device 60:7C:9E:92:50:C1 Zephyr Peripheral Sample Long</span>
+<span class="go">once you see your device</span>
+<span class="gp">[blueooth]#</span>connect <span class="m">60</span>:7C:9E:92:50:C1 <span class="o">(</span>the device mac address as displayed<span class="o">)</span>
+
+<span class="go">then you can already see the services</span>
+</pre></div>
+</div>
+<p>same thing with the app from nordic, you could try to connect and display value of e.g. heart rate</p>
+</div>
+<div class="section" id="using-python-to-read-out-bluetoothservices">
+<h2>using Python to read out bluetoothservices<a class="headerlink" href="#using-python-to-read-out-bluetoothservices" title="Permalink to this headline">¶</a></h2>
+<p>In this repo you will find a python script : readbat.py
+In order to use it you need bluez on linux and the python <cite>bluepy</cite> module.</p>
+<p>It can be used in conjunction with the peripheral bluetooth demo.
+It just reads out the battery level, and prints it.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">binascii</span>
+<span class="kn">from</span> <span class="nn">bluepy.btle</span> <span class="kn">import</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">Peripheral</span>
+
+<span class="n">temp_uuid</span> <span class="o">=</span> <span class="n">UUID</span><span class="p">(</span><span class="mh">0x2A19</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Peripheral</span><span class="p">(</span><span class="s2">&quot;60:7C:9E:92:50:C1&quot;</span><span class="p">,</span> <span class="s2">&quot;random&quot;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+   <span class="n">ch</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">getCharacteristics</span><span class="p">(</span><span class="n">uuid</span><span class="o">=</span><span class="n">temp_uuid</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+   <span class="nb">print</span> <span class="n">binascii</span><span class="o">.</span><span class="n">b2a_hex</span><span class="p">(</span><span class="n">ch</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="display.html" class="btn btn-neutral float-right" title="display (st7789)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="basicapplications.html" class="btn btn-neutral float-left" title="Starting with some basic applications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; <a href="copyright.html">Copyright</a> 2019, jj
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

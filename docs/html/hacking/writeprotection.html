@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>howto flash your zephyr image &mdash; open source watch 1.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="howto configure gateway" href="infrastructure.html" />
+    <link rel="prev" title="scanning the I2C_1 port" href="i2cscanning.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> open source watch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr for the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicapplications.html">Starting with some basic applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bluetooth.html">bluetooth (BLE) example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">display (st7789)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gfx.html">GFX Library Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lvgl.html">LittlevGL Basic Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clock.html">LittlevGL Clock Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RTC.html">Real Time Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../current-time.html">Current Time Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers/drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fota/fota.html">Firmware Over The Air (FOTA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="hacking.html">Hacking stuff</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flashing.html">hacking   the pinetime smartwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">debugging   the pinetime smartwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2cscanning.html">scanning the I2C_1 port</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">howto flash your zephyr image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#howto-remove-the-write-protection">howto remove the write protection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="infrastructure.html">howto configure gateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openocd.html">howto use 2 openocd sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="latexpdf.html">howto generate pdf documents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../behind/behind.html">Behind the scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">open source watch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="hacking.html">Hacking stuff</a> &raquo;</li>
+        
+      <li>howto flash your zephyr image</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/hacking/writeprotection.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="howto-flash-your-zephyr-image">
+<span id="flashing"></span><h1>howto flash your zephyr image<a class="headerlink" href="#howto-flash-your-zephyr-image" title="Permalink to this headline">¶</a></h1>
+<p>Once you completed your <code class="docutils literal notranslate"><span class="pre">west</span> <span class="pre">build</span></code> , your image is located under the build directory</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">   $</span> <span class="nb">cd</span> ~/work/pinetime/zephyr/build/zephyr
+<span class="go">   here you can find zephyr.bin which you can flash</span>
+
+
+
+
+<span class="go">I use Openocd to flash.</span>
+<span class="go">Just connect : telnet 127.0.0.1 4444</span>
+
+<span class="go">.. code-block:: console</span>
+
+<span class="go">    program zephyr.bin</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="howto-remove-the-write-protection">
+<h1>howto remove the write protection<a class="headerlink" href="#howto-remove-the-write-protection" title="Permalink to this headline">¶</a></h1>
+<dl>
+<dt>::</dt><dd><p>the PineTime watch is read/write protected (at least the one I got)
+executing the following : nrf52.dap apreg 1 0x0c shows 0x0</p>
+<p>Mind you, st-link does not allow you to execute that command, for this you will need a J-link.</p>
+<p>There is a workaround using the GPIO of a raspberry pi or an Orangepi. (in this case you won’t need an external programmer at all)
+(You can find an example for the orange pi in my repo :<a class="reference external" href="https://github.com/najnesnaj/openocd">https://github.com/najnesnaj/openocd</a>.)
+You have to reconfigure Openocd with the –enable-cmsis-dap option.</p>
+<p>Unlock the chip by executing the command:
+&gt; nrf52.dap apreg 1 0x04 0x01</p>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="infrastructure.html" class="btn btn-neutral float-right" title="howto configure gateway" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="i2cscanning.html" class="btn btn-neutral float-left" title="scanning the I2C_1 port" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; <a href="../copyright.html">Copyright</a> 2019, jj
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

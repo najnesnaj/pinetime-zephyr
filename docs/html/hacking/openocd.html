@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>howto use 2 openocd sessions &mdash; open source watch 1.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="howto generate pdf documents" href="latexpdf.html" />
+    <link rel="prev" title="howto configure gateway" href="infrastructure.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> open source watch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr for the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicapplications.html">Starting with some basic applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bluetooth.html">bluetooth (BLE) example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">display (st7789)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gfx.html">GFX Library Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lvgl.html">LittlevGL Basic Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clock.html">LittlevGL Clock Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RTC.html">Real Time Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../current-time.html">Current Time Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers/drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fota/fota.html">Firmware Over The Air (FOTA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Samples and Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="hacking.html">Hacking stuff</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="flashing.html">hacking   the pinetime smartwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">debugging   the pinetime smartwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i2cscanning.html">scanning the I2C_1 port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="writeprotection.html">howto flash your zephyr image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="writeprotection.html#howto-remove-the-write-protection">howto remove the write protection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="infrastructure.html">howto configure gateway</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">howto use 2 openocd sessions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#suppose-you-have-2-microcontrollers">Suppose you have 2 microcontrollers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#howto-setup-a-second-openocd-session-on-a-different-port">Howto setup a second openocd session on a different port?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#howto-use-the-gpio-header-of-a-single-board-computer">Howto use the GPIO header of a Single Board computer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="latexpdf.html">howto generate pdf documents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../behind/behind.html">Behind the scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">open source watch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="hacking.html">Hacking stuff</a> &raquo;</li>
+        
+      <li>howto use 2 openocd sessions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/hacking/openocd.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>w</p>
+<div class="section" id="howto-use-2-openocd-sessions">
+<h1>howto use 2 openocd sessions<a class="headerlink" href="#howto-use-2-openocd-sessions" title="Permalink to this headline">¶</a></h1>
+<p>Once you completed your <code class="docutils literal notranslate"><span class="pre">west</span> <span class="pre">build</span></code> , your image is located under the build directory</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">   $</span> <span class="nb">cd</span> ~/work/pinetime/zephyr/build/zephyr
+<span class="go">   here you can find zephyr.bin which you can flash</span>
+
+
+
+
+<span class="go">I use Openocd to flash.</span>
+<span class="go">Just connect : telnet 127.0.0.1 4444</span>
+
+<span class="go">.. code-block:: console</span>
+
+<span class="go">    program zephyr.bin</span>
+</pre></div>
+</div>
+<div class="section" id="suppose-you-have-2-microcontrollers">
+<h2>Suppose you have 2 microcontrollers<a class="headerlink" href="#suppose-you-have-2-microcontrollers" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Just connect : telnet 127.0.0.1 7777 for the second.</p>
+</div></blockquote>
+</div>
+<div class="section" id="howto-setup-a-second-openocd-session-on-a-different-port">
+<h2>Howto setup a second openocd session on a different port?<a class="headerlink" href="#howto-setup-a-second-openocd-session-on-a-different-port" title="Permalink to this headline">¶</a></h2>
+<p>In this case an ST-LINK/V2 an in-circuit debugger and programmer is used.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">openocd</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;telnet_port 7777&#39;</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;tcl_port 6667&#39;</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;gdb_port 3332&#39;</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openocd</span><span class="o">/</span><span class="n">scripts</span> <span class="o">-</span><span class="n">f</span> <span class="n">interface</span><span class="o">/</span><span class="n">stlink</span><span class="o">.</span><span class="n">cfg</span>  <span class="o">-</span><span class="n">f</span> <span class="n">target</span><span class="o">/</span><span class="n">nrf52</span><span class="o">.</span><span class="n">cfg</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="howto-use-the-gpio-header-of-a-single-board-computer">
+<h2>Howto use the GPIO header of a Single Board computer<a class="headerlink" href="#howto-use-the-gpio-header-of-a-single-board-computer" title="Permalink to this headline">¶</a></h2>
+<p>This works really well, and does not require a seperate programmer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">openocd</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openocd</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">interface</span><span class="o">/</span><span class="n">sysfsgpio</span><span class="o">-</span><span class="n">raspberrypi</span><span class="o">.</span><span class="n">cfg</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;transport select swd&#39;</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openocd</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">target</span><span class="o">/</span><span class="n">nrf52</span><span class="o">.</span><span class="n">cfg</span>  <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;bindto 0.0.0.0&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="latexpdf.html" class="btn btn-neutral float-right" title="howto generate pdf documents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="infrastructure.html" class="btn btn-neutral float-left" title="howto configure gateway" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; <a href="../copyright.html">Copyright</a> 2019, jj
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

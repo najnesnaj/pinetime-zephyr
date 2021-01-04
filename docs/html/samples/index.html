@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Samples and Demos &mdash; open source watch 1.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="Basic Samples" href="basic/basic.html" />
+    <link rel="prev" title="SMP Server Sample" href="../fota/smp_svr.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> open source watch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr for the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicapplications.html">Starting with some basic applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bluetooth.html">bluetooth (BLE) example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">display (st7789)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gfx.html">GFX Library Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lvgl.html">LittlevGL Basic Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../clock.html">LittlevGL Clock Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RTC.html">Real Time Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../current-time.html">Current Time Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drivers/drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fota/fota.html">Firmware Over The Air (FOTA)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Samples and Demos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic/basic.html">Basic Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensor/sensor.html">Sensor Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers/drivers.html">Driver Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="display/display.html">Display Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui/gui.html">GUI Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluetooth/bluetooth.html">Bluetooth Samples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hacking/hacking.html">Hacking stuff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behind/behind.html">Behind the scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">open source watch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Samples and Demos</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/samples/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="samples-and-demos">
+<span id="id1"></span><h1>Samples and Demos<a class="headerlink" href="#samples-and-demos" title="Permalink to this headline">¶</a></h1>
+<p>In each sample directory is a Readme file.
+This is just a collection of them.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic/basic.html">Basic Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic/blinky/README.html">Blinky Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic/button/README.html">Button demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic/scani2c/README.html">I2C Scanner sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic/testirq/README.html">Touchscreen IRQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic/touchpoints/README.html">Touchpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sensor/sensor.html">Sensor Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sensor/bma280/README.html">BMA280: Three Axis High-g I2C/SPI Accelerometer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensor/cst816s/README.html">CST816S HYNITRON TOUCHSCREEN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensor/hrs3300/README.html">HRS3300 Heart Rate Sensor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Driver Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="drivers/ds6_scanner/README.html">I2C Scanner sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers/i2c_scanner/README.html">I2C Scanner sample</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="display/display.html">Display Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="display/st7789v/README.html">ST7789V Display driver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gui/gui.html">GUI Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gui/clock-cts-rtc2/README.html">Clock Sample Current Time Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui/clock-cts/README.html">Clock Sample Current Time Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui/clock/README.html">LittlevGL Clock Sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui/gfx/README.html">Adafruit GFX Library on ST7789V Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui/lvaccel/README.html">Display accel values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui/lvgl/README.html">LittlevGL Basic Sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gui/lvtouch/README.html">Touchscreen Basic Sample</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bluetooth/bluetooth.html">Bluetooth Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bluetooth/central_hr/README.html">Bluetooth: Central / Heart-rate Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluetooth/eddystone/README.html">Bluetooth: Eddystone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluetooth/peripheral-cts/README.html">Bluetooth: Peripheral_cts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bluetooth/peripheral/README.html">Bluetooth: Peripheral</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="basic/basic.html" class="btn btn-neutral float-right" title="Basic Samples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../fota/smp_svr.html" class="btn btn-neutral float-left" title="SMP Server Sample" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; <a href="../copyright.html">Copyright</a> 2019, jj
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
