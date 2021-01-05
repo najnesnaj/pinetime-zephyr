@@ -11,7 +11,6 @@ A collection of drivers, libraries and samples to build your own PineTime smart 
 The pinetime board (watch) has become a part of the zephyr distribution.
 This is not the case (yet) for the HR-sensor, touchscreen, accell-sensor.....
 
-The zephyr-included Focaltech touch_controller is usable on the Pinetime (included in samples/display/lvgl).  (minor modification see: drivers/kscan)
 
 ## Where To Start?
 Read the tutorial! A helpful manual is included in the repository:
@@ -28,6 +27,14 @@ Read the tutorial! A helpful manual is included in the repository:
 build your first sample!
 
  - west build -p -b pinetime_devkit0 samples/boards/pine64_pinetime
+
+build your second sample to get taste of the touchscreen:
+
+The zephyr-included Focaltech touch_controller is usable on the Pinetime (included in samples/display/lvgl).  (minor modification see: drivers/kscan)
+you can copy the modified driver and board definition screen
+
+ - west build -p -b pinetime_devkit0 samples/display/lvgl
+
 
 
 ## if you're in for more adventure : 

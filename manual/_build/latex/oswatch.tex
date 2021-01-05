@@ -165,6 +165,25 @@ These drivers are work in progress.
 \PYG{n}{west} \PYG{n}{build} \PYG{o}{\PYGZhy{}}\PYG{n}{p} \PYG{o}{\PYGZhy{}}\PYG{n}{b} \PYG{n}{pinetime\PYGZus{}devkit0} \PYG{n}{samples}\PYG{o}{/}\PYG{n}{boards}\PYG{o}{/}\PYG{n}{pine64\PYGZus{}pinetime}
 \end{sphinxVerbatim}
 
+A second and important sample is provided.
+Zephyr and the LVGL graphics library play together, using the touchscreen.
+The standard Focaltech touchscreen driver has been adapted slightly, as well as the board definition files.
+To get the sample up and running copy both the adapted board definition files and touchscreen driver, replacing the standard zephyr ones.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{west} \PYG{n}{build} \PYG{o}{\PYGZhy{}}\PYG{n}{p} \PYG{o}{\PYGZhy{}}\PYG{n}{b} \PYG{n}{pinetime\PYGZus{}devkit0} \PYG{n}{samples}\PYG{o}{/}\PYG{n}{display}\PYG{o}{/}\PYG{n}{lvgl}
+\end{sphinxVerbatim}
+
+The focaltech touchscreen driver is more recent/better than the cst816s touchscreendriver.
+Still, there is room for improvement (slide events …..)
+
+The battery driver was provided as a module and is not working yet.
+
+The accel sensor bma421 driver is working, and work has been done to distill a stepcounter out of it.
+
+The heartrate sensor hrs3300, could work, but is kind of useless without a proper algorith (open source) to distill a heartbeat out of it.
+You can stil play around with it’s capabilities as a lightsensor / led device.
+
 
 \section{In case you already have zephyr installed:}
 \label{\detokenize{installation:in-case-you-already-have-zephyr-installed}}

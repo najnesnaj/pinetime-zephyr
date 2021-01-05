@@ -13,6 +13,25 @@ These drivers are work in progress.
 west build -p -b pinetime_devkit0 samples/boards/pine64_pinetime
 ```
 
+A second and important sample is provided.
+Zephyr and the LVGL graphics library play together, using the touchscreen.
+The standard Focaltech touchscreen driver has been adapted slightly, as well as the board definition files.
+To get the sample up and running copy both the adapted board definition files and touchscreen driver, replacing the standard zephyr ones.
+
+```
+west build -p -b pinetime_devkit0 samples/display/lvgl
+```
+
+The focaltech touchscreen driver is more recent/better than the cst816s touchscreendriver.
+Still, there is room for improvement (slide events …..)
+
+The battery driver was provided as a module and is not working yet.
+
+The accel sensor bma421 driver is working, and work has been done to distill a stepcounter out of it.
+
+The heartrate sensor hrs3300, could work, but is kind of useless without a proper algorith (open source) to distill a heartbeat out of it.
+You can stil play around with it’s capabilities as a lightsensor / led device.
+
 ## In case you already have zephyr installed:
 
 Pinetime works as external (out of tree) application.

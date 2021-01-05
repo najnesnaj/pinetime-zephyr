@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.9)  5 JAN 2021 17:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.9)  5 JAN 2021 20:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1198,7 +1198,7 @@ Chapter 4.
 [9
 
 ]
-LaTeX Font Info:    Try loading font information for TS1+pcr on input line 316.
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 335.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
@@ -1223,7 +1223,7 @@ Chapter 9.
 <clockback.png, id=587, 144.54pt x 144.54pt>
 File: clockback.png Graphic file (type png)
 <use clockback.png>
-Package pdftex.def Info: clockback.png  used on input line 586.
+Package pdftex.def Info: clockback.png  used on input line 605.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
 [19
 
@@ -1234,7 +1234,7 @@ Chapter 10.
 ] [22]
 Chapter 11.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--682
+Underfull \hbox (badness 10000) in paragraph at lines 1--701
 [][]$\T1/ptm/m/n/10 https : / / www . bluetooth . com / speci^^\cations / gatt 
 / services/$[][] [][]$https : / / www . bluetooth . com / speci^^\cations / gat
 t /
@@ -1243,7 +1243,7 @@ t /
 [23
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 768--769
+Underfull \hbox (badness 10000) in paragraph at lines 787--788
 []\T1/ptm/m/n/10 Build and pro-gram the firmware on the Pine-time In-stall NR-F
 -Con-nect ([][]$https : / / www . nordicsemi . com /
  []
@@ -1253,7 +1253,7 @@ Chapter 12.
 [25
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 855--858
+Underfull \hbox (badness 10000) in paragraph at lines 874--877
 \T1/ptm/m/n/10 ~/zephyrproject-2/zephyr/drivers/sensor add_subdirectory_ifdef(C
 ONFIG_BMA280 bma280)
  []
@@ -1262,10 +1262,10 @@ ONFIG_BMA280 bma280)
 <hrs3300.jpg, id=661, 459.51675pt x 374.5995pt>
 File: hrs3300.jpg Graphic file (type jpg)
 <use hrs3300.jpg>
-Package pdftex.def Info: hrs3300.jpg  used on input line 1044.
+Package pdftex.def Info: hrs3300.jpg  used on input line 1063.
 (pdftex.def)             Requested size: 459.51563pt x 374.59859pt.
  [29] [30 <./hrs3300.jpg>] [31]
-Overfull \hbox (14.65001pt too wide) in paragraph at lines 1136--1137
+Overfull \hbox (14.65001pt too wide) in paragraph at lines 1155--1156
 []\T1/ptm/m/n/10 /root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.
 c:17:22: er-ror: `DT_INST_0_JEDEC_SPI_NOR_LABEL'
  []
@@ -1273,15 +1273,15 @@ c:17:22: er-ror: `DT_INST_0_JEDEC_SPI_NOR_LABEL'
 [32] [33] [34]
 Chapter 13.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 1338.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 1357.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1359--1362
+Underfull \hbox (badness 10000) in paragraph at lines 1378--1381
 []\T1/ptm/m/n/10 This is han-dled in-ter-nally by the Zephyr con-fig-u-ra-tion 
 sys-tem and is wrapped in the \T1/ptm/m/it/10 CON-
  []
 
 
-Underfull \hbox (badness 6758) in paragraph at lines 1363--1368
+Underfull \hbox (badness 6758) in paragraph at lines 1382--1387
 \T1/ptm/m/n/10 org / reference / kcon^^\g / CONFIG _ BOOTLOADER _ MCUBOOT . htm
 l$[][]) pro-vides ad-di-tional de-tails re-gard-ing the
  []
@@ -1294,7 +1294,7 @@ l$[][]) pro-vides ad-di-tional de-tails re-gard-ing the
 Chapter 14.
 [43] [44] [45] [46] [47] [48] [49] [50] [51]
 LaTeX Font Info:    Font shape `TS1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `TS1/ptm/b/n' tried instead on input line 2335.
+(Font)              Font shape `TS1/ptm/b/n' tried instead on input line 2354.
  [52] [53] [54]
 Chapter 15.
 [55
@@ -1312,16 +1312,16 @@ Chapter 17.
 ]
 Chapter 18.
 (./oswatch.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3142.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3161.
  [69]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3142.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3161.
  (./oswatch.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3142.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3142.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3161.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3161.
 
 Package rerunfilecheck Info: File `oswatch.out' has not changed.
 (rerunfilecheck)             Checksum: 8158669AEEDF73DC343F601F9496084A;13570.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3142.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3161.
  ) 
 Here is how much of TeX's memory you used:
  14504 strings out of 494923
@@ -1341,7 +1341,7 @@ sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmri8a.pfb>
-Output written on oswatch.pdf (75 pages, 476728 bytes).
+Output written on oswatch.pdf (75 pages, 477341 bytes).
 PDF statistics:
  1142 PDF objects out of 1200 (max. 8388607)
  1032 compressed objects within 11 object streams
