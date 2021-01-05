@@ -6,26 +6,19 @@ A collection of drivers, libraries and samples to build your own PineTime smart 
 
 
 
-There are quite a few hackable watches, based on the same nrf52832 microcontroller.
-I have also made a repository for the desay D6, which is a ssd1306 OLED based, cheap chinese watch with a serial port.
-[other smartwatches](https://github.com/najnesnaj/dsd6-zephyr)
-This watch combined with a "blue-pill" black magic debug probe, which contains a serial port, might be one of the cheapest zephyr dev boards available! 
-
-
-
-
 ## Contributing to this project
 
-The pinetime board (watch) has become an integral part of the zephyr distribution.
-This is not the case for the HR-sensor, touchscreen, accell-sensor.....
+The pinetime board (watch) has become a part of the zephyr distribution.
+This is not the case (yet) for the HR-sensor, touchscreen, accell-sensor.....
 
+The zephyr-included Focaltech touch_controller is usable on the Pinetime (included in samples/display/lvgl).  (minor modification see: drivers/kscan)
 
 ## Where To Start?
 Read the tutorial! A helpful manual is included in the repository:
- - [md](https://najnesnaj.github.io/pinetime-zephyr/)
  - [pdf](oswatch.pdf)
  - [epub](opensourcewatch.epub)
  - [html](https://najnesnaj.github.io/pinetime-zephyr/html)
+ - [md](https://najnesnaj.github.io/pinetime-zephyr/)
 
 ## Installation Overview
 1. Follow the Zephyr [Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html) to install zephyr SDK and tools.
@@ -136,4 +129,13 @@ In this repository you can find files that supplement a zephyr installation.
 - testing interrupt/semaphore mechanism on accel sensor and touchscreen
 - powermanagement
 - watchdog
+
+
+#### Other watches 
+
+There are quite a few hackable watches, based on the same nrf52832 microcontroller.
+I have also made a repository for the desay D6, which is a ssd1306 OLED based, cheap chinese watch with a serial port.
+[other smartwatches](https://github.com/najnesnaj/dsd6-zephyr)
+This watch combined with a "blue-pill" black magic debug probe, which contains a serial port, might be one of the cheapest zephyr dev boards available!
+
 

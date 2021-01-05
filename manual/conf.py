@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'open source watch'
-copyright = '2019, jj'
+copyright = '2020, jj'
 author = 'najnesnaj@yahoo.com'
 
 # The short X.Y version
