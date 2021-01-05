@@ -193,6 +193,13 @@
             
   <div class="section" id="hynitron-cst816s">
 <h1>HYNITRON CST816S<a class="headerlink" href="#hynitron-cst816s" title="Permalink to this headline">¶</a></h1>
+<p>update on 5-1-2021:
+Zephyr has evolved and now there is something that serve as a touchscreen device.</p>
+<p>the board definition file has been adapted slightly, using the focaltech ft5336 as a touch_controller. A minor change in this driver is enough to get data from the hynitron cst816S.</p>
+<p>The big advantage : almost standard zephyr install!</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime_devkit0 samples/display/lvgl</span>
+</pre></div>
+</div>
 <p>this driver does not exist, so it has been created.
 Still work in progress ….</p>
 <p>there is a sample in this repository which can be copied to the zephyr samples directory</p>
@@ -269,7 +276,7 @@ Multitouch is possible, but the screen is small….</p>
 
   <div role="contentinfo">
     <p>
-        &copy; <a href="../copyright.html">Copyright</a> 2019, jj
+        &copy; <a href="../copyright.html">Copyright</a> 2020, jj
 
     </p>
   </div>

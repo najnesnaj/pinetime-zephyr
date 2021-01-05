@@ -72,7 +72,7 @@
 
 
 \title{open source watch Documentation}
-\date{Jan 04, 2021}
+\date{Jan 05, 2021}
 \release{1.1.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -941,6 +941,17 @@ All kind of parameters can be set to trigger an interrupt.
 
 \section{HYNITRON CST816S}
 \label{\detokenize{drivers/cst816s:hynitron-cst816s}}\label{\detokenize{drivers/cst816s::doc}}
+update on 5\sphinxhyphen{}1\sphinxhyphen{}2021:
+Zephyr has evolved and now there is something that serve as a touchscreen device.
+
+the board definition file has been adapted slightly, using the focaltech ft5336 as a touch\_controller. A minor change in this driver is enough to get data from the hynitron cst816S.
+
+The big advantage : almost standard zephyr install!
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime\PYGZus{}devkit0 samples/display/lvgl}
+\end{sphinxVerbatim}
+
 this driver does not exist, so it has been created.
 Still work in progress ….
 
@@ -2061,6 +2072,28 @@ See also the \sphinxhref{http://manpages.ubuntu.com/manpages/bionic/man8/i2cdete
 
 \section{Display Samples}
 \label{\detokenize{samples/display/display:display-samples}}\label{\detokenize{samples/display/display:id1}}\label{\detokenize{samples/display/display::doc}}
+
+\subsection{LittlevGL Basic Sample}
+\label{\detokenize{samples/display/lvgl/README:littlevgl-basic-sample}}\label{\detokenize{samples/display/lvgl/README:lvgl-sample}}\label{\detokenize{samples/display/lvgl/README::doc}}
+
+\subsubsection{Overview}
+\label{\detokenize{samples/display/lvgl/README:overview}}
+This sample application displays “Hello World” in the center of the screen
+and a counter at the bottom which increments every second.
+
+When touched in the center (it is a button) a counter is displayed at the top.
+The counting stops if button is pressed again.
+
+
+\subsubsection{Requirements}
+\label{\detokenize{samples/display/lvgl/README:requirements}}
+a pinetime or similar watch
+
+
+\subsubsection{Building and Running}
+\label{\detokenize{samples/display/lvgl/README:building-and-running}}
+west build \sphinxhyphen{}p \sphinxhyphen{}b pinetime\_devkit0 samples/display/lvgl
+
 
 \subsection{ST7789V Display driver}
 \label{\detokenize{samples/display/st7789v/README:st7789v-display-driver}}\label{\detokenize{samples/display/st7789v/README:st7789v-sample}}\label{\detokenize{samples/display/st7789v/README::doc}}

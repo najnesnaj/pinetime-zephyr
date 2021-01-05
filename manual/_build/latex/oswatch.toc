@@ -171,60 +171,64 @@
 \contentsline {subsubsection}{Overview}{48}{subsubsection*.57}
 \contentsline {subsubsection}{Building and Running}{48}{subsubsection*.58}
 \contentsline {section}{\numberline {14.4}Display Samples}{48}{section.14.4}
-\contentsline {subsection}{\numberline {14.4.1}ST7789V Display driver}{48}{subsection.14.4.1}
+\contentsline {subsection}{\numberline {14.4.1}LittlevGL Basic Sample}{48}{subsection.14.4.1}
 \contentsline {subsubsection}{Overview}{48}{subsubsection*.59}
-\contentsline {subsubsection}{Building and Running}{48}{subsubsection*.60}
-\contentsline {subsubsection}{References}{48}{subsubsection*.61}
-\contentsline {section}{\numberline {14.5}GUI Samples}{48}{section.14.5}
-\contentsline {subsection}{\numberline {14.5.1}Clock Sample Current Time Service}{48}{subsection.14.5.1}
-\contentsline {subsubsection}{Overview}{48}{subsubsection*.62}
-\contentsline {subsubsection}{Requirements}{49}{subsubsection*.63}
-\contentsline {subsubsection}{Building and Running}{49}{subsubsection*.64}
-\contentsline {subsubsection}{References}{49}{subsubsection*.65}
+\contentsline {subsubsection}{Requirements}{48}{subsubsection*.60}
+\contentsline {subsubsection}{Building and Running}{48}{subsubsection*.61}
+\contentsline {subsection}{\numberline {14.4.2}ST7789V Display driver}{48}{subsection.14.4.2}
+\contentsline {subsubsection}{Overview}{49}{subsubsection*.62}
+\contentsline {subsubsection}{Building and Running}{49}{subsubsection*.63}
+\contentsline {subsubsection}{References}{49}{subsubsection*.64}
+\contentsline {section}{\numberline {14.5}GUI Samples}{49}{section.14.5}
+\contentsline {subsection}{\numberline {14.5.1}Clock Sample Current Time Service}{49}{subsection.14.5.1}
+\contentsline {subsubsection}{Overview}{49}{subsubsection*.65}
+\contentsline {subsubsection}{Requirements}{49}{subsubsection*.66}
+\contentsline {subsubsection}{Building and Running}{49}{subsubsection*.67}
+\contentsline {subsubsection}{References}{49}{subsubsection*.68}
 \contentsline {subsection}{\numberline {14.5.2}Clock Sample Current Time Service}{49}{subsection.14.5.2}
-\contentsline {subsubsection}{Overview}{49}{subsubsection*.66}
-\contentsline {subsubsection}{Requirements}{49}{subsubsection*.67}
-\contentsline {subsubsection}{Building and Running}{49}{subsubsection*.68}
-\contentsline {subsubsection}{References}{49}{subsubsection*.69}
-\contentsline {subsection}{\numberline {14.5.3}LittlevGL Clock Sample}{49}{subsection.14.5.3}
-\contentsline {subsubsection}{Overview}{49}{subsubsection*.70}
-\contentsline {subsubsection}{Requirements}{49}{subsubsection*.71}
-\contentsline {subsubsection}{Building and Running}{50}{subsubsection*.72}
-\contentsline {subsubsection}{References}{50}{subsubsection*.73}
+\contentsline {subsubsection}{Overview}{49}{subsubsection*.69}
+\contentsline {subsubsection}{Requirements}{50}{subsubsection*.70}
+\contentsline {subsubsection}{Building and Running}{50}{subsubsection*.71}
+\contentsline {subsubsection}{References}{50}{subsubsection*.72}
+\contentsline {subsection}{\numberline {14.5.3}LittlevGL Clock Sample}{50}{subsection.14.5.3}
+\contentsline {subsubsection}{Overview}{50}{subsubsection*.73}
+\contentsline {subsubsection}{Requirements}{50}{subsubsection*.74}
+\contentsline {subsubsection}{Building and Running}{50}{subsubsection*.75}
+\contentsline {subsubsection}{References}{50}{subsubsection*.76}
 \contentsline {subsection}{\numberline {14.5.4}Adafruit GFX Library on ST7789V Display}{50}{subsection.14.5.4}
-\contentsline {subsubsection}{Overview}{50}{subsubsection*.74}
+\contentsline {subsubsection}{Overview}{50}{subsubsection*.77}
 \contentsline {subsection}{\numberline {14.5.5}Display accel values}{50}{subsection.14.5.5}
-\contentsline {subsubsection}{Overview}{50}{subsubsection*.75}
-\contentsline {subsubsection}{Requirements}{50}{subsubsection*.76}
-\contentsline {subsubsection}{Building and Running}{50}{subsubsection*.77}
-\contentsline {subsubsection}{References}{50}{subsubsection*.78}
-\contentsline {subsection}{\numberline {14.5.6}LittlevGL Basic Sample}{50}{subsection.14.5.6}
-\contentsline {subsubsection}{Overview}{50}{subsubsection*.79}
-\contentsline {subsubsection}{Requirements}{50}{subsubsection*.80}
-\contentsline {subsubsection}{Building and Running}{51}{subsubsection*.81}
-\contentsline {subsubsection}{References}{51}{subsubsection*.82}
+\contentsline {subsubsection}{Overview}{50}{subsubsection*.78}
+\contentsline {subsubsection}{Requirements}{51}{subsubsection*.79}
+\contentsline {subsubsection}{Building and Running}{51}{subsubsection*.80}
+\contentsline {subsubsection}{References}{51}{subsubsection*.81}
+\contentsline {subsection}{\numberline {14.5.6}LittlevGL Basic Sample}{51}{subsection.14.5.6}
+\contentsline {subsubsection}{Overview}{51}{subsubsection*.82}
+\contentsline {subsubsection}{Requirements}{51}{subsubsection*.83}
+\contentsline {subsubsection}{Building and Running}{51}{subsubsection*.84}
+\contentsline {subsubsection}{References}{51}{subsubsection*.85}
 \contentsline {subsection}{\numberline {14.5.7}Touchscreen Basic Sample}{51}{subsection.14.5.7}
-\contentsline {subsubsection}{Overview}{51}{subsubsection*.83}
-\contentsline {subsubsection}{Requirements}{51}{subsubsection*.84}
-\contentsline {subsubsection}{Building and Running}{51}{subsubsection*.85}
-\contentsline {subsubsection}{References}{51}{subsubsection*.86}
-\contentsline {section}{\numberline {14.6}Bluetooth Samples}{51}{section.14.6}
-\contentsline {subsection}{\numberline {14.6.1}Bluetooth: Central / Heart\sphinxhyphen {}rate Monitor}{51}{subsection.14.6.1}
-\contentsline {subsubsection}{Overview}{51}{subsubsection*.87}
-\contentsline {subsubsection}{Requirements}{51}{subsubsection*.88}
-\contentsline {subsubsection}{Building and Running}{52}{subsubsection*.89}
-\contentsline {subsection}{\numberline {14.6.2}Bluetooth: Eddystone}{52}{subsection.14.6.2}
+\contentsline {subsubsection}{Overview}{51}{subsubsection*.86}
+\contentsline {subsubsection}{Requirements}{52}{subsubsection*.87}
+\contentsline {subsubsection}{Building and Running}{52}{subsubsection*.88}
+\contentsline {subsubsection}{References}{52}{subsubsection*.89}
+\contentsline {section}{\numberline {14.6}Bluetooth Samples}{52}{section.14.6}
+\contentsline {subsection}{\numberline {14.6.1}Bluetooth: Central / Heart\sphinxhyphen {}rate Monitor}{52}{subsection.14.6.1}
 \contentsline {subsubsection}{Overview}{52}{subsubsection*.90}
 \contentsline {subsubsection}{Requirements}{52}{subsubsection*.91}
 \contentsline {subsubsection}{Building and Running}{52}{subsubsection*.92}
-\contentsline {subsection}{\numberline {14.6.3}Bluetooth: Peripheral\_cts}{52}{subsection.14.6.3}
+\contentsline {subsection}{\numberline {14.6.2}Bluetooth: Eddystone}{52}{subsection.14.6.2}
 \contentsline {subsubsection}{Overview}{52}{subsubsection*.93}
-\contentsline {subsubsection}{Requirements}{52}{subsubsection*.94}
+\contentsline {subsubsection}{Requirements}{53}{subsubsection*.94}
 \contentsline {subsubsection}{Building and Running}{53}{subsubsection*.95}
-\contentsline {subsection}{\numberline {14.6.4}Bluetooth: Peripheral}{53}{subsection.14.6.4}
+\contentsline {subsection}{\numberline {14.6.3}Bluetooth: Peripheral\_cts}{53}{subsection.14.6.3}
 \contentsline {subsubsection}{Overview}{53}{subsubsection*.96}
 \contentsline {subsubsection}{Requirements}{53}{subsubsection*.97}
 \contentsline {subsubsection}{Building and Running}{53}{subsubsection*.98}
+\contentsline {subsection}{\numberline {14.6.4}Bluetooth: Peripheral}{53}{subsection.14.6.4}
+\contentsline {subsubsection}{Overview}{53}{subsubsection*.99}
+\contentsline {subsubsection}{Requirements}{53}{subsubsection*.100}
+\contentsline {subsubsection}{Building and Running}{54}{subsubsection*.101}
 \contentsline {chapter}{\numberline {15}Menuconfig}{55}{chapter.15}
 \contentsline {section}{\numberline {15.1}Zephyr is like linux}{55}{section.15.1}
 \contentsline {chapter}{\numberline {16}Hacking stuff}{57}{chapter.16}
@@ -260,10 +264,10 @@
 \contentsline {subsection}{\numberline {17.5.1}Overview}{66}{subsection.17.5.1}
 \contentsline {subsection}{\numberline {17.5.2}Example}{66}{subsection.17.5.2}
 \contentsline {subsection}{\numberline {17.5.3}Requirements}{66}{subsection.17.5.3}
-\contentsline {subsubsection}{a sample to detect interrupt}{66}{subsubsection*.100}
-\contentsline {subsubsection}{a sample to scan the I2C\sphinxhyphen {}BUS}{66}{subsubsection*.101}
-\contentsline {subsubsection}{a sample to read the I2C\sphinxhyphen {}BUS}{66}{subsubsection*.102}
-\contentsline {subsubsection}{a samples to handle semaphores}{67}{subsubsection*.103}
+\contentsline {subsubsection}{a sample to detect interrupt}{66}{subsubsection*.103}
+\contentsline {subsubsection}{a sample to scan the I2C\sphinxhyphen {}BUS}{66}{subsubsection*.104}
+\contentsline {subsubsection}{a sample to read the I2C\sphinxhyphen {}BUS}{66}{subsubsection*.105}
+\contentsline {subsubsection}{a samples to handle semaphores}{67}{subsubsection*.106}
 \contentsline {section}{\numberline {17.6}placing a button on the screen}{67}{section.17.6}
 \contentsline {subsection}{\numberline {17.6.1}Building and Running}{67}{subsection.17.6.1}
 \contentsline {chapter}{\numberline {18}About}{69}{chapter.18}

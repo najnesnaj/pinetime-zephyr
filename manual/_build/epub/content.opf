@@ -10,10 +10,10 @@
     <dc:creator>najnesnaj@yahoo.com</dc:creator>
     <dc:contributor>unknown</dc:contributor>
     <dc:publisher>najnesnaj@yahoo.com</dc:publisher>
-    <dc:rights>2019, jj</dc:rights>
+    <dc:rights>2020, jj</dc:rights>
     <dc:identifier id="unknown">unknown</dc:identifier>
-    <dc:date>2020-12-31T10:06:30Z</dc:date>
-    <meta property="dcterms:modified">2020-12-31T10:06:30Z</meta>
+    <dc:date>2021-01-05T17:31:30Z</dc:date>
+    <meta property="dcterms:modified">2021-01-05T17:31:30Z</meta>
     <meta property="ibooks:version">beta</meta>
     <meta property="ibooks:specified-fonts">true</meta>
     <meta property="ibooks:binding">true</meta>
@@ -101,25 +101,26 @@
     <item id="epub-76" href="samples/bluetooth/peripheral/README.xhtml" media-type="application/xhtml+xml" />
     <item id="epub-77" href="samples/bluetooth/peripheral-cts/README.xhtml" media-type="application/xhtml+xml" />
     <item id="epub-78" href="samples/display/display.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-79" href="samples/display/st7789v/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-80" href="samples/drivers/drivers.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-81" href="samples/drivers/ds6_scanner/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-82" href="samples/drivers/i2c_scanner/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-83" href="samples/gui/gui.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-84" href="samples/gui/clock/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-85" href="samples/gui/clock-cts/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-86" href="samples/gui/clock-cts-rtc2/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-87" href="samples/gui/gfx/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-88" href="samples/gui/lvaccel/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-89" href="samples/gui/lvaccel/src/bma280/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-90" href="samples/gui/lvgl/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-91" href="samples/gui/lvtouch/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-92" href="samples/mgmt/smp_svr/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-93" href="samples/mgmt/smp_wtd/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-94" href="samples/sensor/sensor.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-95" href="samples/sensor/bma280/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-96" href="samples/sensor/cst816s/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-97" href="samples/sensor/hrs3300/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-79" href="samples/display/lvgl/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-80" href="samples/display/st7789v/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-81" href="samples/drivers/drivers.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-82" href="samples/drivers/ds6_scanner/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-83" href="samples/drivers/i2c_scanner/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-84" href="samples/gui/gui.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-85" href="samples/gui/clock/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-86" href="samples/gui/clock-cts/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-87" href="samples/gui/clock-cts-rtc2/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-88" href="samples/gui/gfx/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-89" href="samples/gui/lvaccel/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-90" href="samples/gui/lvaccel/src/bma280/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-91" href="samples/gui/lvgl/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-92" href="samples/gui/lvtouch/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-93" href="samples/mgmt/smp_svr/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-94" href="samples/mgmt/smp_wtd/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-95" href="samples/sensor/sensor.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-96" href="samples/sensor/bma280/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-97" href="samples/sensor/cst816s/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-98" href="samples/sensor/hrs3300/README.xhtml" media-type="application/xhtml+xml" />
   </manifest>
   <spine toc="ncx" page-progression-direction="ltr">
     <itemref idref="epub-16" />
@@ -155,23 +156,24 @@
     <itemref idref="epub-70" />
     <itemref idref="epub-71" />
     <itemref idref="epub-72" />
-    <itemref idref="epub-94" />
     <itemref idref="epub-95" />
     <itemref idref="epub-96" />
     <itemref idref="epub-97" />
-    <itemref idref="epub-80" />
+    <itemref idref="epub-98" />
     <itemref idref="epub-81" />
     <itemref idref="epub-82" />
+    <itemref idref="epub-83" />
     <itemref idref="epub-78" />
     <itemref idref="epub-79" />
-    <itemref idref="epub-83" />
-    <itemref idref="epub-86" />
-    <itemref idref="epub-85" />
+    <itemref idref="epub-80" />
     <itemref idref="epub-84" />
     <itemref idref="epub-87" />
+    <itemref idref="epub-86" />
+    <itemref idref="epub-85" />
     <itemref idref="epub-88" />
-    <itemref idref="epub-90" />
+    <itemref idref="epub-89" />
     <itemref idref="epub-91" />
+    <itemref idref="epub-92" />
     <itemref idref="epub-73" />
     <itemref idref="epub-74" />
     <itemref idref="epub-75" />
@@ -207,9 +209,9 @@
     <itemref idref="epub-49" linear="no" />
     <itemref idref="epub-51" linear="no" />
     <itemref idref="epub-64" linear="no" />
-    <itemref idref="epub-89" linear="no" />
-    <itemref idref="epub-92" linear="no" />
+    <itemref idref="epub-90" linear="no" />
     <itemref idref="epub-93" linear="no" />
+    <itemref idref="epub-94" linear="no" />
   </spine>
   <guide>
     <reference type="toc" title="Table of Contents" href="index.xhtml" />

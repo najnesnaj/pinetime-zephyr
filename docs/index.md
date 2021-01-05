@@ -12,6 +12,7 @@
 [samples/drivers/i2c_scanner/README.md](samples/drivers/i2c_scanner/README.md)   
 [samples/drivers/drivers.md](samples/drivers/drivers.md)   
 [samples/display/st7789v/README.md](samples/display/st7789v/README.md)   
+[samples/display/lvgl/README.md](samples/display/lvgl/README.md)   
 [samples/display/display.md](samples/display/display.md)   
 [samples/sensor/hrs3300/README.md](samples/sensor/hrs3300/README.md)   
 [samples/sensor/bma280/README.md](samples/sensor/bma280/README.md)   

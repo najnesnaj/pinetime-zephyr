@@ -1,5 +1,16 @@
 # HYNITRON CST816S
 
+update on 5-1-2021:
+Zephyr has evolved and now there is something that serve as a touchscreen device.
+
+the board definition file has been adapted slightly, using the focaltech ft5336 as a touch_controller. A minor change in this driver is enough to get data from the hynitron cst816S.
+
+The big advantage : almost standard zephyr install!
+
+```
+west build -p -b pinetime_devkit0 samples/display/lvgl
+```
+
 this driver does not exist, so it has been created.
 Still work in progress ….
 

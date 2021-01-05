@@ -46,6 +46,9 @@ This is just a collection of them.
 * Display Samples
 
 
+    * LittlevGL Basic Sample
+
+
     * ST7789V Display driver
 
 

@@ -519,6 +519,18 @@
     * Display Samples
 
 
+        * LittlevGL Basic Sample
+
+
+            * Overview
+
+
+            * Requirements
+
+
+            * Building and Running
+
+
         * ST7789V Display driver
 
 
