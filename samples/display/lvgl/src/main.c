@@ -43,7 +43,6 @@ static void backlight_init(void)
 void main(void)
 {
 	uint32_t count = 0U;
-	uint32_t count2 = 0U;
 	char count_str[11] = {0};
 	char count_str2[11] = {0};
 	const struct device *display_dev;
@@ -65,7 +64,6 @@ void main(void)
 		lv_obj_align(hello_world_button, NULL, LV_ALIGN_CENTER, 0, 0);
 		lv_btn_set_fit(hello_world_button, LV_FIT_TIGHT);
 		hello_world_label = lv_label_create(hello_world_button, NULL);
-//		lv_label_set_text(hello_world_label, "button");
 	} else {
 		hello_world_label = lv_label_create(lv_scr_act(), NULL);
 	}
@@ -74,7 +72,7 @@ void main(void)
 	lv_obj_align(hello_world_label, NULL, LV_ALIGN_CENTER, 0, 0);
 
 	count_label2 = lv_label_create(lv_scr_act(), NULL);
-	lv_obj_align(count_label2, NULL, LV_ALIGN_IN_TOP_MID, 0, 0);
+	lv_obj_align(count_label2, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
 	count_label = lv_label_create(lv_scr_act(), NULL);
 	lv_obj_align(count_label, NULL, LV_ALIGN_IN_BOTTOM_MID, 0, 0);
 
@@ -87,8 +85,11 @@ void main(void)
 			lv_label_set_text(count_label, count_str);
 		}
 		if (lv_btn_get_state(hello_world_button) == LV_BTN_STATE_PRESSED) {
-			count2++;
-			sprintf(count_str2, "pressed = %d", count2);
+			sprintf(count_str2, "pressed ");
+			lv_label_set_text(count_label2, count_str2);
+		}
+		if (lv_btn_get_state(hello_world_button) == LV_BTN_STATE_RELEASED) {
+			sprintf(count_str2, "released ");
 			lv_label_set_text(count_label2, count_str2);
 		}
 		lv_task_handler();

@@ -84,12 +84,13 @@ static int ft5336_process(const struct device *dev)
 	struct ft5336_data *data = dev->data;
 
 	int r;
-	uint8_t points;
+	//uint8_t points;
 	//uint8_t coords[4U];
 	uint8_t coords[9U];
+	uint8_t gesture;
 	uint8_t event;
 	uint16_t row, col;
-	bool pressed;
+	bool pressed=0;
 
 	/* obtain number of touch points (NOTE: multi-touch ignored) */
 /*r = i2c_reg_read_byte(data->i2c, config->i2c_address, REG_TD_STATUS,
@@ -108,12 +109,11 @@ static int ft5336_process(const struct device *dev)
 	 */
 	//r = i2c_burst_read(data->i2c, config->i2c_address, REG_P1_XH, coords,
 	//		   sizeof(coords));
-	r = i2c_burst_read(data->i2c, config->i2c_address, 0x0, coords,
-			   sizeof(coords));
+	r = i2c_burst_read(data->i2c, config->i2c_address, 0x0, coords, sizeof(coords));
 	if (r < 0) {
 		return r;
 	}
-
+        gesture = coords[1];
 	//event = (coords[0] >> EVENT_POS) & EVENT_MSK;
 	event = (coords[3] >> EVENT_POS) & EVENT_MSK;
 	//row = ((coords[0] & POSITION_H_MSK) << 8U) | coords[1];
@@ -121,10 +121,15 @@ static int ft5336_process(const struct device *dev)
 	//col = ((coords[2] & POSITION_H_MSK) << 8U) | coords[3];
 	col = ((coords[5] & POSITION_H_MSK) << 8U) | coords[6];
 	//pressed = (event == EVENT_PRESS_DOWN) || (event == EVENT_CONTACT);
-	if (event > 0) pressed=1;
+	//(0=down 1=up 2=contact)
+	//if (event >= 0) pressed=1; //to make distinction between sliding and touched
 	//pressed = (event == EVENT_PRESS_DOWN) || (event == EVENT_CONTACT);
+           
+        pressed=0;
+	//0x05 single click 0x0B double click 0x0C long press)
+	if ((gesture==0x05) || (gesture==0x0B) || (gesture==0x0C)) pressed=1;
 
-	LOG_DBG("event: %d, row: %d, col: %d", event, row, col);
+	LOG_DBG("gesture: %d,event: %d, row: %d, col: %d", gesture, event, row, col);
 
 	data->callback(dev, row, col, pressed);
 
