@@ -1,0 +1,2 @@
+samples/bluetooth/eddystone/README.rst:10: (EID)  the definition of how Eddystone-EID beacons are configured and registered with
+samples/bluetooth/eddystone/README.rst:20: (BlueZ)  BlueZ running on the host, or

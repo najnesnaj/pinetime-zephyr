@@ -1,0 +1,1 @@
+samples/gui/lvtouch/README.rst:28: (lvtouch)  west build -p -b pinetime samples/gui/lvtouch

@@ -24,7 +24,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -96,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="gfx.html">GFX Library Sample</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">LittlevGL Basic Sample</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulation">Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#building-and-running">Building and Running</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#modifying-the-font-size">modifying the font size :</a></li>
@@ -187,6 +187,16 @@
 <p>This sample application displays “Hello World” in the center of the screen
 and a counter at the bottom which increments every second.</p>
 <p>LittlevGL is a free and open-source graphics library providing everything you need to create embedded GUI with easy-to-use graphical elements, beautiful visual effects and low memory footprint.</p>
+</div>
+<div class="section" id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
+<p>In order to avoid uploading to check what the display looks like, there is a simple way to simulate this.
+I’ve tested this on Ubuntu 18.04 64bit. You’ll need the SDL2 library.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b native_posix_64 samples/display/lvgl -DCONF=board/native-posix_64</span>
+</pre></div>
+</div>
+<p>after the building, you can find build/zephyr/zephyr.exe (and execute this to see display-layout)</p>
+<p>the sample is provided as samples/display/lvgl-posix</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>

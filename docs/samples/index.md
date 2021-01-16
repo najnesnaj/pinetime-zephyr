@@ -34,6 +34,9 @@ This is just a collection of them.
     * HRS3300 Heart Rate Sensor
 
 
+    * HRS3300 Heart Rate Sensor
+
+
 * Driver Samples
 
 
@@ -44,6 +47,9 @@ This is just a collection of them.
 
 
 * Display Samples
+
+
+    * LittlevGL Basic Sample
 
 
     * LittlevGL Basic Sample

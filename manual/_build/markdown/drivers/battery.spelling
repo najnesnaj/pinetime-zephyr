@@ -1,0 +1,1 @@
+drivers/battery.rst:25: (milivolts)  A module should be able to report battery status in milivolts and charge level in percentage. Additionally, it should notify when external power is connected and when battery is being charged.

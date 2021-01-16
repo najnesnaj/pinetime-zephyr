@@ -1,0 +1,15 @@
+samples/mgmt/smp_wtd/README.rst:19: (smp)  If not, a reset puts it back into smp-server mode, which allows you to upload again.
+samples/mgmt/smp_wtd/README.rst:30: (mcumgr)  This sample application supports the following mcumgr transports by default:
+samples/mgmt/smp_wtd/README.rst:45: (nRF)   is configured to run on a Nordic nRF52x MCU. The
+samples/mgmt/smp_wtd/README.rst:51: (bootloader)  The MCUboot bootloader is required for 
+samples/mgmt/smp_wtd/README.rst:65: (pluggable)  Bluetooth Low Energy (BLE) and do not have a built-in or pluggable BLE radio,
+samples/mgmt/smp_wtd/README.rst:73: (nRF)  the Nordic nRF52 Development Kit (
+samples/mgmt/smp_wtd/README.rst:77: (nRF)  If you would like to use a more constrained platform, such as the nRF51 DK, you
+samples/mgmt/smp_wtd/README.rst:108: (smp)  Step 3: Build smp_svr
+samples/mgmt/smp_wtd/README.rst:108: (svr)  Step 3: Build smp_svr
+samples/mgmt/smp_wtd/README.rst:110: (nRF)   can be built for the nRF52 as follows:
+samples/mgmt/smp_wtd/README.rst:124: (onwards)  From this section onwards you can use either a binary (
+samples/mgmt/smp_wtd/README.rst:146: (smp)  Step 5: Flash the smp_svr image
+samples/mgmt/smp_wtd/README.rst:146: (svr)  Step 5: Flash the smp_svr image
+samples/mgmt/smp_wtd/README.rst:148: (nRF)  .  For the nRF52 DK, slot-0 is located at address
+samples/mgmt/smp_wtd/README.rst:208: (Kconfig)  Kconfig option as described in 

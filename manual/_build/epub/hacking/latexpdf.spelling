@@ -1,0 +1,3 @@
+hacking/latexpdf.rst:2: (howto)  howto generate pdf documents
+hacking/latexpdf.rst:2: (pdf)  howto generate pdf documents
+hacking/latexpdf.rst:5: (pdf)  sphinx cannot generate pdf directly, and needs latex

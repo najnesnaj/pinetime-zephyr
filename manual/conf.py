@@ -28,7 +28,7 @@ version = 'beta'
 # The full version, including alpha/beta/rc tags
 release = '1.1.0'
 
-
+spelling_word_list_filename=['spelling_mywordlist.txt']
 # -- General configuration ---------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -39,7 +39,7 @@ release = '1.1.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-"sphinx_rtd_theme","sphinx_markdown_builder",
+"sphinx_rtd_theme","sphinx_markdown_builder", "sphinxcontrib.spelling"
 ]
 
 # Add any paths that contain templates here, relative to this directory.

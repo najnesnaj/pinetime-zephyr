@@ -1,0 +1,2 @@
+behind/bma280.rst:5: (accel)  The final goal is to use the accel-sensor in the watch (BMA423), which does not exist yet.
+behind/bma280.rst:34: (accel)  This sample application mimics the presence of a bosch, bma280 accel sensor.

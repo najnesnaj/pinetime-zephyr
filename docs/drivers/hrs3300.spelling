@@ -1,0 +1,12 @@
+drivers/hrs3300.rst:26: (arduino)  I have used the settings of an arduino port of this library.
+drivers/hrs3300.rst:38: (zephyrproject)  ~/zephyrproject-2/zephyr/drivers/sensor
+drivers/hrs3300.rst:38: (subdirectory)  add_subdirectory_ifdef(CONFIG_HRS3300           hrs3300)
+drivers/hrs3300.rst:38: (ifdef)  add_subdirectory_ifdef(CONFIG_HRS3300           hrs3300)
+drivers/hrs3300.rst:43: (Kconfig)  adapt Kconfig
+drivers/hrs3300.rst:45: (zephyrproject)  ~/zephyrproject-2/zephyr/drivers/sensor
+drivers/hrs3300.rst:50: (zephyrproject)  ~/zephyrproject-2/zephyr/dts/bindings/sensor
+drivers/hrs3300.rst:50: (hx)  add  hx,hrs3300.yaml
+drivers/hrs3300.rst:50: (yaml)  add  hx,hrs3300.yaml
+drivers/hrs3300.rst:54: (KConfig)  edit KConfig
+drivers/hrs3300.rst:56: (Kconfig)  source "drivers/sensor/hrs3300/Kconfig"
+drivers/hrs3300.rst:98: (pdf)  HRS3300 Heart Rate Sensor.pdf

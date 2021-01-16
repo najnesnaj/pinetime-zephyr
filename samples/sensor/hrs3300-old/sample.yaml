@@ -1,0 +1,9 @@
+sample:
+  description: TBD
+  name: TBD
+tests:
+  sample.sensor.max30101:
+    harness: sensor
+    tags: sensors
+    platform_whitelist: hexiwear_k64
+    depends_on: i2c

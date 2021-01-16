@@ -7,6 +7,19 @@ and a counter at the bottom which increments every second.
 
 LittlevGL is a free and open-source graphics library providing everything you need to create embedded GUI with easy-to-use graphical elements, beautiful visual effects and low memory footprint.
 
+## Simulation
+
+In order to avoid uploading to check what the display looks like, there is a simple way to simulate this.
+I’ve tested this on Ubuntu 18.04 64bit. You’ll need the SDL2 library.
+
+```
+west build -p -b native_posix_64 samples/display/lvgl -DCONF=board/native-posix_64
+```
+
+after the building, you can find build/zephyr/zephyr.exe (and execute this to see display-layout)
+
+the sample is provided as samples/display/lvgl-posix
+
 ## Requirements
 
 The program has been modified to light up the background leds.

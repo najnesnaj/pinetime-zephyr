@@ -1,0 +1,9 @@
+fota/mcuboot.rst:12: (bootloader)  MCUboot   (a bootloader)
+fota/mcuboot.rst:33: (github)  Clone MCUBOOT for zephyr from github.
+fota/mcuboot.rst:33: (mcuboot)  Install additional packages required for development with mcuboot:
+fota/mcuboot.rst:57: (bootloader)  After building the bootloader, the binaries should reside in
+fota/mcuboot.rst:69: (Kconfig)   Kconfig variable, which must be enabled in
+fota/mcuboot.rst:74: (bootable)  placement and generation in order for an application to be bootable by
+fota/mcuboot.rst:98: (bootloader)  Since the bootloader is already in place, you cannot flash your application.bin to 0x00000.
+fota/mcuboot.rst:100: (openocd)  Eg. in openocd : program application.bin 0x0c000. (which corresponds to the flash layout of slot 0)
+fota/mcuboot.rst:102: (bootloader)  at which point the bootloader should perform an upgrade.

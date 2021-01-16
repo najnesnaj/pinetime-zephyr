@@ -24,7 +24,6 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -38,7 +37,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="copyright" title="Copyright" href="../../../copyright.html" />
     <link rel="next" title="Driver Samples" href="../../drivers/drivers.html" />
-    <link rel="prev" title="CST816S HYNITRON TOUCHSCREEN" href="../cst816s/README.html" /> 
+    <link rel="prev" title="HRS3300 Heart Rate Sensor" href="../hrs3300-old/README.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -105,6 +104,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../sensor.html">Sensor Samples</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../bma280/README.html">BMA280: Three Axis High-g I2C/SPI Accelerometer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../cst816s/README.html">CST816S HYNITRON TOUCHSCREEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../hrs3300-old/README.html">HRS3300 Heart Rate Sensor</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">HRS3300 Heart Rate Sensor</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
@@ -196,12 +196,26 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>A sensor application that demonstrates how to poll data from the hrs3300 heart
 rate sensor.</p>
-<p>It is based on the max30101 sample.</p>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
+<p>This project configures the hrs3300 sensor on the <span class="xref std std-ref">pinetime_devkit0</span> board to
+enable the green LED and measure the reflected light with a photodiode. The raw
+ADC data prints to the console. Further processing (not included in this
+sample) is required to extract a heart rate signal from the light measurement.</p>
 <div class="section" id="sample-output">
 <h3>Sample Output<a class="headerlink" href="#sample-output" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">GREEN=5731</span>
+<span class="go">GREEN=5750</span>
+<span class="go">GREEN=5748</span>
+<span class="go">GREEN=5741</span>
+<span class="go">GREEN=5735</span>
+<span class="go">GREEN=5737</span>
+<span class="go">GREEN=5736</span>
+<span class="go">GREEN=5748</span>
+</pre></div>
+</div>
+<p>&lt;repeats endlessly&gt;</p>
 </div>
 </div>
 </div>
@@ -217,7 +231,7 @@ rate sensor.</p>
         <a href="../../drivers/drivers.html" class="btn btn-neutral float-right" title="Driver Samples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../cst816s/README.html" class="btn btn-neutral float-left" title="CST816S HYNITRON TOUCHSCREEN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../hrs3300-old/README.html" class="btn btn-neutral float-left" title="HRS3300 Heart Rate Sensor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

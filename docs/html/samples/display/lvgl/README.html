@@ -24,7 +24,6 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -38,7 +37,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="copyright" title="Copyright" href="../../../copyright.html" />
     <link rel="next" title="ST7789V Display driver" href="../st7789v/README.html" />
-    <link rel="prev" title="Display Samples" href="../display.html" /> 
+    <link rel="prev" title="LittlevGL Basic Sample" href="../lvgl-posix/README.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -105,10 +104,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../sensor/sensor.html">Sensor Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../drivers/drivers.html">Driver Samples</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../display.html">Display Samples</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../lvgl-posix/README.html">LittlevGL Basic Sample</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">LittlevGL Basic Sample</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../st7789v/README.html">ST7789V Display driver</a></li>
@@ -196,8 +197,9 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>This sample application displays “Hello World” in the center of the screen
 and a counter at the bottom which increments every second.</p>
-<p>When touched in the center (it is a button) a counter is displayed at the top.
-The counting stops if button is pressed again.</p>
+<p>If an input driver is supported, such as the touch panel controller on the pinetime
+boards, “Hello World” is enclosed in a button that changes to the toggled state
+when touched.</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
@@ -205,7 +207,18 @@ The counting stops if button is pressed again.</p>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
-<p>west build -p -b pinetime_devkit0 samples/display/lvgl</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When deferred logging is enabled you will likely need to increase
+<code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_LOG_STRDUP_BUF_COUNT</span></code> and/or
+<code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_LOG_STRDUP_MAX_STRING</span></code> to make sure no messages are lost or
+truncated.</p>
+</div>
+<p>Example building for <span class="xref std std-ref">nrf52840dk_nrf52840</span>:</p>
+<p>Example building for <span class="xref std std-ref">native_posix</span>:</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -220,7 +233,7 @@ The counting stops if button is pressed again.</p>
         <a href="../st7789v/README.html" class="btn btn-neutral float-right" title="ST7789V Display driver" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../display.html" class="btn btn-neutral float-left" title="Display Samples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../lvgl-posix/README.html" class="btn btn-neutral float-left" title="LittlevGL Basic Sample" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

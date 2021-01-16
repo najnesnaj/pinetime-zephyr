@@ -1,0 +1,2 @@
+hacking/writeprotection.rst:29: (apreg)  executing the following : nrf52.dap apreg 1 0x0c shows 0x0
+hacking/writeprotection.rst:38: (apreg)  > nrf52.dap apreg 1 0x04 0x01

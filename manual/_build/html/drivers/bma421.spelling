@@ -1,0 +1,21 @@
+drivers/bma421.rst:36: (zephyrproject)  ~/zephyrproject-2/zephyr/drivers/sensor
+drivers/bma421.rst:36: (subdirectory)  add_subdirectory_ifdef(CONFIG_BMA280            bma280)
+drivers/bma421.rst:36: (ifdef)  add_subdirectory_ifdef(CONFIG_BMA280            bma280)
+drivers/bma421.rst:36: (subdirectory)  add_subdirectory_ifdef(CONFIG_BMA421            bma421)
+drivers/bma421.rst:36: (ifdef)  add_subdirectory_ifdef(CONFIG_BMA421            bma421)
+drivers/bma421.rst:42: (Kconfig)  adapt Kconfig
+drivers/bma421.rst:44: (zephyrproject)  ~/zephyrproject-2/zephyr/drivers/sensor
+drivers/bma421.rst:49: (zephyrproject)  ~/zephyrproject-2/zephyr/dts/bindings/sensor
+drivers/bma421.rst:49: (cp)  cp bosch,bma280-i2c.yaml  bosch,bma421-i2c.yaml
+drivers/bma421.rst:49: (bosch)  cp bosch,bma280-i2c.yaml  bosch,bma421-i2c.yaml
+drivers/bma421.rst:49: (yaml)  cp bosch,bma280-i2c.yaml  bosch,bma421-i2c.yaml
+drivers/bma421.rst:49: (bosch)  cp bosch,bma280-i2c.yaml  bosch,bma421-i2c.yaml
+drivers/bma421.rst:49: (yaml)  cp bosch,bma280-i2c.yaml  bosch,bma421-i2c.yaml
+drivers/bma421.rst:53: (KConfig)  edit KConfig
+drivers/bma421.rst:56: (Kconfig)  source "drivers/sensor/bma280/Kconfig"
+drivers/bma421.rst:56: (Kconfig)  source "drivers/sensor/bma421/Kconfig"
+drivers/bma421.rst:58: (bmc)  source "drivers/sensor/bmc150_magn/Kconfig"
+drivers/bma421.rst:58: (magn)  source "drivers/sensor/bmc150_magn/Kconfig"
+drivers/bma421.rst:58: (Kconfig)  source "drivers/sensor/bmc150_magn/Kconfig"
+drivers/bma421.rst:60: (bme)  source "drivers/sensor/bme280/Kconfig"
+drivers/bma421.rst:60: (Kconfig)  source "drivers/sensor/bme280/Kconfig"

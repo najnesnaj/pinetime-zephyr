@@ -66,13 +66,14 @@
 % Set up styles of URL: it should be placed after hyperref.
 \urlstyle{same}
 
+
 \usepackage{sphinxmessages}
 
 
 
 
 \title{open source watch Documentation}
-\date{Jan 05, 2021}
+\date{Jan 16, 2021}
 \release{1.1.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -519,6 +520,20 @@ This sample application displays “Hello World” in the center of the screen
 and a counter at the bottom which increments every second.
 
 LittlevGL is a free and open\sphinxhyphen{}source graphics library providing everything you need to create embedded GUI with easy\sphinxhyphen{}to\sphinxhyphen{}use graphical elements, beautiful visual effects and low memory footprint.
+
+
+\section{Simulation}
+\label{\detokenize{lvgl:simulation}}
+In order to avoid uploading to check what the display looks like, there is a simple way to simulate this.
+I’ve tested this on Ubuntu 18.04 64bit. You’ll need the SDL2 library.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b native\PYGZus{}posix\PYGZus{}64 samples/display/lvgl \PYGZhy{}DCONF=board/native\PYGZhy{}posix\PYGZus{}64}
+\end{sphinxVerbatim}
+
+after the building, you can find build/zephyr/zephyr.exe (and execute this to see display\sphinxhyphen{}layout)
+
+the sample is provided as samples/display/lvgl\sphinxhyphen{}posix
 
 
 \section{Requirements}
@@ -2023,10 +2038,10 @@ This one gets actived by the driver.
 
 
 \subsection{HRS3300 Heart Rate Sensor}
-\label{\detokenize{samples/sensor/hrs3300/README:hrs3300-heart-rate-sensor}}\label{\detokenize{samples/sensor/hrs3300/README:hrs3300}}\label{\detokenize{samples/sensor/hrs3300/README::doc}}
+\label{\detokenize{samples/sensor/hrs3300-old/README:hrs3300-heart-rate-sensor}}\label{\detokenize{samples/sensor/hrs3300-old/README:hrs3300}}\label{\detokenize{samples/sensor/hrs3300-old/README::doc}}
 
 \subsubsection{Overview}
-\label{\detokenize{samples/sensor/hrs3300/README:overview}}
+\label{\detokenize{samples/sensor/hrs3300-old/README:overview}}
 A sensor application that demonstrates how to poll data from the hrs3300 heart
 rate sensor.
 
@@ -2034,10 +2049,43 @@ It is based on the max30101 sample.
 
 
 \subsubsection{Building and Running}
+\label{\detokenize{samples/sensor/hrs3300-old/README:building-and-running}}
+
+\paragraph{Sample Output}
+\label{\detokenize{samples/sensor/hrs3300-old/README:sample-output}}
+
+\subsection{HRS3300 Heart Rate Sensor}
+\label{\detokenize{samples/sensor/hrs3300/README:hrs3300-heart-rate-sensor}}\label{\detokenize{samples/sensor/hrs3300/README:hrs3300}}\label{\detokenize{samples/sensor/hrs3300/README::doc}}
+
+\subsubsection{Overview}
+\label{\detokenize{samples/sensor/hrs3300/README:overview}}
+A sensor application that demonstrates how to poll data from the hrs3300 heart
+rate sensor.
+
+
+\subsubsection{Building and Running}
 \label{\detokenize{samples/sensor/hrs3300/README:building-and-running}}
+This project configures the hrs3300 sensor on the \DUrole{xref,std,std-ref}{pinetime\_devkit0} board to
+enable the green LED and measure the reflected light with a photodiode. The raw
+ADC data prints to the console. Further processing (not included in this
+sample) is required to extract a heart rate signal from the light measurement.
+
 
 \paragraph{Sample Output}
 \label{\detokenize{samples/sensor/hrs3300/README:sample-output}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{GREEN=5731}
+\PYG{g+go}{GREEN=5750}
+\PYG{g+go}{GREEN=5748}
+\PYG{g+go}{GREEN=5741}
+\PYG{g+go}{GREEN=5735}
+\PYG{g+go}{GREEN=5737}
+\PYG{g+go}{GREEN=5736}
+\PYG{g+go}{GREEN=5748}
+\end{sphinxVerbatim}
+
+\textless{}repeats endlessly\textgreater{}
+
 
 \section{Driver Samples}
 \label{\detokenize{samples/drivers/drivers:driver-samples}}\label{\detokenize{samples/drivers/drivers:id1}}\label{\detokenize{samples/drivers/drivers::doc}}
@@ -2093,6 +2141,30 @@ See also the \sphinxhref{http://manpages.ubuntu.com/manpages/bionic/man8/i2cdete
 \label{\detokenize{samples/display/display:display-samples}}\label{\detokenize{samples/display/display:id1}}\label{\detokenize{samples/display/display::doc}}
 
 \subsection{LittlevGL Basic Sample}
+\label{\detokenize{samples/display/lvgl-posix/README:littlevgl-basic-sample}}\label{\detokenize{samples/display/lvgl-posix/README:lvgl-sample}}\label{\detokenize{samples/display/lvgl-posix/README::doc}}
+
+\subsubsection{Overview}
+\label{\detokenize{samples/display/lvgl-posix/README:overview}}
+This sample application displays a buttton on top of the screen
+and a counter at the bottom which increments every second.
+
+The KSCAN input driver is defined in the board\sphinxhyphen{}definition.
+
+
+\subsubsection{Requirements}
+\label{\detokenize{samples/display/lvgl-posix/README:requirements}}
+this is a posix sample \sphinxhyphen{} so no dev board necessary
+
+
+\subsubsection{Building and Running}
+\label{\detokenize{samples/display/lvgl-posix/README:building-and-running}}
+west build \sphinxhyphen{}p \sphinxhyphen{}b native\_posix\_64 samples/display/lvgl \sphinxhyphen{}DCONF=board/native\sphinxhyphen{}posix\_64
+
+
+\subsubsection{References}
+\label{\detokenize{samples/display/lvgl-posix/README:references}}
+
+\subsection{LittlevGL Basic Sample}
 \label{\detokenize{samples/display/lvgl/README:littlevgl-basic-sample}}\label{\detokenize{samples/display/lvgl/README:lvgl-sample}}\label{\detokenize{samples/display/lvgl/README::doc}}
 
 \subsubsection{Overview}
@@ -2100,8 +2172,9 @@ See also the \sphinxhref{http://manpages.ubuntu.com/manpages/bionic/man8/i2cdete
 This sample application displays “Hello World” in the center of the screen
 and a counter at the bottom which increments every second.
 
-When touched in the center (it is a button) a counter is displayed at the top.
-The counting stops if button is pressed again.
+If an input driver is supported, such as the touch panel controller on the pinetime
+boards, “Hello World” is enclosed in a button that changes to the toggled state
+when touched.
 
 
 \subsubsection{Requirements}
@@ -2111,8 +2184,20 @@ a pinetime or similar watch
 
 \subsubsection{Building and Running}
 \label{\detokenize{samples/display/lvgl/README:building-and-running}}
-west build \sphinxhyphen{}p \sphinxhyphen{}b pinetime\_devkit0 samples/display/lvgl
+\begin{sphinxadmonition}{note}{Note:}
+When deferred logging is enabled you will likely need to increase
+\sphinxcode{\sphinxupquote{CONFIG\_LOG\_STRDUP\_BUF\_COUNT}} and/or
+\sphinxcode{\sphinxupquote{CONFIG\_LOG\_STRDUP\_MAX\_STRING}} to make sure no messages are lost or
+truncated.
+\end{sphinxadmonition}
 
+Example building for \DUrole{xref,std,std-ref}{nrf52840dk\_nrf52840}:
+
+Example building for \DUrole{xref,std,std-ref}{native\_posix}:
+
+
+\subsubsection{References}
+\label{\detokenize{samples/display/lvgl/README:references}}
 
 \subsection{ST7789V Display driver}
 \label{\detokenize{samples/display/st7789v/README:st7789v-display-driver}}\label{\detokenize{samples/display/st7789v/README:st7789v-sample}}\label{\detokenize{samples/display/st7789v/README::doc}}

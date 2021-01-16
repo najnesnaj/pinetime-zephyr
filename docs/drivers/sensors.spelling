@@ -1,0 +1,2 @@
+drivers/sensors.rst:5: (Accelerometer)  0x18: Accelerometer: BMA423-DS000
+drivers/sensors.rst:11: (Hynitron)  0x15: Touch Controller: Hynitron CST816S Touch Controller

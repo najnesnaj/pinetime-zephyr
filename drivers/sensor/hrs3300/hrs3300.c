@@ -1,140 +1,115 @@
 /*
+ * Copyright (c) 2021, najnesnaj 
+ *
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <stdlib.h>
-#include <logging/log.h>
-#include <shell/shell.h>
-#include <sensor.h>
-#include <hrs3300.h>
-#include <drivers/i2c.h>
+#define DT_DRV_COMPAT hx_hrs3300
 
-#define MY_REGISTER3 (*(volatile uint8_t*)0x2000F002)
+#include <logging/log.h>
+
+#include "hrs3300.h"
+//#include "hrs3300_reg_init.h"
 
 LOG_MODULE_REGISTER(HRS3300, CONFIG_SENSOR_LOG_LEVEL);
 
-#define HRS3300_I2C_ADDRESS  0x44
 
-#define HRS3300_PDRIVE_12_5 0
-#define HRS3300_PDRIVE_20 1
-#define HRS3300_PDRIVE_30 2
-#define HRS3300_PDRIVE_40 3
-
-#define HRS3300_DEVICE_ID_ADDR	0x00
-#define HRS3300_DEVICE_ID 0x21
-
-#define HRS3300_ENABLED_ADDR	0x01
-
-#define HRS3300_HWT_800MS 0x0
-#define HRS3300_HWT_400MS 0x1
-#define HRS3300_HWT_200MS 0x2
-#define HRS3300_HWT_100MS 0x3
-#define HRS3300_HWT_75MS 0x4
-#define HRS3300_HWT_50MS 0x5
-#define HRS3300_HWT_12_5MS 0x6
-#define HRS3300_HWT_0MS 0x7
-
-struct hrs3300_reg_enable {
-	u8_t reserved	:3;
-	u8_t pdrive1	:1;
-	u8_t hwt	:3;
-	u8_t enable	:1;
-};
-
-#define HRS3300_HRS_LED_DRIVER_SET_ADDR 0x0C
-struct hrs3300_reg_hrs_led_driver_set {
-	u8_t reserved	:5;
-	u8_t pon	:1;
-	u8_t pdrive0	:1;
-	u8_t reserved1	:1;
-};
-
-
-#define HRS3300_RESOLUTION_ADDR 0x16
-struct hrs3300_reg_resolution {
-	u8_t als_res	:4;
-	u8_t reserved 	:4;
-};
-
-#define HRS3300_HGAIN_ADDR 0x17
-struct hrs3300_reg_hgain {
-	u8_t reserved 	:2;
-	u8_t hgain	:3;
-	u8_t reserved1 	:3;
-};
-
-union hrs3300_reg {
-	struct hrs3300_reg_enable enable;
-	struct hrs3300_reg_hrs_led_driver_set hrs_led_driver_set;
-	struct hrs3300_reg_resolution resolution;
-	struct hrs3300_reg_hgain hgain;
-	u8_t raw;
-};
-
-struct hrs3300_addr_reg {
-	u8_t addr;
-	union hrs3300_reg reg;
-};
-
-struct hrs3300_data {
-	struct device *i2c;
-	u32_t raw[2];
-	struct hrs3300_addr_reg config[4];
-};
-
-struct hrs3300_config {
-};
-
-static u32_t get_hrs_adc(u8_t *buf)
+static uint32_t get_hrs_adc(uint8_t *buf)
 {
-	return	((u32_t)buf[7] & 0xF) |
-		(((u32_t)buf[2] & 0xf) << 4) |
-		((u32_t)buf[1] << 8) |
-		(((u32_t)buf[7] & 0x30) << 16);
+	return  ((uint32_t)buf[7] & 0xF) |
+		(((uint32_t)buf[2] & 0xf) << 4) |
+		((uint32_t)buf[1] << 8) |
+		(((uint32_t)buf[7] & 0x30) << 16);
 }
 
-static u32_t get_als(u8_t *buf)
+static uint32_t get_als(uint8_t *buf)
 {
-	return	((u32_t)buf[6] & 0x7) |
-		((u32_t)buf[0] << 3) |
-		((u32_t)buf[5] << 10);
+	return  ((uint32_t)buf[6] & 0x7) |
+		((uint32_t)buf[0] << 3) |
+		((uint32_t)buf[5] << 10);
 }
 
-static int hrs3300_sample_fetch(struct device *dev, enum sensor_channel chan)
-{
-	struct hrs3300_data *data = dev->driver_data;
-	u8_t buf[8];
-	int err;
 
-	err = i2c_burst_read(data->i2c, HRS3300_I2C_ADDRESS, 0x8,
-				buf, sizeof(buf));
-	if (err < 0) {
-		LOG_ERR("Failed to read data (err:%d)", err);
-		return err;
+
+static int hrs3300_sample_fetch(const struct device *dev,
+		enum sensor_channel chan)
+{
+	struct hrs3300_data *data = dev->data;
+	const struct hrs3300_config *config = dev->config;
+	uint8_t buffer[HRS3300_MAX_BYTES_PER_SAMPLE];
+	//uint32_t fifo_data;
+	//int fifo_chan;
+	//	int num_bytes;
+	//int i;
+
+	/* Read all the active channels for one sample */
+	//	num_bytes = data->num_channels * HRS3300_BYTES_PER_CHANNEL;
+	if (i2c_burst_read(data->i2c, config->i2c_addr,
+				HRS3300_MAX_BYTES_PER_SAMPLE, buffer, sizeof(buffer))) {
+		LOG_ERR("Could not fetch sample");
+		return -EIO;
 	}
+	/*
+	   fifo_chan = 0;
+	   for (i = 0; i < num_bytes; i += 3) {
+	   fifo_data = (buffer[i] << 16) | (buffer[i + 1] << 8) |
+	   (buffer[i + 2]);
+	   fifo_data &= HRS3300_FIFO_DATA_MASK;
 
-	data->raw[0] = get_hrs_adc(buf);
-	data->raw[1] = get_als(buf);
+	   data->raw[fifo_chan++] = fifo_data;
+	   }
+	 */
+	data->raw[0] = get_hrs_adc(buffer);
+	data->raw[1] = get_als(buffer);
 
 	return 0;
 }
 
-//todo method to switch heart rate sensor off
-int hrs3300_attr_set(struct device *dev,
+static int hrs3300_channel_get(const struct device *dev,
 		enum sensor_channel chan,
-		enum sensor_attribute attr,
-		const struct sensor_value *val)
-{
-	return 0;
-}
-
-static int hrs3300_channel_get(struct device *dev, enum sensor_channel chan,
 		struct sensor_value *val)
 {
-	struct hrs3300_data *data = dev->driver_data;
+	struct hrs3300_data *data = dev->data;
+	const struct hrs3300_config *config = dev->config; //jj
+	enum hrs3300_led_channel led_chan;
+	//int fifo_chan;
 
-	val->val1 = data->raw[0];
-	val->val2 = data->raw[1];
+	switch (chan) {
+		case SENSOR_CHAN_RED:
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x01, 0xf0 ); //  no waiting 
+	//		i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x01, 0x01 ); //this switched LED OFF JJ
+			led_chan = HRS3300_LED_CHANNEL_RED;
+			break;
+
+		case SENSOR_CHAN_IR:
+			led_chan = HRS3300_LED_CHANNEL_IR;
+			i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x01, 0x01 ); //this switched LED OFF JJ
+			break;
+
+		case SENSOR_CHAN_GREEN:
+			led_chan = HRS3300_LED_CHANNEL_GREEN;
+			break;
+
+		default:
+			LOG_ERR("Unsupported sensor channel");
+			return -ENOTSUP;
+	}
+
+	/* Check if the led channel is active by looking up the associated fifo
+	 * channel. If the fifo channel isn't valid, then the led channel
+	 * isn't active.
+	 */
+	/*	fifo_chan = data->map[led_chan];
+		if (fifo_chan >= HRS3300_MAX_NUM_CHANNELS) {
+		LOG_ERR("Inactive sensor channel");
+		return -ENOTSUP;
+		}*/
+
+	/* TODO: Scale the raw data to standard units */
+	//val->val1 = data->raw[fifo_chan];
+	//val->val2 = 0;
+	val->val1 = data->raw[1]; //ALS
+	val->val2 = data->raw[0]; //HRS
 
 	return 0;
 }
@@ -142,485 +117,241 @@ static int hrs3300_channel_get(struct device *dev, enum sensor_channel chan,
 static const struct sensor_driver_api hrs3300_driver_api = {
 	.sample_fetch = hrs3300_sample_fetch,
 	.channel_get = hrs3300_channel_get,
-	.attr_set = hrs3300_attr_set,
 };
 
-static int hrs3300_init(struct device *dev)
+
+
+bool Hrs3300_chip_init(void)
 {
-	struct hrs3300_data *data = dev->driver_data;
-	u8_t device_id;
-	int err;
+	//int i =0 ;
+	//uint8_t id =0;
+	printk(" hrs3300 init \n");
+	/*	for(i = 0; i < HRS3300_MAX_BYTES_PER_SAMPLE;i++)
+		{
+
+		if (i2c_reg_write_byte(data->i2c, config->i2c_addr, init_register_array[i][0],
+		init_register_array[i][1]) != 0 )
+		{
+		return false;
+		}
+		}	
+
+	 */
+	//20161117 added by ericy for "low power in no_touch state"		
+	/*	if(hrs3300_power_up_flg == 0){
+		reg_0x7f=Hrs3300_read_reg(0x7f) ;
+		reg_0x80=Hrs3300_read_reg(0x80) ;
+		reg_0x81=Hrs3300_read_reg(0x81) ;
+		reg_0x82=Hrs3300_read_reg(0x82) ;		
+		hrs3300_power_up_flg =  1; 
+		}*/
+	//20161117 added by ericy for "low power in no_touch state"
+
+	//id = Hrs3300_read_reg(0x00);
+	//printk("<<< hrs3300 init done id = 0x%x \r\n", id); // 0x21	
+	//printk("%s (%d)	: ==huangwenjun==Hrs3300_chip_init== init done id = 0x%x\n", __func__, __LINE__, id);  // add by hwj
+
+	return true;
+	//RTN:
+	//return false;		
+}
+
+/*
+   static int write_reg(struct device *dev, struct hrs3300_addr_reg *reg)
+   {
+   struct hrs3300_data *data = dev->data;
+
+   return i2c_reg_write_byte(data->i2c, HRS3300_I2C_ADDRESS,
+   reg->addr, reg->reg.raw);
+   }
+ */
+
+
+
+
+static int hrs3300_init(const struct device *dev)
+{
+	const struct hrs3300_config *config = dev->config;
+	struct hrs3300_data *data = dev->data;
+	uint8_t part_id;
+	//uint8_t mode_cfg;
+	uint32_t led_chan;
+	int fifo_chan;
 
 	/* Get the I2C device */
-	data->i2c = device_get_binding(DT_INST_0_HX_HRS3300_BUS_NAME);
+	data->i2c = device_get_binding(config->i2c_label);
 	if (!data->i2c) {
 		LOG_ERR("Could not find I2C device");
 		return -EINVAL;
 	}
 
-	err = i2c_reg_read_byte(data->i2c, HRS3300_I2C_ADDRESS,
-				HRS3300_DEVICE_ID_ADDR, &device_id);
-	if ((err < 0) || (device_id != HRS3300_DEVICE_ID)) {
-		LOG_ERR("Failed to read device id (%d)", err);
-		return err;
+	/* Check the part id to make sure this is HRS3300 */
+	if (i2c_reg_read_byte(data->i2c, config->i2c_addr,
+				HRS3300_REG_PART_ID, &part_id)) {
+		LOG_ERR("Could not get Part ID");
+		return -EIO;
+	}
+	if (part_id != HRS3300_PART_ID) {
+		LOG_ERR("Got Part ID 0x%02x, expected 0x%02x",
+				part_id, HRS3300_PART_ID);
+		return -EIO;
 	}
 
-	for (int i = 0; i < ARRAY_SIZE(data->config); i++) {
-		err = i2c_reg_write_byte(data->i2c, HRS3300_I2C_ADDRESS,
-				data->config[i].addr, data->config[i].reg.raw);
-		if (err < 0) {
-			LOG_ERR("Failed to write %x register (err:%d)",
-				data->config[i].addr, err);
-			return err;
+	/* Reset the sensor */
+	/*	if (i2c_reg_write_byte(data->i2c, config->i2c_addr,
+		HRS3300_REG_MODE_CFG,
+		HRS3300_MODE_CFG_RESET_MASK)) {
+		return -EIO;
+		}*/
+
+
+	//chip_disable()
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x01, 0x08 );
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x02, 0x80 );
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x0c, 0x4e );
+
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x16, 0x88 );
+
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x0c, 0x22 );
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x01, 0xf0 );
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x0c, 0x02 );
+
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x0c, 0x22 );
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x01, 0xf0 );
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x0c, 0x02 );
+
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x0c, 0x22 );
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x01, 0xf0 );
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x0c, 0x02 );
+
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x0c, 0x22 );
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x01, 0xf0 );
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x0c, 0x02 );
+
+	//chip_enable()
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x16, 0x78 );
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x01, 0xd0 );
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x0c, 0x2e );
+	//init
+
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x01, 0xd0);  //11010000  bit[7]=1,HRS enable;bit[6:4]=101,wait time=50ms,bit[3]=0,LED DRIVE=22 mA
+	//i2c_reg_write_byte(data->i2c, config->i2c_addr,0x01, 0xf0);   //11010000  bit[7]=1,HRS enable;bit[6:4]=101,wait time=50ms,bit[3]=0,LED DRIVE=22 mA v13.05
+	//i2c_reg_write_byte(data->i2c, config->i2c_addr,0x0c, 0x4e);  //00001110  bit[6]=0,LED DRIVE=22mA;bit[5]=0,sleep mode;p_pulse=1110,duty=50% 
+	//i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x01, 0x01 ); //this switched LED OFF JJ 
+	//    i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x01, 0x81 ); // LED blinks 800 ms 
+	i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x01, 0xf0 ); //  no waiting 
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x0c, 0x02);  //00001110  bit[6]=0,LED DRIVE=22mA;bit[5]=0,sleep mode;p_pulse=1110,duty=50% 
+
+	//i2c_reg_write_byte(data->i2c, config->i2c_addr, 0x0c, 0x22 );
+	//0x4e 01001110
+
+
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x16, 0x78);  //01111000  bits[7:4]=0111,HRS 15bits
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x17, 0x0d);  //00001101  bits[7:5]=011,HRS gain 16*;bit[1]=0,HRS data=AD0 
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x02, 0x80);
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x03, 0x00);
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x04, 0x00);
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x05, 0x00);
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x06, 0x00);
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x07, 0x00);
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x08, 0x74);
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x09, 0x00);
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x0a, 0x08);
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x0b, 0x00);
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x0c, 0x6e);
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x0d, 0x02);
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x0e, 0x07);
+	i2c_reg_write_byte(data->i2c, config->i2c_addr,0x0f, 0x0f);
+	/* Wait for reset to be cleared */
+	/*	do {
+		if (i2c_reg_read_byte(data->i2c, config->i2c_addr,
+		HRS3300_REG_MODE_CFG, &mode_cfg)) {
+		LOG_ERR("Could read mode cfg after reset");
+		return -EIO;
+		}
+		} while (mode_cfg & HRS3300_MODE_CFG_RESET_MASK);
+	 */
+
+#ifdef CONFIG_HRS3300_MULTI_LED_MODE
+	uint8_t multi_led[2];
+
+	/* Write the multi-LED mode control registers */
+	multi_led[0] = (config->slot[1] << 4) | (config->slot[0]);
+	multi_led[1] = (config->slot[3] << 4) | (config->slot[2]);
+
+	if (i2c_reg_write_byte(data->i2c, config->i2c_addr,
+				HRS3300_REG_MULTI_LED, multi_led[0])) {
+		return -EIO;
+	}
+	if (i2c_reg_write_byte(data->i2c, config->i2c_addr,
+				HRS3300_REG_MULTI_LED + 1, multi_led[1])) {
+		return -EIO;
+	}
+#endif
+
+	/* Initialize the channel map and active channel count */
+	data->num_channels = 0U;
+	for (led_chan = 0U; led_chan < HRS3300_MAX_NUM_CHANNELS; led_chan++) {
+		data->map[led_chan] = HRS3300_MAX_NUM_CHANNELS;
+	}
+
+	/* Count the number of active channels and build a map that translates
+	 * the LED channel number (red/ir/green) to the fifo channel number.
+	 */
+	for (fifo_chan = 0; fifo_chan < HRS3300_MAX_NUM_CHANNELS;
+			fifo_chan++) {
+		led_chan = (config->slot[fifo_chan] & HRS3300_SLOT_LED_MASK)-1;
+		if (led_chan < HRS3300_MAX_NUM_CHANNELS) {
+			data->map[led_chan] = fifo_chan;
+			data->num_channels++;
 		}
 	}
 
 	return 0;
 }
 
-static int write_reg(struct device *dev, struct hrs3300_addr_reg *reg)
-{
-	struct hrs3300_data *data = dev->driver_data;
+static struct hrs3300_config hrs3300_config = {
+	.i2c_label = DT_INST_BUS_LABEL(0),
+	.i2c_addr = DT_INST_REG_ADDR(0),
+	.fifo = (CONFIG_HRS3300_SMP_AVE << HRS3300_FIFO_CFG_SMP_AVE_SHIFT) |
+#ifdef CONFIG_HRS3300_FIFO_ROLLOVER_EN
+		HRS3300_FIFO_CFG_ROLLOVER_EN_MASK |
+#endif
+		(CONFIG_HRS3300_FIFO_A_FULL <<
+		 HRS3300_FIFO_CFG_FIFO_FULL_SHIFT),
 
-	return i2c_reg_write_byte(data->i2c, HRS3300_I2C_ADDRESS,
-				reg->addr, reg->reg.raw);
-}
+#if defined(CONFIG_HRS3300_HEART_RATE_MODE)
+	.mode = HRS3300_MODE_HEART_RATE,
+	.slot[0] = HRS3300_SLOT_RED_LED1_PA,
+	.slot[1] = HRS3300_SLOT_DISABLED,
+	.slot[2] = HRS3300_SLOT_DISABLED,
+	.slot[3] = HRS3300_SLOT_DISABLED,
+#elif defined(CONFIG_HRS3300_SPO2_MODE)
+	.mode = HRS3300_MODE_SPO2,
+	.slot[0] = HRS3300_SLOT_RED_LED1_PA,
+	.slot[1] = HRS3300_SLOT_IR_LED2_PA,
+	.slot[2] = HRS3300_SLOT_DISABLED,
+	.slot[3] = HRS3300_SLOT_DISABLED,
+#else
+	.mode = HRS3300_MODE_MULTI_LED,
+	.slot[0] = CONFIG_HRS3300_SLOT1,
+	.slot[1] = CONFIG_HRS3300_SLOT2,
+	.slot[2] = CONFIG_HRS3300_SLOT3,
+	.slot[3] = CONFIG_HRS3300_SLOT4,
+#endif
 
-static int hrs3300_en(struct device *dev, bool en)
-{
-	struct hrs3300_data *data = dev->driver_data;
+	.spo2 = (CONFIG_HRS3300_ADC_RGE << HRS3300_SPO2_ADC_RGE_SHIFT) |
+		(CONFIG_HRS3300_SR << HRS3300_SPO2_SR_SHIFT) |
+		(HRS3300_PW_18BITS << HRS3300_SPO2_PW_SHIFT),
 
-	data->config[0].reg.enable.enable = en ? 1 : 0;
-	return write_reg(dev, &data->config[0]);
-}
-
-int hrs3300_enable(struct device *dev)
-{
-	return hrs3300_en(dev, true);
-}
-
-int hrs3300_disable(struct device *dev)
-{
-	return hrs3300_en(dev, false);
-}
-
-int hrs3300_hgain_set(struct device *dev, enum hrs3300_hgain val)
-{
-	struct hrs3300_data *data = dev->driver_data;
-	data->config[3].reg.hgain.hgain = val;
-	return write_reg(dev, &data->config[3]);
-}
-
-int hrs3300_hgain_get(struct device *dev, enum hrs3300_hgain *val)
-{
-	struct hrs3300_data *data = dev->driver_data;
-
-	*val = data->config[3].reg.hgain.hgain;
-
-	return 0;
-}
-
-int hrs3300_hwt_set(struct device *dev, enum hrs3300_hwt val)
-{
-	struct hrs3300_data *data = dev->driver_data;
-
-	data->config[0].reg.enable.hwt = val;
-
-	return write_reg(dev, &data->config[0]);
-}
-
-int hrs3300_hwt_get(struct device *dev, enum hrs3300_hwt *val)
-{
-	struct hrs3300_data *data = dev->driver_data;
-
-	*val = data->config[0].reg.enable.hwt;
-
-	return 0;
-}
-
-int hrs3300_pdrive_set(struct device *dev, enum hrs3300_pdrive val)
-{
-	struct hrs3300_data *data = dev->driver_data;
-	int err;
-
-	data->config[0].reg.enable.pdrive1 = (val & 2) ? 1 : 0;
-	data->config[1].reg.hrs_led_driver_set.pdrive0 = val & 1;
-
-	err = write_reg(dev, &data->config[0]);
-	if (err < 0) {
-		return err;
-	}
-
-	return write_reg(dev, &data->config[1]);
-}
-
-int hrs3300_pdrive_get(struct device *dev, enum hrs3300_pdrive *val)
-{
-	struct hrs3300_data *data = dev->driver_data;
-
-	*val = data->config[1].reg.hrs_led_driver_set.pdrive0 |
-		(data->config[0].reg.enable.pdrive1 << 1);
-
-	return 0;
-}
-
-static struct hrs3300_config hrs3300_config;
-static struct hrs3300_data hrs3300_data = {
-	.config = {
-		{
-			.addr = HRS3300_ENABLED_ADDR,
-			.reg = {
-				.enable = {
-					.enable = 0,
-					.pdrive1 = (HRS3300_PDRIVE_40 & 0x2) ?
-							1 : 0,
-					.hwt = HRS3300_HWT_12_5MS
-				}
-			}
-		},
-		{
-			.addr = HRS3300_HRS_LED_DRIVER_SET_ADDR,
-			.reg = {
-				.hrs_led_driver_set = {
-					.pon = 1,
-					.pdrive0 = HRS3300_PDRIVE_40 & 0x1,
-					.reserved = 0x8
-				}
-			}
-		},
-		{
-			.addr = HRS3300_RESOLUTION_ADDR,
-			.reg = {
-				.resolution = {
-					.reserved = 0x6,
-					.als_res = 0x8 /* 16bit*/
-				}
-			}
-		},
-		{
-			.addr = HRS3300_HGAIN_ADDR,
-			.reg = {
-				.hgain = {
-					.hgain = 0
-				}
-			}
-		}
-	}
+	.led_pa[0] = CONFIG_HRS3300_LED1_PA,
+	.led_pa[1] = CONFIG_HRS3300_LED2_PA,
+	.led_pa[2] = CONFIG_HRS3300_LED3_PA,
 };
 
-DEVICE_AND_API_INIT(hrs3300, DT_INST_0_HX_HRS3300_LABEL, hrs3300_init,
+static struct hrs3300_data hrs3300_data;
+
+DEVICE_DT_INST_DEFINE(0, hrs3300_init, device_pm_control_nop,
 		&hrs3300_data, &hrs3300_config,
 		POST_KERNEL, CONFIG_SENSOR_INIT_PRIORITY,
 		&hrs3300_driver_api);
-
-static int cmd_enable(const struct shell *shell, size_t argc, char **argv)
-{
-	int err;
-
-	err = hrs3300_enable(DEVICE_GET(hrs3300));
-	shell_print(shell, "Enabled (err:%d)", err);
-
-	return 0;
-}
-
-static int cmd_disable(const struct shell *shell, size_t argc, char **argv)
-{
-	int err;
-
-	err = hrs3300_disable(DEVICE_GET(hrs3300));
-	shell_print(shell, "Disabled (err:%d)", err);
-
-	return 0;
-}
-
-static int cmd_dump_registers(const struct shell *shell,
-				size_t argc, char **argv)
-{
-	static const u8_t addr[] = {0, 1, 8, 9, 10, 12, 13, 14, 15, 22, 23};
-	struct hrs3300_data *data = DEVICE_GET(hrs3300)->driver_data;
-	int err;
-	u8_t val;
-
-	for (int i = 0; i < ARRAY_SIZE(addr); i++) {
-		err = i2c_reg_read_byte(data->i2c, HRS3300_I2C_ADDRESS, addr[i],
-			&val);
-		if (err < 0) {
-			shell_error(shell, "Failed to read %x (err: %d)",
-								addr[i], err);
-		} else {
-			shell_print(shell, "Reg:%x value:%x", addr[i], val);
-		}
-	}
-
-	return 0;
-}
-
-static int cmd_sample(const struct shell *shell, size_t argc, char **argv)
-{
-	int err;
-	struct sensor_value value;
-
-	err = sensor_sample_fetch(DEVICE_GET(hrs3300));
-	if (err < 0) {
-		shell_error(shell, "Failed to read (err:%d)", err);
-	}
-
-	err = sensor_channel_get(DEVICE_GET(hrs3300), 0, &value);
-	if (err < 0) {
-		shell_error(shell, "Failed to read channel (err:%d)", err);
-	}
-
-	shell_print(shell, "hrs:%d, als:%d", value.val1, value.val2);
-
-	return 0;
-}
-
-static int cmd_read_gain(const struct shell *shell, size_t argc, char **argv)
-{
-	enum hrs3300_hgain gain_reg;
-	u8_t gain_val;
-
-	hrs3300_hgain_get(DEVICE_GET(hrs3300), &gain_reg);
-	gain_val = (gain_reg < 4) ? (1 << gain_reg) : 64;
-
-	shell_print(shell, "Gain:%dx", gain_val);
-
-	return 0;
-}
-
-static int cmd_set_gain1(const struct shell *shell, size_t argc, char **argv)
-{
-	return hrs3300_hgain_set(DEVICE_GET(hrs3300), 0);
-}
-
-static int cmd_set_gain2(const struct shell *shell, size_t argc, char **argv)
-{
-	return hrs3300_hgain_set(DEVICE_GET(hrs3300), 1);
-}
-
-static int cmd_set_gain4(const struct shell *shell, size_t argc, char **argv)
-{
-	return hrs3300_hgain_set(DEVICE_GET(hrs3300), 2);
-}
-
-static int cmd_set_gain8(const struct shell *shell, size_t argc, char **argv)
-{
-	return hrs3300_hgain_set(DEVICE_GET(hrs3300), 3);
-}
-
-static int cmd_set_gain64(const struct shell *shell, size_t argc, char **argv)
-{
-	return hrs3300_hgain_set(DEVICE_GET(hrs3300), 4);
-}
-
-static int cmd_read_hwt(const struct shell *shell, size_t argc, char **argv)
-{
-	enum hrs3300_hwt val;
-	static const char *hwt[] = {"800", "400", "200", "100",
-					"75", "50", "12.5", "0"};
-
-	hrs3300_hwt_get(DEVICE_GET(hrs3300), &val);
-
-	shell_print(shell, "HWT:%sms", hwt[val]);
-
-	return 0;
-}
-
-static int cmd_set_hwt800(const struct shell *shell, size_t argc, char **argv)
-{
-	return hrs3300_hwt_set(DEVICE_GET(hrs3300), 0);
-}
-
-static int cmd_set_hwt400(const struct shell *shell, size_t argc, char **argv)
-{
-	return hrs3300_hwt_set(DEVICE_GET(hrs3300), 1);
-}
-
-static int cmd_set_hwt200(const struct shell *shell, size_t argc, char **argv)
-{
-	return hrs3300_hwt_set(DEVICE_GET(hrs3300), 2);
-}
-
-static int cmd_set_hwt100(const struct shell *shell, size_t argc, char **argv)
-{
-	return hrs3300_hwt_set(DEVICE_GET(hrs3300), 3);
-}
-
-static int cmd_set_hwt75(const struct shell *shell, size_t argc, char **argv)
-{
-	return hrs3300_hwt_set(DEVICE_GET(hrs3300), 4);
-}
-
-static int cmd_set_hwt50(const struct shell *shell, size_t argc, char **argv)
-{
-	return hrs3300_hwt_set(DEVICE_GET(hrs3300), 5);
-}
-
-static int cmd_set_hwt12_5(const struct shell *shell, size_t argc, char **argv)
-{
-	return hrs3300_hwt_set(DEVICE_GET(hrs3300), 6);
-}
-
-static int cmd_set_hwt0(const struct shell *shell, size_t argc, char **argv)
-{
-	return hrs3300_hwt_set(DEVICE_GET(hrs3300), 7);
-}
-
-static int cmd_read_pdrive(const struct shell *shell, size_t argc, char **argv)
-{
-	enum hrs3300_pdrive val;
-	static const char *pdrive[] = {"12.5", "20", "30", "40"};
-
-	hrs3300_pdrive_get(DEVICE_GET(hrs3300), &val);
-
-	shell_print(shell, "PDrive:%sms", pdrive[val]);
-
-	return 0;
-}
-
-static int cmd_set_pdrive12_5(const struct shell *shell, size_t argc,
-				char **argv)
-{
-	return hrs3300_pdrive_set(DEVICE_GET(hrs3300), HRS3300_PDRIVE_12_5);
-}
-
-static int cmd_set_pdrive20(const struct shell *shell, size_t argc,
-				char **argv)
-{
-	return hrs3300_pdrive_set(DEVICE_GET(hrs3300), HRS3300_PDRIVE_20);
-}
-
-static int cmd_set_pdrive30(const struct shell *shell, size_t argc,
-				char **argv)
-{
-	return hrs3300_pdrive_set(DEVICE_GET(hrs3300), HRS3300_PDRIVE_30);
-}
-
-static int cmd_set_pdrive40(const struct shell *shell, size_t argc,
-				char **argv)
-{
-	return hrs3300_pdrive_set(DEVICE_GET(hrs3300), HRS3300_PDRIVE_40);
-}
-
-static int cmd_read(const struct shell *shell, size_t argc, char **argv,
-			bool hrs)
-{
-	int len = strtol(argv[1], NULL, 10);
-	enum hrs3300_hwt freq_reg;
-	u32_t ms[] = {800,400, 200, 100, 75, 50, 12, 0};
-	int err;
-	static u16_t samples[1024];
-	struct sensor_value value;
-	int sleep_ms;
-
-	if (len == 0) {
-		return 0;
-	} else if (len > ARRAY_SIZE(samples)) {
-		shell_error(shell, "Request too big, limited to %d",
-							ARRAY_SIZE(samples));
-	}
-
-	err = hrs3300_hwt_get(DEVICE_GET(hrs3300), &freq_reg);
-	if (err < 0) {
-		shell_error(shell, "Failed to read hwt (err:%d)", err);
-		return 0;
-	}
-
-	sleep_ms = ms[freq_reg];
-
-	for (int i = 0; i < len; i++) {
-		err = sensor_sample_fetch(DEVICE_GET(hrs3300));
-		if (err < 0) {
-			shell_error(shell, "Failed to read (err:%d)", err);
-			return 0;
-		}
-
-		err = sensor_channel_get(DEVICE_GET(hrs3300), 0, &value);
-		if (err < 0) {
-			shell_error(shell, "Failed to read channel (err:%d)", err);
-			return 0;
-		}
-
-		samples[i] = (u16_t)(hrs ? value.val1 : value.val2);
-		if (sleep_ms == 12) {
-			sleep_ms++;
-		} else if (sleep_ms == 13) {
-			sleep_ms--;
-		}
-
-		k_sleep(K_MSEC(sleep_ms));
-	}
-
-	for (int i = 0; i < len; i++) {
-		shell_print(shell, "%d", samples[i]);
-	}
-
-	shell_print(shell, "Sampling period %d", sleep_ms);
-
-	return 0;
-}
-
-static int cmd_read_hrs(const struct shell *shell, size_t argc, char **argv)
-{
-	return cmd_read(shell, argc, argv, true);
-}
-
-static int cmd_read_als(const struct shell *shell, size_t argc, char **argv)
-{
-	return cmd_read(shell, argc, argv, false);
-}
-
-SHELL_STATIC_SUBCMD_SET_CREATE(gain_cmds,
-	SHELL_CMD_ARG(x1, NULL, "Control Gain", cmd_set_gain1, 1, 0),
-	SHELL_CMD_ARG(x2, NULL, "Control Gain", cmd_set_gain2, 1, 0),
-	SHELL_CMD_ARG(x4, NULL, "Control Gain", cmd_set_gain4, 1, 0),
-	SHELL_CMD_ARG(x8, NULL, "Control Gain", cmd_set_gain8, 1, 0),
-	SHELL_CMD_ARG(x64, NULL, "Control Gain", cmd_set_gain64, 1, 0),
-	SHELL_SUBCMD_SET_END
-);
-
-SHELL_STATIC_SUBCMD_SET_CREATE(hwt_cmds,
-	SHELL_CMD_ARG(800ms, NULL, "Set HWT", cmd_set_hwt800, 1, 0),
-	SHELL_CMD_ARG(400ms, NULL, "Set HWT", cmd_set_hwt400, 1, 0),
-	SHELL_CMD_ARG(200ms, NULL, "Set HWT", cmd_set_hwt200, 1, 0),
-	SHELL_CMD_ARG(100ms, NULL, "Set HWT", cmd_set_hwt100, 1, 0),
-	SHELL_CMD_ARG(75ms, NULL, "Set HWT", cmd_set_hwt75, 1, 0),
-	SHELL_CMD_ARG(50ms, NULL, "Set HWT", cmd_set_hwt50, 1, 0),
-	SHELL_CMD_ARG(12_5ms, NULL, "Set HWT", cmd_set_hwt12_5, 1, 0),
-	SHELL_CMD_ARG(0ms, NULL, "Set HWT", cmd_set_hwt0, 1, 0),
-	SHELL_SUBCMD_SET_END
-);
-
-SHELL_STATIC_SUBCMD_SET_CREATE(pdrive_cmds,
-	SHELL_CMD_ARG(12_5mA, NULL, "Control PDrive", cmd_set_pdrive12_5, 1, 0),
-	SHELL_CMD_ARG(20mA, NULL, "Control PDrive", cmd_set_pdrive20, 1, 0),
-	SHELL_CMD_ARG(30mA, NULL, "Control PDrive", cmd_set_pdrive30, 1, 0),
-	SHELL_CMD_ARG(40mA, NULL, "Control PDrive", cmd_set_pdrive40, 1, 0),
-	SHELL_SUBCMD_SET_END
-);
-
-SHELL_STATIC_SUBCMD_SET_CREATE(read_cmds,
-	SHELL_CMD_ARG(hrs, NULL, "Read <n> samples", cmd_read_hrs, 2, 0),
-	SHELL_CMD_ARG(als, NULL, "Read <n> samples", cmd_read_als, 2, 0),
-	SHELL_SUBCMD_SET_END
-);
-
-SHELL_STATIC_SUBCMD_SET_CREATE(hrs3300_cmds,
-	SHELL_CMD_ARG(hgain, &gain_cmds, "Control Gain", cmd_read_gain, 1, 1),
-	SHELL_CMD_ARG(hwt, &hwt_cmds, "Control HWT", cmd_read_hwt, 1, 1),
-	SHELL_CMD_ARG(pdrive, &pdrive_cmds, "Control PDrive", cmd_read_pdrive, 1, 1),
-	SHELL_CMD_ARG(read, &read_cmds, "Read HRS and ALS", cmd_read, 1, 0),
-	SHELL_CMD_ARG(sample, NULL, "Sample HRS and ALS", cmd_sample, 1, 0),
-	SHELL_CMD_ARG(dump, NULL, "Dump registers", cmd_dump_registers, 1, 0),
-	SHELL_CMD_ARG(disable, NULL, "Disable", cmd_disable, 1, 0),
-	SHELL_CMD_ARG(enable, NULL, "Enable", cmd_enable, 1, 0),
-	SHELL_SUBCMD_SET_END
-);
-
-static int cmd_dummy(const struct shell *shell, size_t argc, char **argv)
-{
-	return 0;
-}
-
-SHELL_COND_CMD_REGISTER(CONFIG_HRS3300_CMDS, hrs3300, &hrs3300_cmds,
-		"HRS3300 shell commands", cmd_dummy);

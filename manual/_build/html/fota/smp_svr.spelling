@@ -1,0 +1,11 @@
+fota/smp_svr.rst:12: (mcumgr)  This sample application supports the following mcumgr transports by default:
+fota/smp_svr.rst:21: (smp)  In order to communicate with the smp server sample installed on your pinetime, you need mcumgr.
+fota/smp_svr.rst:21: (mcumgr)  In order to communicate with the smp server sample installed on your pinetime, you need mcumgr.
+fota/smp_svr.rst:23: (mcumgr)  Here is a procedure to install mcumgr on a raspberry pi  (or similar)
+fota/smp_svr.rst:38: (smp)  So both slots need smp_svr software!
+fota/smp_svr.rst:38: (svr)  So both slots need smp_svr software!
+fota/smp_svr.rst:44: (smp)  Step 1: Build smp_svr
+fota/smp_svr.rst:44: (svr)  Step 1: Build smp_svr
+fota/smp_svr.rst:46: (nRF)   can be built for the nRF52 as follows:
+fota/smp_svr.rst:78: (smp)  Step 3: Flash the smp_svr image
+fota/smp_svr.rst:78: (svr)  Step 3: Flash the smp_svr image

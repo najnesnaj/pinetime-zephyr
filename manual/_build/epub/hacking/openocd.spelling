@@ -1,0 +1,4 @@
+hacking/openocd.rst:5: (howto)  howto use 2 openocd sessions
+hacking/openocd.rst:5: (openocd)  howto use 2 openocd sessions
+hacking/openocd.rst:35: (openocd)  Howto setup a second openocd session on a different port?
+hacking/openocd.rst:47: (seperate)  This works really well, and does not require a seperate programmer.

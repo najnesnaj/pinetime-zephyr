@@ -3,9 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LittlevGL Basic Sample</title>
-    <link rel="stylesheet" href="../../../_static/epub.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" /> 
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/epub.css" type="text/css" /> 
   </head><body>
 
     <div class="document">
@@ -18,8 +19,9 @@
 <h2>Overview</h2>
 <p>This sample application displays “Hello World” in the center of the screen
 and a counter at the bottom which increments every second.</p>
-<p>When touched in the center (it is a button) a counter is displayed at the top.
-The counting stops if button is pressed again.</p>
+<p>If an input driver is supported, such as the touch panel controller on the pinetime
+boards, “Hello World” is enclosed in a button that changes to the toggled state
+when touched.</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements</h2>
@@ -27,11 +29,23 @@ The counting stops if button is pressed again.</p>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running</h2>
-<p>west build -p -b pinetime_devkit0 samples/display/lvgl</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When deferred logging is enabled you will likely need to increase
+<code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_LOG_STRDUP_BUF_COUNT</span></code> and/or
+<code class="xref std std-option docutils literal notranslate"><span class="pre">CONFIG_LOG_STRDUP_MAX_STRING</span></code> to make sure no messages are lost or
+truncated.</p>
+</div>
+<p>Example building for <span class="xref std std-ref">nrf52840dk_nrf52840</span>:</p>
+<p>Example building for <span class="xref std std-ref">native_posix</span>:</p>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
 </div>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
       </div>
       <div class="clearer"></div>

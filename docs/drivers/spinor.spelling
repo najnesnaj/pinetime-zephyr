@@ -1,0 +1,2 @@
+drivers/spinor.rst:17: (usefull)  This can be very usefull to store e.g. background for the watch.
+drivers/spinor.rst:50: (xC)  #define JEDEC_ID_MACRONIX_MX25L64      0xC22017

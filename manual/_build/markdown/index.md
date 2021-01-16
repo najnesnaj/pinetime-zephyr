@@ -78,6 +78,9 @@
     * Overview
 
 
+    * Simulation
+
+
     * Requirements
 
 
@@ -495,6 +498,18 @@
                 * Sample Output
 
 
+        * HRS3300 Heart Rate Sensor
+
+
+            * Overview
+
+
+            * Building and Running
+
+
+                * Sample Output
+
+
     * Driver Samples
 
 
@@ -529,6 +544,24 @@
 
 
             * Building and Running
+
+
+            * References
+
+
+        * LittlevGL Basic Sample
+
+
+            * Overview
+
+
+            * Requirements
+
+
+            * Building and Running
+
+
+            * References
 
 
         * ST7789V Display driver

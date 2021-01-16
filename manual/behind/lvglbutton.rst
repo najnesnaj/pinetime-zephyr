@@ -31,7 +31,7 @@ Later on when the touch-screen driver is ready, we'll be able to manipulate it.
 
 .. code-block:: console
 
-*problem* the canvas heigh*width eats up RAM and exceeds once > 40
+*problem* the canvas height*width eats up RAM and exceeds once > 40
 
 
 

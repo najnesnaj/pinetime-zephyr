@@ -1,0 +1,2 @@
+samples/bluetooth/peripheral-cts/README.rst:20: (bluetoothdevice)  a bluetoothdevice running the CTS service
+samples/bluetooth/peripheral-cts/README.rst:24: (printk)  You will need a serial port to read the output of the "printk" messages.
