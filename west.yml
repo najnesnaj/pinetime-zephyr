@@ -1,18 +1,17 @@
-# The west manifest file for the Pinetime.
+# The west manifest file for upstream Zephyr.
 #
-# The per-installation west configuration file specifies the location of this
-# manifest file. The "path" option in the [manifest] section of .west/config
-# defines the folder that contains west.yml. The path is relative to the folder
-# that contains .west.
+# The per-installation west configuration file, .west/config, sets the
+# path to the project containing this file in the [manifest] section's
+# "path" variable.
 #
-# You can create your own manifest files and put them in any
-# repository you want, to create your own custom Pinetime installation.
-# For example, you could create a manifest file in your own
-# out-of-tree application directory, which would pull the pinetime repository
+# You are free to create your own manifest files and put them in any
+# repository you want, to create your own custom Zephyr installations.
+# For example, you could create a manifest file in your own out of
+# tree application directory, which would pull this zephyr repository
 # in as an ordinary project.
 #
 # You can pass your manifest repositories to west init when creating a
-# new pinetime installation. See the west documentation for more
+# new Zephyr installation. See the west documentation for more
 # information.
 
 manifest:
@@ -21,99 +20,140 @@ manifest:
 
   remotes:
     - name: pinetime
-      url-base: https://github.com/nordic-krch
+      url-base: https://github.com/najnesnaj  
     - name: zephyrproject
       url-base: https://github.com/zephyrproject-rtos
-    - name: ncs
-      url-base: https://github.com/NordicPlayground
-    - name: armmbed
-      url-base: https://github.com/ARMmbed
-    - name: throwtheswitch
-      url-base: https://github.com/ThrowTheSwitch
 
-  # The list of external projects for the Pinetime.
-  #
+
+
+  # Please add items below based on alphabetical order
   projects:
-    - name: nrf
-      repo-path: fw-nrfconnect-nrf
-      revision: a955d411cdb8d9abd862342823df8bfefeaf4d6a
-      remote: ncs
-    - name: zephyr
-      repo-path: fw-nrfconnect-zephyr
-      west-commands: scripts/west-commands.yml
-      revision: 3c75196149f876b4d40e490607d80591e60d467f
-      remote: ncs
-    - name: nffs
-      revision: 00dd4fab1a00f2f6e995ef3f2e7c3814689f8885
-      path: modules/fs/nffs
-      remote: zephyrproject
-    - name: segger
-      revision: 6fcf61606d6012d2c44129edc033f59331e268bc
-      path: modules/debug/segger
-      remote: zephyrproject
+    - name: cmsis
+      revision: c3bd2094f92d574377f7af2aec147ae181aa5f8e
+      path: modules/hal/cmsis
+    - name: hal_atmel
+      revision: 9f0a699a2f0253dc9688211ef696daa7b8fadb75
+      path: modules/hal/atmel
+    - name: hal_altera
+      revision: 23c1c1dd7a0c1cc9a399509d1819375847c95b97
+      path: modules/hal/altera
+    - name: canopennode
+      path: modules/lib/canopennode
+      revision: 468d350028a975b96563e58344de48281a0ab371
+    - name: ci-tools
+      revision: da9a2df574094f52d87a03f6393928bdc7dce17c
+      path: tools/ci-tools
+    - name: civetweb
+      revision: e6903b80c09d17cd1a8bb32e40080005558aad29
+      path: modules/lib/civetweb
+    - name: hal_espressif
+      west-commands: west/west-commands.yml
+      revision: 895d99ed0902e8f3ddde7bdeb3a1fe2fa875b005
+      path: modules/hal/espressif
+    - name: fatfs
+      revision: 1d1fcc725aa1cb3c32f366e0c53d7490d0fe1109
+      path: modules/fs/fatfs
+    - name: hal_cypress
+      revision: a12d92816a53a521d79cefcf5c38b9dc8a4fed6e
+      path: modules/hal/cypress
+    - name: hal_infineon
+      revision: f1fa8241f8786198ba41155413243de36ed878a5
+      path: modules/hal/infineon
+    - name: hal_nordic
+      revision: f0d54d8449acbee49b3cebcef0e3e56640c50277
+      path: modules/hal/nordic
+    - name: hal_openisa
+      revision: 40d049f69c50b58ea20473bee14cf93f518bf262
+      path: modules/hal/openisa
+    - name: hal_nuvoton
+      revision: b4d31f33238713a568e23618845702fadd67386f
+      path: modules/hal/nuvoton
+    - name: hal_microchip
+      revision: a1ec761014740a08699720298dd37ad4da360840
+      path: modules/hal/microchip
+    - name: hal_silabs
+      revision: 6bb4a17a2f94a39eba295dd55dbeae6f6c4c9b1b
+      path: modules/hal/silabs
+    - name: hal_st
+      revision: b52fdbf4b62439be9fab9bb4bae9690a42d2fb14
+      path: modules/hal/st
+    - name: hal_stm32
+      revision: cc8731dba4fd9c57d7fe8ea6149828b89c2bd635
+      path: modules/hal/stm32
+    - name: hal_ti
+      revision: 277d70a65ab14d46bf1ec0935cf9bb28bbaa8ab9
+      path: modules/hal/ti
+    - name: libmetal
+      revision: 9d4ee2c3cfd5f49861939447990f3b7d7bf9bf94
+      path: modules/hal/libmetal
+    - name: hal_quicklogic
+      repo-path: hal_quicklogic
+      revision: b3a66fe6d04d87fd1533a5c8de51d0599fcd08d0
+      path: modules/hal/quicklogic
+    - name: lvgl
+      revision: 31acbaa36e9e74ab88ac81e3d21e7f1d00a71136
+      path: modules/lib/gui/lvgl
     - name: mbedtls
+      revision: 24d84ecff195fb15c889d9046e44e4804d626c67
       path: modules/crypto/mbedtls
-      revision: 3776c158fe138a72c97c187e4d31c81c37884be9
-      remote: zephyrproject
     - name: mcuboot
-      repo-path: fw-nrfconnect-mcuboot
-      revision: 2332c4cfd6aa32eadef3346b8616be9908309335
+      revision: 30e0c5a0af21433efc8ea35cabc44bee3f096a62
       path: bootloader/mcuboot
-      remote: ncs
     - name: mcumgr
-      repo-path: fw-nrfconnect-mcumgr
-      revision: 706394b33ed21870b7a2e3df209bf769379f1cb7
+      revision: 43845e883ff3a6cdaae22e23f3e60b5fcf78c6ba
       path: modules/lib/mcumgr
-      remote: ncs
+    - name: net-tools
+      revision: 41132e9220f8bc1223084975350c5e5f3b492afe
+      path: tools/net-tools
+    - name: hal_nxp
+      revision: b916bca1d5976b0157be80b326e3bb46ef605286
+      path: modules/hal/nxp
+    - name: open-amp
+      revision: de1b85a13032a2de1d8b6695ae5f800b613e739d
+      path: modules/lib/open-amp
+    - name: loramac-node
+      revision: 3f545d76a2e6d1db83a470ccdb5bebd1f484e137
+      path: modules/lib/loramac-node
+    - name: openthread
+      revision: aad6518ee30d3840411b21437d396f0405e947c3
+      path: modules/lib/openthread
+    - name: segger
+      revision: 38c79a447e4a47d413b4e8d34448316a5cece77c
+      path: modules/debug/segger
+    - name: sof
+      revision: b5b772dd611879ee6309da38759def79fc7f33f1
+      path: modules/audio/sof
     - name: tinycbor
       path: modules/lib/tinycbor
-      revision: 0fc68fceacd1efc1ce809c5880c380f3d98b7b6e
-      remote: zephyrproject
-    - name: ci-tools
-      path: tools/ci-tools
-      revision: e6b2e622ff726b9c43b9966e0bb1659623566e59
-      remote: zephyrproject
-    - name: net-tools
-      path: tools/net-tools
-      revision: 30b7efa827b04d2e47840716b0372737fe7d6c92
-      remote: zephyrproject
-    - name: nrfxlib
-      path: nrfxlib
-      revision: 3e381d09f1d305e230435f5b6e4c9ef928b6a697
-      remote: ncs
-    - name: cmock
-      path: test/cmock
-      revision: c243b9a7a7b3c471023193992b46cf1bd1910450
-      remote: throwtheswitch
-    - name: unity
-      path: test/cmock/vendor/unity
-      revision: 031f3bbe45f8adf504ca3d13e6f093869920b091
-      remote: throwtheswitch
-    - name: mbedtls-nrf
-      path: mbedtls
-      repo-path: mbedtls
-      revision: mbedtls-2.16.3
-      remote: armmbed
-    - name: fatfs
-      path: modules/fs/fatfs
-      remote: zephyrproject
-      revision: 0c1288bb817c1976388e0f55e8483f671ae437ab
-    - name: hal_nordic
-      path: modules/hal/nordic
-      remote: zephyrproject
-      revision: 8506c348b6da91a9f53bcbb181ecd82b752b9eed
-    - name: lvgl
-      path: modules/lib/gui/lvgl
-      remote: zephyrproject
-      revision: 74fc2e753a997bd71cefa34dd9c56dcb954b42e2
-    - name: nrf_hw_models
-      path: modules/bsim_hw_models/nrf_hw_models
-      remote: zephyrproject
-      revision: fec69703cb1ca06fcdab6d5fde01274f0fc5c759
+      revision: 40daca97b478989884bffb5226e9ab73ca54b8c4
+    - name: tinycrypt
+      path: modules/crypto/tinycrypt
+      revision: 3e9a49d2672ec01435ffbf0d788db6d95ef28de0
     - name: littlefs
       path: modules/fs/littlefs
-      remote: zephyrproject
-      revision: fe9572dd5a9fcf93a249daa4233012692bd2881d
-
-  self:
+      revision: 9e4498d1c73009acd84bb36036ee5e2869112a6c
+    - name: mipi-sys-t
+      path: modules/debug/mipi-sys-t
+      revision: 75e671550ac1acb502f315fe4952514dc73f7bfb
+    - name: nrf_hw_models
+      path: modules/bsim_hw_models/nrf_hw_models
+      revision: a47e326ca772ddd14cc3b9d4ca30a9ab44ecca16
+    - name: hal_xtensa
+      revision: 2f04b615cd5ad3a1b8abef33f9bdd10cc1990ed6
+      path: modules/hal/xtensa
+    - name: edtt
+      path: tools/edtt
+      revision: 7dd56fc100d79cc45c33d43e7401d1803e26f6e7
+    - name: trusted-firmware-m
+      path: modules/tee/tfm
+      revision: 96340fb6c0b7e31c2070e1f428ca24076d2700a6
+    - name: tfm-mcuboot # This is used by the trusted-firmware-m module.
+      repo-path: mcuboot
+      path: modules/tee/tfm-mcuboot
+      revision: 1.7.0-rc1
+self:
     path: pinetime
+
+#  self:
+#    path: zephyr
+#    west-commands: scripts/west-commands.yml
