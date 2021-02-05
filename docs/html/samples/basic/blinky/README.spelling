@@ -1,1 +1,3 @@
+samples/basic/blinky/README.rst:4: (Blinky)  Blinky Application
+samples/basic/blinky/README.rst:9: (Blinky)  The Blinky example shows how to configure GPIO pins as outputs which can also be
 samples/basic/blinky/README.rst:16: (devicetree)  alias in their board devicetree description file. Doing so will generate

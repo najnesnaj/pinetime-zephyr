@@ -87,12 +87,15 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr for the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr  smartwatch framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Starting with some basic applications</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#blinky-example">Blinky    example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reading-out-the-button-on-the-watch">Reading out the button on the watch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#blinky-example">Blinky    example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reading-out-the-button-on-the-watch">Reading out the button on the watch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Building and Running</a></li>
 </ul>
 </li>
 </ul>
@@ -108,6 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging/debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hacking/hacking.html">Hacking stuff</a></li>
 <li class="toctree-l1"><a class="reference internal" href="behind/behind.html">Behind the scene</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
@@ -177,67 +181,40 @@
             
   <div class="section" id="starting-with-some-basic-applications">
 <h1>Starting with some basic applications<a class="headerlink" href="#starting-with-some-basic-applications" title="Permalink to this headline">¶</a></h1>
-<p>The best way to get a feel of zephyr for the PineTime watch, is to start building applications.</p>
+<p>The best way to get a feel of zephyr for the smartwatch, is to start building applications.</p>
 <p>The gpio ports, i2c communication, memory layout, stuff that is particular for the watch is defined in the board definition file.</p>
 <p>The provided samples are standard zephyr application, with some minor modifications.</p>
+<p>The watch framework is under /app. This framework provides a clock, a button, bluetooth, touchscreen and 4 screens, where you can add stuff.</p>
 <div class="section" id="blinky-example">
 <h2>Blinky    example<a class="headerlink" href="#blinky-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">watch</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">contain</span> <span class="n">a</span> <span class="n">led</span> <span class="k">as</span> <span class="n">such</span><span class="p">,</span> <span class="n">but</span> <span class="n">it</span> <span class="n">has</span> <span class="n">background</span> <span class="n">leds</span> <span class="k">for</span> <span class="n">the</span> <span class="n">LCD</span><span class="o">.</span>
-
-<span class="n">Once</span> <span class="n">lit</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">barely</span> <span class="n">see</span> <span class="n">it</span><span class="p">,</span> <span class="n">cause</span> <span class="n">the</span> <span class="n">screen</span><span class="o">-</span><span class="n">LCD</span> <span class="n">remains</span> <span class="n">black</span><span class="o">.</span>
-
-<span class="n">The</span> <span class="n">screen</span> <span class="n">contains</span> <span class="n">three</span> <span class="n">leds</span><span class="p">,</span> <span class="n">this</span> <span class="n">way</span> <span class="n">the</span> <span class="n">intensity</span> <span class="ow">is</span> <span class="nb">set</span><span class="o">.</span>
-</pre></div>
-</div>
-<p>have a look at the pinetime.dts file, here you see the definition of the background leds.</p>
-<p><cite>building an image, which can be found under the build directory</cite></p>
-<p>see : <a class="reference internal" href="samples/basic/blinky/README.html#blinky-sample"><span class="std std-ref">Blinky Application</span></a></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> ~/work/pinetime
-<span class="gp">$</span> west build -p -b pinetime samples/basic/blinky
-</pre></div>
-</div>
-<p>once the compilation is completed,  you can find the firmware under :
-~/work/pinetime/build/zephyr/zephyr.bin</p>
-</div>
-<div class="section" id="reading-out-the-button-on-the-watch">
-<h2>Reading out the button on the watch<a class="headerlink" href="#reading-out-the-button-on-the-watch" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">pinetime</span> <span class="n">does</span> <span class="n">have</span> <span class="n">a</span> <span class="n">button</span> <span class="n">on</span> <span class="n">the</span> <span class="n">side</span><span class="o">.</span>
-
-<span class="n">In</span> <span class="n">order</span> <span class="n">to</span> <span class="n">check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">button</span> <span class="ow">is</span> <span class="n">pressed</span><span class="p">,</span> <span class="n">it</span> <span class="n">sets</span> <span class="n">a</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">memory</span><span class="o">.</span>
-<span class="n">With</span> <span class="n">openocd</span> <span class="n">you</span> <span class="n">can</span> <span class="n">peek</span> <span class="n">at</span> <span class="n">this</span> <span class="n">memory</span> <span class="n">location</span><span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">pinetime</span> <span class="n">watch</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">contain</span> <span class="n">a</span> <span class="n">led</span> <span class="k">as</span> <span class="n">such</span><span class="p">,</span> <span class="n">but</span> <span class="n">it</span> <span class="n">has</span> <span class="n">a</span> <span class="n">vibrator</span><span class="o">-</span><span class="n">motor</span> <span class="n">which</span> <span class="n">makes</span> <span class="n">some</span> <span class="n">noise</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">Desay</span> <span class="n">D6</span> <span class="n">can</span> <span class="n">blink</span> <span class="n">it</span><span class="s1">&#39;s heartrate sensor.</span>
+<span class="n">The</span> <span class="n">vitual</span> <span class="n">POSIX</span> <span class="n">can</span> <span class="nb">print</span> <span class="n">out</span> <span class="n">to</span> <span class="n">the</span> <span class="n">screen</span><span class="o">.</span>
 </pre></div>
 </div>
 <div class="section" id="building-and-running">
 <h3>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h3>
-<p>see : <a class="reference internal" href="samples/basic/button/README.html#button-sample"><span class="std std-ref">Button demo</span></a></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime app/blinky</span>
+<span class="go">west build -p -b ds_d6 app/blinky</span>
+<span class="go">west build -p -b native_posix_64 app/blinky</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="reading-out-the-button-on-the-watch">
+<h2>Reading out the button on the watch<a class="headerlink" href="#reading-out-the-button-on-the-watch" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">pinetime</span> <span class="n">does</span> <span class="n">have</span> <span class="n">a</span> <span class="n">button</span> <span class="n">on</span> <span class="n">the</span> <span class="n">side</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">desay</span> <span class="n">D6</span> <span class="n">has</span> <span class="n">a</span> <span class="n">touchbutton</span> <span class="ow">in</span> <span class="n">front</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">virtual</span> <span class="n">POSIX</span> <span class="n">watch</span> <span class="n">has</span> <span class="n">a</span> <span class="n">touchbutton</span>
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h3>Building and Running<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p><em>Note:</em>:
-<cite>The watch has a button out port (15) and button in port (13). You have to set the out-port high. Took me a while to figure this out…</cite></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/basic/button</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>#define MY_REGISTER (*(volatile uint8_t*)0x2000F000)</p>
-<p>in the program you can set values:
-MY_REGISTER=(read button value);</p>
-<p>this way you know till whether the code executes</p>
-</div>
-<p>a way to set port 15 high (hard-coded of course :))</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">gpio_pin_configure(gpiob, 15,GPIO_DIR_OUT); //push button out</span>
-<span class="go">gpio_pin_write(gpiob, 15, &amp;button_out); //set port high</span>
-</pre></div>
-</div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>telnet <span class="m">127</span>.0.0.1 <span class="m">4444</span>
-</pre></div>
-</div>
-<p>Peeking</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">once your telnet sessions started:</span>
-<span class="go">Trying 127.0.0.1...</span>
-<span class="go">Connected to 127.0.0.1.</span>
-<span class="go">Escape character is &#39;^]&#39;.</span>
-<span class="go">Open On-Chip Debugger</span>
-<span class="gp">&gt;</span>mdw 0x2000F000 0x1
-<span class="go">0x2000f000: 00000100 (switch pushed)</span>
+<cite>The pinetime watch has a button out port (15) and button in port (13). You have to set the out-port high. Took me a while to figure this out...</cite></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime app/button</span>
+<span class="go">west build -p -b ds_d6 app/button</span>
+<span class="go">west build -p -b native_posix_64 app/button</span>
 </pre></div>
 </div>
 </div>

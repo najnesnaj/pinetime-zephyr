@@ -2,7 +2,7 @@
 
 ## Overview
 
-I’m not a zephyr expert and am learning on the way.
+I'm not a zephyr expert and am learning on the way.
 
 In this chapter I let you glimpse behind the scene. (and notice all the struggle)
 

@@ -9,7 +9,7 @@ This sample is not really important, but it will teach you that you need to set 
 In this repo under samples you will find an adapted gui/clock program.
 A button from the LVGL library is placed on the screen.
 
-Later on when the touch-screen driver is ready, we’ll be able to manipulate it.
+Later on when the touch-screen driver is ready, we'll be able to manipulate it.
 
 ```
 Make sure that prj.conf file in clock directory contains the following:
@@ -21,4 +21,4 @@ CONFIG_LVGL_OBJ_BUTTON=y
 ```
 ```
 
-*problem* the canvas heigh\*width eats up RAM and exceeds once > 40
+*problem* the canvas height\*width eats up RAM and exceeds once > 40

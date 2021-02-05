@@ -1,3 +1,4 @@
 samples/basic/button/README.rst:9: (openocd)  With openocd or any other debugger you can peek at this location.
 samples/basic/button/README.rst:26: (sw)  Alternatively, this could also be done by defining 'sw0' alias in the board
 samples/basic/button/README.rst:26: (devicetree)  devicetree description file.
+samples/basic/button/README.rst:33: (pinetime)  for the pinetime

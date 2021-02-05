@@ -1,4 +1,7 @@
 hacking/openocd.rst:5: (howto)  howto use 2 openocd sessions
 hacking/openocd.rst:5: (openocd)  howto use 2 openocd sessions
+hacking/openocd.rst:28: (microcontrollers)  Suppose you have 2 microcontrollers
+hacking/openocd.rst:35: (Howto)  Howto setup a second openocd session on a different port?
 hacking/openocd.rst:35: (openocd)  Howto setup a second openocd session on a different port?
+hacking/openocd.rst:45: (Howto)  Howto use the GPIO header of a Single Board computer
 hacking/openocd.rst:47: (seperate)  This works really well, and does not require a seperate programmer.

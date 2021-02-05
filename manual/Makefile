@@ -1,8 +1,9 @@
 # Minimal makefile for Sphinx documentation
 #
+#sphinxopts -b spelling 
 
 # You can set these variables from the command line.
-SPHINXOPTS    =  -b spelling
+SPHINXOPTS    = 
 SPHINXBUILD   = sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build

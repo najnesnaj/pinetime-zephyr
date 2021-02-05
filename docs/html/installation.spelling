@@ -1,0 +1,19 @@
+installation.rst:10: (Pinetime)  Pinetime has become part of the standard zephyr distribution!
+installation.rst:10: (Pinetime)  This manual was initially created with Pinetime as an external application.
+installation.rst:10: (pinetime)  As from today you can install zephyr and execute a pinetime sample!
+installation.rst:15: (Heartrate)  However the drivers for the Heartrate sensor, the acceleration sensor and touch screen are not - yet - part of the standard zephyr-distribution.
+installation.rst:24: (Focaltech)  The standard Focaltech touchscreen driver has been adapted slightly, as well as the board definition files.
+installation.rst:34: (focaltech)  The focaltech touchscreen driver is more recent/better than the cst816s touchscreendriver.
+installation.rst:34: (cst)  The focaltech touchscreen driver is more recent/better than the cst816s touchscreendriver.
+installation.rst:34: (touchscreendriver)  The focaltech touchscreen driver is more recent/better than the cst816s touchscreendriver.
+installation.rst:39: (bma)  The acceleration sensor bma421 driver is working, and work has been done to distill a stepcounter out of it.
+installation.rst:39: (stepcounter)  The acceleration sensor bma421 driver is working, and work has been done to distill a stepcounter out of it.
+installation.rst:41: (heartrate)  The heartrate sensor hrs3300, could work, but is kind of useless without a proper algorithm (open source) to distill a heartbeat out of it.
+installation.rst:41: (lightsensor)  You can still play around with it's capabilities as a lightsensor / led device.
+installation.rst:50: (Pinetime)  Pinetime works as external (out of tree) application.
+installation.rst:50: (pinetime)  You can clone pinetime next to zephyr in the working directory and update manifest and west.
+installation.rst:64: (macOS)  the documentation describes an installation process under Ubuntu/macOS/Windows
+installation.rst:102: (cd)  cd ~/work/pinetime
+installation.rst:102: (pinetime)  cd ~/work/pinetime
+installation.rst:104: (pinetime)  west build -p -b pinetime samples/basic/blinky
+installation.rst:104: (blinky)  west build -p -b pinetime samples/basic/blinky

@@ -86,7 +86,7 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr for the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr  smartwatch framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bluetooth.html">bluetooth (BLE) example</a></li>
@@ -100,6 +100,7 @@
 <li class="toctree-l1"><a class="reference internal" href="fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging/debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hacking/hacking.html">Hacking stuff</a></li>
 <li class="toctree-l1"><a class="reference internal" href="behind/behind.html">Behind the scene</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
@@ -177,7 +178,7 @@
 <li class="toctree-l2"><a class="reference internal" href="copyright.html#license">LICENSE:</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr for the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr  smartwatch framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#update-on-31-12-2020">update on 31-12-2020</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#in-case-you-already-have-zephyr-installed">In case you already have zephyr installed:</a></li>
@@ -185,9 +186,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="basicapplications.html#blinky-example">Blinky    example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basicapplications.html#reading-out-the-button-on-the-watch">Reading out the button on the watch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basicapplications.html#blinky-example">Blinky    example</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="basicapplications.html#building-and-running">Building and Running</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="basicapplications.html#reading-out-the-button-on-the-watch">Reading out the button on the watch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="basicapplications.html#id1">Building and Running</a></li>
 </ul>
 </li>
 </ul>
@@ -555,9 +559,22 @@
 <li class="toctree-l2"><a class="reference internal" href="menuconfig.html#zephyr-is-like-linux">Zephyr is like linux</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="debugging/debugging.html">Debugging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="debugging/debug.html">debugging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="debugging/debug.html#segger-jlink">Segger JLink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging/debug.html#black-magic">Black Magic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging/debug.html#stm32-raspberry-openocd">STM32 - Raspberry - OpenOCD</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="debugging/blackmagicprobe.html">The black magic probe</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="debugging/blackmagicprobe.html#probes-in-zephyr">probes in zephyr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="debugging/blackmagicprobe.html#howto-setup-a-blackmagicprobe">howto setup a blackmagicprobe</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="hacking/hacking.html">Hacking stuff</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="hacking/flashing.html">hacking   the pinetime smartwatch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hacking/debugging.html">debugging   the pinetime smartwatch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hacking/i2cscanning.html">scanning the I2C_1 port</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="hacking/i2cscanning.html#building-and-running">Building and Running</a></li>
 </ul>
@@ -614,10 +631,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="about.html">About</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="about.html#todo">Todo</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 </ul>
 </div>
 </div>

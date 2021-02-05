@@ -1,0 +1,7 @@
+samples/gui/clock-cts/README.rst:9: (bluetooth)  This program gets the time of the bluetooth cts server and displays it.
+samples/gui/clock-cts/README.rst:9: (cts)  This program gets the time of the bluetooth cts server and displays it.
+samples/gui/clock-cts/README.rst:14: (cts)  A cts server.
+samples/gui/clock-cts/README.rst:14: (linux)  On linux, bluez together with a python script was used.
+samples/gui/clock-cts/README.rst:14: (bluez)  On linux, bluez together with a python script was used.
+samples/gui/clock-cts/README.rst:17: (pinetime)  You need to connect to the pinetime first!
+samples/gui/clock-cts/README.rst:17: (bluetoothctl)  (bluetoothctl, connect <MAC>)

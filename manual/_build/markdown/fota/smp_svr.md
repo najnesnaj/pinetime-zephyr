@@ -39,7 +39,7 @@ So both slots need smp_svr software!
 
 ### Step 2: Sign the image
 
-Using MCUboot’s `imgtool.py` script, sign the `zephyr.(bin|hex)`
+Using MCUboot's `imgtool.py` script, sign the `zephyr.(bin|hex)`
 file you built in Step 3. In the below example, the MCUboot repo is located at
 `~/src/mcuboot`.
 
@@ -67,12 +67,12 @@ in openocd : program zephyr.bin 0xc000
 
 ### Step 4: Run it!
 
-**NOTE**: If you haven’t installed `mcumgr` yet, then do so by following the
+**NOTE**: If you haven't installed `mcumgr` yet, then do so by following the
 instructions in the mcumgr_cli section of the Management subsystem
 documentation.
 
 The `smp_svr` app is ready to run.  Just reset your board and test the app
-with the `mcumgr` command-line tool’s `echo` functionality, which will
+with the `mcumgr` command-line tool's `echo` functionality, which will
 send a string to the remote target device and have it echo it back:
 
 ```
@@ -85,7 +85,7 @@ hello
 Now that the SMP server is running on your pinetime, you are able to communicate
 with it using mcumgr.
 
-You might want to test “OTA DFU”, or Over-The-Air Device Firmware Upgrade.
+You might want to test "OTA DFU", or Over-The-Air Device Firmware Upgrade.
 
 To do this, build a second sample (following the steps below) to verify
 it is sent over the air and properly flashed into slot-1, and then

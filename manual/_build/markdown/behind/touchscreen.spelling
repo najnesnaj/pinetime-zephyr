@@ -1,1 +1,5 @@
 behind/touchscreen.rst:2: (Hynitron)  Touchscreen Hynitron
+behind/touchscreen.rst:24: (pinetime)  complement the pinetime.dts file with the following (under samples/sensor/bma280)
+behind/touchscreen.rst:24: (dts)  complement the pinetime.dts file with the following (under samples/sensor/bma280)
+behind/touchscreen.rst:24: (bma)  complement the pinetime.dts file with the following (under samples/sensor/bma280)
+behind/touchscreen.rst:52: (Todo)  Todo

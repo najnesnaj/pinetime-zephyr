@@ -1,17 +1,16 @@
-# Zephyr for the pinetime smartwatch
+# Zephyr  smartwatch framework
 
 ```
-this document describes the installation of zephyr RTOS on the PineTime smartwatch.
+this document started off in setting up zephyr RTOS on the PineTime smartwatch.
 
 https://wiki.pine64.org/index.php/PineTime
 
-It should be applicable on other nordic nrf52832 based watches (Desay D6....).
+It evolved to accomodate other nordic nrf52832 based watches (Desay D6....) and a Virtual watch (native_posix_64)
 ```
 
 ```
 the approach in this manual is to get quick results :
-    - minimal effort install (pinetime works as an external (out of tree)
-      application for zephyr)
+    - minimal effort install
     - try out the samples
     - inspire you to modify and enhance
 ```

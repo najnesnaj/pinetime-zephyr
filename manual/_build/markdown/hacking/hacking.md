@@ -4,9 +4,6 @@
 * hacking   the pinetime smartwatch
 
 
-* debugging   the pinetime smartwatch
-
-
 * scanning the I2C_1 port
 
 

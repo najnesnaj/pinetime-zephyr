@@ -2,7 +2,7 @@
 
 ## Overview
 
-This sample application “clock” uses the RTC2 timer.
+This sample application "clock" uses the RTC2 timer.
 (the standard sample with RTC0 is not usable together with bluetooth)
 
 It uses the counter driver. (based on the alarm sample)
@@ -10,7 +10,7 @@ It uses the counter driver. (based on the alarm sample)
 Basically an interrupt is set to go off after 1 second.
 The number of seconds is incremented and the interrupt is launched again.
 
-It will serve as a building block for a “time of the day” clock.
+It will serve as a building block for a "time of the day" clock.
 
 In addition it will need a function to set the time.
 

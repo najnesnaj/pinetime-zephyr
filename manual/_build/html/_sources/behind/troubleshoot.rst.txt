@@ -6,7 +6,7 @@ Drivers, like the one for the accel sensor BMA421 or the touchscreen CST816S, ca
 
 Adapting existing drivers did not get me the desired quick results.
 
-Even after analysing the behaviour, setting values at each function step, did not get me any further.
+Even after analyzing the behaviour, setting values at each function step, did not get me any further.
 
 
 
@@ -22,7 +22,7 @@ This affect the behaviour of how threads are handled.
 
 The tread-handling and interrupt-handling occurs in the driver itself.
 
-An interrupt is handled immediatly, the processing is offloaded to the threading.
+An interrupt is handled immediately, the processing is offloaded to the threading.
 
 
 Example

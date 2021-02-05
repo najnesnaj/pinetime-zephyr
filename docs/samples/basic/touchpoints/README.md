@@ -3,7 +3,7 @@
 ## Overview
 
 When touched the touchscreen triggers an interrupt,
-it’s address 0x15 becomes visable.
+it's address 0x15 becomes visable.
 
 ## Requirements
 

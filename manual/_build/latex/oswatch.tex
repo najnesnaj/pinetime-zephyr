@@ -73,7 +73,7 @@
 
 
 \title{open source watch Documentation}
-\date{Jan 16, 2021}
+\date{Feb 02, 2021}
 \release{1.1.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -94,9 +94,7 @@
 
 \chapter{Copyright}
 \label{\detokenize{copyright:copyright}}\label{\detokenize{copyright::doc}}
-\sphinxstylestrong{Note : You may at any time read the book, store it in your ereaders}
-
-The book itself is subject to copyright.
+The book is subject to copyright.
 
 You cannot use the book, or parts of the book into your own publications, without the permission of the author.
 
@@ -109,23 +107,22 @@ Jan Jansen
 
 \section{LICENSE:}
 \label{\detokenize{copyright:license}}
-All the software is subject to the Apache 2.0 license (same as zephyr), which is very liberal.
+All the software is subject to the Apache 2.0 license (same as the Zephyr RTOS)
 
 
-\chapter{Zephyr for the pinetime smartwatch}
-\label{\detokenize{content:zephyr-for-the-pinetime-smartwatch}}\label{\detokenize{content::doc}}
+\chapter{Zephyr  smartwatch framework}
+\label{\detokenize{content:zephyr-smartwatch-framework}}\label{\detokenize{content::doc}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{this} \PYG{n}{document} \PYG{n}{describes} \PYG{n}{the} \PYG{n}{installation} \PYG{n}{of} \PYG{n}{zephyr} \PYG{n}{RTOS} \PYG{n}{on} \PYG{n}{the} \PYG{n}{PineTime} \PYG{n}{smartwatch}\PYG{o}{.}
+\PYG{n}{this} \PYG{n}{document} \PYG{n}{started} \PYG{n}{off} \PYG{o+ow}{in} \PYG{n}{setting} \PYG{n}{up} \PYG{n}{zephyr} \PYG{n}{RTOS} \PYG{n}{on} \PYG{n}{the} \PYG{n}{PineTime} \PYG{n}{smartwatch}\PYG{o}{.}
 
 \PYG{n}{https}\PYG{p}{:}\PYG{o}{/}\PYG{o}{/}\PYG{n}{wiki}\PYG{o}{.}\PYG{n}{pine64}\PYG{o}{.}\PYG{n}{org}\PYG{o}{/}\PYG{n}{index}\PYG{o}{.}\PYG{n}{php}\PYG{o}{/}\PYG{n}{PineTime}
 
-\PYG{n}{It} \PYG{n}{should} \PYG{n}{be} \PYG{n}{applicable} \PYG{n}{on} \PYG{n}{other} \PYG{n}{nordic} \PYG{n}{nrf52832} \PYG{n}{based} \PYG{n}{watches} \PYG{p}{(}\PYG{n}{Desay} \PYG{n}{D6}\PYG{o}{.}\PYG{o}{.}\PYG{o}{.}\PYG{o}{.}\PYG{p}{)}\PYG{o}{.}
+\PYG{n}{It} \PYG{n}{evolved} \PYG{n}{to} \PYG{n}{accomodate} \PYG{n}{other} \PYG{n}{nordic} \PYG{n}{nrf52832} \PYG{n}{based} \PYG{n}{watches} \PYG{p}{(}\PYG{n}{Desay} \PYG{n}{D6}\PYG{o}{.}\PYG{o}{.}\PYG{o}{.}\PYG{o}{.}\PYG{p}{)} \PYG{o+ow}{and} \PYG{n}{a} \PYG{n}{Virtual} \PYG{n}{watch} \PYG{p}{(}\PYG{n}{native\PYGZus{}posix\PYGZus{}64}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{the} \PYG{n}{approach} \PYG{o+ow}{in} \PYG{n}{this} \PYG{n}{manual} \PYG{o+ow}{is} \PYG{n}{to} \PYG{n}{get} \PYG{n}{quick} \PYG{n}{results} \PYG{p}{:}
-    \PYG{o}{\PYGZhy{}} \PYG{n}{minimal} \PYG{n}{effort} \PYG{n}{install} \PYG{p}{(}\PYG{n}{pinetime} \PYG{n}{works} \PYG{k}{as} \PYG{n}{an} \PYG{n}{external} \PYG{p}{(}\PYG{n}{out} \PYG{n}{of} \PYG{n}{tree}\PYG{p}{)}
-      \PYG{n}{application} \PYG{k}{for} \PYG{n}{zephyr}\PYG{p}{)}
+    \PYG{o}{\PYGZhy{}} \PYG{n}{minimal} \PYG{n}{effort} \PYG{n}{install}
     \PYG{o}{\PYGZhy{}} \PYG{k}{try} \PYG{n}{out} \PYG{n}{the} \PYG{n}{samples}
     \PYG{o}{\PYGZhy{}} \PYG{n}{inspire} \PYG{n}{you} \PYG{n}{to} \PYG{n}{modify} \PYG{o+ow}{and} \PYG{n}{enhance}
 \end{sphinxVerbatim}
@@ -159,7 +156,10 @@ Pinetime has become part of the standard zephyr distribution!
 This manual was initially created with Pinetime as an external application.
 As from today you can install zephyr and execute a pinetime sample!
 
-However the drivers for the Heartrate sensor, accell sensor and touch screen are not \sphinxhyphen{} yet \sphinxhyphen{} part of the standard zephyr\sphinxhyphen{}distribution.
+In addition the /app directory can be copied under same directory as the /zephyr directory.
+It contains extra board definitions and updated basic samples, and(!) the opensource smartwatch framework.
+
+However the drivers for the Heartrate sensor, the acceleration sensor and touch screen are not \sphinxhyphen{} yet \sphinxhyphen{} part of the standard zephyr\sphinxhyphen{}distribution.
 These drivers are work in progress.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -176,14 +176,14 @@ To get the sample up and running copy both the adapted board definition files an
 \end{sphinxVerbatim}
 
 The focaltech touchscreen driver is more recent/better than the cst816s touchscreendriver.
-Still, there is room for improvement (slide events …..)
+Still, there is room for improvement (slide events .....)
 
 The battery driver was provided as a module and is not working yet.
 
-The accel sensor bma421 driver is working, and work has been done to distill a stepcounter out of it.
+The acceleration sensor bma421 driver is working, and work has been done to distill a stepcounter out of it.
 
-The heartrate sensor hrs3300, could work, but is kind of useless without a proper algorith (open source) to distill a heartbeat out of it.
-You can stil play around with it’s capabilities as a lightsensor / led device.
+The heartrate sensor hrs3300, could work, but is kind of useless without a proper algorithm (open source) to distill a heartbeat out of it.
+You can still play around with it\textquotesingle{}s capabilities as a lightsensor / led device.
 
 
 \section{In case you already have zephyr installed:}
@@ -203,7 +203,7 @@ You can clone pinetime next to zephyr in the working directory and update manife
 the documentation describes an installation process under Ubuntu/macOS/Windows
 
 I picked Debian (which is not listed)
-…. and soon afterwards ran into trouble
+.... and soon afterwards ran into trouble
 
 \sphinxtitleref{this behaviour is known as : stuborn or stupid, but I remain convinced it could work}
 
@@ -254,89 +254,51 @@ west build \sphinxhyphen{}p \sphinxhyphen{}b pinetime samples/basic/blinky
 
 \chapter{Starting with some basic applications}
 \label{\detokenize{basicapplications:starting-with-some-basic-applications}}\label{\detokenize{basicapplications::doc}}
-The best way to get a feel of zephyr for the PineTime watch, is to start building applications.
+The best way to get a feel of zephyr for the smartwatch, is to start building applications.
 
 The gpio ports, i2c communication, memory layout, stuff that is particular for the watch is defined in the board definition file.
 
 The provided samples are standard zephyr application, with some minor modifications.
 
+The watch framework is under /app. This framework provides a clock, a button, bluetooth, touchscreen and 4 screens, where you can add stuff.
+
 
 \section{Blinky    example}
 \label{\detokenize{basicapplications:blinky-example}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{The} \PYG{n}{watch} \PYG{n}{does} \PYG{o+ow}{not} \PYG{n}{contain} \PYG{n}{a} \PYG{n}{led} \PYG{k}{as} \PYG{n}{such}\PYG{p}{,} \PYG{n}{but} \PYG{n}{it} \PYG{n}{has} \PYG{n}{background} \PYG{n}{leds} \PYG{k}{for} \PYG{n}{the} \PYG{n}{LCD}\PYG{o}{.}
-
-\PYG{n}{Once} \PYG{n}{lit}\PYG{p}{,} \PYG{n}{you} \PYG{n}{can} \PYG{n}{barely} \PYG{n}{see} \PYG{n}{it}\PYG{p}{,} \PYG{n}{cause} \PYG{n}{the} \PYG{n}{screen}\PYG{o}{\PYGZhy{}}\PYG{n}{LCD} \PYG{n}{remains} \PYG{n}{black}\PYG{o}{.}
-
-\PYG{n}{The} \PYG{n}{screen} \PYG{n}{contains} \PYG{n}{three} \PYG{n}{leds}\PYG{p}{,} \PYG{n}{this} \PYG{n}{way} \PYG{n}{the} \PYG{n}{intensity} \PYG{o+ow}{is} \PYG{n+nb}{set}\PYG{o}{.}
+\PYG{n}{The} \PYG{n}{pinetime} \PYG{n}{watch} \PYG{n}{does} \PYG{o+ow}{not} \PYG{n}{contain} \PYG{n}{a} \PYG{n}{led} \PYG{k}{as} \PYG{n}{such}\PYG{p}{,} \PYG{n}{but} \PYG{n}{it} \PYG{n}{has} \PYG{n}{a} \PYG{n}{vibrator}\PYG{o}{\PYGZhy{}}\PYG{n}{motor} \PYG{n}{which} \PYG{n}{makes} \PYG{n}{some} \PYG{n}{noise}\PYG{o}{.}
+\PYG{n}{The} \PYG{n}{Desay} \PYG{n}{D6} \PYG{n}{can} \PYG{n}{blink} \PYG{n}{it}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{s heartrate sensor.}
+\PYG{n}{The} \PYG{n}{vitual} \PYG{n}{POSIX} \PYG{n}{can} \PYG{n+nb}{print} \PYG{n}{out} \PYG{n}{to} \PYG{n}{the} \PYG{n}{screen}\PYG{o}{.}
 \end{sphinxVerbatim}
 
-have a look at the pinetime.dts file, here you see the definition of the background leds.
 
-\sphinxtitleref{building an image, which can be found under the build directory}
-
-see : {\hyperref[\detokenize{samples/basic/blinky/README:blinky-sample}]{\sphinxcrossref{\DUrole{std,std-ref}{Blinky Application}}}}
-
+\subsection{Building and Running}
+\label{\detokenize{basicapplications:building-and-running}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+gp}{\PYGZdl{}} \PYG{n+nb}{cd} \PYGZti{}/work/pinetime
-\PYG{g+gp}{\PYGZdl{}} west build \PYGZhy{}p \PYGZhy{}b pinetime samples/basic/blinky
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime app/blinky}
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b ds\PYGZus{}d6 app/blinky}
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b native\PYGZus{}posix\PYGZus{}64 app/blinky}
 \end{sphinxVerbatim}
-
-once the compilation is completed,  you can find the firmware under :
-\textasciitilde{}/work/pinetime/build/zephyr/zephyr.bin
 
 
 \section{Reading out the button on the watch}
 \label{\detokenize{basicapplications:reading-out-the-button-on-the-watch}}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{The} \PYG{n}{pinetime} \PYG{n}{does} \PYG{n}{have} \PYG{n}{a} \PYG{n}{button} \PYG{n}{on} \PYG{n}{the} \PYG{n}{side}\PYG{o}{.}
-
-\PYG{n}{In} \PYG{n}{order} \PYG{n}{to} \PYG{n}{check} \PYG{k}{if} \PYG{n}{the} \PYG{n}{button} \PYG{o+ow}{is} \PYG{n}{pressed}\PYG{p}{,} \PYG{n}{it} \PYG{n}{sets} \PYG{n}{a} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{memory}\PYG{o}{.}
-\PYG{n}{With} \PYG{n}{openocd} \PYG{n}{you} \PYG{n}{can} \PYG{n}{peek} \PYG{n}{at} \PYG{n}{this} \PYG{n}{memory} \PYG{n}{location}\PYG{o}{.}
+\PYG{n}{The} \PYG{n}{desay} \PYG{n}{D6} \PYG{n}{has} \PYG{n}{a} \PYG{n}{touchbutton} \PYG{o+ow}{in} \PYG{n}{front}\PYG{o}{.}
+\PYG{n}{The} \PYG{n}{virtual} \PYG{n}{POSIX} \PYG{n}{watch} \PYG{n}{has} \PYG{n}{a} \PYG{n}{touchbutton}
 \end{sphinxVerbatim}
 
 
 \subsection{Building and Running}
-\label{\detokenize{basicapplications:building-and-running}}
-see : {\hyperref[\detokenize{samples/basic/button/README:button-sample}]{\sphinxcrossref{\DUrole{std,std-ref}{Button demo}}}}
-
+\label{\detokenize{basicapplications:id1}}
 \sphinxstyleemphasis{Note:}:
-\sphinxtitleref{The watch has a button out port (15) and button in port (13). You have to set the out\sphinxhyphen{}port high. Took me a while to figure this out…}
+\sphinxtitleref{The pinetime watch has a button out port (15) and button in port (13). You have to set the out\sphinxhyphen{}port high. Took me a while to figure this out...}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/basic/button}
-\end{sphinxVerbatim}
-
-\begin{sphinxadmonition}{note}{Note:}
-\#define MY\_REGISTER (*(volatile uint8\_t*)0x2000F000)
-
-in the program you can set values:
-MY\_REGISTER=(read button value);
-
-this way you know till whether the code executes
-\end{sphinxadmonition}
-
-a way to set port 15 high (hard\sphinxhyphen{}coded of course :))
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{gpio\PYGZus{}pin\PYGZus{}configure(gpiob, 15,GPIO\PYGZus{}DIR\PYGZus{}OUT); //push button out}
-\PYG{g+go}{gpio\PYGZus{}pin\PYGZus{}write(gpiob, 15, \PYGZam{}button\PYGZus{}out); //set port high}
-\end{sphinxVerbatim}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+gp}{\PYGZsh{}}telnet \PYG{l+m}{127}.0.0.1 \PYG{l+m}{4444}
-\end{sphinxVerbatim}
-
-Peeking
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{once your telnet sessions started:}
-\PYG{g+go}{Trying 127.0.0.1...}
-\PYG{g+go}{Connected to 127.0.0.1.}
-\PYG{g+go}{Escape character is \PYGZsq{}\PYGZca{}]\PYGZsq{}.}
-\PYG{g+go}{Open On\PYGZhy{}Chip Debugger}
-\PYG{g+gp}{\PYGZgt{}}mdw 0x2000F000 0x1
-\PYG{g+go}{0x2000f000: 00000100 (switch pushed)}
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime app/button}
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b ds\PYGZus{}d6 app/button}
+\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b native\PYGZus{}posix\PYGZus{}64 app/button}
 \end{sphinxVerbatim}
 
 
@@ -352,7 +314,7 @@ The watch will behave as a bluetooth beacon, and you should be able to detect it
 \section{Using a standard zephyr application under pinetime:}
 \label{\detokenize{bluetooth:using-a-standard-zephyr-application-under-pinetime}}
 Each sample has its own directory.
-In this directory you will notice a file : “CMakeLists.txt”.
+In this directory you will notice a file : "CMakeLists.txt".
 
 In order to use a standard, you can just copy it under the pinetime directory.
 
@@ -450,7 +412,7 @@ It just reads out the battery level, and prints it.
 \section{Display    example}
 \label{\detokenize{display:display-example}}
 This is just a simple display test.
-It displays coloured squares, but it allows you to check if the screen is OK.
+It displays colored squares, but it allows you to check if the screen is OK.
 
 \sphinxstylestrong{TIP: While connecting 5V, do not connect 3.3V at the same time}
 
@@ -467,7 +429,7 @@ It displays coloured squares, but it allows you to check if the screen is OK.
 
 Once the compilation is completed you can upload the firmware.
 
-If all goes well, you should see some coloured squares on your screen.
+If all goes well, you should see some colored squares on your screen.
 
 \sphinxstylestrong{Note : in order to get the display st7789 Picture\sphinxhyphen{}Perfect, you might need a zephyr patch}
 
@@ -496,7 +458,7 @@ Add the gfx sample from this repo into your project:
 \end{sphinxVerbatim}
 
 \begin{sphinxadmonition}{note}{Note:}
-In order to make the library work the sample is built with C++ support. This is achieved by having the following line in the sample’s \sphinxtitleref{prj.conf} configuration:
+In order to make the library work the sample is built with C++ support. This is achieved by having the following line in the sample\textquotesingle{}s \sphinxtitleref{prj.conf} configuration:
 
 \sphinxcode{\sphinxupquote{CONFIG\_CPLUSPLUS=y}}
 \end{sphinxadmonition}
@@ -516,7 +478,7 @@ If all goes well, you should see a looping graphical test: drawing lines, rectan
 
 \section{Overview}
 \label{\detokenize{lvgl:overview}}
-This sample application displays “Hello World” in the center of the screen
+This sample application displays "Hello World" in the center of the screen
 and a counter at the bottom which increments every second.
 
 LittlevGL is a free and open\sphinxhyphen{}source graphics library providing everything you need to create embedded GUI with easy\sphinxhyphen{}to\sphinxhyphen{}use graphical elements, beautiful visual effects and low memory footprint.
@@ -525,7 +487,7 @@ LittlevGL is a free and open\sphinxhyphen{}source graphics library providing eve
 \section{Simulation}
 \label{\detokenize{lvgl:simulation}}
 In order to avoid uploading to check what the display looks like, there is a simple way to simulate this.
-I’ve tested this on Ubuntu 18.04 64bit. You’ll need the SDL2 library.
+I\textquotesingle{}ve tested this on Ubuntu 18.04 64bit. You\textquotesingle{}ll need the SDL2 library.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b native\PYGZus{}posix\PYGZus{}64 samples/display/lvgl \PYGZhy{}DCONF=board/native\PYGZhy{}posix\PYGZus{}64}
@@ -594,7 +556,7 @@ Create a button
 touchscreen activation (problem cause zephyr does not support this yet)
 
 \item {} 
-lvgl supports lv\_canvas\_rotate(canvas, \&imd\_dsc, angle, x, y, pivot\_x, pivot\_y) should be cool for a clock, chrono…
+lvgl supports lv\_canvas\_rotate(canvas, \&imd\_dsc, angle, x, y, pivot\_x, pivot\_y) should be cool for a clock, chrono...
 
 \end{itemize}
 
@@ -613,7 +575,7 @@ see : {\hyperref[\detokenize{samples/gui/clock/README:clock-sample}]{\sphinxcros
 
 \section{Overview}
 \label{\detokenize{clock:overview}}
-This sample application displays a “clockbackground” in the center of the screen.
+This sample application displays a "clockbackground" in the center of the screen.
 
 LittlevGL is a free and open\sphinxhyphen{}source graphics library providing everything you need to create embedded GUI with easy\sphinxhyphen{}to\sphinxhyphen{}use graphical elements, beautiful visual effects and low memory footprint.
 
@@ -629,7 +591,7 @@ Make sure the prj.conf contains the following :
 \PYG{n}{CONFIG\PYGZus{}LVGL\PYGZus{}OBJ\PYGZus{}IMAGE}\PYG{o}{=}\PYG{n}{y}
 \end{sphinxVerbatim}
 
-LitlevGL uses a “c” file to store the image.
+LitlevGL uses a "c" file to store the image.
 You need to convert a jpg, or png image to this c file.
 There is an online tool : \sphinxurl{https://littlevgl.com/image-to-c-array}
 
@@ -647,7 +609,7 @@ There is an online tool : \sphinxurl{https://littlevgl.com/image-to-c-array}
 create an internal clock (and adjustment mechanism, eg. bluetooth cts)
 
 \item {} 
-lvgl supports lv\_canvas\_rotate(canvas, \&imd\_dsc, angle, x, y, pivot\_x, pivot\_y) should be cool for a clock, chrono…
+lvgl supports lv\_canvas\_rotate(canvas, \&imd\_dsc, angle, x, y, pivot\_x, pivot\_y) should be cool for a clock, chrono...
 
 \end{itemize}
 
@@ -664,7 +626,7 @@ LittlevGL Web Page: \sphinxurl{https://littlevgl.com/}
 
 \section{Overview}
 \label{\detokenize{RTC:overview}}
-This sample application “clock” uses the RTC2 timer.
+This sample application "clock" uses the RTC2 timer.
 (the standard sample with RTC0 is not usable together with bluetooth)
 
 It uses the counter driver. (based on the alarm sample)
@@ -672,7 +634,7 @@ It uses the counter driver. (based on the alarm sample)
 Basically an interrupt is set to go off after 1 second.
 The number of seconds is incremented and the interrupt is launched again.
 
-It will serve as a building block for a “time of the day” clock.
+It will serve as a building block for a "time of the day" clock.
 
 In addition it will need a function to set the time.
 
@@ -742,7 +704,7 @@ a CTS client (the pinetime watch)
 \label{\detokenize{current-time:ble-peripheral-cts-sample-for-zephyr}}
 This example demonstrates the basic usage of the current time service.
 It is based on the \sphinxurl{https://github.com/Dejvino/pinetime-hermes-firmware}.
-It starts advertising it’s UUID, and you can connect to it.
+It starts advertising it\textquotesingle{}s UUID, and you can connect to it.
 Once connected, it will read the time from your CTS server (bluez on linux running the gatt\sphinxhyphen{}cts\sphinxhyphen{}server script in my case)
 
 first build the image
@@ -781,7 +743,7 @@ Using bluetoothctl:
 
 \section{Howto use Bluez on linux to set up a time service}
 \label{\detokenize{current-time:howto-use-bluez-on-linux-to-set-up-a-time-service}}
-Within the bluez source distribution there is an example GATT (Generic Attribute Profile)server. It advertises some standard service such as heart rate, battery …
+Within the bluez source distribution there is an example GATT (Generic Attribute Profile)server. It advertises some standard service such as heart rate, battery ...
 Koen zandberg adapted this script, so it advertises the current time :
 \sphinxurl{https://github.com/bosmoment/gatt-cts/blob/master/gatt-cts-server.py}
 
@@ -801,7 +763,7 @@ Here is how to do it with an Android smartphone running NRFConnect:
 
 Build and program the firmware on the Pinetime Install NRFConnect (\sphinxurl{https://www.nordicsemi.com/Software-and-Tools/Development-Tools/nRF-Connect-for-desktop})
 
-Start NRFConnect and create a CTS server : Tap the hamburger button on the top left and select “Configure GATT server” Tap “Add service” on the bottom Select server configuration “Current Time Service” and tap OK Go back to the main screen and scan for BLE devices. A device called “PineTime” should appear Tap the button “Connect” next to the PineTime device. It should connect to the PineTime and switch to a new tab. On this tab, on the top right, there is a 3 dots button. Tap on it and select Bond. The bonding process begins, and if it is sucessful, the PineTime should update its time and display it on the screen.
+Start NRFConnect and create a CTS server : Tap the hamburger button on the top left and select "Configure GATT server" Tap "Add service" on the bottom Select server configuration "Current Time Service" and tap OK Go back to the main screen and scan for BLE devices. A device called "PineTime" should appear Tap the button "Connect" next to the PineTime device. It should connect to the PineTime and switch to a new tab. On this tab, on the top right, there is a 3 dots button. Tap on it and select Bond. The bonding process begins, and if it is successful, the PineTime should update its time and display it on the screen.
 
 
 \chapter{Drivers}
@@ -863,7 +825,7 @@ Here you can set values specific for you project/sample.
 \section{Bosch BMA421}
 \label{\detokenize{drivers/bma421:bosch-bma421}}\label{\detokenize{drivers/bma421::doc}}
 this driver does not exist, so it has been created.
-Still work in progress ….
+Still work in progress ....
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/gui/lvaccel}
@@ -881,7 +843,7 @@ The Bosch documentation on the bma423 seems to apply to the bma421.
 
 \subsection{Requirements}
 \label{\detokenize{drivers/bma421:requirements}}
-for this sensor does not exist any driver, so here’s what I did to create one under zephyr
+for this sensor does not exist any driver, so here\textquotesingle{}s what I did to create one under zephyr
 
 
 \subsubsection{adapt CMakeLists.txt}
@@ -904,14 +866,14 @@ cp bosch,bma280\sphinxhyphen{}i2c.yaml  bosch,bma421\sphinxhyphen{}i2c.yaml
 
 \subsubsection{edit KConfig}
 \label{\detokenize{drivers/bma421:edit-kconfig}}\begin{description}
-\item[{source “drivers/sensor/bma280/Kconfig”}] \leavevmode
-source “drivers/sensor/bma421/Kconfig”
+\item[{source "drivers/sensor/bma280/Kconfig"}] \leavevmode
+source "drivers/sensor/bma421/Kconfig"
 
 \end{description}
 
-source “drivers/sensor/bmc150\_magn/Kconfig”
+source "drivers/sensor/bmc150\_magn/Kconfig"
 
-source “drivers/sensor/bme280/Kconfig”
+source "drivers/sensor/bme280/Kconfig"
 
 
 \subsubsection{create driver}
@@ -950,13 +912,13 @@ Which contains:
 \subsection{Todo}
 \label{\detokenize{drivers/bma421:todo}}\begin{itemize}
 \item {} 
-the driver is interrupt driven as well \textendash{} need to test software
+the driver is interrupt driven as well \sphinxhyphen{}\sphinxhyphen{} need to test software
 
 \item {} 
-the sensor has algorithm for steps \textendash{} read out register
+the sensor has algorithm for steps \sphinxhyphen{}\sphinxhyphen{} read out register
 
 \item {} 
-temperature some attempt has been made, but … (OK, temp can be read)
+temperature some attempt has been made, but ... (OK, temp can be read)
 
 \end{itemize}
 
@@ -987,7 +949,7 @@ The big advantage : almost standard zephyr install!
 \end{sphinxVerbatim}
 
 this driver does not exist, so it has been created.
-Still work in progress ….
+Still work in progress ....
 
 there is a sample in this repository which can be copied to the zephyr samples directory
 
@@ -999,14 +961,14 @@ there is a sample in this repository which can be copied to the zephyr samples d
 \subsection{Overview}
 \label{\detokenize{drivers/cst816s:overview}}
 the Hynitron cst816s is a touchscreen.
-In zephyr doesn’t handle touchscreens yet.
+Zephyr doesn\textquotesingle{}t handle touchscreens yet.
 In order to investigate, the touchscreen driver has been created as a sensor.
 In fact it senses your finger ;)
 
 
 \subsection{Requirements}
 \label{\detokenize{drivers/cst816s:requirements}}
-for this sensor does not exist any driver, so here’s what I did to create one under zephyr
+for this sensor does not exist any driver, so here\textquotesingle{}s what I did to create one under zephyr
 
 adapt CMakeLists.txt
 adapt Kconfig
@@ -1016,7 +978,7 @@ add yaml file
 \subsubsection{create driver}
 \label{\detokenize{drivers/cst816s:create-driver}}
 The driver reads only one position.
-Multitouch is possible, but the screen is small….
+Multitouch is possible, but the screen is small....
 
 see under drivers/sensor/cst816s
 
@@ -1049,7 +1011,7 @@ samples/sensor/cst816s (no graphics)
 
 \subsection{Todo}
 \label{\detokenize{drivers/cst816s:todo}}
-The graphical sample doesn’t handle interrupts.
+The graphical sample doesn\textquotesingle{}t handle interrupts.
 
 
 \subsection{References}
@@ -1060,7 +1022,7 @@ There is little available for this touchscreen.
 \section{HX HRS3300}
 \label{\detokenize{drivers/hrs3300:hx-hrs3300}}\label{\detokenize{drivers/hrs3300::doc}}
 this driver does not exist, so it has been created.
-Still work in progress ….
+Still work in progress ....
 
 there is a sample in this repository which can be copied to the zephyr samples directory
 
@@ -1080,7 +1042,7 @@ I have used the settings of an arduino port of this library.
 
 \subsection{Requirements}
 \label{\detokenize{drivers/hrs3300:requirements}}
-for this sensor does not exist any driver, so here’s what I did to create one under zephyr
+for this sensor does not exist any driver, so here\textquotesingle{}s what I did to create one under zephyr
 
 
 \subsubsection{adapt CMakeLists.txt}
@@ -1102,7 +1064,7 @@ add  hx,hrs3300.yaml
 
 \subsubsection{edit KConfig}
 \label{\detokenize{drivers/hrs3300:edit-kconfig}}
-source “drivers/sensor/hrs3300/Kconfig”
+source "drivers/sensor/hrs3300/Kconfig"
 
 
 \subsubsection{create driver}
@@ -1165,9 +1127,9 @@ HRS3300 Heart Rate Sensor.pdf
 This sample application should unlock the serial nor flash memory.
 This can be very usefull to store e.g. background for the watch.
 
-compilation problematic ….
+compilation problematic ....
 
-/root/zephyrproject/zephyr/samples/drivers/spi\_flash/src/main.c:17:22: error: ‘DT\_INST\_0\_JEDEC\_SPI\_NOR\_LABEL’ undeclared (first use in this function); did you mean ‘DT\_INST\_0\_NORDIC\_NRF\_RTC\_LABEL’?
+/root/zephyrproject/zephyr/samples/drivers/spi\_flash/src/main.c:17:22: error: \textquotesingle{}DT\_INST\_0\_JEDEC\_SPI\_NOR\_LABEL\textquotesingle{} undeclared (first use in this function); did you mean \textquotesingle{}DT\_INST\_0\_NORDIC\_NRF\_RTC\_LABEL\textquotesingle{}?
 
 Turns out this is some problem with the board definition file.
 
@@ -1285,12 +1247,12 @@ The battery level is measured on port 31, trough an ADC conversion.
 voltage = (value * 6)/1024
 percentage remaining  ((voltage \sphinxhyphen{} 3.55)*100)*3.9;
 
-A module should be able to report battery status in milivolts and charge level in percentage. Additionally, it should notify when external power is connected and when battery is being charged.
+A module should be able to report battery status in millivolts and charge level in percentage. Additionally, it should notify when external power is connected and when battery is being charged.
 Module will use adc (saadc peripheral) to measure battery voltage and gpio driver to monitor charge indication pin (pin 0.12) and power presence pin (0.19).
 Battery voltage can be in range from 3.0V \sphinxhyphen{} 4.2V (?). Unfortunately, internal reference (0.6V) can only be used for voltages up to 3.6V (due to minimal gain of 1/6). VDD/4 reference can be used with 1/6 gain to measure voltages up to 4.95V. Test is needed to check how accurate is VDD as reference.
 Discharge curve (\sphinxurl{https://forum.pine64.org/showthread.php?tid=8147}) will be used to calculate charge level in percent.
 Things to consider:
-saadc periodical calibration (spec suggests calibration if temperature changes by 10’C)
+saadc periodical calibration (spec suggests calibration if temperature changes by 10\textquotesingle{}C)
 inaccuracy of results: oversampling? never report higher level than before (if charge not connected), etc.
 
 
@@ -1317,7 +1279,7 @@ Once the pinetime is closed and on your wrist, you still want access.
 
 see : {\hyperref[\detokenize{fota/fota:fota}]{\sphinxcrossref{\DUrole{std,std-ref}{Firmware Over The Air (FOTA)}}}}
 
-Suppose you upload a application which contains a bug, the watch freezes, and … you will have to open it up, connect the SWD …
+Suppose you upload a application which contains a bug, the watch freezes, and ... you will have to open it up, connect the SWD ...
 
 Here comes the watchdog:
 \begin{itemize}
@@ -1331,7 +1293,7 @@ you launch the application
 the application feeds the watchdog
 
 \item {} 
-if it cannot feed the watchdog, reset to fota, and you can upload another better version …
+if it cannot feed the watchdog, reset to fota, and you can upload another better version ...
 
 \end{itemize}
 
@@ -1392,7 +1354,7 @@ Some additional configuration is required to build applications for MCUboot.
 
 This is handled internally by the Zephyr configuration system and is wrapped
 in the \sphinxtitleref{CONFIG\_BOOTLOADER\_MCUBOOT} Kconfig variable, which must be enabled in
-the application’s \sphinxtitleref{prj.conf} file.
+the application\textquotesingle{}s \sphinxtitleref{prj.conf} file.
 
 The Zephyr \sphinxtitleref{CONFIG\_BOOTLOADER\_MCUBOOT} configuration option
 {[}documentation{]}(\sphinxurl{http://docs.zephyrproject.org/reference/kconfig/CONFIG\_BOOTLOADER\_MCUBOOT.html})
@@ -1635,7 +1597,7 @@ So both slots need smp\_svr software!
 
 \subsubsection{Step 2: Sign the image}
 \label{\detokenize{fota/smp_svr:step-2-sign-the-image}}
-Using MCUboot’s \sphinxcode{\sphinxupquote{imgtool.py}} script, sign the \sphinxcode{\sphinxupquote{zephyr.(bin|hex)}}
+Using MCUboot\textquotesingle{}s \sphinxcode{\sphinxupquote{imgtool.py}} script, sign the \sphinxcode{\sphinxupquote{zephyr.(bin|hex)}}
 file you built in Step 3. In the below example, the MCUboot repo is located at
 \sphinxcode{\sphinxupquote{\textasciitilde{}/src/mcuboot}}.
 
@@ -1666,13 +1628,13 @@ For the pinetime, slot\sphinxhyphen{}0 is located at address \sphinxcode{\sphinx
 \subsubsection{Step 4: Run it!}
 \label{\detokenize{fota/smp_svr:step-4-run-it}}
 \begin{sphinxadmonition}{note}{Note:}
-If you haven’t installed \sphinxcode{\sphinxupquote{mcumgr}} yet, then do so by following the
+If you haven\textquotesingle{}t installed \sphinxcode{\sphinxupquote{mcumgr}} yet, then do so by following the
 instructions in the \DUrole{xref,std,std-ref}{mcumgr\_cli} section of the Management subsystem
 documentation.
 \end{sphinxadmonition}
 
 The \sphinxcode{\sphinxupquote{smp\_svr}} app is ready to run.  Just reset your board and test the app
-with the \sphinxcode{\sphinxupquote{mcumgr}} command\sphinxhyphen{}line tool’s \sphinxcode{\sphinxupquote{echo}} functionality, which will
+with the \sphinxcode{\sphinxupquote{mcumgr}} command\sphinxhyphen{}line tool\textquotesingle{}s \sphinxcode{\sphinxupquote{echo}} functionality, which will
 send a string to the remote target device and have it echo it back:
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
@@ -1686,7 +1648,7 @@ send a string to the remote target device and have it echo it back:
 Now that the SMP server is running on your pinetime, you are able to communicate
 with it using \sphinxtitleref{mcumgr}.
 
-You might want to test “OTA DFU”, or Over\sphinxhyphen{}The\sphinxhyphen{}Air Device Firmware Upgrade.
+You might want to test "OTA DFU", or Over\sphinxhyphen{}The\sphinxhyphen{}Air Device Firmware Upgrade.
 
 To do this, build a second sample (following the steps below) to verify
 it is sent over the air and properly flashed into slot\sphinxhyphen{}1, and then
@@ -1778,7 +1740,7 @@ This is just a collection of them.
 \subsubsection{Overview}
 \label{\detokenize{samples/basic/blinky/README:overview}}
 The Blinky example shows how to configure GPIO pins as outputs which can also be
-used to drive LEDs on the hardware usually delivered as “User LEDs” on many of
+used to drive LEDs on the hardware usually delivered as "User LEDs" on many of
 the supported boards in Zephyr.
 
 
@@ -1834,7 +1796,7 @@ DT\_ALIAS\_SW0\_GPIOS\_PIN
 
 \end{itemize}
 
-Alternatively, this could also be done by defining ‘sw0’ alias in the board
+Alternatively, this could also be done by defining \textquotesingle{}sw0\textquotesingle{} alias in the board
 devicetree description file.
 
 
@@ -1896,7 +1858,7 @@ This value is stored at a fixed location in memory, because I have a simple test
 \subsubsection{Overview}
 \label{\detokenize{samples/basic/touchpoints/README:overview}}
 When touched the touchscreen triggers an interrupt,
-it’s address 0x15 becomes visable.
+it\textquotesingle{}s address 0x15 becomes visable.
 
 
 \subsubsection{Requirements}
@@ -1938,7 +1900,7 @@ peak acceleration between two consecutive sample fetches or trigger events.
 of an impact event contains sufficient information about the event, and the
 full acceleration history is not required.) Instead of printing the acceleration
 on all three axis, the sample application calculates the vector magnitude
-(root sum squared) and displays the result in g’s rather than in m/s\textasciicircum{}2,
+(root sum squared) and displays the result in g\textquotesingle{}s rather than in m/s\textasciicircum{}2,
 together with an bar graph.
 
 \end{itemize}
@@ -2169,11 +2131,11 @@ west build \sphinxhyphen{}p \sphinxhyphen{}b native\_posix\_64 samples/display/l
 
 \subsubsection{Overview}
 \label{\detokenize{samples/display/lvgl/README:overview}}
-This sample application displays “Hello World” in the center of the screen
+This sample application displays "Hello World" in the center of the screen
 and a counter at the bottom which increments every second.
 
 If an input driver is supported, such as the touch panel controller on the pinetime
-boards, “Hello World” is enclosed in a button that changes to the toggled state
+boards, "Hello World" is enclosed in a button that changes to the toggled state
 when touched.
 
 
@@ -2214,7 +2176,7 @@ in clockwise order, from top left corner: Red, Green, Blue, grey. The shade of
 grey changes from black through to white. (if the grey looks too green or red
 at any point then the LCD may be endian swapped).
 
-Note: The display driver rotates the display so that the ‘natural’ LCD
+Note: The display driver rotates the display so that the \textquotesingle{}natural\textquotesingle{} LCD
 orientation is effectively 270 degrees clockwise of the default display
 controller orientation.
 
@@ -2294,7 +2256,7 @@ Have a look at the test\_counter\_interrupt\_fn function in src/main.c
 
 \subsubsection{Requirements}
 \label{\detokenize{samples/gui/clock/README:requirements}}
-You have to convert a graphical file to a “C” file, which is like a giant array.
+You have to convert a graphical file to a "C" file, which is like a giant array.
 
 Have a look at the prj.conf file.
 
@@ -2323,7 +2285,7 @@ This is a sample C++ firmware running Adafruit GFX Library on a ST7789V display.
 
 \subsubsection{Overview}
 \label{\detokenize{samples/gui/lvaccel/README:overview}}
-This sample application displays “Hello World” in the center of the screen
+This sample application displays "Hello World" in the center of the screen
 and a counter at the bottom which increments every second.
 
 It display the values x,y,z from the bosch BMA421 accel sensor.
@@ -2356,7 +2318,7 @@ west build \sphinxhyphen{}p \sphinxhyphen{}b pinetime samples/gui/lvgl
 
 \subsubsection{Overview}
 \label{\detokenize{samples/gui/lvgl/README:overview}}
-This sample application displays “Hello World” in the center of the screen
+This sample application displays "Hello World" in the center of the screen
 and a counter at the bottom which increments every second.
 
 
@@ -2393,7 +2355,7 @@ The touchscreen triggers an interrupt when touched.
 This means that data is ready and can be collected.
 
 However, using the interrupt with the handler, does not seem to work within the GUI.
-When used in samples/sensor/cst816s, it runs….
+When used in samples/sensor/cst816s, it runs....
 
 
 \subsubsection{Requirements}
@@ -2497,7 +2459,7 @@ a board with this software (pinetime)
 
 \end{itemize}
 
-You will need a serial port to read the output of the “printk” messages.
+You will need a serial port to read the output of the "printk" messages.
 
 
 \subsubsection{Building and Running}
@@ -2609,6 +2571,149 @@ now you can have a look in the configurationfile (and modify if needed)
 \end{sphinxVerbatim}
 
 
+\chapter{Debugging}
+\label{\detokenize{debugging/debugging:debugging}}\label{\detokenize{debugging/debugging:id1}}\label{\detokenize{debugging/debugging::doc}}
+
+\section{debugging}
+\label{\detokenize{debugging/debug:debugging}}\label{\detokenize{debugging/debug::doc}}
+
+\subsection{Segger JLink}
+\label{\detokenize{debugging/debug:segger-jlink}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{The} \PYG{n}{pinetime} \PYG{n}{smartwatch} \PYG{n}{does} \PYG{o+ow}{not} \PYG{n}{have} \PYG{n}{a} \PYG{n}{serial} \PYG{n}{port}\PYG{o}{.}
+\PYG{n}{A} \PYG{n}{way} \PYG{n}{around} \PYG{n}{this} \PYG{o+ow}{is} \PYG{n}{to} \PYG{n}{use} \PYG{n}{a} \PYG{n}{Segger} \PYG{n}{Jlink} \PYG{n}{debug}\PYG{o}{\PYGZhy{}}\PYG{n}{probe} \PYG{o+ow}{and} \PYG{n}{enable} \PYG{n}{logging} \PYG{o+ow}{and} \PYG{n}{shell} \PYG{n}{over} \PYG{n}{RTT}\PYG{p}{:}
+
+\PYG{o+ow}{in} \PYG{n}{prj}\PYG{o}{.}\PYG{n}{cfg}\PYG{p}{:}
+
+\PYG{n}{CONFIG\PYGZus{}LOG}\PYG{o}{=}\PYG{n}{y}
+\PYG{n}{CONFIG\PYGZus{}USE\PYGZus{}SEGGER\PYGZus{}RTT}\PYG{o}{=}\PYG{n}{y}
+\PYG{n}{CONFIG\PYGZus{}SHELL}\PYG{o}{=}\PYG{n}{y}
+\PYG{n}{CONFIG\PYGZus{}SHELL\PYGZus{}BACKEND\PYGZus{}RTT}\PYG{o}{=}\PYG{n}{y}
+
+\PYG{n}{start} \PYG{n}{the} \PYG{n}{debugger} \PYG{p}{:}
+\PYG{n}{west} \PYG{n}{debug}
+\PYG{o+ow}{and} \PYG{n}{enter} \PYG{p}{:} \PYG{k}{continue}
+
+\PYG{n}{This} \PYG{n}{starts} \PYG{n}{up} \PYG{o+ow}{in} \PYG{n}{the} \PYG{n}{background} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Segger Jlink Processes}\PYG{l+s+s2}{\PYGZdq{}}
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+What happens when you type : west debug?
+You could type this on the command prompt.
+\end{sphinxadmonition}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp+gpVirtualEnv}{(this start the server)}
+\PYG{g+go}{JLinkGDBServer \PYGZhy{}select usb \PYGZhy{}port 2331 \PYGZhy{}if swd \PYGZhy{}speed 4000 \PYGZhy{}device nRF52832\PYGZus{}xxAA \PYGZhy{}silent \PYGZhy{}singlerun}
+\PYG{g+gp+gpVirtualEnv}{(this starts the debug session)}
+\PYG{g+go}{\PYGZti{}/zephyr\PYGZhy{}sdk/arm\PYGZhy{}zephyr\PYGZhy{}eabi/bin/arm\PYGZhy{}zephyr\PYGZhy{}eabi\PYGZhy{}gdb /root/zephyrproject/app/build/zephyr/zephyr.elf \PYGZhy{}ex target :2331 \PYGZhy{}ex halt \PYGZhy{}ex reset \PYGZhy{}ex load}
+\PYG{g+go}{telnet 127.0.0.1 19021 (putty on linux) start the rtt console and shows the debug\PYGZhy{}log}
+\end{sphinxVerbatim}
+
+
+\subsection{Black Magic}
+\label{\detokenize{debugging/debug:black-magic}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{The} \PYG{n}{ds}\PYG{o}{\PYGZhy{}}\PYG{n}{D6} \PYG{n}{smartwatch} \PYG{n}{has} \PYG{n}{a} \PYG{n}{serial} \PYG{n}{port}\PYG{o}{.}
+
+
+\PYG{n}{The} \PYG{n}{blackmagicprobe} \PYG{n}{can} \PYG{n}{lauch} \PYG{n}{a} \PYG{n}{debugger} \PYG{p}{:} \PYG{n}{west} \PYG{n}{debug} \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{n}{runnerblackmagicprobe}\PYG{o}{.}
+\PYG{n}{The} \PYG{n}{probe} \PYG{n}{has} \PYG{n}{a} \PYG{n}{serial} \PYG{n}{port} \PYG{o}{/}\PYG{n}{dev}\PYG{o}{/}\PYG{n}{ttyACM1} \PYG{p}{(}\PYG{n}{linux} \PYG{p}{:} \PYG{n}{minicom} \PYG{o}{\PYGZhy{}}\PYG{n}{b} \PYG{l+m+mi}{115200} \PYG{o}{\PYGZhy{}}\PYG{n}{D} \PYG{o}{/}\PYG{n}{dev}\PYG{o}{/}\PYG{n}{ttyACM1}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+
+\subsection{STM32 \sphinxhyphen{} Raspberry \sphinxhyphen{} OpenOCD}
+\label{\detokenize{debugging/debug:stm32-raspberry-openocd}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{If} \PYG{n}{you} \PYG{n}{do} \PYG{o+ow}{not} \PYG{n}{have} \PYG{n}{a} \PYG{n}{Segger} \PYG{n}{debug} \PYG{n}{probe} \PYG{n}{nor} \PYG{n}{a} \PYG{n}{serial} \PYG{n}{port}\PYG{p}{,} \PYG{n}{you} \PYG{n}{can} \PYG{n}{put} \PYG{n}{a} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{memory} \PYG{n}{at} \PYG{n}{a} \PYG{n}{fixed} \PYG{n}{location}\PYG{o}{.}
+\PYG{n}{With} \PYG{n}{openocd} \PYG{n}{you} \PYG{n}{can} \PYG{n}{peek} \PYG{n}{at} \PYG{n}{this} \PYG{n}{memory} \PYG{n}{location}\PYG{o}{.}
+\PYG{n}{If} \PYG{n}{you} \PYG{n}{own} \PYG{n}{a} \PYG{n}{raspberry} \PYG{n}{pi} \PYG{o+ow}{or} \PYG{n}{an} \PYG{n}{orange} \PYG{n}{pi}\PYG{p}{,} \PYG{n}{you} \PYG{n}{can} \PYG{n}{use} \PYG{n}{the} \PYG{n}{GPIO} \PYG{n}{header}\PYG{o}{.}
+\PYG{n}{Another} \PYG{n}{cheap} \PYG{n}{option} \PYG{o+ow}{is} \PYG{n}{an} \PYG{n}{stm32} \PYG{n}{debug} \PYG{n}{probe}\PYG{o}{.}
+\end{sphinxVerbatim}
+
+\begin{sphinxadmonition}{note}{Note:}
+\#define MY\_REGISTER (*(volatile uint8\_t*)0x2000F000)
+
+in the program you can set values:
+MY\_REGISTER=1;
+MY\_REGISTER=8;
+
+this way you know till where the code executes
+\end{sphinxadmonition}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gp}{\PYGZsh{}}telnet \PYG{l+m}{127}.0.0.1 \PYG{l+m}{4444}
+\end{sphinxVerbatim}
+
+programming
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{once your telnet sessions started:}
+\PYG{g+go}{Trying 127.0.0.1...}
+\PYG{g+go}{Connected to 127.0.0.1.}
+\PYG{g+go}{Escape character is \PYGZsq{}\PYGZca{}]\PYGZsq{}.}
+\PYG{g+go}{Open On\PYGZhy{}Chip Debugger}
+\PYG{g+gp}{\PYGZgt{}}mdw 0x2000F000 0x1
+
+\PYG{g+go}{the last byte shows the value of your program trace value}
+\end{sphinxVerbatim}
+
+
+\section{The black magic probe}
+\label{\detokenize{debugging/blackmagicprobe:the-black-magic-probe}}\label{\detokenize{debugging/blackmagicprobe::doc}}
+
+\subsection{probes in zephyr}
+\label{\detokenize{debugging/blackmagicprobe:probes-in-zephyr}}
+You can program the nrf52832 with a debuggerprobe.
+The standard\sphinxhyphen{}setup is jlink (segger).
+
+/root/zephyrproject/zephyr/boards/arm/id107plus/board.cmake (adapt the runner here)
+
+in our case : instead of jlink specify : blackmagicprobe
+
+The cool thing about this probe that it has a serial port (3.3V) and a debug (upload) port on the same usb\sphinxhyphen{}port.
+\begin{itemize}
+\item {} 
+/dev/ttyACM1 is serial port (pb6 pb7)
+
+\end{itemize}
+
+minicom \sphinxhyphen{}b 115200 \sphinxhyphen{}D /dev/ttyACM1
+\begin{itemize}
+\item {} 
+/dev/ttyACM0 is used as debugger/uploading
+
+\end{itemize}
+
+west debug \sphinxhyphen{}\sphinxhyphen{}runner blackmagicprobe
+west flash \sphinxhyphen{}\sphinxhyphen{}runner blackmagicprobe
+
+
+\subsection{howto setup a blackmagicprobe}
+\label{\detokenize{debugging/blackmagicprobe:howto-setup-a-blackmagicprobe}}
+You can buy this probe and support the developers. (make this world a better place)
+
+I bought a "cheapo" "blue pill" stm32 board for future projects ...
+soldered a 1.8K resistor between 3.3K and PA12
+
+downloaded from \sphinxurl{https://jeelabs.org/docs/software/bmp/}
+\sphinxhyphen{} blackmagic.bin (79 ko)
+\sphinxhyphen{} blackmagic\_dfu.bin (7 ko)
+
+in jlink : loadbin blackmagic\_dfu.bin 0x8000000 (specify jlink no options ...)
+switch boot0 or boot1 or whatever
+connect usb
+in linux
+dfu\sphinxhyphen{}util \sphinxhyphen{}v \sphinxhyphen{}R \sphinxhyphen{}d 0483:df11 \sphinxhyphen{}s 0x08002000 \sphinxhyphen{}D blackmagic.bin
+(uploading in jlink was a problem cause memory restrictions)
+
+\noindent\sphinxincludegraphics{{blackmagicd6}.jpeg}
+
+(removed boot0 and boot1 connectors on the stm afterwards)
+
+plugged it in the USB port and it pops up (had to enable it first in virtual box usb : black sphere technologies .....)
+
+
 \chapter{Hacking stuff}
 \label{\detokenize{hacking/hacking:hacking-stuff}}\label{\detokenize{hacking/hacking:hacking}}\label{\detokenize{hacking/hacking::doc}}
 
@@ -2638,8 +2743,8 @@ example for the orange\sphinxhyphen{}pi GPIO header (or raspberry)
 \begin{quote}
 
 \# openocd \sphinxhyphen{}f /usr/local/share/openocd/scripts/interface/sysfsgpio\sphinxhyphen{}raspberrypi.cfg
-\sphinxhyphen{}c ‘transport select swd’ \sphinxhyphen{}f /usr/local/share/openocd/scripts/target/nrf52.cfg
-\sphinxhyphen{}c ‘bindto 0.0.0.0’
+\sphinxhyphen{}c \textquotesingle{}transport select swd\textquotesingle{} \sphinxhyphen{}f /usr/local/share/openocd/scripts/target/nrf52.cfg
+\sphinxhyphen{}c \textquotesingle{}bindto 0.0.0.0\textquotesingle{}
 \end{quote}
 
 once you started the openocd background server, you can connect to it using:
@@ -2675,43 +2780,6 @@ programming
 \end{sphinxVerbatim}
 
 removing write protection see:   {\hyperref[\detokenize{hacking/writeprotection:flashing}]{\sphinxcrossref{\DUrole{std,std-ref}{howto flash your zephyr image}}}}
-
-
-\section{debugging   the pinetime smartwatch}
-\label{\detokenize{hacking/debugging:debugging-the-pinetime-smartwatch}}\label{\detokenize{hacking/debugging::doc}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{The} \PYG{n}{pinetime} \PYG{n}{does} \PYG{o+ow}{not} \PYG{n}{have} \PYG{n}{a} \PYG{n}{serial} \PYG{n}{port}\PYG{o}{.}
-\PYG{n}{I} \PYG{n}{do} \PYG{o+ow}{not} \PYG{n}{have} \PYG{n}{a} \PYG{n}{segger} \PYG{n}{debugging} \PYG{n}{probe}\PYG{o}{.}
-\PYG{n}{A} \PYG{n}{way} \PYG{n}{around} \PYG{n}{this}\PYG{p}{,} \PYG{n}{it} \PYG{n}{to} \PYG{n}{put} \PYG{n}{a} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{memory} \PYG{n}{at} \PYG{n}{a} \PYG{n}{fixed} \PYG{n}{location}\PYG{o}{.}
-\PYG{n}{With} \PYG{n}{openocd} \PYG{n}{you} \PYG{n}{can} \PYG{n}{peek} \PYG{n}{at} \PYG{n}{this} \PYG{n}{memory} \PYG{n}{location}\PYG{o}{.}
-\end{sphinxVerbatim}
-
-\begin{sphinxadmonition}{note}{Note:}
-\#define MY\_REGISTER (*(volatile uint8\_t*)0x2000F000)
-
-in the program you can set values:
-MY\_REGISTER=1;
-MY\_REGISTER=8;
-
-this way you know till where the code executes
-\end{sphinxadmonition}
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+gp}{\PYGZsh{}}telnet \PYG{l+m}{127}.0.0.1 \PYG{l+m}{4444}
-\end{sphinxVerbatim}
-
-programming
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{once your telnet sessions started:}
-\PYG{g+go}{Trying 127.0.0.1...}
-\PYG{g+go}{Connected to 127.0.0.1.}
-\PYG{g+go}{Escape character is \PYGZsq{}\PYGZca{}]\PYGZsq{}.}
-\PYG{g+go}{Open On\PYGZhy{}Chip Debugger}
-\PYG{g+gp}{\PYGZgt{}}mdw 0x2000F000 0x1
-
-\PYG{g+go}{the last byte shows the value of your program trace value}
-\end{sphinxVerbatim}
 
 
 \section{scanning the I2C\_1 port}
@@ -2760,7 +2828,7 @@ Peeking
 
 \sphinxstyleemphasis{Note:}:
 
-this corresponds to 0x18, 0x44 and 0xC2 (which is endvalue of scanner, so it does not detect touchscreen, which should be touched first….)
+this corresponds to 0x18, 0x44 and 0xC2 (which is endvalue of scanner, so it does not detect touchscreen, which should be touched first....)
 
 
 \section{howto flash your zephyr image}
@@ -2791,9 +2859,9 @@ executing the following : nrf52.dap apreg 1 0x0c shows 0x0
 
 Mind you, st\sphinxhyphen{}link does not allow you to execute that command, for this you will need a J\sphinxhyphen{}link.
 
-There is a workaround using the GPIO of a raspberry pi or an Orangepi. (in this case you won’t need an external programmer at all)
+There is a workaround using the GPIO of a raspberry pi or an Orangepi. (in this case you won\textquotesingle{}t need an external programmer at all)
 (You can find an example for the orange pi in my repo :\sphinxurl{https://github.com/najnesnaj/openocd}.)
-You have to reconfigure Openocd with the \textendash{}enable\sphinxhyphen{}cmsis\sphinxhyphen{}dap option.
+You have to reconfigure Openocd with the \sphinxhyphen{}\sphinxhyphen{}enable\sphinxhyphen{}cmsis\sphinxhyphen{}dap option.
 
 Unlock the chip by executing the command:
 \textgreater{} nrf52.dap apreg 1 0x04 0x01
@@ -2926,7 +2994,7 @@ sphinx cannot generate pdf directly, and needs latex
 
 \subsection{Overview}
 \label{\detokenize{behind/behind-the-scene:overview}}
-I’m not a zephyr expert and am learning on the way.
+I\textquotesingle{}m not a zephyr expert and am learning on the way.
 
 In this chapter I let you glimpse behind the scene. (and notice all the struggle)
 
@@ -2946,7 +3014,7 @@ The final goal is to use the accel\sphinxhyphen{}sensor in the watch (BMA423), w
 In order to minimize the effort:
 \begin{itemize}
 \item {} 
-we’ll use something that looks like it (ADXL372), because there exists an example.
+we\textquotesingle{}ll use something that looks like it (ADXL372), because there exists an example.
 
 \item {} 
 next we adapt it to use the existing BMA280 sensor (under drivers/sensor), so we get a sample that works with the BMA280.
@@ -2971,14 +3039,14 @@ we adapt the sample for the BMA280 to BMA423
 \label{\detokenize{behind/bma280:overview}}
 This sample application mimics the presence of a bosch, bma280 accel sensor.
 For this sensor exists a driver in zephyr, but no sample.
-Remember, I’m not a zephyr expert and am learning on the way.
+Remember, I\textquotesingle{}m not a zephyr expert and am learning on the way.
 
 
 \subsection{Requirements}
 \label{\detokenize{behind/bma280:requirements}}
 complement the pinetime.dts file with the following (under samples/sensor/bma280)
 
-This will supplement / override what’s already definition on the board level (boards/arm/pinetime)
+This will supplement / override what\textquotesingle{}s already definition on the board level (boards/arm/pinetime)
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+go}{\PYGZam{}i2c1 \PYGZob{}}
@@ -3082,7 +3150,7 @@ Drivers, like the one for the accel sensor BMA421 or the touchscreen CST816S, ca
 
 Adapting existing drivers did not get me the desired quick results.
 
-Even after analysing the behaviour, setting values at each function step, did not get me any further.
+Even after analyzing the behaviour, setting values at each function step, did not get me any further.
 
 
 \subsection{Overview}
@@ -3095,7 +3163,7 @@ This affect the behaviour of how threads are handled.
 
 The tread\sphinxhyphen{}handling and interrupt\sphinxhyphen{}handling occurs in the driver itself.
 
-An interrupt is handled immediatly, the processing is offloaded to the threading.
+An interrupt is handled immediately, the processing is offloaded to the threading.
 
 
 \subsection{Example}
@@ -3165,7 +3233,7 @@ samples/basic/testsemaphore
 In this repo under samples you will find an adapted gui/clock program.
 A button from the LVGL library is placed on the screen.
 
-Later on when the touch\sphinxhyphen{}screen driver is ready, we’ll be able to manipulate it.
+Later on when the touch\sphinxhyphen{}screen driver is ready, we\textquotesingle{}ll be able to manipulate it.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+go}{Make sure that prj.conf file in clock directory contains the following:}
@@ -3180,64 +3248,39 @@ CONFIG\_LVGL\_OBJ\_BUTTON=y
 
 \end{sphinxVerbatim}
 
-\sphinxstyleemphasis{problem} the canvas heigh*width eats up RAM and exceeds once \textgreater{} 40
+\sphinxstyleemphasis{problem} the canvas height*width eats up RAM and exceeds once \textgreater{} 40
 
 
 \chapter{About}
 \label{\detokenize{about:about}}\label{\detokenize{about::doc}}
 I got a pinetime development kit very early.
+I would like to thank the folks from \sphinxurl{https://www.pine64.org/} for the kit.
 
-I would like to thank the folks from \sphinxurl{https://www.pine64.org/}.
+The Nordic nrf52832 is an Arm based, 32bit microcontroller with a lot of flash, RAM memory and(!) bluetooth!
+It is a good platform to explore the wonderfull world of opensource RTOS\textquotesingle{}s.
+I choose the Zephyr platform, because it already contained the display driver, and the bluetooth functionality.
+Furthermore it can be updated wirelessly.
 
-I like to hack stuff, and I like the idea behind Open Source.
+I started of with adapting simple samples, so they would run on the pinetime watch.
+Meanwhile I learned how to adapt the board definition file.
+Gradually this morphed into a pinetime\sphinxhyphen{}toolkit.
+A few experts contributed and improved this kit so it became usable.
 
-The smartwatches I hacked, contained microcontrollers from Nordic Semiconductor.
+I took a long break from this project, zephyr evolved and a project for creating an open source watch, the hypnos firmware flourished.
 
-A lot of resources exist for this breed.
+The drivers for the heartrate sensor, touchpanel that I adapted, became obsolete.
+The pinetime board definition file is now part of the zephyr RTOS distribution.
 
-It is an Arm based, 32bit microcontroller with a lot of flash and RAM memory.
+Recently I discovered that the standard focaltech touchscreen driver could be adapted easily so it would run on the pinetime and integrate nicely with the LVGL\sphinxhyphen{}gui. There were several OLED ssd1306 watches on my desk and I wondered if I could run Zephyr and LVGL (graphical stuff) on them as well. (yes, we can!)
+I played around with the "native\_posix\_64" board, which is a virtual board that allows you to run firmware on your computer instead of on the watch (no need for flashing).
 
-In fact it is a small computer on your wrist, with a battery and screen, and capable of bluetooth 4+ wireless communication.
+This gave me the idea for an opensource\sphinxhyphen{}watch\sphinxhyphen{}framework.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{A} \PYG{n}{word} \PYG{n}{of} \PYG{n}{warning}\PYG{p}{:} \PYG{n}{this} \PYG{o+ow}{is} \PYG{n}{work} \PYG{o+ow}{in} \PYG{n}{progress}\PYG{o}{.}
 \PYG{n}{You}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{re likely to have a better skillset then me.}
 \PYG{n}{You} \PYG{n}{are} \PYG{n}{invited} \PYG{n}{to} \PYG{n}{add} \PYG{n}{the} \PYG{n}{missing} \PYG{n}{pieces} \PYG{o+ow}{and} \PYG{n}{to} \PYG{n}{improve} \PYG{n}{what}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{s already there.}
 \end{sphinxVerbatim}
-
-
-\section{Todo}
-\label{\detokenize{about:todo}}
-list with suggestions:
-\begin{itemize}
-\item {} 
-better graphics (lvgl using images and rotating stuff)
-
-\item {} 
-NOR flash (here one can store data)
-
-\item {} 
-watchdog
-
-\item {} 
-DFU (update over bluetooth)
-
-\item {} 
-acceleration sensor
-
-\item {} 
-heart rate sensor
-
-\item {} 
-fun stuff
-
-\item {} 
-useless stuff, but somehow cool
-
-\item {} 
-applications, e.g. calculator, cycle computer, step counter, heart attack predictor …
-
-\end{itemize}
 
 
 

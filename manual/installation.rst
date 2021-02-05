@@ -11,6 +11,9 @@ Pinetime has become part of the standard zephyr distribution!
 This manual was initially created with Pinetime as an external application.
 As from today you can install zephyr and execute a pinetime sample!
 
+In addition the /app directory can be copied under same directory as the /zephyr directory.
+It contains extra board definitions and updated basic samples, and(!) the opensource smartwatch framework.
+
 
 However the drivers for the Heartrate sensor, the acceleration sensor and touch screen are not - yet - part of the standard zephyr-distribution.
 These drivers are work in progress.

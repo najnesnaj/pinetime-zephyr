@@ -12,7 +12,7 @@
     * LICENSE:
 
 
-* Zephyr for the pinetime smartwatch
+* Zephyr  smartwatch framework
 
 
 * Install zephyr
@@ -31,6 +31,9 @@
 
 
     * Blinky    example
+
+
+        * Building and Running
 
 
     * Reading out the button on the watch
@@ -732,13 +735,34 @@
     * Zephyr is like linux
 
 
+* Debugging
+
+
+    * debugging
+
+
+        * Segger JLink
+
+
+        * Black Magic
+
+
+        * STM32 - Raspberry - OpenOCD
+
+
+    * The black magic probe
+
+
+        * probes in zephyr
+
+
+        * howto setup a blackmagicprobe
+
+
 * Hacking stuff
 
 
     * hacking   the pinetime smartwatch
-
-
-    * debugging   the pinetime smartwatch
 
 
     * scanning the I2C_1 port
@@ -850,6 +874,3 @@
 
 
 * About
-
-
-    * Todo

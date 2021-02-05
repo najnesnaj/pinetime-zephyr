@@ -12,7 +12,7 @@ in clockwise order, from top left corner: Red, Green, Blue, grey. The shade of
 grey changes from black through to white. (if the grey looks too green or red
 at any point then the LCD may be endian swapped).
 
-Note: The display driver rotates the display so that the ‘natural’ LCD
+Note: The display driver rotates the display so that the 'natural' LCD
 orientation is effectively 270 degrees clockwise of the default display
 controller orientation.
 

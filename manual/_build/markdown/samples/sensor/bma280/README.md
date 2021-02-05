@@ -19,7 +19,7 @@ peak acceleration between two consecutive sample fetches or trigger events.
 of an impact event contains sufficient information about the event, and the
 full acceleration history is not required.) Instead of printing the acceleration
 on all three axis, the sample application calculates the vector magnitude
-(root sum squared) and displays the result in g’s rather than in m/s^2,
+(root sum squared) and displays the result in g's rather than in m/s^2,
 together with an bar graph.
 
 ## References

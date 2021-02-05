@@ -1,1 +1,4 @@
+fota/partitions.rst:27: (pinetime)  The flash partitions are defined in the pinetime boards folder, in a
+fota/partitions.rst:35: (nrf)  The flash space on the Nordic nrf52 is 512K.
+fota/partitions.rst:39: (pinetime)  As the pinetime has an extra spi nor flash chip, we can use this.
 fota/partitions.rst:39: (spi)  As the pinetime has an extra spi nor flash chip, we can use this.

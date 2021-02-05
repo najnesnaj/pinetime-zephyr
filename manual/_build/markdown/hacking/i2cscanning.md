@@ -41,4 +41,4 @@ Open On-Chip Debugger
 
 *Note:*:
 
-this corresponds to 0x18, 0x44 and 0xC2 (which is endvalue of scanner, so it does not detect touchscreen, which should be touched first….)
+this corresponds to 0x18, 0x44 and 0xC2 (which is endvalue of scanner, so it does not detect touchscreen, which should be touched first....)

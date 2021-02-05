@@ -3,7 +3,7 @@
 ## Display    example
 
 This is just a simple display test.
-It displays coloured squares, but it allows you to check if the screen is OK.
+It displays colored squares, but it allows you to check if the screen is OK.
 
 **TIP: While connecting 5V, do not connect 3.3V at the same time**
 
@@ -20,7 +20,7 @@ $  west build -p -b pinetime samples/display/st7789v
 
 Once the compilation is completed you can upload the firmware.
 
-If all goes well, you should see some coloured squares on your screen.
+If all goes well, you should see some colored squares on your screen.
 
 **Note : in order to get the display st7789 Picture-Perfect, you might need a zephyr patch**
 

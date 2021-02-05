@@ -1,1 +1,3 @@
+drivers/watchdog.rst:12: (pinetime)  Once the pinetime is closed and on your wrist, you still want access.
 drivers/watchdog.rst:25: (fota)  if it cannot feed the watchdog, reset to fota, and you can upload another better version ...
+drivers/watchdog.rst:30: (Todo)  Todo

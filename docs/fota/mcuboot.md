@@ -39,7 +39,7 @@ Some additional configuration is required to build applications for MCUboot.
 
 This is handled internally by the Zephyr configuration system and is wrapped
 in the CONFIG_BOOTLOADER_MCUBOOT Kconfig variable, which must be enabled in
-the application’s prj.conf file.
+the application's prj.conf file.
 
 The Zephyr CONFIG_BOOTLOADER_MCUBOOT configuration option
 [documentation]([http://docs.zephyrproject.org/reference/kconfig/CONFIG_BOOTLOADER_MCUBOOT.html](http://docs.zephyrproject.org/reference/kconfig/CONFIG_BOOTLOADER_MCUBOOT.html))

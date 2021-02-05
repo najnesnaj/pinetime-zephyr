@@ -39,7 +39,8 @@ spelling_word_list_filename=['spelling_mywordlist.txt']
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-"sphinx_rtd_theme","sphinx_markdown_builder", "sphinxcontrib.spelling"
+"sphinx_rtd_theme","sphinx_markdown_builder", 
+#"sphinxcontrib.spelling"
 ]
 
 # Add any paths that contain templates here, relative to this directory.

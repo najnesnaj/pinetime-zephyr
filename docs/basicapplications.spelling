@@ -1,0 +1,7 @@
+basicapplications.rst:7: (gpio)  The gpio ports, i2c communication, memory layout, stuff that is particular for the watch is defined in the board definition file.
+basicapplications.rst:15: (Blinky)  Blinky    example
+basicapplications.rst:32: (pinetime)  have a look at the pinetime.dts file, here you see the definition of the background leds.
+basicapplications.rst:32: (dts)  have a look at the pinetime.dts file, here you see the definition of the background leds.
+basicapplications.rst:32: (leds)  have a look at the pinetime.dts file, here you see the definition of the background leds.
+basicapplications.rst:53: (pinetime)  ~/work/pinetime/build/zephyr/zephyr.bin
+basicapplications.rst:84: (uint)  #define MY_REGISTER (*(volatile uint8_t*)0x2000F000)

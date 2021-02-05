@@ -9,7 +9,7 @@ The watch will behave as a bluetooth beacon, and you should be able to detect it
 ## Using a standard zephyr application under pinetime:
 
 Each sample has its own directory.
-In this directory you will notice a file : “CMakeLists.txt”.
+In this directory you will notice a file : "CMakeLists.txt".
 
 In order to use a standard, you can just copy it under the pinetime directory.
 

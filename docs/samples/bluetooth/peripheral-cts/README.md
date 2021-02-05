@@ -16,6 +16,6 @@ This program tests if it can get the time of a cts service. In order to get the 
 
 * a board with this software (pinetime)
 
-You will need a serial port to read the output of the “printk” messages.
+You will need a serial port to read the output of the "printk" messages.
 
 ## Building and Running

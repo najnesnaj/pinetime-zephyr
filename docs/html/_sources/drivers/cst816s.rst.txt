@@ -33,7 +33,7 @@ Overview
 
 
 the Hynitron cst816s is a touchscreen.
-In zephyr doesn't handle touchscreens yet.
+Zephyr doesn't handle touchscreens yet.
 In order to investigate, the touchscreen driver has been created as a sensor.
 In fact it senses your finger ;)
 

@@ -22,6 +22,7 @@ INDEX
    fota/fota.rst
    samples/index.rst
    menuconfig.rst
+   debugging/debugging.rst
    hacking/hacking.rst
    behind/behind.rst
    about.rst

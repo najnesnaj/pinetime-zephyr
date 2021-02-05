@@ -193,14 +193,14 @@
 <h1>Troubleshooting drivers<a class="headerlink" href="#troubleshooting-drivers" title="Permalink to this headline">¶</a></h1>
 <p>Drivers, like the one for the accel sensor BMA421 or the touchscreen CST816S, can deal with interrupts.</p>
 <p>Adapting existing drivers did not get me the desired quick results.</p>
-<p>Even after analysing the behaviour, setting values at each function step, did not get me any further.</p>
+<p>Even after analyzing the behaviour, setting values at each function step, did not get me any further.</p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>The drivers can use interrupts.</p>
 <p>In the settings/config one can choose between OWN_THREAD and GLOBAL_THREAD.</p>
 <p>This affect the behaviour of how threads are handled.</p>
 <p>The tread-handling and interrupt-handling occurs in the driver itself.</p>
-<p>An interrupt is handled immediatly, the processing is offloaded to the threading.</p>
+<p>An interrupt is handled immediately, the processing is offloaded to the threading.</p>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>

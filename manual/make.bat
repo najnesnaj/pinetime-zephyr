@@ -5,7 +5,8 @@ pushd %~dp0
 REM Command file for Sphinx documentation
 
 if "%SPHINXBUILD%" == "" (
-	set SPHINXBUILD=sphinx-build -b spelling
+set SPHINXBUILD=sphinx-build 
+REM -b spelling
 )
 set SOURCEDIR=.
 set BUILDDIR=_build

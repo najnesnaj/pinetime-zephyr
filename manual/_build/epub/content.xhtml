@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zephyr for the pinetime smartwatch</title>
+    <title>Zephyr smartwatch framework</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/epub.css" type="text/css" /> 
   </head><body>
@@ -13,18 +13,17 @@
       <div class="documentwrapper">
           <div class="body" role="main">
             
-  <div class="section" id="zephyr-for-the-pinetime-smartwatch">
-<h1>Zephyr for the pinetime smartwatch</h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span> <span class="n">document</span> <span class="n">describes</span> <span class="n">the</span> <span class="n">installation</span> <span class="n">of</span> <span class="n">zephyr</span> <span class="n">RTOS</span> <span class="n">on</span> <span class="n">the</span> <span class="n">PineTime</span> <span class="n">smartwatch</span><span class="o">.</span>
+  <div class="section" id="zephyr-smartwatch-framework">
+<h1>Zephyr  smartwatch framework</h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span> <span class="n">document</span> <span class="n">started</span> <span class="n">off</span> <span class="ow">in</span> <span class="n">setting</span> <span class="n">up</span> <span class="n">zephyr</span> <span class="n">RTOS</span> <span class="n">on</span> <span class="n">the</span> <span class="n">PineTime</span> <span class="n">smartwatch</span><span class="o">.</span>
 
 <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">wiki</span><span class="o">.</span><span class="n">pine64</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">PineTime</span>
 
-<span class="n">It</span> <span class="n">should</span> <span class="n">be</span> <span class="n">applicable</span> <span class="n">on</span> <span class="n">other</span> <span class="n">nordic</span> <span class="n">nrf52832</span> <span class="n">based</span> <span class="n">watches</span> <span class="p">(</span><span class="n">Desay</span> <span class="n">D6</span><span class="o">....</span><span class="p">)</span><span class="o">.</span>
+<span class="n">It</span> <span class="n">evolved</span> <span class="n">to</span> <span class="n">accomodate</span> <span class="n">other</span> <span class="n">nordic</span> <span class="n">nrf52832</span> <span class="n">based</span> <span class="n">watches</span> <span class="p">(</span><span class="n">Desay</span> <span class="n">D6</span><span class="o">....</span><span class="p">)</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">Virtual</span> <span class="n">watch</span> <span class="p">(</span><span class="n">native_posix_64</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">the</span> <span class="n">approach</span> <span class="ow">in</span> <span class="n">this</span> <span class="n">manual</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">get</span> <span class="n">quick</span> <span class="n">results</span> <span class="p">:</span>
-    <span class="o">-</span> <span class="n">minimal</span> <span class="n">effort</span> <span class="n">install</span> <span class="p">(</span><span class="n">pinetime</span> <span class="n">works</span> <span class="k">as</span> <span class="n">an</span> <span class="n">external</span> <span class="p">(</span><span class="n">out</span> <span class="n">of</span> <span class="n">tree</span><span class="p">)</span>
-      <span class="n">application</span> <span class="k">for</span> <span class="n">zephyr</span><span class="p">)</span>
+    <span class="o">-</span> <span class="n">minimal</span> <span class="n">effort</span> <span class="n">install</span>
     <span class="o">-</span> <span class="k">try</span> <span class="n">out</span> <span class="n">the</span> <span class="n">samples</span>
     <span class="o">-</span> <span class="n">inspire</span> <span class="n">you</span> <span class="n">to</span> <span class="n">modify</span> <span class="ow">and</span> <span class="n">enhance</span>
 </pre></div>

@@ -40,7 +40,7 @@
 <h2>BLE Peripheral CTS sample for zephyr</h2>
 <p>This example demonstrates the basic usage of the current time service.
 It is based on the <a class="reference external" href="https://github.com/Dejvino/pinetime-hermes-firmware">https://github.com/Dejvino/pinetime-hermes-firmware</a>.
-It starts advertising it’s UUID, and you can connect to it.
+It starts advertising it's UUID, and you can connect to it.
 Once connected, it will read the time from your CTS server (bluez on linux running the gatt-cts-server script in my case)</p>
 <p>first build the image</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b pinetime samples/bluetooth/peripheral-cts
@@ -71,7 +71,7 @@ Once connected, it will read the time from your CTS server (bluez on linux runni
 </div>
 <div class="section" id="howto-use-bluez-on-linux-to-set-up-a-time-service">
 <h2>Howto use Bluez on linux to set up a time service</h2>
-<p>Within the bluez source distribution there is an example GATT (Generic Attribute Profile)server. It advertises some standard service such as heart rate, battery …
+<p>Within the bluez source distribution there is an example GATT (Generic Attribute Profile)server. It advertises some standard service such as heart rate, battery ...
 Koen zandberg adapted this script, so it advertises the current time :
 <a class="reference external" href="https://github.com/bosmoment/gatt-cts/blob/master/gatt-cts-server.py">https://github.com/bosmoment/gatt-cts/blob/master/gatt-cts-server.py</a></p>
 <p>You might have to install extra packages:</p>
@@ -86,7 +86,7 @@ Koen zandberg adapted this script, so it advertises the current time :
 <p>As soon as a device is bonded, Pinetime will look for a CTS server (Current Time Service) on the connected device.
 Here is how to do it with an Android smartphone running NRFConnect:</p>
 <p>Build and program the firmware on the Pinetime Install NRFConnect (<a class="reference external" href="https://www.nordicsemi.com/Software-and-Tools/Development-Tools/nRF-Connect-for-desktop">https://www.nordicsemi.com/Software-and-Tools/Development-Tools/nRF-Connect-for-desktop</a>)</p>
-<p>Start NRFConnect and create a CTS server : Tap the hamburger button on the top left and select “Configure GATT server” Tap “Add service” on the bottom Select server configuration “Current Time Service” and tap OK Go back to the main screen and scan for BLE devices. A device called “PineTime” should appear Tap the button “Connect” next to the PineTime device. It should connect to the PineTime and switch to a new tab. On this tab, on the top right, there is a 3 dots button. Tap on it and select Bond. The bonding process begins, and if it is sucessful, the PineTime should update its time and display it on the screen.</p>
+<p>Start NRFConnect and create a CTS server : Tap the hamburger button on the top left and select &quot;Configure GATT server&quot; Tap &quot;Add service&quot; on the bottom Select server configuration &quot;Current Time Service&quot; and tap OK Go back to the main screen and scan for BLE devices. A device called &quot;PineTime&quot; should appear Tap the button &quot;Connect&quot; next to the PineTime device. It should connect to the PineTime and switch to a new tab. On this tab, on the top right, there is a 3 dots button. Tap on it and select Bond. The bonding process begins, and if it is successful, the PineTime should update its time and display it on the screen.</p>
 </div>
 </div>
 

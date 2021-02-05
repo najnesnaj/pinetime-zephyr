@@ -10,7 +10,7 @@ Have a look at the test_counter_interrupt_fn function in src/main.c
 
 ## Requirements
 
-You have to convert a graphical file to a “C” file, which is like a giant array.
+You have to convert a graphical file to a "C" file, which is like a giant array.
 
 Have a look at the prj.conf file.
 

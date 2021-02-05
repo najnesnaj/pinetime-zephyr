@@ -1,0 +1,23 @@
+current-time.rst:13: (bluez)  a CTS server (use of bluez on linux explained)
+current-time.rst:13: (linux)  a CTS server (use of bluez on linux explained)
+current-time.rst:15: (pinetime)  a CTS client (the pinetime watch)
+current-time.rst:21: (bluez)  Once connected, it will read the time from your CTS server (bluez on linux running the gatt-cts-server script in my case)
+current-time.rst:21: (linux)  Once connected, it will read the time from your CTS server (bluez on linux running the gatt-cts-server script in my case)
+current-time.rst:21: (gatt)  Once connected, it will read the time from your CTS server (bluez on linux running the gatt-cts-server script in my case)
+current-time.rst:21: (cts)  Once connected, it will read the time from your CTS server (bluez on linux running the gatt-cts-server script in my case)
+current-time.rst:39: (bluez)  Using bluez on linux to connect
+current-time.rst:39: (linux)  Using bluez on linux to connect
+current-time.rst:43: (pinetime)  The pinetime zephyr sample behaves as a peripheral:
+current-time.rst:42: (cts)  first of all start the cts service
+current-time.rst:43: (pinetime)  -connect to the pinetime with bluetoothctl
+current-time.rst:43: (bluetoothctl)  -connect to the pinetime with bluetoothctl
+current-time.rst:45: (bluetoothctl)  Using bluetoothctl:
+current-time.rst:60: (Howto)  Howto use Bluez on linux to set up a time service
+current-time.rst:60: (Bluez)  Howto use Bluez on linux to set up a time service
+current-time.rst:60: (linux)  Howto use Bluez on linux to set up a time service
+current-time.rst:62: (bluez)  Within the bluez source distribution there is an example GATT (Generic Attribute Profile)server. It advertises some standard service such as heart rate, battery ...
+current-time.rst:62: (Koen)  Koen zandberg adapted this script, so it advertises the current time :
+current-time.rst:62: (zandberg)  Koen zandberg adapted this script, so it advertises the current time :
+current-time.rst:77: (Howto)  Howto use Android to set up a time service
+current-time.rst:79: (Pinetime)  As soon as a device is bonded, Pinetime will look for a CTS server (Current Time Service) on the connected device.
+current-time.rst:82: (Pinetime)  Build and program the firmware on the Pinetime Install NRFConnect (
