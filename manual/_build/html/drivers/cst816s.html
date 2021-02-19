@@ -87,7 +87,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr for the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr  smartwatch framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bluetooth.html">bluetooth (BLE) example</a></li>
@@ -121,9 +121,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hacking/hacking.html">Hacking stuff</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../behind/behind.html">Behind the scene</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../author.html">Author</a></li>
 </ul>
 
             
@@ -200,7 +202,7 @@ Zephyr has evolved and now there is something that serve as a touchscreen device
 </pre></div>
 </div>
 <p>this driver does not exist, so it has been created.
-Still work in progress ....</p>
+Still work in progress ….</p>
 <p>there is a sample in this repository which can be copied to the zephyr samples directory</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/sensor/cst816s</span>
 </pre></div>
@@ -208,20 +210,20 @@ Still work in progress ....</p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>the Hynitron cst816s is a touchscreen.
-Zephyr doesn't handle touchscreens yet.
+Zephyr doesn’t handle touchscreens yet.
 In order to investigate, the touchscreen driver has been created as a sensor.
 In fact it senses your finger ;)</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>for this sensor does not exist any driver, so here's what I did to create one under zephyr</p>
+<p>for this sensor does not exist any driver, so here’s what I did to create one under zephyr</p>
 <p>adapt CMakeLists.txt
 adapt Kconfig
 add yaml file</p>
 <div class="section" id="create-driver">
 <h3>create driver<a class="headerlink" href="#create-driver" title="Permalink to this headline">¶</a></h3>
 <p>The driver reads only one position.
-Multitouch is possible, but the screen is small....</p>
+Multitouch is possible, but the screen is small….</p>
 <p>see under drivers/sensor/cst816s</p>
 <p>have a look at the pinetime.dts (under board/arm/pinetime) file:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&amp;i2c1 {</span>
@@ -247,7 +249,7 @@ Multitouch is possible, but the screen is small....</p>
 </div>
 <div class="section" id="todo">
 <h2>Todo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
-<p>The graphical sample doesn't handle interrupts.</p>
+<p>The graphical sample doesn’t handle interrupts.</p>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>

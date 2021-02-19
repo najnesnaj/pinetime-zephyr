@@ -1,0 +1,1 @@
+"DTS_ROOT":"/root/work/modules/hal/stm32"

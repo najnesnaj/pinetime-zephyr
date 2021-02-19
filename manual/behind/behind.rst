@@ -7,8 +7,6 @@ Behind the scene
 
 .. toctree::
 
-    behind-the-scene
-    bma280
     touchscreen
-    troubleshoot
     lvglbutton
+

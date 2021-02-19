@@ -9,9 +9,9 @@ west build -p -b pinetime samples/drivers/spi_flash -DCONF=prj.conf
 This sample application should unlock the serial nor flash memory.
 This can be very usefull to store e.g. background for the watch.
 
-compilation problematic ....
+compilation problematic ….
 
-/root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.c:17:22: error: 'DT_INST_0_JEDEC_SPI_NOR_LABEL' undeclared (first use in this function); did you mean 'DT_INST_0_NORDIC_NRF_RTC_LABEL'?
+/root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.c:17:22: error: ‘DT_INST_0_JEDEC_SPI_NOR_LABEL’ undeclared (first use in this function); did you mean ‘DT_INST_0_NORDIC_NRF_RTC_LABEL’?
 
 Turns out this is some problem with the board definition file.
 

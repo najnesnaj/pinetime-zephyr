@@ -15,36 +15,12 @@
             
   <div class="section" id="real-time-clock">
 <span id="rtc"></span><h1>Real Time Clock</h1>
+<p>originally I used the RTC2 timer to update the clock.</p>
+<p>Now the time of programming is used to set the initial time.</p>
+<p>An external library is used for time functions.</p>
+<p>Current time service on Bluetooth is used to adjust the time.</p>
 <div class="section" id="overview">
 <h2>Overview</h2>
-<p>This sample application &quot;clock&quot; uses the RTC2 timer.
-(the standard sample with RTC0 is not usable together with bluetooth)</p>
-<p>It uses the counter driver. (based on the alarm sample)</p>
-<p>Basically an interrupt is set to go off after 1 second.
-The number of seconds is incremented and the interrupt is launched again.</p>
-<p>It will serve as a building block for a &quot;time of the day&quot; clock.</p>
-<p>In addition it will need a function to set the time.</p>
-<p>In bluetooth one can use CTS (central time service)</p>
-<p><a href="#id1"><span class="problematic" id="id2">**</span></a>NOTE: as I found out there is a conflict between RTC0 and bluetooth **</p>
-</div>
-<div class="section" id="requirements">
-<h2>Requirements</h2>
-<p>Make sure the prj.conf contains the following :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CONFIG_COUNTER</span><span class="o">=</span><span class="n">y</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="building-and-running">
-<h2>Building and Running</h2>
-</div>
-<div class="section" id="todo">
-<h2>Todo</h2>
-<blockquote>
-<div><ul class="simple">
-<li><p>time of day clock</p></li>
-<li><p>setting the time</p></li>
-</ul>
-</div></blockquote>
 </div>
 <div class="section" id="references">
 <h2>References</h2>

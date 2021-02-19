@@ -21,58 +21,52 @@
     * update on 31-12-2020
 
 
-    * In case you already have zephyr installed:
+    * How to install zephyr
 
 
-    * In case you start from scratch :
+    * How to install the open source watch framekit
+
+
+* Out of tree
 
 
 * Starting with some basic applications
 
 
-    * Blinky    example
+    * Building and Running
 
 
-        * Building and Running
+        * Reading out the button on the watch
 
 
-    * Reading out the button on the watch
-
-
-        * Building and Running
+    * Building and Running
 
 
 * bluetooth (BLE) example
 
 
-    * Using a standard zephyr application under pinetime:
+    * simulated on laptop
 
 
-    * Eddy Stone
+        * Using a standard zephyr application under pinetime:
 
 
-    * Using the created bluetooth sample:
+        * Eddy Stone
 
 
-    * Ble Peripheral
+        * Using the created bluetooth sample:
 
 
-    * using Python to read out bluetoothservices
+        * Ble Peripheral
 
 
-* display (st7789)
+        * using Python to read out bluetoothservices
+
+
+* display
 
 
     * Display    example
-
-
-* GFX Library Sample
-
-
-    * Overview
-
-
-    * Usage
 
 
 * LittlevGL Basic Sample
@@ -94,9 +88,6 @@
 
 
         * apply changes of the changed config:
-
-
-    * Todo
 
 
     * References
@@ -124,15 +115,6 @@
 
 
     * Overview
-
-
-    * Requirements
-
-
-    * Building and Running
-
-
-    * Todo
 
 
     * References
@@ -372,361 +354,124 @@
                 * Reset remotely
 
 
-* Samples and Demos
+* Samples
 
 
-    * Basic Samples
+    * OSWatch Framework
 
 
-        * Blinky Application
+        * Overview
 
 
-            * Overview
+        * Requirements
 
 
-            * Requirements
+        * Building and Running
 
 
-            * Building and Running
+        * References
 
 
-        * Button demo
+    * OSWatch Framework
 
 
-            * Overview
+        * Overview
 
 
-            * Requirements
+        * Requirements
 
 
-            * Building and Running
+        * Building and Running
 
 
-        * I2C Scanner sample
+        * References
 
 
-            * Overview
+    * HRS3300 Heart Rate Sensor
 
 
-            * Building and Running
+        * Overview
 
 
-        * Touchscreen IRQ
+        * Building and Running
 
 
-            * Overview
+            * Sample Output
 
 
-            * Requirements
+    * Character frame buffer
 
 
-            * Building and Running
+        * Overview
 
 
-        * Touchpoints
+        * Building and Running
 
 
-            * Overview
+        * POSIX
 
 
-            * Requirements
+        * Pinetime
 
 
-            * Building and Running
+    * Character Framebuffer Shell Module Sample
 
 
-    * Sensor Samples
+        * Overview
 
 
-        * BMA280: Three Axis High-g I2C/SPI Accelerometer
+        * Building and Running
 
 
-            * Description
+            * Shell Module Command Help
 
 
-            * References
+    * LittlevGL Basic Sample
 
 
-            * Wiring
+        * Overview
 
 
-                * I2C mode
+        * Requirements
 
 
-                * SPI mode
+        * Building and Running
 
 
-            * Building and Running
+        * References
 
 
-                * Sample Output: Max Peak Detect Mode
+    * Lightsensor
 
 
-                * Sample Output: Measurement Mode
+    * LittlevGL SDL Button  Sample
 
 
-        * CST816S HYNITRON TOUCHSCREEN
+        * Overview
 
 
-            * Description
+        * Requirements
 
 
-            * References
+        * Building and Running
 
 
-            * Wiring
+        * References
 
 
-                * I2C mode
+    * LittlevGL SDL Button  Sample
 
 
-            * Building and Running
+        * Overview
 
 
-                * Sample Output: X & Y coordinates
+        * Requirements
 
 
-                * Sample Output: Measurement Mode
+        * Building and Running
 
 
-        * HRS3300 Heart Rate Sensor
-
-
-            * Overview
-
-
-            * Building and Running
-
-
-                * Sample Output
-
-
-        * HRS3300 Heart Rate Sensor
-
-
-            * Overview
-
-
-            * Building and Running
-
-
-                * Sample Output
-
-
-    * Driver Samples
-
-
-        * I2C Scanner sample
-
-
-            * Overview
-
-
-            * Building and Running
-
-
-        * I2C Scanner sample
-
-
-            * Overview
-
-
-            * Building and Running
-
-
-    * Display Samples
-
-
-        * LittlevGL Basic Sample
-
-
-            * Overview
-
-
-            * Requirements
-
-
-            * Building and Running
-
-
-            * References
-
-
-        * LittlevGL Basic Sample
-
-
-            * Overview
-
-
-            * Requirements
-
-
-            * Building and Running
-
-
-            * References
-
-
-        * ST7789V Display driver
-
-
-            * Overview
-
-
-            * Building and Running
-
-
-            * References
-
-
-    * GUI Samples
-
-
-        * Clock Sample Current Time Service
-
-
-            * Overview
-
-
-            * Requirements
-
-
-            * Building and Running
-
-
-            * References
-
-
-        * Clock Sample Current Time Service
-
-
-            * Overview
-
-
-            * Requirements
-
-
-            * Building and Running
-
-
-            * References
-
-
-        * LittlevGL Clock Sample
-
-
-            * Overview
-
-
-            * Requirements
-
-
-            * Building and Running
-
-
-            * References
-
-
-        * Adafruit GFX Library on ST7789V Display
-
-
-            * Overview
-
-
-        * Display accel values
-
-
-            * Overview
-
-
-            * Requirements
-
-
-            * Building and Running
-
-
-            * References
-
-
-        * LittlevGL Basic Sample
-
-
-            * Overview
-
-
-            * Requirements
-
-
-            * Building and Running
-
-
-            * References
-
-
-        * Touchscreen Basic Sample
-
-
-            * Overview
-
-
-            * Requirements
-
-
-            * Building and Running
-
-
-            * References
-
-
-    * Bluetooth Samples
-
-
-        * Bluetooth: Central / Heart-rate Monitor
-
-
-            * Overview
-
-
-            * Requirements
-
-
-            * Building and Running
-
-
-        * Bluetooth: Eddystone
-
-
-            * Overview
-
-
-            * Requirements
-
-
-            * Building and Running
-
-
-        * Bluetooth: Peripheral_cts
-
-
-            * Overview
-
-
-            * Requirements
-
-
-            * Building and Running
-
-
-        * Bluetooth: Peripheral
-
-
-            * Overview
-
-
-            * Requirements
-
-
-            * Building and Running
+        * References
 
 
 * Menuconfig
@@ -757,6 +502,18 @@
 
 
         * howto setup a blackmagicprobe
+
+
+    * pseudo
+
+
+        * simulation on NATIVE_POSIX_64
+
+
+    * Segger RTT (Real Time Transfer)
+
+
+    * Serial data without a serial port
 
 
 * Hacking stuff
@@ -798,16 +555,7 @@
 * Behind the scene
 
 
-    * Behind the scene
-
-
-        * Overview
-
-
-    * development trajectory
-
-
-    * Bosch BMA280
+    * Touchscreen
 
 
         * Overview
@@ -823,48 +571,6 @@
 
 
         * References
-
-
-    * Touchscreen Hynitron
-
-
-        * Overview
-
-
-        * Requirements
-
-
-        * Building and Running
-
-
-        * Todo
-
-
-        * References
-
-
-    * Troubleshooting drivers
-
-
-        * Overview
-
-
-        * Example
-
-
-        * Requirements
-
-
-            * a sample to detect interrupt
-
-
-            * a sample to scan the I2C-BUS
-
-
-            * a sample to read the I2C-BUS
-
-
-            * a samples to handle semaphores
 
 
     * placing a button on the screen
@@ -874,3 +580,6 @@
 
 
 * About
+
+
+* Author

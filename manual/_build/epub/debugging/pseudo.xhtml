@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pseudo</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pseudo">
+<h1>pseudo</h1>
+<div class="section" id="simulation-on-native-posix-64">
+<h2>simulation on NATIVE_POSIX_64</h2>
+<p>It is possible to use two serial ports on the virtual posix board.
+One can display log message, while the other one lets you interact with the shell.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CONFIG_UART_CONSOLE</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_UART_CONSOLE_ON_DEV_NAME</span><span class="o">=</span><span class="s2">&quot;UART_0&quot;</span>
+<span class="n">CONFIG_UART_NATIVE_POSIX_PORT_1_ENABLE</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_UART_NATIVE_POSIX_PORT_1_NAME</span><span class="o">=</span><span class="s2">&quot;UART_1&quot;</span>
+<span class="n">CONFIG_SHELL</span><span class="o">=</span><span class="n">y</span>
+<span class="n">CONFIG_UART_SHELL_ON_DEV_NAME</span><span class="o">=</span><span class="s2">&quot;UART_0&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@osboxes:~/work/app#</span> ./build/zephyr/zephyr.exe
+<span class="go">UART_1 connected to pseudotty: /dev/pts/2</span>
+<span class="go">UART_0 connected to pseudotty: /dev/pts/3</span>
+
+
+<span class="go">minicom -D /dev/pts/3</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(you should see log messages)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

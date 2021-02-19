@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Touchscreen Hynitron &mdash; open source watch 1.1.0 documentation</title>
+  <title>Touchscreen &mdash; open source watch 1.1.0 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="Troubleshooting drivers" href="troubleshoot.html" />
-    <link rel="prev" title="development trajectory" href="bma280.html" /> 
+    <link rel="next" title="placing a button on the screen" href="lvglbutton.html" />
+    <link rel="prev" title="Behind the scene" href="behind.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,12 +87,11 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr for the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr  smartwatch framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bluetooth.html">bluetooth (BLE) example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../display.html">display (st7789)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gfx.html">GFX Library Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">display</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lvgl.html">LittlevGL Basic Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clock.html">LittlevGL Clock Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../RTC.html">Real Time Clock</a></li>
@@ -101,12 +100,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hacking/hacking.html">Hacking stuff</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="behind.html">Behind the scene</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="behind-the-scene.html">Behind the scene</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bma280.html">development trajectory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bma280.html#bosch-bma280">Bosch BMA280</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Touchscreen Hynitron</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Touchscreen</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
@@ -114,11 +111,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="troubleshoot.html">Troubleshooting drivers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lvglbutton.html">placing a button on the screen</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../author.html">Author</a></li>
 </ul>
 
             
@@ -166,7 +163,7 @@
         
           <li><a href="behind.html">Behind the scene</a> &raquo;</li>
         
-      <li>Touchscreen Hynitron</li>
+      <li>Touchscreen</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -185,35 +182,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="touchscreen-hynitron">
-<h1>Touchscreen Hynitron<a class="headerlink" href="#touchscreen-hynitron" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/lupyuen/hynitron_i2c_cst0xxse</span>
-</pre></div>
-</div>
+  <div class="section" id="touchscreen">
+<h1>Touchscreen<a class="headerlink" href="#touchscreen" title="Permalink to this headline">¶</a></h1>
+<p>In my first release I created a touchscreendriver that read the x-y coordinates from the pinetime screen.</p>
+<p>Meanwhile a rudimentary touchscreen driver exist in Zephyr. (KSCAN_TOUCH)</p>
+<p>It integrates with LVGL.</p>
+<p>I managed to adapt the driver from Focaltech, so it now supports the Pinetime as well.</p>
+<p>However it is not capable of detecting events like “slide up/down”, but point and click is usable.</p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>this does not exist yet in zephyr, but there is work in progress
-<a class="reference external" href="https://github.com/zephyrproject-rtos/zephyr/pull/16119">https://github.com/zephyrproject-rtos/zephyr/pull/16119</a></p>
+<p>Touchscreen Hynitron</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>complement the pinetime.dts file with the following (under samples/sensor/bma280)</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&amp;i2c1 {</span>
-<span class="go">        touch@18 {</span>
-<span class="go">                  };</span>
-<span class="go">       };</span>
-</pre></div>
-</div>
-<p>Create a file: <cite>/dts/bindings/sensor/touch.yaml</cite>.
-Which contains:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compatible</span><span class="p">:</span> <span class="s2">&quot;touch&quot;</span>
-<span class="n">include</span><span class="p">:</span> <span class="n">i2c</span><span class="o">-</span><span class="n">device</span><span class="o">.</span><span class="n">yaml</span>
-<span class="n">properties</span><span class="p">:</span>
-       <span class="n">int1</span><span class="o">-</span><span class="n">gpios</span><span class="p">:</span>
-       <span class="nb">type</span><span class="p">:</span> <span class="n">phandle</span><span class="o">-</span><span class="n">array</span>
-       <span class="n">required</span><span class="p">:</span> <span class="n">false</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
@@ -221,8 +202,7 @@ Which contains:</p>
 <div class="section" id="todo">
 <h2>Todo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>-create touchscreen driver
--create sample</p>
+<div><p>-support more touchscreen events</p>
 </div></blockquote>
 </div>
 <div class="section" id="references">
@@ -238,10 +218,10 @@ Which contains:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="troubleshoot.html" class="btn btn-neutral float-right" title="Troubleshooting drivers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="lvglbutton.html" class="btn btn-neutral float-right" title="placing a button on the screen" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="bma280.html" class="btn btn-neutral float-left" title="development trajectory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="behind.html" class="btn btn-neutral float-left" title="Behind the scene" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

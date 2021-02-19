@@ -10,7 +10,7 @@ Once the pinetime is closed and on your wrist, you still want access.
 
 see : Firmware Over The Air (FOTA)
 
-Suppose you upload a application which contains a bug, the watch freezes, and ... you will have to open it up, connect the SWD ...
+Suppose you upload a application which contains a bug, the watch freezes, and … you will have to open it up, connect the SWD …
 
 Here comes the watchdog:
 
@@ -24,7 +24,7 @@ Here comes the watchdog:
 > * the application feeds the watchdog
 
 
-> * if it cannot feed the watchdog, reset to fota, and you can upload another better version ...
+> * if it cannot feed the watchdog, reset to fota, and you can upload another better version …
 
 ## Todo
 

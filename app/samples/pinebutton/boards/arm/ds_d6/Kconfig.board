@@ -1,0 +1,11 @@
+#
+# Copyright (c) 2019 Nordic Semiconductor
+#
+# SPDX-License-Identifier: LicenseRef-BSD-5-Clause-Nordic
+#
+
+config BOARD_DS_D6
+	bool "DS_D6"
+	depends on SOC_NRF52832_QFAA
+
+

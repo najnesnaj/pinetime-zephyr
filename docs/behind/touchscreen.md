@@ -1,42 +1,25 @@
-# Touchscreen Hynitron
+# Touchscreen
 
-```
-git clone https://github.com/lupyuen/hynitron_i2c_cst0xxse
-```
+In my first release I created a touchscreendriver that read the x-y coordinates from the pinetime screen.
+
+Meanwhile a rudimentary touchscreen driver exist in Zephyr. (KSCAN_TOUCH)
+
+It integrates with LVGL.
+
+I managed to adapt the driver from Focaltech, so it now supports the Pinetime as well.
+
+However it is not capable of detecting events like “slide up/down”, but point and click is usable.
 
 ## Overview
 
-this does not exist yet in zephyr, but there is work in progress
-[https://github.com/zephyrproject-rtos/zephyr/pull/16119](https://github.com/zephyrproject-rtos/zephyr/pull/16119)
+Touchscreen Hynitron
 
 ## Requirements
-
-complement the pinetime.dts file with the following (under samples/sensor/bma280)
-
-```
-&i2c1 {
-        touch@18 {
-                  };
-       };
-```
-
-Create a file: /dts/bindings/sensor/touch.yaml.
-Which contains:
-
-```
-compatible: "touch"
-include: i2c-device.yaml
-properties:
-       int1-gpios:
-       type: phandle-array
-       required: false
-```
 
 ## Building and Running
 
 ## Todo
 
-> -create touchscreen driver
-> -create sample
+> -support more touchscreen events
 
 ## References

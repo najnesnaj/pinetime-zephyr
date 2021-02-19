@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Touchscreen Hynitron</title>
+    <title>Touchscreen</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/epub.css" type="text/css" /> 
   </head><body>
@@ -13,35 +13,19 @@
       <div class="documentwrapper">
           <div class="body" role="main">
             
-  <div class="section" id="touchscreen-hynitron">
-<h1>Touchscreen Hynitron</h1>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/lupyuen/hynitron_i2c_cst0xxse</span>
-</pre></div>
-</div>
+  <div class="section" id="touchscreen">
+<h1>Touchscreen</h1>
+<p>In my first release I created a touchscreendriver that read the x-y coordinates from the pinetime screen.</p>
+<p>Meanwhile a rudimentary touchscreen driver exist in Zephyr. (KSCAN_TOUCH)</p>
+<p>It integrates with LVGL.</p>
+<p>I managed to adapt the driver from Focaltech, so it now supports the Pinetime as well.</p>
+<p>However it is not capable of detecting events like “slide up/down”, but point and click is usable.</p>
 <div class="section" id="overview">
 <h2>Overview</h2>
-<p>this does not exist yet in zephyr, but there is work in progress
-<a class="reference external" href="https://github.com/zephyrproject-rtos/zephyr/pull/16119">https://github.com/zephyrproject-rtos/zephyr/pull/16119</a></p>
+<p>Touchscreen Hynitron</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements</h2>
-<p>complement the pinetime.dts file with the following (under samples/sensor/bma280)</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&amp;i2c1 {</span>
-<span class="go">        touch@18 {</span>
-<span class="go">                  };</span>
-<span class="go">       };</span>
-</pre></div>
-</div>
-<p>Create a file: <cite>/dts/bindings/sensor/touch.yaml</cite>.
-Which contains:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">compatible</span><span class="p">:</span> <span class="s2">&quot;touch&quot;</span>
-<span class="n">include</span><span class="p">:</span> <span class="n">i2c</span><span class="o">-</span><span class="n">device</span><span class="o">.</span><span class="n">yaml</span>
-<span class="n">properties</span><span class="p">:</span>
-       <span class="n">int1</span><span class="o">-</span><span class="n">gpios</span><span class="p">:</span>
-       <span class="nb">type</span><span class="p">:</span> <span class="n">phandle</span><span class="o">-</span><span class="n">array</span>
-       <span class="n">required</span><span class="p">:</span> <span class="n">false</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running</h2>
@@ -49,8 +33,7 @@ Which contains:</p>
 <div class="section" id="todo">
 <h2>Todo</h2>
 <blockquote>
-<div><p>-create touchscreen driver
--create sample</p>
+<div><p>-support more touchscreen events</p>
 </div></blockquote>
 </div>
 <div class="section" id="references">

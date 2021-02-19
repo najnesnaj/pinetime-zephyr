@@ -1,4 +1,17 @@
-cd manual 
+find /root/work/app -name README.rst | awk '{FS="/";print "cp "$0 " /root/work/pinetime-zephyr/manual/samples/"  $5 $6 $7}' > jj
+chmod 777 jj
+./jj
+cd manual/samples
+echo " .. _Samples:" > index.rst
+echo " " >> index.rst 
+echo " " >> index.rst 
+echo " " >> index.rst 
+echo "Samples " >> index.rst 
+echo "####### " >> index.rst 
+echo " " >> index.rst 
+echo ".. toctree:: " >> index.rst
+ls *rst |awk '{gsub(".rst",""); print "    "$0}' >> /root/work/pinetime-zephyr/manual/samples/index.rst
+cd .. 
 make markdown
 make html
 make latexpdf
@@ -10,3 +23,4 @@ cp -rfp _build/html  ../docs
 cd ../docs
 echo "[view doc in html](html)" > index.md
 find -name '*md' |sed -e 's,^\./,,' | awk '{print "["$1"]" "(" $1 ")   "}' >> index.md
+cp -rfp /root/work/app /root/work/pinetime-zephyr 

@@ -1,6 +1,46 @@
 bluetooth (BLE) example 
 =======================
 
+simulated on laptop
+-------------------
+how to activate bluetooth?
+
+VBOX running ubuntu (first disactivate driver in windows)
+(CTRL home -- select usb -- (intel in my case)) -- this lets you select the integrated bluetoothmodule of your laptop
+
+ hciconfig hci0 down
+
+ west build -p -b native_posix_64 samples/bluetooth/peripheral_hr
+  ./build/zephyr/zephyr.exe --bt-dev=hci0
+
+
+
+.. code-block:: console
+
+        bluetoothctl
+	[bluetooth]# devices
+	Device C6:78:40:29:EC:31 Zephyr Heartrate Sensor
+	Device C9:16:85:ED:B6:4E DS-D6 b64e
+        Device C8:B7:89:A9:B0:C9 Espruino-107 b0c9
+	Device 00:1A:7D:DA:71:0B posix_64
+
+
+	[bluetooth]# info 00:1A:7D:DA:71:0B
+        Device 00:1A:7D:DA:71:0B (public)
+	Name: posix_64
+	Alias: posix_64
+	Paired: no
+	Trusted: no
+	Blocked: no
+	Connected: no
+	LegacyPairing: no
+	UUID: Device Information        (0000180a-0000-1000-8000-00805f9b34fb)
+	UUID: Current Time Service      (00001805-0000-1000-8000-00805f9b34fb)
+
+
+
+
+
 The PineTime uses a Nordic nrf52832 chip, which has BLE functionality build into it.
 
 To test, you can compile a standard application : Eddy Stone.

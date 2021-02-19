@@ -90,19 +90,15 @@
 <li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr  smartwatch framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Starting with some basic applications</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#blinky-example">Blinky    example</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-and-running">Building and Running</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reading-out-the-button-on-the-watch">Reading out the button on the watch</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#reading-out-the-button-on-the-watch">Reading out the button on the watch</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Building and Running</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Building and Running</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bluetooth.html">bluetooth (BLE) example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="display.html">display (st7789)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gfx.html">GFX Library Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display.html">display</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lvgl.html">LittlevGL Basic Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clock.html">LittlevGL Clock Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="RTC.html">Real Time Clock</a></li>
@@ -115,6 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="hacking/hacking.html">Hacking stuff</a></li>
 <li class="toctree-l1"><a class="reference internal" href="behind/behind.html">Behind the scene</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="author.html">Author</a></li>
 </ul>
 
             
@@ -182,41 +179,40 @@
   <div class="section" id="starting-with-some-basic-applications">
 <h1>Starting with some basic applications<a class="headerlink" href="#starting-with-some-basic-applications" title="Permalink to this headline">¶</a></h1>
 <p>The best way to get a feel of zephyr for the smartwatch, is to start building applications.</p>
-<p>The gpio ports, i2c communication, memory layout, stuff that is particular for the watch is defined in the board definition file.</p>
-<p>The provided samples are standard zephyr application, with some minor modifications.</p>
-<p>The watch framework is under /app. This framework provides a clock, a button, bluetooth, touchscreen and 4 screens, where you can add stuff.</p>
-<div class="section" id="blinky-example">
-<h2>Blinky    example<a class="headerlink" href="#blinky-example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">pinetime</span> <span class="n">watch</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">contain</span> <span class="n">a</span> <span class="n">led</span> <span class="k">as</span> <span class="n">such</span><span class="p">,</span> <span class="n">but</span> <span class="n">it</span> <span class="n">has</span> <span class="n">a</span> <span class="n">vibrator</span><span class="o">-</span><span class="n">motor</span> <span class="n">which</span> <span class="n">makes</span> <span class="n">some</span> <span class="n">noise</span><span class="o">.</span>
-<span class="n">The</span> <span class="n">Desay</span> <span class="n">D6</span> <span class="n">can</span> <span class="n">blink</span> <span class="n">it</span><span class="s1">&#39;s heartrate sensor.</span>
-<span class="n">The</span> <span class="n">vitual</span> <span class="n">POSIX</span> <span class="n">can</span> <span class="nb">print</span> <span class="n">out</span> <span class="n">to</span> <span class="n">the</span> <span class="n">screen</span><span class="o">.</span>
-</pre></div>
-</div>
+<p>The watch framework is under /app.</p>
+<p>The framework contains a clock, bluetooth, a procedure to upgrade over the air, cts  …</p>
+<p>To reduce the complexity, samples are provided.
+Each sample contains a single feature of the framework.</p>
 <div class="section" id="building-and-running">
-<h3>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime app/blinky</span>
-<span class="go">west build -p -b ds_d6 app/blinky</span>
-<span class="go">west build -p -b native_posix_64 app/blinky</span>
+<h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
+<p>The “native_posix_64” board is your own linux-box.
+This means that you can execute the code on your system.
+You do not need a smartwatch.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b native_posix_64 samples/sdlbutton</span>
 </pre></div>
 </div>
+<p>running : ./build/zephyr/zephyr.exe</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime_devkit1 samples/sdlbutton</span>
+</pre></div>
 </div>
-</div>
+<p>running : west flash</p>
 <div class="section" id="reading-out-the-button-on-the-watch">
-<h2>Reading out the button on the watch<a class="headerlink" href="#reading-out-the-button-on-the-watch" title="Permalink to this headline">¶</a></h2>
+<h3>Reading out the button on the watch<a class="headerlink" href="#reading-out-the-button-on-the-watch" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">pinetime</span> <span class="n">does</span> <span class="n">have</span> <span class="n">a</span> <span class="n">button</span> <span class="n">on</span> <span class="n">the</span> <span class="n">side</span><span class="o">.</span>
 <span class="n">The</span> <span class="n">desay</span> <span class="n">D6</span> <span class="n">has</span> <span class="n">a</span> <span class="n">touchbutton</span> <span class="ow">in</span> <span class="n">front</span><span class="o">.</span>
 <span class="n">The</span> <span class="n">virtual</span> <span class="n">POSIX</span> <span class="n">watch</span> <span class="n">has</span> <span class="n">a</span> <span class="n">touchbutton</span>
 </pre></div>
 </div>
-<div class="section" id="id1">
-<h3>Building and Running<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p><em>Note:</em>:
-<cite>The pinetime watch has a button out port (15) and button in port (13). You have to set the out-port high. Took me a while to figure this out...</cite></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime app/button</span>
-<span class="go">west build -p -b ds_d6 app/button</span>
-<span class="go">west build -p -b native_posix_64 app/button</span>
-</pre></div>
 </div>
+</div>
+<div class="section" id="id1">
+<h2>Building and Running<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><em>Note:</em>:
+<cite>The pinetime watch has a button out port (15) and button in port (13). You have to set the out-port high. Took me a while to figure this out…</cite></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/button</span>
+<span class="go">west build -p -b ds_d6 samples/button</span>
+<span class="go">west build -p -b native_posix_64 samples/button</span>
+</pre></div>
 </div>
 </div>
 </div>

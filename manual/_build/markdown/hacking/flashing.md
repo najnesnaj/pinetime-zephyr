@@ -21,8 +21,8 @@ example for stm-link usb-stick
 example for the orange-pi GPIO header (or raspberry)
 
 > # openocd -f /usr/local/share/openocd/scripts/interface/sysfsgpio-raspberrypi.cfg
-> -c 'transport select swd' -f /usr/local/share/openocd/scripts/target/nrf52.cfg
-> -c 'bindto 0.0.0.0'
+> -c ‘transport select swd’ -f /usr/local/share/openocd/scripts/target/nrf52.cfg
+> -c ‘bindto 0.0.0.0’
 
 once you started the openocd background server, you can connect to it using:
 

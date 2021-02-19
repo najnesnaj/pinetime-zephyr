@@ -1,15 +1,18 @@
-# PineTime Zephyr
+# Open Source Watch toolkit for the  Zephyr RTOS
 
+originally a  
 [PineTime](https://www.pine64.org/pinetime/) firmware toolkit based on [Zephyr Project](https://www.zephyrproject.org/) RTOS.
 
-A collection of drivers, libraries and samples to build your own PineTime smart watch firmware.
+now evolved into a framework which has the potential to support other watches.
 
+Included in this toolkit is a virtual watch, which you can run on your computer. (no real watch, devboard, debugprobe is needed!)
 
 
 ## Contributing to this project
 
 The pinetime board (watch) has become a part of the zephyr distribution.
-This is not the case (yet) for the HR-sensor, touchscreen, accell-sensor.....
+
+You can contribute to this project, by adding your own board definition file, better coding, suggestions ...
 
 
 ## Where To Start?
@@ -28,92 +31,57 @@ build your first sample!
 
  - west build -p -b pinetime_devkit0 samples/boards/pine64_pinetime
 
-build your second sample to get taste of the touchscreen:
 
-The zephyr-included Focaltech touch_controller is usable on the Pinetime (included in samples/display/lvgl).  (minor modification see: drivers/kscan)
-you can copy the modified driver and board definition screen
+## Major update on 18/02/2021
 
- - west build -p -b pinetime_devkit0 samples/display/lvgl
+The initial toolkit was focused on getting zephyr up and running on the pinetime smartwatch.
 
+Zephyr is still under development and some nifty features were added since (or I discovered them only lately)
 
+ - touchscreen support (kscan)
+ - out of tree development
+ - virtual board
+ - ssd1306 oled spi support
 
-## if you're in for more adventure : 
+it inspired me to morph the original pinetime-toolkit into an open-source-watch-framework.
 
+## philosophy
 
-3. Create a working directory and enter it.
-```
-mkdir work
-cd work
-```
-3. Use west to clone pinetime repository and initialize pinetime project.
-```
-west init -m https://github.com/najnesnaj/pinetime-zephyr
-```
-Alternatively, you can also clone using manifest from specific branch or tag:
-```
-west init -m https://github.com/<user>/pinetime-zephyr --mr <branch>
-```
-4. Use `west` to use clone and checkout all dependant repositories specified in `west.yml` (inluding zephyr).
-```
-west update
-```
-5. Enjoy!
+Quick&easy, open and cheap!
 
+Once you set up zephyr on your system, you only have to copy the "app" directory alongside.
+There is an extensive "hands-on" manual included, it is an addition of the zephyr manual.
 
-If you used zephyr and west before and want to stick to the same zephyr copy then you can clone pinetime next to zephyr in working directory and update manifest and west.
-```
-west config manifest.path pinetime
-```
+Although dev-boards are not expensive, you might just want to try things out, without spending money.
+Bluetooth, LVGL, board definition, touchscreen can be run native on X86.
+Another advantage : no need for a debug probe.
+You can get a taste of debugging your firmware with gdb.
+I've included compiled firmware, which you can run on your linux(64)  box.
+
+I used a osbox virtual linux ubuntu 18, so you do not even have to own a computer.
+### Copy
+suppose you already have ../work/zephyr installed
+copy /app to ../work
+### Build 
+west build -p -b native_posix_64 oswatch
+### Run 
+./build/zephyr/zephyr.exe
+### Result 
+a simulated watch is displayed on the screen
+### Bluetooth
+the simulated watch can use bluetooth! (some extra config is needed : this is explained in the included manual) 
+
 
 Resources:
 - West documentation: https://docs.zephyrproject.org/latest/guides/west
-- nRF Connect SDK is using zephyr in similar way and its documentation can be helpful as well: https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/gs_installing.html
 
-## Tips & Tricks
-
-### Logging/Shell/Console
-
-#### Segger RTT (Real Time Transfer)
-Pinetime does not have UART pins but UART-like connection can be achieved using RTT (Real Time Transfer)
-feature of Segger JLink debugger. RTT data can be accessed using SEGGER tool (RTTViewer) or by using
-telnet connection to active debug session. Second methond is recommended since it gives better throughput
-and allows bitdirection communication using Zephyr Shell (with RTT as backend). PuTTY can be used to
-telnet to debug session.
-
-Prerequisites:
-- JLink debugger, for example one of Nordic Semiconductor Development Kits.
-- Setup: https://wiki.pine64.org/index.php/PineTime#Using_JLink_programmer_and_nrfjprog_tools
-
-Following steps needs to be taken to run RTT shell in the application:
-1. Install PuTTY and Setup RTT session. On Linux, copy `misc/rtt_shell/rtt` to `~/putty/sessions`. On Windows,
-execute `misc/rtt_shell/putty-rtt.reg`.
-2. Enable logging and shell over RTT:
-```
-CONFIG_LOG=y
-CONFIG_USE_SEGGER_RTT=y
-CONFIG_SHELL=y
-CONFIG_SHELL_BACKEND_RTT=y
-```
-
-3. Build and flash application.
-
-4. Start debug session
-```
-west debug (will start gdb)
-continue (in gdb console)
-```
-5. Start PuTTY RTT session, prompt should be printed.
-
-Resources:
-- Zephyr shell documentation: https://docs.zephyrproject.org/latest/reference/shell/index.html
-- Zephyr logger documentation: https://docs.zephyrproject.org/latest/reference/logging/index.html
 
 ## What Is Included?
 In this repository you can find files that supplement a zephyr installation.
 
-* **board definition** Contains the board definition for the pinetime.
-* **drivers** Contains the drivers for the pinetime.
-* **samples** Modified samples for blinky, new samples for the ST7789V display etc.
+* **board definition** Contains the board definition for the pinetime, ds_d6, and native_posix_64
+* **drivers** Contains the drivers for the pinetime, ds_d6
+* **samples** These are building blocks, which eventually end up in the oswatch-firmware. 
 
 ## Project Roadmap
 ### DONE
@@ -121,22 +89,23 @@ In this repository you can find files that supplement a zephyr installation.
 - bluetooth BLE
 - graphics libraries
 - - LittlevGL
-- - Adafruit GFX
 - RTC
 - Serial NOR flash
 - accel sensor
 - heart rate sensor
-- touchscreen
+- touchscreen (not with all the gizmo's yet)
 - CTS (setting time in bluetooth)
 - DFU (wireless firmware update)
+- serial port
 
 ### TODO
-- HR detection (algorithm)
 - build-in features of bosch accel sensor (eg step counter)
-- testing interrupt/semaphore mechanism on accel sensor and touchscreen
 - powermanagement
 - watchdog
 
+### NICE TO HAVE 
+- HR detection (algorithm)
+- cycle computer
 
 #### Other watches 
 

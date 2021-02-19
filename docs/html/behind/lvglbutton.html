@@ -37,7 +37,7 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="About" href="../about.html" />
-    <link rel="prev" title="Troubleshooting drivers" href="troubleshoot.html" /> 
+    <link rel="prev" title="Touchscreen" href="touchscreen.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,12 +87,11 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr for the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr  smartwatch framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bluetooth.html">bluetooth (BLE) example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../display.html">display (st7789)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gfx.html">GFX Library Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">display</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lvgl.html">LittlevGL Basic Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clock.html">LittlevGL Clock Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../RTC.html">Real Time Clock</a></li>
@@ -101,13 +100,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hacking/hacking.html">Hacking stuff</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="behind.html">Behind the scene</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="behind-the-scene.html">Behind the scene</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bma280.html">development trajectory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bma280.html#bosch-bma280">Bosch BMA280</a></li>
-<li class="toctree-l2"><a class="reference internal" href="touchscreen.html">Touchscreen Hynitron</a></li>
-<li class="toctree-l2"><a class="reference internal" href="troubleshoot.html">Troubleshooting drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="touchscreen.html">Touchscreen</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">placing a button on the screen</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
 </ul>
@@ -115,6 +111,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../author.html">Author</a></li>
 </ul>
 
             
@@ -188,21 +185,9 @@
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
-<p>In this repo under samples you will find an adapted gui/clock program.
-A button from the LVGL library is placed on the screen.</p>
-<p>Later on when the touch-screen driver is ready, we'll be able to manipulate it.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Make sure that prj.conf file in clock directory contains the following:</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>CONFIG_LVGL_OBJ_CONTAINER=y
-CONFIG_LVGL_OBJ_BUTTON=y</p>
-</div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p><em>problem</em> the canvas height*width eats up RAM and exceeds once &gt; 40</p>
 </div>
 </div>
 
@@ -217,7 +202,7 @@ CONFIG_LVGL_OBJ_BUTTON=y</p>
         <a href="../about.html" class="btn btn-neutral float-right" title="About" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="troubleshoot.html" class="btn btn-neutral float-left" title="Troubleshooting drivers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="touchscreen.html" class="btn btn-neutral float-left" title="Touchscreen" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

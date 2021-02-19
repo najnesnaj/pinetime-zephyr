@@ -1,0 +1,18 @@
+menu "hal_nordic (/root/work/modules/hal/nordic)"
+osource "$(ZEPHYR_HAL_NORDIC_KCONFIG)"
+config ZEPHYR_HAL_NORDIC_MODULE
+	bool
+	default y
+endmenu
+menu "sof (/root/work/modules/audio/sof)"
+osource "/root/work/modules/audio/sof/zephyr/Kconfig"
+config ZEPHYR_SOF_MODULE
+	bool
+	default y
+endmenu
+menu "oswatch_drivers (/root/work/app/oswatch-bt/oswatch_drivers)"
+osource "/root/work/app/oswatch-bt/oswatch_drivers/zephyr/Kconfig"
+config ZEPHYR_OSWATCH_DRIVERS_MODULE
+	bool
+	default y
+endmenu

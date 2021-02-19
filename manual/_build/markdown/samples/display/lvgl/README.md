@@ -2,11 +2,11 @@
 
 ## Overview
 
-This sample application displays "Hello World" in the center of the screen
+This sample application displays “Hello World” in the center of the screen
 and a counter at the bottom which increments every second.
 
 If an input driver is supported, such as the touch panel controller on the pinetime
-boards, "Hello World" is enclosed in a button that changes to the toggled state
+boards, “Hello World” is enclosed in a button that changes to the toggled state
 when touched.
 
 ## Requirements

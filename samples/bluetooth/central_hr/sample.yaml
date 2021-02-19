@@ -1,7 +1,0 @@
-sample:
-  name: Bluetooth Central HR
-tests:
-  sample.bluetooth.central_hr:
-    arch_whitelist: x86
-    harness: bluetooth
-    tags: bluetooth

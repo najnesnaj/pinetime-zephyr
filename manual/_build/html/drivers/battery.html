@@ -87,7 +87,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr for the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr  smartwatch framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bluetooth.html">bluetooth (BLE) example</a></li>
@@ -116,9 +116,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hacking/hacking.html">Hacking stuff</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../behind/behind.html">Behind the scene</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../author.html">Author</a></li>
 </ul>
 
             
@@ -201,7 +203,7 @@ Module will use adc (saadc peripheral) to measure battery voltage and gpio drive
 Battery voltage can be in range from 3.0V - 4.2V (?). Unfortunately, internal reference (0.6V) can only be used for voltages up to 3.6V (due to minimal gain of 1/6). VDD/4 reference can be used with 1/6 gain to measure voltages up to 4.95V. Test is needed to check how accurate is VDD as reference.
 Discharge curve (<a class="reference external" href="https://forum.pine64.org/showthread.php?tid=8147">https://forum.pine64.org/showthread.php?tid=8147</a>) will be used to calculate charge level in percent.
 Things to consider:
-saadc periodical calibration (spec suggests calibration if temperature changes by 10'C)
+saadc periodical calibration (spec suggests calibration if temperature changes by 10’C)
 inaccuracy of results: oversampling? never report higher level than before (if charge not connected), etc.</p>
 </div>
 <div class="section" id="todo">

@@ -1,0 +1,137 @@
+/dts-v1/;
+
+/ {
+	#address-cells = < 0x1 >;
+	#size-cells = < 0x1 >;
+	model = "Native POSIX Board";
+	compatible = "zephyr,posix";
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+		zephyr,uart-mcumgr = &uart0;
+		zephyr,flash = &flash0;
+		zephyr,entropy = &rng;
+		zephyr,flash-controller = &flashcontroller0;
+		zephyr,ec-host-interface = &hcp;
+	};
+	aliases {
+		eeprom-0 = &eeprom0;
+		i2c-0 = &i2c0;
+		spi-0 = &spi0;
+		led0 = &led0;
+	};
+	leds {
+		compatible = "gpio-leds";
+		led0: led_0 {
+			gpios = < &gpio0 0x0 0x0 >;
+			label = "Green LED";
+		};
+	};
+	flashcontroller0: flash-controller@0 {
+		compatible = "zephyr,sim-flash";
+		reg = < 0x0 0x200000 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x1 >;
+		erase-value = < 0xff >;
+		label = "flash_ctrl";
+		flash0: flash@0 {
+			status = "okay";
+			compatible = "soc-nv-flash";
+			label = "flash";
+			erase-block-size = < 0x1000 >;
+			write-block-size = < 0x1 >;
+			reg = < 0x0 0x200000 >;
+			partitions {
+				compatible = "fixed-partitions";
+				#address-cells = < 0x1 >;
+				#size-cells = < 0x1 >;
+				boot_partition: partition@0 {
+					label = "mcuboot";
+					reg = < 0x0 0xc000 >;
+				};
+				slot0_partition: partition@c000 {
+					label = "image-0";
+					reg = < 0xc000 0x69000 >;
+				};
+				slot1_partition: partition@75000 {
+					label = "image-1";
+					reg = < 0x75000 0x69000 >;
+				};
+				scratch_partition: partition@de000 {
+					label = "image-scratch";
+					reg = < 0xde000 0x1e000 >;
+				};
+				storage_partition: partition@fc000 {
+					label = "storage";
+					reg = < 0xfc000 0x4000 >;
+				};
+			};
+		};
+	};
+	eeprom0: eeprom {
+		status = "okay";
+		compatible = "zephyr,sim-eeprom";
+		label = "EEPROM_0";
+		size = < 0x8000 >;
+	};
+	i2c0: i2c@100 {
+		status = "okay";
+		compatible = "zephyr,i2c-emul-controller";
+		clock-frequency = < 0x186a0 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		reg = < 0x100 0x4 >;
+		label = "I2C_0";
+	};
+	spi0: spi@200 {
+		status = "okay";
+		compatible = "zephyr,spi-emul-controller";
+		clock-frequency = < 0x2faf080 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		reg = < 0x200 0x4 >;
+		label = "SPI_0";
+	};
+	espi0: espi@300 {
+		status = "okay";
+		compatible = "zephyr,espi-emul-controller";
+		reg = < 0x300 0x4 >;
+		#address-cells = < 0x1 >;
+		#size-cells = < 0x0 >;
+		label = "ESPI_0";
+	};
+	uart0: uart {
+		status = "okay";
+		compatible = "zephyr,native-posix-uart";
+		label = "UART_0";
+		current-speed = < 0x0 >;
+	};
+	rng: rng {
+		status = "okay";
+		compatible = "zephyr,native-posix-rng";
+		label = "ENTROPY_0";
+	};
+	counter0: counter {
+		status = "okay";
+		compatible = "zephyr,native-posix-counter";
+		label = "COUNTER_0";
+	};
+	hcp: ec-host-cmd-periph {
+		status = "okay";
+		compatible = "zephyr,sim-ec-host-cmd-periph";
+		label = "EC_HOST_CMD_SIM";
+	};
+	gpio0: gpio@800 {
+		status = "okay";
+		compatible = "zephyr,gpio-emul";
+		label = "GPIO_0";
+		reg = < 0x800 0x4 >;
+		rising-edge;
+		falling-edge;
+		high-level;
+		low-level;
+		gpio-controller;
+		#gpio-cells = < 0x2 >;
+		phandle = < 0x1 >;
+	};
+};

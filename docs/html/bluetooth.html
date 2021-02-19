@@ -87,15 +87,18 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr for the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr  smartwatch framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">bluetooth (BLE) example</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#using-a-standard-zephyr-application-under-pinetime">Using a standard zephyr application under pinetime:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#eddy-stone">Eddy Stone</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-the-created-bluetooth-sample">Using the created bluetooth sample:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ble-peripheral">Ble Peripheral</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-python-to-read-out-bluetoothservices">using Python to read out bluetoothservices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulated-on-laptop">simulated on laptop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-a-standard-zephyr-application-under-pinetime">Using a standard zephyr application under pinetime:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eddy-stone">Eddy Stone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-created-bluetooth-sample">Using the created bluetooth sample:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ble-peripheral">Ble Peripheral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-python-to-read-out-bluetoothservices">using Python to read out bluetoothservices</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="display.html">display (st7789)</a></li>
@@ -108,9 +111,11 @@
 <li class="toctree-l1"><a class="reference internal" href="fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging/debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hacking/hacking.html">Hacking stuff</a></li>
 <li class="toctree-l1"><a class="reference internal" href="behind/behind.html">Behind the scene</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="author.html">Author</a></li>
 </ul>
 
             
@@ -177,11 +182,44 @@
             
   <div class="section" id="bluetooth-ble-example">
 <h1>bluetooth (BLE) example<a class="headerlink" href="#bluetooth-ble-example" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="simulated-on-laptop">
+<h2>simulated on laptop<a class="headerlink" href="#simulated-on-laptop" title="Permalink to this headline">¶</a></h2>
+<p>how to activate bluetooth?</p>
+<p>VBOX running ubuntu (first disactivate driver in windows)
+(CTRL home – select usb – (intel in my case)) – this lets you select the integrated bluetoothmodule of your laptop</p>
+<blockquote>
+<div><p>hciconfig hci0 down</p>
+<dl class="simple">
+<dt>west build -p -b native_posix_64 samples/bluetooth/peripheral_hr</dt><dd><p>./build/zephyr/zephyr.exe –bt-dev=hci0</p>
+</dd>
+</dl>
+</div></blockquote>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">bluetoothctl</span>
+<span class="gp">[bluetooth]#</span> devices
+<span class="go">Device C6:78:40:29:EC:31 Zephyr Heartrate Sensor</span>
+<span class="go">Device C9:16:85:ED:B6:4E DS-D6 b64e</span>
+<span class="go">Device C8:B7:89:A9:B0:C9 Espruino-107 b0c9</span>
+<span class="go">Device 00:1A:7D:DA:71:0B posix_64</span>
+
+
+<span class="gp">[bluetooth]#</span> info <span class="m">00</span>:1A:7D:DA:71:0B
+<span class="go">Device 00:1A:7D:DA:71:0B (public)</span>
+<span class="go">Name: posix_64</span>
+<span class="go">Alias: posix_64</span>
+<span class="go">Paired: no</span>
+<span class="go">Trusted: no</span>
+<span class="go">Blocked: no</span>
+<span class="go">Connected: no</span>
+<span class="go">LegacyPairing: no</span>
+<span class="go">UUID: Device Information        (0000180a-0000-1000-8000-00805f9b34fb)</span>
+<span class="go">UUID: Current Time Service      (00001805-0000-1000-8000-00805f9b34fb)</span>
+</pre></div>
+</div>
 <p>The PineTime uses a Nordic nrf52832 chip, which has BLE functionality build into it.</p>
 <p>To test, you can compile a standard application : Eddy Stone.</p>
 <p>The watch will behave as a bluetooth beacon, and you should be able to detect it with your smartphone or with bluez under linux.</p>
 <div class="section" id="using-a-standard-zephyr-application-under-pinetime">
-<h2>Using a standard zephyr application under pinetime:<a class="headerlink" href="#using-a-standard-zephyr-application-under-pinetime" title="Permalink to this headline">¶</a></h2>
+<h3>Using a standard zephyr application under pinetime:<a class="headerlink" href="#using-a-standard-zephyr-application-under-pinetime" title="Permalink to this headline">¶</a></h3>
 <p>Each sample has its own directory.
 In this directory you will notice a file : “CMakeLists.txt”.</p>
 <p>In order to use a standard, you can just copy it under the pinetime directory.</p>
@@ -190,7 +228,7 @@ In this directory you will notice a file : “CMakeLists.txt”.</p>
 <p>Have a look in the samples/bluetooth/eddystone directory.</p>
 </div>
 <div class="section" id="eddy-stone">
-<h2>Eddy Stone<a class="headerlink" href="#eddy-stone" title="Permalink to this headline">¶</a></h2>
+<h3>Eddy Stone<a class="headerlink" href="#eddy-stone" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p>see:   <a class="reference internal" href="samples/bluetooth/eddystone/README.html#bluetooth-eddystone-sample"><span class="std std-ref">Bluetooth: Eddystone</span></a></p>
 </div></blockquote>
@@ -201,7 +239,7 @@ In this directory you will notice a file : “CMakeLists.txt”.</p>
 <p><code class="docutils literal notranslate"><span class="pre">this</span> <span class="pre">builds</span> <span class="pre">an</span> <span class="pre">image,</span> <span class="pre">which</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">found</span> <span class="pre">under</span> <span class="pre">the</span> <span class="pre">build</span> <span class="pre">directory</span></code></p>
 </div>
 <div class="section" id="using-the-created-bluetooth-sample">
-<h2>Using the created bluetooth sample:<a class="headerlink" href="#using-the-created-bluetooth-sample" title="Permalink to this headline">¶</a></h2>
+<h3>Using the created bluetooth sample:<a class="headerlink" href="#using-the-created-bluetooth-sample" title="Permalink to this headline">¶</a></h3>
 <p>I use linux with a bluetoothadapter 4.0.
 You need to install bluez.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>bluetoothctl
@@ -212,7 +250,7 @@ You need to install bluez.</p>
 <p>If you have a smartphone, you can download the nrf utilities app from nordic.</p>
 </div>
 <div class="section" id="ble-peripheral">
-<h2>Ble Peripheral<a class="headerlink" href="#ble-peripheral" title="Permalink to this headline">¶</a></h2>
+<h3>Ble Peripheral<a class="headerlink" href="#ble-peripheral" title="Permalink to this headline">¶</a></h3>
 <p>this example is a demo of the services under bluetooth</p>
 <p>first build the image</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b pinetime samples/bluetooth/peripheral
@@ -233,7 +271,7 @@ You need to install bluez.</p>
 <p>same thing with the app from nordic, you could try to connect and display value of e.g. heart rate</p>
 </div>
 <div class="section" id="using-python-to-read-out-bluetoothservices">
-<h2>using Python to read out bluetoothservices<a class="headerlink" href="#using-python-to-read-out-bluetoothservices" title="Permalink to this headline">¶</a></h2>
+<h3>using Python to read out bluetoothservices<a class="headerlink" href="#using-python-to-read-out-bluetoothservices" title="Permalink to this headline">¶</a></h3>
 <p>In this repo you will find a python script : readbat.py
 In order to use it you need bluez on linux and the python <cite>bluepy</cite> module.</p>
 <p>It can be used in conjunction with the peripheral bluetooth demo.
@@ -251,6 +289,7 @@ It just reads out the battery level, and prints it.</p>
 <span class="k">finally</span><span class="p">:</span>
     <span class="n">p</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>

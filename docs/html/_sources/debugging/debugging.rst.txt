@@ -11,3 +11,5 @@ Debugging
 
     debug
     blackmagicprobe
+    pseudo
+    jlink

@@ -10,10 +10,10 @@ INDEX
    copyright.rst
    content.rst
    installation.rst
+   out-of-tree.rst
    basicapplications.rst
    bluetooth.rst 
    display.rst
-   gfx.rst
    lvgl.rst
    clock.rst
    RTC.rst
@@ -26,6 +26,7 @@ INDEX
    hacking/hacking.rst
    behind/behind.rst
    about.rst
+   author.rst
 
 
 

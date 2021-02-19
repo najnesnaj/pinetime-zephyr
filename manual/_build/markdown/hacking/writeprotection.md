@@ -26,9 +26,9 @@ Just connect : telnet 127.0.0.1 4444
 
     Mind you, st-link does not allow you to execute that command, for this you will need a J-link.
 
-    There is a workaround using the GPIO of a raspberry pi or an Orangepi. (in this case you won't need an external programmer at all)
+    There is a workaround using the GPIO of a raspberry pi or an Orangepi. (in this case you won’t need an external programmer at all)
     (You can find an example for the orange pi in my repo :[https://github.com/najnesnaj/openocd](https://github.com/najnesnaj/openocd).)
-    You have to reconfigure Openocd with the --enable-cmsis-dap option.
+    You have to reconfigure Openocd with the –enable-cmsis-dap option.
 
     Unlock the chip by executing the command:
     > nrf52.dap apreg 1 0x04 0x01

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This sample application displays "Hello World" in the center of the screen
+This sample application displays “Hello World” in the center of the screen
 and a counter at the bottom which increments every second.
 
 LittlevGL is a free and open-source graphics library providing everything you need to create embedded GUI with easy-to-use graphical elements, beautiful visual effects and low memory footprint.
@@ -10,7 +10,7 @@ LittlevGL is a free and open-source graphics library providing everything you ne
 ## Simulation
 
 In order to avoid uploading to check what the display looks like, there is a simple way to simulate this.
-I've tested this on Ubuntu 18.04 64bit. You'll need the SDL2 library.
+I’ve tested this on Ubuntu 18.04 64bit. You’ll need the SDL2 library.
 
 ```
 west build -p -b native_posix_64 samples/display/lvgl -DCONF=board/native-posix_64
@@ -35,7 +35,7 @@ pinetime.overlay:               label = "DISPLAY"; (spi definition)
 ## Building and Running
 
 ```
-west build -p -b pinetime samples/gui/lvgl
+west build -p -b pinetime samples/lvgl
 ```
 
 ### modifying the font size :
@@ -61,17 +61,6 @@ west build
 ```
 
 (instead of west build -p (pristine) which wipes out your customisation)
-
-## Todo
-
-> 
-> * Create a button
-
-
-> * touchscreen activation (problem cause zephyr does not support this yet)
-
-
-> * lvgl supports lv_canvas_rotate(canvas, &imd_dsc, angle, x, y, pivot_x, pivot_y) should be cool for a clock, chrono...
 
 ## References
 

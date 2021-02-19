@@ -20,3 +20,15 @@
 
 
     * howto setup a blackmagicprobe
+
+
+* pseudo
+
+
+    * simulation on NATIVE_POSIX_64
+
+
+* Segger RTT (Real Time Transfer)
+
+
+* Serial data without a serial port

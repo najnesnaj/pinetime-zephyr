@@ -29,18 +29,18 @@ The standard-setup is jlink (segger).</p>
 <ul class="simple">
 <li><p>/dev/ttyACM0 is used as debugger/uploading</p></li>
 </ul>
-<p>west debug --runner blackmagicprobe
-west flash --runner blackmagicprobe</p>
+<p>west debug –runner blackmagicprobe
+west flash –runner blackmagicprobe</p>
 </div>
 <div class="section" id="howto-setup-a-blackmagicprobe">
 <h2>howto setup a blackmagicprobe</h2>
 <p>You can buy this probe and support the developers. (make this world a better place)</p>
-<p>I bought a &quot;cheapo&quot; &quot;blue pill&quot; stm32 board for future projects ...
+<p>I bought a “cheapo” “blue pill” stm32 board for future projects …
 soldered a 1.8K resistor between 3.3K and PA12</p>
 <p>downloaded from <a class="reference external" href="https://jeelabs.org/docs/software/bmp/">https://jeelabs.org/docs/software/bmp/</a>
 - blackmagic.bin (79 ko)
 - blackmagic_dfu.bin (7 ko)</p>
-<p>in jlink : loadbin blackmagic_dfu.bin 0x8000000 (specify jlink no options ...)
+<p>in jlink : loadbin blackmagic_dfu.bin 0x8000000 (specify jlink no options …)
 switch boot0 or boot1 or whatever
 connect usb
 in linux
@@ -48,7 +48,7 @@ dfu-util -v -R -d 0483:df11 -s 0x08002000 -D blackmagic.bin
 (uploading in jlink was a problem cause memory restrictions)</p>
 <img alt="../_images/blackmagicd6.jpeg" src="../_images/blackmagicd6.jpeg" />
 <p>(removed boot0 and boot1 connectors on the stm afterwards)</p>
-<p>plugged it in the USB port and it pops up (had to enable it first in virtual box usb : black sphere technologies .....)</p>
+<p>plugged it in the USB port and it pops up (had to enable it first in virtual box usb : black sphere technologies …..)</p>
 </div>
 </div>
 

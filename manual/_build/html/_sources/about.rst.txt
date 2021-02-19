@@ -18,7 +18,7 @@ Gradually this morphed into a pinetime-toolkit.
 A few experts contributed and improved this kit so it became usable.
 
 
-I took a long break from this project, zephyr evolved and a project for creating an open source watch, the hypnos firmware flourished.
+I took a long break from this project, zephyr evolved and a project for creating an open source watch, the hypnos-firmware flourished.
 
 The drivers for the heartrate sensor, touchpanel that I adapted, became obsolete.
 The pinetime board definition file is now part of the zephyr RTOS distribution.
@@ -28,7 +28,11 @@ I played around with the "native_posix_64" board, which is a virtual board that 
 
 
 This gave me the idea for an opensource-watch-framework.
-
+Start of with simple samples, and add some more functionality, until finally you end up with a smartwatch.
+The framework is build around three smartwatches, the pinetime, the ds_d6 and the posix_sdl.
+It should work on other platform as well, with minor modifications.
+I only recently got the idea for out-of-tree development.
+Just put all the modified drivers, board definitions and application in one place outside of the zephyr-tree.
 
 
 ::

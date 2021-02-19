@@ -37,7 +37,7 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="LittlevGL Clock Sample" href="clock.html" />
-    <link rel="prev" title="GFX Library Sample" href="gfx.html" /> 
+    <link rel="prev" title="display" href="display.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,12 +87,11 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr for the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr  smartwatch framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bluetooth.html">bluetooth (BLE) example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="display.html">display (st7789)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gfx.html">GFX Library Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display.html">display</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">LittlevGL Basic Sample</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#simulation">Simulation</a></li>
@@ -102,7 +101,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#apply-changes-of-the-changed-config">apply changes of the changed config:</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#todo">Todo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
@@ -113,9 +111,11 @@
 <li class="toctree-l1"><a class="reference internal" href="fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="samples/index.html">Samples and Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging/debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hacking/hacking.html">Hacking stuff</a></li>
 <li class="toctree-l1"><a class="reference internal" href="behind/behind.html">Behind the scene</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="author.html">Author</a></li>
 </ul>
 
             
@@ -210,7 +210,7 @@ pinetime.overlay:               label = &quot;DISPLAY&quot;; (spi definition)
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/gui/lvgl</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/lvgl</span>
 </pre></div>
 </div>
 <div class="section" id="modifying-the-font-size">
@@ -235,16 +235,6 @@ pinetime.overlay:               label = &quot;DISPLAY&quot;; (spi definition)
 <p>(instead of west build -p (pristine) which wipes out your customisation)</p>
 </div>
 </div>
-<div class="section" id="todo">
-<h2>Todo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
-<li><p>Create a button</p></li>
-<li><p>touchscreen activation (problem cause zephyr does not support this yet)</p></li>
-<li><p>lvgl supports lv_canvas_rotate(canvas, &amp;imd_dsc, angle, x, y, pivot_x, pivot_y) should be cool for a clock, chrono…</p></li>
-</ul>
-</div></blockquote>
-</div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://docs.littlevgl.com/en/html/index.html">https://docs.littlevgl.com/en/html/index.html</a></p>
@@ -263,7 +253,7 @@ pinetime.overlay:               label = &quot;DISPLAY&quot;; (spi definition)
         <a href="clock.html" class="btn btn-neutral float-right" title="LittlevGL Clock Sample" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gfx.html" class="btn btn-neutral float-left" title="GFX Library Sample" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="display.html" class="btn btn-neutral float-left" title="display" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

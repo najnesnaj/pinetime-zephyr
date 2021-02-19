@@ -43,7 +43,7 @@ pinetime.overlay:               label = &quot;DISPLAY&quot;; (spi definition)
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running</h2>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/gui/lvgl</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/lvgl</span>
 </pre></div>
 </div>
 <div class="section" id="modifying-the-font-size">
@@ -67,16 +67,6 @@ pinetime.overlay:               label = &quot;DISPLAY&quot;; (spi definition)
 </div>
 <p>(instead of west build -p (pristine) which wipes out your customisation)</p>
 </div>
-</div>
-<div class="section" id="todo">
-<h2>Todo</h2>
-<blockquote>
-<div><ul class="simple">
-<li><p>Create a button</p></li>
-<li><p>touchscreen activation (problem cause zephyr does not support this yet)</p></li>
-<li><p>lvgl supports lv_canvas_rotate(canvas, &amp;imd_dsc, angle, x, y, pivot_x, pivot_y) should be cool for a clock, chrono…</p></li>
-</ul>
-</div></blockquote>
 </div>
 <div class="section" id="references">
 <h2>References</h2>

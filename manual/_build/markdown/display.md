@@ -1,28 +1,14 @@
-# display (st7789)
+# display
 
 ## Display    example
 
-This is just a simple display test.
-It displays colored squares, but it allows you to check if the screen is OK.
+There are three types of display included.
 
-**TIP: While connecting 5V, do not connect 3.3V at the same time**
 
-```
-The watch has background leds for the LCD.
+* a st7789 color display used in the pinetime
 
-They need to be on (LOW) to visualize the display.
-Have a look in the source code.
-```
 
-```
-$  west build -p -b pinetime samples/display/st7789v
-```
+* a monochrome SSD1306 OLED display used in the desay D6
 
-Once the compilation is completed you can upload the firmware.
 
-If all goes well, you should see some colored squares on your screen.
-
-**Note : in order to get the display st7789 Picture-Perfect, you might need a zephyr patch**
-
-have a look at : [https://github.com/zephyrproject-rtos/zephyr/pull/20570/files](https://github.com/zephyrproject-rtos/zephyr/pull/20570/files)
-You will find them in this repo under patches-zephyr.
+* a on-screen display SDL simulated on linux

@@ -100,7 +100,7 @@ restore <path-to-mcuboot-zephyr.bin> binary 0
 Intel Hex (`.hex`) image format. This is written as `(bin|hex)` in this
 document.
 
-Using MCUboot's `imgtool.py` script, sign the `zephyr.(bin|hex)`
+Using MCUboot’s `imgtool.py` script, sign the `zephyr.(bin|hex)`
 file you built in Step 3. In the below example, the MCUboot repo is located at
 `~/src/mcuboot`.
 
@@ -124,7 +124,7 @@ board.  The location of image slot-0 varies by board, as described in
 mcuboot_partitions.  For the nRF52 DK, slot-0 is located at address
 `0xc000`.
 
-Using `nrfjprog` you don't need to specify the slot-0 starting address,
+Using `nrfjprog` you don’t need to specify the slot-0 starting address,
 since `.hex` files already contain that information:
 
 ```
@@ -139,7 +139,7 @@ restore <path-to-signed.bin> binary 0xc000
 
 ### Step 6: Run it!
 
-**NOTE**: If you haven't installed `mcumgr` yet, then do so by following the
+**NOTE**: If you haven’t installed `mcumgr` yet, then do so by following the
 instructions in the mcumgr_cli section of the Management subsystem
 documentation.
 
@@ -149,7 +149,7 @@ connection string, and you might need to modify it depending on the
 BLE controller you are using.
 
 The `smp_svr` app is ready to run.  Just reset your board and test the app
-with the `mcumgr` command-line tool's `echo` functionality, which will
+with the `mcumgr` command-line tool’s `echo` functionality, which will
 send a string to the remote target device and have it echo it back:
 
 ```
@@ -161,7 +161,7 @@ hello
 
 Now that the SMP server is running on your board and you are able to communicate
 with it using `mcumgr`, you might want to test what is commonly called
-"OTA DFU", or Over-The-Air Device Firmware Upgrade.
+“OTA DFU”, or Over-The-Air Device Firmware Upgrade.
 
 To do this, build a second sample (following the steps below) to verify
 it is sent over the air and properly flashed into slot-1, and then

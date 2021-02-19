@@ -1,0 +1,105 @@
+# Open Source Watch toolkit for the  Zephyr RTOS
+
+originally a  
+[PineTime](https://www.pine64.org/pinetime/) firmware toolkit based on [Zephyr Project](https://www.zephyrproject.org/) RTOS.
+
+now evolved into a framework which has the potential to support other watches.
+
+Included in this toolkit is a virtual watch, which you can run on your computer. (no real watch is needed!)
+
+
+## Contributing to this project
+
+The pinetime board (watch) has become a part of the zephyr distribution.
+This is not the case (yet) for the HR-sensor, touchscreen, accell-sensor.....
+
+You can also contribute to this project, by adding your own board definition file.
+
+
+## Where To Start?
+Read the tutorial! A helpful manual is included in the repository:
+ - [pdf](oswatch.pdf)
+ - [epub](opensourcewatch.epub)
+ - [html](https://najnesnaj.github.io/pinetime-zephyr/html)
+ - [md](https://najnesnaj.github.io/pinetime-zephyr/)
+
+## Installation Overview
+1. Follow the Zephyr [Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html) to install zephyr SDK and tools.
+2. Install `west` meta tool (https://docs.zephyrproject.org/latest/guides/west/install.html).
+
+
+build your first sample!
+
+ - west build -p -b pinetime_devkit0 samples/boards/pine64_pinetime
+
+
+## Major update on 18/02/2021
+
+The initial toolkit was focused on getting zephyr up and running on the pinetime smartwatch.
+
+Zephyr is still under development and some nifty features were added since (or I discovered them only lately)
+
+ - touchscreen support (kscan)
+ - out of tree development
+ - virtual board
+ - ssd1306 oled spi support
+
+it inspired me to morph the original pinetime-toolkit into an open-source-watch-framework.
+
+## philosophy
+
+Quick and easy!
+Once you set up zephyr on your system, you only have to copy the app directory alongside.
+
+### Build 
+west build -p -b native_posix_64 oswatch
+### Run 
+./build/zephyr/zephyr.exe
+### Result 
+a simulated watch is displayed on the screen
+### Bluetooth
+the simulated watch can use bluetooth! (some extra config is needed : this is explained in the included manual) 
+
+
+Resources:
+- West documentation: https://docs.zephyrproject.org/latest/guides/west
+
+
+## What Is Included?
+In this repository you can find files that supplement a zephyr installation.
+
+* **board definition** Contains the board definition for the pinetime.
+* **drivers** Contains the drivers for the pinetime.
+* **samples** Modified samples for blinky, new samples for the ST7789V display etc.
+
+## Project Roadmap
+### DONE
+- the display
+- bluetooth BLE
+- graphics libraries
+- - LittlevGL
+- - Adafruit GFX
+- RTC
+- Serial NOR flash
+- accel sensor
+- heart rate sensor
+- touchscreen
+- CTS (setting time in bluetooth)
+- DFU (wireless firmware update)
+
+### TODO
+- HR detection (algorithm)
+- build-in features of bosch accel sensor (eg step counter)
+- testing interrupt/semaphore mechanism on accel sensor and touchscreen
+- powermanagement
+- watchdog
+
+
+#### Other watches 
+
+There are quite a few hackable watches, based on the same nrf52832 microcontroller.
+I have also made a repository for the desay D6, which is a ssd1306 OLED based, cheap chinese watch with a serial port.
+[other smartwatches](https://github.com/najnesnaj/dsd6-zephyr)
+This watch combined with a "blue-pill" black magic debug probe, which contains a serial port, might be one of the cheapest zephyr dev boards available!
+
+

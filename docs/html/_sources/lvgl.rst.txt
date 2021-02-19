@@ -51,7 +51,7 @@ Building and Running
 
 .. code-block:: console
 
-       west build -p -b pinetime samples/gui/lvgl
+       west build -p -b pinetime samples/lvgl
 
 modifying the font size :
 -------------------------
@@ -78,12 +78,6 @@ apply changes of the changed config:
 (instead of west build -p (pristine) which wipes out your customisation)
 
 
-Todo
-****
-
-    - Create a button
-    - touchscreen activation (problem cause zephyr does not support this yet)
-    - lvgl supports lv_canvas_rotate(canvas, &imd_dsc, angle, x, y, pivot_x, pivot_y) should be cool for a clock, chrono...
 
 
 References

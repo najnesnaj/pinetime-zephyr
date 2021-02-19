@@ -12,8 +12,8 @@
     <dc:publisher>najnesnaj@yahoo.com</dc:publisher>
     <dc:rights>2020, jj</dc:rights>
     <dc:identifier id="unknown">unknown</dc:identifier>
-    <dc:date>2021-02-02T12:52:49Z</dc:date>
-    <meta property="dcterms:modified">2021-02-02T12:52:49Z</meta>
+    <dc:date>2021-02-19T14:14:50Z</dc:date>
+    <meta property="dcterms:modified">2021-02-19T14:14:50Z</meta>
     <meta property="ibooks:version">beta</meta>
     <meta property="ibooks:specified-fonts">true</meta>
     <meta property="ibooks:binding">true</meta>
@@ -25,206 +25,234 @@
     <item id="epub-0" href="CTS.xhtml" media-type="application/xhtml+xml" />
     <item id="epub-1" href="RTC.xhtml" media-type="application/xhtml+xml" />
     <item id="epub-2" href="about.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-3" href="basicapplications.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-4" href="blinky.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-5" href="bluetooth.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-6" href="button.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-7" href="clock.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-8" href="content.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-9" href="copyright.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-10" href="current-time.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-11" href="display.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-12" href="flashing.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-13" href="genindex.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-14" href="gfx.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-15" href="i2c.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-16" href="index.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-17" href="installation.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-18" href="latexpdf.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-19" href="lvgl.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-20" href="lvglbutton.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-21" href="menuconfig.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-22" href="sensors.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-23" href="_images/PineTime-830x400.png" media-type="image/png" />
-    <item id="epub-24" href="_images/blackmagicd6.jpeg" media-type="image/jpeg" />
-    <item id="epub-25" href="_images/clockback.png" media-type="image/png" />
-    <item id="epub-26" href="_images/hrs3300.jpg" media-type="image/jpeg" />
-    <item id="epub-27" href="_images/zephyr_logo.png" media-type="image/png" />
-    <item id="epub-28" href="_static/basic.css" media-type="text/css" />
-    <item id="epub-29" href="_static/epub.css" media-type="text/css" />
-    <item id="epub-30" href="_static/file.png" media-type="image/png" />
-    <item id="epub-31" href="_static/minus.png" media-type="image/png" />
-    <item id="epub-32" href="_static/plus.png" media-type="image/png" />
-    <item id="epub-33" href="_static/pygments.css" media-type="text/css" />
-    <item id="epub-34" href="behind/behind-the-scene.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-35" href="behind/behind.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-36" href="behind/bma280.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-37" href="behind/lvglbutton.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-38" href="behind/touchscreen.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-39" href="behind/troubleshoot.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-40" href="debugging/blackmagicprobe.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-41" href="debugging/debug.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-42" href="debugging/debugging.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-43" href="drivers/battery.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-44" href="drivers/bma280.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-45" href="drivers/bma421.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-46" href="drivers/cst816s.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-47" href="drivers/drivers.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-48" href="drivers/hrs3300.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-49" href="drivers/i2c.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-50" href="drivers/index.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-51" href="drivers/sensors.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-52" href="drivers/spinor.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-53" href="drivers/touchscreen.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-54" href="drivers/watchdog.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-55" href="fota/dfu.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-56" href="fota/fota.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-57" href="fota/mcuboot.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-58" href="fota/partitions.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-59" href="fota/signing.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-60" href="fota/smp_svr.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-61" href="hacking/blackmagicprobe.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-62" href="hacking/debugging.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-63" href="hacking/flashing.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-64" href="hacking/hacking.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-65" href="hacking/i2cscanning.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-66" href="hacking/infrastructure.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-67" href="hacking/latexpdf.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-68" href="hacking/openocd.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-69" href="hacking/troubleshoot.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-70" href="hacking/writeprotection.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-71" href="samples/index.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-72" href="samples/basic/basic.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-73" href="samples/basic/blinky/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-74" href="samples/basic/button/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-75" href="samples/basic/scani2c/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-76" href="samples/basic/testirq/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-77" href="samples/basic/touchpoints/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-78" href="samples/bluetooth/bluetooth.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-79" href="samples/bluetooth/central_hr/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-80" href="samples/bluetooth/eddystone/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-81" href="samples/bluetooth/peripheral/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-82" href="samples/bluetooth/peripheral-cts/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-83" href="samples/display/display.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-84" href="samples/display/lvgl/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-85" href="samples/display/lvgl-posix/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-86" href="samples/display/st7789v/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-87" href="samples/drivers/drivers.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-88" href="samples/drivers/ds6_scanner/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-89" href="samples/drivers/i2c_scanner/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-90" href="samples/gui/gui.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-91" href="samples/gui/clock/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-92" href="samples/gui/clock-cts/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-93" href="samples/gui/clock-cts-rtc2/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-94" href="samples/gui/gfx/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-95" href="samples/gui/lvaccel/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-96" href="samples/gui/lvaccel/src/bma280/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-97" href="samples/gui/lvgl/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-98" href="samples/gui/lvtouch/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-99" href="samples/mgmt/smp_svr/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-100" href="samples/mgmt/smp_wtd/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-101" href="samples/sensor/sensor.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-102" href="samples/sensor/bma280/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-103" href="samples/sensor/cst816s/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-104" href="samples/sensor/hrs3300/README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-105" href="samples/sensor/hrs3300-old/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-3" href="author.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-4" href="basicapplications.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-5" href="blinky.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-6" href="bluetooth.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-7" href="button.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-8" href="clock.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-9" href="content.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-10" href="copyright.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-11" href="current-time.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-12" href="display.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-13" href="flashing.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-14" href="genindex.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-15" href="gfx.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-16" href="i2c.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-17" href="index.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-18" href="installation.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-19" href="latexpdf.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-20" href="lvgl.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-21" href="lvglbutton.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-22" href="menuconfig.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-23" href="out-of-tree.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-24" href="sensors.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-25" href="_images/PineTime-830x400.png" media-type="image/png" />
+    <item id="epub-26" href="_images/blackmagicd6.jpeg" media-type="image/jpeg" />
+    <item id="epub-27" href="_images/clockback.png" media-type="image/png" />
+    <item id="epub-28" href="_images/hrs3300.jpg" media-type="image/jpeg" />
+    <item id="epub-29" href="_images/zephyr_logo.png" media-type="image/png" />
+    <item id="epub-30" href="_static/basic.css" media-type="text/css" />
+    <item id="epub-31" href="_static/epub.css" media-type="text/css" />
+    <item id="epub-32" href="_static/file.png" media-type="image/png" />
+    <item id="epub-33" href="_static/minus.png" media-type="image/png" />
+    <item id="epub-34" href="_static/plus.png" media-type="image/png" />
+    <item id="epub-35" href="_static/pygments.css" media-type="text/css" />
+    <item id="epub-36" href="behind/behind-the-scene.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-37" href="behind/behind.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-38" href="behind/bma280.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-39" href="behind/lvglbutton.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-40" href="behind/touchscreen.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-41" href="behind/troubleshoot.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-42" href="debugging/blackmagicprobe.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-43" href="debugging/debug-posix.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-44" href="debugging/debug.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-45" href="debugging/debugging.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-46" href="debugging/jlink.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-47" href="debugging/pseudo.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-48" href="drivers/battery.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-49" href="drivers/bma280.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-50" href="drivers/bma421.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-51" href="drivers/cst816s.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-52" href="drivers/drivers.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-53" href="drivers/hrs3300.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-54" href="drivers/i2c.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-55" href="drivers/index.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-56" href="drivers/sensors.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-57" href="drivers/spinor.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-58" href="drivers/touchscreen.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-59" href="drivers/watchdog.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-60" href="fota/dfu.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-61" href="fota/fota.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-62" href="fota/mcuboot.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-63" href="fota/partitions.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-64" href="fota/signing.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-65" href="fota/smp_svr.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-66" href="hacking/blackmagicprobe.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-67" href="hacking/debugging.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-68" href="hacking/flashing.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-69" href="hacking/hacking.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-70" href="hacking/i2cscanning.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-71" href="hacking/infrastructure.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-72" href="hacking/latexpdf.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-73" href="hacking/openocd.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-74" href="hacking/troubleshoot.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-75" href="hacking/writeprotection.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-76" href="samples/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-77" href="samples/index.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-78" href="samples/oswatch-btREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-79" href="samples/oswatchREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-80" href="samples/samplescfbREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-81" href="samples/samplescfb_shellREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-82" href="samples/sampleslvglREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-83" href="samples/samplesmax44009README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-84" href="samples/samplespinebuttonREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-85" href="samples/samplessdlbuttonREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-86" href="samples/basic/basic.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-87" href="samples/basic/blinky/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-88" href="samples/basic/button/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-89" href="samples/basic/scani2c/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-90" href="samples/basic/testirq/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-91" href="samples/basic/touchpoints/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-92" href="samples/bluetooth/bluetooth.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-93" href="samples/bluetooth/central_hr/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-94" href="samples/bluetooth/eddystone/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-95" href="samples/bluetooth/peripheral/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-96" href="samples/bluetooth/peripheral-cts/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-97" href="samples/display/display.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-98" href="samples/display/lvgl/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-99" href="samples/display/lvgl-posix/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-100" href="samples/display/st7789v/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-101" href="samples/drivers/drivers.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-102" href="samples/drivers/ds6_scanner/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-103" href="samples/drivers/i2c_scanner/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-104" href="samples/gui/gui.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-105" href="samples/gui/clock/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-106" href="samples/gui/clock-cts/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-107" href="samples/gui/clock-cts-rtc2/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-108" href="samples/gui/gfx/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-109" href="samples/gui/lvaccel/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-110" href="samples/gui/lvaccel/src/bma280/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-111" href="samples/gui/lvgl/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-112" href="samples/gui/lvtouch/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-113" href="samples/mgmt/smp_svr/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-114" href="samples/mgmt/smp_wtd/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-115" href="samples/sensor/sensor.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-116" href="samples/sensor/bma280/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-117" href="samples/sensor/cst816s/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-118" href="samples/sensor/hrs3300/README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-119" href="samples/sensor/hrs3300-old/README.xhtml" media-type="application/xhtml+xml" />
   </manifest>
   <spine toc="ncx" page-progression-direction="ltr">
-    <itemref idref="epub-16" />
-    <itemref idref="epub-9" />
-    <itemref idref="epub-8" />
     <itemref idref="epub-17" />
-    <itemref idref="epub-3" />
-    <itemref idref="epub-5" />
-    <itemref idref="epub-11" />
-    <itemref idref="epub-14" />
-    <itemref idref="epub-19" />
-    <itemref idref="epub-7" />
-    <itemref idref="epub-1" />
     <itemref idref="epub-10" />
-    <itemref idref="epub-47" />
-    <itemref idref="epub-49" />
-    <itemref idref="epub-51" />
-    <itemref idref="epub-45" />
-    <itemref idref="epub-46" />
-    <itemref idref="epub-48" />
+    <itemref idref="epub-9" />
+    <itemref idref="epub-18" />
+    <itemref idref="epub-23" />
+    <itemref idref="epub-4" />
+    <itemref idref="epub-6" />
+    <itemref idref="epub-12" />
+    <itemref idref="epub-20" />
+    <itemref idref="epub-8" />
+    <itemref idref="epub-1" />
+    <itemref idref="epub-11" />
     <itemref idref="epub-52" />
-    <itemref idref="epub-43" />
     <itemref idref="epub-54" />
     <itemref idref="epub-56" />
+    <itemref idref="epub-50" />
+    <itemref idref="epub-51" />
+    <itemref idref="epub-53" />
     <itemref idref="epub-57" />
-    <itemref idref="epub-58" />
+    <itemref idref="epub-48" />
     <itemref idref="epub-59" />
-    <itemref idref="epub-60" />
-    <itemref idref="epub-71" />
-    <itemref idref="epub-72" />
-    <itemref idref="epub-73" />
-    <itemref idref="epub-74" />
-    <itemref idref="epub-75" />
-    <itemref idref="epub-76" />
+    <itemref idref="epub-61" />
+    <itemref idref="epub-62" />
+    <itemref idref="epub-63" />
+    <itemref idref="epub-64" />
+    <itemref idref="epub-65" />
     <itemref idref="epub-77" />
-    <itemref idref="epub-101" />
-    <itemref idref="epub-102" />
-    <itemref idref="epub-103" />
-    <itemref idref="epub-105" />
-    <itemref idref="epub-104" />
-    <itemref idref="epub-87" />
-    <itemref idref="epub-88" />
-    <itemref idref="epub-89" />
-    <itemref idref="epub-83" />
-    <itemref idref="epub-85" />
-    <itemref idref="epub-84" />
-    <itemref idref="epub-86" />
-    <itemref idref="epub-90" />
-    <itemref idref="epub-93" />
-    <itemref idref="epub-92" />
-    <itemref idref="epub-91" />
-    <itemref idref="epub-94" />
-    <itemref idref="epub-95" />
-    <itemref idref="epub-97" />
-    <itemref idref="epub-98" />
     <itemref idref="epub-78" />
     <itemref idref="epub-79" />
+    <itemref idref="epub-76" />
     <itemref idref="epub-80" />
-    <itemref idref="epub-82" />
     <itemref idref="epub-81" />
-    <itemref idref="epub-21" />
+    <itemref idref="epub-82" />
+    <itemref idref="epub-83" />
+    <itemref idref="epub-84" />
+    <itemref idref="epub-85" />
+    <itemref idref="epub-22" />
+    <itemref idref="epub-45" />
+    <itemref idref="epub-44" />
     <itemref idref="epub-42" />
-    <itemref idref="epub-41" />
-    <itemref idref="epub-40" />
-    <itemref idref="epub-64" />
-    <itemref idref="epub-63" />
-    <itemref idref="epub-65" />
-    <itemref idref="epub-70" />
-    <itemref idref="epub-66" />
+    <itemref idref="epub-47" />
+    <itemref idref="epub-46" />
+    <itemref idref="epub-69" />
     <itemref idref="epub-68" />
-    <itemref idref="epub-67" />
-    <itemref idref="epub-35" />
-    <itemref idref="epub-34" />
-    <itemref idref="epub-36" />
-    <itemref idref="epub-38" />
-    <itemref idref="epub-39" />
+    <itemref idref="epub-70" />
+    <itemref idref="epub-75" />
+    <itemref idref="epub-71" />
+    <itemref idref="epub-73" />
+    <itemref idref="epub-72" />
     <itemref idref="epub-37" />
+    <itemref idref="epub-40" />
+    <itemref idref="epub-39" />
     <itemref idref="epub-2" />
-    <itemref idref="epub-13" />
+    <itemref idref="epub-3" />
+    <itemref idref="epub-14" />
     <itemref idref="epub-0" linear="no" />
-    <itemref idref="epub-4" linear="no" />
-    <itemref idref="epub-6" linear="no" />
-    <itemref idref="epub-12" linear="no" />
+    <itemref idref="epub-5" linear="no" />
+    <itemref idref="epub-7" linear="no" />
+    <itemref idref="epub-13" linear="no" />
     <itemref idref="epub-15" linear="no" />
-    <itemref idref="epub-18" linear="no" />
-    <itemref idref="epub-20" linear="no" />
-    <itemref idref="epub-22" linear="no" />
-    <itemref idref="epub-44" linear="no" />
-    <itemref idref="epub-50" linear="no" />
-    <itemref idref="epub-53" linear="no" />
+    <itemref idref="epub-16" linear="no" />
+    <itemref idref="epub-19" linear="no" />
+    <itemref idref="epub-21" linear="no" />
+    <itemref idref="epub-24" linear="no" />
+    <itemref idref="epub-36" linear="no" />
+    <itemref idref="epub-38" linear="no" />
+    <itemref idref="epub-41" linear="no" />
+    <itemref idref="epub-43" linear="no" />
+    <itemref idref="epub-49" linear="no" />
     <itemref idref="epub-55" linear="no" />
-    <itemref idref="epub-61" linear="no" />
-    <itemref idref="epub-62" linear="no" />
-    <itemref idref="epub-69" linear="no" />
+    <itemref idref="epub-58" linear="no" />
+    <itemref idref="epub-60" linear="no" />
+    <itemref idref="epub-66" linear="no" />
+    <itemref idref="epub-67" linear="no" />
+    <itemref idref="epub-74" linear="no" />
+    <itemref idref="epub-86" linear="no" />
+    <itemref idref="epub-87" linear="no" />
+    <itemref idref="epub-88" linear="no" />
+    <itemref idref="epub-89" linear="no" />
+    <itemref idref="epub-90" linear="no" />
+    <itemref idref="epub-91" linear="no" />
+    <itemref idref="epub-92" linear="no" />
+    <itemref idref="epub-93" linear="no" />
+    <itemref idref="epub-94" linear="no" />
+    <itemref idref="epub-95" linear="no" />
     <itemref idref="epub-96" linear="no" />
+    <itemref idref="epub-97" linear="no" />
+    <itemref idref="epub-98" linear="no" />
     <itemref idref="epub-99" linear="no" />
     <itemref idref="epub-100" linear="no" />
+    <itemref idref="epub-101" linear="no" />
+    <itemref idref="epub-102" linear="no" />
+    <itemref idref="epub-103" linear="no" />
+    <itemref idref="epub-104" linear="no" />
+    <itemref idref="epub-105" linear="no" />
+    <itemref idref="epub-106" linear="no" />
+    <itemref idref="epub-107" linear="no" />
+    <itemref idref="epub-108" linear="no" />
+    <itemref idref="epub-109" linear="no" />
+    <itemref idref="epub-110" linear="no" />
+    <itemref idref="epub-111" linear="no" />
+    <itemref idref="epub-112" linear="no" />
+    <itemref idref="epub-113" linear="no" />
+    <itemref idref="epub-114" linear="no" />
+    <itemref idref="epub-115" linear="no" />
+    <itemref idref="epub-116" linear="no" />
+    <itemref idref="epub-117" linear="no" />
+    <itemref idref="epub-118" linear="no" />
+    <itemref idref="epub-119" linear="no" />
   </spine>
   <guide>
     <reference type="toc" title="Table of Contents" href="index.xhtml" />

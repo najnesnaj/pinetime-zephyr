@@ -16,7 +16,7 @@ Add the gfx sample from this repo into your project:
 $ cp samples/gui/gfx ~/zephyrproject/zephyr/samples/gui/
 ```
 
-**NOTE**: In order to make the library work the sample is built with C++ support. This is achieved by having the following line in the sample's prj.conf configuration:
+**NOTE**: In order to make the library work the sample is built with C++ support. This is achieved by having the following line in the sample’s prj.conf configuration:
 
 `CONFIG_CPLUSPLUS=y`
 

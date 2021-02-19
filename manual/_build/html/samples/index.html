@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Samples and Demos &mdash; open source watch 1.1.0 documentation</title>
+  <title>Samples &mdash; open source watch 1.1.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="Basic Samples" href="basic/basic.html" />
+    <link rel="next" title="OSWatch Framework" href="oswatch-btREADME.html" />
     <link rel="prev" title="SMP Server Sample" href="../fota/smp_svr.html" /> 
 </head>
 
@@ -87,31 +87,36 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr for the pinetime smartwatch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr  smartwatch framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../out-of-tree.html">Out of tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bluetooth.html">bluetooth (BLE) example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../display.html">display (st7789)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gfx.html">GFX Library Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">display</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lvgl.html">LittlevGL Basic Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../clock.html">LittlevGL Clock Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../RTC.html">Real Time Clock</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../current-time.html">Current Time Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../drivers/drivers.html">Drivers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fota/fota.html">Firmware Over The Air (FOTA)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Samples and Demos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic/basic.html">Basic Samples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sensor/sensor.html">Sensor Samples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="drivers/drivers.html">Driver Samples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="display/display.html">Display Samples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gui/gui.html">GUI Samples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bluetooth/bluetooth.html">Bluetooth Samples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oswatch-btREADME.html">OSWatch Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oswatchREADME.html">OSWatch Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html">HRS3300 Heart Rate Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplescfbREADME.html">Character frame buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplescfb_shellREADME.html">Character Framebuffer Shell Module Sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sampleslvglREADME.html">LittlevGL Basic Sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplesmax44009README.html">Lightsensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplespinebuttonREADME.html">LittlevGL SDL Button  Sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplessdlbuttonREADME.html">LittlevGL SDL Button  Sample</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hacking/hacking.html">Hacking stuff</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../behind/behind.html">Behind the scene</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../author.html">Author</a></li>
 </ul>
 
             
@@ -157,7 +162,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Samples and Demos</li>
+      <li>Samples</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -176,53 +181,131 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="samples-and-demos">
-<span id="id1"></span><h1>Samples and Demos<a class="headerlink" href="#samples-and-demos" title="Permalink to this headline">¶</a></h1>
-<p>In each sample directory is a Readme file.
-This is just a collection of them.</p>
+  <blockquote>
+<div></div></blockquote>
+<div class="section" id="samples">
+<span id="id1"></span><h1>Samples<a class="headerlink" href="#samples" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="basic/basic.html">Basic Samples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="basic/blinky/README.html">Blinky Application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic/button/README.html">Button demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic/scani2c/README.html">I2C Scanner sample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic/testirq/README.html">Touchscreen IRQ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="basic/touchpoints/README.html">Touchpoints</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oswatch-btREADME.html">OSWatch Framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="oswatch-btREADME.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="oswatch-btREADME.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="oswatch-btREADME.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l3"><a class="reference internal" href="oswatch-btREADME.html#references">References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="sensor/sensor.html">Sensor Samples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sensor/bma280/README.html">BMA280: Three Axis High-g I2C/SPI Accelerometer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sensor/cst816s/README.html">CST816S HYNITRON TOUCHSCREEN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sensor/hrs3300-old/README.html">HRS3300 Heart Rate Sensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sensor/hrs3300/README.html">HRS3300 Heart Rate Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oswatchREADME.html">OSWatch Framework</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="oswatchREADME.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="oswatchREADME.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="oswatchREADME.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l3"><a class="reference internal" href="oswatchREADME.html#references">References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Driver Samples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="drivers/ds6_scanner/README.html">I2C Scanner sample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="drivers/i2c_scanner/README.html">I2C Scanner sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html">HRS3300 Heart Rate Sensor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="README.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="README.html#building-and-running">Building and Running</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="README.html#sample-output">Sample Output</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="display/display.html">Display Samples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="display/lvgl-posix/README.html">LittlevGL Basic Sample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="display/lvgl/README.html">LittlevGL Basic Sample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="display/st7789v/README.html">ST7789V Display driver</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gui/gui.html">GUI Samples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gui/clock-cts-rtc2/README.html">Clock Sample Current Time Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gui/clock-cts/README.html">Clock Sample Current Time Service</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gui/clock/README.html">LittlevGL Clock Sample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gui/gfx/README.html">Adafruit GFX Library on ST7789V Display</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gui/lvaccel/README.html">Display accel values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gui/lvgl/README.html">LittlevGL Basic Sample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gui/lvtouch/README.html">Touchscreen Basic Sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplescfbREADME.html">Character frame buffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="samplescfbREADME.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samplescfbREADME.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samplescfbREADME.html#posix">POSIX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samplescfbREADME.html#pinetime">Pinetime</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bluetooth/bluetooth.html">Bluetooth Samples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bluetooth/central_hr/README.html">Bluetooth: Central / Heart-rate Monitor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bluetooth/eddystone/README.html">Bluetooth: Eddystone</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bluetooth/peripheral-cts/README.html">Bluetooth: Peripheral_cts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bluetooth/peripheral/README.html">Bluetooth: Peripheral</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplescfb_shellREADME.html">Character Framebuffer Shell Module Sample</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="samplescfb_shellREADME.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samplescfb_shellREADME.html#building-and-running">Building and Running</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="samplescfb_shellREADME.html#shell-module-command-help">Shell Module Command Help</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sampleslvglREADME.html">LittlevGL Basic Sample</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sampleslvglREADME.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sampleslvglREADME.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sampleslvglREADME.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sampleslvglREADME.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="samplesmax44009README.html">Lightsensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplespinebuttonREADME.html">LittlevGL SDL Button  Sample</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="samplespinebuttonREADME.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samplespinebuttonREADME.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samplespinebuttonREADME.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samplespinebuttonREADME.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="samplessdlbuttonREADME.html">LittlevGL SDL Button  Sample</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="samplessdlbuttonREADME.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samplessdlbuttonREADME.html#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samplessdlbuttonREADME.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l3"><a class="reference internal" href="samplessdlbuttonREADME.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="oswatch-btREADME.html">OSWatch Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oswatch-btREADME.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oswatch-btREADME.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oswatch-btREADME.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oswatch-btREADME.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="oswatchREADME.html">OSWatch Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oswatchREADME.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oswatchREADME.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oswatchREADME.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oswatchREADME.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">HRS3300 Heart Rate Sensor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="README.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#building-and-running">Building and Running</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="README.html#sample-output">Sample Output</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="samplescfbREADME.html">Character frame buffer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="samplescfbREADME.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplescfbREADME.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplescfbREADME.html#posix">POSIX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplescfbREADME.html#pinetime">Pinetime</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="samplescfb_shellREADME.html">Character Framebuffer Shell Module Sample</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="samplescfb_shellREADME.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplescfb_shellREADME.html#building-and-running">Building and Running</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="samplescfb_shellREADME.html#shell-module-command-help">Shell Module Command Help</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sampleslvglREADME.html">LittlevGL Basic Sample</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sampleslvglREADME.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sampleslvglREADME.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sampleslvglREADME.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sampleslvglREADME.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="samplesmax44009README.html">Lightsensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samplespinebuttonREADME.html">LittlevGL SDL Button  Sample</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="samplespinebuttonREADME.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplespinebuttonREADME.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplespinebuttonREADME.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplespinebuttonREADME.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="samplessdlbuttonREADME.html">LittlevGL SDL Button  Sample</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="samplessdlbuttonREADME.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplessdlbuttonREADME.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplessdlbuttonREADME.html#building-and-running">Building and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samplessdlbuttonREADME.html#references">References</a></li>
 </ul>
 </li>
 </ul>
@@ -237,7 +320,7 @@ This is just a collection of them.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="basic/basic.html" class="btn btn-neutral float-right" title="Basic Samples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="oswatch-btREADME.html" class="btn btn-neutral float-right" title="OSWatch Framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../fota/smp_svr.html" class="btn btn-neutral float-left" title="SMP Server Sample" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
