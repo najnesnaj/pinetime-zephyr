@@ -1,1 +1,0 @@
-hacking/debugging.rst:63: (uint)  #define MY_REGISTER (*(volatile uint8_t*)0x2000F000)

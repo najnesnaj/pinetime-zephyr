@@ -1,4 +1,0 @@
-samples/gui/clock/README.rst:13: (fn)  Have a look at the test_counter_interrupt_fn function in src/main.c
-samples/gui/clock/README.rst:13: (src)  Have a look at the test_counter_interrupt_fn function in src/main.c
-samples/gui/clock/README.rst:19: (prj)  Have a look at the prj.conf file.
-samples/gui/clock/README.rst:19: (conf)  Have a look at the prj.conf file.

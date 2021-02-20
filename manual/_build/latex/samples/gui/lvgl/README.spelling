@@ -1,7 +1,0 @@
-samples/gui/lvgl/README.rst:15: (Pinetime)  Pinetime watch
-samples/gui/lvgl/README.rst:17: (pinetime)  pinetime.conf
-samples/gui/lvgl/README.rst:17: (conf)  pinetime.conf
-samples/gui/lvgl/README.rst:18: (pinetime)  pinetime.overlay
-samples/gui/lvgl/README.rst:23: (pinetime)  west build -p -b pinetime samples/gui/lvgl
-samples/gui/lvgl/README.rst:23: (gui)  west build -p -b pinetime samples/gui/lvgl
-samples/gui/lvgl/README.rst:23: (lvgl)  west build -p -b pinetime samples/gui/lvgl

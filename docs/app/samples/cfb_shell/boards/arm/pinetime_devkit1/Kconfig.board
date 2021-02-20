@@ -1,9 +1,0 @@
-# PineTime DevKit0 board configuration
-
-# Copyright (c) 2020 Stephane Dorre <stephane.dorre@gmail.com>
-# SPDX-License-Identifier: Apache-2.0
-# Copyright (c) 2021 <najnesnaj@yahoo.com>
-
-config BOARD_PINETIME_DEVKIT1
-	bool "PineTime DevKit1"
-	depends on SOC_NRF52832_QFAA

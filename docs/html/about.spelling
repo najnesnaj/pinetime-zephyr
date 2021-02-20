@@ -1,7 +1,0 @@
-about.rst:5: (pinetime)  I got a pinetime development kit very early.
-about.rst:11: (microcontrollers)  The smartwatches I hacked, contained microcontrollers from Nordic Semiconductor.
-about.rst:15: (microcontroller)  It is an Arm based, 32bit microcontroller with a lot of flash and RAM memory.
-about.rst:17: (bluetooth)  In fact it is a small computer on your wrist, with a battery and screen, and capable of bluetooth 4+ wireless communication.
-about.rst:29: (Todo)  Todo
-about.rst:33: (lvgl)  better graphics (lvgl using images and rotating stuff)
-about.rst:36: (bluetooth)  DFU (update over bluetooth)

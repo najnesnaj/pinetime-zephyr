@@ -1,2 +1,0 @@
-samples/gui/lvaccel/README.rst:4: (accel)  Display accel values
-samples/gui/lvaccel/README.rst:12: (accel)  It display the values x,y,z from the bosch BMA421 accel sensor.

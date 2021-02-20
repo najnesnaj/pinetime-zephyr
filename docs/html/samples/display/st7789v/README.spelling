@@ -1,4 +1,0 @@
-samples/display/st7789v/README.rst:14: (grey)  in clockwise order, from top left corner: Red, Green, Blue, grey. The shade of
-samples/display/st7789v/README.rst:14: (grey)  grey changes from black through to white. (if the grey looks too green or red
-samples/display/st7789v/README.rst:14: (grey)  grey changes from black through to white. (if the grey looks too green or red
-samples/display/st7789v/README.rst:14: (endian)  at any point then the LCD may be endian swapped).

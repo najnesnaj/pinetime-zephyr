@@ -12,6 +12,7 @@ echo " " >> index.rst
 echo ".. toctree:: " >> index.rst
 ls *rst |awk '{gsub(".rst",""); print "    "$0}' >> /root/work/pinetime-zephyr/manual/samples/index.rst
 cd .. 
+make clean
 make markdown
 make html
 make latexpdf

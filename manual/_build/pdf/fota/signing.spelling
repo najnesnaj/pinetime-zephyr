@@ -1,1 +1,0 @@
-fota/signing.rst:47: (pem)  sign the compiled zephyr.bin firmware with the root-rsa-2048.pem, private key:

@@ -1,6 +1,6 @@
 # LittlevGL Clock Sample
 
-see : LittlevGL Clock Sample
+see : clock-sample
 
 ## Overview
 

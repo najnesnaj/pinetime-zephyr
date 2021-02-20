@@ -1,8 +1,0 @@
-samples/bluetooth/peripheral-cts/README.rst:4: (cts)  Bluetooth: Peripheral_cts
-samples/bluetooth/peripheral-cts/README.rst:11: (bluez)  I used bluez on linux + a gatt server script that presents a current time service.
-samples/bluetooth/peripheral-cts/README.rst:11: (linux)  I used bluez on linux + a gatt server script that presents a current time service.
-samples/bluetooth/peripheral-cts/README.rst:11: (gatt)  I used bluez on linux + a gatt server script that presents a current time service.
-samples/bluetooth/peripheral-cts/README.rst:14: (cts)  This program tests if it can get the time of a cts service. In order to get the time, you will have to connect the device first.
-samples/bluetooth/peripheral-cts/README.rst:20: (bluetoothdevice)  a bluetoothdevice running the CTS service
-samples/bluetooth/peripheral-cts/README.rst:21: (pinetime)  a board with this software (pinetime)
-samples/bluetooth/peripheral-cts/README.rst:24: (printk)  You will need a serial port to read the output of the "printk" messages.

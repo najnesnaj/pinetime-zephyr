@@ -1,6 +1,0 @@
-samples/gui/lvtouch/README.rst:15: (cst)  When used in samples/sensor/cst816s, it runs....
-samples/gui/lvtouch/README.rst:22: (Pinetime)  Pinetime watch
-samples/gui/lvtouch/README.rst:22: (cst)  zephyr cst816s driver
-samples/gui/lvtouch/README.rst:28: (pinetime)  west build -p -b pinetime samples/gui/lvtouch
-samples/gui/lvtouch/README.rst:28: (gui)  west build -p -b pinetime samples/gui/lvtouch
-samples/gui/lvtouch/README.rst:28: (lvtouch)  west build -p -b pinetime samples/gui/lvtouch

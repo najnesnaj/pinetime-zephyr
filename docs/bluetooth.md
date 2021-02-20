@@ -56,7 +56,7 @@ Have a look in the samples/bluetooth/eddystone directory.
 
 ### Eddy Stone
 
-> see:   Bluetooth: Eddystone
+> see:   bluetooth-eddystone-sample
 
 **Note:**  compile the provided example, so a build directory gets created
 

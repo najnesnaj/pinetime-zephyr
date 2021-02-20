@@ -1,5 +1,0 @@
-samples/bluetooth/eddystone/README.rst:4: (Eddystone)  Bluetooth: Eddystone
-samples/bluetooth/eddystone/README.rst:10: (Eddystone)  The Eddystone Configuration Service runs as a GATT service on the beacon while
-samples/bluetooth/eddystone/README.rst:10: (Eddystone)  the definition of how Eddystone-EID beacons are configured and registered with
-samples/bluetooth/eddystone/README.rst:10: (EID)  the definition of how Eddystone-EID beacons are configured and registered with
-samples/bluetooth/eddystone/README.rst:20: (BlueZ)  BlueZ running on the host, or
