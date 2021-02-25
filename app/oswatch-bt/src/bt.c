@@ -145,16 +145,15 @@ static void connected(struct bt_conn *conn, uint8_t err)
 	}
 	LOG_INF("connected");
 	cts_sync_enable(true);
-	//clock_show_time();
-	display_set_bluetooth_connected(); //bt-connected-symbol is displayed -- wifi symbol is used because this is more readable on smaller display
-	//clock_show_time();
-	//gfx_update();
+	clock_show_time();
+	display_connect_event();
 }
 
 static void disconnected(struct bt_conn *conn, uint8_t reason)
 {
 	LOG_INF("disconnected (reason: %u)", reason);
 	cts_sync_enable(false);
+	display_disconnect_event(); //shows first screen
 	//display_set_bluetooth_disconnected(); //bt-symbol is displayed -- readability is not top...
 	//gfx_bt_set_label(BT_ADVERTISING_ON);
 	//gfx_update();

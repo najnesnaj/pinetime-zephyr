@@ -24,7 +24,8 @@ const static struct device * display_dev;
 #define SCREEN_ID_1    1
 #define SCREEN_ID_2    2
 #define SCREEN_ID_3    3
-#define SCREEN_COUNT   4
+//#define SCREEN_COUNT   4
+#define SCREEN_COUNT   3 //there are 4 screens but the last is only displayed when CTS updating time
 
 #define PARAM_ID_0      0
 #define PARAM_ID_1      1
@@ -128,6 +129,8 @@ static lv_obj_t   * screen2_label1_obj;
 static short        screen2_label1_value = 0;
 static lv_obj_t   * screen2_label2_obj; 
 static short        screen2_label2_value = 0;
+static lv_obj_t   * screen3_label0_obj; 
+static short        screen3_label0_value = 0;
 //todo adapt values
 static param_t screen0_elements [] = {
 	{ .object = &button_obj,  .value = &button_value, .step = 5, .max = 100, .min = 0},
@@ -154,6 +157,8 @@ static param_t screen2_elements [] = {
 
 static param_t screen3_elements [] = {
 	{ .object = &button_obj,  .value = &button_value, .step = 5, .max = 100, .min = 0},
+	{ .object = &time_label,  .value = &time_value, .step = 5, .max = 100, .min = 0},
+	{ .object = &screen3_label0_obj, .value = &screen3_label0_value, .step = 1, .max = 999, .min = 0 },
 	{ .object = NULL, .value = NULL, .step = 0, .max = 0, .min = 0},
 };
 
@@ -378,6 +383,17 @@ void display_button()
 #endif
 
 }
+void display_connect_event()
+{
+       // display_set_bluetooth_connected(); //sets the bluetooth symbol
+	lv_scr_load(screens[3].screen); //display the first screen
+
+}
+void display_disconnect_event()
+{
+	lv_scr_load(screens[0].screen); //display the first screen
+}
+
 
 
 void display_btn_event(buttons_id_t btn_id)
@@ -449,7 +465,7 @@ void display_screens_init(void)
 	//lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH"symb");
 	//lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH);
 //	lv_label_set_text(title_label, LV_SYMBOL_WIFI);
-        display_set_bluetooth_disconnected(); //sets the bluetooth symbol
+//        display_set_bluetooth_disconnected(); //sets the bluetooth symbol
 
 	/* Battery label */
 	//display_battery(3);
@@ -550,6 +566,18 @@ void display_screens_init(void)
 	lv_obj_t * screen3_page = lv_label_create(lv_scr_act(), NULL);
 	lv_label_set_text(screen3_page, "Sc4");
 	lv_obj_align(screen3_page, screens[3].screen, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+
+
+ /* Time label */
+        time_label = lv_label_create(lv_scr_act(), NULL);
+        lv_obj_align(time_label, NULL, LV_ALIGN_IN_TOP_MID, 0, 0); //jj
+        lv_label_set_text(time_label, "99:99");
+
+
+        screen3_label0_obj = lv_label_create(lv_scr_act(), NULL);
+        lv_label_set_text(screen3_label0_obj, "CTS TIME");
+        lv_obj_align(screen3_label0_obj, screens[3].screen, LV_ALIGN_IN_BOTTOM_LEFT, 5, -5);
+        display_set_bluetooth_connected(); //sets the bluetooth symbol
 
 	// why define the same button all over again? jj
 	display_button();
