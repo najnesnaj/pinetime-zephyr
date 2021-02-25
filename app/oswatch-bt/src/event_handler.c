@@ -45,7 +45,7 @@ static const struct device *charging_dev;
 
 
 //when used with the native_posix_64 virtual device there are no buttons ...
-#if !(defined(CONFIG_BOARD_NATIVE_POSIX_64BIT))
+#if !(defined(CONFIG_BOARD_NATIVE_POSIX_64BIT)||defined(CONFIG_BOARD_NRF52_BSIM))
 //#if (defined(CONFIG_BOARD_DS_D6) || defined(CONFIG_BOARD_PINETIME_DEVKIT1))
 
 #define SW0_NODE        DT_ALIAS(sw0)

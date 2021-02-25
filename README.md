@@ -3,7 +3,7 @@
 originally a  
 [PineTime](https://www.pine64.org/pinetime/) firmware toolkit based on [Zephyr Project](https://www.zephyrproject.org/) RTOS.
 
-now evolved into a framework which has the potential to support other watches.
+now evolved into a framework which has the potential to support other watches, cyclecomputers, wearables ...
 
 Included in this toolkit is a virtual watch, which you can run on your computer. (no real watch, devboard, debugprobe is needed!)
 
@@ -59,6 +59,12 @@ You can get a taste of debugging your firmware with gdb.
 I've included compiled firmware, which you can run on your linux(64)  box.
 
 I used a osbox virtual linux ubuntu 18, so you do not even have to own a computer.
+
+## The Movie
+
+I made a demo clip : oswatchclip.mp4
+File should be on github, not sure if it will work...
+
 ### Copy
 suppose you already have ../work/zephyr installed
 copy /app to ../work
@@ -102,6 +108,7 @@ In this repository you can find files that supplement a zephyr installation.
 - build-in features of bosch accel sensor (eg step counter)
 - powermanagement
 - watchdog
+- touchscreen (out of tree)
 
 ### NICE TO HAVE 
 - HR detection (algorithm)

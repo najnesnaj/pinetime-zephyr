@@ -44,6 +44,17 @@ Just get a copy of the "app" directory.
 
 the app-directory contains the drivers and source code and(!) modified board definitions.
 
+Linux rules
+-----------
+
+The development has been done on a virtual linux machine.
+For testing bluetooth functionality, I have used linux as well. 
+In this manual you'll find a procedure to communicate to the device from a linuxbox.
+Updating the firmware wirelessly? Possible from a linuxbox!
+
+Suppose you want to measure how many steps employees do a day?
+You could readout everything using a linuxbox, and handle the data using all the available tools of the box.
+
 
 
 

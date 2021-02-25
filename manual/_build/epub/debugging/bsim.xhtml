@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bsim</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="bsim">
+<h1>Bsim</h1>
+<p>this is a method of debugging a bluetooth enabled application, without a bluetooth device</p>
+<div class="section" id="debugging-on-nrf52-bsim">
+<h2>debugging on nrf52_bsim</h2>
+<p>You can compile the oswatch-bt sample for the bsim board.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">west</span> <span class="n">build</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">b</span> <span class="n">nrf52_bsim</span> <span class="n">oswatch</span><span class="o">-</span><span class="n">bt</span>
+<span class="n">gdb</span>
+
+<span class="n">file</span> <span class="n">build</span><span class="o">/</span><span class="n">zephyr</span><span class="o">/</span><span class="n">zephyr</span><span class="o">.</span><span class="n">elf</span>
+<span class="n">b</span> <span class="n">connected</span> <span class="p">(</span><span class="n">breakpoint</span> <span class="n">on</span> <span class="n">function</span> <span class="n">connected</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">-</span><span class="n">s</span><span class="o">=</span><span class="n">trial_sim</span> <span class="o">-</span><span class="n">d</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

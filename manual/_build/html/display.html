@@ -36,8 +36,8 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
-    <link rel="next" title="LittlevGL Basic Sample" href="lvgl.html" />
-    <link rel="prev" title="bluetooth (BLE) example" href="bluetooth.html" /> 
+    <link rel="next" title="Starting with some basic applications" href="basicapplications.html" />
+    <link rel="prev" title="Out of tree" href="out-of-tree.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,17 +90,20 @@
 <li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr  smartwatch framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="out-of-tree.html">Out of tree</a></li>
-<li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bluetooth.html">bluetooth (BLE) example</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">display</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#display-example">Display    example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#display-types">Display   Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#several-methods-of-using-the-display">Several methods of using the display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-human-eye">The human eye</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lvgl.html">LittlevGL Basic Sample</a></li>
-<li class="toctree-l1"><a class="reference internal" href="clock.html">LittlevGL Clock Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="RTC.html">Real Time Clock</a></li>
 <li class="toctree-l1"><a class="reference internal" href="current-time.html">Current Time Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bluetooth.html">bluetooth (BLE)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="samples/index.html">Samples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
@@ -175,14 +178,27 @@
             
   <div class="section" id="display">
 <span id="display-sample"></span><h1>display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="display-example">
-<h2>Display    example<a class="headerlink" href="#display-example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="display-types">
+<h2>Display   Types<a class="headerlink" href="#display-types" title="Permalink to this headline">¶</a></h2>
 <p>There are three types of display included.</p>
 <ul class="simple">
 <li><p>a st7789 color display used in the pinetime</p></li>
 <li><p>a monochrome SSD1306 OLED display used in the desay D6</p></li>
 <li><p>a on-screen display SDL simulated on linux</p></li>
 </ul>
+<div class="section" id="several-methods-of-using-the-display">
+<h3>Several methods of using the display<a class="headerlink" href="#several-methods-of-using-the-display" title="Permalink to this headline">¶</a></h3>
+<p>Included in the zephyr distribution are :
+- the Little Graphics Library  (LVGL)
+- Character framebuffer (cfb)</p>
+<p>For the pinetime the LVGL library might be a good option, since it has a big screen, colors and (!) is touch sensitive.</p>
+<p>For the DS-D6 which has a monochrome OLED small display, the character framebuffer could be the best option.</p>
+</div>
+<div class="section" id="the-human-eye">
+<h3>The human eye<a class="headerlink" href="#the-human-eye" title="Permalink to this headline">¶</a></h3>
+<p>You can print something to the serial port, use the Segger RTT, but having a sample which displays something on the screen is the equivalent of blinking a LED.</p>
+<p>Instead of the blinky blinking the LED, most samples include the screen.</p>
+</div>
 </div>
 </div>
 
@@ -194,10 +210,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="lvgl.html" class="btn btn-neutral float-right" title="LittlevGL Basic Sample" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="basicapplications.html" class="btn btn-neutral float-right" title="Starting with some basic applications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="bluetooth.html" class="btn btn-neutral float-left" title="bluetooth (BLE) example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="out-of-tree.html" class="btn btn-neutral float-left" title="Out of tree" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -27,46 +27,43 @@
     * How to install the open source watch framekit
 
 
+    * Linux rules
+
+
 * Out of tree
-
-
-* Starting with some basic applications
-
-
-    * Building and Running
-
-
-        * Reading out the button on the watch
-
-
-    * Building and Running
-
-
-* bluetooth (BLE) example
-
-
-    * simulated on laptop
-
-
-        * Using a standard zephyr application under pinetime:
-
-
-        * Eddy Stone
-
-
-        * Using the created bluetooth sample:
-
-
-        * Ble Peripheral
-
-
-        * using Python to read out bluetoothservices
 
 
 * display
 
 
-    * Display    example
+    * Display   Types
+
+
+        * Several methods of using the display
+
+
+        * The human eye
+
+
+* Starting with some basic applications
+
+
+    * Push the button
+
+
+    * posix
+
+
+        * Building and Running
+
+
+    * pinetime
+
+
+        * Building and Running
+
+
+            * Reading out the button on the watch
 
 
 * LittlevGL Basic Sample
@@ -78,7 +75,7 @@
     * Simulation
 
 
-    * Requirements
+    * Pinetime
 
 
     * Building and Running
@@ -88,24 +85,6 @@
 
 
         * apply changes of the changed config:
-
-
-    * References
-
-
-* LittlevGL Clock Sample
-
-
-    * Overview
-
-
-    * Requirements
-
-
-    * Building and Running
-
-
-    * Todo
 
 
     * References
@@ -285,6 +264,27 @@
         * References
 
 
+* bluetooth (BLE)
+
+
+    * Eddy Stone
+
+
+    * Using the created bluetooth sample:
+
+
+        * the no-bluetooth, no-watch approach : nrf52_bsim
+
+
+        * the no-watch approach : simulation on a laptop
+
+
+    * Bluez
+
+
+    * using Python to read out bluetoothservices
+
+
 * Firmware Over The Air (FOTA)
 
 
@@ -357,7 +357,7 @@
 * Samples
 
 
-    * OSWatch Framework
+    * OSWatch Framework Bluetooth
 
 
         * Overview
@@ -495,6 +495,9 @@
         * STM32 - Raspberry - OpenOCD
 
 
+    * debugging Posix
+
+
     * The black magic probe
 
 
@@ -508,6 +511,12 @@
 
 
         * simulation on NATIVE_POSIX_64
+
+
+    * Bsim
+
+
+        * debugging on nrf52_bsim
 
 
     * Segger RTT (Real Time Transfer)

@@ -3,7 +3,7 @@
 # Serial data without a serial port
 
 Pinetime does not have UART pins but UART-like connection can be achieved using RTT (Real Time Transfer)
-feature of Segger JLink debugger. RTT data can be accessed using SEGGER tool (RTTViewer) or by using
+feature of Segger JLink debugger. RTT data can be accessed using the SEGGER tool (JLinkRTTViewer) or by using
 telnet connection to active debug session. Second methond is recommended since it gives better throughput
 and allows bitdirection communication using Zephyr Shell (with RTT as backend). PuTTY can be used to
 telnet to debug session.

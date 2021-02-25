@@ -15,7 +15,7 @@ The same software can run in simulation (SDL) on linux, on pinetime and on the d
 Requirements
 ************
 
-no requirements since it run without board (simulation)
+no requirements since it can run without board (simulation)
 
 Building and Running
 ********************

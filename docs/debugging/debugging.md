@@ -13,6 +13,9 @@
     * STM32 - Raspberry - OpenOCD
 
 
+* debugging Posix
+
+
 * The black magic probe
 
 
@@ -26,6 +29,12 @@
 
 
     * simulation on NATIVE_POSIX_64
+
+
+* Bsim
+
+
+    * debugging on nrf52_bsim
 
 
 * Segger RTT (Real Time Transfer)

@@ -11,14 +11,13 @@ INDEX
    content.rst
    installation.rst
    out-of-tree.rst
-   basicapplications.rst
-   bluetooth.rst 
    display.rst
+   basicapplications.rst
    lvgl.rst
-   clock.rst
    RTC.rst
    current-time.rst
    drivers/drivers.rst
+   bluetooth.rst 
    fota/fota.rst
    samples/index.rst
    menuconfig.rst

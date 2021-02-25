@@ -26,7 +26,7 @@ void main(void)
 #endif
 	display_init();
 	clock_init();
-
+        clock_show_time();
 
 	while (1) {
 //		lv_task_handler();

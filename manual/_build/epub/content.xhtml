@@ -15,11 +15,33 @@
             
   <div class="section" id="zephyr-smartwatch-framework">
 <h1>Zephyr  smartwatch framework</h1>
+<p>Suppose you want to build a cycle computer quickly.
+You need :
+- bluetooth
+- a touchscreen
+- a button
+- time (clock)
+- a method of setting the clock
+- wireless firmware updating
+- timer functions
+- powersaving
+- battery management
+- several graphical screens, with buttons graphics</p>
+<p>You could start from scratch, or use a framework and only add the stuff you need for your cyclecomputer :
+- cadence sensor
+- display speed
+- record speed</p>
+<p>Suppose you have an idea for a portable device, before running to the shop to buy a dev-board, develop hardware ….
+You could use the framework as a startingpoint, since it supports a virtual posix-board.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span> <span class="n">document</span> <span class="n">started</span> <span class="n">off</span> <span class="ow">in</span> <span class="n">setting</span> <span class="n">up</span> <span class="n">zephyr</span> <span class="n">RTOS</span> <span class="n">on</span> <span class="n">the</span> <span class="n">PineTime</span> <span class="n">smartwatch</span><span class="o">.</span>
 
 <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">wiki</span><span class="o">.</span><span class="n">pine64</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">PineTime</span>
 
 <span class="n">It</span> <span class="n">evolved</span> <span class="n">to</span> <span class="n">accomodate</span> <span class="n">other</span> <span class="n">nordic</span> <span class="n">nrf52832</span> <span class="n">based</span> <span class="n">watches</span> <span class="p">(</span><span class="n">Desay</span> <span class="n">D6</span><span class="o">....</span><span class="p">)</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">Virtual</span> <span class="n">watch</span> <span class="p">(</span><span class="n">native_posix_64</span><span class="p">)</span>
+
+<span class="n">Zephyr</span> <span class="n">allows</span> <span class="k">for</span> <span class="n">hardware</span> <span class="n">abstraction</span><span class="o">.</span> <span class="n">The</span> <span class="n">framework</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">limited</span> <span class="n">to</span> <span class="n">Nordic</span> <span class="n">nrf52</span><span class="o">.</span>
+<span class="n">In</span> <span class="n">theory</span> <span class="p">:</span> <span class="n">compiling</span> <span class="k">with</span> <span class="n">a</span> <span class="n">different</span> <span class="n">board</span> <span class="n">definition</span> <span class="n">file</span> <span class="n">should</span> <span class="n">be</span> <span class="n">enough</span><span class="o">.</span> <span class="p">(</span><span class="n">minor</span> <span class="n">changes</span> <span class="n">might</span> <span class="n">be</span> <span class="n">necessary</span> <span class="o">-</span> <span class="n">see</span> <span class="n">the</span> <span class="n">button</span> <span class="n">sample</span><span class="p">)</span>
+
 
 <span class="n">The</span> <span class="n">virtual</span> <span class="n">watch</span> <span class="n">lets</span> <span class="n">you</span> <span class="n">create</span> <span class="ow">and</span> <span class="n">debug</span> <span class="n">software</span> <span class="n">without</span> <span class="n">a</span> <span class="n">watch</span> <span class="n">nor</span> <span class="n">a</span> <span class="n">debugprobe</span><span class="o">.</span> <span class="p">(</span><span class="o">=</span><span class="n">cheap</span><span class="p">)</span>
 <span class="n">There</span> <span class="n">exist</span> <span class="n">a</span> <span class="n">lot</span> <span class="n">of</span> <span class="n">cheap</span> <span class="p">(</span><span class="n">chinese</span><span class="p">)</span> <span class="n">watches</span> <span class="n">based</span> <span class="n">on</span> <span class="n">Nordic</span> <span class="n">microcontrollers</span><span class="o">.</span>

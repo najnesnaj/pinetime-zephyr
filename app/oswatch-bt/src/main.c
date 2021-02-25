@@ -20,13 +20,14 @@
 
 void main(void)
 {
-#if !(defined(CONFIG_BOARD_NATIVE_POSIX_64BIT)) //both the pinetime & ds_d6 have a real button 
+#if !(defined(CONFIG_BOARD_NATIVE_POSIX_64BIT)||defined(CONFIG_BOARD_NRF52_BSIM)) //both the pinetime & ds_d6 have a real button 
 	{
 		init_button();
 	}
 #endif
 	display_init();
 	clock_init();
+	clock_show_time(); //time of build
         bt_init();
 
 

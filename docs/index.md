@@ -1,4 +1,5 @@
 [view doc in html](html)
+[debugging/bsim.md](debugging/bsim.md)   
 [debugging/debug-posix.md](debugging/debug-posix.md)   
 [debugging/pseudo.md](debugging/pseudo.md)   
 [debugging/debug.md](debugging/debug.md)   

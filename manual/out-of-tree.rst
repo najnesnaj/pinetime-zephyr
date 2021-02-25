@@ -3,7 +3,7 @@ Out of tree
 
 A technique used in zephyr/samples/application-development, is "out of tree" development.
 
-When you tincker with watches, you will soon find out that not all the drivers exist.
+When you tinker with watches, you will soon find out that not all the drivers exist.
 
 You can adapt existing zephyr drivers, but placing them within the zephyr repository could cause issues (upgrading zephyr).
 

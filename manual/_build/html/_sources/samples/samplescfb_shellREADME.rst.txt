@@ -8,14 +8,17 @@ Overview
 This is a simple shell module that exercises displays using the Character
 Framebuffer subsystem.
 
+---not working on posix-----
+
+
 Building and Running
 ********************
 
 Build the sample app by choosing the target board, for example:
 
 .. zephyr-app-commands::
-   :zephyr-app: samples/display/cfb_shell
-   :board: reel_board
+   :zephyr-app: samples/cfb_shell
+   :board: ds_d6 
    :goals: build
 
 
@@ -41,17 +44,17 @@ Shell Module Command Help
 
 **init**: should be called first to initialize the display.
 
-Command example (reel_board):
+Command example (ds_d6):
 
 .. code-block:: console
 
          uart:~$ cfb init
-         Framebuffer initialized: SSD16XX
+         Framebuffer initialized: SSD1306
          Display Cleared
 
 **get_device**: prints the display device name.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 .. code-block:: console
 
@@ -62,7 +65,7 @@ Command example (reel_board):
 (pixel per tile) are in pixels and the number of rows and columns. The row
 position is incremented by a multiple of the ppt.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 .. code-block:: console
 
@@ -76,7 +79,7 @@ Command example (reel_board):
 **get_fonts**: print the index, height and width in pixels of the static
 defined fonts presented in the system.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 .. code-block:: console
 
@@ -88,7 +91,7 @@ Command example (reel_board):
 **set_font**: choose the font to be used by passing the font index. Only one
 font can be used at a time.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 .. code-block:: console
 
@@ -97,7 +100,7 @@ Command example (reel_board):
 
 **invert**: invert the pixel color of the display.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 .. code-block:: console
 
@@ -109,7 +112,7 @@ double quotation marks when it contains spaces. If text hits the edge
 of the display the remaining characters will be displayed on the next line. The
 previous printed text will be overwritten.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 .. code-block:: console
 
@@ -124,7 +127,7 @@ for vertical direction. The text passed with the scroll command will be moved
 vertically or horizontally on the display.
 
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 .. code-block:: console
 
@@ -132,7 +135,7 @@ Command example (reel_board):
 
 **clear**: clear the display screen.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 .. code-block:: console
 

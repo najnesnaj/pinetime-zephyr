@@ -5,6 +5,8 @@
 This is a simple shell module that exercises displays using the Character
 Framebuffer subsystem.
 
+—not working on posix—–
+
 ## Building and Running
 
 Build the sample app by choosing the target board, for example:
@@ -30,17 +32,17 @@ Subcommands:
 
 **init**: should be called first to initialize the display.
 
-Command example (reel_board):
+Command example (ds_d6):
 
 ```
 uart:~$ cfb init
-Framebuffer initialized: SSD16XX
+Framebuffer initialized: SSD1306
 Display Cleared
 ```
 
 **get_device**: prints the display device name.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 ```
 uart:~$ cfb get_device
@@ -51,7 +53,7 @@ Framebuffer Device: SSD16XX
 (pixel per tile) are in pixels and the number of rows and columns. The row
 position is incremented by a multiple of the ppt.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 ```
 uart:~$ cfb get_param all
@@ -65,7 +67,7 @@ param: cols=250
 **get_fonts**: print the index, height and width in pixels of the static
 defined fonts presented in the system.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 ```
 uart:~$ cfb get_fonts
@@ -77,7 +79,7 @@ idx=2 height=16 width=10
 **set_font**: choose the font to be used by passing the font index. Only one
 font can be used at a time.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 ```
 uart:~$ cfb set_font 0
@@ -86,7 +88,7 @@ Font idx=0 height=32 widht=20 set
 
 **invert**: invert the pixel color of the display.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 ```
 uart:~$ cfb invert
@@ -98,7 +100,7 @@ double quotation marks when it contains spaces. If text hits the edge
 of the display the remaining characters will be displayed on the next line. The
 previous printed text will be overwritten.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 ```
 uart:~$ cfb print 60 5 ZEPHYR
@@ -112,7 +114,7 @@ until it hits the display boundary, last column for horizontal and last row
 for vertical direction. The text passed with the scroll command will be moved
 vertically or horizontally on the display.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 ```
 uart:~$ cfb scroll vertical 60 5 ZEPHYR
@@ -120,7 +122,7 @@ uart:~$ cfb scroll vertical 60 5 ZEPHYR
 
 **clear**: clear the display screen.
 
-Command example (reel_board):
+Command example (ds_d6 board):
 
 ```
 uart:~$ cfb clear

@@ -4,7 +4,7 @@
 * Samples
 
 
-    * OSWatch Framework
+    * OSWatch Framework Bluetooth
 
 
         * Overview
@@ -121,7 +121,7 @@
         * References
 
 
-* OSWatch Framework
+* OSWatch Framework Bluetooth
 
 
     * Overview

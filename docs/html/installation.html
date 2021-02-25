@@ -92,17 +92,17 @@
 <li class="toctree-l2"><a class="reference internal" href="#update-on-31-12-2020">update on 31-12-2020</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-install-zephyr">How to install zephyr</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-install-the-open-source-watch-framekit">How to install the open source watch framekit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linux-rules">Linux rules</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="out-of-tree.html">Out of tree</a></li>
-<li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bluetooth.html">bluetooth (BLE) example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="display.html">display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lvgl.html">LittlevGL Basic Sample</a></li>
-<li class="toctree-l1"><a class="reference internal" href="clock.html">LittlevGL Clock Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="RTC.html">Real Time Clock</a></li>
 <li class="toctree-l1"><a class="reference internal" href="current-time.html">Current Time Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bluetooth.html">bluetooth (BLE)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="samples/index.html">Samples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
@@ -200,6 +200,15 @@ Just get a copy of the “app” directory.</p>
 </pre></div>
 </div>
 <p>the app-directory contains the drivers and source code and(!) modified board definitions.</p>
+</div>
+<div class="section" id="linux-rules">
+<h2>Linux rules<a class="headerlink" href="#linux-rules" title="Permalink to this headline">¶</a></h2>
+<p>The development has been done on a virtual linux machine.
+For testing bluetooth functionality, I have used linux as well.
+In this manual you’ll find a procedure to communicate to the device from a linuxbox.
+Updating the firmware wirelessly? Possible from a linuxbox!</p>
+<p>Suppose you want to measure how many steps employees do a day?
+You could readout everything using a linuxbox, and handle the data using all the available tools of the box.</p>
 <p><strong>TIP : sometimes you run into trouble compiling: removing the build directory can help in that case</strong></p>
 </div>
 </div>

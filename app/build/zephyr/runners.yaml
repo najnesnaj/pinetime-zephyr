@@ -1,0 +1,28 @@
+# Available runners configured by board.cmake.
+runners:
+- jlink
+
+# Default flash runner if --runner is not given.
+flash-runner: jlink
+
+# Default debug runner if --runner is not given.
+debug-runner: jlink
+
+# Common runner configuration values.
+config:
+  board_dir: /root/work/app/oswatch-bt/boards/arm/pinetime_devkit1
+  # Build outputs:
+  elf_file: zephyr.elf
+  hex_file: zephyr.hex
+  bin_file: zephyr.bin
+  # Host tools:
+  gdb: /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb
+  openocd: /root/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/bin/openocd
+  openocd_search: /root/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/share/openocd/scripts
+
+# Runner specific arguments
+args:
+  jlink:
+    - --dt-flash=y
+    - --device=nrf52
+    - --speed=4000

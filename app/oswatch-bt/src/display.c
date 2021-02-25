@@ -173,6 +173,7 @@ void display_time_set_label(char *str)
 	lv_label_set_text(time_label, str);
 	// lv_obj_align(time_label, NULL, LV_ALIGN_CENTER, 0, 0);
 }
+
 void display_date_set_label(char *str)
 {
 	lv_label_set_text(date_label, str);
@@ -306,6 +307,29 @@ static void button_event_cb(lv_obj_t * obj, lv_event_t event)
 /*---------------------------------------------------------------------------*/
 //todo if no touch screen define real button ds_d6
 
+void display_set_bluetooth_connected()
+{
+  /* title label */
+        title_label = lv_label_create(lv_scr_act(), NULL);
+        lv_obj_align(title_label, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
+        //lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH"symb");
+        //lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH);
+        lv_label_set_text(title_label, LV_SYMBOL_WIFI);
+
+}
+
+
+void display_set_bluetooth_disconnected()
+{
+  /* title label */
+        title_label = lv_label_create(lv_scr_act(), NULL);
+        lv_obj_align(title_label, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
+        //lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH"symb");
+        lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH);
+        //lv_label_set_text(title_label, LV_SYMBOL_WIFI);
+
+}
+
 
 
 
@@ -420,11 +444,12 @@ void display_screens_init(void)
 	lv_label_set_text(date_label, "Mon 10 Jan");
 
 	/* title label */
-	title_label = lv_label_create(lv_scr_act(), NULL);
-	lv_obj_align(title_label, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
+//	title_label = lv_label_create(lv_scr_act(), NULL);
+//	lv_obj_align(title_label, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
 	//lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH"symb");
 	//lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH);
-	lv_label_set_text(title_label, LV_SYMBOL_WIFI);
+//	lv_label_set_text(title_label, LV_SYMBOL_WIFI);
+        display_set_bluetooth_disconnected(); //sets the bluetooth symbol
 
 	/* Battery label */
 	//display_battery(3);

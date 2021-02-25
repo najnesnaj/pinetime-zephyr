@@ -2,6 +2,7 @@
  * Copyright (c) 2020 Dejvino
  * Copyright (c) 2020 Endian Technologies AB
  * Copyright (c) 2020 max00
+ * Copyright (c) 2021 Najnesnaj 
  *
  * SPDX-License-Identifier: Apache-2.0
  */

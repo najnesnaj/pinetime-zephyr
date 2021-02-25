@@ -21,13 +21,19 @@
 </div>
 <div class="section" id="requirements">
 <h2>Requirements</h2>
-<p>Desay D6 OLED SSD1306</p>
+<ul class="simple">
+<li><p>Desay D6 OLED SSD1306</p></li>
+<li><p>Linux box</p></li>
+<li><p>Pinetime</p></li>
+</ul>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running</h2>
 <p>west build -p -b ds_d6 -d build-lvgl samples/lvgl</p>
 <p>or</p>
 <p>west build -p -b native_posix_64 samples/lvgl</p>
+<p>run : ./build/zephyr/zephyr.exe</p>
+<p>west build -p -b pinetime_devkit1 samples/lvgl</p>
 <p>run : ./build/zephyr/zephyr.exe</p>
 </div>
 <div class="section" id="references">

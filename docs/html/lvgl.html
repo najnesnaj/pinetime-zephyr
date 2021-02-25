@@ -36,8 +36,8 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="copyright" title="Copyright" href="copyright.html" />
-    <link rel="next" title="LittlevGL Clock Sample" href="clock.html" />
-    <link rel="prev" title="display" href="display.html" /> 
+    <link rel="next" title="Real Time Clock" href="RTC.html" />
+    <link rel="prev" title="Starting with some basic applications" href="basicapplications.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,13 +90,12 @@
 <li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr  smartwatch framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="out-of-tree.html">Out of tree</a></li>
-<li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bluetooth.html">bluetooth (BLE) example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="display.html">display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">LittlevGL Basic Sample</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#simulation">Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pinetime">Pinetime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#building-and-running">Building and Running</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#modifying-the-font-size">modifying the font size :</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#apply-changes-of-the-changed-config">apply changes of the changed config:</a></li>
@@ -105,10 +104,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="clock.html">LittlevGL Clock Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="RTC.html">Real Time Clock</a></li>
 <li class="toctree-l1"><a class="reference internal" href="current-time.html">Current Time Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bluetooth.html">bluetooth (BLE)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="samples/index.html">Samples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
@@ -193,14 +192,14 @@ and a counter at the bottom which increments every second.</p>
 <h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
 <p>In order to avoid uploading to check what the display looks like, there is a simple way to simulate this.
 I’ve tested this on Ubuntu 18.04 64bit. You’ll need the SDL2 library.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b native_posix_64 samples/display/lvgl -DCONF=board/native-posix_64</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b native_posix_64 samples/display/lvgl</span>
 </pre></div>
 </div>
 <p>after the building, you can find build/zephyr/zephyr.exe (and execute this to see display-layout)</p>
 <p>the sample is provided as samples/display/lvgl-posix</p>
 </div>
-<div class="section" id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pinetime">
+<h2>Pinetime<a class="headerlink" href="#pinetime" title="Permalink to this headline">¶</a></h2>
 <p>The program has been modified to light up the background leds.</p>
 <p><strong>TIP: matching label : DISPLAY</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Matching labels are necessary!
@@ -251,10 +250,10 @@ pinetime.overlay:               label = &quot;DISPLAY&quot;; (spi definition)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="clock.html" class="btn btn-neutral float-right" title="LittlevGL Clock Sample" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="RTC.html" class="btn btn-neutral float-right" title="Real Time Clock" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="display.html" class="btn btn-neutral float-left" title="display" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="basicapplications.html" class="btn btn-neutral float-left" title="Starting with some basic applications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

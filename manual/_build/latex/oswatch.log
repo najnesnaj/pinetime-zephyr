@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.9)  20 FEB 2021 10:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.9)  25 FEB 2021 10:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1159,7 +1159,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
  [3] [4
 
 ]
-<zephyr_logo.png, id=454, 170.5572pt x 58.2978pt>
+<zephyr_logo.png, id=459, 170.5572pt x 58.2978pt>
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 90.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
@@ -1178,18 +1178,18 @@ Chapter 1.
 ]
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 119.
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 145.
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 140.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 170.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-<PineTime-830x400.png, id=476, 833.1125pt x 401.5pt>
+) [5]
+<PineTime-830x400.png, id=489, 833.1125pt x 401.5pt>
 File: PineTime-830x400.png Graphic file (type png)
 <use PineTime-830x400.png>
-Package pdftex.def Info: PineTime-830x400.png  used on input line 158.
+Package pdftex.def Info: PineTime-830x400.png  used on input line 183.
 (pdftex.def)             Requested size: 469.75603pt x 226.39456pt.
- [5] [6 <./PineTime-830x400.png>]
+ [6 <./PineTime-830x400.png>]
 Chapter 3.
 [7
 
@@ -1205,149 +1205,141 @@ Chapter 5.
 
 ]
 Chapter 6.
-
-Underfull \hbox (badness 10000) in paragraph at lines 276--278
-[]\T1/ptm/m/n/10 ./build/zephyr/zephyr.exe ^^Ubt-
- []
-
-[13] [14] [15] [16
-
-]
+[13] [14]
 Chapter 7.
-[17] [18
+[15
 
-]
+] [16]
 Chapter 8.
-[19] [20]
-Chapter 9.
-<clockback.png, id=562, 144.54pt x 144.54pt>
-File: clockback.png Graphic file (type png)
-<use clockback.png>
-Package pdftex.def Info: clockback.png  used on input line 517.
-(pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
-[21
+[17
 
- <./clockback.png>] [22]
-Chapter 10.
-[23
-
-] [24
+] [18
 
 ]
-Chapter 11.
+Chapter 9.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--582
+Underfull \hbox (badness 10000) in paragraph at lines 1--458
 [][]$\T1/ptm/m/n/10 https : / / www . bluetooth . com / speci^^\cations / gatt 
 / services/$[][] [][]$https : / / www . bluetooth . com / speci^^\cations / gat
 t /
  []
 
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 668--669
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 544--545
 []\T1/ptm/m/n/10 Build and pro-gram the firmware on the Pine-time In-stall NR-F
 -Con-nect ([][]$https : / / www . nordicsemi . com /
  []
 
-[26]
-Chapter 12.
-[27
+[20]
+Chapter 10.
+[21
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 755--758
+Underfull \hbox (badness 10000) in paragraph at lines 631--634
 \T1/ptm/m/n/10 ~/zephyrproject-2/zephyr/drivers/sensor add_subdirectory_ifdef(C
 ONFIG_BMA280 bma280)
  []
 
-[28] [29] [30]
-<hrs3300.jpg, id=634, 459.51675pt x 374.5995pt>
+[22] [23] [24]
+<hrs3300.jpg, id=608, 459.51675pt x 374.5995pt>
 File: hrs3300.jpg Graphic file (type jpg)
 <use hrs3300.jpg>
-Package pdftex.def Info: hrs3300.jpg  used on input line 944.
+Package pdftex.def Info: hrs3300.jpg  used on input line 820.
 (pdftex.def)             Requested size: 459.51563pt x 374.59859pt.
- [31] [32 <./hrs3300.jpg>] [33]
-Overfull \hbox (14.65001pt too wide) in paragraph at lines 1036--1037
+ [25] [26 <./hrs3300.jpg>] [27]
+Overfull \hbox (14.65001pt too wide) in paragraph at lines 912--913
 []\T1/ptm/m/n/10 /root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.
 c:17:22: er-ror: `DT_INST_0_JEDEC_SPI_NOR_LABEL'
  []
 
-[34] [35] [36]
-Chapter 13.
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 1238.
+[28] [29] [30]
+Chapter 11.
+[31
 
-Underfull \hbox (badness 10000) in paragraph at lines 1259--1262
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1187--1193
+[]\T1/ptm/m/n/10 bluetoothctl [blue-tooth]# de-vices De-vice C6:78:40:29:EC:31 
+Zephyr Heartrate Sen-sor De-
+ []
+
+[32] [33] [34
+
+]
+Chapter 12.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 1278.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1299--1302
 []\T1/ptm/m/n/10 This is han-dled in-ter-nally by the Zephyr con-fig-u-ra-tion 
 sys-tem and is wrapped in the \T1/ptm/m/it/10 CON-
  []
 
 
-Underfull \hbox (badness 6758) in paragraph at lines 1263--1268
+Underfull \hbox (badness 6758) in paragraph at lines 1303--1308
 \T1/ptm/m/n/10 org / reference / kcon^^\g / CONFIG _ BOOTLOADER _ MCUBOOT . htm
 l$[][]) pro-vides ad-di-tional de-tails re-gard-ing the
  []
 
-[37
-
-] [38] [39] [40] [41]
-LaTeX Font Info:    Try loading font information for TS1+pcr on input line 1545
+[35] [36] [37] [38] [39]
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 1585
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-) [42] [43] [44
+) [40] [41] [42
 
 ]
+Chapter 13.
+[43] [44] [45] [46] [47] [48]
 Chapter 14.
-[45] [46] [47] [48] [49] [50]
+[49
+
+] [50]
 Chapter 15.
 [51
 
 ] [52]
-Chapter 16.
-[53
-
-] [54]
-<blackmagicd6.jpeg, id=822, 550.055pt x 501.875pt>
+<blackmagicd6.jpeg, id=815, 550.055pt x 501.875pt>
 File: blackmagicd6.jpeg Graphic file (type jpg)
 <use blackmagicd6.jpeg>
-Package pdftex.def Info: blackmagicd6.jpeg  used on input line 2175.
+Package pdftex.def Info: blackmagicd6.jpeg  used on input line 2271.
 (pdftex.def)             Requested size: 469.77313pt x 428.63278pt.
- [55 <./blackmagicd6.jpeg>] [56]
-Chapter 17.
+ [53] [54 <./blackmagicd6.jpeg>] [55] [56]
+Chapter 16.
 [57
 
 ] [58] [59] [60] [61] [62
 
 ]
-Chapter 18.
+Chapter 17.
 [63] [64]
-Chapter 19.
+Chapter 18.
 [65
 
 ] [66
 
 ]
-Chapter 20.
+Chapter 19.
 (./oswatch.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2645.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2760.
  [67]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2645.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2760.
  (./oswatch.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2645.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2645.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2760.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2760.
 
 Package rerunfilecheck Info: File `oswatch.out' has not changed.
-(rerunfilecheck)             Checksum: 34517739138CEF32BB9F4483D8F70BAB;12715.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2645.
+(rerunfilecheck)             Checksum: 2A5651C87BF00ECA6601C19CC12BAD92;12845.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2760.
  ) 
 Here is how much of TeX's memory you used:
- 14302 strings out of 494923
- 202811 string characters out of 6180743
- 441725 words of memory out of 5000000
+ 14304 strings out of 494923
+ 202972 string characters out of 6180743
+ 441895 words of memory out of 5000000
  17023 multiletter control sequences out of 15000+600000
  52452 words of font info for 74 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
- 37i,12n,48p,756b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,12n,51p,756b,534s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/f
@@ -1358,10 +1350,10 @@ sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmri8a.pfb>
-Output written on oswatch.pdf (73 pages, 510794 bytes).
+Output written on oswatch.pdf (73 pages, 456158 bytes).
 PDF statistics:
- 999 PDF objects out of 1000 (max. 8388607)
- 892 compressed objects within 9 object streams
- 270 named destinations out of 1000 (max. 500000)
- 710 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1003 PDF objects out of 1200 (max. 8388607)
+ 898 compressed objects within 9 object streams
+ 273 named destinations out of 1000 (max. 500000)
+ 713 words of extra memory for PDF output out of 10000 (max. 10000000)
 

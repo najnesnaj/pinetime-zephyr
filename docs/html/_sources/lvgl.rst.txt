@@ -22,7 +22,7 @@ I've tested this on Ubuntu 18.04 64bit. You'll need the SDL2 library.
 
 .. code-block:: console
 
-	west build -p -b native_posix_64 samples/display/lvgl -DCONF=board/native-posix_64
+	west build -p -b native_posix_64 samples/display/lvgl 
 
 
 after the building, you can find build/zephyr/zephyr.exe (and execute this to see display-layout)
@@ -31,8 +31,8 @@ after the building, you can find build/zephyr/zephyr.exe (and execute this to se
 the sample is provided as samples/display/lvgl-posix
 
 
-Requirements
-************
+Pinetime
+********
 
 
 The program has been modified to light up the background leds.
