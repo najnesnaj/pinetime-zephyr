@@ -2642,6 +2642,43 @@ sphinx cannot generate pdf directly, and needs latex
 \end{sphinxVerbatim}
 
 
+\section{The Movie}
+\label{\detokenize{hacking/movie:the-movie}}\label{\detokenize{hacking/movie::doc}}
+\sphinxurl{https://youtu.be/A-kYHdrr-Mg}
+
+or
+
+oswatchclip.mp4
+
+
+\subsection{editing :}
+\label{\detokenize{hacking/movie:editing}}
+Kdenlive
+
+
+\subsection{script :}
+\label{\detokenize{hacking/movie:script}}
+LibreOffice Impress
+
+
+\subsection{Camera :}
+\label{\detokenize{hacking/movie:camera}}
+SimpleScreenRecorder
+
+
+\subsection{Voice over :}
+\label{\detokenize{hacking/movie:voice-over}}
+espeak \sphinxhyphen{}v en+f5 \sphinxhyphen{}a 100 \sphinxhyphen{}p 50 \sphinxhyphen{}s 110 \sphinxhyphen{}f slide2.txt \sphinxhyphen{}w slide2.wav
+
+
+\subsection{Music by Beethoven:}
+\label{\detokenize{hacking/movie:music-by-beethoven}}
+fluidsynth \sphinxhyphen{}a pulseaudio \sphinxhyphen{}o audio.alsa.device=hw:1 \sphinxhyphen{}m alsa\_seq \sphinxhyphen{}l \sphinxhyphen{}i /usr/share/sounds/sf2/FluidR3\_GM.sf2 moonlight\_sonata.mid
+
+this one works best :
+timidity moonlight\_sonata.mid \sphinxhyphen{}Ow \sphinxhyphen{}o out.wav
+
+
 \chapter{Behind the scene}
 \label{\detokenize{behind/behind:behind-the-scene}}\label{\detokenize{behind/behind:id1}}\label{\detokenize{behind/behind::doc}}
 

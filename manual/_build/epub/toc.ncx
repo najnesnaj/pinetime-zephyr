@@ -1257,72 +1257,114 @@
         </navLabel>
         <content src="hacking/latexpdf.xhtml" />  
       </navPoint>
+      <navPoint id="navPoint209" playOrder="165">
+        <navLabel>
+          <text>The Movie</text>
+        </navLabel>
+        <content src="hacking/movie.xhtml" />  
+        <navPoint id="navPoint210" playOrder="165">
+          <navLabel>
+            <text>The Movie</text>
+          </navLabel>
+          <content src="hacking/movie.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint211" playOrder="166">
+          <navLabel>
+            <text>editing :</text>
+          </navLabel>
+          <content src="hacking/movie.xhtml#editing" />  
+        </navPoint>
+        <navPoint id="navPoint212" playOrder="167">
+          <navLabel>
+            <text>script :</text>
+          </navLabel>
+          <content src="hacking/movie.xhtml#script" />  
+        </navPoint>
+        <navPoint id="navPoint213" playOrder="168">
+          <navLabel>
+            <text>Camera :</text>
+          </navLabel>
+          <content src="hacking/movie.xhtml#camera" />  
+        </navPoint>
+        <navPoint id="navPoint214" playOrder="169">
+          <navLabel>
+            <text>Voice over :</text>
+          </navLabel>
+          <content src="hacking/movie.xhtml#voice-over" />  
+        </navPoint>
+        <navPoint id="navPoint215" playOrder="170">
+          <navLabel>
+            <text>Music by Beethoven:</text>
+          </navLabel>
+          <content src="hacking/movie.xhtml#music-by-beethoven" />  
+        </navPoint>
+      </navPoint>
     </navPoint>
-    <navPoint id="navPoint209" playOrder="165">
+    <navPoint id="navPoint216" playOrder="171">
       <navLabel>
         <text>Behind the scene</text>
       </navLabel>
       <content src="behind/behind.xhtml" />  
-      <navPoint id="navPoint210" playOrder="165">
+      <navPoint id="navPoint217" playOrder="171">
         <navLabel>
           <text>Behind the scene</text>
         </navLabel>
         <content src="behind/behind.xhtml" />  
       </navPoint>
-      <navPoint id="navPoint211" playOrder="166">
+      <navPoint id="navPoint218" playOrder="172">
         <navLabel>
           <text>Touchscreen</text>
         </navLabel>
         <content src="behind/touchscreen.xhtml" />  
-        <navPoint id="navPoint212" playOrder="166">
+        <navPoint id="navPoint219" playOrder="172">
           <navLabel>
             <text>Touchscreen</text>
           </navLabel>
           <content src="behind/touchscreen.xhtml" />  
         </navPoint>
-        <navPoint id="navPoint213" playOrder="167">
+        <navPoint id="navPoint220" playOrder="173">
           <navLabel>
             <text>Overview</text>
           </navLabel>
           <content src="behind/touchscreen.xhtml#overview" />  
         </navPoint>
-        <navPoint id="navPoint214" playOrder="168">
+        <navPoint id="navPoint221" playOrder="174">
           <navLabel>
             <text>Requirements</text>
           </navLabel>
           <content src="behind/touchscreen.xhtml#requirements" />  
         </navPoint>
-        <navPoint id="navPoint215" playOrder="169">
+        <navPoint id="navPoint222" playOrder="175">
           <navLabel>
             <text>Building and Running</text>
           </navLabel>
           <content src="behind/touchscreen.xhtml#building-and-running" />  
         </navPoint>
-        <navPoint id="navPoint216" playOrder="170">
+        <navPoint id="navPoint223" playOrder="176">
           <navLabel>
             <text>Todo</text>
           </navLabel>
           <content src="behind/touchscreen.xhtml#todo" />  
         </navPoint>
-        <navPoint id="navPoint217" playOrder="171">
+        <navPoint id="navPoint224" playOrder="177">
           <navLabel>
             <text>References</text>
           </navLabel>
           <content src="behind/touchscreen.xhtml#references" />  
         </navPoint>
       </navPoint>
-      <navPoint id="navPoint218" playOrder="172">
+      <navPoint id="navPoint225" playOrder="178">
         <navLabel>
           <text>placing a button on the screen</text>
         </navLabel>
         <content src="behind/lvglbutton.xhtml" />  
-        <navPoint id="navPoint219" playOrder="172">
+        <navPoint id="navPoint226" playOrder="178">
           <navLabel>
             <text>placing a button on the screen</text>
           </navLabel>
           <content src="behind/lvglbutton.xhtml" />  
         </navPoint>
-        <navPoint id="navPoint220" playOrder="173">
+        <navPoint id="navPoint227" playOrder="179">
           <navLabel>
             <text>Building and Running</text>
           </navLabel>
@@ -1330,13 +1372,13 @@
         </navPoint>
       </navPoint>
     </navPoint>
-    <navPoint id="navPoint221" playOrder="174">
+    <navPoint id="navPoint228" playOrder="180">
       <navLabel>
         <text>About</text>
       </navLabel>
       <content src="about.xhtml" />  
     </navPoint>
-    <navPoint id="navPoint222" playOrder="175">
+    <navPoint id="navPoint229" playOrder="181">
       <navLabel>
         <text>Author</text>
       </navLabel>

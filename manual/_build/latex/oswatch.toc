@@ -185,6 +185,12 @@
 \contentsline {subsection}{\numberline {16.6.2}Howto setup a second openocd session on a different port?}{61}{subsection.16.6.2}
 \contentsline {subsection}{\numberline {16.6.3}Howto use the GPIO header of a Single Board computer}{61}{subsection.16.6.3}
 \contentsline {section}{\numberline {16.7}howto generate pdf documents}{61}{section.16.7}
+\contentsline {section}{\numberline {16.8}The Movie}{61}{section.16.8}
+\contentsline {subsection}{\numberline {16.8.1}editing :}{61}{subsection.16.8.1}
+\contentsline {subsection}{\numberline {16.8.2}script :}{62}{subsection.16.8.2}
+\contentsline {subsection}{\numberline {16.8.3}Camera :}{62}{subsection.16.8.3}
+\contentsline {subsection}{\numberline {16.8.4}Voice over :}{62}{subsection.16.8.4}
+\contentsline {subsection}{\numberline {16.8.5}Music by Beethoven:}{62}{subsection.16.8.5}
 \contentsline {chapter}{\numberline {17}Behind the scene}{63}{chapter.17}
 \contentsline {section}{\numberline {17.1}Touchscreen}{63}{section.17.1}
 \contentsline {subsection}{\numberline {17.1.1}Overview}{63}{subsection.17.1.1}

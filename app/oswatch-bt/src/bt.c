@@ -155,7 +155,7 @@ static void disconnected(struct bt_conn *conn, uint8_t reason)
 {
 	LOG_INF("disconnected (reason: %u)", reason);
 	cts_sync_enable(false);
-	display_set_bluetooth_disconnected(); //bt-symbol is displayed -- readability is not top...
+	//display_set_bluetooth_disconnected(); //bt-symbol is displayed -- readability is not top...
 	//gfx_bt_set_label(BT_ADVERTISING_ON);
 	//gfx_update();
 }

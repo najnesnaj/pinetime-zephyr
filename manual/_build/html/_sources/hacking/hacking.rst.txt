@@ -15,3 +15,4 @@ Hacking stuff
     infrastructure
     openocd 
     latexpdf
+    movie

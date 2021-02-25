@@ -21,6 +21,7 @@
 [hacking/writeprotection.md](hacking/writeprotection.md)   
 [hacking/openocd.md](hacking/openocd.md)   
 [hacking/hacking.md](hacking/hacking.md)   
+[hacking/movie.md](hacking/movie.md)   
 [hacking/flashing.md](hacking/flashing.md)   
 [hacking/latexpdf.md](hacking/latexpdf.md)   
 [hacking/infrastructure.md](hacking/infrastructure.md)   
