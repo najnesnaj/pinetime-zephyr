@@ -193,21 +193,20 @@
             
   <div class="section" id="hynitron-cst816s">
 <h1>HYNITRON CST816S<a class="headerlink" href="#hynitron-cst816s" title="Permalink to this headline">¶</a></h1>
-<p>update on 5-1-2021:
-Zephyr has evolved and now there is something that serve as a touchscreen device.</p>
+<p>Zephyr has evolved and now there is something that serve as a touchscreen device.
+(KSCAN_TOUCH)</p>
 <p>the board definition file has been adapted slightly, using the focaltech ft5336 as a touch_controller. A minor change in this driver is enough to get data from the hynitron cst816S.</p>
-<p>The big advantage : almost standard zephyr install!</p>
+<p>The big advantage : almost standard zephyr install!
+Unfortunately I cannot get the KSCAN_TOUCH working in an out-of-tree setup.</p>
+<p>I have created the renamed ft9999 driver.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime_devkit0 samples/display/lvgl</span>
 </pre></div>
 </div>
 <p>this driver does not exist, so it has been created.
 Still work in progress ….</p>
-<p>there is a sample in this repository which can be copied to the zephyr samples directory</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/sensor/cst816s</span>
-</pre></div>
-</div>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>(this is the old way of doing things ….)</p>
 <p>the Hynitron cst816s is a touchscreen.
 Zephyr doesn’t handle touchscreens yet.
 In order to investigate, the touchscreen driver has been created as a sensor.

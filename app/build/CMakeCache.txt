@@ -18,19 +18,19 @@
 APPLICATION_BINARY_DIR:PATH=/root/work/app/build
 
 //Application Source Directory
-APPLICATION_SOURCE_DIR:PATH=/root/work/app/oswatch-bt
+APPLICATION_SOURCE_DIR:PATH=/root/work/app/oswatch-cts
 
 //No help, variable specified on the command line.
-BOARD:UNINITIALIZED=pinetime_devkit1
+BOARD:UNINITIALIZED=pinetime_devkit0
 
 //Path to a file.
-BOARD_DIR:PATH=/root/work/app/oswatch-bt/boards/arm/pinetime_devkit1
+BOARD_DIR:PATH=/root/work/zephyr/boards/arm/pinetime_devkit0
 
 //Path to a program.
 BOSSAC:FILEPATH=/root/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/bin/bossac
 
 //Selected board
-CACHED_BOARD:STRING=pinetime_devkit1
+CACHED_BOARD:STRING=pinetime_devkit0
 
 //If desired, you can build the application usingthe configuration
 // settings specified in an alternate .conf file using this parameter.
@@ -39,7 +39,7 @@ CACHED_BOARD:STRING=pinetime_devkit1
 // listed, e.g. CONF_FILE="prj1.confi;prj2.conf" The CACHED_CONF_FILE
 // is internal Zephyr variable used between CMake runs. To change
 // CONF_FILE, use the CONF_FILE variable.
-CACHED_CONF_FILE:STRING=/root/work/app/oswatch-bt/prj.conf;/root/work/app/oswatch-bt/boards/pinetime_devkit1.conf
+CACHED_CONF_FILE:STRING=/root/work/app/oswatch-cts/prj.conf
 
 //Selected shield
 CACHED_SHIELD:STRING=
@@ -339,7 +339,7 @@ ZEPHYR_TOOLCHAIN_VARIANT:STRING=zephyr
 Zephyr-Kernel_BINARY_DIR:STATIC=/root/work/app/build
 
 //Value Computed by CMake
-Zephyr-Kernel_SOURCE_DIR:STATIC=/root/work/app/oswatch-bt
+Zephyr-Kernel_SOURCE_DIR:STATIC=/root/work/app/oswatch-cts
 
 //The directory containing a CMake configuration file for Zephyr-sdk.
 Zephyr-sdk_DIR:PATH=/root/zephyr-sdk/cmake
@@ -360,7 +360,7 @@ civetweb_SOURCE_DIR:STATIC=/root/work/modules/lib/civetweb
 oswatch_BINARY_DIR:STATIC=/root/work/app/build
 
 //Value Computed by CMake
-oswatch_SOURCE_DIR:STATIC=/root/work/app/oswatch-bt
+oswatch_SOURCE_DIR:STATIC=/root/work/app/oswatch-cts
 
 
 ########################
@@ -464,7 +464,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/root/work/app/oswatch-bt
+CMAKE_HOME_DIRECTORY:INTERNAL=/root/work/app/oswatch-cts
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MAKE_PROGRAM

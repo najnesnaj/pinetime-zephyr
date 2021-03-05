@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/app/oswatch-bt
+# Install script for directory: /root/work/app/oswatch-cts
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

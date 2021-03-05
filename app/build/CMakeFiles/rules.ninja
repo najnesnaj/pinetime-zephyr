@@ -470,6 +470,25 @@ rule C_STATIC_LIBRARY_LINKER__drivers__spi_
 #############################################
 # Rule for compiling C files.
 
+rule C_COMPILER__drivers__serial_
+  depfile = $DEP_FILE
+  deps = gcc
+  command = ccache /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER__drivers__serial_
+  command = $PRE_LINK && ccache /usr/bin/cmake -E rm -f $TARGET_FILE && ccache /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
 rule C_COMPILER__drivers__entropy_
   depfile = $DEP_FILE
   deps = gcc
@@ -547,7 +566,7 @@ rule C_STATIC_LIBRARY_LINKER__kernel_
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake --regenerate-during-build -S/root/work/app/oswatch-bt -B/root/work/app/build
+  command = /usr/bin/cmake --regenerate-during-build -S/root/work/app/oswatch-cts -B/root/work/app/build
   description = Re-running CMake...
   generator = 1
 

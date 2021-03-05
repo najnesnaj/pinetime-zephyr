@@ -10,7 +10,7 @@ debug-runner: jlink
 
 # Common runner configuration values.
 config:
-  board_dir: /root/work/app/oswatch-bt/boards/arm/pinetime_devkit1
+  board_dir: /root/work/zephyr/boards/arm/pinetime_devkit0
   # Build outputs:
   elf_file: zephyr.elf
   hex_file: zephyr.hex

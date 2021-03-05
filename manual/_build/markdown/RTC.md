@@ -1,12 +1,10 @@
 # Real Time Clock
 
-originally I used the RTC2 timer to update the clock.
+The compile-time is used to set the initial time. (CMAKE file)
 
-Now the time of programming is used to set the initial time.
+The elapsed time since the startup can be calculated.
 
-An external library is used for time functions.
-
-Current time service on Bluetooth is used to adjust the time.
+Setting the exact time is done via bluetooth current time service.
 
 ## Overview
 

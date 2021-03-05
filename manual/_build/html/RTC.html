@@ -175,10 +175,9 @@
             
   <div class="section" id="real-time-clock">
 <span id="rtc"></span><h1>Real Time Clock<a class="headerlink" href="#real-time-clock" title="Permalink to this headline">¶</a></h1>
-<p>originally I used the RTC2 timer to update the clock.</p>
-<p>Now the time of programming is used to set the initial time.</p>
-<p>An external library is used for time functions.</p>
-<p>Current time service on Bluetooth is used to adjust the time.</p>
+<p>The compile-time is used to set the initial time. (CMAKE file)</p>
+<p>The elapsed time since the startup can be calculated.</p>
+<p>Setting the exact time is done via bluetooth current time service.</p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 </div>

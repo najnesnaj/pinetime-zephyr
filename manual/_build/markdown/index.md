@@ -357,6 +357,24 @@
 * Samples
 
 
+    * Battery OSWatch Framework
+
+
+        * Todo
+
+
+        * Overview
+
+
+        * Requirements
+
+
+        * Building and Running
+
+
+        * References
+
+
     * OSWatch Framework Bluetooth
 
 
@@ -372,10 +390,46 @@
         * References
 
 
-    * OSWatch Framework
+    * Current Time Setting  OSWatch Framework
 
 
         * Overview
+
+
+        * Requirements
+
+
+        * Building and Running
+
+
+        * References
+
+
+    * FOTA OSWatch Framework
+
+
+        * Todo
+
+
+        * Overview
+
+
+        * Requirements
+
+
+        * Building and Running
+
+
+        * References
+
+
+    * Basic OSWatch Framework
+
+
+        * Overview
+
+
+        * Remark
 
 
         * Requirements
@@ -460,6 +514,21 @@
 
 
     * LittlevGL SDL Button  Sample
+
+
+        * Overview
+
+
+        * Requirements
+
+
+        * Building and Running
+
+
+        * References
+
+
+    * Testing the timer refresh
 
 
         * Overview

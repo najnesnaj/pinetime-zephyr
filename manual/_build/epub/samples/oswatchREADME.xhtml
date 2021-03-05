@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OSWatch Framework</title>
+    <title>Basic OSWatch Framework</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/epub.css" type="text/css" /> 
   </head><body>
@@ -13,12 +13,29 @@
       <div class="documentwrapper">
           <div class="body" role="main">
             
-  <div class="section" id="oswatch-framework">
-<span id="oswatch"></span><h1>OSWatch Framework</h1>
+  <div class="section" id="basic-oswatch-framework">
+<span id="oswatch"></span><h1>Basic OSWatch Framework</h1>
+<p>The application keeps track of time and displays time and date.
+The initial time is the time of build.</p>
+<p>Switching between screens can be done by multiple presses on button.</p>
+<p>On the native_posix application 2 serial ports are available.
+UART_1 connected to pseudotty: /dev/pts/2
+UART_0 connected to pseudotty: /dev/pts/3</p>
+<p>By connecting to UART_0 with :  minicom -D /dev/pts/3, you have access to the zephyr-shell.
+(just type “help” to get overview)</p>
 <div class="section" id="overview">
 <h2>Overview</h2>
 <p>This is an opensource watch framework.
-The same software can run in simulation (SDL) on linux, on pinetime and on the ds_d6 oled watch.</p>
+The same software can run in simulation (SDL) on linux, on the pinetime and on the ds_d6 oled watch.</p>
+<p>This Basic application serves as a chassis, where accessories can be supplemented (bluetooth, fota, powermanagement, …)
+These application carry the name oswatch-bt, oswatch-pm, oswatch-fota, oswatch-full.</p>
+<p>Why implement powermanagent if you do not have a battery?
+Why implement firmware over the air, if you can update the firmware with a debugprobe.</p>
+</div>
+<div class="section" id="remark">
+<h2>Remark</h2>
+<p>This basic time keeping application, might need adjustment.
+In that case you will still need CTS (bluetooth functionality).</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements</h2>

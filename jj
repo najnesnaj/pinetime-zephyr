@@ -3,7 +3,10 @@ cp /root/work/app/samples/button/sdlbutton/README.rst /root/work/pinetime-zephyr
 cp /root/work/app/samples/button/pinebutton/README.rst /root/work/pinetime-zephyr/manual/samples/samplesbuttonpinebutton
 cp /root/work/app/samples/max44009/README.rst /root/work/pinetime-zephyr/manual/samples/samplesmax44009README.rst
 cp /root/work/app/samples/cfb/README.rst /root/work/pinetime-zephyr/manual/samples/samplescfbREADME.rst
+cp /root/work/app/samples/timer/README.rst /root/work/pinetime-zephyr/manual/samples/samplestimerREADME.rst
 cp /root/work/app/samples/lvgl/README.rst /root/work/pinetime-zephyr/manual/samples/sampleslvglREADME.rst
 cp /root/work/app/samples/cfb_shell/README.rst /root/work/pinetime-zephyr/manual/samples/samplescfb_shellREADME.rst
-cp /root/work/app/oswatch-bt/README.rst /root/work/pinetime-zephyr/manual/samples/oswatch-btREADME.rst
+cp /root/work/app/oswatch-battery/README.rst /root/work/pinetime-zephyr/manual/samples/oswatch-batteryREADME.rst
+cp /root/work/app/oswatch-cts/README.rst /root/work/pinetime-zephyr/manual/samples/oswatch-ctsREADME.rst
 cp /root/work/app/oswatch/README.rst /root/work/pinetime-zephyr/manual/samples/oswatchREADME.rst
+cp /root/work/app/oswatch-fota/README.rst /root/work/pinetime-zephyr/manual/samples/oswatch-fotaREADME.rst

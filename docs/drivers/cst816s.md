@@ -1,11 +1,14 @@
 # HYNITRON CST816S
 
-update on 5-1-2021:
 Zephyr has evolved and now there is something that serve as a touchscreen device.
+(KSCAN_TOUCH)
 
 the board definition file has been adapted slightly, using the focaltech ft5336 as a touch_controller. A minor change in this driver is enough to get data from the hynitron cst816S.
 
 The big advantage : almost standard zephyr install!
+Unfortunately I cannot get the KSCAN_TOUCH working in an out-of-tree setup.
+
+I have created the renamed ft9999 driver.
 
 ```
 west build -p -b pinetime_devkit0 samples/display/lvgl
@@ -14,13 +17,9 @@ west build -p -b pinetime_devkit0 samples/display/lvgl
 this driver does not exist, so it has been created.
 Still work in progress ….
 
-there is a sample in this repository which can be copied to the zephyr samples directory
-
-```
-west build -p -b pinetime samples/sensor/cst816s
-```
-
 ## Overview
+
+(this is the old way of doing things ….)
 
 the Hynitron cst816s is a touchscreen.
 Zephyr doesn’t handle touchscreens yet.

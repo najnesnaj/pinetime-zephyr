@@ -10,9 +10,3 @@ config ZEPHYR_SOF_MODULE
 	bool
 	default y
 endmenu
-menu "oswatch_drivers (/root/work/app/oswatch-bt/oswatch_drivers)"
-osource "/root/work/app/oswatch-bt/oswatch_drivers/zephyr/Kconfig"
-config ZEPHYR_OSWATCH_DRIVERS_MODULE
-	bool
-	default y
-endmenu

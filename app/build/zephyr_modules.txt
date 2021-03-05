@@ -35,4 +35,3 @@
 "xtensa":"/root/work/modules/hal/xtensa":"/root/work/modules/hal/xtensa"
 "tfm":"/root/work/modules/tee/tfm":"/root/work/modules/tee/tfm"
 "tfm-mcuboot":"/root/work/modules/tee/tfm-mcuboot":""
-"oswatch_drivers":"/root/work/app/oswatch-bt/oswatch_drivers":"/root/work/app/oswatch-bt/oswatch_drivers/zephyr"

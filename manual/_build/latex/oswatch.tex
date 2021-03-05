@@ -73,7 +73,7 @@
 
 
 \title{open source watch Documentation}
-\date{Feb 25, 2021}
+\date{Mar 05, 2021}
 \release{1.1.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -242,6 +242,13 @@ You can adapt existing zephyr drivers, but placing them within the zephyr reposi
 The samples provided contain the board definition and the drivers within their directory outside the zephyr directory.
 
 Have a look at the samples, on how it is done.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{All} \PYG{n}{the} \PYG{n}{development}\PYG{p}{,} \PYG{n}{board} \PYG{n}{definition} \PYG{n}{files}\PYG{p}{,} \PYG{n}{drivers} \PYG{n}{are} \PYG{n}{contained} \PYG{o+ow}{in} \PYG{n}{the} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{app}\PYG{l+s+s2}{\PYGZdq{}} \PYG{n}{directory}\PYG{o}{.}
+\PYG{n}{Copy} \PYG{n}{this} \PYG{n}{directory} \PYG{n}{alongside} \PYG{n}{the} \PYG{n}{zephyr} \PYG{n}{rtos} \PYG{n}{repository}\PYG{p}{,} \PYG{o+ow}{and} \PYG{n}{it} \PYG{n}{should} \PYG{n}{work}\PYG{o}{.}
+\PYG{n}{No} \PYG{n}{extra} \PYG{n}{configuration} \PYG{n}{needed}\PYG{o}{.}
+\PYG{n}{You} \PYG{n}{can} \PYG{n}{use} \PYG{n}{the} \PYG{n}{latest} \PYG{n}{Zephyr} \PYG{n}{distribution}\PYG{o}{.}
+\end{sphinxVerbatim}
 
 
 \chapter{display}
@@ -434,13 +441,11 @@ LittlevGL Web Page: \sphinxurl{https://littlevgl.com/}
 
 \chapter{Real Time Clock}
 \label{\detokenize{RTC:real-time-clock}}\label{\detokenize{RTC:rtc}}\label{\detokenize{RTC::doc}}
-originally I used the RTC2 timer to update the clock.
+The compile\sphinxhyphen{}time is used to set the initial time. (CMAKE file)
 
-Now the time of programming is used to set the initial time.
+The elapsed time since the startup can be calculated.
 
-An external library is used for time functions.
-
-Current time service on Bluetooth is used to adjust the time.
+Setting the exact time is done via bluetooth current time service.
 
 
 \section{Overview}
@@ -717,12 +722,15 @@ All kind of parameters can be set to trigger an interrupt.
 
 \section{HYNITRON CST816S}
 \label{\detokenize{drivers/cst816s:hynitron-cst816s}}\label{\detokenize{drivers/cst816s::doc}}
-update on 5\sphinxhyphen{}1\sphinxhyphen{}2021:
 Zephyr has evolved and now there is something that serve as a touchscreen device.
+(KSCAN\_TOUCH)
 
 the board definition file has been adapted slightly, using the focaltech ft5336 as a touch\_controller. A minor change in this driver is enough to get data from the hynitron cst816S.
 
 The big advantage : almost standard zephyr install!
+Unfortunately I cannot get the KSCAN\_TOUCH working in an out\sphinxhyphen{}of\sphinxhyphen{}tree setup.
+
+I have created the renamed ft9999 driver.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime\PYGZus{}devkit0 samples/display/lvgl}
@@ -731,15 +739,11 @@ The big advantage : almost standard zephyr install!
 this driver does not exist, so it has been created.
 Still work in progress ….
 
-there is a sample in this repository which can be copied to the zephyr samples directory
-
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+go}{west build \PYGZhy{}p \PYGZhy{}b pinetime samples/sensor/cst816s}
-\end{sphinxVerbatim}
-
 
 \subsection{Overview}
 \label{\detokenize{drivers/cst816s:overview}}
+(this is the old way of doing things ….)
+
 the Hynitron cst816s is a touchscreen.
 Zephyr doesn’t handle touchscreens yet.
 In order to investigate, the touchscreen driver has been created as a sensor.
@@ -1674,6 +1678,38 @@ for both slots will be identical.
 \chapter{Samples}
 \label{\detokenize{samples/index:samples}}\label{\detokenize{samples/index:id1}}\label{\detokenize{samples/index::doc}}
 
+\section{Battery OSWatch Framework}
+\label{\detokenize{samples/oswatch-batteryREADME:battery-oswatch-framework}}\label{\detokenize{samples/oswatch-batteryREADME:oswatch}}\label{\detokenize{samples/oswatch-batteryREADME::doc}}
+
+\subsection{Todo}
+\label{\detokenize{samples/oswatch-batteryREADME:todo}}
+Not functional yet…
+WIP (work in progress)
+
+
+\subsection{Overview}
+\label{\detokenize{samples/oswatch-batteryREADME:overview}}
+This is an opensource watch framework.
+The same software can run in simulation (SDL) on linux, on pinetime and on the ds\_d6 oled watch.
+
+This frame can be used if you need powermanagement (PM).
+
+The application keeps track of the battery, and is frugile on energy.
+
+
+\subsection{Requirements}
+\label{\detokenize{samples/oswatch-batteryREADME:requirements}}
+no requirements since it can run without board (simulation)
+
+
+\subsection{Building and Running}
+\label{\detokenize{samples/oswatch-batteryREADME:building-and-running}}
+west build \sphinxhyphen{}p \sphinxhyphen{}b  native\sphinxhyphen{}posix\_64 oswatch
+
+
+\subsection{References}
+\label{\detokenize{samples/oswatch-batteryREADME:references}}
+
 \section{OSWatch Framework Bluetooth}
 \label{\detokenize{samples/oswatch-btREADME:oswatch-framework-bluetooth}}\label{\detokenize{samples/oswatch-btREADME:oswatch}}\label{\detokenize{samples/oswatch-btREADME::doc}}
 
@@ -1713,13 +1749,109 @@ west build \sphinxhyphen{}p \sphinxhyphen{}b  native\sphinxhyphen{}posix\_64 osw
 \subsection{References}
 \label{\detokenize{samples/oswatch-btREADME:references}}
 
-\section{OSWatch Framework}
-\label{\detokenize{samples/oswatchREADME:oswatch-framework}}\label{\detokenize{samples/oswatchREADME:oswatch}}\label{\detokenize{samples/oswatchREADME::doc}}
+\section{Current Time Setting  OSWatch Framework}
+\label{\detokenize{samples/oswatch-ctsREADME:current-time-setting-oswatch-framework}}\label{\detokenize{samples/oswatch-ctsREADME:oswatch}}\label{\detokenize{samples/oswatch-ctsREADME::doc}}
+
+\subsection{Overview}
+\label{\detokenize{samples/oswatch-ctsREADME:overview}}
+This is an opensource watch framework.
+The same software can run in simulation (SDL) on linux, on pinetime and on the ds\_d6 oled watch.
+
+This sample reads/sets the time, using bluetooth CTS.
+
+
+\subsection{Requirements}
+\label{\detokenize{samples/oswatch-ctsREADME:requirements}}
+A bluetooth CTS server.
+This can be a smartphone.
+
+Included is a python\sphinxhyphen{}script : gatt\sphinxhyphen{}cts\sphinxhyphen{}server.py, for use with bluez on linux.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{python3} \PYG{n}{gatt}\PYG{o}{\PYGZhy{}}\PYG{n}{cts}\PYG{o}{\PYGZhy{}}\PYG{n}{server}\PYG{o}{.}\PYG{n}{py}
+\end{sphinxVerbatim}
+
+you need to connect to the watch in order, to have it read the time.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{bluetoothctl}
+\PYG{n}{scan} \PYG{n}{on} \PYG{p}{(}\PYG{n}{gets} \PYG{n}{you} \PYG{n+nb}{list} \PYG{n}{of} \PYG{n}{bluetoothdevices}\PYG{p}{)}
+\PYG{n}{connect} \PYG{n}{D5}\PYG{p}{:}\PYG{n}{A0}\PYG{p}{:}\PYG{n}{A2}\PYG{p}{:}\PYG{l+m+mi}{6}\PYG{n}{D}\PYG{p}{:}\PYG{n}{A0}\PYG{p}{:}\PYG{n}{D5} \PYG{p}{(}\PYG{n}{pick} \PYG{n}{the} \PYG{n}{pinetime} \PYG{o}{\PYGZhy{}} \PYG{n}{macaddress}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+
+\subsection{Building and Running}
+\label{\detokenize{samples/oswatch-ctsREADME:building-and-running}}
+west build \sphinxhyphen{}p \sphinxhyphen{}b  native\sphinxhyphen{}posix\_64 oswatch\sphinxhyphen{}bt
+
+
+\subsection{References}
+\label{\detokenize{samples/oswatch-ctsREADME:references}}
+
+\section{FOTA OSWatch Framework}
+\label{\detokenize{samples/oswatch-fotaREADME:fota-oswatch-framework}}\label{\detokenize{samples/oswatch-fotaREADME:oswatch}}\label{\detokenize{samples/oswatch-fotaREADME::doc}}
+
+\subsection{Todo}
+\label{\detokenize{samples/oswatch-fotaREADME:todo}}
+This is not functional yet
+
+
+\subsection{Overview}
+\label{\detokenize{samples/oswatch-fotaREADME:overview}}
+This is an opensource watch framework.
+The same software can run in simulation (SDL) on linux, on pinetime and on the ds\_d6 oled watch.
+
+This is a demo, when you want to implement firmware updates over the air.
+
+Zephyr has a procedure in place.
+
+Look for MCUBOOT definitions in the source code
+
+
+\subsection{Requirements}
+\label{\detokenize{samples/oswatch-fotaREADME:requirements}}
+no requirements since it can run without board (simulation)
+
+
+\subsection{Building and Running}
+\label{\detokenize{samples/oswatch-fotaREADME:building-and-running}}
+west build \sphinxhyphen{}p \sphinxhyphen{}b  native\sphinxhyphen{}posix\_64 oswatch\sphinxhyphen{}fota
+
+
+\subsection{References}
+\label{\detokenize{samples/oswatch-fotaREADME:references}}
+
+\section{Basic OSWatch Framework}
+\label{\detokenize{samples/oswatchREADME:basic-oswatch-framework}}\label{\detokenize{samples/oswatchREADME:oswatch}}\label{\detokenize{samples/oswatchREADME::doc}}
+The application keeps track of time and displays time and date.
+The initial time is the time of build.
+
+Switching between screens can be done by multiple presses on button.
+
+On the native\_posix application 2 serial ports are available.
+UART\_1 connected to pseudotty: /dev/pts/2
+UART\_0 connected to pseudotty: /dev/pts/3
+
+By connecting to UART\_0 with :  minicom \sphinxhyphen{}D /dev/pts/3, you have access to the zephyr\sphinxhyphen{}shell.
+(just type “help” to get overview)
+
 
 \subsection{Overview}
 \label{\detokenize{samples/oswatchREADME:overview}}
 This is an opensource watch framework.
-The same software can run in simulation (SDL) on linux, on pinetime and on the ds\_d6 oled watch.
+The same software can run in simulation (SDL) on linux, on the pinetime and on the ds\_d6 oled watch.
+
+This Basic application serves as a chassis, where accessories can be supplemented (bluetooth, fota, powermanagement, …)
+These application carry the name oswatch\sphinxhyphen{}bt, oswatch\sphinxhyphen{}pm, oswatch\sphinxhyphen{}fota, oswatch\sphinxhyphen{}full.
+
+Why implement powermanagent if you do not have a battery?
+Why implement firmware over the air, if you can update the firmware with a debugprobe.
+
+
+\subsection{Remark}
+\label{\detokenize{samples/oswatchREADME:remark}}
+This basic time keeping application, might need adjustment.
+In that case you will still need CTS (bluetooth functionality).
 
 
 \subsection{Requirements}
@@ -2029,6 +2161,29 @@ west build \sphinxhyphen{}p \sphinxhyphen{}b native\_posix\_64 samples/sdlbutton
 
 \subsection{References}
 \label{\detokenize{samples/samplessdlbuttonREADME:references}}
+
+\section{Testing the timer refresh}
+\label{\detokenize{samples/samplestimerREADME:testing-the-timer-refresh}}\label{\detokenize{samples/samplestimerREADME:sdl-sample}}\label{\detokenize{samples/samplestimerREADME::doc}}
+
+\subsection{Overview}
+\label{\detokenize{samples/samplestimerREADME:overview}}
+This sample application displays “a blinking LED”.
+A timer triggers the LED on/off state.
+
+
+\subsection{Requirements}
+\label{\detokenize{samples/samplestimerREADME:requirements}}
+This sample uses the native\_posix solution, so no need for a real board.
+You’ll need to have a SDL library installed.
+
+
+\subsection{Building and Running}
+\label{\detokenize{samples/samplestimerREADME:building-and-running}}
+west build \sphinxhyphen{}p \sphinxhyphen{}b native\_posix\_64 samples/timer
+
+
+\subsection{References}
+\label{\detokenize{samples/samplestimerREADME:references}}
 
 \chapter{Menuconfig}
 \label{\detokenize{menuconfig:menuconfig}}\label{\detokenize{menuconfig::doc}}

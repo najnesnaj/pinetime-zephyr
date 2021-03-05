@@ -3,8 +3,8 @@
 / {
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x1 >;
-	model = "Pine64 PineTime DevKit1";
-	compatible = "pine64,pinetime-devkit1";
+	model = "Pine64 PineTime DevKit0";
+	compatible = "pine64,pinetime-devkit0";
 	chosen {
 		zephyr,entropy = &rng;
 		zephyr,flash-controller = &flash_controller;
@@ -23,7 +23,6 @@
 		led3 = &statusled;
 		sw0 = &key_in;
 		sw1 = &key_out;
-		kscan0 = &touch_controller;
 	};
 	soc {
 		#address-cells = < 0x1 >;
@@ -158,11 +157,12 @@
 				reg = < 0x44 >;
 				label = "HRS3300";
 			};
-			touch_controller: ft9999@15 {
-				compatible = "focaltech,ft9999";
+			cst816s: cst816s@15 {
+				compatible = "hynitron,cst816s";
 				reg = < 0x15 >;
-				label = "FT9999";
-				int-gpios = < &gpio0 0x1c 0x1 >;
+				label = "CST816S";
+				irq-gpios = < &gpio0 0x1c 0x1 >;
+				rst-gpios = < &gpio0 0xa 0x1 >;
 			};
 		};
 		i2c1: i2c@40004000 {
