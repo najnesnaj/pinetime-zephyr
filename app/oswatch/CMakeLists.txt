@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #list(APPEND ZEPHYR_EXTRA_MODULES /root/zephyrproject/app/drivers/kscan2)
 cmake_minimum_required(VERSION 3.13.1)
-#list(APPEND ZEPHYR_EXTRA_MODULES
-#  ${CMAKE_CURRENT_SOURCE_DIR}/oswatch_drivers
-#  )
+list(APPEND ZEPHYR_EXTRA_MODULES
+  ${CMAKE_CURRENT_SOURCE_DIR}/drivers
+  )
 
 
 # Add the board

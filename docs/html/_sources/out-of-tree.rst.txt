@@ -20,4 +20,12 @@ Have a look at the samples, on how it is done.
 	Copy this directory alongside the zephyr rtos repository, and it should work.
 	No extra configuration needed.
 	You can use the latest Zephyr distribution.
-  
+
+
+Top Tip: 
+--------
+
+Adapting an existing driver is easier than writing one from scratch.  
+In the Kconfig you just set another name : instead of SSD1306, you use SSD1306NEW.
+You might need to adapt the board definition file <watch>.dts as well.
+Zephyr stitches together parts based on labels. Make sure they match.

@@ -33,6 +33,9 @@
 * Out of tree
 
 
+    * Top Tip:
+
+
 * display
 
 
@@ -127,6 +130,15 @@
 
 
         * definition on project level
+
+
+    * SSD1306 modification
+
+
+        * board level definitions
+
+
+        * definition config
 
 
     * sensors on the I2C bus

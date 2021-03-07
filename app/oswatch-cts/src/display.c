@@ -129,10 +129,7 @@ void display_date_set_label(char *str)
 
 void display_clock_update() // jj the clock apears in the first screen only 
 {
-	lv_scr_load(screens[0].screen);
-
-
-
+//	lv_scr_load(screens[0].screen);
 }
 
 /*---------------------------------------------------------------------------*/
@@ -249,13 +246,13 @@ void display_button()
 
 void display_connect_event()
 {
-	lv_scr_load(screens[3].screen); //display the CTS screen
+//	lv_scr_load(screens[3].screen); //display the CTS screen
 
 }
 
 void display_disconnect_event()
 {
-	lv_scr_load(screens[0].screen); //display the first screen
+//	lv_scr_load(screens[0].screen); //display the first screen
 }
 
 

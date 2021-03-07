@@ -73,7 +73,7 @@
 
 
 \title{open source watch Documentation}
-\date{Mar 05, 2021}
+\date{Mar 07, 2021}
 \release{1.1.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -249,6 +249,14 @@ Have a look at the samples, on how it is done.
 \PYG{n}{No} \PYG{n}{extra} \PYG{n}{configuration} \PYG{n}{needed}\PYG{o}{.}
 \PYG{n}{You} \PYG{n}{can} \PYG{n}{use} \PYG{n}{the} \PYG{n}{latest} \PYG{n}{Zephyr} \PYG{n}{distribution}\PYG{o}{.}
 \end{sphinxVerbatim}
+
+
+\section{Top Tip:}
+\label{\detokenize{out-of-tree:top-tip}}
+Adapting an existing driver is easier than writing one from scratch.
+In the Kconfig you just set another name : instead of SSD1306, you use SSD1306NEW.
+You might need to adapt the board definition file \textless{}watch\textgreater{}.dts as well.
+Zephyr stitches together parts based on labels. Make sure they match.
 
 
 \chapter{display}
@@ -595,6 +603,70 @@ Here you can set values specific for you project/sample.
 \end{sphinxVerbatim}
 
 \sphinxstylestrong{note: this gets somehow merged (overlayed) with the board definition pinetime\_defconfig}
+
+
+\section{SSD1306 modification}
+\label{\detokenize{drivers/ssd1306:ssd1306-modification}}\label{\detokenize{drivers/ssd1306::doc}}
+
+\subsection{board level definitions}
+\label{\detokenize{drivers/ssd1306:board-level-definitions}}
+The desay D6 OLED display gets it power trough a GPIO pin.
+
+In the board definition file one can set it high.
+
+Some minor adjustment in board.c was needed.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{under} \PYG{n}{boards}\PYG{o}{/}\PYG{n}{arm}\PYG{o}{/}\PYG{n}{ds\PYGZus{}d6} \PYG{n}{are} \PYG{n}{the} \PYG{n}{board} \PYG{n}{definitions}
+\PYG{o}{\PYGZhy{}} \PYG{n}{ds\PYGZus{}d6}\PYG{o}{.}\PYG{n}{dts}
+\PYG{o}{\PYGZhy{}} \PYG{n}{ds\PYGZus{}d6\PYGZus{}defconfig}
+
+
+
+\PYG{n}{vdd\PYGZus{}pwr}\PYG{p}{:} \PYG{n}{vdd}\PYG{o}{\PYGZhy{}}\PYG{n}{pwr}\PYG{o}{\PYGZhy{}}\PYG{n}{ctrl} \PYG{p}{\PYGZob{}}
+        \PYG{n}{compatible} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{regulator\PYGZhy{}fixed}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
+        \PYG{n}{label} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{vdd\PYGZhy{}pwr\PYGZhy{}ctrl}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
+        \PYG{n}{regulator}\PYG{o}{\PYGZhy{}}\PYG{n}{name} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{vdd\PYGZhy{}pwr\PYGZhy{}ctrl}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
+        \PYG{n}{enable}\PYG{o}{\PYGZhy{}}\PYG{n}{gpios} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZam{}}\PYG{n}{gpio0} \PYG{l+m+mi}{26} \PYG{n}{GPIO\PYGZus{}ACTIVE\PYGZus{}HIGH}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+        \PYG{n}{regulator}\PYG{o}{\PYGZhy{}}\PYG{n}{boot}\PYG{o}{\PYGZhy{}}\PYG{n}{on}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+The driver has been placed “out of tree”.
+It is a modified ssd1306 driver.
+The ssd1306 behaved somewhat differently.
+It was renamed to ssd1306new to avoid confusion.
+In the board definition file the label was adapted.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{ssd1306new}\PYG{o}{@}\PYG{l+m+mi}{0} \PYG{p}{\PYGZob{}}
+        \PYG{n}{compatible} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{solomon,ssd1306fb}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
+        \PYG{n}{spi}\PYG{o}{\PYGZhy{}}\PYG{n+nb}{max}\PYG{o}{\PYGZhy{}}\PYG{n}{frequency} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{80000000}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+        \PYG{n}{label} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{SSD1306NEW}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
+        \PYG{n}{reg} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+        \PYG{n}{segment}\PYG{o}{\PYGZhy{}}\PYG{n}{offset} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+        \PYG{n}{page}\PYG{o}{\PYGZhy{}}\PYG{n}{offset} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+        \PYG{n}{display}\PYG{o}{\PYGZhy{}}\PYG{n}{offset} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+        \PYG{n}{multiplex}\PYG{o}{\PYGZhy{}}\PYG{n}{ratio} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{31}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+        \PYG{n}{height} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{32}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+        \PYG{n}{width} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{128}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+        \PYG{n}{segment}\PYG{o}{\PYGZhy{}}\PYG{n}{remap}\PYG{p}{;}
+        \PYG{n}{prechargep} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{l+m+mh}{0xF1}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+        \PYG{n}{reset}\PYG{o}{\PYGZhy{}}\PYG{n}{gpios} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZam{}}\PYG{n}{gpio0} \PYG{l+m+mi}{4} \PYG{l+m+mi}{0}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+        \PYG{n}{data\PYGZus{}cmd}\PYG{o}{\PYGZhy{}}\PYG{n}{gpios} \PYG{o}{=} \PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZam{}}\PYG{n}{gpio0} \PYG{l+m+mi}{28} \PYG{l+m+mi}{0}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\end{sphinxVerbatim}
+
+
+\subsection{definition config}
+\label{\detokenize{drivers/ssd1306:definition-config}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{In} \PYG{n}{the} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{ds\PYGZus{}d6\PYGZus{}defconfig}\PYG{l+s+s2}{\PYGZdq{}} \PYG{n}{file} \PYG{n}{we} \PYG{n}{define} \PYG{n}{the} \PYG{n}{driver}
+
+
+ \PYG{n}{CONFIG\PYGZus{}LVGL\PYGZus{}DISPLAY\PYGZus{}DEV\PYGZus{}NAME}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{SSD1306NEW}\PYG{l+s+s2}{\PYGZdq{}}
+ \PYG{n}{CONFIG\PYGZus{}SSD1306NEW}\PYG{o}{=}\PYG{n}{y}
+\end{sphinxVerbatim}
 
 
 \section{sensors on the I2C bus}

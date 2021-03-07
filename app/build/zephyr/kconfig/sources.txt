@@ -4,6 +4,10 @@
 /root/work/app/build/Kconfig/Kconfig.soc
 /root/work/app/build/Kconfig/Kconfig.soc.arch
 /root/work/app/build/Kconfig/Kconfig.soc.defconfig
+/root/work/app/oswatch-cts/boards/arm/ds_d6/Kconfig
+/root/work/app/oswatch-cts/boards/arm/ds_d6/Kconfig.board
+/root/work/app/oswatch-cts/boards/arm/ds_d6/Kconfig.defconfig
+/root/work/app/oswatch-cts/drivers/zephyr/Kconfig
 /root/work/modules/audio/sof/Kconfig
 /root/work/modules/audio/sof/src/Kconfig
 /root/work/modules/audio/sof/src/arch/Kconfig
@@ -29,8 +33,6 @@
 /root/work/zephyr/arch/arm/core/aarch32/cortex_m/tz/Kconfig
 /root/work/zephyr/arch/arm/core/aarch64/Kconfig
 /root/work/zephyr/boards/Kconfig
-/root/work/zephyr/boards/arm/pinetime_devkit0/Kconfig.board
-/root/work/zephyr/boards/arm/pinetime_devkit0/Kconfig.defconfig
 /root/work/zephyr/boards/shields/adafruit_2_8_tft_touch_v2/Kconfig.defconfig
 /root/work/zephyr/boards/shields/adafruit_2_8_tft_touch_v2/Kconfig.shield
 /root/work/zephyr/boards/shields/adafruit_winc1500/Kconfig.defconfig

@@ -10,7 +10,7 @@ debug-runner: jlink
 
 # Common runner configuration values.
 config:
-  board_dir: /root/work/zephyr/boards/arm/pinetime_devkit0
+  board_dir: /root/work/app/oswatch-cts/boards/arm/ds_d6
   # Build outputs:
   elf_file: zephyr.elf
   hex_file: zephyr.hex
@@ -24,5 +24,5 @@ config:
 args:
   jlink:
     - --dt-flash=y
-    - --device=nrf52
+    - --device=nRF52832_xxAA
     - --speed=4000

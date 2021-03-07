@@ -21,16 +21,16 @@ APPLICATION_BINARY_DIR:PATH=/root/work/app/build
 APPLICATION_SOURCE_DIR:PATH=/root/work/app/oswatch-cts
 
 //No help, variable specified on the command line.
-BOARD:UNINITIALIZED=pinetime_devkit0
+BOARD:UNINITIALIZED=ds_d6
 
 //Path to a file.
-BOARD_DIR:PATH=/root/work/zephyr/boards/arm/pinetime_devkit0
+BOARD_DIR:PATH=/root/work/app/oswatch-cts/boards/arm/ds_d6
 
 //Path to a program.
 BOSSAC:FILEPATH=/root/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/bin/bossac
 
 //Selected board
-CACHED_BOARD:STRING=pinetime_devkit0
+CACHED_BOARD:STRING=ds_d6
 
 //If desired, you can build the application usingthe configuration
 // settings specified in an alternate .conf file using this parameter.
@@ -39,7 +39,7 @@ CACHED_BOARD:STRING=pinetime_devkit0
 // listed, e.g. CONF_FILE="prj1.confi;prj2.conf" The CACHED_CONF_FILE
 // is internal Zephyr variable used between CMake runs. To change
 // CONF_FILE, use the CONF_FILE variable.
-CACHED_CONF_FILE:STRING=/root/work/app/oswatch-cts/prj.conf
+CACHED_CONF_FILE:STRING=/root/work/app/oswatch-cts/prj.conf;/root/work/app/oswatch-cts/boards/ds_d6.conf
 
 //Selected shield
 CACHED_SHIELD:STRING=
@@ -482,7 +482,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=111
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=117
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

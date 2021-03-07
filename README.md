@@ -66,7 +66,8 @@ I made a demo clip : oswatchclip.mp4
 File should be on github, not sure if it will work...
 
 ### Copy
-suppose you already have ../work/zephyr installed
+suppose you already have ../work/zephyr installed,
+
 copy /app to ../work
 ### Build 
 west build -p -b native_posix_64 oswatch

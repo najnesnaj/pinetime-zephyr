@@ -41,6 +41,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/root/work/app/build/zephyr/lib/libc/cmake_install.cmake")
   include("/root/work/app/build/zephyr/lib/posix/cmake_install.cmake")
+  include("/root/work/app/build/zephyr/lib/fnmatch/cmake_install.cmake")
   include("/root/work/app/build/zephyr/lib/gui/cmake_install.cmake")
   include("/root/work/app/build/zephyr/lib/os/cmake_install.cmake")
 

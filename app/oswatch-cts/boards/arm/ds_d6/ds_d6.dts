@@ -153,10 +153,10 @@ leds    {
         miso-pin = <0xFF>;
        // cs-gpios = <&gpio0 29 (GPIO_ACTIVE_LOW)>;
         cs-gpios = <&gpio0 29 (GPIO_ACTIVE_LOW)>;
-        ssd1306@0 {
+        ssd1306new@0 {
                 compatible = "solomon,ssd1306fb";
         	spi-max-frequency = <80000000>; 
-                label = "SSD1306";
+                label = "SSD1306NEW";
                 reg = <0>;
 		segment-offset = <0>;
 		page-offset = <0>;

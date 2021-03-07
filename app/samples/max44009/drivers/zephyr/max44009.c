@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: Apache-2.0
  * Copyright (c) <najnesnaj@yahoo.com> 
  */
-
 #define DT_DRV_COMPAT maxim_max44009
 
 #include <device.h>

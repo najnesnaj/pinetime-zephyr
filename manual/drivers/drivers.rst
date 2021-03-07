@@ -8,6 +8,7 @@ Drivers
 .. toctree::
 
     i2c
+    ssd1306
     sensors
     bma421
     cst816s

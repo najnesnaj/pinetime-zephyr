@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SSD1306 modification &mdash; open source watch 1.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="sensors on the I2C bus" href="sensors.html" />
+    <link rel="prev" title="configuring I2C" href="i2c.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> open source watch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr  smartwatch framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../out-of-tree.html">Out of tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicapplications.html">Starting with some basic applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lvgl.html">LittlevGL Basic Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RTC.html">Real Time Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../current-time.html">Current Time Service</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="drivers.html">Drivers</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">configuring I2C</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SSD1306 modification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#board-level-definitions">board level definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#definition-config">definition config</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sensors.html">sensors on the I2C bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bma421.html">Bosch BMA421</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cst816s.html">HYNITRON CST816S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hrs3300.html">HX HRS3300</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spinor.html">Serial Nor Flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battery.html">Battery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watchdog.html">Watchdog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bluetooth.html">bluetooth (BLE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fota/fota.html">Firmware Over The Air (FOTA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hacking/hacking.html">Hacking stuff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behind/behind.html">Behind the scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../author.html">Author</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">open source watch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="drivers.html">Drivers</a> &raquo;</li>
+        
+      <li>SSD1306 modification</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/drivers/ssd1306.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ssd1306-modification">
+<h1>SSD1306 modification<a class="headerlink" href="#ssd1306-modification" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="board-level-definitions">
+<h2>board level definitions<a class="headerlink" href="#board-level-definitions" title="Permalink to this headline">¶</a></h2>
+<p>The desay D6 OLED display gets it power trough a GPIO pin.</p>
+<p>In the board definition file one can set it high.</p>
+<p>Some minor adjustment in board.c was needed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">under</span> <span class="n">boards</span><span class="o">/</span><span class="n">arm</span><span class="o">/</span><span class="n">ds_d6</span> <span class="n">are</span> <span class="n">the</span> <span class="n">board</span> <span class="n">definitions</span>
+<span class="o">-</span> <span class="n">ds_d6</span><span class="o">.</span><span class="n">dts</span>
+<span class="o">-</span> <span class="n">ds_d6_defconfig</span>
+
+
+
+<span class="n">vdd_pwr</span><span class="p">:</span> <span class="n">vdd</span><span class="o">-</span><span class="n">pwr</span><span class="o">-</span><span class="n">ctrl</span> <span class="p">{</span>
+        <span class="n">compatible</span> <span class="o">=</span> <span class="s2">&quot;regulator-fixed&quot;</span><span class="p">;</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;vdd-pwr-ctrl&quot;</span><span class="p">;</span>
+        <span class="n">regulator</span><span class="o">-</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;vdd-pwr-ctrl&quot;</span><span class="p">;</span>
+        <span class="n">enable</span><span class="o">-</span><span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">26</span> <span class="n">GPIO_ACTIVE_HIGH</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">regulator</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">on</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>The driver has been placed “out of tree”.
+It is a modified ssd1306 driver.
+The ssd1306 behaved somewhat differently.
+It was renamed to ssd1306new to avoid confusion.
+In the board definition file the label was adapted.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssd1306new</span><span class="o">@</span><span class="mi">0</span> <span class="p">{</span>
+        <span class="n">compatible</span> <span class="o">=</span> <span class="s2">&quot;solomon,ssd1306fb&quot;</span><span class="p">;</span>
+        <span class="n">spi</span><span class="o">-</span><span class="nb">max</span><span class="o">-</span><span class="n">frequency</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">80000000</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;SSD1306NEW&quot;</span><span class="p">;</span>
+        <span class="n">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">segment</span><span class="o">-</span><span class="n">offset</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">page</span><span class="o">-</span><span class="n">offset</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">display</span><span class="o">-</span><span class="n">offset</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">multiplex</span><span class="o">-</span><span class="n">ratio</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">31</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">128</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">segment</span><span class="o">-</span><span class="n">remap</span><span class="p">;</span>
+        <span class="n">prechargep</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0xF1</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">reset</span><span class="o">-</span><span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">4</span> <span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
+        <span class="n">data_cmd</span><span class="o">-</span><span class="n">gpios</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="n">gpio0</span> <span class="mi">28</span> <span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="definition-config">
+<h2>definition config<a class="headerlink" href="#definition-config" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="n">the</span> <span class="s2">&quot;ds_d6_defconfig&quot;</span> <span class="n">file</span> <span class="n">we</span> <span class="n">define</span> <span class="n">the</span> <span class="n">driver</span>
+
+
+ <span class="n">CONFIG_LVGL_DISPLAY_DEV_NAME</span><span class="o">=</span><span class="s2">&quot;SSD1306NEW&quot;</span>
+ <span class="n">CONFIG_SSD1306NEW</span><span class="o">=</span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sensors.html" class="btn btn-neutral float-right" title="sensors on the I2C bus" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="i2c.html" class="btn btn-neutral float-left" title="configuring I2C" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; <a href="../copyright.html">Copyright</a> 2020, jj
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

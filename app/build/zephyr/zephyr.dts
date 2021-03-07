@@ -3,13 +3,14 @@
 / {
 	#address-cells = < 0x1 >;
 	#size-cells = < 0x1 >;
-	model = "Pine64 PineTime DevKit0";
-	compatible = "pine64,pinetime-devkit0";
+	model = "Desay D6 smart Watch";
+	compatible = "nordic, nrf52832";
 	chosen {
 		zephyr,entropy = &rng;
 		zephyr,flash-controller = &flash_controller;
 		zephyr,console = &uart0;
 		zephyr,shell-uart = &uart0;
+		zephyr,uart-mcumgr = &uart0;
 		zephyr,bt-mon-uart = &uart0;
 		zephyr,bt-c2h-uart = &uart0;
 		zephyr,sram = &sram0;
@@ -17,12 +18,8 @@
 		zephyr,code-partition = &slot0_partition;
 	};
 	aliases {
-		led0 = &blled0;
-		led1 = &blled1;
-		led2 = &blled2;
-		led3 = &statusled;
-		sw0 = &key_in;
-		sw1 = &key_out;
+		sw0 = &button0;
+		led0 = &led0_green;
 	};
 	soc {
 		#address-cells = < 0x1 >;
@@ -115,8 +112,8 @@
 			label = "UART_0";
 			compatible = "nordic,nrf-uart";
 			current-speed = < 0x1c200 >;
-			tx-pin = < 0xb >;
-			rx-pin = < 0x1e >;
+			tx-pin = < 0x17 >;
+			rx-pin = < 0x16 >;
 		};
 		gpiote: gpiote@40006000 {
 			compatible = "nordic,nrf-gpiote";
@@ -143,26 +140,13 @@
 			interrupts = < 0x3 0x1 >;
 			status = "okay";
 			label = "I2C_0";
-			compatible = "nordic,nrf-twim";
-			sda-pin = < 0x6 >;
+			compatible = "nordic,nrf-twi";
+			sda-pin = < 0x8 >;
 			scl-pin = < 0x7 >;
-			bma421: bma421@18 {
-				compatible = "bosch,bma4xx";
-				reg = < 0x18 >;
-				label = "BMA421";
-				int1-gpios = < &gpio0 0x8 0x1 >;
-			};
-			hrs3300: hrs3300@44 {
-				compatible = "tian-yi-he-xin,hrs3300";
-				reg = < 0x44 >;
-				label = "HRS3300";
-			};
-			cst816s: cst816s@15 {
-				compatible = "hynitron,cst816s";
-				reg = < 0x15 >;
-				label = "CST816S";
-				irq-gpios = < &gpio0 0x1c 0x1 >;
-				rst-gpios = < &gpio0 0xa 0x1 >;
+			max44009@6b {
+				compatible = "maxim,max44009";
+				reg = < 0x6b >;
+				label = "MAX44009";
 			};
 		};
 		i2c1: i2c@40004000 {
@@ -225,54 +209,37 @@
 			#size-cells = < 0x0 >;
 			reg = < 0x40004000 0x1000 >;
 			interrupts = < 0x4 0x1 >;
-			status = "okay";
+			status = "disabled";
 			label = "SPI_1";
-			compatible = "nordic,nrf-spi";
-			sck-pin = < 0x2 >;
-			mosi-pin = < 0x3 >;
-			miso-pin = < 0x4 >;
-			cs-gpios = < &gpio0 0x5 0x1 >, < &gpio0 0x19 0x1 >;
-			mx25l: mx25l@0 {
-				compatible = "macronix,cmos-mx25l";
-				reg = < 0x0 >;
-				spi-max-frequency = < 0x7a1200 >;
-				label = "CMOS MX25L";
-			};
-			st7789v: st7789v@1 {
-				compatible = "sitronix,st7789v";
-				reg = < 0x1 >;
-				spi-max-frequency = < 0x7a1200 >;
-				label = "ST7789V";
-				cmd-data-gpios = < &gpio0 0x12 0x1 >;
-				reset-gpios = < &gpio0 0x1a 0x1 >;
-				width = < 0xf0 >;
-				height = < 0xf0 >;
-				x-offset = < 0x0 >;
-				y-offset = < 0x0 >;
-				vcom = < 0x19 >;
-				gctrl = < 0x35 >;
-				vrhs = < 0x12 >;
-				vdvs = < 0x20 >;
-				mdac = < 0x0 >;
-				gamma = < 0x1 >;
-				colmod = < 0x5 >;
-				lcm = < 0x2c >;
-				porch-param = [ 0C 0C 00 33 33 ];
-				cmd2en-param = [ 5A 69 02 01 ];
-				pwctrl1-param = [ A4 A1 ];
-				pvgam-param = [ D0 04 0D 11 13 2B 3F 54 4C 18 0D 0B 1F 23 ];
-				nvgam-param = [ D0 04 0C 11 13 2C 3F 44 51 2F 1F 1F 20 23 ];
-				ram-param = [ 00 F0 ];
-				rgb-param = [ CD 08 14 ];
-			};
 		};
 		spi2: spi@40023000 {
 			#address-cells = < 0x1 >;
 			#size-cells = < 0x0 >;
 			reg = < 0x40023000 0x1000 >;
 			interrupts = < 0x23 0x1 >;
-			status = "disabled";
+			status = "okay";
 			label = "SPI_2";
+			compatible = "nordic,nrf-spi";
+			sck-pin = < 0x5 >;
+			mosi-pin = < 0x6 >;
+			miso-pin = < 0xff >;
+			cs-gpios = < &gpio0 0x1d 0x1 >;
+			ssd1306new@0 {
+				compatible = "solomon,ssd1306fb";
+				spi-max-frequency = < 0x4c4b400 >;
+				label = "SSD1306NEW";
+				reg = < 0x0 >;
+				segment-offset = < 0x0 >;
+				page-offset = < 0x0 >;
+				display-offset = < 0x0 >;
+				multiplex-ratio = < 0x1f >;
+				height = < 0x20 >;
+				width = < 0x80 >;
+				segment-remap;
+				prechargep = < 0xf1 >;
+				reset-gpios = < &gpio0 0x4 0x0 >;
+				data_cmd-gpios = < &gpio0 0x1c 0x0 >;
+			};
 		};
 		rtc0: rtc@4000b000 {
 			compatible = "nordic,nrf-rtc";
@@ -397,32 +364,16 @@
 	};
 	leds {
 		compatible = "gpio-leds";
-		blled0: bl_led_0 {
-			gpios = < &gpio0 0xe 0x1 >;
-			label = "Backlight LED 0";
-		};
-		blled1: bl_led_1 {
-			gpios = < &gpio0 0x16 0x1 >;
-			label = "Backlight LED 1";
-		};
-		blled2: bl_led_2 {
-			gpios = < &gpio0 0x17 0x1 >;
-			label = "Backlight LED 2";
-		};
-		statusled: led_3 {
-			gpios = < &gpio0 0x1b 0x1 >;
-			label = "Status Led";
+		led0_green: led_0 {
+			gpios = < &gpio0 0x19 0x0 >;
+			label = "Green LED 0";
 		};
 	};
 	buttons {
 		compatible = "gpio-keys";
-		key_in: button_0 {
-			gpios = < &gpio0 0xd 0x0 >;
-			label = "Key in";
-		};
-		key_out: button_1 {
-			gpios = < &gpio0 0xf 0x0 >;
-			label = "Key out";
+		button0: button_0 {
+			gpios = < &gpio0 0x1e 0x11 >;
+			label = "Push button switch 0";
 		};
 	};
 };

@@ -3,7 +3,7 @@
 # Copyright (c) 2021  <najnesnaj@yahoo.com>
 # SPDX-License-Identifier: Apache-2.0
 
-if BOARD_PINETIME_DEVKIT0
+if BOARD_PINETIME_DEVKIT1
 
 config BOARD
 	default "pinetime_devkit1"

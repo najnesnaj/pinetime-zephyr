@@ -33,3 +33,6 @@ You can print something to the serial port, use the Segger RTT, but having a sam
 
 Instead of the blinky blinking the LED, most samples include the screen.
 
+
+
+

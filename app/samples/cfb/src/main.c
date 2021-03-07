@@ -107,7 +107,7 @@ void main(void)
 	}
 
 	//test to see if it gets any pixel light
-	//cfb_framebuffer_invert(dev);
+	cfb_framebuffer_invert(dev);
 	printf("x_res %d, y_res %d, ppt %d, rows %d, cols %d\n",
 			cfb_get_display_parameter(dev, CFB_DISPLAY_WIDTH),
 			cfb_get_display_parameter(dev, CFB_DISPLAY_HEIGH),
@@ -116,12 +116,12 @@ void main(void)
 			cfb_get_display_parameter(dev, CFB_DISPLAY_COLS));
 
 	while (1) {
-//		for (int i = 0; i < rows; i++) {
+		for (int i = 0; i < rows; i++) {
 			cfb_framebuffer_clear(dev, false);
 			if (cfb_print(dev,
-						"DS-D6 ZEPHYR j!\"§$%&/()=",
-						//0, i * ppt)) {
-						0, 1 * ppt)) {
+						"Flater",
+//						0, i * ppt)) {
+						0, 0* ppt)) {
 //				printf("Failed to print a string\n");
 				continue;
 			}
@@ -130,6 +130,6 @@ void main(void)
 			cfb_framebuffer_finalize(dev);
 			//#if defined(CONFIG_ARCH_POSIX)
 			//#endif
-//		}
+		}
 	}
 }

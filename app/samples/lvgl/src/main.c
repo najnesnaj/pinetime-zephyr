@@ -68,13 +68,15 @@ void main(void)
 		return;
 	}
 	hello_world_label = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_text(hello_world_label, "all around the world!");
+	lv_label_set_text(hello_world_label, "Flater");
 	lv_obj_align(hello_world_label, NULL, LV_ALIGN_CENTER, 0, 0);
 
 	//	count_label = lv_label_create(lv_scr_act(), NULL);
 	//	lv_obj_align(count_label, NULL, LV_ALIGN_IN_BOTTOM_MID, 0, 0);
 
 	lv_task_handler();
+	display_blanking_on(display_dev);
+		k_sleep(K_MSEC(1000));
 	display_blanking_off(display_dev);
 
 	while (1) {

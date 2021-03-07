@@ -32,6 +32,7 @@
 [hacking/i2cscanning.md](hacking/i2cscanning.md)   
 [menuconfig.md](menuconfig.md)   
 [drivers/cst816s.md](drivers/cst816s.md)   
+[drivers/ssd1306.md](drivers/ssd1306.md)   
 [drivers/i2c.md](drivers/i2c.md)   
 [drivers/hrs3300.md](drivers/hrs3300.md)   
 [drivers/battery.md](drivers/battery.md)   
