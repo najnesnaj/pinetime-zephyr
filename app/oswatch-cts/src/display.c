@@ -24,13 +24,9 @@ const static struct device * display_dev;
 #define SCREEN_ID_1    1
 #define SCREEN_ID_2    2
 #define SCREEN_ID_3    3
-#define SCREEN_COUNT   4
+//#define SCREEN_COUNT   4 //jj CTS screen is last one - not selectable by scrolling
+#define SCREEN_COUNT   3
 
-#define PARAM_ID_0      0
-#define PARAM_ID_1      1
-#define PARAM_ID_2      2
-#define PARAM_ID_3      3
-#define PARAM_COUNT     3  //4
 
 enum battery_symbol {
 	BAT_CHARGE,
@@ -41,39 +37,6 @@ enum battery_symbol {
 	BAT_EMPTY
 };
 
-
-
-void display_timer_handler(struct k_timer * timer);
-void display_task_handler(struct k_work * work);
-
-K_TIMER_DEFINE(display_timer, display_timer_handler, NULL);
-
-K_WORK_DEFINE(display_work, display_task_handler);
-
-#define TICK_PERIOD   (10)
-
-/*---------------------------------------------------------------------------*/
-void display_task_handler(struct k_work * work)
-{
-	lv_tick_inc(TICK_PERIOD);
-	lv_task_handler();
-}
-
-/*---------------------------------------------------------------------------*/
-void display_timer_handler(struct k_timer * timer)
-{
-	k_work_submit(&display_work);
-}
-
-/*---------------------------------------------------------------------------*/
-
-typedef struct {
-	lv_obj_t     ** object; 
-	short         * value;
-	short           step;
-	short           max;
-	short           min;
-} param_t;
 
 typedef struct {
 	lv_obj_t * screen;
@@ -113,10 +76,14 @@ static screens_t screens [] = {
 /*---------------------------------------------------------------------------*/
 void display_time_set_label(char *str)
 {
+	//	lv_scr_load(screens[0].screen);
+
 	lv_label_set_text(time_label, str);
 }
 void display_date_set_label(char *str)
 {
+	//	lv_scr_load(screens[0].screen);
+
 	lv_label_set_text(date_label, str);
 }
 
@@ -129,7 +96,7 @@ void display_date_set_label(char *str)
 
 void display_clock_update() // jj the clock apears in the first screen only 
 {
-//	lv_scr_load(screens[0].screen);
+	//	lv_scr_load(screens[0].screen);
 }
 
 /*---------------------------------------------------------------------------*/
@@ -246,13 +213,15 @@ void display_button()
 
 void display_connect_event()
 {
-//	lv_scr_load(screens[3].screen); //display the CTS screen
+//	LOG_INF("display_connect_event");
+	lv_scr_load(screens[3].screen); //display the CTS screen
+//	lv_task_handler();//jj
 
 }
 
 void display_disconnect_event()
 {
-//	lv_scr_load(screens[0].screen); //display the first screen
+	lv_scr_load(screens[0].screen); //display the first screen
 }
 
 
@@ -420,12 +389,19 @@ void display_screens_init(void)
 	//#endif
 
 	/*
-	 *  build basic screen3
+	 *  build basic screen3 -- displayed on CTS update
 	 */
 	lv_scr_load(screens[3].screen);
 	lv_obj_t * screen3_page = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_text(screen3_page, "Sc4");
+	lv_label_set_text(screen3_page, "CTS");
 	lv_obj_align(screen3_page, screens[3].screen, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+
+	/* Bluetooth label */
+	title_label = lv_label_create(lv_scr_act(), NULL);
+	lv_obj_align(title_label, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
+	lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH);
+
+
 
 	// why define the same button all over again? jj
 	display_button();
@@ -453,7 +429,7 @@ void display_screens_init(void)
 static void backlight_switch(bool enable)
 {
 #if (defined(CONFIG_BOARD_PINETIME_DEVKIT1) || defined(CONFIG_BOARD_PINETIME_DEVKIT0))
-//#if defined(CONFIG_BOARD_PINETIME_DEVKIT1)
+	//#if defined(CONFIG_BOARD_PINETIME_DEVKIT1)
 
 	const struct device *dev;
 
@@ -484,7 +460,6 @@ int display_init(void)
 		return -1;
 	}
 
-	//lv_init();
 
 	display_screens_init();
 
@@ -499,15 +474,6 @@ int display_init(void)
 	lv_task_handler();//jj
 	display_blanking_off(display_dev);
 
-	/* 
-	 * Register for button press notifications.
-	 */
-	//buttons_register_notify_handler(display_btn_event);
-
-	/*
-	 *  Start task handler timer loop
-	 */
-	k_timer_start(&display_timer, K_MSEC(TICK_PERIOD), K_MSEC(TICK_PERIOD));
 
 	return 0;
 };

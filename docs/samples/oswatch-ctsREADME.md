@@ -28,6 +28,6 @@ connect D5:A0:A2:6D:A0:D5 (pick the pinetime - macaddress)
 
 ## Building and Running
 
-west build -p -b  native-posix_64 oswatch-bt
+west build -p -b  native-posix_64 oswatch-cts
 
 ## References

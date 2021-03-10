@@ -41,7 +41,7 @@ enum battery_symbol {
         BAT_EMPTY
 };
 
-
+/*
 
 void display_timer_handler(struct k_timer * timer);
 void display_task_handler(struct k_work * work);
@@ -52,28 +52,18 @@ K_WORK_DEFINE(display_work, display_task_handler);
 
 #define TICK_PERIOD   (10)
 
-/*---------------------------------------------------------------------------*/
 void display_task_handler(struct k_work * work)
 {
 	lv_tick_inc(TICK_PERIOD);
 	lv_task_handler();
 }
 
-/*---------------------------------------------------------------------------*/
 void display_timer_handler(struct k_timer * timer)
 {
 	k_work_submit(&display_work);
 }
 
-/*---------------------------------------------------------------------------*/
-
-typedef struct {
-	lv_obj_t     ** object; 
-	short         * value;
-	short           step;
-	short           max;
-	short           min;
-} param_t;
+*/
 
 typedef struct {
 	lv_obj_t * screen;
@@ -497,7 +487,7 @@ int display_init(void)
 	/*
 	 *  Start task handler timer loop
 	 */
-	k_timer_start(&display_timer, K_MSEC(TICK_PERIOD), K_MSEC(TICK_PERIOD));
+//	k_timer_start(&display_timer, K_MSEC(TICK_PERIOD), K_MSEC(TICK_PERIOD));
 
 	return 0;
 };

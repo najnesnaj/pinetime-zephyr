@@ -38,7 +38,7 @@ Building and Running
 ********************
 
 
-west build -p -b  native-posix_64 oswatch-bt
+west build -p -b  native-posix_64 oswatch-cts
 
 
 References
