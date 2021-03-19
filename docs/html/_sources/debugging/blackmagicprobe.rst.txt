@@ -16,13 +16,15 @@ in our case : instead of jlink specify : blackmagicprobe
 
 The cool thing about this probe that it has a serial port (3.3V) and a debug (upload) port on the same usb-port.  
 
+::
+	/dev/ttyACM1 is serial port (pb6 pb7)
 
-- /dev/ttyACM1 is serial port (pb6 pb7)
-minicom -b 115200 -D /dev/ttyACM1
+	minicom -b 115200 -D /dev/ttyACM1
 
-- /dev/ttyACM0 is used as debugger/uploading
-west debug --runner blackmagicprobe
-west flash --runner blackmagicprobe
+	/dev/ttyACM0 is used as debugger/uploading
+
+	west debug --runner blackmagicprobe
+	west flash --runner blackmagicprobe
 
 
 howto setup a blackmagicprobe

@@ -1,4 +1,0 @@
-samples/oswatch-ctsREADME.rst:10: (opensource)  This is an opensource watch framework.
-samples/oswatch-ctsREADME.rst:10: (ds)  The same software can run in simulation (SDL) on linux, on pinetime and on the ds_d6 oled watch.
-samples/oswatch-ctsREADME.rst:10: (oled)  The same software can run in simulation (SDL) on linux, on pinetime and on the ds_d6 oled watch.
-samples/oswatch-ctsREADME.rst:41: (oswatch)  west build -p -b  native-posix_64 oswatch-cts

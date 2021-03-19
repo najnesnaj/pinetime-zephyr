@@ -12,6 +12,27 @@ The PineTime uses a Nordic nrf52832 chip, which has BLE functionality build into
 To test, you can compile a standard application : Eddy Stone.
 
 
+A word on bluetooth-serial communication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Smartwatch manufacterers usually supply you with a smartwatch app.
+This app can communicatie trough bluetooth, and get/send data to the watch.
+
+Unfortunately this is not a standard Zephyr feature!
+
+You could use nRF Connect SDK (often referred as NCS),it is Nordic Semiconductor SDK based on zephyr. It has additional features that could be useful for pinetime, namely bluetooth modules and bluetooth services. Important to mention that even though, NCS forks zephyr it is kept close to it and it is regularly updated to latest zephyr (typically every 2-3 weeks).
+
+NCS has no impact on build framework and overall user experience. The only downside I can think of is that NCS is based on older version of zephyr (~2 weeks behind).
+
+The main reason why i'm bringing it up is bluetooth shell. Zephyr has very nice shell module with multiple transports (UART, RTT). NCS extends it with bluetooth transport (using Nordic Uart Service) and host tool for using it. There is an application for linux from which you can use shell over bluetooth, get logs, etc.. It is really cool and can be very useful when playing with pinetime where you can get logs or control/tune things with only wireless connection to your PC. Here is a demonstration of bluetooth console used in one of nordic reference kits: https://www.youtube.com/watch?v=3KzTfr6S4pg&t= . It's based on nRF5 SDK (not zephyr) but bluetooth shell (and PC tool) was taken from there.
+
+The Nordic UART Service (NUS) shell transport sample demonstrates how to use the receive shell commands from a remote device.
+
+NCS is using BSD-5-Clause-Nordic license (https://github.com/NordicPlayground/fw-nrfconnect-nrf/blob/master/LICENSE)
+
+Zephyr RTOS and the samples I use/create use the Apache License 2.0.
+A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
+
 
 Eddy Stone
 ~~~~~~~~~~
@@ -159,6 +180,21 @@ With Bluez on linux you can investigate the bluetoothservices,  using bluetoothc
     [blueooth]#connect 60:7C:9E:92:50:C1 (the device mac address as displayed)
 
     then you can already see the services
+
+
+
+using bluez to write something to the device
+--------------------------------------------
+
+Characteristic
+	/org/bluez/hci0/dev_74_71_4B_D5_18_21/service001f/char0023
+	00002a38-0000-1000-8000-00805f9b34fb
+	Body Sensor Location
+
+.. code-block:: console
+
+	[dsd6]# select-attribute /org/bluez/hci0/dev_74_71_4B_D5_18_21/service001f/char0023
+	write <data=0x1>
 
 
 same thing with the app from nordic, you could try to connect and display value of e.g. heart rate

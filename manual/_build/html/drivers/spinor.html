@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Serial Nor Flash &mdash; open source watch 1.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="Battery" href="battery.html" />
+    <link rel="prev" title="HX HRS3300" href="hrs3300.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> open source watch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr  smartwatch framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../idea.html">The idea behind the framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../out-of-tree.html">Out of tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basicapplications.html">Starting with some basic applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lvgl.html">LittlevGL Basic Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RTC.html">Real Time Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../current-time.html">Current Time Service</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="drivers.html">Drivers</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="i2c.html">configuring I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssd1306.html">SSD1306 modification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensors.html">sensors on the I2C bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bma421.html">Bosch BMA421</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cst816s.html">HYNITRON CST816S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hrs3300.html">HX HRS3300</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Serial Nor Flash</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#consulting-the-generated-board-definition-file">consulting the generated board definition file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#todo">Todo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="battery.html">Battery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="watchdog.html">Watchdog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bluetooth.html">bluetooth (BLE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fota/fota.html">Firmware Over The Air (FOTA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples/index.html">Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging/debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hacking/hacking.html">Hacking stuff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../behind/behind.html">Behind the scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../author.html">Author</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">open source watch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="drivers.html">Drivers</a> &raquo;</li>
+        
+      <li>Serial Nor Flash</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/drivers/spinor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="serial-nor-flash">
+<h1>Serial Nor Flash<a class="headerlink" href="#serial-nor-flash" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/drivers/spi_flash -DCONF=prj.conf</span>
+</pre></div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This sample application should unlock the serial nor flash memory.
+This can be very usefull to store e.g. background for the watch.</p>
+<p>compilation problematic ….</p>
+<p>/root/zephyrproject/zephyr/samples/drivers/spi_flash/src/main.c:17:22: error: ‘DT_INST_0_JEDEC_SPI_NOR_LABEL’ undeclared (first use in this function); did you mean ‘DT_INST_0_NORDIC_NRF_RTC_LABEL’?</p>
+<p>Turns out this is some problem with the board definition file.</p>
+<p>I found it to be very useful to consult the generated dts file.
+Here you can check if everything is present.</p>
+<p>Guess the dts-file has to be well intended.(structured)</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>TIP: consult the generated dts board file **</p>
+<div class="section" id="consulting-the-generated-board-definition-file">
+<h3>consulting the generated board definition file<a class="headerlink" href="#consulting-the-generated-board-definition-file" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vi /root/zephyrproject/zephyr/build/zephyr/include/generated/generated_dts_board.conf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>complement the pinetime.dts file with the following (under spi)
+#define JEDEC_ID_MACRONIX_MX25L64      0xC22017</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&amp;spi0 {</span>
+<span class="go">  compatible = &quot;nordic,nrf-spi&quot;;</span>
+<span class="go">  status = &quot;okay&quot;;</span>
+<span class="go">  sck-pin = &lt;2&gt;;</span>
+<span class="go">  mosi-pin = &lt;3&gt;;</span>
+<span class="go">  miso-pin = &lt;4&gt;;</span>
+<span class="go">  cs-gpios = &lt;&amp;gpio0 27 0&gt;,&lt;&amp;gpio0 5 0&gt;;</span>
+<span class="go">  st7789v@0 {</span>
+<span class="go">          compatible = &quot;sitronix,st7789v&quot;;</span>
+<span class="go">          label = &quot;DISPLAY&quot;;</span>
+<span class="go">          spi-max-frequency = &lt;8000000&gt;;</span>
+<span class="go">          reg = &lt;0&gt;;</span>
+<span class="go">          cmd-data-gpios = &lt;&amp;gpio0 18 0&gt;;</span>
+<span class="go">          reset-gpios = &lt;&amp;gpio0 26 0&gt;;</span>
+<span class="go">          width = &lt;240&gt;;</span>
+<span class="go">          height = &lt;240&gt;;</span>
+<span class="go">          x-offset = &lt;0&gt;;</span>
+<span class="go">          y-offset = &lt;0&gt;;</span>
+<span class="go">          vcom = &lt;0x19&gt;;</span>
+<span class="go">          gctrl = &lt;0x35&gt;;</span>
+<span class="go">          vrhs = &lt;0x12&gt;;</span>
+<span class="go">          vdvs = &lt;0x20&gt;;</span>
+<span class="go">          mdac = &lt;0x00&gt;;</span>
+<span class="go">          gamma = &lt;0x01&gt;;</span>
+<span class="go">          colmod = &lt;0x05&gt;;</span>
+<span class="go">          lcm = &lt;0x2c&gt;;</span>
+<span class="go">          porch-param = [0c 0c 00 33 33];</span>
+<span class="go">          cmd2en-param = [5a 69 02 01];</span>
+<span class="go">          pwctrl1-param = [a4 a1];</span>
+<span class="go">          pvgam-param = [D0 04 0D 11 13 2B 3F 54 4C 18 0D 0B 1F 23];</span>
+<span class="go">          nvgam-param = [D0 04 0C 11 13 2C 3F 44 51 2F 1F 1F 20 23];</span>
+<span class="go">          ram-param = [00 F0];</span>
+<span class="go">          rgb-param = [CD 08 14];</span>
+
+<span class="go">  };</span>
+
+<span class="go">  mx25r64: mx25r6435f@1 {</span>
+<span class="go">          compatible = &quot;jedec,spi-nor&quot;;</span>
+<span class="go">          reg = &lt;1&gt;;</span>
+<span class="go">          spi-max-frequency = &lt;1000000&gt;;</span>
+<span class="go">          label = &quot;MX25R64&quot;;</span>
+<span class="go">          jedec-id = [0b 40 16];</span>
+<span class="go">          size = &lt;67108864&gt;;</span>
+<span class="go">          has-be32k;</span>
+<span class="go">  };</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">west build -p -b pinetime samples/drivers/spi_flash</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="todo">
+<h2>Todo<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>detect ID memory  : it is not the macronix one as suggestion on the pinetime website</p></li>
+</ul>
+<p>I found the following : jedec-id = [0b 40 16]; (OK: can execute sample program)</p>
+<ul class="simple">
+<li><p>create working board definition (OK: see above)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://files.pine64.org/doc/datasheet/pinetime/MX25L6433F,%203V,%2064Mb,%20v1.6.pdf">http://files.pine64.org/doc/datasheet/pinetime/MX25L6433F,%203V,%2064Mb,%20v1.6.pdf</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="battery.html" class="btn btn-neutral float-right" title="Battery" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hrs3300.html" class="btn btn-neutral float-left" title="HX HRS3300" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; <a href="../copyright.html">Copyright</a> 2020, jj
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

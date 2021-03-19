@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signing an application</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="signing-an-application">
+<span id="signing"></span><h1>Signing an application</h1>
+<p>In order to improve the security, only signed images can be uploaded.</p>
+<p>There is a public and private key.
+The Bootloader is compiled with the public key.
+Each time you want to upload firmware, you have to sign it with a private key.</p>
+<p><strong>NOTE: it is important to keep the private key hidden</strong></p>
+<div class="section" id="generating-a-new-keypair">
+<h2>Generating a new keypair</h2>
+<p>Generating a keypair with imgtool is a matter of running the keygen
+subcommand:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./scripts/imgtool.py keygen -k mykey.pem -t rsa-2048
+</pre></div>
+</div>
+</div>
+<div class="section" id="extracting-the-public-key">
+<h2>Extracting the public key</h2>
+<p>The generated keypair above contains both the public and the private
+key.  It is necessary to extract the public key and insert it into the
+bootloader.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./scripts/imgtool.py getpub -k mykey.pem
+</pre></div>
+</div>
+<p>This will output the public key as a C array that can be dropped
+directly into the <cite>keys.c</cite> file.</p>
+</div>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>sign the compiled zephyr.bin firmware with the root-rsa-2048.pem, private key:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">imgtool.py sign --key ../../root-rsa-2048.pem \</span>
+<span class="go">    --header-size 0x200 \</span>
+<span class="go">    --align 8 \</span>
+<span class="go">    --version 1.2 \</span>
+<span class="go">    --slot-size 0x60000 \</span>
+<span class="go">    ../mcuboot/samples/zephyr/build/ds_d6/hello1/zephyr/zephyr.bin \</span>
+<span class="go">    signed-hello1.bin</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wireless Device Firmware Upgrade</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="wireless-device-firmware-upgrade">
+<span id="mcuboot"></span><h1>Wireless Device Firmware Upgrade</h1>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>In order to perform a FOTA (firmware over the air) update on zephyr you need 2 basic components:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>MCUboot   (a bootloader)</p></li>
+<li><p>SMP Server (a bluetooth service)</p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="mcuboot-with-zephyr">
+<span id="id1"></span><h1>MCUboot with zephyr</h1>
+<p>Clone MCUBOOT for zephyr from github.
+Install additional packages required for development with mcuboot:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">mcuboot</span>  <span class="c1"># or to your directory where mcuboot is cloned</span>
+<span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="o">-</span><span class="n">r</span> <span class="n">scripts</span><span class="o">/</span><span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>To build MCUboot, create a build directory in boot/zephyr, and build
+it as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">boot</span><span class="o">/</span><span class="n">zephyr</span>
+<span class="n">mkdir</span> <span class="n">build</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="n">build</span>
+<span class="n">cmake</span> <span class="o">-</span><span class="n">GNinja</span> <span class="o">-</span><span class="n">DBOARD</span><span class="o">=</span><span class="n">pinetime</span> <span class="o">..</span>
+<span class="n">ninja</span>
+</pre></div>
+</div>
+<p>After building the bootloader, the binaries should reside in
+<cite>build/zephyr/zephyr.{bin,hex,elf}</cite>.</p>
+<p>This image can be flashed as a normal application.</p>
+<p>Some additional configuration is required to build applications for MCUboot.</p>
+<p>This is handled internally by the Zephyr configuration system and is wrapped
+in the <cite>CONFIG_BOOTLOADER_MCUBOOT</cite> Kconfig variable, which must be enabled in
+the application’s <cite>prj.conf</cite> file.</p>
+<p>The Zephyr <cite>CONFIG_BOOTLOADER_MCUBOOT</cite> configuration option
+[documentation](<a class="reference external" href="http://docs.zephyrproject.org/reference/kconfig/CONFIG_BOOTLOADER_MCUBOOT.html">http://docs.zephyrproject.org/reference/kconfig/CONFIG_BOOTLOADER_MCUBOOT.html</a>)
+provides additional details regarding the changes it makes to the image
+placement and generation in order for an application to be bootable by
+MCUboot.</p>
+<p>In order to upgrade to an image (or even boot it, if
+<cite>MCUBOOT_VALIDATE_PRIMARY_SLOT</cite> is enabled), the images must be signed.</p>
+<p>To make development easier, MCUboot is distributed with some example
+keys.  It is important to stress that these should never be used for
+production, since the private key is publicly available in this
+repository.  See below on how to make your own signatures.</p>
+<p>Images can be signed with the <cite>scripts/imgtool.py</cite> script.  It is best
+to look at <cite>samples/zephyr/Makefile</cite> for examples on how to use this.</p>
+<p>Since the bootloader is already in place, you cannot flash your application.bin to 0x00000.</p>
+<p>Eg. in openocd : program application.bin 0x0c000. (which corresponds to the flash layout of slot 0)</p>
+<p>These images can also be marked for upgrade, and loaded into the secondary slot,
+at which point the bootloader should perform an upgrade.</p>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

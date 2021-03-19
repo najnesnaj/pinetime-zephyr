@@ -1,5 +1,5 @@
 Current Time Service 
-=================
+====================
 https://www.bluetooth.com/specifications/gatt/services/
 https://www.bluetooth.com/specifications/gatt/characteristics/
 0x1805 current time service
@@ -40,7 +40,7 @@ Using bluez on linux to connect
 
 The pinetime zephyr sample behaves as a peripheral: 
                           - first of all start the cts service
-                           -connect to the pinetime with bluetoothctl
+                          - connect to the pinetime with bluetoothctl
     
 Using bluetoothctl:
 

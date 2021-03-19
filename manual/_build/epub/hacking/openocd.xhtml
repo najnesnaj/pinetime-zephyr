@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>howto use 2 openocd sessions</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <p>w</p>
+<div class="section" id="howto-use-2-openocd-sessions">
+<h1>howto use 2 openocd sessions</h1>
+<p>Once you completed your <code class="docutils literal notranslate"><span class="pre">west</span> <span class="pre">build</span></code> , your image is located under the build directory</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">   $</span> <span class="nb">cd</span> ~/work/pinetime/zephyr/build/zephyr
+<span class="go">   here you can find zephyr.bin which you can flash</span>
+
+
+
+
+<span class="go">I use Openocd to flash.</span>
+<span class="go">Just connect : telnet 127.0.0.1 4444</span>
+
+<span class="go">.. code-block:: console</span>
+
+<span class="go">    program zephyr.bin</span>
+</pre></div>
+</div>
+<div class="section" id="suppose-you-have-2-microcontrollers">
+<h2>Suppose you have 2 microcontrollers</h2>
+<blockquote>
+<div><p>Just connect : telnet 127.0.0.1 7777 for the second.</p>
+</div></blockquote>
+</div>
+<div class="section" id="howto-setup-a-second-openocd-session-on-a-different-port">
+<h2>Howto setup a second openocd session on a different port?</h2>
+<p>In this case an ST-LINK/V2 an in-circuit debugger and programmer is used.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">openocd</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;telnet_port 7777&#39;</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;tcl_port 6667&#39;</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;gdb_port 3332&#39;</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openocd</span><span class="o">/</span><span class="n">scripts</span> <span class="o">-</span><span class="n">f</span> <span class="n">interface</span><span class="o">/</span><span class="n">stlink</span><span class="o">.</span><span class="n">cfg</span>  <span class="o">-</span><span class="n">f</span> <span class="n">target</span><span class="o">/</span><span class="n">nrf52</span><span class="o">.</span><span class="n">cfg</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="howto-use-the-gpio-header-of-a-single-board-computer">
+<h2>Howto use the GPIO header of a Single Board computer</h2>
+<p>This works really well, and does not require a seperate programmer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">openocd</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openocd</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">interface</span><span class="o">/</span><span class="n">sysfsgpio</span><span class="o">-</span><span class="n">raspberrypi</span><span class="o">.</span><span class="n">cfg</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;transport select swd&#39;</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openocd</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">target</span><span class="o">/</span><span class="n">nrf52</span><span class="o">.</span><span class="n">cfg</span>  <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;bindto 0.0.0.0&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

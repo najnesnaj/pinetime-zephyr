@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>display</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="display">
+<span id="display-sample"></span><h1>display</h1>
+<div class="section" id="display-types">
+<h2>Display   Types</h2>
+<p>There are three types of display included.</p>
+<ul class="simple">
+<li><p>a st7789 color display used in the pinetime</p></li>
+<li><p>a monochrome SSD1306 OLED display used in the desay D6</p></li>
+<li><p>a on-screen display SDL simulated on linux</p></li>
+</ul>
+<div class="section" id="several-methods-of-using-the-display">
+<h3>Several methods of using the display</h3>
+<p>Included in the zephyr distribution are :
+- the Little Graphics Library  (LVGL)
+- Character framebuffer (cfb)</p>
+<p>For the pinetime the LVGL library might be a good option, since it has a big screen, colors and (!) is touch sensitive.</p>
+<p>For the DS-D6 which has a monochrome OLED small display, the character framebuffer could be the best option.</p>
+</div>
+<div class="section" id="the-human-eye">
+<h3>The human eye</h3>
+<p>You can print something to the serial port, use the Segger RTT, but having a sample which displays something on the screen is the equivalent of blinking a LED.</p>
+<p>Instead of the blinky blinking the LED, most samples include the screen.</p>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

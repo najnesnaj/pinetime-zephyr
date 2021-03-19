@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Install zephyr</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="install-zephyr">
+<h1>Install zephyr</h1>
+<div class="section" id="update-on-31-12-2020">
+<h2>update on 31-12-2020</h2>
+<p>Pinetime has become part of the standard zephyr distribution!</p>
+<p>These days you can install zephyr and execute a pinetime sample!</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">west</span> <span class="n">build</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">b</span> <span class="n">pinetime_devkit0</span> <span class="n">samples</span><span class="o">/</span><span class="n">boards</span><span class="o">/</span><span class="n">pine64_pinetime</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-install-zephyr">
+<h2>How to install zephyr</h2>
+<p><a class="reference external" href="https://docs.zephyrproject.org/latest/getting_started/index.html">https://docs.zephyrproject.org/latest/getting_started/index.html</a></p>
+<p>the documentation describes an installation process under Ubuntu/macOS/Windows</p>
+</div>
+<div class="section" id="how-to-install-the-open-source-watch-framekit">
+<h2>How to install the open source watch framekit</h2>
+<p>The kit should work alongside the zephyr installation.
+Just get a copy of the “app” directory.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;work&gt;  /app
+     ├──/zephyr
+     ├──.....
+</pre></div>
+</div>
+<p>the app-directory contains the drivers and source code and(!) modified board definitions.</p>
+</div>
+<div class="section" id="linux-rules">
+<h2>Linux rules</h2>
+<p>The development has been done on a virtual linux machine.
+For testing bluetooth functionality, I have used linux as well.
+In this manual you’ll find a procedure to communicate to the device from a linuxbox.
+Updating the firmware wirelessly? Possible from a linuxbox!</p>
+<p>Suppose you want to measure how many steps employees do a day?
+You could readout everything using a linuxbox, and handle the data using all the available tools of the box.</p>
+<p><strong>TIP : sometimes you run into trouble compiling: removing the build directory can help in that case</strong></p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

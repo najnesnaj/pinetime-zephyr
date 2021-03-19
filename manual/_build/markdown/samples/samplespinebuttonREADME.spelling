@@ -1,1 +1,0 @@
-samples/samplespinebuttonREADME.rst:21: (sdlbutton)  west build -p -b native_posix_64 samples/sdlbutton

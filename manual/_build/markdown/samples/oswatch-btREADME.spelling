@@ -1,6 +1,0 @@
-samples/oswatch-btREADME.rst:12: (opensource)  This is an opensource watch framework.
-samples/oswatch-btREADME.rst:12: (ds)  The same software can run in simulation (SDL) on linux, on the pinetime and on the ds_d6 oled watch.
-samples/oswatch-btREADME.rst:12: (oled)  The same software can run in simulation (SDL) on linux, on the pinetime and on the ds_d6 oled watch.
-samples/oswatch-btREADME.rst:19: (bluetoothfunctionality)  This application adds bluetoothfunctionality to update 6 parameters.
-samples/oswatch-btREADME.rst:32: (oswatch)  west build -p -b  native-posix_64 oswatch-bt
-samples/oswatch-btREADME.rst:32: (bt)  west build -p -b  native-posix_64 oswatch-bt

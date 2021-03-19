@@ -1,3 +1,0 @@
-basicapplications.rst:18: (pushbutton)  A button for the posix simulation watch, is a lvgl pushbutton.
-basicapplications.rst:19: (realbutton)  A button for the pinetime is a realbutton, which needs 2 (!) gpio ports
-basicapplications.rst:20: (Desay)  A button for the Desay D6 is a real button, which needs 1 gpio port.

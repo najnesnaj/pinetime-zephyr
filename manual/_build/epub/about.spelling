@@ -1,9 +1,0 @@
-about.rst:9: (wonderfull)  It is a good platform to explore the wonderfull world of opensource RTOS's.
-about.rst:9: (opensource)  It is a good platform to explore the wonderfull world of opensource RTOS's.
-about.rst:9: (wirelessly)  Furthermore it can be updated wirelessly.
-about.rst:21: (hypnos)  I took a long break from this project, zephyr evolved and a project for creating an open source watch, the hypnos-firmware flourished.
-about.rst:23: (touchpanel)  The drivers for the heartrate sensor, touchpanel that I adapted, became obsolete.
-about.rst:26: (ssd)  Recently I discovered that the standard focaltech touchscreen driver could be adapted easily so it would run on the pinetime and integrate nicely with the LVGL-gui. There were several OLED ssd1306 watches on my desk and I wondered if I could run Zephyr and LVGL (graphical stuff) on them as well. (yes, we can!)
-about.rst:30: (opensource)  This gave me the idea for an opensource-watch-framework.
-about.rst:30: (ds)  The framework is build around three smartwatches, the pinetime, the ds_d6 and the posix_sdl.
-about.rst:30: (sdl)  The framework is build around three smartwatches, the pinetime, the ds_d6 and the posix_sdl.

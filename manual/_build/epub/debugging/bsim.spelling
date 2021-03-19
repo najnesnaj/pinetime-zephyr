@@ -1,5 +1,0 @@
-debugging/bsim.rst:3: (Bsim)  Bsim
-debugging/bsim.rst:9: (bsim)  debugging on nrf52_bsim
-debugging/bsim.rst:11: (oswatch)  You can compile the oswatch-bt sample for the bsim board.
-debugging/bsim.rst:11: (bt)  You can compile the oswatch-bt sample for the bsim board.
-debugging/bsim.rst:11: (bsim)  You can compile the oswatch-bt sample for the bsim board.

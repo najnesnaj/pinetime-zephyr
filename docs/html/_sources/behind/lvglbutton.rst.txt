@@ -16,7 +16,6 @@ Building and Running
 
 
     
-.. note::
 
 
 

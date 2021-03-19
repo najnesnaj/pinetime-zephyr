@@ -1,5 +1,0 @@
-display.rst:13: (desay)  a monochrome SSD1306 OLED display used in the desay D6
-display.rst:20: (framebuffer)  - Character framebuffer (cfb)
-display.rst:20: (cfb)  - Character framebuffer (cfb)
-display.rst:26: (framebuffer)  For the DS-D6 which has a monochrome OLED small display, the character framebuffer could be the best option.
-display.rst:32: (Segger)  You can print something to the serial port, use the Segger RTT, but having a sample which displays something on the screen is the equivalent of blinking a LED.

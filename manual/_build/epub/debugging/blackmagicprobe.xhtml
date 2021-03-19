@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The black magic probe</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-black-magic-probe">
+<h1>The black magic probe</h1>
+<div class="section" id="probes-in-zephyr">
+<h2>probes in zephyr</h2>
+<p>You can program the nrf52832 with a debuggerprobe.
+The standard-setup is jlink (segger).</p>
+<p>/root/zephyrproject/zephyr/boards/arm/id107plus/board.cmake (adapt the runner here)</p>
+<p>in our case : instead of jlink specify : blackmagicprobe</p>
+<p>The cool thing about this probe that it has a serial port (3.3V) and a debug (upload) port on the same usb-port.</p>
+<dl>
+<dt>::</dt><dd><p>/dev/ttyACM1 is serial port (pb6 pb7)</p>
+<p>minicom -b 115200 -D /dev/ttyACM1</p>
+<p>/dev/ttyACM0 is used as debugger/uploading</p>
+<p>west debug –runner blackmagicprobe
+west flash –runner blackmagicprobe</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="howto-setup-a-blackmagicprobe">
+<h2>howto setup a blackmagicprobe</h2>
+<p>You can buy this probe and support the developers. (make this world a better place)</p>
+<p>I bought a “cheapo” “blue pill” stm32 board for future projects …
+soldered a 1.8K resistor between 3.3K and PA12</p>
+<p>downloaded from <a class="reference external" href="https://jeelabs.org/docs/software/bmp/">https://jeelabs.org/docs/software/bmp/</a>
+- blackmagic.bin (79 ko)
+- blackmagic_dfu.bin (7 ko)</p>
+<p>in jlink : loadbin blackmagic_dfu.bin 0x8000000 (specify jlink no options …)
+switch boot0 or boot1 or whatever
+connect usb
+in linux
+dfu-util -v -R -d 0483:df11 -s 0x08002000 -D blackmagic.bin
+(uploading in jlink was a problem cause memory restrictions)</p>
+<img alt="../_images/blackmagicd6.jpeg" src="../_images/blackmagicd6.jpeg" />
+<p>(removed boot0 and boot1 connectors on the stm afterwards)</p>
+<p>plugged it in the USB port and it pops up (had to enable it first in virtual box usb : black sphere technologies …..)</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

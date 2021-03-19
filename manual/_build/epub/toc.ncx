@@ -1,0 +1,1676 @@
+<?xml version="1.0"?>
+<ncx version="2005-1" xmlns="http://www.daisy.org/z3986/2005/ncx/">
+  <head>
+    <meta name="dtb:uid" content="unknown"/>
+    <meta name="dtb:depth" content="3"/>
+    <meta name="dtb:totalPageCount" content="0"/>
+    <meta name="dtb:maxPageNumber" content="0"/>
+  </head>
+  <docTitle>
+    <text>open source watch</text>
+  </docTitle>
+  <navMap>    
+    <navPoint id="navPoint1" playOrder="1">
+      <navLabel>
+        <text>INDEX</text>
+      </navLabel>
+      <content src="index.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint2" playOrder="2">
+      <navLabel>
+        <text>Copyright</text>
+      </navLabel>
+      <content src="copyright.xhtml" />  
+      <navPoint id="navPoint3" playOrder="2">
+        <navLabel>
+          <text>Copyright</text>
+        </navLabel>
+        <content src="copyright.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint4" playOrder="3">
+        <navLabel>
+          <text>author:</text>
+        </navLabel>
+        <content src="copyright.xhtml#author" />  
+      </navPoint>
+      <navPoint id="navPoint5" playOrder="4">
+        <navLabel>
+          <text>LICENSE:</text>
+        </navLabel>
+        <content src="copyright.xhtml#license" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint6" playOrder="5">
+      <navLabel>
+        <text>Zephyr  smartwatch framework</text>
+      </navLabel>
+      <content src="content.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint7" playOrder="6">
+      <navLabel>
+        <text>The idea behind the framework</text>
+      </navLabel>
+      <content src="idea.xhtml" />  
+      <navPoint id="navPoint8" playOrder="6">
+        <navLabel>
+          <text>The idea behind the framework</text>
+        </navLabel>
+        <content src="idea.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint9" playOrder="7">
+        <navLabel>
+          <text>Building blocks</text>
+        </navLabel>
+        <content src="idea.xhtml#building-blocks" />  
+      </navPoint>
+      <navPoint id="navPoint10" playOrder="8">
+        <navLabel>
+          <text>Screen</text>
+        </navLabel>
+        <content src="idea.xhtml#screen" />  
+      </navPoint>
+      <navPoint id="navPoint11" playOrder="9">
+        <navLabel>
+          <text>Touchscreen</text>
+        </navLabel>
+        <content src="idea.xhtml#touchscreen" />  
+      </navPoint>
+      <navPoint id="navPoint12" playOrder="10">
+        <navLabel>
+          <text>Heart rate sensor</text>
+        </navLabel>
+        <content src="idea.xhtml#heart-rate-sensor" />  
+      </navPoint>
+      <navPoint id="navPoint13" playOrder="11">
+        <navLabel>
+          <text>Bluetooth</text>
+        </navLabel>
+        <content src="idea.xhtml#bluetooth" />  
+      </navPoint>
+      <navPoint id="navPoint14" playOrder="12">
+        <navLabel>
+          <text>Powersaving</text>
+        </navLabel>
+        <content src="idea.xhtml#powersaving" />  
+      </navPoint>
+      <navPoint id="navPoint15" playOrder="13">
+        <navLabel>
+          <text>Updating over the air</text>
+        </navLabel>
+        <content src="idea.xhtml#updating-over-the-air" />  
+      </navPoint>
+      <navPoint id="navPoint16" playOrder="14">
+        <navLabel>
+          <text>Motion sensor</text>
+        </navLabel>
+        <content src="idea.xhtml#motion-sensor" />  
+      </navPoint>
+      <navPoint id="navPoint17" playOrder="15">
+        <navLabel>
+          <text>Drivers</text>
+        </navLabel>
+        <content src="idea.xhtml#drivers" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint18" playOrder="16">
+      <navLabel>
+        <text>Install zephyr</text>
+      </navLabel>
+      <content src="installation.xhtml" />  
+      <navPoint id="navPoint19" playOrder="16">
+        <navLabel>
+          <text>Install zephyr</text>
+        </navLabel>
+        <content src="installation.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint20" playOrder="17">
+        <navLabel>
+          <text>update on 31-12-2020</text>
+        </navLabel>
+        <content src="installation.xhtml#update-on-31-12-2020" />  
+      </navPoint>
+      <navPoint id="navPoint21" playOrder="18">
+        <navLabel>
+          <text>How to install zephyr</text>
+        </navLabel>
+        <content src="installation.xhtml#how-to-install-zephyr" />  
+      </navPoint>
+      <navPoint id="navPoint22" playOrder="19">
+        <navLabel>
+          <text>How to install the open source watch framekit</text>
+        </navLabel>
+        <content src="installation.xhtml#how-to-install-the-open-source-watch-framekit" />  
+      </navPoint>
+      <navPoint id="navPoint23" playOrder="20">
+        <navLabel>
+          <text>Linux rules</text>
+        </navLabel>
+        <content src="installation.xhtml#linux-rules" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint24" playOrder="21">
+      <navLabel>
+        <text>Out of tree</text>
+      </navLabel>
+      <content src="out-of-tree.xhtml" />  
+      <navPoint id="navPoint25" playOrder="21">
+        <navLabel>
+          <text>Out of tree</text>
+        </navLabel>
+        <content src="out-of-tree.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint26" playOrder="22">
+        <navLabel>
+          <text>Top Tip:</text>
+        </navLabel>
+        <content src="out-of-tree.xhtml#top-tip" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint27" playOrder="23">
+      <navLabel>
+        <text>display</text>
+      </navLabel>
+      <content src="display.xhtml" />  
+      <navPoint id="navPoint28" playOrder="23">
+        <navLabel>
+          <text>display</text>
+        </navLabel>
+        <content src="display.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint29" playOrder="24">
+        <navLabel>
+          <text>Display   Types</text>
+        </navLabel>
+        <content src="display.xhtml#display-types" />  
+        <navPoint id="navPoint30" playOrder="24">
+          <navLabel>
+            <text>Display   Types</text>
+          </navLabel>
+          <content src="display.xhtml#display-types" />  
+        </navPoint>
+        <navPoint id="navPoint31" playOrder="25">
+          <navLabel>
+            <text>Several methods of using the display</text>
+          </navLabel>
+          <content src="display.xhtml#several-methods-of-using-the-display" />  
+        </navPoint>
+        <navPoint id="navPoint32" playOrder="26">
+          <navLabel>
+            <text>The human eye</text>
+          </navLabel>
+          <content src="display.xhtml#the-human-eye" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint33" playOrder="27">
+      <navLabel>
+        <text>Starting with some basic applications</text>
+      </navLabel>
+      <content src="basicapplications.xhtml" />  
+      <navPoint id="navPoint34" playOrder="27">
+        <navLabel>
+          <text>Starting with some basic applications</text>
+        </navLabel>
+        <content src="basicapplications.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint35" playOrder="28">
+        <navLabel>
+          <text>Push the button</text>
+        </navLabel>
+        <content src="basicapplications.xhtml#push-the-button" />  
+      </navPoint>
+      <navPoint id="navPoint36" playOrder="29">
+        <navLabel>
+          <text>posix</text>
+        </navLabel>
+        <content src="basicapplications.xhtml#posix" />  
+        <navPoint id="navPoint37" playOrder="29">
+          <navLabel>
+            <text>posix</text>
+          </navLabel>
+          <content src="basicapplications.xhtml#posix" />  
+        </navPoint>
+        <navPoint id="navPoint38" playOrder="30">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="basicapplications.xhtml#building-and-running" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint39" playOrder="31">
+        <navLabel>
+          <text>pinetime</text>
+        </navLabel>
+        <content src="basicapplications.xhtml#pinetime" />  
+        <navPoint id="navPoint40" playOrder="31">
+          <navLabel>
+            <text>pinetime</text>
+          </navLabel>
+          <content src="basicapplications.xhtml#pinetime" />  
+        </navPoint>
+        <navPoint id="navPoint41" playOrder="32">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="basicapplications.xhtml#id1" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint42" playOrder="33">
+      <navLabel>
+        <text>LittlevGL Basic Sample</text>
+      </navLabel>
+      <content src="lvgl.xhtml" />  
+      <navPoint id="navPoint43" playOrder="33">
+        <navLabel>
+          <text>LittlevGL Basic Sample</text>
+        </navLabel>
+        <content src="lvgl.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint44" playOrder="34">
+        <navLabel>
+          <text>Overview</text>
+        </navLabel>
+        <content src="lvgl.xhtml#overview" />  
+      </navPoint>
+      <navPoint id="navPoint45" playOrder="35">
+        <navLabel>
+          <text>Simulation</text>
+        </navLabel>
+        <content src="lvgl.xhtml#simulation" />  
+      </navPoint>
+      <navPoint id="navPoint46" playOrder="36">
+        <navLabel>
+          <text>Pinetime</text>
+        </navLabel>
+        <content src="lvgl.xhtml#pinetime" />  
+      </navPoint>
+      <navPoint id="navPoint47" playOrder="37">
+        <navLabel>
+          <text>Building and Running</text>
+        </navLabel>
+        <content src="lvgl.xhtml#building-and-running" />  
+        <navPoint id="navPoint48" playOrder="37">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="lvgl.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint49" playOrder="38">
+          <navLabel>
+            <text>modifying the font size :</text>
+          </navLabel>
+          <content src="lvgl.xhtml#modifying-the-font-size" />  
+        </navPoint>
+        <navPoint id="navPoint50" playOrder="39">
+          <navLabel>
+            <text>apply changes of the changed config:</text>
+          </navLabel>
+          <content src="lvgl.xhtml#apply-changes-of-the-changed-config" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint51" playOrder="40">
+        <navLabel>
+          <text>References</text>
+        </navLabel>
+        <content src="lvgl.xhtml#references" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint52" playOrder="41">
+      <navLabel>
+        <text>Real Time Clock</text>
+      </navLabel>
+      <content src="RTC.xhtml" />  
+      <navPoint id="navPoint53" playOrder="41">
+        <navLabel>
+          <text>Real Time Clock</text>
+        </navLabel>
+        <content src="RTC.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint54" playOrder="42">
+        <navLabel>
+          <text>Overview</text>
+        </navLabel>
+        <content src="RTC.xhtml#overview" />  
+      </navPoint>
+      <navPoint id="navPoint55" playOrder="43">
+        <navLabel>
+          <text>References</text>
+        </navLabel>
+        <content src="RTC.xhtml#references" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint56" playOrder="44">
+      <navLabel>
+        <text>Current Time Service</text>
+      </navLabel>
+      <content src="current-time.xhtml" />  
+      <navPoint id="navPoint57" playOrder="44">
+        <navLabel>
+          <text>Current Time Service</text>
+        </navLabel>
+        <content src="current-time.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint58" playOrder="45">
+        <navLabel>
+          <text>Requirements:</text>
+        </navLabel>
+        <content src="current-time.xhtml#requirements" />  
+      </navPoint>
+      <navPoint id="navPoint59" playOrder="46">
+        <navLabel>
+          <text>BLE Peripheral CTS sample for zephyr</text>
+        </navLabel>
+        <content src="current-time.xhtml#ble-peripheral-cts-sample-for-zephyr" />  
+      </navPoint>
+      <navPoint id="navPoint60" playOrder="47">
+        <navLabel>
+          <text>Using bluez on linux to connect</text>
+        </navLabel>
+        <content src="current-time.xhtml#using-bluez-on-linux-to-connect" />  
+      </navPoint>
+      <navPoint id="navPoint61" playOrder="48">
+        <navLabel>
+          <text>Howto use Bluez on linux to set up a time service</text>
+        </navLabel>
+        <content src="current-time.xhtml#howto-use-bluez-on-linux-to-set-up-a-time-service" />  
+      </navPoint>
+      <navPoint id="navPoint62" playOrder="49">
+        <navLabel>
+          <text>Howto use Android to set up a time service</text>
+        </navLabel>
+        <content src="current-time.xhtml#howto-use-android-to-set-up-a-time-service" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint63" playOrder="50">
+      <navLabel>
+        <text>Drivers</text>
+      </navLabel>
+      <content src="drivers/drivers.xhtml" />  
+      <navPoint id="navPoint64" playOrder="50">
+        <navLabel>
+          <text>Drivers</text>
+        </navLabel>
+        <content src="drivers/drivers.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint65" playOrder="51">
+        <navLabel>
+          <text>configuring I2C</text>
+        </navLabel>
+        <content src="drivers/i2c.xhtml" />  
+        <navPoint id="navPoint66" playOrder="51">
+          <navLabel>
+            <text>configuring I2C</text>
+          </navLabel>
+          <content src="drivers/i2c.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint67" playOrder="52">
+          <navLabel>
+            <text>board level definitions</text>
+          </navLabel>
+          <content src="drivers/i2c.xhtml#board-level-definitions" />  
+        </navPoint>
+        <navPoint id="navPoint68" playOrder="53">
+          <navLabel>
+            <text>definition on project level</text>
+          </navLabel>
+          <content src="drivers/i2c.xhtml#definition-on-project-level" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint69" playOrder="54">
+        <navLabel>
+          <text>SSD1306 modification</text>
+        </navLabel>
+        <content src="drivers/ssd1306.xhtml" />  
+        <navPoint id="navPoint70" playOrder="54">
+          <navLabel>
+            <text>SSD1306 modification</text>
+          </navLabel>
+          <content src="drivers/ssd1306.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint71" playOrder="55">
+          <navLabel>
+            <text>board level definitions</text>
+          </navLabel>
+          <content src="drivers/ssd1306.xhtml#board-level-definitions" />  
+        </navPoint>
+        <navPoint id="navPoint72" playOrder="56">
+          <navLabel>
+            <text>definition config</text>
+          </navLabel>
+          <content src="drivers/ssd1306.xhtml#definition-config" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint73" playOrder="57">
+        <navLabel>
+          <text>sensors on the I2C bus</text>
+        </navLabel>
+        <content src="drivers/sensors.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint74" playOrder="58">
+        <navLabel>
+          <text>Bosch BMA421</text>
+        </navLabel>
+        <content src="drivers/bma421.xhtml" />  
+        <navPoint id="navPoint75" playOrder="58">
+          <navLabel>
+            <text>Bosch BMA421</text>
+          </navLabel>
+          <content src="drivers/bma421.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint76" playOrder="59">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="drivers/bma421.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint77" playOrder="60">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="drivers/bma421.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint78" playOrder="61">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="drivers/bma421.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint79" playOrder="62">
+          <navLabel>
+            <text>Todo</text>
+          </navLabel>
+          <content src="drivers/bma421.xhtml#todo" />  
+        </navPoint>
+        <navPoint id="navPoint80" playOrder="63">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="drivers/bma421.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint81" playOrder="64">
+        <navLabel>
+          <text>HYNITRON CST816S</text>
+        </navLabel>
+        <content src="drivers/cst816s.xhtml" />  
+        <navPoint id="navPoint82" playOrder="64">
+          <navLabel>
+            <text>HYNITRON CST816S</text>
+          </navLabel>
+          <content src="drivers/cst816s.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint83" playOrder="65">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="drivers/cst816s.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint84" playOrder="66">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="drivers/cst816s.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint85" playOrder="67">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="drivers/cst816s.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint86" playOrder="68">
+          <navLabel>
+            <text>Todo</text>
+          </navLabel>
+          <content src="drivers/cst816s.xhtml#todo" />  
+        </navPoint>
+        <navPoint id="navPoint87" playOrder="69">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="drivers/cst816s.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint88" playOrder="70">
+        <navLabel>
+          <text>HX HRS3300</text>
+        </navLabel>
+        <content src="drivers/hrs3300.xhtml" />  
+        <navPoint id="navPoint89" playOrder="70">
+          <navLabel>
+            <text>HX HRS3300</text>
+          </navLabel>
+          <content src="drivers/hrs3300.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint90" playOrder="71">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="drivers/hrs3300.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint91" playOrder="72">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="drivers/hrs3300.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint92" playOrder="73">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="drivers/hrs3300.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint93" playOrder="74">
+          <navLabel>
+            <text>Todo</text>
+          </navLabel>
+          <content src="drivers/hrs3300.xhtml#todo" />  
+        </navPoint>
+        <navPoint id="navPoint94" playOrder="75">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="drivers/hrs3300.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint95" playOrder="76">
+        <navLabel>
+          <text>Serial Nor Flash</text>
+        </navLabel>
+        <content src="drivers/spinor.xhtml" />  
+        <navPoint id="navPoint96" playOrder="76">
+          <navLabel>
+            <text>Serial Nor Flash</text>
+          </navLabel>
+          <content src="drivers/spinor.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint97" playOrder="77">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="drivers/spinor.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint98" playOrder="78">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="drivers/spinor.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint99" playOrder="79">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="drivers/spinor.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint100" playOrder="80">
+          <navLabel>
+            <text>Todo</text>
+          </navLabel>
+          <content src="drivers/spinor.xhtml#todo" />  
+        </navPoint>
+        <navPoint id="navPoint101" playOrder="81">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="drivers/spinor.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint102" playOrder="82">
+        <navLabel>
+          <text>Battery</text>
+        </navLabel>
+        <content src="drivers/battery.xhtml" />  
+        <navPoint id="navPoint103" playOrder="82">
+          <navLabel>
+            <text>Battery</text>
+          </navLabel>
+          <content src="drivers/battery.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint104" playOrder="83">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="drivers/battery.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint105" playOrder="84">
+          <navLabel>
+            <text>Todo</text>
+          </navLabel>
+          <content src="drivers/battery.xhtml#todo" />  
+        </navPoint>
+        <navPoint id="navPoint106" playOrder="85">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="drivers/battery.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint107" playOrder="86">
+        <navLabel>
+          <text>Watchdog</text>
+        </navLabel>
+        <content src="drivers/watchdog.xhtml" />  
+        <navPoint id="navPoint108" playOrder="86">
+          <navLabel>
+            <text>Watchdog</text>
+          </navLabel>
+          <content src="drivers/watchdog.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint109" playOrder="87">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="drivers/watchdog.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint110" playOrder="88">
+          <navLabel>
+            <text>Todo</text>
+          </navLabel>
+          <content src="drivers/watchdog.xhtml#todo" />  
+        </navPoint>
+        <navPoint id="navPoint111" playOrder="89">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="drivers/watchdog.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint112" playOrder="90">
+      <navLabel>
+        <text>bluetooth (BLE)</text>
+      </navLabel>
+      <content src="bluetooth.xhtml" />  
+      <navPoint id="navPoint113" playOrder="90">
+        <navLabel>
+          <text>bluetooth (BLE)</text>
+        </navLabel>
+        <content src="bluetooth.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint114" playOrder="91">
+        <navLabel>
+          <text>A word on bluetooth-serial communication</text>
+        </navLabel>
+        <content src="bluetooth.xhtml#a-word-on-bluetooth-serial-communication" />  
+      </navPoint>
+      <navPoint id="navPoint115" playOrder="92">
+        <navLabel>
+          <text>Eddy Stone</text>
+        </navLabel>
+        <content src="bluetooth.xhtml#eddy-stone" />  
+      </navPoint>
+      <navPoint id="navPoint116" playOrder="93">
+        <navLabel>
+          <text>Using the created bluetooth sample:</text>
+        </navLabel>
+        <content src="bluetooth.xhtml#using-the-created-bluetooth-sample" />  
+        <navPoint id="navPoint117" playOrder="93">
+          <navLabel>
+            <text>Using the created bluetooth sample:</text>
+          </navLabel>
+          <content src="bluetooth.xhtml#using-the-created-bluetooth-sample" />  
+        </navPoint>
+        <navPoint id="navPoint118" playOrder="94">
+          <navLabel>
+            <text>the no-bluetooth, no-watch approach : nrf52_bsim</text>
+          </navLabel>
+          <content src="bluetooth.xhtml#the-no-bluetooth-no-watch-approach-nrf52-bsim" />  
+        </navPoint>
+        <navPoint id="navPoint119" playOrder="95">
+          <navLabel>
+            <text>the no-watch approach : simulation on a laptop</text>
+          </navLabel>
+          <content src="bluetooth.xhtml#the-no-watch-approach-simulation-on-a-laptop" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint120" playOrder="96">
+        <navLabel>
+          <text>Bluez</text>
+        </navLabel>
+        <content src="bluetooth.xhtml#bluez" />  
+        <navPoint id="navPoint121" playOrder="96">
+          <navLabel>
+            <text>Bluez</text>
+          </navLabel>
+          <content src="bluetooth.xhtml#bluez" />  
+        </navPoint>
+        <navPoint id="navPoint122" playOrder="97">
+          <navLabel>
+            <text>using bluez to write something to the device</text>
+          </navLabel>
+          <content src="bluetooth.xhtml#using-bluez-to-write-something-to-the-device" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint123" playOrder="98">
+        <navLabel>
+          <text>using Python to read out bluetoothservices</text>
+        </navLabel>
+        <content src="bluetooth.xhtml#using-python-to-read-out-bluetoothservices" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint124" playOrder="99">
+      <navLabel>
+        <text>Firmware Over The Air (FOTA)</text>
+      </navLabel>
+      <content src="fota/fota.xhtml" />  
+      <navPoint id="navPoint125" playOrder="99">
+        <navLabel>
+          <text>Firmware Over The Air (FOTA)</text>
+        </navLabel>
+        <content src="fota/fota.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint126" playOrder="100">
+        <navLabel>
+          <text>Wireless Device Firmware Upgrade</text>
+        </navLabel>
+        <content src="fota/mcuboot.xhtml" />  
+        <navPoint id="navPoint127" playOrder="100">
+          <navLabel>
+            <text>Wireless Device Firmware Upgrade</text>
+          </navLabel>
+          <content src="fota/mcuboot.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint128" playOrder="101">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="fota/mcuboot.xhtml#overview" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint129" playOrder="102">
+        <navLabel>
+          <text>MCUboot with zephyr</text>
+        </navLabel>
+        <content src="fota/mcuboot.xhtml#mcuboot-with-zephyr" />  
+      </navPoint>
+      <navPoint id="navPoint130" playOrder="103">
+        <navLabel>
+          <text>Partitions</text>
+        </navLabel>
+        <content src="fota/partitions.xhtml" />  
+        <navPoint id="navPoint131" playOrder="103">
+          <navLabel>
+            <text>Partitions</text>
+          </navLabel>
+          <content src="fota/partitions.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint132" playOrder="104">
+          <navLabel>
+            <text>Defining partitions for MCUboot</text>
+          </navLabel>
+          <content src="fota/partitions.xhtml#defining-partitions-for-mcuboot" />  
+        </navPoint>
+        <navPoint id="navPoint133" playOrder="105">
+          <navLabel>
+            <text>Using NOR flash in partitions</text>
+          </navLabel>
+          <content src="fota/partitions.xhtml#using-nor-flash-in-partitions" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint134" playOrder="106">
+        <navLabel>
+          <text>Signing an application</text>
+        </navLabel>
+        <content src="fota/signing.xhtml" />  
+        <navPoint id="navPoint135" playOrder="106">
+          <navLabel>
+            <text>Signing an application</text>
+          </navLabel>
+          <content src="fota/signing.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint136" playOrder="107">
+          <navLabel>
+            <text>Generating a new keypair</text>
+          </navLabel>
+          <content src="fota/signing.xhtml#generating-a-new-keypair" />  
+        </navPoint>
+        <navPoint id="navPoint137" playOrder="108">
+          <navLabel>
+            <text>Extracting the public key</text>
+          </navLabel>
+          <content src="fota/signing.xhtml#extracting-the-public-key" />  
+        </navPoint>
+        <navPoint id="navPoint138" playOrder="109">
+          <navLabel>
+            <text>Example</text>
+          </navLabel>
+          <content src="fota/signing.xhtml#example" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint139" playOrder="110">
+        <navLabel>
+          <text>SMP Server Sample</text>
+        </navLabel>
+        <content src="fota/smp_svr.xhtml" />  
+        <navPoint id="navPoint140" playOrder="110">
+          <navLabel>
+            <text>SMP Server Sample</text>
+          </navLabel>
+          <content src="fota/smp_svr.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint141" playOrder="111">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="fota/smp_svr.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint142" playOrder="112">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="fota/smp_svr.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint143" playOrder="113">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="fota/smp_svr.xhtml#building-and-running" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint144" playOrder="114">
+      <navLabel>
+        <text>Samples</text>
+      </navLabel>
+      <content src="samples/index.xhtml" />  
+      <navPoint id="navPoint145" playOrder="114">
+        <navLabel>
+          <text>Samples</text>
+        </navLabel>
+        <content src="samples/index.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint146" playOrder="115">
+        <navLabel>
+          <text>Battery OSWatch Framework</text>
+        </navLabel>
+        <content src="samples/oswatch-batteryREADME.xhtml" />  
+        <navPoint id="navPoint147" playOrder="115">
+          <navLabel>
+            <text>Battery OSWatch Framework</text>
+          </navLabel>
+          <content src="samples/oswatch-batteryREADME.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint148" playOrder="116">
+          <navLabel>
+            <text>Todo</text>
+          </navLabel>
+          <content src="samples/oswatch-batteryREADME.xhtml#todo" />  
+        </navPoint>
+        <navPoint id="navPoint149" playOrder="117">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="samples/oswatch-batteryREADME.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint150" playOrder="118">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="samples/oswatch-batteryREADME.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint151" playOrder="119">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="samples/oswatch-batteryREADME.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint152" playOrder="120">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="samples/oswatch-batteryREADME.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint153" playOrder="121">
+        <navLabel>
+          <text>OSWatch bluetooth setting parameters</text>
+        </navLabel>
+        <content src="samples/oswatch-btREADME.xhtml" />  
+        <navPoint id="navPoint154" playOrder="121">
+          <navLabel>
+            <text>OSWatch bluetooth setting parameters</text>
+          </navLabel>
+          <content src="samples/oswatch-btREADME.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint155" playOrder="122">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="samples/oswatch-btREADME.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint156" playOrder="123">
+          <navLabel>
+            <text>Bluetooth</text>
+          </navLabel>
+          <content src="samples/oswatch-btREADME.xhtml#bluetooth" />  
+        </navPoint>
+        <navPoint id="navPoint157" playOrder="124">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="samples/oswatch-btREADME.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint158" playOrder="125">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="samples/oswatch-btREADME.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint159" playOrder="126">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="samples/oswatch-btREADME.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint160" playOrder="127">
+        <navLabel>
+          <text>Current Time Setting  OSWatch Framework</text>
+        </navLabel>
+        <content src="samples/oswatch-ctsREADME.xhtml" />  
+        <navPoint id="navPoint161" playOrder="127">
+          <navLabel>
+            <text>Current Time Setting  OSWatch Framework</text>
+          </navLabel>
+          <content src="samples/oswatch-ctsREADME.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint162" playOrder="128">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="samples/oswatch-ctsREADME.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint163" playOrder="129">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="samples/oswatch-ctsREADME.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint164" playOrder="130">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="samples/oswatch-ctsREADME.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint165" playOrder="131">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="samples/oswatch-ctsREADME.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint166" playOrder="132">
+        <navLabel>
+          <text>FOTA OSWatch Framework</text>
+        </navLabel>
+        <content src="samples/oswatch-fotaREADME.xhtml" />  
+        <navPoint id="navPoint167" playOrder="132">
+          <navLabel>
+            <text>FOTA OSWatch Framework</text>
+          </navLabel>
+          <content src="samples/oswatch-fotaREADME.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint168" playOrder="133">
+          <navLabel>
+            <text>Todo</text>
+          </navLabel>
+          <content src="samples/oswatch-fotaREADME.xhtml#todo" />  
+        </navPoint>
+        <navPoint id="navPoint169" playOrder="134">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="samples/oswatch-fotaREADME.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint170" playOrder="135">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="samples/oswatch-fotaREADME.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint171" playOrder="136">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="samples/oswatch-fotaREADME.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint172" playOrder="137">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="samples/oswatch-fotaREADME.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint173" playOrder="138">
+        <navLabel>
+          <text>Basic OSWatch Framework</text>
+        </navLabel>
+        <content src="samples/oswatchREADME.xhtml" />  
+        <navPoint id="navPoint174" playOrder="138">
+          <navLabel>
+            <text>Basic OSWatch Framework</text>
+          </navLabel>
+          <content src="samples/oswatchREADME.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint175" playOrder="139">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="samples/oswatchREADME.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint176" playOrder="140">
+          <navLabel>
+            <text>Remark</text>
+          </navLabel>
+          <content src="samples/oswatchREADME.xhtml#remark" />  
+        </navPoint>
+        <navPoint id="navPoint177" playOrder="141">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="samples/oswatchREADME.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint178" playOrder="142">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="samples/oswatchREADME.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint179" playOrder="143">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="samples/oswatchREADME.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint180" playOrder="144">
+        <navLabel>
+          <text>HRS3300 Heart Rate Sensor</text>
+        </navLabel>
+        <content src="samples/README.xhtml" />  
+        <navPoint id="navPoint181" playOrder="144">
+          <navLabel>
+            <text>HRS3300 Heart Rate Sensor</text>
+          </navLabel>
+          <content src="samples/README.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint182" playOrder="145">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="samples/README.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint183" playOrder="146">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="samples/README.xhtml#building-and-running" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint184" playOrder="147">
+        <navLabel>
+          <text>Character frame buffer</text>
+        </navLabel>
+        <content src="samples/samplescfbREADME.xhtml" />  
+        <navPoint id="navPoint185" playOrder="147">
+          <navLabel>
+            <text>Character frame buffer</text>
+          </navLabel>
+          <content src="samples/samplescfbREADME.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint186" playOrder="148">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="samples/samplescfbREADME.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint187" playOrder="149">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="samples/samplescfbREADME.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint188" playOrder="150">
+          <navLabel>
+            <text>POSIX</text>
+          </navLabel>
+          <content src="samples/samplescfbREADME.xhtml#posix" />  
+        </navPoint>
+        <navPoint id="navPoint189" playOrder="151">
+          <navLabel>
+            <text>Pinetime</text>
+          </navLabel>
+          <content src="samples/samplescfbREADME.xhtml#pinetime" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint190" playOrder="152">
+        <navLabel>
+          <text>Character Framebuffer Shell Module Sample</text>
+        </navLabel>
+        <content src="samples/samplescfb_shellREADME.xhtml" />  
+        <navPoint id="navPoint191" playOrder="152">
+          <navLabel>
+            <text>Character Framebuffer Shell Module Sample</text>
+          </navLabel>
+          <content src="samples/samplescfb_shellREADME.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint192" playOrder="153">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="samples/samplescfb_shellREADME.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint193" playOrder="154">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="samples/samplescfb_shellREADME.xhtml#building-and-running" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint194" playOrder="155">
+        <navLabel>
+          <text>LittlevGL Basic Sample</text>
+        </navLabel>
+        <content src="samples/sampleslvglREADME.xhtml" />  
+        <navPoint id="navPoint195" playOrder="155">
+          <navLabel>
+            <text>LittlevGL Basic Sample</text>
+          </navLabel>
+          <content src="samples/sampleslvglREADME.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint196" playOrder="156">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="samples/sampleslvglREADME.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint197" playOrder="157">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="samples/sampleslvglREADME.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint198" playOrder="158">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="samples/sampleslvglREADME.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint199" playOrder="159">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="samples/sampleslvglREADME.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint200" playOrder="160">
+        <navLabel>
+          <text>Lightsensor</text>
+        </navLabel>
+        <content src="samples/samplesmax44009README.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint201" playOrder="161">
+        <navLabel>
+          <text>LittlevGL SDL Button  Sample</text>
+        </navLabel>
+        <content src="samples/samplespinebuttonREADME.xhtml" />  
+        <navPoint id="navPoint202" playOrder="161">
+          <navLabel>
+            <text>LittlevGL SDL Button  Sample</text>
+          </navLabel>
+          <content src="samples/samplespinebuttonREADME.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint203" playOrder="162">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="samples/samplespinebuttonREADME.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint204" playOrder="163">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="samples/samplespinebuttonREADME.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint205" playOrder="164">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="samples/samplespinebuttonREADME.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint206" playOrder="165">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="samples/samplespinebuttonREADME.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint207" playOrder="166">
+        <navLabel>
+          <text>LittlevGL SDL Button  Sample</text>
+        </navLabel>
+        <content src="samples/samplessdlbuttonREADME.xhtml" />  
+        <navPoint id="navPoint208" playOrder="166">
+          <navLabel>
+            <text>LittlevGL SDL Button  Sample</text>
+          </navLabel>
+          <content src="samples/samplessdlbuttonREADME.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint209" playOrder="167">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="samples/samplessdlbuttonREADME.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint210" playOrder="168">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="samples/samplessdlbuttonREADME.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint211" playOrder="169">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="samples/samplessdlbuttonREADME.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint212" playOrder="170">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="samples/samplessdlbuttonREADME.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint213" playOrder="171">
+        <navLabel>
+          <text>Testing the timer refresh</text>
+        </navLabel>
+        <content src="samples/samplestimerREADME.xhtml" />  
+        <navPoint id="navPoint214" playOrder="171">
+          <navLabel>
+            <text>Testing the timer refresh</text>
+          </navLabel>
+          <content src="samples/samplestimerREADME.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint215" playOrder="172">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="samples/samplestimerREADME.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint216" playOrder="173">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="samples/samplestimerREADME.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint217" playOrder="174">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="samples/samplestimerREADME.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint218" playOrder="175">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="samples/samplestimerREADME.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint219" playOrder="176">
+      <navLabel>
+        <text>Menuconfig</text>
+      </navLabel>
+      <content src="menuconfig.xhtml" />  
+      <navPoint id="navPoint220" playOrder="176">
+        <navLabel>
+          <text>Menuconfig</text>
+        </navLabel>
+        <content src="menuconfig.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint221" playOrder="177">
+        <navLabel>
+          <text>Zephyr is like linux</text>
+        </navLabel>
+        <content src="menuconfig.xhtml#zephyr-is-like-linux" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint222" playOrder="178">
+      <navLabel>
+        <text>Debugging</text>
+      </navLabel>
+      <content src="debugging/debugging.xhtml" />  
+      <navPoint id="navPoint223" playOrder="178">
+        <navLabel>
+          <text>Debugging</text>
+        </navLabel>
+        <content src="debugging/debugging.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint224" playOrder="179">
+        <navLabel>
+          <text>debugging</text>
+        </navLabel>
+        <content src="debugging/debug.xhtml" />  
+        <navPoint id="navPoint225" playOrder="179">
+          <navLabel>
+            <text>debugging</text>
+          </navLabel>
+          <content src="debugging/debug.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint226" playOrder="180">
+          <navLabel>
+            <text>Segger JLink</text>
+          </navLabel>
+          <content src="debugging/debug.xhtml#segger-jlink" />  
+        </navPoint>
+        <navPoint id="navPoint227" playOrder="181">
+          <navLabel>
+            <text>Black Magic</text>
+          </navLabel>
+          <content src="debugging/debug.xhtml#black-magic" />  
+        </navPoint>
+        <navPoint id="navPoint228" playOrder="182">
+          <navLabel>
+            <text>STM32 - Raspberry - OpenOCD</text>
+          </navLabel>
+          <content src="debugging/debug.xhtml#stm32-raspberry-openocd" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint229" playOrder="183">
+        <navLabel>
+          <text>debugging Posix</text>
+        </navLabel>
+        <content src="debugging/debug-posix.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint230" playOrder="184">
+        <navLabel>
+          <text>The black magic probe</text>
+        </navLabel>
+        <content src="debugging/blackmagicprobe.xhtml" />  
+        <navPoint id="navPoint231" playOrder="184">
+          <navLabel>
+            <text>The black magic probe</text>
+          </navLabel>
+          <content src="debugging/blackmagicprobe.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint232" playOrder="185">
+          <navLabel>
+            <text>probes in zephyr</text>
+          </navLabel>
+          <content src="debugging/blackmagicprobe.xhtml#probes-in-zephyr" />  
+        </navPoint>
+        <navPoint id="navPoint233" playOrder="186">
+          <navLabel>
+            <text>howto setup a blackmagicprobe</text>
+          </navLabel>
+          <content src="debugging/blackmagicprobe.xhtml#howto-setup-a-blackmagicprobe" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint234" playOrder="187">
+        <navLabel>
+          <text>pseudo</text>
+        </navLabel>
+        <content src="debugging/pseudo.xhtml" />  
+        <navPoint id="navPoint235" playOrder="187">
+          <navLabel>
+            <text>pseudo</text>
+          </navLabel>
+          <content src="debugging/pseudo.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint236" playOrder="188">
+          <navLabel>
+            <text>simulation on NATIVE_POSIX_64</text>
+          </navLabel>
+          <content src="debugging/pseudo.xhtml#simulation-on-native-posix-64" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint237" playOrder="189">
+        <navLabel>
+          <text>Bsim</text>
+        </navLabel>
+        <content src="debugging/bsim.xhtml" />  
+        <navPoint id="navPoint238" playOrder="189">
+          <navLabel>
+            <text>Bsim</text>
+          </navLabel>
+          <content src="debugging/bsim.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint239" playOrder="190">
+          <navLabel>
+            <text>debugging on nrf52_bsim</text>
+          </navLabel>
+          <content src="debugging/bsim.xhtml#debugging-on-nrf52-bsim" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint240" playOrder="191">
+        <navLabel>
+          <text>Segger RTT (Real Time Transfer)</text>
+        </navLabel>
+        <content src="debugging/jlink.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint241" playOrder="192">
+        <navLabel>
+          <text>Serial data without a serial port</text>
+        </navLabel>
+        <content src="debugging/jlink.xhtml#serial-data-without-a-serial-port" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint242" playOrder="193">
+      <navLabel>
+        <text>Hacking stuff</text>
+      </navLabel>
+      <content src="hacking/hacking.xhtml" />  
+      <navPoint id="navPoint243" playOrder="193">
+        <navLabel>
+          <text>Hacking stuff</text>
+        </navLabel>
+        <content src="hacking/hacking.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint244" playOrder="194">
+        <navLabel>
+          <text>hacking   the pinetime smartwatch</text>
+        </navLabel>
+        <content src="hacking/flashing.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint245" playOrder="195">
+        <navLabel>
+          <text>scanning the I2C_1 port</text>
+        </navLabel>
+        <content src="hacking/i2cscanning.xhtml" />  
+        <navPoint id="navPoint246" playOrder="195">
+          <navLabel>
+            <text>scanning the I2C_1 port</text>
+          </navLabel>
+          <content src="hacking/i2cscanning.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint247" playOrder="196">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="hacking/i2cscanning.xhtml#building-and-running" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint248" playOrder="197">
+        <navLabel>
+          <text>howto flash your zephyr image</text>
+        </navLabel>
+        <content src="hacking/writeprotection.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint249" playOrder="198">
+        <navLabel>
+          <text>howto remove the write protection</text>
+        </navLabel>
+        <content src="hacking/writeprotection.xhtml#howto-remove-the-write-protection" />  
+      </navPoint>
+      <navPoint id="navPoint250" playOrder="199">
+        <navLabel>
+          <text>howto configure gateway</text>
+        </navLabel>
+        <content src="hacking/infrastructure.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint251" playOrder="200">
+        <navLabel>
+          <text>howto use 2 openocd sessions</text>
+        </navLabel>
+        <content src="hacking/openocd.xhtml" />  
+        <navPoint id="navPoint252" playOrder="200">
+          <navLabel>
+            <text>howto use 2 openocd sessions</text>
+          </navLabel>
+          <content src="hacking/openocd.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint253" playOrder="201">
+          <navLabel>
+            <text>Suppose you have 2 microcontrollers</text>
+          </navLabel>
+          <content src="hacking/openocd.xhtml#suppose-you-have-2-microcontrollers" />  
+        </navPoint>
+        <navPoint id="navPoint254" playOrder="202">
+          <navLabel>
+            <text>Howto setup a second openocd session on a different port?</text>
+          </navLabel>
+          <content src="hacking/openocd.xhtml#howto-setup-a-second-openocd-session-on-a-different-port" />  
+        </navPoint>
+        <navPoint id="navPoint255" playOrder="203">
+          <navLabel>
+            <text>Howto use the GPIO header of a Single Board computer</text>
+          </navLabel>
+          <content src="hacking/openocd.xhtml#howto-use-the-gpio-header-of-a-single-board-computer" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint256" playOrder="204">
+        <navLabel>
+          <text>howto generate pdf documents</text>
+        </navLabel>
+        <content src="hacking/latexpdf.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint257" playOrder="205">
+        <navLabel>
+          <text>The Movie</text>
+        </navLabel>
+        <content src="hacking/movie.xhtml" />  
+        <navPoint id="navPoint258" playOrder="205">
+          <navLabel>
+            <text>The Movie</text>
+          </navLabel>
+          <content src="hacking/movie.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint259" playOrder="206">
+          <navLabel>
+            <text>editing :</text>
+          </navLabel>
+          <content src="hacking/movie.xhtml#editing" />  
+        </navPoint>
+        <navPoint id="navPoint260" playOrder="207">
+          <navLabel>
+            <text>script :</text>
+          </navLabel>
+          <content src="hacking/movie.xhtml#script" />  
+        </navPoint>
+        <navPoint id="navPoint261" playOrder="208">
+          <navLabel>
+            <text>Camera :</text>
+          </navLabel>
+          <content src="hacking/movie.xhtml#camera" />  
+        </navPoint>
+        <navPoint id="navPoint262" playOrder="209">
+          <navLabel>
+            <text>Voice over :</text>
+          </navLabel>
+          <content src="hacking/movie.xhtml#voice-over" />  
+        </navPoint>
+        <navPoint id="navPoint263" playOrder="210">
+          <navLabel>
+            <text>Music by Beethoven:</text>
+          </navLabel>
+          <content src="hacking/movie.xhtml#music-by-beethoven" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint264" playOrder="211">
+      <navLabel>
+        <text>Behind the scene</text>
+      </navLabel>
+      <content src="behind/behind.xhtml" />  
+      <navPoint id="navPoint265" playOrder="211">
+        <navLabel>
+          <text>Behind the scene</text>
+        </navLabel>
+        <content src="behind/behind.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint266" playOrder="212">
+        <navLabel>
+          <text>Touchscreen</text>
+        </navLabel>
+        <content src="behind/touchscreen.xhtml" />  
+        <navPoint id="navPoint267" playOrder="212">
+          <navLabel>
+            <text>Touchscreen</text>
+          </navLabel>
+          <content src="behind/touchscreen.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint268" playOrder="213">
+          <navLabel>
+            <text>Overview</text>
+          </navLabel>
+          <content src="behind/touchscreen.xhtml#overview" />  
+        </navPoint>
+        <navPoint id="navPoint269" playOrder="214">
+          <navLabel>
+            <text>Requirements</text>
+          </navLabel>
+          <content src="behind/touchscreen.xhtml#requirements" />  
+        </navPoint>
+        <navPoint id="navPoint270" playOrder="215">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="behind/touchscreen.xhtml#building-and-running" />  
+        </navPoint>
+        <navPoint id="navPoint271" playOrder="216">
+          <navLabel>
+            <text>Todo</text>
+          </navLabel>
+          <content src="behind/touchscreen.xhtml#todo" />  
+        </navPoint>
+        <navPoint id="navPoint272" playOrder="217">
+          <navLabel>
+            <text>References</text>
+          </navLabel>
+          <content src="behind/touchscreen.xhtml#references" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint273" playOrder="218">
+        <navLabel>
+          <text>placing a button on the screen</text>
+        </navLabel>
+        <content src="behind/lvglbutton.xhtml" />  
+        <navPoint id="navPoint274" playOrder="218">
+          <navLabel>
+            <text>placing a button on the screen</text>
+          </navLabel>
+          <content src="behind/lvglbutton.xhtml" />  
+        </navPoint>
+        <navPoint id="navPoint275" playOrder="219">
+          <navLabel>
+            <text>Building and Running</text>
+          </navLabel>
+          <content src="behind/lvglbutton.xhtml#building-and-running" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint276" playOrder="220">
+      <navLabel>
+        <text>About</text>
+      </navLabel>
+      <content src="about.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint277" playOrder="221">
+      <navLabel>
+        <text>Author</text>
+      </navLabel>
+      <content src="author.xhtml" />  
+    </navPoint>
+  </navMap>
+</ncx>

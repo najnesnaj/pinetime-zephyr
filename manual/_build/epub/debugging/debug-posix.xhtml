@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>debugging Posix</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="debugging-posix">
+<h1>debugging Posix</h1>
+<p>start gdb on the command prompt</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">file build/zephyr/zephyr.elf</span>
+<span class="go">Reading symbols from build/zephyr/zephyr.elf...done.</span>
+<span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">b main</span>
+<span class="go">Breakpoint 1 at 0x5909: file /root/work/zephyr/boards/posix/native_posix/main.c, line 56.</span>
+<span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">run</span>
+</pre></div>
+</div>
+<p>Debug oswatch-bt (which needs and argument –bt-dev=hci0)
+Set the breakpoint in the function connected</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">file build/zephyr/zephyr.elf</span>
+<span class="go">Reading symbols from build/zephyr/zephyr.elf...done.</span>
+<span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">b connected</span>
+<span class="go">Breakpoint 1 at 0x498a: file /root/work/app/oswatch-bt/src/bt.c, line 140.</span>
+<span class="gp gp-VirtualEnv">(gdb)</span> <span class="go">r --bt-dev=hci0</span>
+</pre></div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>
