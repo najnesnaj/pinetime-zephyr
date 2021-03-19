@@ -47,6 +47,7 @@
 [behind/behind.md](behind/behind.md)   
 [behind/lvglbutton.md](behind/lvglbutton.md)   
 [lvgl.md](lvgl.md)   
+[idea.md](idea.md)   
 [fota/signing.md](fota/signing.md)   
 [fota/partitions.md](fota/partitions.md)   
 [fota/fota.md](fota/fota.md)   

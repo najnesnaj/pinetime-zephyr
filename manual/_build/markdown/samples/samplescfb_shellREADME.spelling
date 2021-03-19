@@ -1,0 +1,13 @@
+samples/samplescfb_shellREADME.rst:4: (Framebuffer)  Character Framebuffer Shell Module Sample
+samples/samplescfb_shellREADME.rst:8: (Framebuffer)  Framebuffer subsystem.
+samples/samplescfb_shellREADME.rst:47: (ds)  Command example (ds_d6):
+samples/samplescfb_shellREADME.rst:57: (ds)  Command example (ds_d6 board):
+samples/samplescfb_shellREADME.rst:64: (ppt)  : get the display parameters where height, width and ppt
+samples/samplescfb_shellREADME.rst:64: (ppt)  position is incremented by a multiple of the ppt.
+samples/samplescfb_shellREADME.rst:68: (ds)  Command example (ds_d6 board):
+samples/samplescfb_shellREADME.rst:82: (ds)  Command example (ds_d6 board):
+samples/samplescfb_shellREADME.rst:94: (ds)  Command example (ds_d6 board):
+samples/samplescfb_shellREADME.rst:103: (ds)  Command example (ds_d6 board):
+samples/samplescfb_shellREADME.rst:115: (ds)  Command example (ds_d6 board):
+samples/samplescfb_shellREADME.rst:130: (ds)  Command example (ds_d6 board):
+samples/samplescfb_shellREADME.rst:138: (ds)  Command example (ds_d6 board):

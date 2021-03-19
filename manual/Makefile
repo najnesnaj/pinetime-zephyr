@@ -3,7 +3,7 @@
 #sphinxopts -b spelling 
 
 # You can set these variables from the command line.
-SPHINXOPTS    = 
+SPHINXOPTS    =  -b spelling
 SPHINXBUILD   = sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build

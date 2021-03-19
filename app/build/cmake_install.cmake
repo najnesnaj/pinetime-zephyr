@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/app/oswatch-cts
+# Install script for directory: /root/work/app/samples/bluetooth/peripheral
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -3563,7 +3563,7 @@
 #define DT_N_S_soc_S_spi_40023000_S_ssd1306new_0_P_reg_EXISTS 1
 #define DT_N_S_soc_S_spi_40023000_S_ssd1306new_0_P_spi_max_frequency 80000000
 #define DT_N_S_soc_S_spi_40023000_S_ssd1306new_0_P_spi_max_frequency_EXISTS 1
-#define DT_N_S_soc_S_spi_40023000_S_ssd1306new_0_P_label "SSD1306NEW"
+#define DT_N_S_soc_S_spi_40023000_S_ssd1306new_0_P_label "SSD1306"
 #define DT_N_S_soc_S_spi_40023000_S_ssd1306new_0_P_label_EXISTS 1
 #define DT_N_S_soc_S_spi_40023000_S_ssd1306new_0_P_compatible {"solomon,ssd1306fb"}
 #define DT_N_S_soc_S_spi_40023000_S_ssd1306new_0_P_compatible_IDX_0 "solomon,ssd1306fb"

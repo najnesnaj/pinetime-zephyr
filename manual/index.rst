@@ -9,6 +9,7 @@ INDEX
 
    copyright.rst
    content.rst
+   idea.rst
    installation.rst
    out-of-tree.rst
    display.rst

@@ -1,0 +1,4 @@
+drivers/ssd1306.rst:7: (desay)  The desay D6 OLED display gets it power trough a GPIO pin.
+drivers/ssd1306.rst:34: (ssd)  It is a modified ssd1306 driver.
+drivers/ssd1306.rst:34: (ssd)  The ssd1306 behaved somewhat differently.
+drivers/ssd1306.rst:34: (ssd)  It was renamed to ssd1306new to avoid confusion.

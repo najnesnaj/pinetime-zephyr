@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>OSWatch Framework Bluetooth &mdash; open source watch 1.1.0 documentation</title>
+  <title>OSWatch bluetooth setting parameters &mdash; open source watch 1.1.0 documentation</title>
   
 
   
@@ -88,6 +88,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr  smartwatch framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../idea.html">The idea behind the framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../out-of-tree.html">Out of tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../display.html">display</a></li>
@@ -100,8 +101,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../fota/fota.html">Firmware Over The Air (FOTA)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Samples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="oswatch-batteryREADME.html">Battery OSWatch Framework</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">OSWatch Framework Bluetooth</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">OSWatch bluetooth setting parameters</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bluetooth">Bluetooth</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
@@ -173,7 +175,7 @@
         
           <li><a href="index.html">Samples</a> &raquo;</li>
         
-      <li>OSWatch Framework Bluetooth</li>
+      <li>OSWatch bluetooth setting parameters</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -192,28 +194,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="oswatch-framework-bluetooth">
-<span id="oswatch"></span><h1>OSWatch Framework Bluetooth<a class="headerlink" href="#oswatch-framework-bluetooth" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="oswatch-bluetooth-setting-parameters">
+<span id="oswatch"></span><h1>OSWatch bluetooth setting parameters<a class="headerlink" href="#oswatch-bluetooth-setting-parameters" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>This is an opensource watch framework.
-The same software can run in simulation (SDL) on linux, on pinetime and on the ds_d6 oled watch.</p>
-<p>This sample reads the time, using bluetooth CTS.</p>
+The same software can run in simulation (SDL) on linux, on the pinetime and on the ds_d6 oled watch.</p>
+</div>
+<div class="section" id="bluetooth">
+<h2>Bluetooth<a class="headerlink" href="#bluetooth" title="Permalink to this headline">¶</a></h2>
+<p>This application adds bluetoothfunctionality to update 6 parameters.
+One should be able to read out and set these parameters.</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>A bluetooth CTS server.
-This can be a smartphone.</p>
-<p>Included is a python-script : gatt-cts-server.py, for use with bluez on linux.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">gatt</span><span class="o">-</span><span class="n">cts</span><span class="o">-</span><span class="n">server</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
-</div>
-<p>you need to connect to the watch in order, to have it read the time.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bluetoothctl</span>
-<span class="n">scan</span> <span class="n">on</span> <span class="p">(</span><span class="n">gets</span> <span class="n">you</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">bluetoothdevices</span><span class="p">)</span>
-<span class="n">connect</span> <span class="n">D5</span><span class="p">:</span><span class="n">A0</span><span class="p">:</span><span class="n">A2</span><span class="p">:</span><span class="mi">6</span><span class="n">D</span><span class="p">:</span><span class="n">A0</span><span class="p">:</span><span class="n">D5</span> <span class="p">(</span><span class="n">pick</span> <span class="n">the</span> <span class="n">pinetime</span> <span class="o">-</span> <span class="n">macaddress</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>no requirements since it can run without board (simulation)</p>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>

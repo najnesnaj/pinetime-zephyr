@@ -1,0 +1,7 @@
+debugging/jlink.rst:2: (Segger)  Segger RTT (Real Time Transfer)
+debugging/jlink.rst:9: (Segger)  feature of Segger JLink debugger. RTT data can be accessed using the SEGGER tool (JLinkRTTViewer) or by using
+debugging/jlink.rst:9: (JLink)  feature of Segger JLink debugger. RTT data can be accessed using the SEGGER tool (JLinkRTTViewer) or by using
+debugging/jlink.rst:9: (methond)  telnet connection to active debug session. Second methond is recommended since it gives better throughput
+debugging/jlink.rst:9: (bitdirection)  and allows bitdirection communication using Zephyr Shell (with RTT as backend). PuTTY can be used to
+debugging/jlink.rst:9: (backend)  and allows bitdirection communication using Zephyr Shell (with RTT as backend). PuTTY can be used to
+debugging/jlink.rst:15: (JLink)  - JLink debugger, for example one of Nordic Semiconductor Development Kits.

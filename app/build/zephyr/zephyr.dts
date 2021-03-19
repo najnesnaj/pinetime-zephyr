@@ -227,7 +227,7 @@
 			ssd1306new@0 {
 				compatible = "solomon,ssd1306fb";
 				spi-max-frequency = < 0x4c4b400 >;
-				label = "SSD1306NEW";
+				label = "SSD1306";
 				reg = < 0x0 >;
 				segment-offset = < 0x0 >;
 				page-offset = < 0x0 >;

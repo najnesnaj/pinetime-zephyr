@@ -22,10 +22,13 @@
         * References
 
 
-    * OSWatch Framework Bluetooth
+    * OSWatch bluetooth setting parameters
 
 
         * Overview
+
+
+        * Bluetooth
 
 
         * Requirements
@@ -208,10 +211,13 @@
     * References
 
 
-* OSWatch Framework Bluetooth
+* OSWatch bluetooth setting parameters
 
 
     * Overview
+
+
+    * Bluetooth
 
 
     * Requirements

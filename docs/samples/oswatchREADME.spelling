@@ -1,0 +1,18 @@
+samples/oswatchREADME.rst:13: (pseudotty)  UART_1 connected to pseudotty: /dev/pts/2
+samples/oswatchREADME.rst:13: (pts)  UART_1 connected to pseudotty: /dev/pts/2
+samples/oswatchREADME.rst:13: (pseudotty)  UART_0 connected to pseudotty: /dev/pts/3
+samples/oswatchREADME.rst:13: (pts)  UART_0 connected to pseudotty: /dev/pts/3
+samples/oswatchREADME.rst:17: (minicom)  By connecting to UART_0 with :  minicom -D /dev/pts/3, you have access to the zephyr-shell.
+samples/oswatchREADME.rst:17: (pts)  By connecting to UART_0 with :  minicom -D /dev/pts/3, you have access to the zephyr-shell.
+samples/oswatchREADME.rst:24: (opensource)  This is an opensource watch framework.
+samples/oswatchREADME.rst:24: (ds)  The same software can run in simulation (SDL) on linux, on the pinetime and on the ds_d6 oled watch.
+samples/oswatchREADME.rst:24: (oled)  The same software can run in simulation (SDL) on linux, on the pinetime and on the ds_d6 oled watch.
+samples/oswatchREADME.rst:28: (powermanagement)  This Basic application serves as a chassis, where accessories can be supplemented (bluetooth, fota, powermanagement, ...)
+samples/oswatchREADME.rst:28: (oswatch)  These application carry the name oswatch-bt, oswatch-pm, oswatch-fota, oswatch-full.
+samples/oswatchREADME.rst:28: (bt)  These application carry the name oswatch-bt, oswatch-pm, oswatch-fota, oswatch-full.
+samples/oswatchREADME.rst:28: (oswatch)  These application carry the name oswatch-bt, oswatch-pm, oswatch-fota, oswatch-full.
+samples/oswatchREADME.rst:28: (oswatch)  These application carry the name oswatch-bt, oswatch-pm, oswatch-fota, oswatch-full.
+samples/oswatchREADME.rst:28: (oswatch)  These application carry the name oswatch-bt, oswatch-pm, oswatch-fota, oswatch-full.
+samples/oswatchREADME.rst:32: (powermanagent)  Why implement powermanagent if you do not have a battery?
+samples/oswatchREADME.rst:32: (debugprobe)  Why implement firmware over the air, if you can update the firmware with a debugprobe.
+samples/oswatchREADME.rst:52: (oswatch)  west build -p -b  native-posix_64 oswatch

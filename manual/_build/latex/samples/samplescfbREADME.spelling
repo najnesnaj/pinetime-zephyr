@@ -1,0 +1,13 @@
+samples/samplescfbREADME.rst:16: (ds)  build the application: west build -p -b ds_d6 samples/cfb
+samples/samplescfbREADME.rst:16: (cfb)  build the application: west build -p -b ds_d6 samples/cfb
+samples/samplescfbREADME.rst:19: (unix)  on unix : #minicom -b 115200 -D /dev/ttyACM1
+samples/samplescfbREADME.rst:19: (minicom)  on unix : #minicom -b 115200 -D /dev/ttyACM1
+samples/samplescfbREADME.rst:19: (ttyACM)  on unix : #minicom -b 115200 -D /dev/ttyACM1
+samples/samplescfbREADME.rst:24: (cfb)  cfb init
+samples/samplescfbREADME.rst:24: (init)  cfb init
+samples/samplescfbREADME.rst:24: (cfb)  cfb invert
+samples/samplescfbREADME.rst:24: (cfb)  cfb print 0 0 "hello world"
+samples/samplescfbREADME.rst:33: (samles)  west build -p -b native_posix_64 samles/cfb
+samples/samplescfbREADME.rst:33: (cfb)  west build -p -b native_posix_64 samles/cfb
+samples/samplescfbREADME.rst:36: (minicom)  minicom -D /dev/pts/1
+samples/samplescfbREADME.rst:36: (pts)  minicom -D /dev/pts/1

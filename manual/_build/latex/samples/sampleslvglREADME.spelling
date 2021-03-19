@@ -1,0 +1,3 @@
+samples/sampleslvglREADME.rst:14: (Desay)  Desay D6 OLED SSD1306
+samples/sampleslvglREADME.rst:22: (ds)  west build -p -b ds_d6 -d build-lvgl samples/lvgl
+samples/sampleslvglREADME.rst:30: (devkit)  west build -p -b pinetime_devkit1 samples/lvgl

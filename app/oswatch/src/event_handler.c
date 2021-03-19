@@ -35,7 +35,7 @@ static struct k_timer clock_update_timer; //jj
 /* ********** ******* ********** */
 
 //when used with the native_posix_64 virtual device there are no buttons ...
-#if !(defined(CONFIG_BOARD_NATIVE_POSIX_64BIT))
+//#if !(defined(CONFIG_BOARD_NATIVE_POSIX_64BIT))
 
 #define SW0_NODE        DT_ALIAS(sw0)
 
@@ -44,7 +44,7 @@ static struct k_timer clock_update_timer; //jj
 #define SW0_GPIO_PIN    DT_GPIO_PIN(SW0_NODE, gpios)
 #define SW0_GPIO_FLAGS  (GPIO_INPUT | DT_GPIO_FLAGS(SW0_NODE, gpios))
 #else
-#error "Unsupported board: sw0 devicetree alias is not defined"
+//#error "Unsupported board: sw0 devicetree alias is not defined"
 #define SW0_GPIO_LABEL  ""
 #define SW0_GPIO_PIN    0
 #define SW0_GPIO_FLAGS  0
@@ -56,14 +56,52 @@ static struct k_timer clock_update_timer; //jj
 #define SW1_GPIO_FLAGS  (GPIO_OUTPUT | DT_GPIO_FLAGS(SW1_NODE, gpios))
 #endif
 
+#define BUTTON_THRESH 6 //threshold to distinguish between short and long press
+
+//when used in a real watch it will probable have to be less
+#define BUTTON_DOUBLE_THRESH 12 //double click
 
 
-//todo
-//distinction has to made between multiple presses, long press, short press in order to navigate the screen
 
 
 static uint8_t button_press_cnt;
+//struct k_timer button_timer;
+
+
+
+
+//when the timer expires the number of presses is analysed
+void button_timer_handler(struct k_timer *dummy)
+{
+	printf("timer expired\n");
+	printf("press count %d\n", button_press_cnt);
+	if (button_press_cnt >= BUTTON_DOUBLE_THRESH){
+		printf("long press\n");
+		display_btn_event(BTN1_LONG);
+	}
+	if (button_press_cnt <= BUTTON_THRESH){ //short press is used to scroll trough the labels with their value
+		printf("short press\n");
+		display_btn_event(BTN1_SHORT);
+		//  show_label(label_select_cnt);
+		//  label_select_cnt++;
+		// if (label_select_cnt ==  PARAM_TOTAL) label_select_cnt=0;
+	}
+	if ((button_press_cnt > BUTTON_THRESH) && (button_press_cnt < BUTTON_DOUBLE_THRESH)){
+		printf("double click\n");
+	}
+	button_press_cnt=0;
+
+
+}
+
+/*timer used to detect lenght of pushing*/
 struct k_timer button_timer;
+K_TIMER_DEFINE(button_timer, button_timer_handler,NULL);
+
+
+
+
+
 void button_pressed(const struct device *dev, struct gpio_callback *cb,
 		uint32_t pins)
 {
@@ -78,23 +116,35 @@ void button_pressed(const struct device *dev, struct gpio_callback *cb,
 
 	if (k_timer_status_get(&button_timer) > 0) {
 		/* timer has expired */
-		LOG_INF("SHORT PRESS EVENT %02x\n", button_press_cnt);
-		if (button_press_cnt > 2){
-			display_btn_event(BTN1_LONG);
-		}
-		else
-			display_btn_event(BTN1_SHORT);
+		//display_btn_event(BTN1_SHORT);
 		button_press_cnt=0;
 	} else  {
 		/* timer still running */
 		button_press_cnt++;
-		if (button_press_cnt > 2){
-			LOG_INF("LONG PRESS EVENT %02x\n", button_press_cnt);
-			//      display_btn_event(BTN1_LONG);
-		}
 	}
 
 
+
+}
+
+//this is used in case of native_posix -- virtual button
+//static void button_event_cb(lv_obj_t * obj, lv_event_t event)
+void button_event_cb(lv_obj_t * obj, lv_event_t event)
+//static void button_event_cb(void)
+{
+
+        LOG_INF("Button pressed at %" PRIu32 "\n", k_cycle_get_32());
+        if (button_press_cnt == 0U) {
+                k_timer_start(&button_timer, K_SECONDS(1), K_NO_WAIT);
+                printf("Buttontime started" );
+        }
+
+        if (k_timer_status_get(&button_timer) > 0) {
+                button_press_cnt=0;
+        } else  {
+                /* timer still running */
+                button_press_cnt++;
+        }
 
 }
 
@@ -127,11 +177,11 @@ void init_button(void)
 		return;
 	}
 #if defined(CONFIG_BOARD_PINETIME_DEVKIT1)
-//port 15 has to be high in order for the button to work
+	//port 15 has to be high in order for the button to work
 
 
-        gpio_pin_configure(button, SW1_GPIO_PIN,SW1_GPIO_FLAGS); //push button out
-        gpio_pin_set(button, SW1_GPIO_PIN, 1); //set port high
+	gpio_pin_configure(button, SW1_GPIO_PIN,SW1_GPIO_FLAGS); //push button out
+	gpio_pin_set(button, SW1_GPIO_PIN, 1); //set port high
 
 
 
@@ -146,7 +196,7 @@ void init_button(void)
 
 
 }
-#endif
+//#endif
 
 //static struct gpio_callback button_cb;
 
@@ -179,7 +229,7 @@ void button_pressed_isr(const struct device *gpiobtn, struct gpio_callback *cb, 
 
 void handle_clock_update(struct k_timer *clock_update) //jj if clock displayed, it should get the updated time
 {
-printk("handle_clock_update\n");
+	printk("handle_clock_update\n");
 	clock_increment_local_time();
 	clock_show_time();
 	display_clock_update(); //multiple screens but clock only appears in 1st

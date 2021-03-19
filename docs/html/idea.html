@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The idea behind the framework &mdash; open source watch 1.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="Install zephyr" href="installation.html" />
+    <link rel="prev" title="Zephyr smartwatch framework" href="content.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> open source watch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr  smartwatch framework</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The idea behind the framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#screen">Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#touchscreen">Touchscreen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#heart-rate-sensor">Heart rate sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bluetooth">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#powersaving">Powersaving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updating-over-the-air">Updating over the air</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#motion-sensor">Motion sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drivers">Drivers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="out-of-tree.html">Out of tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display.html">display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lvgl.html">LittlevGL Basic Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RTC.html">Real Time Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="current-time.html">Current Time Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bluetooth.html">bluetooth (BLE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fota/fota.html">Firmware Over The Air (FOTA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samples/index.html">Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging/debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hacking/hacking.html">Hacking stuff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behind/behind.html">Behind the scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="author.html">Author</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">open source watch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>The idea behind the framework</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/idea.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-idea-behind-the-framework">
+<h1>The idea behind the framework<a class="headerlink" href="#the-idea-behind-the-framework" title="Permalink to this headline">¶</a></h1>
+<p>I adapted the pinetime hypnos firmware to run on the Desay D6 smartwatch.</p>
+<p>This watch has a small (128x32) oled display and is rather minimalistic.</p>
+<p>It does not have a touchscreen, but a single touchbutton.</p>
+<p>One cannot run the software of a feature-rich smartwatch on a simple one.
+But the reverse can be done.</p>
+<div class="section" id="screen">
+<h2>Screen<a class="headerlink" href="#screen" title="Permalink to this headline">¶</a></h2>
+<p>The OLED screen can only display a few lines.
+This is used as a basis for screen layout.</p>
+<p>Multiple screens can be displayed, but each screen has little info.</p>
+</div>
+<div class="section" id="touchscreen">
+<h2>Touchscreen<a class="headerlink" href="#touchscreen" title="Permalink to this headline">¶</a></h2>
+<p>Although the LVGL graphics library offers touchscreen support and the Pinetimewatch has a touchscreen, the emphasis was put on the sidebutton. Most watches have a button.</p>
+<p>Selecting a screen and a parameter on the screen is done with the button instead of the touchscreen.</p>
+</div>
+<div class="section" id="heart-rate-sensor">
+<h2>Heart rate sensor<a class="headerlink" href="#heart-rate-sensor" title="Permalink to this headline">¶</a></h2>
+<p>Most heart rate sensors have a light sensor and an LED.
+Instead of trying to get a heart rate out of it.
+Emphasis was put on reading out the light sensor and controller the LED.</p>
+<p>This way my cheap oled watch can be used to read out LED signals, and thus be used as a communication device.</p>
+<p>The LED cannot be controlled indepently on the pinetime. Suppose you want to use the lightsensor without the led, it is not possible.</p>
+</div>
+<div class="section" id="bluetooth">
+<h2>Bluetooth<a class="headerlink" href="#bluetooth" title="Permalink to this headline">¶</a></h2>
+<p>Setting time and timers or other parameters is a nuisance on a small device. It is far more easier to set/read parameters on a linux box or android device and transfer them to the smartwatch.</p>
+<p>Bluetooth is used to set the time (CTS) current time service.</p>
+</div>
+<div class="section" id="powersaving">
+<h2>Powersaving<a class="headerlink" href="#powersaving" title="Permalink to this headline">¶</a></h2>
+<p>Powersaving makes sense when the device is battery operated, which is probably not always the case.
+Hence, powersaving is an option.</p>
+</div>
+<div class="section" id="updating-over-the-air">
+<h2>Updating over the air<a class="headerlink" href="#updating-over-the-air" title="Permalink to this headline">¶</a></h2>
+<p>FOTA : firmwareupdating over the air, is a usefull option.
+The way firmware updates work, is to have two firmware images on the device.
+In the case of the cheap OLED device, there is no extra memory to store firmware images.
+Hence, FOTA is an option.</p>
+</div>
+<div class="section" id="motion-sensor">
+<h2>Motion sensor<a class="headerlink" href="#motion-sensor" title="Permalink to this headline">¶</a></h2>
+<p>The motion is used as a stepcounter, but could be used for other purposes as well. Knocksensor, position sensor, movement detection …
+emphasis is put on reading out the sensor rather than processing the data.</p>
+</div>
+<div class="section" id="drivers">
+<h2>Drivers<a class="headerlink" href="#drivers" title="Permalink to this headline">¶</a></h2>
+<p>Creating drivers takes a lot of time. Chances are that a specific driver does not exist for zephyr, or that the standard one does not work fully.</p>
+<p>To overcome this problem a zephyr driver that ressembles the needed driver is adapted and placed out of tree. In some cases I have not even bothered to change the name. The max30101 lightsensor is not present in the smartwatches I worked with, but it exists as a driver that can easily be adapted. In zephyr this means that the board definition files need to refer to this driver as well. Board definition has to be placed out of tree as well.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="Install zephyr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="content.html" class="btn btn-neutral float-left" title="Zephyr smartwatch framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; <a href="copyright.html">Copyright</a> 2020, jj
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

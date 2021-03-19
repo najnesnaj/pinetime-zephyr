@@ -10,7 +10,7 @@ debug-runner: jlink
 
 # Common runner configuration values.
 config:
-  board_dir: /root/work/app/oswatch-cts/boards/arm/ds_d6
+  board_dir: /root/work/app/samples/bluetooth/peripheral/boards/arm/ds_d6
   # Build outputs:
   elf_file: zephyr.elf
   hex_file: zephyr.hex

@@ -1,0 +1,6 @@
+debugging/debug-posix.rst:6: (gdb)  start gdb on the command prompt
+debugging/debug-posix.rst:18: (oswatch)  Debug oswatch-bt (which needs and argument --bt-dev=hci0)
+debugging/debug-posix.rst:18: (bt)  Debug oswatch-bt (which needs and argument --bt-dev=hci0)
+debugging/debug-posix.rst:18: (bt)  Debug oswatch-bt (which needs and argument --bt-dev=hci0)
+debugging/debug-posix.rst:18: (hci)  Debug oswatch-bt (which needs and argument --bt-dev=hci0)
+debugging/debug-posix.rst:18: (breakpoint)  Set the breakpoint in the function connected

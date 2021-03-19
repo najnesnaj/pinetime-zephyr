@@ -1,30 +1,18 @@
-# OSWatch Framework Bluetooth
+# OSWatch bluetooth setting parameters
 
 ## Overview
 
 This is an opensource watch framework.
-The same software can run in simulation (SDL) on linux, on pinetime and on the ds_d6 oled watch.
+The same software can run in simulation (SDL) on linux, on the pinetime and on the ds_d6 oled watch.
 
-This sample reads the time, using bluetooth CTS.
+## Bluetooth
+
+This application adds bluetoothfunctionality to update 6 parameters.
+One should be able to read out and set these parameters.
 
 ## Requirements
 
-A bluetooth CTS server.
-This can be a smartphone.
-
-Included is a python-script : gatt-cts-server.py, for use with bluez on linux.
-
-```
-python3 gatt-cts-server.py
-```
-
-you need to connect to the watch in order, to have it read the time.
-
-```
-bluetoothctl
-scan on (gets you list of bluetoothdevices)
-connect D5:A0:A2:6D:A0:D5 (pick the pinetime - macaddress)
-```
+no requirements since it can run without board (simulation)
 
 ## Building and Running
 

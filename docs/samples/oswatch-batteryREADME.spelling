@@ -1,0 +1,6 @@
+samples/oswatch-batteryREADME.rst:15: (opensource)  This is an opensource watch framework.
+samples/oswatch-batteryREADME.rst:15: (ds)  The same software can run in simulation (SDL) on linux, on pinetime and on the ds_d6 oled watch.
+samples/oswatch-batteryREADME.rst:15: (oled)  The same software can run in simulation (SDL) on linux, on pinetime and on the ds_d6 oled watch.
+samples/oswatch-batteryREADME.rst:19: (powermanagement)  This frame can be used if you need powermanagement (PM).
+samples/oswatch-batteryREADME.rst:21: (frugile)  The application keeps track of the battery, and is frugile on energy.
+samples/oswatch-batteryREADME.rst:34: (oswatch)  west build -p -b  native-posix_64 oswatch

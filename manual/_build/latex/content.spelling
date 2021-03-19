@@ -1,0 +1,3 @@
+content.rst:6: (powersaving)  - powersaving
+content.rst:20: (cyclecomputer)  You could start from scratch, or use a framework and only add the stuff you need for your cyclecomputer :
+content.rst:27: (startingpoint)  You could use the framework as a startingpoint, since it supports a virtual posix-board.

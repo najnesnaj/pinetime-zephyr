@@ -40,7 +40,7 @@ spelling_word_list_filename=['spelling_mywordlist.txt']
 # ones.
 extensions = [
 "sphinx_rtd_theme","sphinx_markdown_builder", 
-#"sphinxcontrib.spelling"
+"sphinxcontrib.spelling"
 ]
 
 # Add any paths that contain templates here, relative to this directory.

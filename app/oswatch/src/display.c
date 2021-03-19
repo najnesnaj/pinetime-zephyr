@@ -15,6 +15,7 @@
 #include "display.h"
 #include "buttons.h"
 #include "clock.h"
+#include "event_handler.h"
 #include <logging/log.h>
 LOG_MODULE_REGISTER(display, 3);
 
@@ -26,11 +27,24 @@ const static struct device * display_dev;
 #define SCREEN_ID_3    3
 #define SCREEN_COUNT   4
 
-#define PARAM_ID_0      0
-#define PARAM_ID_1      1
-#define PARAM_ID_2      2
-#define PARAM_ID_3      3
-#define PARAM_COUNT     3  //4
+
+#define PARAM_TOTAL 6 //total number of parameters
+
+
+char * param_label[] = {
+        "temp1",
+        "timer1",
+        "temp2",
+        "timer2",
+        "temp3",
+        "timer3"
+};
+
+int param[6]={10,20,30,40,50,60};
+
+
+
+
 
 enum battery_symbol {
         BAT_CHARGE,
@@ -86,7 +100,7 @@ static lv_obj_t *date_label;
 static lv_obj_t   * screen1_label0_obj; 
 static lv_obj_t   * screen1_label1_obj; 
 
-static lv_obj_t   * screen2_label0_obj; 
+//static lv_obj_t   * screen2_label0_obj; 
 static lv_obj_t   * screen2_label1_obj; 
 static lv_obj_t   * screen2_label2_obj; 
 
@@ -111,6 +125,24 @@ void display_date_set_label(char *str)
 }
 
 
+//parameters are displayed on screen2
+void display_label()
+{
+        screen2_label1_obj=lv_label_create(lv_scr_act(), NULL);
+        lv_obj_align(screen2_label1_obj, lv_scr_act(), LV_ALIGN_IN_TOP_LEFT, 0, 0);
+        screen2_label2_obj=lv_label_create(lv_scr_act(), NULL);
+        lv_obj_align(screen2_label2_obj, lv_scr_act(), LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+}
+
+
+void show_label(int parnr)
+{
+        char snum[5];
+        sprintf(snum, "%d",param[parnr]);
+        lv_label_set_text(screen2_label1_obj, param_label[parnr]);
+        lv_label_set_text(screen2_label2_obj, snum);
+}
+
 
 
 
@@ -119,7 +151,7 @@ void display_date_set_label(char *str)
 
 void display_clock_update() // jj the clock apears in the first screen only 
 {
-                                                lv_scr_load(screens[0].screen);
+             //                                   lv_scr_load(screens[0].screen);
 
 
 
@@ -131,7 +163,7 @@ void display_clock_update() // jj the clock apears in the first screen only
 /*        have not found a way to do this out of tree                        */
 /*        some minor modification of the focaltech driver is needed          */
 /*---------------------------------------------------------------------------*/
-
+/*
 #if defined(CONFIG_LVGL_POINTER_KSCAN) 
 
 
@@ -183,6 +215,8 @@ static void button_event_cb(lv_obj_t * obj, lv_event_t event)
 
 }
 #endif
+*/
+
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
 /*---------------------------------------------------------------------------*/
@@ -228,7 +262,7 @@ void display_button()
 	lv_obj_set_width(button_obj, 5);
 	lv_obj_set_height(button_obj, 5);
 	//lv_obj_align(button_obj, NULL, LV_ALIGN_CENTER, 128, 0);
-	lv_obj_align(button_obj, NULL, LV_ALIGN_CENTER, 0, 0);
+	lv_obj_align(button_obj, NULL, LV_ALIGN_IN_RIGHT_MID, 0, 0);
 	lv_btn_set_fit(button_obj, LV_FIT_TIGHT);
 	screen0_label0_obj = lv_label_create(button_obj, NULL);
 	lv_label_set_text(screen0_label0_obj, "O"); //substitute for real switch on physical watch
@@ -258,8 +292,9 @@ void display_btn_event(buttons_id_t btn_id)
 
 		case BTN1_SHORT:
 			param_id++;
-			if (param_id >= screens[screen_id].count)  param_id = 0;
-			if (param_id < 0)                          param_id = 0;
+			if (param_id >= PARAM_TOTAL)  param_id = 0;
+			show_label(param_id);
+	//		if (param_id < 0)                          param_id = 0;
 			LOG_INF("BTN2: screen_id(%d) param_id(%d)", screen_id, param_id);
 			break;
 
@@ -364,36 +399,37 @@ void display_screens_init(void)
 	lv_scr_load(screens[2].screen);
 	lv_obj_t * screen2_page = lv_label_create(lv_scr_act(), NULL);
 	lv_label_set_text(screen2_page, "Pg3");
-	lv_obj_align(screen2_page, screens[2].screen, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+	lv_obj_align(screen2_page, screens[2].screen, LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
 	// why define the same button all over again? jj
 	display_button();
+        display_label(); //parameters on screen 2
+	show_label(1); //show first parameters on list --short click to scroll
+	//
+//	lv_obj_t * screen2_label0_tag = lv_label_create(lv_scr_act(), NULL);
+//	lv_label_set_text(screen2_label0_tag, "value-0");
+//	lv_obj_align(screen2_label0_tag, screens[2].screen, LV_ALIGN_IN_TOP_RIGHT, -70, 2);
+
+//	screen2_label0_obj = lv_label_create(lv_scr_act(), NULL);
+//	lv_label_set_text(screen2_label0_obj, "0");
+//	lv_obj_align(screen2_label0_obj, screens[2].screen, LV_ALIGN_IN_TOP_RIGHT, -45, 2);
 
 	//
-	lv_obj_t * screen2_label0_tag = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_text(screen2_label0_tag, "value-0");
-	lv_obj_align(screen2_label0_tag, screens[2].screen, LV_ALIGN_IN_TOP_RIGHT, -70, 2);
+//	lv_obj_t * screen2_label1_tag = lv_label_create(lv_scr_act(), NULL);
+//	lv_label_set_text(screen2_label1_tag, "value-1");
+//	lv_obj_align(screen2_label1_tag, screens[2].screen, LV_ALIGN_IN_RIGHT_MID, -70, 0);
 
-	screen2_label0_obj = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_text(screen2_label0_obj, "0");
-	lv_obj_align(screen2_label0_obj, screens[2].screen, LV_ALIGN_IN_TOP_RIGHT, -45, 2);
-
-	//
-	lv_obj_t * screen2_label1_tag = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_text(screen2_label1_tag, "value-1");
-	lv_obj_align(screen2_label1_tag, screens[2].screen, LV_ALIGN_IN_RIGHT_MID, -70, 0);
-
-	screen2_label1_obj = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_text(screen2_label1_obj, "0");
-	lv_obj_align(screen2_label1_obj, screens[2].screen, LV_ALIGN_IN_RIGHT_MID, -45, 0);
+//	screen2_label1_obj = lv_label_create(lv_scr_act(), NULL);
+//	lv_label_set_text(screen2_label1_obj, "0");
+//	lv_obj_align(screen2_label1_obj, screens[2].screen, LV_ALIGN_IN_RIGHT_MID, -45, 0);
 
 	//
-	lv_obj_t * screen2_value2_tag = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_text(screen2_value2_tag, "value-2");
-	lv_obj_align(screen2_value2_tag, screens[2].screen, LV_ALIGN_IN_BOTTOM_RIGHT, -70, -2);
+//	lv_obj_t * screen2_value2_tag = lv_label_create(lv_scr_act(), NULL);
+//	lv_label_set_text(screen2_value2_tag, "value-2");
+//	lv_obj_align(screen2_value2_tag, screens[2].screen, LV_ALIGN_IN_BOTTOM_RIGHT, -70, -2);
 
-	screen2_label2_obj = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_text(screen2_label2_obj, "0");
-	lv_obj_align(screen2_label2_obj, screens[2].screen, LV_ALIGN_IN_BOTTOM_RIGHT, -45, -2);
+//	screen2_label2_obj = lv_label_create(lv_scr_act(), NULL);
+//	lv_label_set_text(screen2_label2_obj, "0");
+//	lv_obj_align(screen2_label2_obj, screens[2].screen, LV_ALIGN_IN_BOTTOM_RIGHT, -45, -2);
 
 	//#if 0
 	//	lv_obj_t * icon_2 = lv_img_create(lv_scr_act(), NULL);

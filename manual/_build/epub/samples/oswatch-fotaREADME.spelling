@@ -1,0 +1,4 @@
+samples/oswatch-fotaREADME.rst:14: (opensource)  This is an opensource watch framework.
+samples/oswatch-fotaREADME.rst:14: (ds)  The same software can run in simulation (SDL) on linux, on pinetime and on the ds_d6 oled watch.
+samples/oswatch-fotaREADME.rst:14: (oled)  The same software can run in simulation (SDL) on linux, on pinetime and on the ds_d6 oled watch.
+samples/oswatch-fotaREADME.rst:32: (oswatch)  west build -p -b  native-posix_64 oswatch-fota

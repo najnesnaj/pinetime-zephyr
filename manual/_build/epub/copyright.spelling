@@ -1,0 +1,2 @@
+copyright.rst:11: (mailadress)  I have put in most of the code a copyright with my mailadress.
+copyright.rst:30: (NCS)  You could use nRF Connect SDK (often referred as NCS),it is Nordic Semiconductor SDK based on zephyr. It has additional features that could be useful for pinetime, namely bluetooth modules and bluetooth services. Important to mention that even though, NCS forks zephyr it is kept close to it and it is regularly updated to latest zephyr (typically every 2-3 weeks).

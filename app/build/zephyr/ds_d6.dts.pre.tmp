@@ -402,7 +402,7 @@ leds {
         ssd1306new@0 {
                 compatible = "solomon,ssd1306fb";
          spi-max-frequency = <80000000>;
-                label = "SSD1306NEW";
+                label = "SSD1306";
                 reg = <0>;
   segment-offset = <0>;
   page-offset = <0>;
