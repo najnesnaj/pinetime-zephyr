@@ -40,6 +40,21 @@
         * References
 
 
+    * Setting up an alarm/calendar event
+
+
+        * Overview
+
+
+        * Requirements
+
+
+        * Building and Running
+
+
+        * References
+
+
     * Current Time Setting  OSWatch Framework
 
 
@@ -218,6 +233,21 @@
 
 
     * Bluetooth
+
+
+    * Requirements
+
+
+    * Building and Running
+
+
+    * References
+
+
+* Setting up an alarm/calendar event
+
+
+    * Overview
 
 
     * Requirements

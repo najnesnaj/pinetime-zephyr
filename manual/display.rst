@@ -19,11 +19,11 @@ Several methods of using the display
 
 Included in the zephyr distribution are :
 - the Little Graphics Library  (LVGL)
-- Character framebuffer (cfb) 
+- Character frame buffer (cfb) 
 
 For the pinetime the LVGL library might be a good option, since it has a big screen, colors and (!) is touch sensitive.
 
-For the DS-D6 which has a monochrome OLED small display, the character framebuffer could be the best option.
+For the DS-D6 which has a monochrome OLED small display, the character frame buffer could be the best option.
 
 
 The human eye

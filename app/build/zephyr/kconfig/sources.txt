@@ -4,9 +4,8 @@
 /root/work/app/build/Kconfig/Kconfig.soc
 /root/work/app/build/Kconfig/Kconfig.soc.arch
 /root/work/app/build/Kconfig/Kconfig.soc.defconfig
-/root/work/app/samples/bluetooth/peripheral/boards/arm/ds_d6/Kconfig
-/root/work/app/samples/bluetooth/peripheral/boards/arm/ds_d6/Kconfig.board
-/root/work/app/samples/bluetooth/peripheral/boards/arm/ds_d6/Kconfig.defconfig
+/root/work/app/samples/bluetooth/peripheral/boards/arm/pinetime_devkit1/Kconfig.board
+/root/work/app/samples/bluetooth/peripheral/boards/arm/pinetime_devkit1/Kconfig.defconfig
 /root/work/modules/audio/sof/Kconfig
 /root/work/modules/audio/sof/src/Kconfig
 /root/work/modules/audio/sof/src/arch/Kconfig

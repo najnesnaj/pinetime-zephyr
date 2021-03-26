@@ -1,18 +1,23 @@
 Current Time Service 
 ====================
+
 https://www.bluetooth.com/specifications/gatt/services/
+
 https://www.bluetooth.com/specifications/gatt/characteristics/
-0x1805 current time service
-0x2A2B current time characteristic
+
+- 0x1805 current time service
+
+- 0x2A2B current time characteristic
 
 Requirements:
 ~~~~~~~~~~~~~~
 
 You need : 
            - a CTS server (use of bluez on linux explained)
-                                      - start the CTS service (python script)
+                                      - start the CTS service (python script: gatt-cts-server.py provided)
+
                                       - connect to the CTS client
-           - a CTS client (the pinetime watch)
+           - a CTS client (the oswatch)
 
 
 BLE Peripheral CTS sample for zephyr
@@ -20,8 +25,10 @@ BLE Peripheral CTS sample for zephyr
 
 This example demonstrates the basic usage of the current time service.
 It is based on the https://github.com/Dejvino/pinetime-hermes-firmware.
+
 It starts advertising it's UUID, and you can connect to it.
-Once connected, it will read the time from your CTS server (bluez on linux running the gatt-cts-server script in my case)
+Once connected, it will read the time from your CTS server 
+(bluez on linux running the gatt-cts-server script in my case)
 
 
 
@@ -31,7 +38,8 @@ first build the image
 .. code-block:: console
 
 
-        $  west build -p -b pinetime samples/bluetooth/peripheral-cts
+        $  west build -p -b pinetime_devkit1 oswatch-cts
+	
 
 
 
@@ -39,7 +47,12 @@ Using bluez on linux to connect
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The pinetime zephyr sample behaves as a peripheral: 
-                          - first of all start the cts service
+
+.. code-block:: console
+
+
+                          - make sure your linuxbox has bluez running (type bluetoothctl if you're not sure)
+                          - first of all start the cts service : python gatt-cts-server.py
                           - connect to the pinetime with bluetoothctl
     
 Using bluetoothctl:

@@ -73,8 +73,8 @@
 
 
 \title{open source watch Documentation}
-\date{Mar 19, 2021}
-\release{1.1.0}
+\date{Mar 26, 2021}
+\release{1.2.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
 \renewcommand{\releasename}{Release}
@@ -98,7 +98,7 @@ The book is subject to copyright.
 
 You cannot use the book, or parts of the book into your own publications, without the permission of the author.
 
-I have put in most of the code a copyright with my mailadress.
+I have put in most of the code a copyright with my mail address.
 This does not mean anything. It is just to let you know I modified existing code. The code has been tampered with …
 
 
@@ -116,7 +116,7 @@ A permissive license whose main conditions require preservation of copyright and
 You could use nRF Connect SDK (often referred as NCS),it is Nordic Semiconductor SDK based on zephyr. It has additional features that could be useful for pinetime, namely bluetooth modules and bluetooth services. Important to mention that even though, NCS forks zephyr it is kept close to it and it is regularly updated to latest zephyr (typically every 2\sphinxhyphen{}3 weeks).
 
 NCS is using BSD\sphinxhyphen{}5\sphinxhyphen{}Clause\sphinxhyphen{}Nordic license (\sphinxurl{https://github.com/NordicPlayground/fw-nrfconnect-nrf/blob/master/LICENSE})
-which is why I did not use their samples. (which does not mean, you shouldn’t)
+which is why I did not use their samples.
 
 (see also : bluetooth serial communication)
 
@@ -132,17 +132,17 @@ You need :
 \sphinxhyphen{} a method of setting the clock
 \sphinxhyphen{} wireless firmware updating
 \sphinxhyphen{} timer functions
-\sphinxhyphen{} powersaving
+\sphinxhyphen{} power saving
 \sphinxhyphen{} battery management
 \sphinxhyphen{} several graphical screens, with buttons graphics
 
-You could start from scratch, or use a framework and only add the stuff you need for your cyclecomputer :
+You could start from scratch, or use a framework and only add the stuff you need for your cycling computer :
 \sphinxhyphen{} cadence sensor
 \sphinxhyphen{} display speed
 \sphinxhyphen{} record speed
 
 Suppose you have an idea for a portable device, before running to the shop to buy a dev\sphinxhyphen{}board, develop hardware ….
-You could use the framework as a startingpoint, since it supports a virtual posix\sphinxhyphen{}board.
+You could use the framework as a starting point, since it supports a virtual posix\sphinxhyphen{}board.
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{this} \PYG{n}{document} \PYG{n}{started} \PYG{n}{off} \PYG{o+ow}{in} \PYG{n}{setting} \PYG{n}{up} \PYG{n}{zephyr} \PYG{n}{RTOS} \PYG{n}{on} \PYG{n}{the} \PYG{n}{PineTime} \PYG{n}{smartwatch}\PYG{o}{.}
@@ -197,7 +197,7 @@ I adapted the pinetime hypnos firmware to run on the Desay D6 smartwatch.
 
 This watch has a small (128x32) oled display and is rather minimalistic.
 
-It does not have a touchscreen, but a single touchbutton.
+It does not have a touchscreen, but a single touch button.
 
 One cannot run the software of a feature\sphinxhyphen{}rich smartwatch on a simple one.
 But the reverse can be done.
@@ -211,7 +211,7 @@ If all put together, you’ll end up with the firmware and a big chunk of code.
 
 This project explores features separately, in the “samples” directory.
 
-Reading out a button, how is it done? How do you make a distinction between click, double click, long press? You can find this in the samples directory. These ressembles building blocks or modules.
+Reading out a button, how is it done? How do you make a distinction between click, double click, long press? You can find this in the samples directory. These resembles building blocks or modules.
 
 The oswatch\sphinxhyphen{}xxxx directories assemble some of the building blocks.
 
@@ -232,7 +232,7 @@ Multiple screens can be displayed, but each screen has little info.
 
 \section{Touchscreen}
 \label{\detokenize{idea:touchscreen}}
-Although the LVGL graphics library offers touchscreen support and the Pinetimewatch has a touchscreen, the emphasis was put on the sidebutton. Most watches have a button.
+Although the LVGL graphics library offers touchscreen support and the Pinetime watch has a touchscreen, the emphasis was put on the side button. Most watches have a button.
 
 Selecting a screen and a parameter on the screen is done with the button instead of the touchscreen.
 
@@ -259,15 +259,15 @@ The idea I will explore is to use 2 bluetoothservices, one to request and one to
 Bluetooth is used to set the time (CTS) current time service.
 
 
-\section{Powersaving}
-\label{\detokenize{idea:powersaving}}
-Powersaving makes sense when the device is battery operated, which is probably not always the case.
-Hence, powersaving is an option.
+\section{Power saving}
+\label{\detokenize{idea:power-saving}}
+Power saving makes sense when the device is battery operated, which is probably not always the case.
+Hence, power saving is an option.
 
 
 \section{Updating over the air}
 \label{\detokenize{idea:updating-over-the-air}}
-FOTA : firmwareupdating over the air, is a usefull option.
+FOTA : firmware updating over the air, is a useful option.
 The way firmware updates work, is to have two firmware images on the device.
 In the case of the cheap OLED device, there is no extra memory to store firmware images.
 Hence, FOTA is an option.
@@ -275,7 +275,7 @@ Hence, FOTA is an option.
 
 \section{Motion sensor}
 \label{\detokenize{idea:motion-sensor}}
-The motion is used as a stepcounter, but could be used for other purposes as well. Knocksensor, position sensor, movement detection …
+The motion is used as a stepcounter, but could be used for other purposes as well. Knock sensor, position sensor, movement detection …
 emphasis is put on reading out the sensor rather than processing the data.
 
 
@@ -307,8 +307,8 @@ These days you can install zephyr and execute a pinetime sample!
 the documentation describes an installation process under Ubuntu/macOS/Windows
 
 
-\section{How to install the open source watch framekit}
-\label{\detokenize{installation:how-to-install-the-open-source-watch-framekit}}
+\section{How to install the open source watch frame kit}
+\label{\detokenize{installation:how-to-install-the-open-source-watch-frame-kit}}
 The kit should work alongside the zephyr installation.
 Just get a copy of the “app” directory.
 
@@ -325,11 +325,11 @@ the app\sphinxhyphen{}directory contains the drivers and source code and(!) modi
 \label{\detokenize{installation:linux-rules}}
 The development has been done on a virtual linux machine.
 For testing bluetooth functionality, I have used linux as well.
-In this manual you’ll find a procedure to communicate to the device from a linuxbox.
-Updating the firmware wirelessly? Possible from a linuxbox!
+In this manual you’ll find a procedure to communicate to the device from a linux box.
+Updating the firmware wireless? Possible from a linux box!
 
 Suppose you want to measure how many steps employees do a day?
-You could readout everything using a linuxbox, and handle the data using all the available tools of the box.
+You could readout everything using a linux box, and handle the data using all the available tools of the box.
 
 \sphinxstylestrong{TIP : sometimes you run into trouble compiling: removing the build directory can help in that case}
 
@@ -385,11 +385,11 @@ a on\sphinxhyphen{}screen display SDL simulated on linux
 \label{\detokenize{display:several-methods-of-using-the-display}}
 Included in the zephyr distribution are :
 \sphinxhyphen{} the Little Graphics Library  (LVGL)
-\sphinxhyphen{} Character framebuffer (cfb)
+\sphinxhyphen{} Character frame buffer (cfb)
 
 For the pinetime the LVGL library might be a good option, since it has a big screen, colors and (!) is touch sensitive.
 
-For the DS\sphinxhyphen{}D6 which has a monochrome OLED small display, the character framebuffer could be the best option.
+For the DS\sphinxhyphen{}D6 which has a monochrome OLED small display, the character frame buffer could be the best option.
 
 
 \subsection{The human eye}
@@ -414,10 +414,10 @@ Each sample contains a single feature of the framework.
 \section{Push the button}
 \label{\detokenize{basicapplications:push-the-button}}\begin{itemize}
 \item {} 
-A button for the posix simulation watch, is a lvgl pushbutton.
+A button for the posix simulation watch, is a lvgl push button.
 
 \item {} 
-A button for the pinetime is a realbutton, which needs 2 (!) gpio ports
+A button for the pinetime is a real button, which needs 2 (!) gpio ports
 
 \item {} 
 A button for the Desay D6 is a real button, which needs 1 gpio port.
@@ -568,9 +568,16 @@ Setting the exact time is done via bluetooth current time service.
 \chapter{Current Time Service}
 \label{\detokenize{current-time:current-time-service}}\label{\detokenize{current-time::doc}}
 \sphinxurl{https://www.bluetooth.com/specifications/gatt/services/}
+
 \sphinxurl{https://www.bluetooth.com/specifications/gatt/characteristics/}
+\begin{itemize}
+\item {} 
 0x1805 current time service
+
+\item {} 
 0x2A2B current time characteristic
+
+\end{itemize}
 
 
 \section{Requirements:}
@@ -579,7 +586,7 @@ Setting the exact time is done via bluetooth current time service.
 \item {} \begin{description}
 \item[{a CTS server (use of bluez on linux explained)}] \leavevmode\begin{itemize}
 \item {} 
-start the CTS service (python script)
+start the CTS service (python script: gatt\sphinxhyphen{}cts\sphinxhyphen{}server.py provided)
 
 \item {} 
 connect to the CTS client
@@ -589,7 +596,7 @@ connect to the CTS client
 \end{description}
 
 \item {} 
-a CTS client (the pinetime watch)
+a CTS client (the oswatch)
 
 \end{itemize}
 
@@ -600,28 +607,27 @@ a CTS client (the pinetime watch)
 \label{\detokenize{current-time:ble-peripheral-cts-sample-for-zephyr}}
 This example demonstrates the basic usage of the current time service.
 It is based on the \sphinxurl{https://github.com/Dejvino/pinetime-hermes-firmware}.
+
 It starts advertising it’s UUID, and you can connect to it.
-Once connected, it will read the time from your CTS server (bluez on linux running the gatt\sphinxhyphen{}cts\sphinxhyphen{}server script in my case)
+Once connected, it will read the time from your CTS server
+(bluez on linux running the gatt\sphinxhyphen{}cts\sphinxhyphen{}server script in my case)
 
 first build the image
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+gp}{\PYGZdl{}}  west build \PYGZhy{}p \PYGZhy{}b pinetime samples/bluetooth/peripheral\PYGZhy{}cts
+\PYG{g+gp}{\PYGZdl{}}  west build \PYGZhy{}p \PYGZhy{}b pinetime\PYGZus{}devkit1 oswatch\PYGZhy{}cts
 \end{sphinxVerbatim}
 
 
 \section{Using bluez on linux to connect}
-\label{\detokenize{current-time:using-bluez-on-linux-to-connect}}\begin{description}
-\item[{The pinetime zephyr sample behaves as a peripheral:}] \leavevmode\begin{itemize}
-\item {} 
-first of all start the cts service
+\label{\detokenize{current-time:using-bluez-on-linux-to-connect}}
+The pinetime zephyr sample behaves as a peripheral:
 
-\item {} 
-connect to the pinetime with bluetoothctl
-
-\end{itemize}
-
-\end{description}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+go}{\PYGZhy{} make sure your linuxbox has bluez running (type bluetoothctl if you\PYGZsq{}re not sure)}
+\PYG{g+go}{\PYGZhy{} first of all start the cts service : python gatt\PYGZhy{}cts\PYGZhy{}server.py}
+\PYG{g+go}{\PYGZhy{} connect to the pinetime with bluetoothctl}
+\end{sphinxVerbatim}
 
 Using bluetoothctl:
 
@@ -1083,7 +1089,7 @@ HRS3300 Heart Rate Sensor.pdf
 \subsection{Overview}
 \label{\detokenize{drivers/spinor:overview}}
 This sample application should unlock the serial nor flash memory.
-This can be very usefull to store e.g. background for the watch.
+This can be very useful to store e.g. background for the watch.
 
 compilation problematic ….
 
@@ -1266,7 +1272,7 @@ testing
 
 \chapter{bluetooth (BLE)}
 \label{\detokenize{bluetooth:bluetooth-ble}}\label{\detokenize{bluetooth::doc}}
-Bluetooth is a very nice feature, it lets you exchange data wirelessly and (!) update firmware wirelessly.
+Bluetooth is a very nice feature, it lets you exchange data wireless and (!) update firmware wireless.
 
 The PineTime uses a Nordic nrf52832 chip, which has BLE functionality build into it.
 
@@ -1275,8 +1281,8 @@ To test, you can compile a standard application : Eddy Stone.
 
 \section{A word on bluetooth\sphinxhyphen{}serial communication}
 \label{\detokenize{bluetooth:a-word-on-bluetooth-serial-communication}}
-Smartwatch manufacterers usually supply you with a smartwatch app.
-This app can communicatie trough bluetooth, and get/send data to the watch.
+Smartwatch manufacturers usually supply you with a smartwatch app.
+This app can communicate trough bluetooth, and get/send data to the watch.
 
 Unfortunately this is not a standard Zephyr feature!
 
@@ -1340,7 +1346,7 @@ Or if you have another watch, the central will connect to the peripheral and rea
 
 \subsection{the no\sphinxhyphen{}bluetooth, no\sphinxhyphen{}watch approach : nrf52\_bsim}
 \label{\detokenize{bluetooth:the-no-bluetooth-no-watch-approach-nrf52-bsim}}
-Suppose you have no watch, no devboard, nor any bluetooth dongles?
+Suppose you have no watch, no development board, nor any bluetooth dongles?
 You can still test your bluetooth enabled application.
 \sphinxurl{https://docs.zephyrproject.org/latest/boards/posix/nrf52\_bsim/doc/index.html}
 
@@ -1367,8 +1373,8 @@ By starting each application in its own terminal, you can keep an eye on the out
 \label{\detokenize{bluetooth:the-no-watch-approach-simulation-on-a-laptop}}
 how to activate bluetooth?
 
-VBOX running ubuntu (first disactivate driver in windows)
-(CTRL home \textendash{} select usb \textendash{} (intel in my case)) \textendash{} this lets you select the integrated bluetoothmodule of your laptop
+VBOX running ubuntu (first deactivate driver in windows)
+(CTRL home \textendash{} select usb \textendash{} (intel in my case)) \textendash{} this lets you select the integrated bluetooth module of your laptop
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n}{hciconfig} \PYG{n}{hci0} \PYG{n}{down}
@@ -1902,9 +1908,9 @@ WIP (work in progress)
 This is an opensource watch framework.
 The same software can run in simulation (SDL) on linux, on pinetime and on the ds\_d6 oled watch.
 
-This frame can be used if you need powermanagement (PM).
+This frame can be used if you need power management (PM).
 
-The application keeps track of the battery, and is frugile on energy.
+The application keeps track of the battery, and is frugal on energy.
 
 
 \subsection{Requirements}
@@ -1947,6 +1953,45 @@ west build \sphinxhyphen{}p \sphinxhyphen{}b  native\sphinxhyphen{}posix\_64 osw
 
 \subsection{References}
 \label{\detokenize{samples/oswatch-btREADME:references}}
+
+\section{Setting up an alarm/calendar event}
+\label{\detokenize{samples/oswatch-calendarREADME:setting-up-an-alarm-calendar-event}}\label{\detokenize{samples/oswatch-calendarREADME:oswatch}}\label{\detokenize{samples/oswatch-calendarREADME::doc}}
+
+\subsection{Overview}
+\label{\detokenize{samples/oswatch-calendarREADME:overview}}
+This sample sets up a calendar event.
+
+Time and date (calendar event) are read from a gatt\sphinxhyphen{}server.
+
+Once the event is due, the watch blinks the screen and vibrates.
+
+
+\subsection{Requirements}
+\label{\detokenize{samples/oswatch-calendarREADME:requirements}}
+A bluetooth gatt\sphinxhyphen{}server. (this is supplied : using bluez on linux)
+
+Included is a python\sphinxhyphen{}script : gatt\sphinxhyphen{}calendar\sphinxhyphen{}server.py, for use with bluez on linux.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{python3} \PYG{n}{gatt}\PYG{o}{\PYGZhy{}}\PYG{n}{calendar}\PYG{o}{\PYGZhy{}}\PYG{n}{server}\PYG{o}{.}\PYG{n}{py}
+\end{sphinxVerbatim}
+
+you need to connect to the watch in order, to have it read the time.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{bluetoothctl}
+\PYG{n}{scan} \PYG{n}{on} \PYG{p}{(}\PYG{n}{gets} \PYG{n}{you} \PYG{n+nb}{list} \PYG{n}{of} \PYG{n}{bluetoothdevices}\PYG{p}{)}
+\PYG{n}{connect} \PYG{n}{D5}\PYG{p}{:}\PYG{n}{A0}\PYG{p}{:}\PYG{n}{A2}\PYG{p}{:}\PYG{l+m+mi}{6}\PYG{n}{D}\PYG{p}{:}\PYG{n}{A0}\PYG{p}{:}\PYG{n}{D5} \PYG{p}{(}\PYG{n}{pick} \PYG{n}{the} \PYG{n}{pinetime} \PYG{o}{\PYGZhy{}} \PYG{n}{macaddress}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+
+\subsection{Building and Running}
+\label{\detokenize{samples/oswatch-calendarREADME:building-and-running}}
+west build \sphinxhyphen{}p \sphinxhyphen{}b  pinetime\_devkit1 oswatch\sphinxhyphen{}calendar
+
+
+\subsection{References}
+\label{\detokenize{samples/oswatch-calendarREADME:references}}
 
 \section{Current Time Setting  OSWatch Framework}
 \label{\detokenize{samples/oswatch-ctsREADME:current-time-setting-oswatch-framework}}\label{\detokenize{samples/oswatch-ctsREADME:oswatch}}\label{\detokenize{samples/oswatch-ctsREADME::doc}}
@@ -2683,8 +2728,8 @@ You can compile the oswatch\sphinxhyphen{}bt sample for the bsim board.
 \label{\detokenize{debugging/jlink:serial-data-without-a-serial-port}}
 Pinetime does not have UART pins but UART\sphinxhyphen{}like connection can be achieved using RTT (Real Time Transfer)
 feature of Segger JLink debugger. RTT data can be accessed using the SEGGER tool (JLinkRTTViewer) or by using
-telnet connection to active debug session. Second methond is recommended since it gives better throughput
-and allows bitdirection communication using Zephyr Shell (with RTT as backend). PuTTY can be used to
+telnet connection to active debug session. Second method is recommended since it gives better throughput
+and allows bidirectional communication using Zephyr Shell (with RTT as backend). PuTTY can be used to
 telnet to debug session.
 
 Prerequisites:
@@ -3087,9 +3132,9 @@ I got a pinetime development kit very early.
 I would like to thank the folks from \sphinxurl{https://www.pine64.org/} for the kit.
 
 The Nordic nrf52832 is an Arm based, 32bit microcontroller with a lot of flash, RAM memory and(!) bluetooth!
-It is a good platform to explore the wonderfull world of opensource RTOS’s.
+It is a good platform to explore the wonderful world of opensource RTOS’s.
 I choose the Zephyr platform, because it already contained the display driver, and the bluetooth functionality.
-Furthermore it can be updated wirelessly.
+Furthermore it can be updated wireless.
 
 I started of with adapting simple samples, so they would run on the pinetime watch.
 Meanwhile I learned how to adapt the board definition file.
@@ -3098,7 +3143,7 @@ A few experts contributed and improved this kit so it became usable.
 
 I took a long break from this project, zephyr evolved and a project for creating an open source watch, the hypnos\sphinxhyphen{}firmware flourished.
 
-The drivers for the heartrate sensor, touchpanel that I adapted, became obsolete.
+The drivers for the heartrate sensor, touch panel that I adapted, became obsolete.
 The pinetime board definition file is now part of the zephyr RTOS distribution.
 
 Recently I discovered that the standard focaltech touchscreen driver could be adapted easily so it would run on the pinetime and integrate nicely with the LVGL\sphinxhyphen{}gui. There were several OLED ssd1306 watches on my desk and I wondered if I could run Zephyr and LVGL (graphical stuff) on them as well. (yes, we can!)
@@ -3121,13 +3166,13 @@ Just put all the modified drivers, board definitions and application in one plac
 \chapter{Author}
 \label{\detokenize{author:author}}\label{\detokenize{author::doc}}
 Some 20 years ago I attended a course on how to brew beer.
-Real beer, starting with barley, wheat, yeast, brewkettles …
+Real beer, starting with barley, wheat, yeast, brew kettles …
 
 I bought some brewing equipment and started brewing my own beer.
-Apart from a stupid idea, (why brew beer in a country that has plenty of breweries), I soon found out that brewing is labour intensitive.
+Apart from a stupid idea, (why brew beer in a country that has plenty of breweries), I soon found out that brewing is labor intensive.
 
-Instead of quitting right away (the most sensisible thing to do), I tried to reduce the effort.
-I switched from a gasheated kettle to an electric one.
+Instead of quitting right away (the most sensible thing to do), I tried to reduce the effort.
+I switched from a gas heated kettle to an electric one.
 
 The next step was to control the temperature.
 I got an arduino and a temp\sphinxhyphen{}sensor.

@@ -3,14 +3,14 @@ Author
 ======
 
 Some 20 years ago I attended a course on how to brew beer.
-Real beer, starting with barley, wheat, yeast, brewkettles ...
+Real beer, starting with barley, wheat, yeast, brew kettles ...
 
 I bought some brewing equipment and started brewing my own beer.
-Apart from a stupid idea, (why brew beer in a country that has plenty of breweries), I soon found out that brewing is labour intensitive.
+Apart from a stupid idea, (why brew beer in a country that has plenty of breweries), I soon found out that brewing is labor intensive.
 
 
-Instead of quitting right away (the most sensisible thing to do), I tried to reduce the effort. 
-I switched from a gasheated kettle to an electric one.
+Instead of quitting right away (the most sensible thing to do), I tried to reduce the effort. 
+I switched from a gas heated kettle to an electric one.
 
 
 The next step was to control the temperature.

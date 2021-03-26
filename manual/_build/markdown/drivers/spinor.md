@@ -7,7 +7,7 @@ west build -p -b pinetime samples/drivers/spi_flash -DCONF=prj.conf
 ## Overview
 
 This sample application should unlock the serial nor flash memory.
-This can be very usefull to store e.g. background for the watch.
+This can be very useful to store e.g. background for the watch.
 
 compilation problematic ….
 

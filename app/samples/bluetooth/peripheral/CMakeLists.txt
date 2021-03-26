@@ -9,11 +9,11 @@ project(peripheral)
 
 
 
-
+include_directories(include)
 
 target_sources(app PRIVATE
   src/main.c
-  src/cts.c
+  src/param_sync.c
 )
 
 

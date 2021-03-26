@@ -21,6 +21,7 @@
 [samples/oswatch-btREADME.md](samples/oswatch-btREADME.md)   
 [samples/oswatchREADME.md](samples/oswatchREADME.md)   
 [samples/samplesmax44009README.md](samples/samplesmax44009README.md)   
+[samples/oswatch-calendarREADME.md](samples/oswatch-calendarREADME.md)   
 [samples/samplescfbREADME.md](samples/samplescfbREADME.md)   
 [hacking/writeprotection.md](hacking/writeprotection.md)   
 [hacking/openocd.md](hacking/openocd.md)   

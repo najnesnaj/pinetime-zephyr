@@ -12,10 +12,10 @@ Each sample contains a single feature of the framework.
 ## Push the button
 
 
-* A button for the posix simulation watch, is a lvgl pushbutton.
+* A button for the posix simulation watch, is a lvgl push button.
 
 
-* A button for the pinetime is a realbutton, which needs 2 (!) gpio ports
+* A button for the pinetime is a real button, which needs 2 (!) gpio ports
 
 
 * A button for the Desay D6 is a real button, which needs 1 gpio port.

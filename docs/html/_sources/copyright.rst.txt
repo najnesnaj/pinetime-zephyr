@@ -8,7 +8,7 @@ The book is subject to copyright.
 
 You cannot use the book, or parts of the book into your own publications, without the permission of the author.
 
-I have put in most of the code a copyright with my mailadress.
+I have put in most of the code a copyright with my mail address.
 This does not mean anything. It is just to let you know I modified existing code. The code has been tampered with ...
 
 
@@ -31,6 +31,6 @@ You could use nRF Connect SDK (often referred as NCS),it is Nordic Semiconductor
 
 
 NCS is using BSD-5-Clause-Nordic license (https://github.com/NordicPlayground/fw-nrfconnect-nrf/blob/master/LICENSE)
-which is why I did not use their samples. (which does not mean, you shouldn't)
+which is why I did not use their samples. 
 
 (see also : bluetooth serial communication)

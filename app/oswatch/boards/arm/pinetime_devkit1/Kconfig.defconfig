@@ -11,8 +11,8 @@ config BOARD
 config BT_CTLR
 	default BT
 
-config KSCAN
-	default y if LVGL
+#config KSCAN
+#	default y if LVGL
 
 if KSCAN
 
@@ -36,8 +36,8 @@ config LVGL_DISPLAY_DEV_NAME
 config LVGL_POINTER_KSCAN
         default y
 
-config LVGL_POINTER_KSCAN_DEV_NAME
-        default "FT5336"
+#config LVGL_POINTER_KSCAN_DEV_NAME
+#        default "FT5336"
 
 config LVGL_HOR_RES_MAX
         default 240

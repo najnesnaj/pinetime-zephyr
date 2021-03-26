@@ -1,14 +1,21 @@
 .. _ble_peripheral:
 
-Bluetooth: Peripheral
-#####################
+Bluetooth: transferring data to the watch 
+#########################################
 
 Overview
 ********
 
-Application demonstrating the BLE Peripheral role. It has several well-known and
-vendor-specific GATT services that it exposes.
+The same technique as in the cts-time setting is used.
+A python script on linux, running bluez, reads 3 parameters.
 
+The watch can read these parameters over bluetooth.
+
+This sketch is used as a building block. 
+
+The gatt server python script is supplied. (values-gatt-server)
+It prompts to input 3 parameters (integers)
+You'll need to run Bluez, start the script, and then connect to the watch, using bluetoothctl.
 
 Requirements
 ************
@@ -19,7 +26,5 @@ Requirements
 Building and Running
 ********************
 
-This sample can be found under :zephyr_file:`samples/bluetooth/peripheral` in the
-Zephyr tree.
 
 See :ref:`bluetooth samples section <bluetooth-samples>` for details.

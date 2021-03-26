@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>bluetooth (BLE) &mdash; open source watch 1.1.0 documentation</title>
+  <title>bluetooth (BLE) &mdash; open source watch 1.2.0 documentation</title>
   
 
   
@@ -186,13 +186,13 @@
             
   <div class="section" id="bluetooth-ble">
 <h1>bluetooth (BLE)<a class="headerlink" href="#bluetooth-ble" title="Permalink to this headline">¶</a></h1>
-<p>Bluetooth is a very nice feature, it lets you exchange data wirelessly and (!) update firmware wirelessly.</p>
+<p>Bluetooth is a very nice feature, it lets you exchange data wireless and (!) update firmware wireless.</p>
 <p>The PineTime uses a Nordic nrf52832 chip, which has BLE functionality build into it.</p>
 <p>To test, you can compile a standard application : Eddy Stone.</p>
 <div class="section" id="a-word-on-bluetooth-serial-communication">
 <h2>A word on bluetooth-serial communication<a class="headerlink" href="#a-word-on-bluetooth-serial-communication" title="Permalink to this headline">¶</a></h2>
-<p>Smartwatch manufacterers usually supply you with a smartwatch app.
-This app can communicatie trough bluetooth, and get/send data to the watch.</p>
+<p>Smartwatch manufacturers usually supply you with a smartwatch app.
+This app can communicate trough bluetooth, and get/send data to the watch.</p>
 <p>Unfortunately this is not a standard Zephyr feature!</p>
 <p>You could use nRF Connect SDK (often referred as NCS),it is Nordic Semiconductor SDK based on zephyr. It has additional features that could be useful for pinetime, namely bluetooth modules and bluetooth services. Important to mention that even though, NCS forks zephyr it is kept close to it and it is regularly updated to latest zephyr (typically every 2-3 weeks).</p>
 <p>NCS has no impact on build framework and overall user experience. The only downside I can think of is that NCS is based on older version of zephyr (~2 weeks behind).</p>
@@ -234,7 +234,7 @@ You need to install bluez.</p>
 </div>
 <div class="section" id="the-no-bluetooth-no-watch-approach-nrf52-bsim">
 <h3>the no-bluetooth, no-watch approach : nrf52_bsim<a class="headerlink" href="#the-no-bluetooth-no-watch-approach-nrf52-bsim" title="Permalink to this headline">¶</a></h3>
-<p>Suppose you have no watch, no devboard, nor any bluetooth dongles?
+<p>Suppose you have no watch, no development board, nor any bluetooth dongles?
 You can still test your bluetooth enabled application.
 <a class="reference external" href="https://docs.zephyrproject.org/latest/boards/posix/nrf52_bsim/doc/index.html">https://docs.zephyrproject.org/latest/boards/posix/nrf52_bsim/doc/index.html</a></p>
 <p>We follow the same logic, but this time we specify the nrf52_bsim board.</p>
@@ -255,8 +255,8 @@ By starting each application in its own terminal, you can keep an eye on the out
 <div class="section" id="the-no-watch-approach-simulation-on-a-laptop">
 <h3>the no-watch approach : simulation on a laptop<a class="headerlink" href="#the-no-watch-approach-simulation-on-a-laptop" title="Permalink to this headline">¶</a></h3>
 <p>how to activate bluetooth?</p>
-<p>VBOX running ubuntu (first disactivate driver in windows)
-(CTRL home – select usb – (intel in my case)) – this lets you select the integrated bluetoothmodule of your laptop</p>
+<p>VBOX running ubuntu (first deactivate driver in windows)
+(CTRL home – select usb – (intel in my case)) – this lets you select the integrated bluetooth module of your laptop</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hciconfig</span> <span class="n">hci0</span> <span class="n">down</span>
 
 <span class="n">west</span> <span class="n">build</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">b</span> <span class="n">native_posix_64</span> <span class="n">samples</span><span class="o">/</span><span class="n">bluetooth</span><span class="o">/</span><span class="n">peripheral_hr</span>

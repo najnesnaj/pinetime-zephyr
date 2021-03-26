@@ -10,9 +10,9 @@ WIP (work in progress)
 This is an opensource watch framework.
 The same software can run in simulation (SDL) on linux, on pinetime and on the ds_d6 oled watch.
 
-This frame can be used if you need powermanagement (PM).
+This frame can be used if you need power management (PM).
 
-The application keeps track of the battery, and is frugile on energy.
+The application keeps track of the battery, and is frugal on energy.
 
 ## Requirements
 

@@ -33,7 +33,7 @@
     * Bluetooth
 
 
-    * Powersaving
+    * Power saving
 
 
     * Updating over the air
@@ -54,7 +54,7 @@
     * How to install zephyr
 
 
-    * How to install the open source watch framekit
+    * How to install the open source watch frame kit
 
 
     * Linux rules
@@ -430,6 +430,21 @@
 
 
         * Bluetooth
+
+
+        * Requirements
+
+
+        * Building and Running
+
+
+        * References
+
+
+    * Setting up an alarm/calendar event
+
+
+        * Overview
 
 
         * Requirements

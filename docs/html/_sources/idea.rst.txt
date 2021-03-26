@@ -6,7 +6,7 @@ I adapted the pinetime hypnos firmware to run on the Desay D6 smartwatch.
 
 This watch has a small (128x32) oled display and is rather minimalistic.
 
-It does not have a touchscreen, but a single touchbutton.
+It does not have a touchscreen, but a single touch button.
 
 
 
@@ -23,7 +23,7 @@ If all put together, you'll end up with the firmware and a big chunk of code.
 
 This project explores features separately, in the "samples" directory.
 
-Reading out a button, how is it done? How do you make a distinction between click, double click, long press? You can find this in the samples directory. These ressembles building blocks or modules.
+Reading out a button, how is it done? How do you make a distinction between click, double click, long press? You can find this in the samples directory. These resembles building blocks or modules.
 
 The oswatch-xxxx directories assemble some of the building blocks.
 
@@ -48,7 +48,7 @@ Multiple screens can be displayed, but each screen has little info.
 Touchscreen
 -----------
 
-Although the LVGL graphics library offers touchscreen support and the Pinetimewatch has a touchscreen, the emphasis was put on the sidebutton. Most watches have a button.
+Although the LVGL graphics library offers touchscreen support and the Pinetime watch has a touchscreen, the emphasis was put on the side button. Most watches have a button.
 
 Selecting a screen and a parameter on the screen is done with the button instead of the touchscreen.
 
@@ -78,16 +78,16 @@ The idea I will explore is to use 2 bluetoothservices, one to request and one to
 Bluetooth is used to set the time (CTS) current time service.
 
 
-Powersaving
------------
+Power saving
+------------
 
-Powersaving makes sense when the device is battery operated, which is probably not always the case.
-Hence, powersaving is an option.
+Power saving makes sense when the device is battery operated, which is probably not always the case.
+Hence, power saving is an option.
 
 Updating over the air
 ---------------------
 
-FOTA : firmwareupdating over the air, is a usefull option.
+FOTA : firmware updating over the air, is a useful option.
 The way firmware updates work, is to have two firmware images on the device.
 In the case of the cheap OLED device, there is no extra memory to store firmware images.
 Hence, FOTA is an option.
@@ -96,7 +96,7 @@ Hence, FOTA is an option.
 Motion sensor
 -------------
 
-The motion is used as a stepcounter, but could be used for other purposes as well. Knocksensor, position sensor, movement detection ... 
+The motion is used as a stepcounter, but could be used for other purposes as well. Knock sensor, position sensor, movement detection ... 
 emphasis is put on reading out the sensor rather than processing the data.
 
 

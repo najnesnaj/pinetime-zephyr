@@ -28,8 +28,8 @@ https://docs.zephyrproject.org/latest/getting_started/index.html
 the documentation describes an installation process under Ubuntu/macOS/Windows
 
 
-How to install the open source watch framekit
----------------------------------------------
+How to install the open source watch frame kit
+----------------------------------------------
 
 The kit should work alongside the zephyr installation.
 Just get a copy of the "app" directory.
@@ -49,11 +49,11 @@ Linux rules
 
 The development has been done on a virtual linux machine.
 For testing bluetooth functionality, I have used linux as well. 
-In this manual you'll find a procedure to communicate to the device from a linuxbox.
-Updating the firmware wirelessly? Possible from a linuxbox!
+In this manual you'll find a procedure to communicate to the device from a linux box.
+Updating the firmware wireless? Possible from a linux box!
 
 Suppose you want to measure how many steps employees do a day?
-You could readout everything using a linuxbox, and handle the data using all the available tools of the box.
+You could readout everything using a linux box, and handle the data using all the available tools of the box.
 
 
 

@@ -9,6 +9,7 @@ Samples
     index
     oswatch-batteryREADME
     oswatch-btREADME
+    oswatch-calendarREADME
     oswatch-ctsREADME
     oswatch-fotaREADME
     oswatchREADME

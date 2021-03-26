@@ -9,14 +9,14 @@
 \contentsline {section}{\numberline {3.3}Touchscreen}{8}{section.3.3}
 \contentsline {section}{\numberline {3.4}Heart rate sensor}{8}{section.3.4}
 \contentsline {section}{\numberline {3.5}Bluetooth}{8}{section.3.5}
-\contentsline {section}{\numberline {3.6}Powersaving}{8}{section.3.6}
+\contentsline {section}{\numberline {3.6}Power saving}{8}{section.3.6}
 \contentsline {section}{\numberline {3.7}Updating over the air}{8}{section.3.7}
 \contentsline {section}{\numberline {3.8}Motion sensor}{9}{section.3.8}
 \contentsline {section}{\numberline {3.9}Drivers}{9}{section.3.9}
 \contentsline {chapter}{\numberline {4}Install zephyr}{11}{chapter.4}
 \contentsline {section}{\numberline {4.1}update on 31\sphinxhyphen {}12\sphinxhyphen {}2020}{11}{section.4.1}
 \contentsline {section}{\numberline {4.2}How to install zephyr}{11}{section.4.2}
-\contentsline {section}{\numberline {4.3}How to install the open source watch framekit}{11}{section.4.3}
+\contentsline {section}{\numberline {4.3}How to install the open source watch frame kit}{11}{section.4.3}
 \contentsline {section}{\numberline {4.4}Linux rules}{11}{section.4.4}
 \contentsline {chapter}{\numberline {5}Out of tree}{13}{chapter.5}
 \contentsline {section}{\numberline {5.1}Top Tip:}{13}{section.5.1}
@@ -45,7 +45,7 @@
 \contentsline {chapter}{\numberline {10}Current Time Service}{23}{chapter.10}
 \contentsline {section}{\numberline {10.1}Requirements:}{23}{section.10.1}
 \contentsline {section}{\numberline {10.2}BLE Peripheral CTS sample for zephyr}{23}{section.10.2}
-\contentsline {section}{\numberline {10.3}Using bluez on linux to connect}{23}{section.10.3}
+\contentsline {section}{\numberline {10.3}Using bluez on linux to connect}{24}{section.10.3}
 \contentsline {section}{\numberline {10.4}Howto use Bluez on linux to set up a time service}{24}{section.10.4}
 \contentsline {section}{\numberline {10.5}Howto use Android to set up a time service}{24}{section.10.5}
 \contentsline {chapter}{\numberline {11}Drivers}{25}{chapter.11}
@@ -145,57 +145,62 @@
 \contentsline {subsection}{\numberline {14.2.3}Requirements}{50}{subsection.14.2.3}
 \contentsline {subsection}{\numberline {14.2.4}Building and Running}{50}{subsection.14.2.4}
 \contentsline {subsection}{\numberline {14.2.5}References}{50}{subsection.14.2.5}
-\contentsline {section}{\numberline {14.3}Current Time Setting OSWatch Framework}{50}{section.14.3}
+\contentsline {section}{\numberline {14.3}Setting up an alarm/calendar event}{50}{section.14.3}
 \contentsline {subsection}{\numberline {14.3.1}Overview}{50}{subsection.14.3.1}
 \contentsline {subsection}{\numberline {14.3.2}Requirements}{50}{subsection.14.3.2}
 \contentsline {subsection}{\numberline {14.3.3}Building and Running}{50}{subsection.14.3.3}
 \contentsline {subsection}{\numberline {14.3.4}References}{51}{subsection.14.3.4}
-\contentsline {section}{\numberline {14.4}FOTA OSWatch Framework}{51}{section.14.4}
-\contentsline {subsection}{\numberline {14.4.1}Todo}{51}{subsection.14.4.1}
-\contentsline {subsection}{\numberline {14.4.2}Overview}{51}{subsection.14.4.2}
-\contentsline {subsection}{\numberline {14.4.3}Requirements}{51}{subsection.14.4.3}
-\contentsline {subsection}{\numberline {14.4.4}Building and Running}{51}{subsection.14.4.4}
-\contentsline {subsection}{\numberline {14.4.5}References}{51}{subsection.14.4.5}
-\contentsline {section}{\numberline {14.5}Basic OSWatch Framework}{51}{section.14.5}
-\contentsline {subsection}{\numberline {14.5.1}Overview}{52}{subsection.14.5.1}
-\contentsline {subsection}{\numberline {14.5.2}Remark}{52}{subsection.14.5.2}
+\contentsline {section}{\numberline {14.4}Current Time Setting OSWatch Framework}{51}{section.14.4}
+\contentsline {subsection}{\numberline {14.4.1}Overview}{51}{subsection.14.4.1}
+\contentsline {subsection}{\numberline {14.4.2}Requirements}{51}{subsection.14.4.2}
+\contentsline {subsection}{\numberline {14.4.3}Building and Running}{51}{subsection.14.4.3}
+\contentsline {subsection}{\numberline {14.4.4}References}{51}{subsection.14.4.4}
+\contentsline {section}{\numberline {14.5}FOTA OSWatch Framework}{51}{section.14.5}
+\contentsline {subsection}{\numberline {14.5.1}Todo}{51}{subsection.14.5.1}
+\contentsline {subsection}{\numberline {14.5.2}Overview}{51}{subsection.14.5.2}
 \contentsline {subsection}{\numberline {14.5.3}Requirements}{52}{subsection.14.5.3}
 \contentsline {subsection}{\numberline {14.5.4}Building and Running}{52}{subsection.14.5.4}
 \contentsline {subsection}{\numberline {14.5.5}References}{52}{subsection.14.5.5}
-\contentsline {section}{\numberline {14.6}HRS3300 Heart Rate Sensor}{52}{section.14.6}
+\contentsline {section}{\numberline {14.6}Basic OSWatch Framework}{52}{section.14.6}
 \contentsline {subsection}{\numberline {14.6.1}Overview}{52}{subsection.14.6.1}
-\contentsline {subsection}{\numberline {14.6.2}Building and Running}{52}{subsection.14.6.2}
-\contentsline {subsubsection}{Sample Output}{52}{subsubsection*.24}
-\contentsline {section}{\numberline {14.7}Character frame buffer}{53}{section.14.7}
+\contentsline {subsection}{\numberline {14.6.2}Remark}{52}{subsection.14.6.2}
+\contentsline {subsection}{\numberline {14.6.3}Requirements}{52}{subsection.14.6.3}
+\contentsline {subsection}{\numberline {14.6.4}Building and Running}{53}{subsection.14.6.4}
+\contentsline {subsection}{\numberline {14.6.5}References}{53}{subsection.14.6.5}
+\contentsline {section}{\numberline {14.7}HRS3300 Heart Rate Sensor}{53}{section.14.7}
 \contentsline {subsection}{\numberline {14.7.1}Overview}{53}{subsection.14.7.1}
 \contentsline {subsection}{\numberline {14.7.2}Building and Running}{53}{subsection.14.7.2}
-\contentsline {subsection}{\numberline {14.7.3}POSIX}{53}{subsection.14.7.3}
-\contentsline {subsection}{\numberline {14.7.4}Pinetime}{53}{subsection.14.7.4}
-\contentsline {section}{\numberline {14.8}Character Framebuffer Shell Module Sample}{53}{section.14.8}
+\contentsline {subsubsection}{Sample Output}{53}{subsubsection*.24}
+\contentsline {section}{\numberline {14.8}Character frame buffer}{53}{section.14.8}
 \contentsline {subsection}{\numberline {14.8.1}Overview}{53}{subsection.14.8.1}
 \contentsline {subsection}{\numberline {14.8.2}Building and Running}{53}{subsection.14.8.2}
-\contentsline {subsubsection}{Shell Module Command Help}{53}{subsubsection*.25}
-\contentsline {section}{\numberline {14.9}LittlevGL Basic Sample}{55}{section.14.9}
-\contentsline {subsection}{\numberline {14.9.1}Overview}{55}{subsection.14.9.1}
-\contentsline {subsection}{\numberline {14.9.2}Requirements}{55}{subsection.14.9.2}
-\contentsline {subsection}{\numberline {14.9.3}Building and Running}{55}{subsection.14.9.3}
-\contentsline {subsection}{\numberline {14.9.4}References}{56}{subsection.14.9.4}
-\contentsline {section}{\numberline {14.10}Lightsensor}{56}{section.14.10}
-\contentsline {section}{\numberline {14.11}LittlevGL SDL Button Sample}{56}{section.14.11}
-\contentsline {subsection}{\numberline {14.11.1}Overview}{56}{subsection.14.11.1}
-\contentsline {subsection}{\numberline {14.11.2}Requirements}{56}{subsection.14.11.2}
-\contentsline {subsection}{\numberline {14.11.3}Building and Running}{56}{subsection.14.11.3}
-\contentsline {subsection}{\numberline {14.11.4}References}{56}{subsection.14.11.4}
+\contentsline {subsection}{\numberline {14.8.3}POSIX}{54}{subsection.14.8.3}
+\contentsline {subsection}{\numberline {14.8.4}Pinetime}{54}{subsection.14.8.4}
+\contentsline {section}{\numberline {14.9}Character Framebuffer Shell Module Sample}{54}{section.14.9}
+\contentsline {subsection}{\numberline {14.9.1}Overview}{54}{subsection.14.9.1}
+\contentsline {subsection}{\numberline {14.9.2}Building and Running}{54}{subsection.14.9.2}
+\contentsline {subsubsection}{Shell Module Command Help}{54}{subsubsection*.25}
+\contentsline {section}{\numberline {14.10}LittlevGL Basic Sample}{56}{section.14.10}
+\contentsline {subsection}{\numberline {14.10.1}Overview}{56}{subsection.14.10.1}
+\contentsline {subsection}{\numberline {14.10.2}Requirements}{56}{subsection.14.10.2}
+\contentsline {subsection}{\numberline {14.10.3}Building and Running}{56}{subsection.14.10.3}
+\contentsline {subsection}{\numberline {14.10.4}References}{56}{subsection.14.10.4}
+\contentsline {section}{\numberline {14.11}Lightsensor}{56}{section.14.11}
 \contentsline {section}{\numberline {14.12}LittlevGL SDL Button Sample}{56}{section.14.12}
 \contentsline {subsection}{\numberline {14.12.1}Overview}{56}{subsection.14.12.1}
-\contentsline {subsection}{\numberline {14.12.2}Requirements}{56}{subsection.14.12.2}
-\contentsline {subsection}{\numberline {14.12.3}Building and Running}{56}{subsection.14.12.3}
+\contentsline {subsection}{\numberline {14.12.2}Requirements}{57}{subsection.14.12.2}
+\contentsline {subsection}{\numberline {14.12.3}Building and Running}{57}{subsection.14.12.3}
 \contentsline {subsection}{\numberline {14.12.4}References}{57}{subsection.14.12.4}
-\contentsline {section}{\numberline {14.13}Testing the timer refresh}{57}{section.14.13}
+\contentsline {section}{\numberline {14.13}LittlevGL SDL Button Sample}{57}{section.14.13}
 \contentsline {subsection}{\numberline {14.13.1}Overview}{57}{subsection.14.13.1}
 \contentsline {subsection}{\numberline {14.13.2}Requirements}{57}{subsection.14.13.2}
 \contentsline {subsection}{\numberline {14.13.3}Building and Running}{57}{subsection.14.13.3}
 \contentsline {subsection}{\numberline {14.13.4}References}{57}{subsection.14.13.4}
+\contentsline {section}{\numberline {14.14}Testing the timer refresh}{57}{section.14.14}
+\contentsline {subsection}{\numberline {14.14.1}Overview}{57}{subsection.14.14.1}
+\contentsline {subsection}{\numberline {14.14.2}Requirements}{57}{subsection.14.14.2}
+\contentsline {subsection}{\numberline {14.14.3}Building and Running}{58}{subsection.14.14.3}
+\contentsline {subsection}{\numberline {14.14.4}References}{58}{subsection.14.14.4}
 \contentsline {chapter}{\numberline {15}Menuconfig}{59}{chapter.15}
 \contentsline {section}{\numberline {15.1}Zephyr is like linux}{59}{section.15.1}
 \contentsline {chapter}{\numberline {16}Debugging}{61}{chapter.16}

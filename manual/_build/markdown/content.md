@@ -9,17 +9,17 @@ You need :
 - a method of setting the clock
 - wireless firmware updating
 - timer functions
-- powersaving
+- power saving
 - battery management
 - several graphical screens, with buttons graphics
 
-You could start from scratch, or use a framework and only add the stuff you need for your cyclecomputer :
+You could start from scratch, or use a framework and only add the stuff you need for your cycling computer :
 - cadence sensor
 - display speed
 - record speed
 
 Suppose you have an idea for a portable device, before running to the shop to buy a dev-board, develop hardware ….
-You could use the framework as a startingpoint, since it supports a virtual posix-board.
+You could use the framework as a starting point, since it supports a virtual posix-board.
 
 ```
 this document started off in setting up zephyr RTOS on the PineTime smartwatch.

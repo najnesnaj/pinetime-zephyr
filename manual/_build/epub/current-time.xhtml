@@ -15,23 +15,25 @@
             
   <div class="section" id="current-time-service">
 <h1>Current Time Service</h1>
-<p><a class="reference external" href="https://www.bluetooth.com/specifications/gatt/services/">https://www.bluetooth.com/specifications/gatt/services/</a>
-<a class="reference external" href="https://www.bluetooth.com/specifications/gatt/characteristics/">https://www.bluetooth.com/specifications/gatt/characteristics/</a>
-0x1805 current time service
-0x2A2B current time characteristic</p>
+<p><a class="reference external" href="https://www.bluetooth.com/specifications/gatt/services/">https://www.bluetooth.com/specifications/gatt/services/</a></p>
+<p><a class="reference external" href="https://www.bluetooth.com/specifications/gatt/characteristics/">https://www.bluetooth.com/specifications/gatt/characteristics/</a></p>
+<ul class="simple">
+<li><p>0x1805 current time service</p></li>
+<li><p>0x2A2B current time characteristic</p></li>
+</ul>
 <div class="section" id="requirements">
 <h2>Requirements:</h2>
 <dl class="simple">
 <dt>You need :</dt><dd><ul class="simple">
 <li><dl class="simple">
 <dt>a CTS server (use of bluez on linux explained)</dt><dd><ul>
-<li><p>start the CTS service (python script)</p></li>
+<li><p>start the CTS service (python script: gatt-cts-server.py provided)</p></li>
 <li><p>connect to the CTS client</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p>a CTS client (the pinetime watch)</p></li>
+<li><p>a CTS client (the oswatch)</p></li>
 </ul>
 </dd>
 </dl>
@@ -39,23 +41,23 @@
 <div class="section" id="ble-peripheral-cts-sample-for-zephyr">
 <h2>BLE Peripheral CTS sample for zephyr</h2>
 <p>This example demonstrates the basic usage of the current time service.
-It is based on the <a class="reference external" href="https://github.com/Dejvino/pinetime-hermes-firmware">https://github.com/Dejvino/pinetime-hermes-firmware</a>.
-It starts advertising it’s UUID, and you can connect to it.
-Once connected, it will read the time from your CTS server (bluez on linux running the gatt-cts-server script in my case)</p>
+It is based on the <a class="reference external" href="https://github.com/Dejvino/pinetime-hermes-firmware">https://github.com/Dejvino/pinetime-hermes-firmware</a>.</p>
+<p>It starts advertising it’s UUID, and you can connect to it.
+Once connected, it will read the time from your CTS server
+(bluez on linux running the gatt-cts-server script in my case)</p>
 <p>first build the image</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b pinetime samples/bluetooth/peripheral-cts
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span>  west build -p -b pinetime_devkit1 oswatch-cts
 </pre></div>
 </div>
 </div>
 <div class="section" id="using-bluez-on-linux-to-connect">
 <h2>Using bluez on linux to connect</h2>
-<dl class="simple">
-<dt>The pinetime zephyr sample behaves as a peripheral:</dt><dd><ul class="simple">
-<li><p>first of all start the cts service</p></li>
-<li><p>connect to the pinetime with bluetoothctl</p></li>
-</ul>
-</dd>
-</dl>
+<p>The pinetime zephyr sample behaves as a peripheral:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">- make sure your linuxbox has bluez running (type bluetoothctl if you&#39;re not sure)</span>
+<span class="go">- first of all start the cts service : python gatt-cts-server.py</span>
+<span class="go">- connect to the pinetime with bluetoothctl</span>
+</pre></div>
+</div>
 <p>Using bluetoothctl:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>bluetoothctl
 <span class="gp">[bluetooth]#</span>scan on

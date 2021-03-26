@@ -54,13 +54,20 @@ static struct k_timer clock_update_timer; //jj
 #define SW1_NODE        DT_ALIAS(sw1)
 #define SW1_GPIO_PIN    DT_GPIO_PIN(SW1_NODE, gpios)
 #define SW1_GPIO_FLAGS  (GPIO_OUTPUT | DT_GPIO_FLAGS(SW1_NODE, gpios))
+#define BUTTON_THRESH 4 //threshold to distinguish between short and long press
+#define BUTTON_DOUBLE_THRESH 2 //double click
 #endif
 
+#if defined(CONFIG_BOARD_NATIVE_POSIX_64BIT)
 #define BUTTON_THRESH 6 //threshold to distinguish between short and long press
-
 //when used in a real watch it will probable have to be less
 #define BUTTON_DOUBLE_THRESH 12 //double click
+#endif
 
+#if defined(CONFIG_BOARD_DS_D6)
+#define BUTTON_THRESH 3 //threshold to distinguish between short and long press
+#define BUTTON_DOUBLE_THRESH 2 //double click
+#endif
 
 
 
@@ -73,21 +80,21 @@ static uint8_t button_press_cnt;
 //when the timer expires the number of presses is analysed
 void button_timer_handler(struct k_timer *dummy)
 {
-	printf("timer expired\n");
-	printf("press count %d\n", button_press_cnt);
+	LOG_INF("timer expired\n");
+	LOG_INF("press count %d\n", button_press_cnt);
 	if (button_press_cnt >= BUTTON_DOUBLE_THRESH){
-		printf("long press\n");
+		LOG_INF("long press\n");
 		display_btn_event(BTN1_LONG);
 	}
 	if (button_press_cnt <= BUTTON_THRESH){ //short press is used to scroll trough the labels with their value
-		printf("short press\n");
+		LOG_INF("short press\n");
 		display_btn_event(BTN1_SHORT);
 		//  show_label(label_select_cnt);
 		//  label_select_cnt++;
 		// if (label_select_cnt ==  PARAM_TOTAL) label_select_cnt=0;
 	}
 	if ((button_press_cnt > BUTTON_THRESH) && (button_press_cnt < BUTTON_DOUBLE_THRESH)){
-		printf("double click\n");
+		LOG_INF("double click\n");
 	}
 	button_press_cnt=0;
 

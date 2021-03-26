@@ -13,3 +13,4 @@ cp /root/work/app/oswatch-cts/README.rst /root/work/pinetime-zephyr/manual/sampl
 cp /root/work/app/oswatch-bt/README.rst /root/work/pinetime-zephyr/manual/samples/oswatch-btREADME.rst
 cp /root/work/app/oswatch/README.rst /root/work/pinetime-zephyr/manual/samples/oswatchREADME.rst
 cp /root/work/app/oswatch-fota/README.rst /root/work/pinetime-zephyr/manual/samples/oswatch-fotaREADME.rst
+cp /root/work/app/oswatch-calendar/README.rst /root/work/pinetime-zephyr/manual/samples/oswatch-calendarREADME.rst

@@ -11,7 +11,6 @@
 #define ___cpu_t_current_OFFSET 0x8
 #define ___cpu_t_nested_OFFSET 0x0
 #define ___cpu_t_irq_stack_OFFSET 0x4
-#define ___kernel_t_threads_OFFSET 0x34
 #define ___kernel_t_idle_OFFSET 0x24
 #define ___kernel_t_ready_q_OFFSET 0x28
 #define ___ready_q_t_cache_OFFSET 0x0
@@ -23,12 +22,11 @@
 #define ___thread_base_t_swap_data_OFFSET 0x14
 #define ___thread_t_base_OFFSET 0x0
 #define ___thread_t_callee_saved_OFFSET 0x38
-#define ___thread_t_arch_OFFSET 0xb0
+#define ___thread_t_arch_OFFSET 0x7c
 #define ___thread_stack_info_t_start_OFFSET 0x0
 #define ___thread_stack_info_t_size_OFFSET 0x4
-#define ___thread_t_stack_info_OFFSET 0xa0
-#define ___thread_t_next_thread_OFFSET 0x78
-#define K_THREAD_SIZEOF 0xb8
+#define ___thread_t_stack_info_OFFSET 0x6c
+#define K_THREAD_SIZEOF 0x88
 #define _DEVICE_STRUCT_SIZEOF 0x10
 #define ___thread_arch_t_basepri_OFFSET 0x0
 #define ___thread_arch_t_swap_return_value_OFFSET 0x4
@@ -52,6 +50,6 @@
 #define ___callee_saved_t_psp_OFFSET 0x20
 #define ___callee_saved_t_SIZEOF 0x24
 #define ___thread_stack_info_t_SIZEOF 0xc
-#define _K_THREAD_NO_FLOAT_SIZEOF 0xb8
+#define _K_THREAD_NO_FLOAT_SIZEOF 0x88
 
 #endif /* __GEN_OFFSETS_H__ */

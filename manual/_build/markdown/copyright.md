@@ -4,7 +4,7 @@ The book is subject to copyright.
 
 You cannot use the book, or parts of the book into your own publications, without the permission of the author.
 
-I have put in most of the code a copyright with my mailadress.
+I have put in most of the code a copyright with my mail address.
 This does not mean anything. It is just to let you know I modified existing code. The code has been tampered with …
 
 ## author:
@@ -20,6 +20,6 @@ A permissive license whose main conditions require preservation of copyright and
 You could use nRF Connect SDK (often referred as NCS),it is Nordic Semiconductor SDK based on zephyr. It has additional features that could be useful for pinetime, namely bluetooth modules and bluetooth services. Important to mention that even though, NCS forks zephyr it is kept close to it and it is regularly updated to latest zephyr (typically every 2-3 weeks).
 
 NCS is using BSD-5-Clause-Nordic license ([https://github.com/NordicPlayground/fw-nrfconnect-nrf/blob/master/LICENSE](https://github.com/NordicPlayground/fw-nrfconnect-nrf/blob/master/LICENSE))
-which is why I did not use their samples. (which does not mean, you shouldn’t)
+which is why I did not use their samples.
 
 (see also : bluetooth serial communication)

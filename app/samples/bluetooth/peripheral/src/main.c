@@ -25,8 +25,7 @@
 #include <bluetooth/gatt.h>
 #include <bluetooth/services/bas.h>
 #include <bluetooth/services/hrs.h>
-
-#include "cts.h"
+#include "param_sync.h"
 
 /* Custom Service Variables */
 static struct bt_uuid_128 vnd_uuid = BT_UUID_INIT_128(
@@ -241,12 +240,14 @@ static void connected(struct bt_conn *conn, uint8_t err)
 		printk("Connection failed (err 0x%02x)\n", err);
 	} else {
 		printk("Connected\n");
+		cts_sync_enable(true);
 	}
 }
 
 static void disconnected(struct bt_conn *conn, uint8_t reason)
 {
 	printk("Disconnected (reason 0x%02x)\n", reason);
+		cts_sync_enable(false);
 }
 
 static struct bt_conn_cb conn_callbacks = {
@@ -260,7 +261,6 @@ static void bt_ready(void)
 
 	printk("Bluetooth initialized\n");
 
-	cts_init();
 
 	if (IS_ENABLED(CONFIG_SETTINGS)) {
 		settings_load();
@@ -352,6 +352,9 @@ void main(void)
 
 	bt_conn_cb_register(&conn_callbacks);
 	bt_conn_auth_cb_register(&auth_cb_display);
+
+
+        param_sync_init();
 
 	/* Implement notification. At the moment there is no suitable way
 	 * of starting delayed work so we do it here

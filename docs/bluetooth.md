@@ -1,6 +1,6 @@
 # bluetooth (BLE)
 
-Bluetooth is a very nice feature, it lets you exchange data wirelessly and (!) update firmware wirelessly.
+Bluetooth is a very nice feature, it lets you exchange data wireless and (!) update firmware wireless.
 
 The PineTime uses a Nordic nrf52832 chip, which has BLE functionality build into it.
 
@@ -8,8 +8,8 @@ To test, you can compile a standard application : Eddy Stone.
 
 ## A word on bluetooth-serial communication
 
-Smartwatch manufacterers usually supply you with a smartwatch app.
-This app can communicatie trough bluetooth, and get/send data to the watch.
+Smartwatch manufacturers usually supply you with a smartwatch app.
+This app can communicate trough bluetooth, and get/send data to the watch.
 
 Unfortunately this is not a standard Zephyr feature!
 
@@ -68,7 +68,7 @@ west build -p -b pinetime_devkit0 samples/bluetooth/central_hr
 
 ### the no-bluetooth, no-watch approach : nrf52_bsim
 
-Suppose you have no watch, no devboard, nor any bluetooth dongles?
+Suppose you have no watch, no development board, nor any bluetooth dongles?
 You can still test your bluetooth enabled application.
 [https://docs.zephyrproject.org/latest/boards/posix/nrf52_bsim/doc/index.html](https://docs.zephyrproject.org/latest/boards/posix/nrf52_bsim/doc/index.html)
 
@@ -94,8 +94,8 @@ ${BSIM_OUT_PATH}/bin/bs_nrf52_bsim_samples_bluetooth_central_hr -s=trial_sim -d=
 
 how to activate bluetooth?
 
-VBOX running ubuntu (first disactivate driver in windows)
-(CTRL home – select usb – (intel in my case)) – this lets you select the integrated bluetoothmodule of your laptop
+VBOX running ubuntu (first deactivate driver in windows)
+(CTRL home – select usb – (intel in my case)) – this lets you select the integrated bluetooth module of your laptop
 
 ```
 hciconfig hci0 down
