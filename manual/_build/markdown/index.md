@@ -333,6 +333,27 @@
     * using Python to read out bluetoothservices
 
 
+* Bluetooth Notification
+
+
+    * What?
+
+
+    * How?
+
+
+    * Bluez
+
+
+    * A word on attributes
+
+
+    * Attribute Handle
+
+
+    * Python
+
+
 * Firmware Over The Air (FOTA)
 
 

@@ -73,7 +73,7 @@
 
 
 \title{open source watch Documentation}
-\date{Mar 26, 2021}
+\date{Apr 21, 2021}
 \release{1.2.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1468,6 +1468,111 @@ It just reads out the battery level, and prints it.
 \PYG{k}{finally}\PYG{p}{:}
     \PYG{n}{p}\PYG{o}{.}\PYG{n}{disconnect}\PYG{p}{(}\PYG{p}{)}
 \end{sphinxVerbatim}
+
+
+\chapter{Bluetooth Notification}
+\label{\detokenize{notification:bluetooth-notification}}\label{\detokenize{notification::doc}}
+As mentioned earlier, I searched for ways to transfer data to, and(!) from the device.
+Bluetooth data exchange might be a standard feature of Android, Apple …
+
+On a linuxbox there are ways to do this as well!
+
+In the zephyr samples,  I found a sample for Indication.
+I created a sample for Notification. (samples/bluetooth/Peripheral\sphinxhyphen{}notification)
+
+
+\section{What?}
+\label{\detokenize{notification:what}}
+The BLE standard defines two ways to transfer data from the server to the client: notification and indication.
+
+Notification don’t need acknowledgement, so it is faster. Hence, server does not know if the message reached the client….
+
+
+\section{How?}
+\label{\detokenize{notification:how}}
+Notification has to be enabled.
+
+Linuxbox (bluez) writes “enable” to the watch notification characteristic.
+
+Once Nofication is enabled the watch sends continuously messages :
+the maximum data payload size defined by the specification in each message is 20 bytes.
+
+
+\section{Bluez}
+\label{\detokenize{notification:bluez}}
+on linux you could use  “bluetoothctl”
+
+There is an example for heartrates.
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}bluetoothctl}
+
+\PYG{n}{connect} \PYG{n}{MAC}\PYG{o}{\PYGZhy{}}\PYG{n}{device}
+
+\PYG{n}{menu} \PYG{n}{gatt}
+\PYG{n}{select}\PYG{o}{\PYGZhy{}}\PYG{n}{attribute} \PYG{l+m+mi}{00002}\PYG{n}{a37}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{0000}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1000}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{8000}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{00805}\PYG{n}{f9b34fb}
+\PYG{n}{notify} \PYG{n}{on}
+
+\PYG{k}{if} \PYG{n+nb}{all} \PYG{n}{goes} \PYG{n}{well}\PYG{p}{,} \PYG{n}{the} \PYG{n}{watch} \PYG{n}{starts} \PYG{n}{sending} \PYG{n}{heartrates}
+
+\PYG{o+ow}{in} \PYG{n}{case} \PYG{n}{it} \PYG{n}{stops}\PYG{p}{:}
+
+\PYG{n}{notify} \PYG{n}{off}
+\PYG{n}{notify} \PYG{n}{on}
+\end{sphinxVerbatim}
+
+
+\section{A word on attributes}
+\label{\detokenize{notification:a-word-on-attributes}}
+The data that the server exposes is structured as attributes.
+
+Attribute type (Universally Unique Identifier or UUID)
+This is a :
+\begin{itemize}
+\item {} 
+16\sphinxhyphen{}bit number
+
+\item {} 
+or 128\sphinxhyphen{}bit number
+
+\end{itemize}
+
+The 16\sphinxhyphen{}bit number is converted to 128\sphinxhyphen{}bit by means of a
+128\sphinxhyphen{}bit base \sphinxurl{UUID:00000000-0000-1000-8000-00805F9B34FB}.
+
+These 16\sphinxhyphen{}bit numbers are standardised. On each device the temperature measurement value is 0x2A1C.
+
+Because I create a custom service to exchange data I use a custom attribute type, also sometimes referred to as vendor\sphinxhyphen{}specific UUID.
+BLE\_CHARACTERISTIC\_UUID= “12345678\sphinxhyphen{}1234\sphinxhyphen{}5678\sphinxhyphen{}1234\sphinxhyphen{}56789abcdef1”
+
+
+\section{Attribute Handle}
+\label{\detokenize{notification:attribute-handle}}
+This is a 16\sphinxhyphen{}bit value that the server assigns to each of its attributes — think of it as an address. This value is used by the client to reference a specific attribute and is guaranteed by the server to uniquely identify the attribute during the life of the connection between two devices. The range of handles is 0x0001\sphinxhyphen{}0xFFFF, where the value of 0x0000 is reserved.
+
+
+\section{Python}
+\label{\detokenize{notification:python}}
+The scripts are provided. (scan+not.py)
+But here is a short explanation on how to enable notifications.
+
+On linux one could use the Gatttool from the commandprompt.
+
+Another option is Python!
+
+In this manual the module Bluepy is used : \sphinxurl{https://github.com/IanHarvey/bluepy}.
+
+(custom service)
+BLE\_SERVICE\_UUID =”12345678\sphinxhyphen{}1234\sphinxhyphen{}5678\sphinxhyphen{}1234\sphinxhyphen{}56789abcdef0”
+BLE\_CHARACTERISTIC\_UUID= “12345678\sphinxhyphen{}1234\sphinxhyphen{}5678\sphinxhyphen{}1234\sphinxhyphen{}56789abcdef1”
+
+ch = ble\_service.getCharacteristics(){[}0{]}
+ch.valHandle (this gets you the handle to the notification characteristic
+
+\# Writing x01 is the protocol for all BLE notifications.
+\# However …. you need to write it to the handle + 1
+
+dev.writeCharacteristic(ch.valHandle+1, b”x01x00”, withResponse=True)
 
 
 \chapter{Firmware Over The Air (FOTA)}

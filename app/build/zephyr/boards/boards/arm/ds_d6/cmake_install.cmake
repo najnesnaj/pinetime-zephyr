@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/app/samples/bluetooth/peripheral/boards/arm/ds_d6
+# Install script for directory: /root/work/app/samples/bluetooth/peripheral-notification/boards/arm/ds_d6
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

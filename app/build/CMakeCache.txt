@@ -18,19 +18,19 @@
 APPLICATION_BINARY_DIR:PATH=/root/work/app/build
 
 //Application Source Directory
-APPLICATION_SOURCE_DIR:PATH=/root/work/app/samples/bluetooth/peripheral
+APPLICATION_SOURCE_DIR:PATH=/root/work/app/samples/bluetooth/peripheral-notification
 
-//No help, variable specified on the command line.
-BOARD:UNINITIALIZED=pinetime_devkit1
+//Selected board
+BOARD:STRING=ds_d6
 
 //Path to a file.
-BOARD_DIR:PATH=/root/work/app/samples/bluetooth/peripheral/boards/arm/pinetime_devkit1
+BOARD_DIR:PATH=/root/work/app/samples/bluetooth/peripheral-notification/boards/arm/ds_d6
 
 //Path to a program.
 BOSSAC:FILEPATH=/root/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/bin/bossac
 
 //Selected board
-CACHED_BOARD:STRING=pinetime_devkit1
+CACHED_BOARD:STRING=ds_d6
 
 //If desired, you can build the application usingthe configuration
 // settings specified in an alternate .conf file using this parameter.
@@ -39,7 +39,7 @@ CACHED_BOARD:STRING=pinetime_devkit1
 // listed, e.g. CONF_FILE="prj1.confi;prj2.conf" The CACHED_CONF_FILE
 // is internal Zephyr variable used between CMake runs. To change
 // CONF_FILE, use the CONF_FILE variable.
-CACHED_CONF_FILE:STRING=/root/work/app/samples/bluetooth/peripheral/prj.conf;/root/work/app/samples/bluetooth/peripheral/boards/pinetime_devkit1.conf
+CACHED_CONF_FILE:STRING=/root/work/app/samples/bluetooth/peripheral-notification/prj.conf;/root/work/app/samples/bluetooth/peripheral-notification/boards/ds_d6.conf
 
 //Selected shield
 CACHED_SHIELD:STRING=
@@ -207,7 +207,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=peripheral
+CMAKE_PROJECT_NAME:STATIC=periferal
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=2.5.0
@@ -339,7 +339,7 @@ ZEPHYR_TOOLCHAIN_VARIANT:STRING=zephyr
 Zephyr-Kernel_BINARY_DIR:STATIC=/root/work/app/build
 
 //Value Computed by CMake
-Zephyr-Kernel_SOURCE_DIR:STATIC=/root/work/app/samples/bluetooth/peripheral
+Zephyr-Kernel_SOURCE_DIR:STATIC=/root/work/app/samples/bluetooth/peripheral-notification
 
 //The directory containing a CMake configuration file for Zephyr-sdk.
 Zephyr-sdk_DIR:PATH=/root/zephyr-sdk/cmake
@@ -357,10 +357,10 @@ civetweb_BINARY_DIR:STATIC=/root/work/app/build/modules/civetweb
 civetweb_SOURCE_DIR:STATIC=/root/work/modules/lib/civetweb
 
 //Value Computed by CMake
-peripheral_BINARY_DIR:STATIC=/root/work/app/build
+periferal_BINARY_DIR:STATIC=/root/work/app/build
 
 //Value Computed by CMake
-peripheral_SOURCE_DIR:STATIC=/root/work/app/samples/bluetooth/peripheral
+periferal_SOURCE_DIR:STATIC=/root/work/app/samples/bluetooth/peripheral-notification
 
 
 ########################
@@ -420,8 +420,6 @@ CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS_RELWITHDEBINFO
 CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_C_COMPILER
-CMAKE_C_COMPILER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER_AR
 CMAKE_C_COMPILER_AR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER_RANLIB
@@ -464,7 +462,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/root/work/app/samples/bluetooth/peripheral
+CMAKE_HOME_DIRECTORY:INTERNAL=/root/work/app/samples/bluetooth/peripheral-notification
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MAKE_PROGRAM
@@ -482,7 +480,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=114
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=119
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

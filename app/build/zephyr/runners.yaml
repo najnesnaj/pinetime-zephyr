@@ -1,16 +1,17 @@
 # Available runners configured by board.cmake.
 runners:
-- jlink
+- blackmagicprobe
+- blackmagicprobe
 
 # Default flash runner if --runner is not given.
-flash-runner: jlink
+flash-runner: blackmagicprobe
 
 # Default debug runner if --runner is not given.
-debug-runner: jlink
+debug-runner: blackmagicprobe
 
 # Common runner configuration values.
 config:
-  board_dir: /root/work/app/samples/bluetooth/peripheral/boards/arm/pinetime_devkit1
+  board_dir: /root/work/app/samples/bluetooth/peripheral-notification/boards/arm/ds_d6
   # Build outputs:
   elf_file: zephyr.elf
   hex_file: zephyr.hex
@@ -22,7 +23,9 @@ config:
 
 # Runner specific arguments
 args:
-  jlink:
-    - --dt-flash=y
-    - --device=nrf52
-    - --speed=4000
+  blackmagicprobe:
+    []
+
+  blackmagicprobe:
+    []
+

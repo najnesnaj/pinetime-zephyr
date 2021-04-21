@@ -192,7 +192,7 @@ static ssize_t write_without_rsp_vnd(struct bt_conn *conn,
 }
 
 /* Vendor Primary Service Declaration */
-BT_GATT_SERVICE_DEFINE(vnd_svc,
+/*BT_GATT_SERVICE_DEFINE(vnd_svc,
 		BT_GATT_PRIMARY_SERVICE(&vnd_uuid),
 		BT_GATT_CHARACTERISTIC(&vnd_enc_uuid.uuid,
 			BT_GATT_CHRC_READ | BT_GATT_CHRC_WRITE |
@@ -222,7 +222,7 @@ BT_GATT_SERVICE_DEFINE(vnd_svc,
 				BT_GATT_PERM_WRITE, NULL,
 				write_without_rsp_vnd, &vnd_value),
 		);
-
+*/
 static const struct bt_data ad[] = {
 	BT_DATA_BYTES(BT_DATA_FLAGS, (BT_LE_AD_GENERAL | BT_LE_AD_NO_BREDR)),
 	BT_DATA_BYTES(BT_DATA_UUID16_ALL,
@@ -240,7 +240,7 @@ static void connected(struct bt_conn *conn, uint8_t err)
 		printk("Connection failed (err 0x%02x)\n", err);
 	} else {
 		printk("Connected\n");
-		cts_sync_enable(true);
+		//cts_sync_enable(true); //only if testing cts
 	}
 }
 
@@ -298,17 +298,18 @@ static struct bt_conn_auth_cb auth_cb_display = {
 	.passkey_entry = NULL,
 	.cancel = auth_cancel,
 };
-static void param_notify(void)
+
+static void param_notify(int nummer)
 {
 
 	//this is to read out multiple parameters
 	uint8_t battery_level = bt_bas_get_battery_level();
 	static uint8_t heartrate = 90U;
-	//bt_bas_set_battery_level(battery_level);
-	if (battery_level == 10U)
-		bt_hrs_notify(heartrate);
-	else
-		bt_hrs_notify(22U);
+	bt_bas_set_battery_level(nummer);
+//	if (nummer == 10U)
+//		bt_hrs_notify(heartrate);
+//	else
+		bt_hrs_notify(nummer);
 
 }
 
@@ -317,6 +318,7 @@ static void bas_notify(void)
 	uint8_t battery_level = bt_bas_get_battery_level();
 
 	battery_level--;
+	printk("battery_level: %d\n", battery_level);
 
 	if (!battery_level) {
 		battery_level = 100U;
@@ -341,7 +343,7 @@ static void hrs_notify(void)
 void main(void)
 {
 	int err;
-
+int teller=0;
 	err = bt_enable(NULL);
 	if (err) {
 		printk("Bluetooth init failed (err %d)\n", err);
@@ -361,7 +363,8 @@ void main(void)
 	 */
 	while (1) {
 		k_sleep(K_SECONDS(1));
-
+teller++;
+if (teller > 240) teller=0;
 		/* Current Time Service updates only when time is changed */
 		//cts_notify();
 
@@ -369,10 +372,12 @@ void main(void)
 //		hrs_notify();
 
 		/* Battery level simulation */
-		param_notify();
+		param_notify(teller);
+		k_sleep(K_SECONDS(1));
+//		param_notify(22);
 
 		/* Vendor indication simulation */
-		/*if (simulate_vnd) {
+/*		if (simulate_vnd) {
 		  if (indicating) {
 		  continue;
 		  }

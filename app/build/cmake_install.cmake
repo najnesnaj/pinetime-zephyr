@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/app/samples/bluetooth/peripheral
+# Install script for directory: /root/work/app/samples/bluetooth/peripheral-notification
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

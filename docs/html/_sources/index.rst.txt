@@ -19,6 +19,7 @@ INDEX
    current-time.rst
    drivers/drivers.rst
    bluetooth.rst 
+   notification.rst
    fota/fota.rst
    samples/index.rst
    menuconfig.rst

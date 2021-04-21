@@ -1,0 +1,8 @@
+./boards/pinetime_devkit1.conf:CONFIG_BT_DEVICE_NAME="pinetime"
+./boards/arm/pinetime_devkit1/doc/index.rst:.. _pinetime_devkit0:
+./boards/arm/pinetime_devkit1/doc/index.rst:   :zephyr-app: samples/boards/pine64_pinetime
+./boards/arm/pinetime_devkit1/doc/index.rst:   :board: pinetime_devkit0
+./boards/arm/pinetime_devkit1/doc/index.rst:   https://www.pine64.org/pinetime
+./boards/arm/pinetime_devkit1/pinetime-devkit1.yaml:identifier: pinetime_devkit0
+./boards/arm/pinetime_devkit1/pinetime_devkit1.dts:	compatible = "pine64,pinetime-devkit1";
+./boards/arm/pinetime_devkit1/Kconfig.defconfig:	default "pinetime_devkit1"

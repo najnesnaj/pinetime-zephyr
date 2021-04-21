@@ -11,7 +11,7 @@ zephyr/linker.cmd: /root/work/zephyr/soc/arm/nordic_nrf/nrf52/linker.ld \
  /root/work/zephyr/include/sys/util.h \
  /root/work/zephyr/include/sys/util_macro.h \
  /root/work/zephyr/include/sys/util_internal.h \
- /root/work/zephyr/lib/libc/minimal/include/stdbool.h \
+ /root/zephyr-sdk/arm-zephyr-eabi/lib/gcc/arm-zephyr-eabi/9.2.0/include/stdbool.h \
  /root/work/zephyr/include/devicetree/io-channels.h \
  /root/work/zephyr/include/devicetree/clocks.h \
  /root/work/zephyr/include/devicetree/gpio.h \

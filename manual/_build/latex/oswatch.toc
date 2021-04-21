@@ -109,141 +109,148 @@
 \contentsline {section}{\numberline {12.4}Bluez}{39}{section.12.4}
 \contentsline {subsection}{\numberline {12.4.1}using bluez to write something to the device}{39}{subsection.12.4.1}
 \contentsline {section}{\numberline {12.5}using Python to read out bluetoothservices}{40}{section.12.5}
-\contentsline {chapter}{\numberline {13}Firmware Over The Air (FOTA)}{41}{chapter.13}
-\contentsline {section}{\numberline {13.1}Wireless Device Firmware Upgrade}{41}{section.13.1}
-\contentsline {subsection}{\numberline {13.1.1}Overview}{41}{subsection.13.1.1}
-\contentsline {section}{\numberline {13.2}MCUboot with zephyr}{41}{section.13.2}
-\contentsline {section}{\numberline {13.3}Partitions}{42}{section.13.3}
-\contentsline {subsection}{\numberline {13.3.1}Defining partitions for MCUboot}{42}{subsection.13.3.1}
-\contentsline {subsection}{\numberline {13.3.2}Using NOR flash in partitions}{42}{subsection.13.3.2}
-\contentsline {section}{\numberline {13.4}Signing an application}{44}{section.13.4}
-\contentsline {subsection}{\numberline {13.4.1}Generating a new keypair}{44}{subsection.13.4.1}
-\contentsline {subsection}{\numberline {13.4.2}Extracting the public key}{44}{subsection.13.4.2}
-\contentsline {subsection}{\numberline {13.4.3}Example}{44}{subsection.13.4.3}
-\contentsline {section}{\numberline {13.5}SMP Server Sample}{44}{section.13.5}
-\contentsline {subsection}{\numberline {13.5.1}Overview}{44}{subsection.13.5.1}
-\contentsline {subsection}{\numberline {13.5.2}Requirements}{45}{subsection.13.5.2}
-\contentsline {subsection}{\numberline {13.5.3}Building and Running}{45}{subsection.13.5.3}
-\contentsline {subsubsection}{Step 1: Build smp\_svr}{45}{subsubsection*.16}
-\contentsline {subsubsection}{Step 2: Sign the image}{45}{subsubsection*.17}
-\contentsline {subsubsection}{Step 3: Flash the smp\_svr image}{45}{subsubsection*.18}
-\contentsline {subsubsection}{Step 4: Run it!}{46}{subsubsection*.19}
-\contentsline {subsubsection}{Step 5: Device Firmware Upgrade}{46}{subsubsection*.20}
-\contentsline {paragraph}{List the images}{46}{paragraph*.21}
-\contentsline {paragraph}{Test the image}{47}{paragraph*.22}
-\contentsline {paragraph}{Reset remotely}{47}{paragraph*.23}
-\contentsline {chapter}{\numberline {14}Samples}{49}{chapter.14}
-\contentsline {section}{\numberline {14.1}Battery OSWatch Framework}{49}{section.14.1}
-\contentsline {subsection}{\numberline {14.1.1}Todo}{49}{subsection.14.1.1}
-\contentsline {subsection}{\numberline {14.1.2}Overview}{49}{subsection.14.1.2}
-\contentsline {subsection}{\numberline {14.1.3}Requirements}{49}{subsection.14.1.3}
-\contentsline {subsection}{\numberline {14.1.4}Building and Running}{49}{subsection.14.1.4}
-\contentsline {subsection}{\numberline {14.1.5}References}{49}{subsection.14.1.5}
-\contentsline {section}{\numberline {14.2}OSWatch bluetooth setting parameters}{49}{section.14.2}
-\contentsline {subsection}{\numberline {14.2.1}Overview}{49}{subsection.14.2.1}
-\contentsline {subsection}{\numberline {14.2.2}Bluetooth}{50}{subsection.14.2.2}
-\contentsline {subsection}{\numberline {14.2.3}Requirements}{50}{subsection.14.2.3}
-\contentsline {subsection}{\numberline {14.2.4}Building and Running}{50}{subsection.14.2.4}
-\contentsline {subsection}{\numberline {14.2.5}References}{50}{subsection.14.2.5}
-\contentsline {section}{\numberline {14.3}Setting up an alarm/calendar event}{50}{section.14.3}
-\contentsline {subsection}{\numberline {14.3.1}Overview}{50}{subsection.14.3.1}
-\contentsline {subsection}{\numberline {14.3.2}Requirements}{50}{subsection.14.3.2}
-\contentsline {subsection}{\numberline {14.3.3}Building and Running}{50}{subsection.14.3.3}
-\contentsline {subsection}{\numberline {14.3.4}References}{51}{subsection.14.3.4}
-\contentsline {section}{\numberline {14.4}Current Time Setting OSWatch Framework}{51}{section.14.4}
-\contentsline {subsection}{\numberline {14.4.1}Overview}{51}{subsection.14.4.1}
-\contentsline {subsection}{\numberline {14.4.2}Requirements}{51}{subsection.14.4.2}
-\contentsline {subsection}{\numberline {14.4.3}Building and Running}{51}{subsection.14.4.3}
-\contentsline {subsection}{\numberline {14.4.4}References}{51}{subsection.14.4.4}
-\contentsline {section}{\numberline {14.5}FOTA OSWatch Framework}{51}{section.14.5}
-\contentsline {subsection}{\numberline {14.5.1}Todo}{51}{subsection.14.5.1}
-\contentsline {subsection}{\numberline {14.5.2}Overview}{51}{subsection.14.5.2}
-\contentsline {subsection}{\numberline {14.5.3}Requirements}{52}{subsection.14.5.3}
-\contentsline {subsection}{\numberline {14.5.4}Building and Running}{52}{subsection.14.5.4}
-\contentsline {subsection}{\numberline {14.5.5}References}{52}{subsection.14.5.5}
-\contentsline {section}{\numberline {14.6}Basic OSWatch Framework}{52}{section.14.6}
-\contentsline {subsection}{\numberline {14.6.1}Overview}{52}{subsection.14.6.1}
-\contentsline {subsection}{\numberline {14.6.2}Remark}{52}{subsection.14.6.2}
-\contentsline {subsection}{\numberline {14.6.3}Requirements}{52}{subsection.14.6.3}
-\contentsline {subsection}{\numberline {14.6.4}Building and Running}{53}{subsection.14.6.4}
-\contentsline {subsection}{\numberline {14.6.5}References}{53}{subsection.14.6.5}
-\contentsline {section}{\numberline {14.7}HRS3300 Heart Rate Sensor}{53}{section.14.7}
-\contentsline {subsection}{\numberline {14.7.1}Overview}{53}{subsection.14.7.1}
-\contentsline {subsection}{\numberline {14.7.2}Building and Running}{53}{subsection.14.7.2}
-\contentsline {subsubsection}{Sample Output}{53}{subsubsection*.24}
-\contentsline {section}{\numberline {14.8}Character frame buffer}{53}{section.14.8}
-\contentsline {subsection}{\numberline {14.8.1}Overview}{53}{subsection.14.8.1}
-\contentsline {subsection}{\numberline {14.8.2}Building and Running}{53}{subsection.14.8.2}
-\contentsline {subsection}{\numberline {14.8.3}POSIX}{54}{subsection.14.8.3}
-\contentsline {subsection}{\numberline {14.8.4}Pinetime}{54}{subsection.14.8.4}
-\contentsline {section}{\numberline {14.9}Character Framebuffer Shell Module Sample}{54}{section.14.9}
-\contentsline {subsection}{\numberline {14.9.1}Overview}{54}{subsection.14.9.1}
-\contentsline {subsection}{\numberline {14.9.2}Building and Running}{54}{subsection.14.9.2}
-\contentsline {subsubsection}{Shell Module Command Help}{54}{subsubsection*.25}
-\contentsline {section}{\numberline {14.10}LittlevGL Basic Sample}{56}{section.14.10}
-\contentsline {subsection}{\numberline {14.10.1}Overview}{56}{subsection.14.10.1}
-\contentsline {subsection}{\numberline {14.10.2}Requirements}{56}{subsection.14.10.2}
-\contentsline {subsection}{\numberline {14.10.3}Building and Running}{56}{subsection.14.10.3}
-\contentsline {subsection}{\numberline {14.10.4}References}{56}{subsection.14.10.4}
-\contentsline {section}{\numberline {14.11}Lightsensor}{56}{section.14.11}
-\contentsline {section}{\numberline {14.12}LittlevGL SDL Button Sample}{56}{section.14.12}
-\contentsline {subsection}{\numberline {14.12.1}Overview}{56}{subsection.14.12.1}
-\contentsline {subsection}{\numberline {14.12.2}Requirements}{57}{subsection.14.12.2}
-\contentsline {subsection}{\numberline {14.12.3}Building and Running}{57}{subsection.14.12.3}
-\contentsline {subsection}{\numberline {14.12.4}References}{57}{subsection.14.12.4}
-\contentsline {section}{\numberline {14.13}LittlevGL SDL Button Sample}{57}{section.14.13}
-\contentsline {subsection}{\numberline {14.13.1}Overview}{57}{subsection.14.13.1}
-\contentsline {subsection}{\numberline {14.13.2}Requirements}{57}{subsection.14.13.2}
-\contentsline {subsection}{\numberline {14.13.3}Building and Running}{57}{subsection.14.13.3}
-\contentsline {subsection}{\numberline {14.13.4}References}{57}{subsection.14.13.4}
-\contentsline {section}{\numberline {14.14}Testing the timer refresh}{57}{section.14.14}
-\contentsline {subsection}{\numberline {14.14.1}Overview}{57}{subsection.14.14.1}
-\contentsline {subsection}{\numberline {14.14.2}Requirements}{57}{subsection.14.14.2}
-\contentsline {subsection}{\numberline {14.14.3}Building and Running}{58}{subsection.14.14.3}
-\contentsline {subsection}{\numberline {14.14.4}References}{58}{subsection.14.14.4}
-\contentsline {chapter}{\numberline {15}Menuconfig}{59}{chapter.15}
-\contentsline {section}{\numberline {15.1}Zephyr is like linux}{59}{section.15.1}
-\contentsline {chapter}{\numberline {16}Debugging}{61}{chapter.16}
-\contentsline {section}{\numberline {16.1}debugging}{61}{section.16.1}
-\contentsline {subsection}{\numberline {16.1.1}Segger JLink}{61}{subsection.16.1.1}
-\contentsline {subsection}{\numberline {16.1.2}Black Magic}{62}{subsection.16.1.2}
-\contentsline {subsection}{\numberline {16.1.3}STM32 \sphinxhyphen {} Raspberry \sphinxhyphen {} OpenOCD}{62}{subsection.16.1.3}
-\contentsline {section}{\numberline {16.2}debugging Posix}{62}{section.16.2}
-\contentsline {section}{\numberline {16.3}The black magic probe}{63}{section.16.3}
-\contentsline {subsection}{\numberline {16.3.1}probes in zephyr}{63}{subsection.16.3.1}
-\contentsline {subsection}{\numberline {16.3.2}howto setup a blackmagicprobe}{63}{subsection.16.3.2}
-\contentsline {section}{\numberline {16.4}pseudo}{64}{section.16.4}
-\contentsline {subsection}{\numberline {16.4.1}simulation on NATIVE\_POSIX\_64}{64}{subsection.16.4.1}
-\contentsline {section}{\numberline {16.5}Bsim}{65}{section.16.5}
-\contentsline {subsection}{\numberline {16.5.1}debugging on nrf52\_bsim}{65}{subsection.16.5.1}
-\contentsline {section}{\numberline {16.6}Segger RTT (Real Time Transfer)}{65}{section.16.6}
-\contentsline {section}{\numberline {16.7}Serial data without a serial port}{65}{section.16.7}
-\contentsline {chapter}{\numberline {17}Hacking stuff}{67}{chapter.17}
-\contentsline {section}{\numberline {17.1}hacking the pinetime smartwatch}{67}{section.17.1}
-\contentsline {section}{\numberline {17.2}scanning the I2C\_1 port}{68}{section.17.2}
-\contentsline {subsection}{\numberline {17.2.1}Building and Running}{68}{subsection.17.2.1}
-\contentsline {section}{\numberline {17.3}howto flash your zephyr image}{69}{section.17.3}
-\contentsline {section}{\numberline {17.4}howto remove the write protection}{69}{section.17.4}
-\contentsline {section}{\numberline {17.5}howto configure gateway}{69}{section.17.5}
-\contentsline {section}{\numberline {17.6}howto use 2 openocd sessions}{70}{section.17.6}
-\contentsline {subsection}{\numberline {17.6.1}Suppose you have 2 microcontrollers}{71}{subsection.17.6.1}
-\contentsline {subsection}{\numberline {17.6.2}Howto setup a second openocd session on a different port?}{71}{subsection.17.6.2}
-\contentsline {subsection}{\numberline {17.6.3}Howto use the GPIO header of a Single Board computer}{71}{subsection.17.6.3}
-\contentsline {section}{\numberline {17.7}howto generate pdf documents}{71}{section.17.7}
-\contentsline {section}{\numberline {17.8}The Movie}{71}{section.17.8}
-\contentsline {subsection}{\numberline {17.8.1}editing :}{71}{subsection.17.8.1}
-\contentsline {subsection}{\numberline {17.8.2}script :}{72}{subsection.17.8.2}
-\contentsline {subsection}{\numberline {17.8.3}Camera :}{72}{subsection.17.8.3}
-\contentsline {subsection}{\numberline {17.8.4}Voice over :}{72}{subsection.17.8.4}
-\contentsline {subsection}{\numberline {17.8.5}Music by Beethoven:}{72}{subsection.17.8.5}
-\contentsline {chapter}{\numberline {18}Behind the scene}{73}{chapter.18}
-\contentsline {section}{\numberline {18.1}Touchscreen}{73}{section.18.1}
-\contentsline {subsection}{\numberline {18.1.1}Overview}{73}{subsection.18.1.1}
-\contentsline {subsection}{\numberline {18.1.2}Requirements}{73}{subsection.18.1.2}
-\contentsline {subsection}{\numberline {18.1.3}Building and Running}{73}{subsection.18.1.3}
-\contentsline {subsection}{\numberline {18.1.4}Todo}{73}{subsection.18.1.4}
-\contentsline {subsection}{\numberline {18.1.5}References}{73}{subsection.18.1.5}
-\contentsline {section}{\numberline {18.2}placing a button on the screen}{73}{section.18.2}
-\contentsline {subsection}{\numberline {18.2.1}Building and Running}{74}{subsection.18.2.1}
-\contentsline {chapter}{\numberline {19}About}{75}{chapter.19}
-\contentsline {chapter}{\numberline {20}Author}{77}{chapter.20}
+\contentsline {chapter}{\numberline {13}Bluetooth Notification}{41}{chapter.13}
+\contentsline {section}{\numberline {13.1}What?}{41}{section.13.1}
+\contentsline {section}{\numberline {13.2}How?}{41}{section.13.2}
+\contentsline {section}{\numberline {13.3}Bluez}{41}{section.13.3}
+\contentsline {section}{\numberline {13.4}A word on attributes}{42}{section.13.4}
+\contentsline {section}{\numberline {13.5}Attribute Handle}{42}{section.13.5}
+\contentsline {section}{\numberline {13.6}Python}{42}{section.13.6}
+\contentsline {chapter}{\numberline {14}Firmware Over The Air (FOTA)}{43}{chapter.14}
+\contentsline {section}{\numberline {14.1}Wireless Device Firmware Upgrade}{43}{section.14.1}
+\contentsline {subsection}{\numberline {14.1.1}Overview}{43}{subsection.14.1.1}
+\contentsline {section}{\numberline {14.2}MCUboot with zephyr}{43}{section.14.2}
+\contentsline {section}{\numberline {14.3}Partitions}{44}{section.14.3}
+\contentsline {subsection}{\numberline {14.3.1}Defining partitions for MCUboot}{44}{subsection.14.3.1}
+\contentsline {subsection}{\numberline {14.3.2}Using NOR flash in partitions}{44}{subsection.14.3.2}
+\contentsline {section}{\numberline {14.4}Signing an application}{46}{section.14.4}
+\contentsline {subsection}{\numberline {14.4.1}Generating a new keypair}{46}{subsection.14.4.1}
+\contentsline {subsection}{\numberline {14.4.2}Extracting the public key}{46}{subsection.14.4.2}
+\contentsline {subsection}{\numberline {14.4.3}Example}{46}{subsection.14.4.3}
+\contentsline {section}{\numberline {14.5}SMP Server Sample}{46}{section.14.5}
+\contentsline {subsection}{\numberline {14.5.1}Overview}{46}{subsection.14.5.1}
+\contentsline {subsection}{\numberline {14.5.2}Requirements}{47}{subsection.14.5.2}
+\contentsline {subsection}{\numberline {14.5.3}Building and Running}{47}{subsection.14.5.3}
+\contentsline {subsubsection}{Step 1: Build smp\_svr}{47}{subsubsection*.16}
+\contentsline {subsubsection}{Step 2: Sign the image}{47}{subsubsection*.17}
+\contentsline {subsubsection}{Step 3: Flash the smp\_svr image}{47}{subsubsection*.18}
+\contentsline {subsubsection}{Step 4: Run it!}{48}{subsubsection*.19}
+\contentsline {subsubsection}{Step 5: Device Firmware Upgrade}{48}{subsubsection*.20}
+\contentsline {paragraph}{List the images}{48}{paragraph*.21}
+\contentsline {paragraph}{Test the image}{49}{paragraph*.22}
+\contentsline {paragraph}{Reset remotely}{49}{paragraph*.23}
+\contentsline {chapter}{\numberline {15}Samples}{51}{chapter.15}
+\contentsline {section}{\numberline {15.1}Battery OSWatch Framework}{51}{section.15.1}
+\contentsline {subsection}{\numberline {15.1.1}Todo}{51}{subsection.15.1.1}
+\contentsline {subsection}{\numberline {15.1.2}Overview}{51}{subsection.15.1.2}
+\contentsline {subsection}{\numberline {15.1.3}Requirements}{51}{subsection.15.1.3}
+\contentsline {subsection}{\numberline {15.1.4}Building and Running}{51}{subsection.15.1.4}
+\contentsline {subsection}{\numberline {15.1.5}References}{51}{subsection.15.1.5}
+\contentsline {section}{\numberline {15.2}OSWatch bluetooth setting parameters}{51}{section.15.2}
+\contentsline {subsection}{\numberline {15.2.1}Overview}{51}{subsection.15.2.1}
+\contentsline {subsection}{\numberline {15.2.2}Bluetooth}{52}{subsection.15.2.2}
+\contentsline {subsection}{\numberline {15.2.3}Requirements}{52}{subsection.15.2.3}
+\contentsline {subsection}{\numberline {15.2.4}Building and Running}{52}{subsection.15.2.4}
+\contentsline {subsection}{\numberline {15.2.5}References}{52}{subsection.15.2.5}
+\contentsline {section}{\numberline {15.3}Setting up an alarm/calendar event}{52}{section.15.3}
+\contentsline {subsection}{\numberline {15.3.1}Overview}{52}{subsection.15.3.1}
+\contentsline {subsection}{\numberline {15.3.2}Requirements}{52}{subsection.15.3.2}
+\contentsline {subsection}{\numberline {15.3.3}Building and Running}{52}{subsection.15.3.3}
+\contentsline {subsection}{\numberline {15.3.4}References}{53}{subsection.15.3.4}
+\contentsline {section}{\numberline {15.4}Current Time Setting OSWatch Framework}{53}{section.15.4}
+\contentsline {subsection}{\numberline {15.4.1}Overview}{53}{subsection.15.4.1}
+\contentsline {subsection}{\numberline {15.4.2}Requirements}{53}{subsection.15.4.2}
+\contentsline {subsection}{\numberline {15.4.3}Building and Running}{53}{subsection.15.4.3}
+\contentsline {subsection}{\numberline {15.4.4}References}{53}{subsection.15.4.4}
+\contentsline {section}{\numberline {15.5}FOTA OSWatch Framework}{53}{section.15.5}
+\contentsline {subsection}{\numberline {15.5.1}Todo}{53}{subsection.15.5.1}
+\contentsline {subsection}{\numberline {15.5.2}Overview}{53}{subsection.15.5.2}
+\contentsline {subsection}{\numberline {15.5.3}Requirements}{54}{subsection.15.5.3}
+\contentsline {subsection}{\numberline {15.5.4}Building and Running}{54}{subsection.15.5.4}
+\contentsline {subsection}{\numberline {15.5.5}References}{54}{subsection.15.5.5}
+\contentsline {section}{\numberline {15.6}Basic OSWatch Framework}{54}{section.15.6}
+\contentsline {subsection}{\numberline {15.6.1}Overview}{54}{subsection.15.6.1}
+\contentsline {subsection}{\numberline {15.6.2}Remark}{54}{subsection.15.6.2}
+\contentsline {subsection}{\numberline {15.6.3}Requirements}{54}{subsection.15.6.3}
+\contentsline {subsection}{\numberline {15.6.4}Building and Running}{55}{subsection.15.6.4}
+\contentsline {subsection}{\numberline {15.6.5}References}{55}{subsection.15.6.5}
+\contentsline {section}{\numberline {15.7}HRS3300 Heart Rate Sensor}{55}{section.15.7}
+\contentsline {subsection}{\numberline {15.7.1}Overview}{55}{subsection.15.7.1}
+\contentsline {subsection}{\numberline {15.7.2}Building and Running}{55}{subsection.15.7.2}
+\contentsline {subsubsection}{Sample Output}{55}{subsubsection*.24}
+\contentsline {section}{\numberline {15.8}Character frame buffer}{55}{section.15.8}
+\contentsline {subsection}{\numberline {15.8.1}Overview}{55}{subsection.15.8.1}
+\contentsline {subsection}{\numberline {15.8.2}Building and Running}{55}{subsection.15.8.2}
+\contentsline {subsection}{\numberline {15.8.3}POSIX}{56}{subsection.15.8.3}
+\contentsline {subsection}{\numberline {15.8.4}Pinetime}{56}{subsection.15.8.4}
+\contentsline {section}{\numberline {15.9}Character Framebuffer Shell Module Sample}{56}{section.15.9}
+\contentsline {subsection}{\numberline {15.9.1}Overview}{56}{subsection.15.9.1}
+\contentsline {subsection}{\numberline {15.9.2}Building and Running}{56}{subsection.15.9.2}
+\contentsline {subsubsection}{Shell Module Command Help}{56}{subsubsection*.25}
+\contentsline {section}{\numberline {15.10}LittlevGL Basic Sample}{58}{section.15.10}
+\contentsline {subsection}{\numberline {15.10.1}Overview}{58}{subsection.15.10.1}
+\contentsline {subsection}{\numberline {15.10.2}Requirements}{58}{subsection.15.10.2}
+\contentsline {subsection}{\numberline {15.10.3}Building and Running}{58}{subsection.15.10.3}
+\contentsline {subsection}{\numberline {15.10.4}References}{58}{subsection.15.10.4}
+\contentsline {section}{\numberline {15.11}Lightsensor}{58}{section.15.11}
+\contentsline {section}{\numberline {15.12}LittlevGL SDL Button Sample}{58}{section.15.12}
+\contentsline {subsection}{\numberline {15.12.1}Overview}{58}{subsection.15.12.1}
+\contentsline {subsection}{\numberline {15.12.2}Requirements}{59}{subsection.15.12.2}
+\contentsline {subsection}{\numberline {15.12.3}Building and Running}{59}{subsection.15.12.3}
+\contentsline {subsection}{\numberline {15.12.4}References}{59}{subsection.15.12.4}
+\contentsline {section}{\numberline {15.13}LittlevGL SDL Button Sample}{59}{section.15.13}
+\contentsline {subsection}{\numberline {15.13.1}Overview}{59}{subsection.15.13.1}
+\contentsline {subsection}{\numberline {15.13.2}Requirements}{59}{subsection.15.13.2}
+\contentsline {subsection}{\numberline {15.13.3}Building and Running}{59}{subsection.15.13.3}
+\contentsline {subsection}{\numberline {15.13.4}References}{59}{subsection.15.13.4}
+\contentsline {section}{\numberline {15.14}Testing the timer refresh}{59}{section.15.14}
+\contentsline {subsection}{\numberline {15.14.1}Overview}{59}{subsection.15.14.1}
+\contentsline {subsection}{\numberline {15.14.2}Requirements}{59}{subsection.15.14.2}
+\contentsline {subsection}{\numberline {15.14.3}Building and Running}{60}{subsection.15.14.3}
+\contentsline {subsection}{\numberline {15.14.4}References}{60}{subsection.15.14.4}
+\contentsline {chapter}{\numberline {16}Menuconfig}{61}{chapter.16}
+\contentsline {section}{\numberline {16.1}Zephyr is like linux}{61}{section.16.1}
+\contentsline {chapter}{\numberline {17}Debugging}{63}{chapter.17}
+\contentsline {section}{\numberline {17.1}debugging}{63}{section.17.1}
+\contentsline {subsection}{\numberline {17.1.1}Segger JLink}{63}{subsection.17.1.1}
+\contentsline {subsection}{\numberline {17.1.2}Black Magic}{64}{subsection.17.1.2}
+\contentsline {subsection}{\numberline {17.1.3}STM32 \sphinxhyphen {} Raspberry \sphinxhyphen {} OpenOCD}{64}{subsection.17.1.3}
+\contentsline {section}{\numberline {17.2}debugging Posix}{64}{section.17.2}
+\contentsline {section}{\numberline {17.3}The black magic probe}{65}{section.17.3}
+\contentsline {subsection}{\numberline {17.3.1}probes in zephyr}{65}{subsection.17.3.1}
+\contentsline {subsection}{\numberline {17.3.2}howto setup a blackmagicprobe}{65}{subsection.17.3.2}
+\contentsline {section}{\numberline {17.4}pseudo}{66}{section.17.4}
+\contentsline {subsection}{\numberline {17.4.1}simulation on NATIVE\_POSIX\_64}{66}{subsection.17.4.1}
+\contentsline {section}{\numberline {17.5}Bsim}{67}{section.17.5}
+\contentsline {subsection}{\numberline {17.5.1}debugging on nrf52\_bsim}{67}{subsection.17.5.1}
+\contentsline {section}{\numberline {17.6}Segger RTT (Real Time Transfer)}{67}{section.17.6}
+\contentsline {section}{\numberline {17.7}Serial data without a serial port}{67}{section.17.7}
+\contentsline {chapter}{\numberline {18}Hacking stuff}{69}{chapter.18}
+\contentsline {section}{\numberline {18.1}hacking the pinetime smartwatch}{69}{section.18.1}
+\contentsline {section}{\numberline {18.2}scanning the I2C\_1 port}{70}{section.18.2}
+\contentsline {subsection}{\numberline {18.2.1}Building and Running}{70}{subsection.18.2.1}
+\contentsline {section}{\numberline {18.3}howto flash your zephyr image}{71}{section.18.3}
+\contentsline {section}{\numberline {18.4}howto remove the write protection}{71}{section.18.4}
+\contentsline {section}{\numberline {18.5}howto configure gateway}{71}{section.18.5}
+\contentsline {section}{\numberline {18.6}howto use 2 openocd sessions}{72}{section.18.6}
+\contentsline {subsection}{\numberline {18.6.1}Suppose you have 2 microcontrollers}{73}{subsection.18.6.1}
+\contentsline {subsection}{\numberline {18.6.2}Howto setup a second openocd session on a different port?}{73}{subsection.18.6.2}
+\contentsline {subsection}{\numberline {18.6.3}Howto use the GPIO header of a Single Board computer}{73}{subsection.18.6.3}
+\contentsline {section}{\numberline {18.7}howto generate pdf documents}{73}{section.18.7}
+\contentsline {section}{\numberline {18.8}The Movie}{73}{section.18.8}
+\contentsline {subsection}{\numberline {18.8.1}editing :}{73}{subsection.18.8.1}
+\contentsline {subsection}{\numberline {18.8.2}script :}{74}{subsection.18.8.2}
+\contentsline {subsection}{\numberline {18.8.3}Camera :}{74}{subsection.18.8.3}
+\contentsline {subsection}{\numberline {18.8.4}Voice over :}{74}{subsection.18.8.4}
+\contentsline {subsection}{\numberline {18.8.5}Music by Beethoven:}{74}{subsection.18.8.5}
+\contentsline {chapter}{\numberline {19}Behind the scene}{75}{chapter.19}
+\contentsline {section}{\numberline {19.1}Touchscreen}{75}{section.19.1}
+\contentsline {subsection}{\numberline {19.1.1}Overview}{75}{subsection.19.1.1}
+\contentsline {subsection}{\numberline {19.1.2}Requirements}{75}{subsection.19.1.2}
+\contentsline {subsection}{\numberline {19.1.3}Building and Running}{75}{subsection.19.1.3}
+\contentsline {subsection}{\numberline {19.1.4}Todo}{75}{subsection.19.1.4}
+\contentsline {subsection}{\numberline {19.1.5}References}{75}{subsection.19.1.5}
+\contentsline {section}{\numberline {19.2}placing a button on the screen}{75}{section.19.2}
+\contentsline {subsection}{\numberline {19.2.1}Building and Running}{76}{subsection.19.2.1}
+\contentsline {chapter}{\numberline {20}About}{77}{chapter.20}
+\contentsline {chapter}{\numberline {21}Author}{79}{chapter.21}

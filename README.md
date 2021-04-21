@@ -10,10 +10,13 @@ Included in this toolkit is a virtual watch, which you can run on your computer.
 
 ## Contributing to this project
 
-The pinetime board (watch) has become a part of the zephyr distribution.
+The pinetime board (watch) has become a part of the zephyr distribution. 
 
-You can contribute to this project, by adding your own board definition file, better coding, suggestions ...
+The zephyr project is very thorough in accepting code, board definitions etc ... which is very good indeed!
 
+I'm just a tinkerer, player, finding out things boy, maker ... which is very amateur-like from a zephyr-perspective.
+
+Anyone willing to take the samples in this repo and prepare/propose/incorporate them in the zephyr repo is welcome to do so.
 
 ## Where To Start?
 Read the tutorial! A helpful manual is included in the repository:
