@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LittlevGL SDL Button Sample</title>
+    <title>Bluetooth: transferring data to the watch</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/epub.css" type="text/css" /> 
   </head><body>
@@ -13,24 +13,28 @@
       <div class="documentwrapper">
           <div class="body" role="main">
             
-  <div class="section" id="littlevgl-sdl-button-sample">
-<span id="sdl-sample"></span><h1>LittlevGL SDL Button  Sample</h1>
+  <div class="section" id="bluetooth-transferring-data-to-the-watch">
+<span id="ble-peripheral"></span><h1>Bluetooth: transferring data to the watch</h1>
 <div class="section" id="overview">
 <h2>Overview</h2>
-<p>This sample application displays “a LED” and “a button”
-Long Press on the button and the LED changes “color”</p>
+<p>The same technique as in the cts-time setting is used.
+A python script on linux, running bluez, reads 3 parameters.</p>
+<p>The watch can read these parameters over bluetooth.</p>
+<p>This sketch is used as a building block.</p>
+<p>The gatt server python script is supplied. (values-gatt-server)
+It prompts to input 3 parameters (integers)
+You’ll need to run Bluez, start the script, and then connect to the watch, using bluetoothctl.</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements</h2>
-<p>This sample uses the native_posix solution, so no need for a real board.
-You’ll need to have a SDL library installed.</p>
+<ul class="simple">
+<li><p>BlueZ running on the host, or</p></li>
+<li><p>A board with BLE support</p></li>
+</ul>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running</h2>
-<p>west build -p -b native_posix_64 samples/sdlbutton</p>
-</div>
-<div class="section" id="references">
-<h2>References</h2>
+<p>See <span class="xref std std-ref">bluetooth samples section</span> for details.</p>
 </div>
 </div>
 

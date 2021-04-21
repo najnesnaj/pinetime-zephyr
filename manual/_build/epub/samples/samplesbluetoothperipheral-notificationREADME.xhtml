@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bluetooth: transferring data to the watch</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="bluetooth-transferring-data-to-the-watch">
+<span id="ble-peripheral"></span><h1>Bluetooth: transferring data to the watch</h1>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>The watch transmits 240 indexed values.
+It uses bluetoothnotification.
+There is no confirmation of reception. (a bit like UDP network traffic)</p>
+<p>This method is fast, and could be used to transmit measurement values in real time.</p>
+<p>A custom service and characteristic is used.</p>
+<dl class="simple">
+<dt>A phyton script is supplied :</dt><dd><ul class="simple">
+<li><p>the scrips scans for a specific device (since bluetoothmac is variable : a bit like DHCP in netwerk traffic)</p></li>
+<li><p>once the device is found, it switches on “notifications” and listens for incoming messages.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements</h2>
+<ul class="simple">
+<li><p>BlueZ running on the host, or</p></li>
+<li><p>A board with BLE support</p></li>
+</ul>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running</h2>
+<p>See <span class="xref std std-ref">bluetooth samples section</span> for details.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

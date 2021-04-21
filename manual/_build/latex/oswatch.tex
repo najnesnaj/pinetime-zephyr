@@ -2244,6 +2244,154 @@ for this you will need a Segger JLink Console
 \end{sphinxVerbatim}
 
 
+\section{Bluetooth: transferring data to the watch}
+\label{\detokenize{samples/samplesbluetoothperipheral-notificationREADME:bluetooth-transferring-data-to-the-watch}}\label{\detokenize{samples/samplesbluetoothperipheral-notificationREADME:ble-peripheral}}\label{\detokenize{samples/samplesbluetoothperipheral-notificationREADME::doc}}
+
+\subsection{Overview}
+\label{\detokenize{samples/samplesbluetoothperipheral-notificationREADME:overview}}
+The watch transmits 240 indexed values.
+It uses bluetoothnotification.
+There is no confirmation of reception. (a bit like UDP network traffic)
+
+This method is fast, and could be used to transmit measurement values in real time.
+
+A custom service and characteristic is used.
+\begin{description}
+\item[{A phyton script is supplied :}] \leavevmode\begin{itemize}
+\item {} 
+the scrips scans for a specific device (since bluetoothmac is variable : a bit like DHCP in netwerk traffic)
+
+\item {} 
+once the device is found, it switches on “notifications” and listens for incoming messages.
+
+\end{itemize}
+
+\end{description}
+
+
+\subsection{Requirements}
+\label{\detokenize{samples/samplesbluetoothperipheral-notificationREADME:requirements}}\begin{itemize}
+\item {} 
+BlueZ running on the host, or
+
+\item {} 
+A board with BLE support
+
+\end{itemize}
+
+
+\subsection{Building and Running}
+\label{\detokenize{samples/samplesbluetoothperipheral-notificationREADME:building-and-running}}
+See \DUrole{xref,std,std-ref}{bluetooth samples section} for details.
+
+
+\section{Bluetooth: transferring data to the watch}
+\label{\detokenize{samples/samplesbluetoothperipheralREADME:bluetooth-transferring-data-to-the-watch}}\label{\detokenize{samples/samplesbluetoothperipheralREADME:ble-peripheral}}\label{\detokenize{samples/samplesbluetoothperipheralREADME::doc}}
+
+\subsection{Overview}
+\label{\detokenize{samples/samplesbluetoothperipheralREADME:overview}}
+The same technique as in the cts\sphinxhyphen{}time setting is used.
+A python script on linux, running bluez, reads 3 parameters.
+
+The watch can read these parameters over bluetooth.
+
+This sketch is used as a building block.
+
+The gatt server python script is supplied. (values\sphinxhyphen{}gatt\sphinxhyphen{}server)
+It prompts to input 3 parameters (integers)
+You’ll need to run Bluez, start the script, and then connect to the watch, using bluetoothctl.
+
+
+\subsection{Requirements}
+\label{\detokenize{samples/samplesbluetoothperipheralREADME:requirements}}\begin{itemize}
+\item {} 
+BlueZ running on the host, or
+
+\item {} 
+A board with BLE support
+
+\end{itemize}
+
+
+\subsection{Building and Running}
+\label{\detokenize{samples/samplesbluetoothperipheralREADME:building-and-running}}
+See \DUrole{xref,std,std-ref}{bluetooth samples section} for details.
+
+
+\section{Pinetime  Button  Sample}
+\label{\detokenize{samples/samplesbuttonpinebuttonREADME:pinetime-button-sample}}\label{\detokenize{samples/samplesbuttonpinebuttonREADME:pinebutton-sample}}\label{\detokenize{samples/samplesbuttonpinebuttonREADME::doc}}
+
+\subsection{Overview}
+\label{\detokenize{samples/samplesbuttonpinebuttonREADME:overview}}
+The button on the pinetime uses 2(!) GPIO ports.
+
+This sample application displays “a LED”;
+Long Press on the button and the LED changes “color”
+Short Press toggles the LED.
+
+Several messages are printed to the serial port.
+In order to view these you will need a segger JLink probe (RTT).
+
+
+\subsection{Requirements}
+\label{\detokenize{samples/samplesbuttonpinebuttonREADME:requirements}}
+pinetime
+segger jlink debugprobe
+
+
+\subsection{Building and Running}
+\label{\detokenize{samples/samplesbuttonpinebuttonREADME:building-and-running}}
+west build \sphinxhyphen{}p \sphinxhyphen{}b pintime\_devkit1  samples/button/pinebutton
+
+
+\subsection{References}
+\label{\detokenize{samples/samplesbuttonpinebuttonREADME:references}}
+
+\section{SDL Button Timer  Sample}
+\label{\detokenize{samples/samplesbuttonsdlbutton2README:sdl-button-timer-sample}}\label{\detokenize{samples/samplesbuttonsdlbutton2README:sdlb-sample}}\label{\detokenize{samples/samplesbuttonsdlbutton2README::doc}}
+
+\subsection{Overview}
+\label{\detokenize{samples/samplesbuttonsdlbutton2README:overview}}
+Use a timer to distinguish between long press ,short press and double\sphinxhyphen{}click.
+
+
+\subsection{Requirements}
+\label{\detokenize{samples/samplesbuttonsdlbutton2README:requirements}}
+This sample uses the native\_posix solution, so no need for a real board.
+You’ll need to have a SDL library installed.
+
+
+\subsection{Building and Running}
+\label{\detokenize{samples/samplesbuttonsdlbutton2README:building-and-running}}
+west build \sphinxhyphen{}p \sphinxhyphen{}b native\_posix\_64 samples/sdlbutton2
+
+
+\subsection{References}
+\label{\detokenize{samples/samplesbuttonsdlbutton2README:references}}
+
+\section{LittlevGL SDL Button  Sample}
+\label{\detokenize{samples/samplesbuttonsdlbuttonREADME:littlevgl-sdl-button-sample}}\label{\detokenize{samples/samplesbuttonsdlbuttonREADME:sdlb-sample}}\label{\detokenize{samples/samplesbuttonsdlbuttonREADME::doc}}
+
+\subsection{Overview}
+\label{\detokenize{samples/samplesbuttonsdlbuttonREADME:overview}}
+This sample application displays “a LED” and “a button”
+Long Press on the button and the LED changes “color”
+
+
+\subsection{Requirements}
+\label{\detokenize{samples/samplesbuttonsdlbuttonREADME:requirements}}
+This sample uses the native\_posix solution, so no need for a real board.
+You’ll need to have a SDL library installed.
+
+
+\subsection{Building and Running}
+\label{\detokenize{samples/samplesbuttonsdlbuttonREADME:building-and-running}}
+west build \sphinxhyphen{}p \sphinxhyphen{}b native\_posix\_64 samples/sdlbutton
+
+
+\subsection{References}
+\label{\detokenize{samples/samplesbuttonsdlbuttonREADME:references}}
+
 \section{Character frame buffer}
 \label{\detokenize{samples/samplescfbREADME:character-frame-buffer}}\label{\detokenize{samples/samplescfbREADME:character-frame-buffer-sample}}\label{\detokenize{samples/samplescfbREADME::doc}}
 
@@ -2464,52 +2612,6 @@ In order to function it needs the modified driver.
 Notice :  in Kconfig MAX44009NEW was defined to avoid confusion with existing driver max44009
 (this way the original does not get selected)
 
-
-\section{LittlevGL SDL Button  Sample}
-\label{\detokenize{samples/samplespinebuttonREADME:littlevgl-sdl-button-sample}}\label{\detokenize{samples/samplespinebuttonREADME:sdl-sample}}\label{\detokenize{samples/samplespinebuttonREADME::doc}}
-
-\subsection{Overview}
-\label{\detokenize{samples/samplespinebuttonREADME:overview}}
-This sample application displays “a LED” and “a button”
-Long Press on the button and the LED changes “color”
-
-
-\subsection{Requirements}
-\label{\detokenize{samples/samplespinebuttonREADME:requirements}}
-This sample uses the native\_posix solution, so no need for a real board.
-You’ll need to have a SDL library installed.
-
-
-\subsection{Building and Running}
-\label{\detokenize{samples/samplespinebuttonREADME:building-and-running}}
-west build \sphinxhyphen{}p \sphinxhyphen{}b native\_posix\_64 samples/sdlbutton
-
-
-\subsection{References}
-\label{\detokenize{samples/samplespinebuttonREADME:references}}
-
-\section{LittlevGL SDL Button  Sample}
-\label{\detokenize{samples/samplessdlbuttonREADME:littlevgl-sdl-button-sample}}\label{\detokenize{samples/samplessdlbuttonREADME:sdl-sample}}\label{\detokenize{samples/samplessdlbuttonREADME::doc}}
-
-\subsection{Overview}
-\label{\detokenize{samples/samplessdlbuttonREADME:overview}}
-This sample application displays “a LED” and “a button”
-Long Press on the button and the LED changes “color”
-
-
-\subsection{Requirements}
-\label{\detokenize{samples/samplessdlbuttonREADME:requirements}}
-This sample uses the native\_posix solution, so no need for a real board.
-You’ll need to have a SDL library installed.
-
-
-\subsection{Building and Running}
-\label{\detokenize{samples/samplessdlbuttonREADME:building-and-running}}
-west build \sphinxhyphen{}p \sphinxhyphen{}b native\_posix\_64 samples/sdlbutton
-
-
-\subsection{References}
-\label{\detokenize{samples/samplessdlbuttonREADME:references}}
 
 \section{Testing the timer refresh}
 \label{\detokenize{samples/samplestimerREADME:testing-the-timer-refresh}}\label{\detokenize{samples/samplestimerREADME:sdl-sample}}\label{\detokenize{samples/samplestimerREADME::doc}}

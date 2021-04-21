@@ -178,79 +178,92 @@
 \contentsline {subsection}{\numberline {15.7.1}Overview}{55}{subsection.15.7.1}
 \contentsline {subsection}{\numberline {15.7.2}Building and Running}{55}{subsection.15.7.2}
 \contentsline {subsubsection}{Sample Output}{55}{subsubsection*.24}
-\contentsline {section}{\numberline {15.8}Character frame buffer}{55}{section.15.8}
+\contentsline {section}{\numberline {15.8}Bluetooth: transferring data to the watch}{55}{section.15.8}
 \contentsline {subsection}{\numberline {15.8.1}Overview}{55}{subsection.15.8.1}
-\contentsline {subsection}{\numberline {15.8.2}Building and Running}{55}{subsection.15.8.2}
-\contentsline {subsection}{\numberline {15.8.3}POSIX}{56}{subsection.15.8.3}
-\contentsline {subsection}{\numberline {15.8.4}Pinetime}{56}{subsection.15.8.4}
-\contentsline {section}{\numberline {15.9}Character Framebuffer Shell Module Sample}{56}{section.15.9}
+\contentsline {subsection}{\numberline {15.8.2}Requirements}{56}{subsection.15.8.2}
+\contentsline {subsection}{\numberline {15.8.3}Building and Running}{56}{subsection.15.8.3}
+\contentsline {section}{\numberline {15.9}Bluetooth: transferring data to the watch}{56}{section.15.9}
 \contentsline {subsection}{\numberline {15.9.1}Overview}{56}{subsection.15.9.1}
-\contentsline {subsection}{\numberline {15.9.2}Building and Running}{56}{subsection.15.9.2}
-\contentsline {subsubsection}{Shell Module Command Help}{56}{subsubsection*.25}
-\contentsline {section}{\numberline {15.10}LittlevGL Basic Sample}{58}{section.15.10}
-\contentsline {subsection}{\numberline {15.10.1}Overview}{58}{subsection.15.10.1}
-\contentsline {subsection}{\numberline {15.10.2}Requirements}{58}{subsection.15.10.2}
-\contentsline {subsection}{\numberline {15.10.3}Building and Running}{58}{subsection.15.10.3}
-\contentsline {subsection}{\numberline {15.10.4}References}{58}{subsection.15.10.4}
-\contentsline {section}{\numberline {15.11}Lightsensor}{58}{section.15.11}
-\contentsline {section}{\numberline {15.12}LittlevGL SDL Button Sample}{58}{section.15.12}
-\contentsline {subsection}{\numberline {15.12.1}Overview}{58}{subsection.15.12.1}
-\contentsline {subsection}{\numberline {15.12.2}Requirements}{59}{subsection.15.12.2}
-\contentsline {subsection}{\numberline {15.12.3}Building and Running}{59}{subsection.15.12.3}
-\contentsline {subsection}{\numberline {15.12.4}References}{59}{subsection.15.12.4}
-\contentsline {section}{\numberline {15.13}LittlevGL SDL Button Sample}{59}{section.15.13}
-\contentsline {subsection}{\numberline {15.13.1}Overview}{59}{subsection.15.13.1}
-\contentsline {subsection}{\numberline {15.13.2}Requirements}{59}{subsection.15.13.2}
-\contentsline {subsection}{\numberline {15.13.3}Building and Running}{59}{subsection.15.13.3}
-\contentsline {subsection}{\numberline {15.13.4}References}{59}{subsection.15.13.4}
-\contentsline {section}{\numberline {15.14}Testing the timer refresh}{59}{section.15.14}
-\contentsline {subsection}{\numberline {15.14.1}Overview}{59}{subsection.15.14.1}
-\contentsline {subsection}{\numberline {15.14.2}Requirements}{59}{subsection.15.14.2}
-\contentsline {subsection}{\numberline {15.14.3}Building and Running}{60}{subsection.15.14.3}
-\contentsline {subsection}{\numberline {15.14.4}References}{60}{subsection.15.14.4}
-\contentsline {chapter}{\numberline {16}Menuconfig}{61}{chapter.16}
-\contentsline {section}{\numberline {16.1}Zephyr is like linux}{61}{section.16.1}
-\contentsline {chapter}{\numberline {17}Debugging}{63}{chapter.17}
-\contentsline {section}{\numberline {17.1}debugging}{63}{section.17.1}
-\contentsline {subsection}{\numberline {17.1.1}Segger JLink}{63}{subsection.17.1.1}
-\contentsline {subsection}{\numberline {17.1.2}Black Magic}{64}{subsection.17.1.2}
-\contentsline {subsection}{\numberline {17.1.3}STM32 \sphinxhyphen {} Raspberry \sphinxhyphen {} OpenOCD}{64}{subsection.17.1.3}
-\contentsline {section}{\numberline {17.2}debugging Posix}{64}{section.17.2}
-\contentsline {section}{\numberline {17.3}The black magic probe}{65}{section.17.3}
-\contentsline {subsection}{\numberline {17.3.1}probes in zephyr}{65}{subsection.17.3.1}
-\contentsline {subsection}{\numberline {17.3.2}howto setup a blackmagicprobe}{65}{subsection.17.3.2}
-\contentsline {section}{\numberline {17.4}pseudo}{66}{section.17.4}
-\contentsline {subsection}{\numberline {17.4.1}simulation on NATIVE\_POSIX\_64}{66}{subsection.17.4.1}
-\contentsline {section}{\numberline {17.5}Bsim}{67}{section.17.5}
-\contentsline {subsection}{\numberline {17.5.1}debugging on nrf52\_bsim}{67}{subsection.17.5.1}
-\contentsline {section}{\numberline {17.6}Segger RTT (Real Time Transfer)}{67}{section.17.6}
-\contentsline {section}{\numberline {17.7}Serial data without a serial port}{67}{section.17.7}
-\contentsline {chapter}{\numberline {18}Hacking stuff}{69}{chapter.18}
-\contentsline {section}{\numberline {18.1}hacking the pinetime smartwatch}{69}{section.18.1}
-\contentsline {section}{\numberline {18.2}scanning the I2C\_1 port}{70}{section.18.2}
-\contentsline {subsection}{\numberline {18.2.1}Building and Running}{70}{subsection.18.2.1}
-\contentsline {section}{\numberline {18.3}howto flash your zephyr image}{71}{section.18.3}
-\contentsline {section}{\numberline {18.4}howto remove the write protection}{71}{section.18.4}
-\contentsline {section}{\numberline {18.5}howto configure gateway}{71}{section.18.5}
-\contentsline {section}{\numberline {18.6}howto use 2 openocd sessions}{72}{section.18.6}
-\contentsline {subsection}{\numberline {18.6.1}Suppose you have 2 microcontrollers}{73}{subsection.18.6.1}
-\contentsline {subsection}{\numberline {18.6.2}Howto setup a second openocd session on a different port?}{73}{subsection.18.6.2}
-\contentsline {subsection}{\numberline {18.6.3}Howto use the GPIO header of a Single Board computer}{73}{subsection.18.6.3}
-\contentsline {section}{\numberline {18.7}howto generate pdf documents}{73}{section.18.7}
-\contentsline {section}{\numberline {18.8}The Movie}{73}{section.18.8}
-\contentsline {subsection}{\numberline {18.8.1}editing :}{73}{subsection.18.8.1}
-\contentsline {subsection}{\numberline {18.8.2}script :}{74}{subsection.18.8.2}
-\contentsline {subsection}{\numberline {18.8.3}Camera :}{74}{subsection.18.8.3}
-\contentsline {subsection}{\numberline {18.8.4}Voice over :}{74}{subsection.18.8.4}
-\contentsline {subsection}{\numberline {18.8.5}Music by Beethoven:}{74}{subsection.18.8.5}
-\contentsline {chapter}{\numberline {19}Behind the scene}{75}{chapter.19}
-\contentsline {section}{\numberline {19.1}Touchscreen}{75}{section.19.1}
-\contentsline {subsection}{\numberline {19.1.1}Overview}{75}{subsection.19.1.1}
-\contentsline {subsection}{\numberline {19.1.2}Requirements}{75}{subsection.19.1.2}
-\contentsline {subsection}{\numberline {19.1.3}Building and Running}{75}{subsection.19.1.3}
-\contentsline {subsection}{\numberline {19.1.4}Todo}{75}{subsection.19.1.4}
-\contentsline {subsection}{\numberline {19.1.5}References}{75}{subsection.19.1.5}
-\contentsline {section}{\numberline {19.2}placing a button on the screen}{75}{section.19.2}
-\contentsline {subsection}{\numberline {19.2.1}Building and Running}{76}{subsection.19.2.1}
-\contentsline {chapter}{\numberline {20}About}{77}{chapter.20}
-\contentsline {chapter}{\numberline {21}Author}{79}{chapter.21}
+\contentsline {subsection}{\numberline {15.9.2}Requirements}{56}{subsection.15.9.2}
+\contentsline {subsection}{\numberline {15.9.3}Building and Running}{56}{subsection.15.9.3}
+\contentsline {section}{\numberline {15.10}Pinetime Button Sample}{56}{section.15.10}
+\contentsline {subsection}{\numberline {15.10.1}Overview}{56}{subsection.15.10.1}
+\contentsline {subsection}{\numberline {15.10.2}Requirements}{57}{subsection.15.10.2}
+\contentsline {subsection}{\numberline {15.10.3}Building and Running}{57}{subsection.15.10.3}
+\contentsline {subsection}{\numberline {15.10.4}References}{57}{subsection.15.10.4}
+\contentsline {section}{\numberline {15.11}SDL Button Timer Sample}{57}{section.15.11}
+\contentsline {subsection}{\numberline {15.11.1}Overview}{57}{subsection.15.11.1}
+\contentsline {subsection}{\numberline {15.11.2}Requirements}{57}{subsection.15.11.2}
+\contentsline {subsection}{\numberline {15.11.3}Building and Running}{57}{subsection.15.11.3}
+\contentsline {subsection}{\numberline {15.11.4}References}{57}{subsection.15.11.4}
+\contentsline {section}{\numberline {15.12}LittlevGL SDL Button Sample}{57}{section.15.12}
+\contentsline {subsection}{\numberline {15.12.1}Overview}{57}{subsection.15.12.1}
+\contentsline {subsection}{\numberline {15.12.2}Requirements}{57}{subsection.15.12.2}
+\contentsline {subsection}{\numberline {15.12.3}Building and Running}{58}{subsection.15.12.3}
+\contentsline {subsection}{\numberline {15.12.4}References}{58}{subsection.15.12.4}
+\contentsline {section}{\numberline {15.13}Character frame buffer}{58}{section.15.13}
+\contentsline {subsection}{\numberline {15.13.1}Overview}{58}{subsection.15.13.1}
+\contentsline {subsection}{\numberline {15.13.2}Building and Running}{58}{subsection.15.13.2}
+\contentsline {subsection}{\numberline {15.13.3}POSIX}{58}{subsection.15.13.3}
+\contentsline {subsection}{\numberline {15.13.4}Pinetime}{58}{subsection.15.13.4}
+\contentsline {section}{\numberline {15.14}Character Framebuffer Shell Module Sample}{58}{section.15.14}
+\contentsline {subsection}{\numberline {15.14.1}Overview}{58}{subsection.15.14.1}
+\contentsline {subsection}{\numberline {15.14.2}Building and Running}{59}{subsection.15.14.2}
+\contentsline {subsubsection}{Shell Module Command Help}{59}{subsubsection*.25}
+\contentsline {section}{\numberline {15.15}LittlevGL Basic Sample}{60}{section.15.15}
+\contentsline {subsection}{\numberline {15.15.1}Overview}{60}{subsection.15.15.1}
+\contentsline {subsection}{\numberline {15.15.2}Requirements}{60}{subsection.15.15.2}
+\contentsline {subsection}{\numberline {15.15.3}Building and Running}{61}{subsection.15.15.3}
+\contentsline {subsection}{\numberline {15.15.4}References}{61}{subsection.15.15.4}
+\contentsline {section}{\numberline {15.16}Lightsensor}{61}{section.15.16}
+\contentsline {section}{\numberline {15.17}Testing the timer refresh}{61}{section.15.17}
+\contentsline {subsection}{\numberline {15.17.1}Overview}{61}{subsection.15.17.1}
+\contentsline {subsection}{\numberline {15.17.2}Requirements}{61}{subsection.15.17.2}
+\contentsline {subsection}{\numberline {15.17.3}Building and Running}{61}{subsection.15.17.3}
+\contentsline {subsection}{\numberline {15.17.4}References}{61}{subsection.15.17.4}
+\contentsline {chapter}{\numberline {16}Menuconfig}{63}{chapter.16}
+\contentsline {section}{\numberline {16.1}Zephyr is like linux}{63}{section.16.1}
+\contentsline {chapter}{\numberline {17}Debugging}{65}{chapter.17}
+\contentsline {section}{\numberline {17.1}debugging}{65}{section.17.1}
+\contentsline {subsection}{\numberline {17.1.1}Segger JLink}{65}{subsection.17.1.1}
+\contentsline {subsection}{\numberline {17.1.2}Black Magic}{66}{subsection.17.1.2}
+\contentsline {subsection}{\numberline {17.1.3}STM32 \sphinxhyphen {} Raspberry \sphinxhyphen {} OpenOCD}{66}{subsection.17.1.3}
+\contentsline {section}{\numberline {17.2}debugging Posix}{66}{section.17.2}
+\contentsline {section}{\numberline {17.3}The black magic probe}{67}{section.17.3}
+\contentsline {subsection}{\numberline {17.3.1}probes in zephyr}{67}{subsection.17.3.1}
+\contentsline {subsection}{\numberline {17.3.2}howto setup a blackmagicprobe}{67}{subsection.17.3.2}
+\contentsline {section}{\numberline {17.4}pseudo}{68}{section.17.4}
+\contentsline {subsection}{\numberline {17.4.1}simulation on NATIVE\_POSIX\_64}{68}{subsection.17.4.1}
+\contentsline {section}{\numberline {17.5}Bsim}{69}{section.17.5}
+\contentsline {subsection}{\numberline {17.5.1}debugging on nrf52\_bsim}{69}{subsection.17.5.1}
+\contentsline {section}{\numberline {17.6}Segger RTT (Real Time Transfer)}{69}{section.17.6}
+\contentsline {section}{\numberline {17.7}Serial data without a serial port}{69}{section.17.7}
+\contentsline {chapter}{\numberline {18}Hacking stuff}{71}{chapter.18}
+\contentsline {section}{\numberline {18.1}hacking the pinetime smartwatch}{71}{section.18.1}
+\contentsline {section}{\numberline {18.2}scanning the I2C\_1 port}{72}{section.18.2}
+\contentsline {subsection}{\numberline {18.2.1}Building and Running}{72}{subsection.18.2.1}
+\contentsline {section}{\numberline {18.3}howto flash your zephyr image}{73}{section.18.3}
+\contentsline {section}{\numberline {18.4}howto remove the write protection}{73}{section.18.4}
+\contentsline {section}{\numberline {18.5}howto configure gateway}{73}{section.18.5}
+\contentsline {section}{\numberline {18.6}howto use 2 openocd sessions}{74}{section.18.6}
+\contentsline {subsection}{\numberline {18.6.1}Suppose you have 2 microcontrollers}{75}{subsection.18.6.1}
+\contentsline {subsection}{\numberline {18.6.2}Howto setup a second openocd session on a different port?}{75}{subsection.18.6.2}
+\contentsline {subsection}{\numberline {18.6.3}Howto use the GPIO header of a Single Board computer}{75}{subsection.18.6.3}
+\contentsline {section}{\numberline {18.7}howto generate pdf documents}{75}{section.18.7}
+\contentsline {section}{\numberline {18.8}The Movie}{75}{section.18.8}
+\contentsline {subsection}{\numberline {18.8.1}editing :}{75}{subsection.18.8.1}
+\contentsline {subsection}{\numberline {18.8.2}script :}{76}{subsection.18.8.2}
+\contentsline {subsection}{\numberline {18.8.3}Camera :}{76}{subsection.18.8.3}
+\contentsline {subsection}{\numberline {18.8.4}Voice over :}{76}{subsection.18.8.4}
+\contentsline {subsection}{\numberline {18.8.5}Music by Beethoven:}{76}{subsection.18.8.5}
+\contentsline {chapter}{\numberline {19}Behind the scene}{77}{chapter.19}
+\contentsline {section}{\numberline {19.1}Touchscreen}{77}{section.19.1}
+\contentsline {subsection}{\numberline {19.1.1}Overview}{77}{subsection.19.1.1}
+\contentsline {subsection}{\numberline {19.1.2}Requirements}{77}{subsection.19.1.2}
+\contentsline {subsection}{\numberline {19.1.3}Building and Running}{77}{subsection.19.1.3}
+\contentsline {subsection}{\numberline {19.1.4}Todo}{77}{subsection.19.1.4}
+\contentsline {subsection}{\numberline {19.1.5}References}{77}{subsection.19.1.5}
+\contentsline {section}{\numberline {19.2}placing a button on the screen}{77}{section.19.2}
+\contentsline {subsection}{\numberline {19.2.1}Building and Running}{78}{subsection.19.2.1}
+\contentsline {chapter}{\numberline {20}About}{79}{chapter.20}
+\contentsline {chapter}{\numberline {21}Author}{81}{chapter.21}

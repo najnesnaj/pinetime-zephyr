@@ -14,10 +14,13 @@ Samples
     oswatch-fotaREADME
     oswatchREADME
     README
+    samplesbluetoothperipheral-notificationREADME
+    samplesbluetoothperipheralREADME
+    samplesbuttonpinebuttonREADME
+    samplesbuttonsdlbutton2README
+    samplesbuttonsdlbuttonREADME
     samplescfbREADME
     samplescfb_shellREADME
     sampleslvglREADME
     samplesmax44009README
-    samplespinebuttonREADME
-    samplessdlbuttonREADME
     samplestimerREADME

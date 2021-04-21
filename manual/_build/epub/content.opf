@@ -12,8 +12,8 @@
     <dc:publisher>najnesnaj@yahoo.com</dc:publisher>
     <dc:rights>2020, jj</dc:rights>
     <dc:identifier id="unknown">unknown</dc:identifier>
-    <dc:date>2021-04-21T11:35:17Z</dc:date>
-    <meta property="dcterms:modified">2021-04-21T11:35:17Z</meta>
+    <dc:date>2021-04-21T12:00:22Z</dc:date>
+    <meta property="dcterms:modified">2021-04-21T12:00:22Z</meta>
     <meta property="ibooks:version">beta</meta>
     <meta property="ibooks:specified-fonts">true</meta>
     <meta property="ibooks:binding">true</meta>
@@ -92,13 +92,16 @@
     <item id="epub-67" href="samples/oswatch-ctsREADME.xhtml" media-type="application/xhtml+xml" />
     <item id="epub-68" href="samples/oswatch-fotaREADME.xhtml" media-type="application/xhtml+xml" />
     <item id="epub-69" href="samples/oswatchREADME.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-70" href="samples/samplescfbREADME.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-71" href="samples/samplescfb_shellREADME.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-72" href="samples/sampleslvglREADME.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-73" href="samples/samplesmax44009README.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-74" href="samples/samplespinebuttonREADME.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-75" href="samples/samplessdlbuttonREADME.xhtml" media-type="application/xhtml+xml" />
-    <item id="epub-76" href="samples/samplestimerREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-70" href="samples/samplesbluetoothperipheral-notificationREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-71" href="samples/samplesbluetoothperipheralREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-72" href="samples/samplesbuttonpinebuttonREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-73" href="samples/samplesbuttonsdlbutton2README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-74" href="samples/samplesbuttonsdlbuttonREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-75" href="samples/samplescfbREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-76" href="samples/samplescfb_shellREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-77" href="samples/sampleslvglREADME.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-78" href="samples/samplesmax44009README.xhtml" media-type="application/xhtml+xml" />
+    <item id="epub-79" href="samples/samplestimerREADME.xhtml" media-type="application/xhtml+xml" />
   </manifest>
   <spine toc="ncx" page-progression-direction="ltr">
     <itemref idref="epub-11" />
@@ -144,6 +147,9 @@
     <itemref idref="epub-74" />
     <itemref idref="epub-75" />
     <itemref idref="epub-76" />
+    <itemref idref="epub-77" />
+    <itemref idref="epub-78" />
+    <itemref idref="epub-79" />
     <itemref idref="epub-14" />
     <itemref idref="epub-36" />
     <itemref idref="epub-35" />

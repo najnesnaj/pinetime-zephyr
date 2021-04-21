@@ -1,13 +1,13 @@
-.. _SDL-sample:
+.. _SDLB-sample:
 
-LittlevGL SDL Button  Sample
+SDL Button Timer  Sample
 ############################
 
 Overview
 ********
 
-This sample application displays "a LED" and "a button"
-Long Press on the button and the LED changes "color" 
+Use a timer to distinguish between long press ,short press and double-click.
+
 
 Requirements
 ************
@@ -18,7 +18,7 @@ You'll need to have a SDL library installed.
 Building and Running
 ********************
 
-west build -p -b native_posix_64 samples/sdlbutton
+west build -p -b native_posix_64 samples/sdlbutton2
 
 
 References

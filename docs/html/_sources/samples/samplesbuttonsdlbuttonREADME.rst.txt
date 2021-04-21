@@ -1,4 +1,4 @@
-.. _SDL-sample:
+.. _SDLB-sample:
 
 LittlevGL SDL Button  Sample
 ############################

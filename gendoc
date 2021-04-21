@@ -1,5 +1,5 @@
 cp -rfp /root/work/app .
-find /root/work/app -name README.rst | awk '{FS="/";print "cp "$0 " /root/work/pinetime-zephyr/manual/samples/"  $5 $6 $7}' > jj
+find /root/work/app -name README.rst | awk '{FS="/";print "cp "$0 " /root/work/pinetime-zephyr/manual/samples/"  $5 $6 $7 $8}' > jj
 chmod 777 jj
 ./jj
 cd manual/samples

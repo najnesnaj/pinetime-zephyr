@@ -118,6 +118,75 @@
             * Sample Output
 
 
+    * Bluetooth: transferring data to the watch
+
+
+        * Overview
+
+
+        * Requirements
+
+
+        * Building and Running
+
+
+    * Bluetooth: transferring data to the watch
+
+
+        * Overview
+
+
+        * Requirements
+
+
+        * Building and Running
+
+
+    * Pinetime  Button  Sample
+
+
+        * Overview
+
+
+        * Requirements
+
+
+        * Building and Running
+
+
+        * References
+
+
+    * SDL Button Timer  Sample
+
+
+        * Overview
+
+
+        * Requirements
+
+
+        * Building and Running
+
+
+        * References
+
+
+    * LittlevGL SDL Button  Sample
+
+
+        * Overview
+
+
+        * Requirements
+
+
+        * Building and Running
+
+
+        * References
+
+
     * Character frame buffer
 
 
@@ -161,36 +230,6 @@
 
 
     * Lightsensor
-
-
-    * LittlevGL SDL Button  Sample
-
-
-        * Overview
-
-
-        * Requirements
-
-
-        * Building and Running
-
-
-        * References
-
-
-    * LittlevGL SDL Button  Sample
-
-
-        * Overview
-
-
-        * Requirements
-
-
-        * Building and Running
-
-
-        * References
 
 
     * Testing the timer refresh
@@ -322,6 +361,75 @@
         * Sample Output
 
 
+* Bluetooth: transferring data to the watch
+
+
+    * Overview
+
+
+    * Requirements
+
+
+    * Building and Running
+
+
+* Bluetooth: transferring data to the watch
+
+
+    * Overview
+
+
+    * Requirements
+
+
+    * Building and Running
+
+
+* Pinetime  Button  Sample
+
+
+    * Overview
+
+
+    * Requirements
+
+
+    * Building and Running
+
+
+    * References
+
+
+* SDL Button Timer  Sample
+
+
+    * Overview
+
+
+    * Requirements
+
+
+    * Building and Running
+
+
+    * References
+
+
+* LittlevGL SDL Button  Sample
+
+
+    * Overview
+
+
+    * Requirements
+
+
+    * Building and Running
+
+
+    * References
+
+
 * Character frame buffer
 
 
@@ -365,36 +473,6 @@
 
 
 * Lightsensor
-
-
-* LittlevGL SDL Button  Sample
-
-
-    * Overview
-
-
-    * Requirements
-
-
-    * Building and Running
-
-
-    * References
-
-
-* LittlevGL SDL Button  Sample
-
-
-    * Overview
-
-
-    * Requirements
-
-
-    * Building and Running
-
-
-    * References
 
 
 * Testing the timer refresh
