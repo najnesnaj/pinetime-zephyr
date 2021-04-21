@@ -11,7 +11,16 @@ This sketch is used as a building block.
 
 The gatt server python script is supplied. (values-gatt-server)
 It prompts to input 3 parameters (integers)
-You’ll need to run Bluez, start the script, and then connect to the watch, using bluetoothctl.
+You’ll need to:
+
+> 
+> * run Bluez,
+
+
+> * start the script,
+
+
+> * and then connect to the watch, using bluetoothctl.
 
 ## Requirements
 

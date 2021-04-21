@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.9)  21 APR 2021 12:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.9)  21 APR 2021 17:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1326,7 +1326,7 @@ Chapter 17.
 <blackmagicd6.jpeg, id=1065, 550.055pt x 501.875pt>
 File: blackmagicd6.jpeg Graphic file (type jpg)
 <use blackmagicd6.jpeg>
-Package pdftex.def Info: blackmagicd6.jpeg  used on input line 2874.
+Package pdftex.def Info: blackmagicd6.jpeg  used on input line 2885.
 (pdftex.def)             Requested size: 469.77313pt x 428.63278pt.
  [67] [68 <./blackmagicd6.jpeg>] [69] [70]
 Chapter 18.
@@ -1345,21 +1345,21 @@ Chapter 20.
 ]
 Chapter 21.
 (./oswatch.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3400.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3411.
  [81]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3400.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3411.
  (./oswatch.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3400.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3400.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3411.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3411.
 
 Package rerunfilecheck Info: File `oswatch.out' has not changed.
-(rerunfilecheck)             Checksum: 6AF4C1C2DD791D6861DA8C35BF6960A5;17423.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3400.
+(rerunfilecheck)             Checksum: F9AE3AD8EC8CB6DA2E140D2372DB7DA6;17408.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3411.
  ) 
 Here is how much of TeX's memory you used:
  14509 strings out of 494923
- 208325 string characters out of 6180743
- 446687 words of memory out of 5000000
+ 208322 string characters out of 6180743
+ 446678 words of memory out of 5000000
  17143 multiletter control sequences out of 15000+600000
  52452 words of font info for 74 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
@@ -1374,7 +1374,7 @@ sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmri8a.pfb>
-Output written on oswatch.pdf (87 pages, 484612 bytes).
+Output written on oswatch.pdf (87 pages, 484674 bytes).
 PDF statistics:
  1276 PDF objects out of 1440 (max. 8388607)
  1154 compressed objects within 12 object streams

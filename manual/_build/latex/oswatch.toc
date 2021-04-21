@@ -178,7 +178,7 @@
 \contentsline {subsection}{\numberline {15.7.1}Overview}{55}{subsection.15.7.1}
 \contentsline {subsection}{\numberline {15.7.2}Building and Running}{55}{subsection.15.7.2}
 \contentsline {subsubsection}{Sample Output}{55}{subsubsection*.24}
-\contentsline {section}{\numberline {15.8}Bluetooth: transferring data to the watch}{55}{section.15.8}
+\contentsline {section}{\numberline {15.8}Bluetooth: getting data from the watch}{55}{section.15.8}
 \contentsline {subsection}{\numberline {15.8.1}Overview}{55}{subsection.15.8.1}
 \contentsline {subsection}{\numberline {15.8.2}Requirements}{56}{subsection.15.8.2}
 \contentsline {subsection}{\numberline {15.8.3}Building and Running}{56}{subsection.15.8.3}

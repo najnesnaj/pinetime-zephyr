@@ -1,7 +1,7 @@
 .. _ble_peripheral:
 
-Bluetooth: transferring data to the watch 
-#########################################
+Bluetooth: getting data from the watch 
+######################################
 
 Overview
 ********

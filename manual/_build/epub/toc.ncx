@@ -1193,12 +1193,12 @@
       </navPoint>
       <navPoint id="navPoint198" playOrder="159">
         <navLabel>
-          <text>Bluetooth: transferring data to the watch</text>
+          <text>Bluetooth: getting data from the watch</text>
         </navLabel>
         <content src="samples/samplesbluetoothperipheral-notificationREADME.xhtml" />  
         <navPoint id="navPoint199" playOrder="159">
           <navLabel>
-            <text>Bluetooth: transferring data to the watch</text>
+            <text>Bluetooth: getting data from the watch</text>
           </navLabel>
           <content src="samples/samplesbluetoothperipheral-notificationREADME.xhtml" />  
         </navPoint>

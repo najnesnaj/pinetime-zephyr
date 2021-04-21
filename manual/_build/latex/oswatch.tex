@@ -2244,8 +2244,8 @@ for this you will need a Segger JLink Console
 \end{sphinxVerbatim}
 
 
-\section{Bluetooth: transferring data to the watch}
-\label{\detokenize{samples/samplesbluetoothperipheral-notificationREADME:bluetooth-transferring-data-to-the-watch}}\label{\detokenize{samples/samplesbluetoothperipheral-notificationREADME:ble-peripheral}}\label{\detokenize{samples/samplesbluetoothperipheral-notificationREADME::doc}}
+\section{Bluetooth: getting data from the watch}
+\label{\detokenize{samples/samplesbluetoothperipheral-notificationREADME:bluetooth-getting-data-from-the-watch}}\label{\detokenize{samples/samplesbluetoothperipheral-notificationREADME:ble-peripheral}}\label{\detokenize{samples/samplesbluetoothperipheral-notificationREADME::doc}}
 
 \subsection{Overview}
 \label{\detokenize{samples/samplesbluetoothperipheral-notificationREADME:overview}}
@@ -2299,7 +2299,18 @@ This sketch is used as a building block.
 
 The gatt server python script is supplied. (values\sphinxhyphen{}gatt\sphinxhyphen{}server)
 It prompts to input 3 parameters (integers)
-You’ll need to run Bluez, start the script, and then connect to the watch, using bluetoothctl.
+You’ll need to:
+\begin{itemize}
+\item {} 
+run Bluez,
+
+\item {} 
+start the script,
+
+\item {} 
+and then connect to the watch, using bluetoothctl.
+
+\end{itemize}
 
 
 \subsection{Requirements}
