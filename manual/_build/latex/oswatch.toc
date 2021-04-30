@@ -178,49 +178,57 @@
 \contentsline {subsection}{\numberline {15.7.1}Overview}{55}{subsection.15.7.1}
 \contentsline {subsection}{\numberline {15.7.2}Building and Running}{55}{subsection.15.7.2}
 \contentsline {subsubsection}{Sample Output}{55}{subsubsection*.24}
-\contentsline {section}{\numberline {15.8}Bluetooth: getting data from the watch}{55}{section.15.8}
+\contentsline {section}{\numberline {15.8}Bluetooth: Central / Heart\sphinxhyphen {}rate Monitor}{55}{section.15.8}
 \contentsline {subsection}{\numberline {15.8.1}Overview}{55}{subsection.15.8.1}
-\contentsline {subsection}{\numberline {15.8.2}Requirements}{56}{subsection.15.8.2}
+\contentsline {subsection}{\numberline {15.8.2}Requirements}{55}{subsection.15.8.2}
 \contentsline {subsection}{\numberline {15.8.3}Building and Running}{56}{subsection.15.8.3}
 \contentsline {section}{\numberline {15.9}Bluetooth: transferring data to the watch}{56}{section.15.9}
 \contentsline {subsection}{\numberline {15.9.1}Overview}{56}{subsection.15.9.1}
 \contentsline {subsection}{\numberline {15.9.2}Requirements}{56}{subsection.15.9.2}
 \contentsline {subsection}{\numberline {15.9.3}Building and Running}{56}{subsection.15.9.3}
-\contentsline {section}{\numberline {15.10}Pinetime Button Sample}{56}{section.15.10}
+\contentsline {section}{\numberline {15.10}Bluetooth: getting data from the watch}{56}{section.15.10}
 \contentsline {subsection}{\numberline {15.10.1}Overview}{56}{subsection.15.10.1}
 \contentsline {subsection}{\numberline {15.10.2}Requirements}{57}{subsection.15.10.2}
 \contentsline {subsection}{\numberline {15.10.3}Building and Running}{57}{subsection.15.10.3}
-\contentsline {subsection}{\numberline {15.10.4}References}{57}{subsection.15.10.4}
-\contentsline {section}{\numberline {15.11}SDL Button Timer Sample}{57}{section.15.11}
+\contentsline {section}{\numberline {15.11}Bluetooth: transferring data to the watch}{57}{section.15.11}
 \contentsline {subsection}{\numberline {15.11.1}Overview}{57}{subsection.15.11.1}
 \contentsline {subsection}{\numberline {15.11.2}Requirements}{57}{subsection.15.11.2}
 \contentsline {subsection}{\numberline {15.11.3}Building and Running}{57}{subsection.15.11.3}
-\contentsline {subsection}{\numberline {15.11.4}References}{57}{subsection.15.11.4}
-\contentsline {section}{\numberline {15.12}LittlevGL SDL Button Sample}{57}{section.15.12}
-\contentsline {subsection}{\numberline {15.12.1}Overview}{57}{subsection.15.12.1}
-\contentsline {subsection}{\numberline {15.12.2}Requirements}{57}{subsection.15.12.2}
+\contentsline {section}{\numberline {15.12}Pinetime Button Sample}{58}{section.15.12}
+\contentsline {subsection}{\numberline {15.12.1}Overview}{58}{subsection.15.12.1}
+\contentsline {subsection}{\numberline {15.12.2}Requirements}{58}{subsection.15.12.2}
 \contentsline {subsection}{\numberline {15.12.3}Building and Running}{58}{subsection.15.12.3}
 \contentsline {subsection}{\numberline {15.12.4}References}{58}{subsection.15.12.4}
-\contentsline {section}{\numberline {15.13}Character frame buffer}{58}{section.15.13}
+\contentsline {section}{\numberline {15.13}SDL Button Timer Sample}{58}{section.15.13}
 \contentsline {subsection}{\numberline {15.13.1}Overview}{58}{subsection.15.13.1}
-\contentsline {subsection}{\numberline {15.13.2}Building and Running}{58}{subsection.15.13.2}
-\contentsline {subsection}{\numberline {15.13.3}POSIX}{58}{subsection.15.13.3}
-\contentsline {subsection}{\numberline {15.13.4}Pinetime}{58}{subsection.15.13.4}
-\contentsline {section}{\numberline {15.14}Character Framebuffer Shell Module Sample}{58}{section.15.14}
+\contentsline {subsection}{\numberline {15.13.2}Requirements}{58}{subsection.15.13.2}
+\contentsline {subsection}{\numberline {15.13.3}Building and Running}{58}{subsection.15.13.3}
+\contentsline {subsection}{\numberline {15.13.4}References}{58}{subsection.15.13.4}
+\contentsline {section}{\numberline {15.14}LittlevGL SDL Button Sample}{58}{section.15.14}
 \contentsline {subsection}{\numberline {15.14.1}Overview}{58}{subsection.15.14.1}
-\contentsline {subsection}{\numberline {15.14.2}Building and Running}{59}{subsection.15.14.2}
-\contentsline {subsubsection}{Shell Module Command Help}{59}{subsubsection*.25}
-\contentsline {section}{\numberline {15.15}LittlevGL Basic Sample}{60}{section.15.15}
-\contentsline {subsection}{\numberline {15.15.1}Overview}{60}{subsection.15.15.1}
-\contentsline {subsection}{\numberline {15.15.2}Requirements}{60}{subsection.15.15.2}
-\contentsline {subsection}{\numberline {15.15.3}Building and Running}{61}{subsection.15.15.3}
-\contentsline {subsection}{\numberline {15.15.4}References}{61}{subsection.15.15.4}
-\contentsline {section}{\numberline {15.16}Lightsensor}{61}{section.15.16}
-\contentsline {section}{\numberline {15.17}Testing the timer refresh}{61}{section.15.17}
+\contentsline {subsection}{\numberline {15.14.2}Requirements}{59}{subsection.15.14.2}
+\contentsline {subsection}{\numberline {15.14.3}Building and Running}{59}{subsection.15.14.3}
+\contentsline {subsection}{\numberline {15.14.4}References}{59}{subsection.15.14.4}
+\contentsline {section}{\numberline {15.15}Character frame buffer}{59}{section.15.15}
+\contentsline {subsection}{\numberline {15.15.1}Overview}{59}{subsection.15.15.1}
+\contentsline {subsection}{\numberline {15.15.2}Building and Running}{59}{subsection.15.15.2}
+\contentsline {subsection}{\numberline {15.15.3}POSIX}{59}{subsection.15.15.3}
+\contentsline {subsection}{\numberline {15.15.4}Pinetime}{59}{subsection.15.15.4}
+\contentsline {section}{\numberline {15.16}Character Framebuffer Shell Module Sample}{59}{section.15.16}
+\contentsline {subsection}{\numberline {15.16.1}Overview}{59}{subsection.15.16.1}
+\contentsline {subsection}{\numberline {15.16.2}Building and Running}{60}{subsection.15.16.2}
+\contentsline {subsubsection}{Shell Module Command Help}{60}{subsubsection*.25}
+\contentsline {section}{\numberline {15.17}LittlevGL Basic Sample}{61}{section.15.17}
 \contentsline {subsection}{\numberline {15.17.1}Overview}{61}{subsection.15.17.1}
 \contentsline {subsection}{\numberline {15.17.2}Requirements}{61}{subsection.15.17.2}
-\contentsline {subsection}{\numberline {15.17.3}Building and Running}{61}{subsection.15.17.3}
-\contentsline {subsection}{\numberline {15.17.4}References}{61}{subsection.15.17.4}
+\contentsline {subsection}{\numberline {15.17.3}Building and Running}{62}{subsection.15.17.3}
+\contentsline {subsection}{\numberline {15.17.4}References}{62}{subsection.15.17.4}
+\contentsline {section}{\numberline {15.18}Lightsensor}{62}{section.15.18}
+\contentsline {section}{\numberline {15.19}Testing the timer refresh}{62}{section.15.19}
+\contentsline {subsection}{\numberline {15.19.1}Overview}{62}{subsection.15.19.1}
+\contentsline {subsection}{\numberline {15.19.2}Requirements}{62}{subsection.15.19.2}
+\contentsline {subsection}{\numberline {15.19.3}Building and Running}{62}{subsection.15.19.3}
+\contentsline {subsection}{\numberline {15.19.4}References}{62}{subsection.15.19.4}
 \contentsline {chapter}{\numberline {16}Menuconfig}{63}{chapter.16}
 \contentsline {section}{\numberline {16.1}Zephyr is like linux}{63}{section.16.1}
 \contentsline {chapter}{\numberline {17}Debugging}{65}{chapter.17}

@@ -13,6 +13,7 @@
 #include <stdbool.h>
 
 void param_sync_init(void);
+bool get_param(uint8_t *);
 //void cts_sync_loop(void);
 //void cts_sync_enable(bool enable);
 //void cts_update_datetime(struct tm *);

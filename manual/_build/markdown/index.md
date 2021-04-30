@@ -540,6 +540,30 @@
             * Sample Output
 
 
+    * Bluetooth: Central / Heart-rate Monitor
+
+
+        * Overview
+
+
+        * Requirements
+
+
+        * Building and Running
+
+
+    * Bluetooth: transferring data to the watch
+
+
+        * Overview
+
+
+        * Requirements
+
+
+        * Building and Running
+
+
     * Bluetooth: getting data from the watch
 
 

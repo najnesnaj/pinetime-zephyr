@@ -14,6 +14,8 @@ Samples
     oswatch-fotaREADME
     oswatchREADME
     README
+    samplesbluetoothcentral_hrREADME
+    samplesbluetoothperipheral-getparamREADME
     samplesbluetoothperipheral-notificationREADME
     samplesbluetoothperipheralREADME
     samplesbuttonpinebuttonREADME

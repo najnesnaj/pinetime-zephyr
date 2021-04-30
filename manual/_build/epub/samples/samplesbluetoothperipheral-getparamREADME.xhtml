@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bluetooth: transferring data to the watch</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="bluetooth-transferring-data-to-the-watch">
+<span id="ble-peripheral"></span><h1>Bluetooth: transferring data to the watch</h1>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>On a linux box with bluez installed,  a python script is launched (example-gatt-server)</p>
+<p>The linuxbox becomes a bluetooth gatt server.</p>
+<p>This script offers a service and a bluetooth characteristic. (the battery service is used for this purpose)</p>
+<p>In the python script example-gatt-server 10 bytes of data are advertised (battery service).</p>
+<p>The watch scans for this characteristic, once it is connected and reads out the variables and puts them in a 10 byte arry.</p>
+<p>Hence a transfer from the server to the watch took place!</p>
+<p>Later on we can use this to set a timer in the watch or an alarm, or ….</p>
+<dl>
+<dt>You’ll need to:</dt><dd><ul class="simple">
+<li><p>run Bluez,</p></li>
+<li><p>start the script,</p></li>
+<li><p>and then connect to the watch, using bluetoothctl.</p></li>
+</ul>
+<p>The mechanism is the same as with the CTS time setting.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements</h2>
+<ul class="simple">
+<li><p>BlueZ running on the host, or</p></li>
+<li><p>A board with BLE support</p></li>
+</ul>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running</h2>
+<p>See <span class="xref std std-ref">bluetooth samples section</span> for details.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

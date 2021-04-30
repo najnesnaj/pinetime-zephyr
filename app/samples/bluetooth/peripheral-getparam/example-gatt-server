@@ -17,7 +17,6 @@ from random import randint
 
 mainloop = None
 
-
 BLUEZ_SERVICE_NAME = 'org.bluez'
 GATT_MANAGER_IFACE = 'org.bluez.GattManager1'
 DBUS_OM_IFACE =      'org.freedesktop.DBus.ObjectManager'
@@ -392,42 +391,50 @@ class BatteryLevelCharacteristic(Characteristic):
                 ['read', 'notify'],
                 service)
         self.notifying = False
-        self.battery_lvl = 254 
-#        print ("input first integer value")
-        waarde1 = int(input("input an integer value1 :  "))
-        waarde1_bytes = waarde1.to_bytes(2, 'big')
-        waarde2 = int(input("input an integer value2 :  "))
-        waarde2_bytes = waarde2.to_bytes(2, 'big')
-        waarde3 = int(input("input an integer value3 :  "))
-        waarde3_bytes = waarde3.to_bytes(2, 'big')
-        print(waarde1_bytes, waarde2_bytes, waarde3_bytes)
+        #self.notifying = True  
+        self.battery_lvl = 99 
+        self.battery_lvl2 = 33 
+        GObject.timeout_add(10, self.drain_battery)
 
+    def current_time_bytes(self):
+        dt = time.localtime()
+        year = dt.tm_year.to_bytes(2, 'little')
+        value = list([dbus.Byte(b) for b in year])
+        value.append(dbus.Byte(dt.tm_mon))
+        value.append(dbus.Byte(dt.tm_mday))
+        value.append(dbus.Byte(dt.tm_hour))
+        value.append(dbus.Byte(dt.tm_min))
+        value.append(dbus.Byte(dt.tm_sec))
+        value.append(dbus.Byte(dt.tm_wday))
+        value.append(dbus.Byte(0))
+        value.append(dbus.Byte(1))
+        return value
 
-        GObject.timeout_add(1, self.drain_battery)
 
     def notify_battery_level(self):
         if not self.notifying:
             return
         self.PropertiesChanged(
                 GATT_CHRC_IFACE,
-                { 'Value': [dbus.Byte(self.battery_lvl)]  [dbus.Byte(self.battery_lvl2)] } , [])
+                {'Value': self.current_time_bytes()}, [])
+               # { 'Value': [dbus.Byte(self.battery_lvl)]  [dbus.Byte(self.battery_lvl2)]}, [])
 
     def drain_battery(self):
         if not self.notifying:
             return True
         if self.battery_lvl > 0:
             self.battery_lvl -= 2
-            print('battery minus 2')
             if self.battery_lvl < 0:
-                self.battery_lvl = 0
+                self.battery_lvl = 99
         print('Battery Level drained: ' + repr(self.battery_lvl))
         self.notify_battery_level()
         return True
 
     def ReadValue(self, options):
-        print('Integer values read: ' + repr(waarde1) + repr(waarde2) + repr(waarde3))
-#return [dbus.Byte(self.battery_lvl) ,  dbus.Byte(self.battery_lvl2)]
-        return [waarde1_bytes, waarde2_bytes, waarde3_bytes]
+        print('Battery Level read: ' + repr(self.drain_battery()))
+        #return [dbus.Byte(self.battery_lvl)]
+        #return [dbus.Byte(self.current_time_bytes())]
+        return [dbus.Byte(22), dbus.Byte(23), dbus.Byte(44), dbus.Byte(55), dbus.Byte(56), dbus.Byte(11), dbus.Byte(98), dbus.Byte(78), dbus.Byte(98)]
 
     def StartNotify(self):
         if self.notifying:
@@ -645,10 +652,6 @@ def find_adapter(bus):
     return None
 
 def main():
-#    print ("input first integer value")
-#    waarde1 = int(input())
-#    waarde1_bytes = waarde1.to_bytes(2, 'big')
-#    print(waarde1_bytes)
     global mainloop
 
     dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)

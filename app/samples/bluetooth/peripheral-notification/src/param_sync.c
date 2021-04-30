@@ -88,7 +88,7 @@ void cts_sync_enable(bool enable)
 
 static void cts_sync_timer_timeout_handler(struct k_timer *tmr)
 {
-	LOG_INF("CTS sync timer timeout handler");
+	LOG_INF("CTS sync timer timeout handler\n");
 	bt_conn_foreach(BT_CONN_TYPE_LE, cts_sync_processor, NULL);
 }
 
@@ -99,7 +99,7 @@ uint8_t cts_sync_read(struct bt_conn *conn, uint8_t err,
 {
 	//	LOG_DBG("Reading CCC data: err %d, %d bytes, offset %d.", err, length, m_read_buf.offset);
 	int test=0;
-	LOG_INF("sync read lenght %d ",length);
+	LOG_INF("sync read lenght %d \n",length);
 	if (!data || length <= 0) {
 		LOG_INF("oops  ");
 		//sync_cts_to_clock(&m_read_buf.datetime);
@@ -108,10 +108,10 @@ uint8_t cts_sync_read(struct bt_conn *conn, uint8_t err,
 	//	m_read_buf.offset=0;
 	memcpy(&m_read_buf.parameter, data, length);
 	//memcpy(&test, data, length);
-	LOG_INF("sync_read %d",m_read_buf.parameter); //todo this works if only 1 byte - values till 254 OK
+	LOG_INF("sync_read %d\n",m_read_buf.parameter); //todo this works if only 1 byte - values till 254 OK
 //	m_read_buf.offset=9;
 	memcpy(&m_read_buf.parameter + m_read_buf.offset, data, length);
-	LOG_INF("sync_read %d",m_read_buf.parameter); //todo this works if only 1 byte - values till 254 OK
+	LOG_INF("sync_read %d\n",m_read_buf.parameter); //todo this works if only 1 byte - values till 254 OK
 	//memcpy(&test+1, data, length);
 	//LOG_INF("sync_read 2 %d",test); //todo this works if only 1 byte - values till 254 OK
 	//	memcpy(&m_read_buf.datetime + m_read_buf.offset, data, length);
@@ -155,6 +155,6 @@ static void cts_sync_processor(struct bt_conn *conn, void *data)
 	cts_discovery_params.uuid = (struct bt_uuid *) &uuid;
 
 	if (bt_gatt_discover(conn, &cts_discovery_params) != 0) {
-		LOG_INF("CTS Sync > GATT discovery FAILED.");
+		LOG_INF("CTS Sync > GATT discovery FAILED.\n");
 	}
 }

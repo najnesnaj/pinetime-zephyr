@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: periferal
+# Project: peripheral
 # Configurations: 
 # =============================================================================
 # =============================================================================
@@ -318,7 +318,7 @@ rule C_STATIC_LIBRARY_LINKER__soc__arm__nordic_nrf__nrf52_
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__.2e.2e__app__samples__bluetooth__peripheral-notification__boards__arm__ds_d6_
+rule C_COMPILER__.2e.2e__app__samples__bluetooth__peripheral-getparam__boards__arm__ds_d6_
   depfile = $DEP_FILE
   deps = gcc
   command = ccache /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -328,7 +328,7 @@ rule C_COMPILER__.2e.2e__app__samples__bluetooth__peripheral-notification__board
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER__.2e.2e__app__samples__bluetooth__peripheral-notification__boards__arm__ds_d6_
+rule C_STATIC_LIBRARY_LINKER__.2e.2e__app__samples__bluetooth__peripheral-getparam__boards__arm__ds_d6_
   command = $PRE_LINK && ccache /usr/bin/cmake -E rm -f $TARGET_FILE && ccache /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -367,25 +367,6 @@ rule C_COMPILER__subsys__bluetooth__host_
 # Rule for linking C static library.
 
 rule C_STATIC_LIBRARY_LINKER__subsys__bluetooth__host_
-  command = $PRE_LINK && ccache /usr/bin/cmake -E rm -f $TARGET_FILE && ccache /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
-  description = Linking C static library $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
-# Rule for compiling C files.
-
-rule C_COMPILER__subsys__bluetooth__shell_
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ccache /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building C object $out
-
-
-#############################################
-# Rule for linking C static library.
-
-rule C_STATIC_LIBRARY_LINKER__subsys__bluetooth__shell_
   command = $PRE_LINK && ccache /usr/bin/cmake -E rm -f $TARGET_FILE && ccache /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -623,7 +604,7 @@ rule C_STATIC_LIBRARY_LINKER__kernel_
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake --regenerate-during-build -S/root/work/app/samples/bluetooth/peripheral-notification -B/root/work/app/build
+  command = /usr/bin/cmake --regenerate-during-build -S/root/work/app/samples/bluetooth/peripheral-getparam -B/root/work/app/build
   description = Re-running CMake...
   generator = 1
 

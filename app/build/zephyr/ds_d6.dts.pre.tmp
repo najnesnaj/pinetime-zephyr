@@ -359,6 +359,11 @@ leds {
  sda-pin = <8>;
  scl-pin = <7>;
  clock-frequency = <400000>;
+ max44009@6b {
+  compatible = "maxim,max44009";
+  reg=<0x6b>;
+  label="MAX44009";
+ };
 };
 &flash0 {
  partitions {

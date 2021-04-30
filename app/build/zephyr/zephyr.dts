@@ -143,6 +143,11 @@
 			compatible = "nordic,nrf-twi";
 			sda-pin = < 0x8 >;
 			scl-pin = < 0x7 >;
+			max44009@6b {
+				compatible = "maxim,max44009";
+				reg = < 0x6b >;
+				label = "MAX44009";
+			};
 		};
 		i2c1: i2c@40004000 {
 			#address-cells = < 0x1 >;

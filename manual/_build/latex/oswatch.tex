@@ -73,7 +73,7 @@
 
 
 \title{open source watch Documentation}
-\date{Apr 21, 2021}
+\date{Apr 30, 2021}
 \release{1.2.0}
 \author{jj}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -2242,6 +2242,87 @@ for this you will need a Segger JLink Console
 \PYG{g+gp}{rtt:\PYGZti{}\PYGZdl{}} sensor get HRS3300 \PYG{l+m}{19} \PYG{o}{(}red \PYGZhy{}\PYGZhy{} this switches on the sensor\PYG{o}{)}
 \PYG{g+gp}{rtt:\PYGZti{}\PYGZdl{}} sensor get HRS3300 \PYG{l+m}{20} \PYG{o}{(}green \PYGZhy{}\PYGZhy{} get a value\PYG{o}{)}
 \end{sphinxVerbatim}
+
+
+\section{Bluetooth: Central / Heart\sphinxhyphen{}rate Monitor}
+\label{\detokenize{samples/samplesbluetoothcentral_hrREADME:bluetooth-central-heart-rate-monitor}}\label{\detokenize{samples/samplesbluetoothcentral_hrREADME:bluetooth-central-hr}}\label{\detokenize{samples/samplesbluetoothcentral_hrREADME::doc}}
+
+\subsection{Overview}
+\label{\detokenize{samples/samplesbluetoothcentral_hrREADME:overview}}
+Similar to the \DUrole{xref,std,std-ref}{Central} sample, except that this
+application specifically looks for heart\sphinxhyphen{}rate monitors and reports the
+heart\sphinxhyphen{}rate readings once connected.
+
+
+\subsection{Requirements}
+\label{\detokenize{samples/samplesbluetoothcentral_hrREADME:requirements}}\begin{itemize}
+\item {} 
+BlueZ running on the host, or
+
+\item {} 
+A board with BLE support
+
+\end{itemize}
+
+
+\subsection{Building and Running}
+\label{\detokenize{samples/samplesbluetoothcentral_hrREADME:building-and-running}}
+This sample can be found under {\color{red}\bfseries{}:zephyr\_file:\textasciigrave{}samples/bluetooth/central\_hr\textasciigrave{}} in the
+Zephyr tree.
+
+See \DUrole{xref,std,std-ref}{bluetooth samples section} for details.
+
+
+\section{Bluetooth: transferring data to the watch}
+\label{\detokenize{samples/samplesbluetoothperipheral-getparamREADME:bluetooth-transferring-data-to-the-watch}}\label{\detokenize{samples/samplesbluetoothperipheral-getparamREADME:ble-peripheral}}\label{\detokenize{samples/samplesbluetoothperipheral-getparamREADME::doc}}
+
+\subsection{Overview}
+\label{\detokenize{samples/samplesbluetoothperipheral-getparamREADME:overview}}
+On a linux box with bluez installed,  a python script is launched (example\sphinxhyphen{}gatt\sphinxhyphen{}server)
+
+The linuxbox becomes a bluetooth gatt server.
+
+This script offers a service and a bluetooth characteristic. (the battery service is used for this purpose)
+
+In the python script example\sphinxhyphen{}gatt\sphinxhyphen{}server 10 bytes of data are advertised (battery service).
+
+The watch scans for this characteristic, once it is connected and reads out the variables and puts them in a 10 byte arry.
+
+Hence a transfer from the server to the watch took place!
+
+Later on we can use this to set a timer in the watch or an alarm, or ….
+\begin{description}
+\item[{You’ll need to:}] \leavevmode\begin{itemize}
+\item {} 
+run Bluez,
+
+\item {} 
+start the script,
+
+\item {} 
+and then connect to the watch, using bluetoothctl.
+
+\end{itemize}
+
+The mechanism is the same as with the CTS time setting.
+
+\end{description}
+
+
+\subsection{Requirements}
+\label{\detokenize{samples/samplesbluetoothperipheral-getparamREADME:requirements}}\begin{itemize}
+\item {} 
+BlueZ running on the host, or
+
+\item {} 
+A board with BLE support
+
+\end{itemize}
+
+
+\subsection{Building and Running}
+\label{\detokenize{samples/samplesbluetoothperipheral-getparamREADME:building-and-running}}
+See \DUrole{xref,std,std-ref}{bluetooth samples section} for details.
 
 
 \section{Bluetooth: getting data from the watch}

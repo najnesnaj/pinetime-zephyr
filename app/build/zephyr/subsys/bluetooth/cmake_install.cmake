@@ -41,7 +41,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/root/work/app/build/zephyr/subsys/bluetooth/common/cmake_install.cmake")
   include("/root/work/app/build/zephyr/subsys/bluetooth/host/cmake_install.cmake")
-  include("/root/work/app/build/zephyr/subsys/bluetooth/shell/cmake_install.cmake")
   include("/root/work/app/build/zephyr/subsys/bluetooth/services/cmake_install.cmake")
   include("/root/work/app/build/zephyr/subsys/bluetooth/controller/cmake_install.cmake")
 

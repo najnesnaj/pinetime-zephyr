@@ -78,7 +78,7 @@
 /root/work/app/build/zephyr/boards/CMakeFiles/rebuild_cache.dir
 /root/work/app/build/zephyr/boards/CMakeFiles/edit_cache.dir
 /root/work/app/build/zephyr/boards/boards/arm/ds_d6/CMakeFiles/rebuild_cache.dir
-/root/work/app/build/zephyr/boards/boards/arm/ds_d6/CMakeFiles/..__app__samples__bluetooth__peripheral-notification__boards__arm__ds_d6.dir
+/root/work/app/build/zephyr/boards/boards/arm/ds_d6/CMakeFiles/..__app__samples__bluetooth__peripheral-getparam__boards__arm__ds_d6.dir
 /root/work/app/build/zephyr/boards/boards/arm/ds_d6/CMakeFiles/edit_cache.dir
 /root/work/app/build/zephyr/subsys/CMakeFiles/rebuild_cache.dir
 /root/work/app/build/zephyr/subsys/CMakeFiles/edit_cache.dir
@@ -94,9 +94,6 @@
 /root/work/app/build/zephyr/subsys/bluetooth/host/CMakeFiles/rebuild_cache.dir
 /root/work/app/build/zephyr/subsys/bluetooth/host/CMakeFiles/subsys__bluetooth__host.dir
 /root/work/app/build/zephyr/subsys/bluetooth/host/CMakeFiles/edit_cache.dir
-/root/work/app/build/zephyr/subsys/bluetooth/shell/CMakeFiles/rebuild_cache.dir
-/root/work/app/build/zephyr/subsys/bluetooth/shell/CMakeFiles/subsys__bluetooth__shell.dir
-/root/work/app/build/zephyr/subsys/bluetooth/shell/CMakeFiles/edit_cache.dir
 /root/work/app/build/zephyr/subsys/bluetooth/services/CMakeFiles/rebuild_cache.dir
 /root/work/app/build/zephyr/subsys/bluetooth/services/CMakeFiles/edit_cache.dir
 /root/work/app/build/zephyr/subsys/bluetooth/controller/CMakeFiles/rebuild_cache.dir
