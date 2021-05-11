@@ -5,7 +5,7 @@
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif
-#include <syscalls/atomic.h>
+#include <syscalls/atomic_c.h>
 
 extern atomic_val_t z_vrfy_atomic_or(atomic_t * target, atomic_val_t value);
 uintptr_t z_mrsh_atomic_or(uintptr_t arg0, uintptr_t arg1, uintptr_t arg2,

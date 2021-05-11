@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/soc/arm
+# Install script for directory: /root/work/zephyrproject/zephyr/soc/arm
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/root/work/app/build/zephyr/soc/arm/common/cortex_m/cmake_install.cmake")
-  include("/root/work/app/build/zephyr/soc/arm/nordic_nrf/cmake_install.cmake")
+  include("/root/work/zephyrproject/app/build/zephyr/soc/arm/common/cortex_m/cmake_install.cmake")
+  include("/root/work/zephyrproject/app/build/zephyr/soc/arm/nordic_nrf/cmake_install.cmake")
 
 endif()
 

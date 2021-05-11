@@ -21,55 +21,55 @@
 extern "C" {
 #endif
 
-extern int z_impl_sys_dcache_all(int op);
-static inline int sys_dcache_all(int op)
+extern int z_impl_sys_cache_data_all(int op);
+static inline int sys_cache_data_all(int op)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		return (int) arch_syscall_invoke1(*(uintptr_t *)&op, K_SYSCALL_SYS_DCACHE_ALL);
+		return (int) arch_syscall_invoke1(*(uintptr_t *)&op, K_SYSCALL_SYS_CACHE_DATA_ALL);
 	}
 #endif
 	compiler_barrier();
-	return z_impl_sys_dcache_all(op);
+	return z_impl_sys_cache_data_all(op);
 }
 
 
-extern int z_impl_sys_dcache_range(void * addr, size_t size, int op);
-static inline int sys_dcache_range(void * addr, size_t size, int op)
+extern int z_impl_sys_cache_data_range(void * addr, size_t size, int op);
+static inline int sys_cache_data_range(void * addr, size_t size, int op)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		return (int) arch_syscall_invoke3(*(uintptr_t *)&addr, *(uintptr_t *)&size, *(uintptr_t *)&op, K_SYSCALL_SYS_DCACHE_RANGE);
+		return (int) arch_syscall_invoke3(*(uintptr_t *)&addr, *(uintptr_t *)&size, *(uintptr_t *)&op, K_SYSCALL_SYS_CACHE_DATA_RANGE);
 	}
 #endif
 	compiler_barrier();
-	return z_impl_sys_dcache_range(addr, size, op);
+	return z_impl_sys_cache_data_range(addr, size, op);
 }
 
 
-extern int z_impl_sys_icache_all(int op);
-static inline int sys_icache_all(int op)
+extern int z_impl_sys_cache_instr_all(int op);
+static inline int sys_cache_instr_all(int op)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		return (int) arch_syscall_invoke1(*(uintptr_t *)&op, K_SYSCALL_SYS_ICACHE_ALL);
+		return (int) arch_syscall_invoke1(*(uintptr_t *)&op, K_SYSCALL_SYS_CACHE_INSTR_ALL);
 	}
 #endif
 	compiler_barrier();
-	return z_impl_sys_icache_all(op);
+	return z_impl_sys_cache_instr_all(op);
 }
 
 
-extern int z_impl_sys_icache_range(void * addr, size_t size, int op);
-static inline int sys_icache_range(void * addr, size_t size, int op)
+extern int z_impl_sys_cache_instr_range(void * addr, size_t size, int op);
+static inline int sys_cache_instr_range(void * addr, size_t size, int op)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		return (int) arch_syscall_invoke3(*(uintptr_t *)&addr, *(uintptr_t *)&size, *(uintptr_t *)&op, K_SYSCALL_SYS_ICACHE_RANGE);
+		return (int) arch_syscall_invoke3(*(uintptr_t *)&addr, *(uintptr_t *)&size, *(uintptr_t *)&op, K_SYSCALL_SYS_CACHE_INSTR_RANGE);
 	}
 #endif
 	compiler_barrier();
-	return z_impl_sys_icache_range(addr, size, op);
+	return z_impl_sys_cache_instr_range(addr, size, op);
 }
 
 

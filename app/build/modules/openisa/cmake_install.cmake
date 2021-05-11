@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/modules/hal/openisa
+# Install script for directory: /root/work/zephyrproject/modules/hal/openisa
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

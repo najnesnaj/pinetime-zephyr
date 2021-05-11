@@ -34,16 +34,16 @@ static inline const struct device * device_get_binding(const char * name)
 }
 
 
-extern bool z_impl_device_is_ready(const struct device * dev);
-static inline bool device_is_ready(const struct device * dev)
+extern int z_impl_device_usable_check(const struct device * dev);
+static inline int device_usable_check(const struct device * dev)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		return (bool) arch_syscall_invoke1(*(uintptr_t *)&dev, K_SYSCALL_DEVICE_IS_READY);
+		return (int) arch_syscall_invoke1(*(uintptr_t *)&dev, K_SYSCALL_DEVICE_USABLE_CHECK);
 	}
 #endif
 	compiler_barrier();
-	return z_impl_device_is_ready(dev);
+	return z_impl_device_usable_check(dev);
 }
 
 

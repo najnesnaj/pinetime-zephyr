@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/modules/hal/atmel/asf/common/components/wifi
+# Install script for directory: /root/work/zephyrproject/modules/hal/atmel/asf/common/components/wifi
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

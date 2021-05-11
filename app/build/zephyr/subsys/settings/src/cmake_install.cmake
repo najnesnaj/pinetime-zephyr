@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/subsys/settings/src
+# Install script for directory: /root/work/zephyrproject/zephyr/subsys/settings/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

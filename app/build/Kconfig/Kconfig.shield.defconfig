@@ -1,3 +1,2 @@
-osource "/root/work/app/samples/bluetooth/peripheral-getparam/boards/shields/*/Kconfig.defconfig"
-osource "/root/work/zephyr/boards/shields/*/Kconfig.defconfig"
-osource "/root/work/zephyr/boards/shields/*/Kconfig.defconfig"
+osource "/root/work/zephyrproject/app/oswatch-bt/boards/shields/*/Kconfig.defconfig"
+osource "/root/work/zephyrproject/zephyr/boards/shields/*/Kconfig.defconfig"

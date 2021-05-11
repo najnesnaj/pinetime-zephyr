@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/modules/hal/cmsis/CMSIS/Core
+# Install script for directory: /root/work/zephyrproject/modules/hal/cmsis/CMSIS/Core
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

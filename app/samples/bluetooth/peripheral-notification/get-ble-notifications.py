@@ -14,7 +14,7 @@ import binascii
 import struct
 
 # Address of BLE device to connect to. 47:C2:41:89:3E:F6
-BLE_ADDRESS = "69:B9:2F:BD:E0:5D"
+BLE_ADDRESS = "f6:2c:86:bd:4a:05"
 # BLE heart rate service
 #[CHG] Device 47:C2:41:89:3E:F6 UUIDs: 00001800-0000-1000-8000-00805f9b34fb
 #[CHG] Device 47:C2:41:89:3E:F6 UUIDs: 00001801-0000-1000-8000-00805f9b34fb

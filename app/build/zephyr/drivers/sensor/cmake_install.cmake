@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/drivers/sensor
+# Install script for directory: /root/work/zephyrproject/zephyr/drivers/sensor
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/root/work/app/build/zephyr/drivers/sensor/grove/cmake_install.cmake")
-  include("/root/work/app/build/zephyr/drivers/sensor/nrf5/cmake_install.cmake")
+  include("/root/work/zephyrproject/app/build/zephyr/drivers/sensor/grove/cmake_install.cmake")
+  include("/root/work/zephyrproject/app/build/zephyr/drivers/sensor/nrf5/cmake_install.cmake")
 
 endif()
 

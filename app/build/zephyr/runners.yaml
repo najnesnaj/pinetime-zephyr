@@ -1,7 +1,6 @@
 # Available runners configured by board.cmake.
 runners:
 - blackmagicprobe
-- blackmagicprobe
 
 # Default flash runner if --runner is not given.
 flash-runner: blackmagicprobe
@@ -11,7 +10,7 @@ debug-runner: blackmagicprobe
 
 # Common runner configuration values.
 config:
-  board_dir: /root/work/app/samples/bluetooth/peripheral-getparam/boards/arm/ds_d6
+  board_dir: /root/work/zephyrproject/app/oswatch-bt/boards/arm/ds_d6
   # Build outputs:
   elf_file: zephyr.elf
   hex_file: zephyr.hex
@@ -23,9 +22,6 @@ config:
 
 # Runner specific arguments
 args:
-  blackmagicprobe:
-    []
-
   blackmagicprobe:
     []
 

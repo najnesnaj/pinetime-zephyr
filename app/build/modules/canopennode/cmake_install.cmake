@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/modules/lib/canopennode
+# Install script for directory: /root/work/zephyrproject/modules/lib/canopennode
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

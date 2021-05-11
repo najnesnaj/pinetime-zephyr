@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/lib/posix
+# Install script for directory: /root/work/zephyrproject/zephyr/lib/posix
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

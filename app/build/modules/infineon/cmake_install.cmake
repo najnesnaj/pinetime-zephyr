@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/modules/hal/infineon
+# Install script for directory: /root/work/zephyrproject/modules/hal/infineon
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

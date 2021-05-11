@@ -21,8 +21,8 @@
 extern "C" {
 #endif
 
-extern uint32_t z_impl_sys_rand32_get();
-static inline uint32_t sys_rand32_get()
+extern uint32_t z_impl_sys_rand32_get(void);
+static inline uint32_t sys_rand32_get(void)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {

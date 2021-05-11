@@ -227,7 +227,7 @@
 			ssd1306new@0 {
 				compatible = "solomon,ssd1306fb";
 				spi-max-frequency = < 0x4c4b400 >;
-				label = "SSD1306";
+				label = "SSD1306NEW";
 				reg = < 0x0 >;
 				segment-offset = < 0x0 >;
 				page-offset = < 0x0 >;
@@ -349,6 +349,7 @@
 			device_type = "cpu";
 			compatible = "arm,cortex-m4f";
 			reg = < 0x0 >;
+			swo-ref-frequency = < 0x1e84800 >;
 		};
 	};
 	sw_pwm: sw-pwm {

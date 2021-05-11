@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/subsys/bluetooth
+# Install script for directory: /root/work/zephyrproject/zephyr/subsys/bluetooth
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,10 +39,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/root/work/app/build/zephyr/subsys/bluetooth/common/cmake_install.cmake")
-  include("/root/work/app/build/zephyr/subsys/bluetooth/host/cmake_install.cmake")
-  include("/root/work/app/build/zephyr/subsys/bluetooth/services/cmake_install.cmake")
-  include("/root/work/app/build/zephyr/subsys/bluetooth/controller/cmake_install.cmake")
+  include("/root/work/zephyrproject/app/build/zephyr/subsys/bluetooth/common/cmake_install.cmake")
+  include("/root/work/zephyrproject/app/build/zephyr/subsys/bluetooth/host/cmake_install.cmake")
+  include("/root/work/zephyrproject/app/build/zephyr/subsys/bluetooth/services/cmake_install.cmake")
+  include("/root/work/zephyrproject/app/build/zephyr/subsys/bluetooth/controller/cmake_install.cmake")
 
 endif()
 

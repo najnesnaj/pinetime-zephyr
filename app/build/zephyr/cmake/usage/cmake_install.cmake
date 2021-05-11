@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/cmake/usage
+# Install script for directory: /root/work/zephyrproject/zephyr/cmake/usage
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

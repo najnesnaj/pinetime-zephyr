@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/modules/hal/atmel/asf/common
+# Install script for directory: /root/work/zephyrproject/modules/hal/atmel/asf/common
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/root/work/app/build/modules/atmel/asf/common/components/cmake_install.cmake")
+  include("/root/work/zephyrproject/app/build/modules/atmel/asf/common/components/cmake_install.cmake")
 
 endif()
 

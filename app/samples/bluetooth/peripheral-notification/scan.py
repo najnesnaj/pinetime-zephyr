@@ -19,7 +19,8 @@ for dev in devices:
 #    print "address %s   " % (dev.addr)
     for (adtype, desc, value) in dev.getScanData():
 #            print "value = %s     " % (value)
-            if value == 'pinetime bluetooth peripheral':
+            #if value == 'pinetime bluetooth peripheral':
+            if value == 'dsd6':
 #           print "%s   %s   %s" % (value, dev.addr, desc)
 #                 print "%s   " % (value)
                  zephyrdevice = dev.addr

@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/soc/arm/nordic_nrf/nrf52
+# Install script for directory: /root/work/zephyrproject/zephyr/soc/arm/nordic_nrf/nrf52
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

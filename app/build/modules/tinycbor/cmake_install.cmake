@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/modules/lib/tinycbor/zephyr
+# Install script for directory: /root/work/zephyrproject/modules/lib/tinycbor/zephyr
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

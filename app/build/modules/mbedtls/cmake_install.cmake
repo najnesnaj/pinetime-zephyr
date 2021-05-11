@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/modules/crypto/mbedtls
+# Install script for directory: /root/work/zephyrproject/zephyr/modules/mbedtls
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

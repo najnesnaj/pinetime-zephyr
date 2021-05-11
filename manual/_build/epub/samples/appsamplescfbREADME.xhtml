@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Character frame buffer</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="character-frame-buffer">
+<span id="character-frame-buffer-sample"></span><h1>Character frame buffer</h1>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>This sample displays character strings using the Character Frame Buffer
+(CFB) subsystem framework.</p>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running</h2>
+<p>build the application: west build -p -b ds_d6 samples/cfb</p>
+<p>on unix : #minicom -b 115200 -D /dev/ttyACM1</p>
+<p>you get a shell and you can type help</p>
+<p>to display something on the screen :
+cfb init
+cfb invert
+cfb print 0 0 “hello world”</p>
+</div>
+<div class="section" id="posix">
+<h2>POSIX</h2>
+<p>west build -p -b native_posix_64 samles/cfb</p>
+<p>connect to serial port :
+minicom -D /dev/pts/1</p>
+</div>
+<div class="section" id="pinetime">
+<h2>Pinetime</h2>
+<p>Problem : does not display a thing ….</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

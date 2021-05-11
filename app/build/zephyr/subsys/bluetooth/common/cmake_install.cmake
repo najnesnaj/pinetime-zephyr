@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/subsys/bluetooth/common
+# Install script for directory: /root/work/zephyrproject/zephyr/subsys/bluetooth/common
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

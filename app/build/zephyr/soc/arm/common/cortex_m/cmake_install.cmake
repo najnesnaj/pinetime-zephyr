@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/soc/arm/common/cortex_m
+# Install script for directory: /root/work/zephyrproject/zephyr/soc/arm/common/cortex_m
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -8,8 +8,8 @@
 #include <drivers/gpio.h>
 #include <sys/printk.h>
 
-#define VDD_PWR_CTRL_GPIO_PIN 26
-//#define CCS_VDD_PWR_CTRL_GPIO_PIN 10
+/*#define VDD_PWR_CTRL_GPIO_PIN 26*/
+#define CCS_VDD_PWR_CTRL_GPIO_PIN 10
 
 struct pwr_ctrl_cfg {
 	const char *port;

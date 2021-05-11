@@ -21,8 +21,8 @@
 extern "C" {
 #endif
 
-extern int * z_impl_z_errno();
-static inline int * z_errno()
+extern int * z_impl_z_errno(void);
+static inline int * z_errno(void)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {

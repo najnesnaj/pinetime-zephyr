@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/modules/fs/fatfs
+# Install script for directory: /root/work/zephyrproject/modules/fs/fatfs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

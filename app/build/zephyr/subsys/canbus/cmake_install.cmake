@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/subsys/canbus
+# Install script for directory: /root/work/zephyrproject/zephyr/subsys/canbus
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

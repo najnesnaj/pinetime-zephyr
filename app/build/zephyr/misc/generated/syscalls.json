@@ -1,28 +1,28 @@
 [
     [
         [
-            "int sys_dcache_all",
+            "int sys_cache_data_all",
             "int op"
         ],
         "cache.h"
     ],
     [
         [
-            "int sys_dcache_range",
+            "int sys_cache_data_range",
             "void *addr, size_t size, int op"
         ],
         "cache.h"
     ],
     [
         [
-            "int sys_icache_all",
+            "int sys_cache_instr_all",
             "int op"
         ],
         "cache.h"
     ],
     [
         [
-            "int sys_icache_range",
+            "int sys_cache_instr_range",
             "void *addr, size_t size, int op"
         ],
         "cache.h"
@@ -36,7 +36,7 @@
     ],
     [
         [
-            "bool device_is_ready",
+            "int device_usable_check",
             "const struct device *dev"
         ],
         "device.h"
@@ -191,14 +191,14 @@
     [
         [
             "int k_thread_name_set",
-            "k_tid_t thread_id, const char *value"
+            "k_tid_t thread, const char *str"
         ],
         "kernel.h"
     ],
     [
         [
             "int k_thread_name_copy",
-            "k_tid_t thread_id, char *buf,\n\t\t\t\t size_t size"
+            "k_tid_t thread, char *buf,\n\t\t\t\t size_t size"
         ],
         "kernel.h"
     ],
@@ -541,28 +541,28 @@
     [
         [
             "void k_poll_signal_init",
-            "struct k_poll_signal *signal"
+            "struct k_poll_signal *sig"
         ],
         "kernel.h"
     ],
     [
         [
             "void k_poll_signal_reset",
-            "struct k_poll_signal *signal"
+            "struct k_poll_signal *sig"
         ],
         "kernel.h"
     ],
     [
         [
             "void k_poll_signal_check",
-            "struct k_poll_signal *signal,\n\t\t\t\t   unsigned int *signaled, int *result"
+            "struct k_poll_signal *sig,\n\t\t\t\t   unsigned int *signaled, int *result"
         ],
         "kernel.h"
     ],
     [
         [
             "int k_poll_signal_raise",
-            "struct k_poll_signal *signal, int result"
+            "struct k_poll_signal *sig, int result"
         ],
         "kernel.h"
     ],
@@ -582,10 +582,10 @@
     ],
     [
         [
-            "int ptp_clock_get",
-            "const struct device *dev, struct net_ptp_time *tm"
+            "int k_float_enable",
+            "struct k_thread *thread, unsigned int options"
         ],
-        "ptp_clock.h"
+        "kernel.h"
     ],
     [
         [
@@ -771,13 +771,6 @@
     ],
     [
         [
-            "uint32_t counter_get_max_relative_alarm",
-            "const struct device *dev"
-        ],
-        "counter.h"
-    ],
-    [
-        [
             "int counter_set_guard_period",
             "const struct device *dev,\n\t\t\t\t\tuint32_t ticks,\n\t\t\t\t\tuint32_t flags"
         ],
@@ -815,6 +808,27 @@
         [
             "int dma_stop",
             "const struct device *dev, uint32_t channel"
+        ],
+        "dma.h"
+    ],
+    [
+        [
+            "int dma_request_channel",
+            "const struct device *dev,\n\t\t\t\t  void *filter_param"
+        ],
+        "dma.h"
+    ],
+    [
+        [
+            "void dma_release_channel",
+            "const struct device *dev,\n\t\t\t\t   uint32_t channel"
+        ],
+        "dma.h"
+    ],
+    [
+        [
+            "int dma_chan_filter",
+            "const struct device *dev,\n\t\t\t\t   int channel, void *filter_param"
         ],
         "dma.h"
     ],
@@ -953,6 +967,55 @@
     ],
     [
         [
+            "int espi_saf_config",
+            "const struct device *dev,\n\t\t\t      const struct espi_saf_cfg *cfg"
+        ],
+        "espi_saf.h"
+    ],
+    [
+        [
+            "int espi_saf_set_protection_regions",
+            "\n\t\t\t\tconst struct device *dev,\n\t\t\t\tconst struct espi_saf_protection *pr"
+        ],
+        "espi_saf.h"
+    ],
+    [
+        [
+            "int espi_saf_activate",
+            "const struct device *dev"
+        ],
+        "espi_saf.h"
+    ],
+    [
+        [
+            "bool espi_saf_get_channel_status",
+            "const struct device *dev"
+        ],
+        "espi_saf.h"
+    ],
+    [
+        [
+            "int espi_saf_flash_read",
+            "const struct device *dev,\n\t\t\t\t  struct espi_saf_packet *pckt"
+        ],
+        "espi_saf.h"
+    ],
+    [
+        [
+            "int espi_saf_flash_write",
+            "const struct device *dev,\n\t\t\t\t   struct espi_saf_packet *pckt"
+        ],
+        "espi_saf.h"
+    ],
+    [
+        [
+            "int espi_saf_flash_erase",
+            "const struct device *dev,\n\t\t\t\t   struct espi_saf_packet *pckt"
+        ],
+        "espi_saf.h"
+    ],
+    [
+        [
             "int flash_read",
             "const struct device *dev, off_t offset, void *data,\n\t\t\t size_t len"
         ],
@@ -1030,15 +1093,15 @@
     ],
     [
         [
-            "int gpio_config",
-            "const struct device *port, gpio_pin_t pin,\n\t\t\t  gpio_flags_t flags"
+            "int gpio_pin_interrupt_configure",
+            "const struct device *port,\n\t\t\t\t\t   gpio_pin_t pin,\n\t\t\t\t\t   gpio_flags_t flags"
         ],
         "gpio.h"
     ],
     [
         [
-            "int gpio_pin_interrupt_configure",
-            "const struct device *port,\n\t\t\t\t\t   gpio_pin_t pin,\n\t\t\t\t\t   gpio_flags_t flags"
+            "int gpio_pin_configure",
+            "const struct device *port,\n\t\t\t\t gpio_pin_t pin,\n\t\t\t\t gpio_flags_t flags"
         ],
         "gpio.h"
     ],
@@ -1129,7 +1192,7 @@
     [
         [
             "int i2s_configure",
-            "const struct device *dev, enum i2s_dir dir,\n\t\t\t    struct i2s_config *cfg"
+            "const struct device *dev, enum i2s_dir dir,\n\t\t\t    const struct i2s_config *cfg"
         ],
         "i2s.h"
     ],
@@ -1324,31 +1387,10 @@
     ],
     [
         [
-            "uint32_t psci_get_version",
-            "const struct device *dev"
+            "int ptp_clock_get",
+            "const struct device *dev, struct net_ptp_time *tm"
         ],
-        "psci.h"
-    ],
-    [
-        [
-            "int psci_cpu_off",
-            "const struct device *dev, uint32_t state"
-        ],
-        "psci.h"
-    ],
-    [
-        [
-            "int psci_cpu_on",
-            "const struct device *dev, unsigned long cpuid,\n\t\t\t  unsigned long entry_point"
-        ],
-        "psci.h"
-    ],
-    [
-        [
-            "int psci_affinity_info",
-            "const struct device *dev,\n\t\t\t\t unsigned long target_affinity,\n\t\t\t\t unsigned long lowest_affinity_level"
-        ],
-        "psci.h"
+        "ptp_clock.h"
     ],
     [
         [
@@ -1689,9 +1731,23 @@
     [
         [
             "uint32_t log_filter_set",
-            "struct log_backend const *const backend,\n\t\t\t       uint32_t domain_id,\n\t\t\t       uint32_t src_id,\n\t\t\t       uint32_t level"
+            "struct log_backend const *const backend,\n\t\t\t\t  uint32_t domain_id, int16_t source_id,\n\t\t\t\t  uint32_t level"
         ],
         "log_ctrl.h"
+    ],
+    [
+        [
+            "void z_log_msg2_static_create",
+            "const void *source,\n\t\t\t\t\tconst struct log_msg2_desc desc,\n\t\t\t\t\tuint8_t *package, const void *data"
+        ],
+        "log_msg2.h"
+    ],
+    [
+        [
+            "void z_log_msg2_runtime_vcreate",
+            "uint8_t domain_id, const void *source,\n\t\t\t\t\t  uint8_t level, const void *data,\n\t\t\t\t\t  size_t dlen, const char *fmt,\n\t\t\t\t\t  va_list ap"
+        ],
+        "log_msg2.h"
     ],
     [
         [
@@ -1950,70 +2006,70 @@
             "bool atomic_cas",
             "atomic_t *target, atomic_val_t old_value,\n\t\t\t atomic_val_t new_value"
         ],
-        "atomic.h"
+        "atomic_c.h"
     ],
     [
         [
             "bool atomic_ptr_cas",
-            "atomic_ptr_t *target, void *old_value,\n\t\t\t      void *new_value"
+            "atomic_ptr_t *target, atomic_ptr_val_t old_value,\n\t\t\t      atomic_ptr_val_t new_value"
         ],
-        "atomic.h"
+        "atomic_c.h"
     ],
     [
         [
             "atomic_val_t atomic_add",
             "atomic_t *target, atomic_val_t value"
         ],
-        "atomic.h"
+        "atomic_c.h"
     ],
     [
         [
             "atomic_val_t atomic_sub",
             "atomic_t *target, atomic_val_t value"
         ],
-        "atomic.h"
+        "atomic_c.h"
     ],
     [
         [
             "atomic_val_t atomic_set",
             "atomic_t *target, atomic_val_t value"
         ],
-        "atomic.h"
+        "atomic_c.h"
     ],
     [
         [
-            "void *atomic_ptr_set",
-            "atomic_ptr_t *target, void *value"
+            "atomic_ptr_val_t atomic_ptr_set",
+            "atomic_ptr_t *target, atomic_ptr_val_t value"
         ],
-        "atomic.h"
+        "atomic_c.h"
     ],
     [
         [
             "atomic_val_t atomic_or",
             "atomic_t *target, atomic_val_t value"
         ],
-        "atomic.h"
+        "atomic_c.h"
     ],
     [
         [
             "atomic_val_t atomic_xor",
             "atomic_t *target, atomic_val_t value"
         ],
-        "atomic.h"
+        "atomic_c.h"
     ],
     [
         [
             "atomic_val_t atomic_and",
             "atomic_t *target, atomic_val_t value"
         ],
-        "atomic.h"
+        "atomic_c.h"
     ],
     [
         [
             "atomic_val_t atomic_nand",
             "atomic_t *target, atomic_val_t value"
         ],
-        "atomic.h"
+        "atomic_c.h"
     ],
     [
         [
@@ -2073,6 +2129,41 @@
     ],
     [
         [
+            "void k_mem_paging_stats_get",
+            "struct k_mem_paging_stats_t *stats"
+        ],
+        "mem_manage.h"
+    ],
+    [
+        [
+            "void k_mem_paging_thread_stats_get",
+            "struct k_thread *thread,\n\t\t\t\t   struct k_mem_paging_stats_t *stats"
+        ],
+        "mem_manage.h"
+    ],
+    [
+        [
+            "void k_mem_paging_histogram_eviction_get",
+            "\n\tstruct k_mem_paging_histogram_t *hist"
+        ],
+        "mem_manage.h"
+    ],
+    [
+        [
+            "void k_mem_paging_histogram_backing_store_page_in_get",
+            "\n\tstruct k_mem_paging_histogram_t *hist"
+        ],
+        "mem_manage.h"
+    ],
+    [
+        [
+            "void k_mem_paging_histogram_backing_store_page_out_get",
+            "\n\tstruct k_mem_paging_histogram_t *hist"
+        ],
+        "mem_manage.h"
+    ],
+    [
+        [
             "int z_sys_mutex_kernel_lock",
             "struct sys_mutex *mutex,\n\t\t\t\t      k_timeout_t timeout"
         ],
@@ -2087,7 +2178,7 @@
     ],
     [
         [
-            "int z_clock_hw_cycles_per_sec_runtime_get",
+            "int sys_clock_hw_cycles_per_sec_runtime_get",
             "void"
         ],
         "time_units.h"

@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/drivers/sensor/grove
+# Install script for directory: /root/work/zephyrproject/zephyr/drivers/sensor/grove
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

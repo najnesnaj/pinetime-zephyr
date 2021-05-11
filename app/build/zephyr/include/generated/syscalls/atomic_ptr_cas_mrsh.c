@@ -5,9 +5,9 @@
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif
-#include <syscalls/atomic.h>
+#include <syscalls/atomic_c.h>
 
-extern bool z_vrfy_atomic_ptr_cas(atomic_ptr_t * target, void * old_value, void * new_value);
+extern bool z_vrfy_atomic_ptr_cas(atomic_ptr_t * target, atomic_ptr_val_t old_value, atomic_ptr_val_t new_value);
 uintptr_t z_mrsh_atomic_ptr_cas(uintptr_t arg0, uintptr_t arg1, uintptr_t arg2,
 		uintptr_t arg3, uintptr_t arg4, uintptr_t arg5, void *ssf)
 {
@@ -15,7 +15,7 @@ uintptr_t z_mrsh_atomic_ptr_cas(uintptr_t arg0, uintptr_t arg1, uintptr_t arg2,
 	(void) arg3;	/* unused */
 	(void) arg4;	/* unused */
 	(void) arg5;	/* unused */
-	bool ret = z_vrfy_atomic_ptr_cas(*(atomic_ptr_t **)&arg0, *(void **)&arg1, *(void **)&arg2)
+	bool ret = z_vrfy_atomic_ptr_cas(*(atomic_ptr_t **)&arg0, *(atomic_ptr_val_t*)&arg1, *(atomic_ptr_val_t*)&arg2)
 ;
 	_current->syscall_frame = NULL;
 	return (uintptr_t) ret;

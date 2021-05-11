@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/drivers/timer
+# Install script for directory: /root/work/zephyrproject/zephyr/drivers/timer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

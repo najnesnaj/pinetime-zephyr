@@ -21,8 +21,8 @@
 extern "C" {
 #endif
 
-extern int z_impl_i2s_configure(const struct device * dev, enum i2s_dir dir, struct i2s_config * cfg);
-static inline int i2s_configure(const struct device * dev, enum i2s_dir dir, struct i2s_config * cfg)
+extern int z_impl_i2s_configure(const struct device * dev, enum i2s_dir dir, const struct i2s_config * cfg);
+static inline int i2s_configure(const struct device * dev, enum i2s_dir dir, const struct i2s_config * cfg)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {

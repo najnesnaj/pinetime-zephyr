@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/drivers/sensor/nrf5
+# Install script for directory: /root/work/zephyrproject/zephyr/drivers/sensor/nrf5
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

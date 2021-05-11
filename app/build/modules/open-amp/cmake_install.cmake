@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/modules/lib/open-amp
+# Install script for directory: /root/work/zephyrproject/modules/lib/open-amp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

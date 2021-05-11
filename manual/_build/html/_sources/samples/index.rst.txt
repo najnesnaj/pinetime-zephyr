@@ -6,6 +6,17 @@ Samples
 ####### 
  
 .. toctree:: 
+    apposwatch-batteryREADME
+    apposwatch-btREADME
+    apposwatch-calendarREADME
+    apposwatch-ctsREADME
+    apposwatch-fotaREADME
+    apposwatchREADME
+    appsamplescfbREADME
+    appsamplescfb_shellREADME
+    appsampleslvglREADME
+    appsamplesmax44009README
+    appsamplestimerREADME
     index
     oswatch-batteryREADME
     oswatch-btREADME

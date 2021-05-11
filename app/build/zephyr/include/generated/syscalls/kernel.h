@@ -114,8 +114,8 @@ static inline void k_busy_wait(uint32_t usec_to_wait)
 }
 
 
-extern void z_impl_k_yield();
-static inline void k_yield()
+extern void z_impl_k_yield(void);
+static inline void k_yield(void)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
@@ -142,8 +142,8 @@ static inline void k_wakeup(k_tid_t thread)
 }
 
 
-extern k_tid_t z_impl_k_current_get();
-static inline k_tid_t k_current_get()
+extern k_tid_t z_impl_k_current_get(void);
+static inline k_tid_t k_current_get(void)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
@@ -278,8 +278,8 @@ static inline void k_thread_resume(k_tid_t thread)
 }
 
 
-extern int z_impl_k_is_preempt_thread();
-static inline int k_is_preempt_thread()
+extern int z_impl_k_is_preempt_thread(void);
+static inline int k_is_preempt_thread(void)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
@@ -305,8 +305,8 @@ static inline void k_thread_custom_data_set(void * value)
 }
 
 
-extern void * z_impl_k_thread_custom_data_get();
-static inline void * k_thread_custom_data_get()
+extern void * z_impl_k_thread_custom_data_get(void);
+static inline void * k_thread_custom_data_get(void)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
@@ -318,29 +318,29 @@ static inline void * k_thread_custom_data_get()
 }
 
 
-extern int z_impl_k_thread_name_set(k_tid_t thread_id, const char * value);
-static inline int k_thread_name_set(k_tid_t thread_id, const char * value)
+extern int z_impl_k_thread_name_set(k_tid_t thread, const char * str);
+static inline int k_thread_name_set(k_tid_t thread, const char * str)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		return (int) arch_syscall_invoke2(*(uintptr_t *)&thread_id, *(uintptr_t *)&value, K_SYSCALL_K_THREAD_NAME_SET);
+		return (int) arch_syscall_invoke2(*(uintptr_t *)&thread, *(uintptr_t *)&str, K_SYSCALL_K_THREAD_NAME_SET);
 	}
 #endif
 	compiler_barrier();
-	return z_impl_k_thread_name_set(thread_id, value);
+	return z_impl_k_thread_name_set(thread, str);
 }
 
 
-extern int z_impl_k_thread_name_copy(k_tid_t thread_id, char * buf, size_t size);
-static inline int k_thread_name_copy(k_tid_t thread_id, char * buf, size_t size)
+extern int z_impl_k_thread_name_copy(k_tid_t thread, char * buf, size_t size);
+static inline int k_thread_name_copy(k_tid_t thread, char * buf, size_t size)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		return (int) arch_syscall_invoke3(*(uintptr_t *)&thread_id, *(uintptr_t *)&buf, *(uintptr_t *)&size, K_SYSCALL_K_THREAD_NAME_COPY);
+		return (int) arch_syscall_invoke3(*(uintptr_t *)&thread, *(uintptr_t *)&buf, *(uintptr_t *)&size, K_SYSCALL_K_THREAD_NAME_COPY);
 	}
 #endif
 	compiler_barrier();
-	return z_impl_k_thread_name_copy(thread_id, buf, size);
+	return z_impl_k_thread_name_copy(thread, buf, size);
 }
 
 
@@ -455,8 +455,8 @@ static inline void * k_timer_user_data_get(const struct k_timer * timer)
 }
 
 
-extern int64_t z_impl_k_uptime_ticks();
-static inline int64_t k_uptime_ticks()
+extern int64_t z_impl_k_uptime_ticks(void);
+static inline int64_t k_uptime_ticks(void)
 {
 #ifdef CONFIG_USERSPACE
 	uint64_t ret64;
@@ -1013,58 +1013,58 @@ static inline int k_poll(struct k_poll_event * events, int num_events, k_timeout
 }
 
 
-extern void z_impl_k_poll_signal_init(struct k_poll_signal * signal);
-static inline void k_poll_signal_init(struct k_poll_signal * signal)
+extern void z_impl_k_poll_signal_init(struct k_poll_signal * sig);
+static inline void k_poll_signal_init(struct k_poll_signal * sig)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		arch_syscall_invoke1(*(uintptr_t *)&signal, K_SYSCALL_K_POLL_SIGNAL_INIT);
+		arch_syscall_invoke1(*(uintptr_t *)&sig, K_SYSCALL_K_POLL_SIGNAL_INIT);
 		return;
 	}
 #endif
 	compiler_barrier();
-	z_impl_k_poll_signal_init(signal);
+	z_impl_k_poll_signal_init(sig);
 }
 
 
-extern void z_impl_k_poll_signal_reset(struct k_poll_signal * signal);
-static inline void k_poll_signal_reset(struct k_poll_signal * signal)
+extern void z_impl_k_poll_signal_reset(struct k_poll_signal * sig);
+static inline void k_poll_signal_reset(struct k_poll_signal * sig)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		arch_syscall_invoke1(*(uintptr_t *)&signal, K_SYSCALL_K_POLL_SIGNAL_RESET);
+		arch_syscall_invoke1(*(uintptr_t *)&sig, K_SYSCALL_K_POLL_SIGNAL_RESET);
 		return;
 	}
 #endif
 	compiler_barrier();
-	z_impl_k_poll_signal_reset(signal);
+	z_impl_k_poll_signal_reset(sig);
 }
 
 
-extern void z_impl_k_poll_signal_check(struct k_poll_signal * signal, unsigned int * signaled, int * result);
-static inline void k_poll_signal_check(struct k_poll_signal * signal, unsigned int * signaled, int * result)
+extern void z_impl_k_poll_signal_check(struct k_poll_signal * sig, unsigned int * signaled, int * result);
+static inline void k_poll_signal_check(struct k_poll_signal * sig, unsigned int * signaled, int * result)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		arch_syscall_invoke3(*(uintptr_t *)&signal, *(uintptr_t *)&signaled, *(uintptr_t *)&result, K_SYSCALL_K_POLL_SIGNAL_CHECK);
+		arch_syscall_invoke3(*(uintptr_t *)&sig, *(uintptr_t *)&signaled, *(uintptr_t *)&result, K_SYSCALL_K_POLL_SIGNAL_CHECK);
 		return;
 	}
 #endif
 	compiler_barrier();
-	z_impl_k_poll_signal_check(signal, signaled, result);
+	z_impl_k_poll_signal_check(sig, signaled, result);
 }
 
 
-extern int z_impl_k_poll_signal_raise(struct k_poll_signal * signal, int result);
-static inline int k_poll_signal_raise(struct k_poll_signal * signal, int result)
+extern int z_impl_k_poll_signal_raise(struct k_poll_signal * sig, int result);
+static inline int k_poll_signal_raise(struct k_poll_signal * sig, int result)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		return (int) arch_syscall_invoke2(*(uintptr_t *)&signal, *(uintptr_t *)&result, K_SYSCALL_K_POLL_SIGNAL_RAISE);
+		return (int) arch_syscall_invoke2(*(uintptr_t *)&sig, *(uintptr_t *)&result, K_SYSCALL_K_POLL_SIGNAL_RAISE);
 	}
 #endif
 	compiler_barrier();
-	return z_impl_k_poll_signal_raise(signal, result);
+	return z_impl_k_poll_signal_raise(sig, result);
 }
 
 
@@ -1092,6 +1092,19 @@ static inline int k_float_disable(struct k_thread * thread)
 #endif
 	compiler_barrier();
 	return z_impl_k_float_disable(thread);
+}
+
+
+extern int z_impl_k_float_enable(struct k_thread * thread, unsigned int options);
+static inline int k_float_enable(struct k_thread * thread, unsigned int options)
+{
+#ifdef CONFIG_USERSPACE
+	if (z_syscall_trap()) {
+		return (int) arch_syscall_invoke2(*(uintptr_t *)&thread, *(uintptr_t *)&options, K_SYSCALL_K_FLOAT_ENABLE);
+	}
+#endif
+	compiler_barrier();
+	return z_impl_k_float_enable(thread, options);
 }
 
 

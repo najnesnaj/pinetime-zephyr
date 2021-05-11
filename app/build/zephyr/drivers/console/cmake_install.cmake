@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/drivers/console
+# Install script for directory: /root/work/zephyrproject/zephyr/drivers/console
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

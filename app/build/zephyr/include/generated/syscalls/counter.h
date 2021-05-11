@@ -207,19 +207,6 @@ static inline uint32_t counter_get_top_value(const struct device * dev)
 }
 
 
-extern uint32_t z_impl_counter_get_max_relative_alarm(const struct device * dev);
-static inline uint32_t counter_get_max_relative_alarm(const struct device * dev)
-{
-#ifdef CONFIG_USERSPACE
-	if (z_syscall_trap()) {
-		return (uint32_t) arch_syscall_invoke1(*(uintptr_t *)&dev, K_SYSCALL_COUNTER_GET_MAX_RELATIVE_ALARM);
-	}
-#endif
-	compiler_barrier();
-	return z_impl_counter_get_max_relative_alarm(dev);
-}
-
-
 extern int z_impl_counter_set_guard_period(const struct device * dev, uint32_t ticks, uint32_t flags);
 static inline int counter_set_guard_period(const struct device * dev, uint32_t ticks, uint32_t flags)
 {

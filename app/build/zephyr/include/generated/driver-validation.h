@@ -4,8 +4,6 @@
 		(Z_SYSCALL_OBJ(ptr, K_OBJ_DRIVER_##driver_upper_case) || \
 		 Z_SYSCALL_DRIVER_OP(ptr, driver_lower_case##_driver_api, op))
                 
-#define Z_SYSCALL_DRIVER_PTP_CLOCK(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, ptp_clock, PTP_CLOCK)
-
 #define Z_SYSCALL_DRIVER_CRYPTO(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, crypto, CRYPTO)
 
 #define Z_SYSCALL_DRIVER_ADC(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, adc, ADC)
@@ -28,6 +26,8 @@
 
 #define Z_SYSCALL_DRIVER_ESPI(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, espi, ESPI)
 
+#define Z_SYSCALL_DRIVER_ESPI_SAF(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, espi_saf, ESPI_SAF)
+
 #define Z_SYSCALL_DRIVER_FLASH(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, flash, FLASH)
 
 #define Z_SYSCALL_DRIVER_GPIO(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, gpio, GPIO)
@@ -46,7 +46,7 @@
 
 #define Z_SYSCALL_DRIVER_PS2(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, ps2, PS2)
 
-#define Z_SYSCALL_DRIVER_PSCI(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, psci, PSCI)
+#define Z_SYSCALL_DRIVER_PTP_CLOCK(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, ptp_clock, PTP_CLOCK)
 
 #define Z_SYSCALL_DRIVER_PWM(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, pwm, PWM)
 

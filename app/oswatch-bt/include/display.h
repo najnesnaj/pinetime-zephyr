@@ -15,6 +15,6 @@ void display_sleep();
 void display_clock_update();
 void display_connect_event(void);
 void display_disconnect_event(void);
-
-//void backlight_switch(bool)
+#define PARAM_TOTAL 6 //total number of parameters
+void display_parameters_update(uint8_t *elementary);
 #endif  /* __DISPLAY_H */

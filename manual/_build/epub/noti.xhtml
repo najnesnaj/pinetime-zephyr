@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt;</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <dl class="simple">
+<dt>[NEW] Characteristic</dt><dd><p>/org/bluez/hci0/dev_F6_2C_86_BD_4A_05/service0014/char0015
+12345678-1234-5678-1234-56789abcdef1
+Vendor specific</p>
+</dd>
+<dt>[NEW] Characteristic</dt><dd><p>/org/bluez/hci0/dev_F6_2C_86_BD_4A_05/service0014/char0018
+12345678-1234-5678-1234-56789abcdef2
+Vendor specific</p>
+</dd>
+</dl>
+<p>[dsd6]# info
+Device F6:2C:86:BD:4A:05 (random)</p>
+<blockquote>
+<div><p>Name: dsd6
+Alias: dsd6
+Appearance: 0x0341
+Paired: no
+Trusted: no
+Blocked: no
+Connected: yes
+LegacyPairing: no
+UUID: Generic Access Profile    (00001800-0000-1000-8000-00805f9b34fb)
+UUID: Generic Attribute Profile (00001801-0000-1000-8000-00805f9b34fb)
+UUID: Battery Service           (0000180f-0000-1000-8000-00805f9b34fb)
+UUID: Vendor specific           (12345678-1234-5678-1234-56789abcdef0)</p>
+</div></blockquote>
+<p>[dsd6]# menu gatt</p>
+<p>[dsd6]# attribute-info 12345678-1234-5678-1234-56789abcdef2
+Characteristic - Vendor specific</p>
+<blockquote>
+<div><p>UUID: 12345678-1234-5678-1234-56789abcdef2
+Service: /org/bluez/hci0/dev_F6_2C_86_BD_4A_05/service0014
+Flags: read
+Flags: write</p>
+</div></blockquote>
+<p>[dsd6]# attribute-info 12345678-1234-5678-1234-56789abcdef1
+Characteristic - Vendor specific</p>
+<blockquote>
+<div><p>UUID: 12345678-1234-5678-1234-56789abcdef1
+Service: /org/bluez/hci0/dev_F6_2C_86_BD_4A_05/service0014
+Notifying: no
+Flags: notify</p>
+</div></blockquote>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

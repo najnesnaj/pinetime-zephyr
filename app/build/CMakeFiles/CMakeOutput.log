@@ -1,5 +1,5 @@
-The target system is: Generic - 2.5.0 - arm
-The host system is: Linux - 5.4.0-70-generic - x86_64
+The target system is: Generic - 2.6.0 - arm
+The host system is: Linux - 5.4.0-72-generic - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc 
 Build flags: 
@@ -11,7 +11,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
 
-The C compiler identification is GNU, found in "/root/work/app/build/CMakeFiles/3.18.2/CompilerIdC/CMakeCCompilerId.o"
+The C compiler identification is GNU, found in "/root/work/zephyrproject/app/build/CMakeFiles/3.18.2/CompilerIdC/CMakeCCompilerId.o"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-g++ 
@@ -24,7 +24,7 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
 
-The CXX compiler identification is GNU, found in "/root/work/app/build/CMakeFiles/3.18.2/CompilerIdCXX/CMakeCXXCompilerId.o"
+The CXX compiler identification is GNU, found in "/root/work/zephyrproject/app/build/CMakeFiles/3.18.2/CompilerIdCXX/CMakeCXXCompilerId.o"
 
 Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
 arm-zephyr-eabi-gcc (crosstool-NG 1.24.0.37-3f461da-dirty) 9.2.0

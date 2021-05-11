@@ -21,16 +21,16 @@
 extern "C" {
 #endif
 
-extern int z_impl_z_clock_hw_cycles_per_sec_runtime_get();
-static inline int z_clock_hw_cycles_per_sec_runtime_get()
+extern int z_impl_sys_clock_hw_cycles_per_sec_runtime_get(void);
+static inline int sys_clock_hw_cycles_per_sec_runtime_get(void)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		return (int) arch_syscall_invoke0(K_SYSCALL_Z_CLOCK_HW_CYCLES_PER_SEC_RUNTIME_GET);
+		return (int) arch_syscall_invoke0(K_SYSCALL_SYS_CLOCK_HW_CYCLES_PER_SEC_RUNTIME_GET);
 	}
 #endif
 	compiler_barrier();
-	return z_impl_z_clock_hw_cycles_per_sec_runtime_get();
+	return z_impl_sys_clock_hw_cycles_per_sec_runtime_get();
 }
 
 

@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/drivers/serial
+# Install script for directory: /root/work/zephyrproject/zephyr/drivers/serial
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

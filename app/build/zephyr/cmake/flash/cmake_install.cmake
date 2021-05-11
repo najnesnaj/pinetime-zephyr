@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/cmake/flash
+# Install script for directory: /root/work/zephyrproject/zephyr/cmake/flash
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

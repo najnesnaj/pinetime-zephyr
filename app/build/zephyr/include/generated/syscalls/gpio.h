@@ -21,19 +21,6 @@
 extern "C" {
 #endif
 
-extern int z_impl_gpio_config(const struct device * port, gpio_pin_t pin, gpio_flags_t flags);
-static inline int gpio_config(const struct device * port, gpio_pin_t pin, gpio_flags_t flags)
-{
-#ifdef CONFIG_USERSPACE
-	if (z_syscall_trap()) {
-		return (int) arch_syscall_invoke3(*(uintptr_t *)&port, *(uintptr_t *)&pin, *(uintptr_t *)&flags, K_SYSCALL_GPIO_CONFIG);
-	}
-#endif
-	compiler_barrier();
-	return z_impl_gpio_config(port, pin, flags);
-}
-
-
 extern int z_impl_gpio_pin_interrupt_configure(const struct device * port, gpio_pin_t pin, gpio_flags_t flags);
 static inline int gpio_pin_interrupt_configure(const struct device * port, gpio_pin_t pin, gpio_flags_t flags)
 {
@@ -44,6 +31,19 @@ static inline int gpio_pin_interrupt_configure(const struct device * port, gpio_
 #endif
 	compiler_barrier();
 	return z_impl_gpio_pin_interrupt_configure(port, pin, flags);
+}
+
+
+extern int z_impl_gpio_pin_configure(const struct device * port, gpio_pin_t pin, gpio_flags_t flags);
+static inline int gpio_pin_configure(const struct device * port, gpio_pin_t pin, gpio_flags_t flags)
+{
+#ifdef CONFIG_USERSPACE
+	if (z_syscall_trap()) {
+		return (int) arch_syscall_invoke3(*(uintptr_t *)&port, *(uintptr_t *)&pin, *(uintptr_t *)&flags, K_SYSCALL_GPIO_PIN_CONFIGURE);
+	}
+#endif
+	compiler_barrier();
+	return z_impl_gpio_pin_configure(port, pin, flags);
 }
 
 

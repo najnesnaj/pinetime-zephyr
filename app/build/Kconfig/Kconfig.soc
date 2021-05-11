@@ -1,1 +1,1 @@
-osource "/root/work/zephyr/soc/$(ARCH)/*/Kconfig.soc"
+osource "/root/work/zephyrproject/zephyr/soc/$(ARCH)/*/Kconfig.soc"

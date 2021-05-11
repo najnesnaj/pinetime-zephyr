@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/modules/fs/littlefs
+# Install script for directory: /root/work/zephyrproject/modules/fs/littlefs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

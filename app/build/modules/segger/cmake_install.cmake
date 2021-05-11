@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/modules/debug/segger
+# Install script for directory: /root/work/zephyrproject/zephyr/modules/segger
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

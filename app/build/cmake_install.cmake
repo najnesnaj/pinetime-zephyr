@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/app/samples/bluetooth/peripheral-getparam
+# Install script for directory: /root/work/zephyrproject/app/oswatch-bt
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/root/work/app/build/zephyr/cmake_install.cmake")
+  include("/root/work/zephyrproject/app/build/zephyr/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/root/work/app/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/root/work/zephyrproject/app/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

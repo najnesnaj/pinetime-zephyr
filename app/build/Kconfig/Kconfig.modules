@@ -1,12 +1,48 @@
-menu "hal_nordic (/root/work/modules/hal/nordic)"
+menu "hal_nordic (/root/work/zephyrproject/modules/hal/nordic)"
 osource "$(ZEPHYR_HAL_NORDIC_KCONFIG)"
 config ZEPHYR_HAL_NORDIC_MODULE
 	bool
 	default y
 endmenu
-menu "sof (/root/work/modules/audio/sof)"
-osource "/root/work/modules/audio/sof/zephyr/Kconfig"
+menu "mbedtls (/root/work/zephyrproject/modules/crypto/mbedtls)"
+osource "$(ZEPHYR_MBEDTLS_KCONFIG)"
+config ZEPHYR_MBEDTLS_MODULE
+	bool
+	default y
+endmenu
+menu "sof (/root/work/zephyrproject/modules/audio/sof)"
+osource "/root/work/zephyrproject/modules/audio/sof/zephyr/Kconfig"
 config ZEPHYR_SOF_MODULE
+	bool
+	default y
+endmenu
+menu "TraceRecorder (/root/work/zephyrproject/modules/debug/TraceRecorder)"
+osource "/root/work/zephyrproject/modules/debug/TraceRecorder/kernelports/Zephyr/Kconfig"
+config ZEPHYR_TRACERECORDER_MODULE
+	bool
+	default y
+endmenu
+menu "trusted-firmware-m (/root/work/zephyrproject/modules/tee/tfm)"
+osource "$(ZEPHYR_TRUSTED_FIRMWARE_M_KCONFIG)"
+config ZEPHYR_TRUSTED_FIRMWARE_M_MODULE
+	bool
+	default y
+endmenu
+menu "nanopb (/root/work/zephyrproject/modules/lib/nanopb)"
+osource "$(ZEPHYR_NANOPB_KCONFIG)"
+config ZEPHYR_NANOPB_MODULE
+	bool
+	default y
+endmenu
+menu "tensorflow (/root/work/zephyrproject/modules/lib/tensorflow)"
+osource "$(ZEPHYR_TENSORFLOW_KCONFIG)"
+config ZEPHYR_TENSORFLOW_MODULE
+	bool
+	default y
+endmenu
+menu "drivers (/root/work/zephyrproject/app/oswatch-bt/drivers)"
+osource "/root/work/zephyrproject/app/oswatch-bt/drivers/zephyr/Kconfig"
+config ZEPHYR_DRIVERS_MODULE
 	bool
 	default y
 endmenu

@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/arch/common
+# Install script for directory: /root/work/zephyrproject/zephyr/arch/common
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

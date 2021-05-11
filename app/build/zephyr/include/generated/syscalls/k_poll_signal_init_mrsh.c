@@ -7,7 +7,7 @@
 #endif
 #include <syscalls/kernel.h>
 
-extern void z_vrfy_k_poll_signal_init(struct k_poll_signal * signal);
+extern void z_vrfy_k_poll_signal_init(struct k_poll_signal * sig);
 uintptr_t z_mrsh_k_poll_signal_init(uintptr_t arg0, uintptr_t arg1, uintptr_t arg2,
 		uintptr_t arg3, uintptr_t arg4, uintptr_t arg5, void *ssf)
 {

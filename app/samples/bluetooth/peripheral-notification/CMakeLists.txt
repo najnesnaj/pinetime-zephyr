@@ -13,7 +13,7 @@ include_directories(include)
 
 target_sources(app PRIVATE
   src/main.c
-  src/param_sync.c
+#  src/param_sync.c
 )
 
 

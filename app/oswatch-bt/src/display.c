@@ -25,10 +25,11 @@ const static struct device * display_dev;
 #define SCREEN_ID_1    1
 #define SCREEN_ID_2    2
 #define SCREEN_ID_3    3
-#define SCREEN_COUNT   4
+//#define SCREEN_COUNT   4 //last screen reserved for bt connect event
+#define SCREEN_COUNT   3
 
 
-#define PARAM_TOTAL 6 //total number of parameters
+//#define PARAM_TOTAL 6 //total number of parameters
 
 
 char * param_label[] = {
@@ -40,7 +41,7 @@ char * param_label[] = {
         "timer3"
 };
 
-int param[6]={10,20,30,40,50,60};
+int parameters[PARAM_TOTAL]={10,20,30,40,50,60};
 
 
 
@@ -124,6 +125,26 @@ void display_date_set_label(char *str)
 	lv_label_set_text(date_label, str);
 }
 
+void display_parameters_update(uint8_t *elementary)
+{ //these parameters are updated via bluetooth called from disconnected
+  //it is an array of 12 bytes which gives some flexibility
+  //suppose you want 33.33 you have to combine 2 bytes
+  //suppose you want 3344 you have to combine in another way ...
+  //in this examples type casting 1 byte to integer (6 bytes are left unused)
+	uint8_t paramdata[PARAM_TOTAL*2];
+        for (int i=0; i<(PARAM_TOTAL*2); i++) paramdata[i]=0; 
+        memcpy(paramdata, elementary,  PARAM_TOTAL*2); 
+     //   for (int i=0; i<(PARAM_TOTAL*2); i++) 
+//		 printk("number %d value %d\n", i, paramdata[i]);
+	         parameters[0]=paramdata[0] ; //todo loop
+	         parameters[1]=paramdata[2] ; 
+	         parameters[2]=paramdata[4] ; 
+	         parameters[3]=paramdata[6] ; 
+	         parameters[4]=paramdata[8] ; 
+	         parameters[5]=paramdata[10] ; 
+}
+
+
 
 //parameters are displayed on screen2
 void display_label()
@@ -138,7 +159,7 @@ void display_label()
 void show_label(int parnr)
 {
         char snum[5];
-        sprintf(snum, "%d",param[parnr]);
+        sprintf(snum, "%d",parameters[parnr]);
         lv_label_set_text(screen2_label1_obj, param_label[parnr]);
         lv_label_set_text(screen2_label2_obj, snum);
 }
@@ -271,12 +292,11 @@ void display_button()
 
 }
 
-
-
-
 void display_connect_event()
 {
-        lv_scr_load(screens[2].screen); //display the parameters screen
+//      LOG_INF("display_connect_event");
+        lv_scr_load(screens[3].screen); //display the CTS screen
+//      lv_task_handler();//jj
 
 }
 
@@ -284,6 +304,8 @@ void display_disconnect_event()
 {
         lv_scr_load(screens[0].screen); //display the first screen
 }
+
+
 
 
 
@@ -456,8 +478,12 @@ void display_screens_init(void)
 	 */
 	lv_scr_load(screens[3].screen);
 	lv_obj_t * screen3_page = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_text(screen3_page, "Sc4");
+	lv_label_set_text(screen3_page, "BT");
 	lv_obj_align(screen3_page, screens[3].screen, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+        /* Bluetooth label */
+        title_label = lv_label_create(lv_scr_act(), NULL);
+        lv_obj_align(title_label, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
+        lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH);
 
 	// why define the same button all over again? jj
 	display_button();

@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/app/samples/bluetooth/peripheral-getparam/boards/arm/ds_d6
+# Install script for directory: /root/work/zephyrproject/app/oswatch-bt/boards/arm/ds_d6
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -39,6 +39,7 @@
    device_type = "cpu";
    compatible = "arm,cortex-m4f";
    reg = <0>;
+   swo-ref-frequency = <32000000>;
   };
  };
  soc {
@@ -402,7 +403,7 @@ leds {
         ssd1306new@0 {
                 compatible = "solomon,ssd1306fb";
          spi-max-frequency = <80000000>;
-                label = "SSD1306";
+                label = "SSD1306NEW";
                 reg = <0>;
   segment-offset = <0>;
   page-offset = <0>;

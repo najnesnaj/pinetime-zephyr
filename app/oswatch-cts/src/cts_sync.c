@@ -89,7 +89,7 @@ uint8_t cts_sync_read(struct bt_conn *conn, uint8_t err,
 				    //const void *data, u16_t length)
 				    const void *data, uint16_t length)
 {
-	LOG_DBG("Reading CCC data: err %d, %d bytes, offset %d.", err, length, m_read_buf.offset);
+	LOG_INF("Reading CCC data: err %d, %d bytes, offset %d.", err, length, m_read_buf.offset);
 
 	if (!data || length <= 0) {
 		sync_cts_to_clock(&m_read_buf.datetime);
@@ -109,7 +109,7 @@ uint8_t cts_sync_service_discovered(struct bt_conn* conn, const struct bt_gatt_a
 		LOG_INF("CTS Service Discovery completed");
 		return BT_GATT_ITER_STOP;
 	}
-	LOG_DBG("Discovered attribute, handle: %u", attr->handle);
+	LOG_INF("Discovered attribute, handle: %u", attr->handle);
 
 	memset(&read_params, 0, sizeof(read_params));
 	read_params.func = cts_sync_read;

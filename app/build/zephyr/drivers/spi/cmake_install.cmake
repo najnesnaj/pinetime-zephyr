@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/drivers/spi
+# Install script for directory: /root/work/zephyrproject/zephyr/drivers/spi
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

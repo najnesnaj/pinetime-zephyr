@@ -7,7 +7,7 @@
 #endif
 #include <syscalls/i2s.h>
 
-extern int z_vrfy_i2s_configure(const struct device * dev, enum i2s_dir dir, struct i2s_config * cfg);
+extern int z_vrfy_i2s_configure(const struct device * dev, enum i2s_dir dir, const struct i2s_config * cfg);
 uintptr_t z_mrsh_i2s_configure(uintptr_t arg0, uintptr_t arg1, uintptr_t arg2,
 		uintptr_t arg3, uintptr_t arg4, uintptr_t arg5, void *ssf)
 {
@@ -15,7 +15,7 @@ uintptr_t z_mrsh_i2s_configure(uintptr_t arg0, uintptr_t arg1, uintptr_t arg2,
 	(void) arg3;	/* unused */
 	(void) arg4;	/* unused */
 	(void) arg5;	/* unused */
-	int ret = z_vrfy_i2s_configure(*(const struct device **)&arg0, *(enum i2s_dir*)&arg1, *(struct i2s_config **)&arg2)
+	int ret = z_vrfy_i2s_configure(*(const struct device **)&arg0, *(enum i2s_dir*)&arg1, *(const struct i2s_config **)&arg2)
 ;
 	_current->syscall_frame = NULL;
 	return (uintptr_t) ret;

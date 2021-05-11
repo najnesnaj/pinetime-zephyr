@@ -21,8 +21,8 @@
 extern "C" {
 #endif
 
-extern void z_impl_log_panic();
-static inline void log_panic()
+extern void z_impl_log_panic(void);
+static inline void log_panic(void)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
@@ -48,8 +48,8 @@ static inline bool log_process(bool bypass)
 }
 
 
-extern uint32_t z_impl_log_buffered_cnt();
-static inline uint32_t log_buffered_cnt()
+extern uint32_t z_impl_log_buffered_cnt(void);
+static inline uint32_t log_buffered_cnt(void)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
@@ -61,16 +61,16 @@ static inline uint32_t log_buffered_cnt()
 }
 
 
-extern uint32_t z_impl_log_filter_set(struct log_backend const *const backend, uint32_t domain_id, uint32_t src_id, uint32_t level);
-static inline uint32_t log_filter_set(struct log_backend const *const backend, uint32_t domain_id, uint32_t src_id, uint32_t level)
+extern uint32_t z_impl_log_filter_set(struct log_backend const *const backend, uint32_t domain_id, int16_t source_id, uint32_t level);
+static inline uint32_t log_filter_set(struct log_backend const *const backend, uint32_t domain_id, int16_t source_id, uint32_t level)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		return (uint32_t) arch_syscall_invoke4(*(uintptr_t *)&backend, *(uintptr_t *)&domain_id, *(uintptr_t *)&src_id, *(uintptr_t *)&level, K_SYSCALL_LOG_FILTER_SET);
+		return (uint32_t) arch_syscall_invoke4(*(uintptr_t *)&backend, *(uintptr_t *)&domain_id, *(uintptr_t *)&source_id, *(uintptr_t *)&level, K_SYSCALL_LOG_FILTER_SET);
 	}
 #endif
 	compiler_barrier();
-	return z_impl_log_filter_set(backend, domain_id, src_id, level);
+	return z_impl_log_filter_set(backend, domain_id, source_id, level);
 }
 
 
