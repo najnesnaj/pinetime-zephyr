@@ -26,15 +26,12 @@ static inline k_tid_t k_thread_create(struct k_thread * new_thread, k_thread_sta
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = delay;
 		uintptr_t more[] = {
 			*(uintptr_t *)&p2,
 			*(uintptr_t *)&p3,
 			*(uintptr_t *)&prio,
 			*(uintptr_t *)&options,
-			parm0.split.lo,
-			parm0.split.hi
+			*(uintptr_t *)&delay
 		};
 		return (k_tid_t) arch_syscall_invoke6(*(uintptr_t *)&new_thread, *(uintptr_t *)&stack, *(uintptr_t *)&stack_size, *(uintptr_t *)&entry, *(uintptr_t *)&p1, (uintptr_t) &more, K_SYSCALL_K_THREAD_CREATE);
 	}
@@ -62,9 +59,7 @@ static inline int k_thread_join(struct k_thread * thread, k_timeout_t timeout)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		return (int) arch_syscall_invoke3(*(uintptr_t *)&thread, parm0.split.lo, parm0.split.hi, K_SYSCALL_K_THREAD_JOIN);
+		return (int) arch_syscall_invoke2(*(uintptr_t *)&thread, *(uintptr_t *)&timeout, K_SYSCALL_K_THREAD_JOIN);
 	}
 #endif
 	compiler_barrier();
@@ -77,9 +72,7 @@ static inline int32_t k_sleep(k_timeout_t timeout)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		return (int32_t) arch_syscall_invoke2(parm0.split.lo, parm0.split.hi, K_SYSCALL_K_SLEEP);
+		return (int32_t) arch_syscall_invoke1(*(uintptr_t *)&timeout, K_SYSCALL_K_SLEEP);
 	}
 #endif
 	compiler_barrier();
@@ -349,11 +342,7 @@ static inline void k_timer_start(struct k_timer * timer, k_timeout_t duration, k
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = duration;
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm1;
-		parm1.val = period;
-		arch_syscall_invoke5(*(uintptr_t *)&timer, parm0.split.lo, parm0.split.hi, parm1.split.lo, parm1.split.hi, K_SYSCALL_K_TIMER_START);
+		arch_syscall_invoke3(*(uintptr_t *)&timer, *(uintptr_t *)&duration, *(uintptr_t *)&period, K_SYSCALL_K_TIMER_START);
 		return;
 	}
 #endif
@@ -459,10 +448,8 @@ extern int64_t z_impl_k_uptime_ticks(void);
 static inline int64_t k_uptime_ticks(void)
 {
 #ifdef CONFIG_USERSPACE
-	uint64_t ret64;
 	if (z_syscall_trap()) {
-		(void)arch_syscall_invoke1((uintptr_t)&ret64, K_SYSCALL_K_UPTIME_TICKS);
-		return (int64_t)ret64;
+		return (int64_t) arch_syscall_invoke0(K_SYSCALL_K_UPTIME_TICKS);
 	}
 #endif
 	compiler_barrier();
@@ -529,9 +516,7 @@ static inline void * k_queue_get(struct k_queue * queue, k_timeout_t timeout)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		return (void *) arch_syscall_invoke3(*(uintptr_t *)&queue, parm0.split.lo, parm0.split.hi, K_SYSCALL_K_QUEUE_GET);
+		return (void *) arch_syscall_invoke2(*(uintptr_t *)&queue, *(uintptr_t *)&timeout, K_SYSCALL_K_QUEUE_GET);
 	}
 #endif
 	compiler_barrier();
@@ -583,9 +568,7 @@ static inline int k_futex_wait(struct k_futex * futex, int expected, k_timeout_t
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		return (int) arch_syscall_invoke4(*(uintptr_t *)&futex, *(uintptr_t *)&expected, parm0.split.lo, parm0.split.hi, K_SYSCALL_K_FUTEX_WAIT);
+		return (int) arch_syscall_invoke3(*(uintptr_t *)&futex, *(uintptr_t *)&expected, *(uintptr_t *)&timeout, K_SYSCALL_K_FUTEX_WAIT);
 	}
 #endif
 	compiler_barrier();
@@ -637,9 +620,7 @@ static inline int k_stack_pop(struct k_stack * stack, stack_data_t * data, k_tim
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		return (int) arch_syscall_invoke4(*(uintptr_t *)&stack, *(uintptr_t *)&data, parm0.split.lo, parm0.split.hi, K_SYSCALL_K_STACK_POP);
+		return (int) arch_syscall_invoke3(*(uintptr_t *)&stack, *(uintptr_t *)&data, *(uintptr_t *)&timeout, K_SYSCALL_K_STACK_POP);
 	}
 #endif
 	compiler_barrier();
@@ -665,9 +646,7 @@ static inline int k_mutex_lock(struct k_mutex * mutex, k_timeout_t timeout)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		return (int) arch_syscall_invoke3(*(uintptr_t *)&mutex, parm0.split.lo, parm0.split.hi, K_SYSCALL_K_MUTEX_LOCK);
+		return (int) arch_syscall_invoke2(*(uintptr_t *)&mutex, *(uintptr_t *)&timeout, K_SYSCALL_K_MUTEX_LOCK);
 	}
 #endif
 	compiler_barrier();
@@ -732,9 +711,7 @@ static inline int k_condvar_wait(struct k_condvar * condvar, struct k_mutex * mu
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		return (int) arch_syscall_invoke4(*(uintptr_t *)&condvar, *(uintptr_t *)&mutex, parm0.split.lo, parm0.split.hi, K_SYSCALL_K_CONDVAR_WAIT);
+		return (int) arch_syscall_invoke3(*(uintptr_t *)&condvar, *(uintptr_t *)&mutex, *(uintptr_t *)&timeout, K_SYSCALL_K_CONDVAR_WAIT);
 	}
 #endif
 	compiler_barrier();
@@ -760,9 +737,7 @@ static inline int k_sem_take(struct k_sem * sem, k_timeout_t timeout)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		return (int) arch_syscall_invoke3(*(uintptr_t *)&sem, parm0.split.lo, parm0.split.hi, K_SYSCALL_K_SEM_TAKE);
+		return (int) arch_syscall_invoke2(*(uintptr_t *)&sem, *(uintptr_t *)&timeout, K_SYSCALL_K_SEM_TAKE);
 	}
 #endif
 	compiler_barrier();
@@ -829,9 +804,7 @@ static inline int k_msgq_put(struct k_msgq * msgq, const void * data, k_timeout_
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		return (int) arch_syscall_invoke4(*(uintptr_t *)&msgq, *(uintptr_t *)&data, parm0.split.lo, parm0.split.hi, K_SYSCALL_K_MSGQ_PUT);
+		return (int) arch_syscall_invoke3(*(uintptr_t *)&msgq, *(uintptr_t *)&data, *(uintptr_t *)&timeout, K_SYSCALL_K_MSGQ_PUT);
 	}
 #endif
 	compiler_barrier();
@@ -844,9 +817,7 @@ static inline int k_msgq_get(struct k_msgq * msgq, void * data, k_timeout_t time
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		return (int) arch_syscall_invoke4(*(uintptr_t *)&msgq, *(uintptr_t *)&data, parm0.split.lo, parm0.split.hi, K_SYSCALL_K_MSGQ_GET);
+		return (int) arch_syscall_invoke3(*(uintptr_t *)&msgq, *(uintptr_t *)&data, *(uintptr_t *)&timeout, K_SYSCALL_K_MSGQ_GET);
 	}
 #endif
 	compiler_barrier();
@@ -939,13 +910,7 @@ static inline int k_pipe_put(struct k_pipe * pipe, void * data, size_t bytes_to_
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		uintptr_t more[] = {
-			parm0.split.lo,
-			parm0.split.hi
-		};
-		return (int) arch_syscall_invoke6(*(uintptr_t *)&pipe, *(uintptr_t *)&data, *(uintptr_t *)&bytes_to_write, *(uintptr_t *)&bytes_written, *(uintptr_t *)&min_xfer, (uintptr_t) &more, K_SYSCALL_K_PIPE_PUT);
+		return (int) arch_syscall_invoke6(*(uintptr_t *)&pipe, *(uintptr_t *)&data, *(uintptr_t *)&bytes_to_write, *(uintptr_t *)&bytes_written, *(uintptr_t *)&min_xfer, *(uintptr_t *)&timeout, K_SYSCALL_K_PIPE_PUT);
 	}
 #endif
 	compiler_barrier();
@@ -958,13 +923,7 @@ static inline int k_pipe_get(struct k_pipe * pipe, void * data, size_t bytes_to_
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		uintptr_t more[] = {
-			parm0.split.lo,
-			parm0.split.hi
-		};
-		return (int) arch_syscall_invoke6(*(uintptr_t *)&pipe, *(uintptr_t *)&data, *(uintptr_t *)&bytes_to_read, *(uintptr_t *)&bytes_read, *(uintptr_t *)&min_xfer, (uintptr_t) &more, K_SYSCALL_K_PIPE_GET);
+		return (int) arch_syscall_invoke6(*(uintptr_t *)&pipe, *(uintptr_t *)&data, *(uintptr_t *)&bytes_to_read, *(uintptr_t *)&bytes_read, *(uintptr_t *)&min_xfer, *(uintptr_t *)&timeout, K_SYSCALL_K_PIPE_GET);
 	}
 #endif
 	compiler_barrier();
@@ -1003,9 +962,7 @@ static inline int k_poll(struct k_poll_event * events, int num_events, k_timeout
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		return (int) arch_syscall_invoke4(*(uintptr_t *)&events, *(uintptr_t *)&num_events, parm0.split.lo, parm0.split.hi, K_SYSCALL_K_POLL);
+		return (int) arch_syscall_invoke3(*(uintptr_t *)&events, *(uintptr_t *)&num_events, *(uintptr_t *)&timeout, K_SYSCALL_K_POLL);
 	}
 #endif
 	compiler_barrier();

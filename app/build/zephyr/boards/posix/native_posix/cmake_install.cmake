@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/boards/posix/native_posix
+# Install script for directory: /root/work/zephyrproject/zephyr/boards/posix/native_posix
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

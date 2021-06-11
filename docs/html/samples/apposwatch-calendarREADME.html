@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Setting up an alarm/calendar event &mdash; open source watch 1.2.0 documentation</title>
+  <title>Calendar oswatch &mdash; open source watch 1.2.0 documentation</title>
   
 
   
@@ -88,6 +88,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr  smartwatch framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Howto use the framework ?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../idea.html">The idea behind the framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../out-of-tree.html">Out of tree</a></li>
@@ -103,8 +104,10 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Samples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="apposwatch-batteryREADME.html">Battery OSWatch Framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apposwatch-btREADME.html">Data exchange   OSWatch Framework</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Setting up an alarm/calendar event</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Calendar oswatch</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#button-clicking">Button clicking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#samples">Samples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
@@ -112,6 +115,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="apposwatch-ctsREADME.html">Current Time Setting  OSWatch Framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apposwatch-fotaREADME.html">FOTA OSWatch Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apposwatch-lowpowerREADME.html">Lowpower oswatch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apposwatchREADME.html">Basic OSWatch Framework</a></li>
 <li class="toctree-l2"><a class="reference internal" href="appsamplescfbREADME.html">Character frame buffer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="appsamplescfb_shellREADME.html">Character Framebuffer Shell Module Sample</a></li>
@@ -192,7 +196,7 @@
         
           <li><a href="index.html">Samples</a> &raquo;</li>
         
-      <li>Setting up an alarm/calendar event</li>
+      <li>Calendar oswatch</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -211,19 +215,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="setting-up-an-alarm-calendar-event">
-<span id="oswatch"></span><h1>Setting up an alarm/calendar event<a class="headerlink" href="#setting-up-an-alarm-calendar-event" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="calendar-oswatch">
+<span id="oswatch"></span><h1>Calendar oswatch<a class="headerlink" href="#calendar-oswatch" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>This sample sets up a calendar event.</p>
-<p>Time and date (calendar event) are read from a gatt-server.</p>
-<p>Once the event is due, the watch blinks the screen and vibrates.</p>
+<p>Once the timer is started (2nd screen); the alarmtime is displayed on the first screen.</p>
+<p>Now that we have a way to get data in/out of the watch, we can start to use it.
+This timer corresponds to the timer1 parameter, which can be set with a bluetoothconnection.</p>
+<p>Once the alarm expires, a message is display on the serial port. (This can be replaced by a vibrating motor)</p>
+</div>
+<div class="section" id="button-clicking">
+<h2>Button clicking<a class="headerlink" href="#button-clicking" title="Permalink to this headline">¶</a></h2>
+<p>in the native_posix_64 version : long press switches screens. In the second screen, timer can be started by short clicks.
+(2 times with some waiting in between). Short click means briefly clicking, otherwise it is interpreted as a double click.</p>
+<p>In the code is defined for each board the clicking threshold. You can adapt this to your taste.</p>
+</div>
+<div class="section" id="samples">
+<h2>Samples<a class="headerlink" href="#samples" title="Permalink to this headline">¶</a></h2>
+<p>This chunk of code is an extension on oswatch-bt. (exchanging data)</p>
+<p>Smaller chunks of code can be found under samples. They can be run individually and can help explain/test some features.</p>
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>A bluetooth gatt-server. (this is supplied : using bluez on linux)</p>
-<p>Included is a python-script : gatt-calendar-server.py, for use with bluez on linux.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">gatt</span><span class="o">-</span><span class="n">calendar</span><span class="o">-</span><span class="n">server</span><span class="o">.</span><span class="n">py</span>
+<p>Bluetooth/gatt server only needed if you want to change the timer1 value.</p>
+<p>A bluetooth gatt server. (example taken from bluez)
+This can also be a smartphone.</p>
+<p>Included is a python-script :  gatt-cts-bt-server.py, for use with bluez on linux.</p>
+<p>The timer-parameters are hardcoded in the python script, for testing purposes. (can be modified, of course)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span>  <span class="n">gatt</span><span class="o">-</span><span class="n">cts</span><span class="o">-</span><span class="n">bt</span><span class="o">-</span><span class="n">server</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p>you need to connect to the watch in order, to have it read the time.</p>
@@ -232,6 +251,7 @@
 <span class="n">connect</span> <span class="n">D5</span><span class="p">:</span><span class="n">A0</span><span class="p">:</span><span class="n">A2</span><span class="p">:</span><span class="mi">6</span><span class="n">D</span><span class="p">:</span><span class="n">A0</span><span class="p">:</span><span class="n">D5</span> <span class="p">(</span><span class="n">pick</span> <span class="n">the</span> <span class="n">pinetime</span> <span class="o">-</span> <span class="n">macaddress</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>A few python scripts have been provided : scan+notification and scan+connect.</p>
 </div>
 <div class="section" id="building-and-running">
 <h2>Building and Running<a class="headerlink" href="#building-and-running" title="Permalink to this headline">¶</a></h2>

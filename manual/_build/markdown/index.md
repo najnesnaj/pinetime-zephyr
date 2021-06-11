@@ -15,6 +15,27 @@
 * Zephyr  smartwatch framework
 
 
+* Howto use the framework ?
+
+
+    * Boards
+
+
+    * Complexity
+
+
+    * Samples
+
+
+    * Bluetooth
+
+
+    * Power saving
+
+
+    * Updating over the air
+
+
 * The idea behind the framework
 
 
@@ -126,7 +147,7 @@
 * Real Time Clock
 
 
-    * Overview
+    * Alarm
 
 
     * References
@@ -324,6 +345,9 @@
         * the no-watch approach : simulation on a laptop
 
 
+    * Nordic nRF Connect (android)
+
+
     * Bluez
 
 
@@ -462,10 +486,16 @@
         * References
 
 
-    * Setting up an alarm/calendar event
+    * Calendar oswatch
 
 
         * Overview
+
+
+        * Button clicking
+
+
+        * Samples
 
 
         * Requirements
@@ -508,6 +538,21 @@
 
 
         * References
+
+
+    * Lowpower oswatch
+
+
+        * Overview
+
+
+        * Which Power is saved?
+
+
+        * Button clicking
+
+
+        * Building and Running
 
 
     * Basic OSWatch Framework

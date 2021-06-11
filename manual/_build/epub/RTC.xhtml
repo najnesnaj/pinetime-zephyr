@@ -17,9 +17,14 @@
 <span id="rtc"></span><h1>Real Time Clock</h1>
 <p>The compile-time is used to set the initial time. (CMAKE file)</p>
 <p>The elapsed time since the startup can be calculated.</p>
-<p>Setting the exact time is done via bluetooth current time service.</p>
-<div class="section" id="overview">
-<h2>Overview</h2>
+<p>Setting the exact time is done via bluetooth current time service. (oswatch-cts)</p>
+<div class="section" id="alarm">
+<h2>Alarm</h2>
+<p>A cool feature, once you get a clock is an alarm. (oswatch-calendar)</p>
+<p>You can set/stop the alarm.</p>
+<p>Once set : the value of the “timer1” parameter is added to the current time.
+Everytime the clock is updated, there is a check if the alarm-time has been reached.</p>
+<p>The name (oswatch-calendar) was ambitious, but a more elaborate setup is possible using the same technique. (year month day hour minute needed as a parameter for a real calendar event)</p>
 </div>
 <div class="section" id="references">
 <h2>References</h2>

@@ -10,13 +10,21 @@ Included in this toolkit is a virtual watch, which you can run on your computer.
 
 ## Contributing to this project
 
+
+
+I mainly use the Desay D6 watch and the x86 simulated one, to develop.
+Testing it on the pinetime and adding functionality, can use your help.
+(it is possible and I do have the know-how)
+
+Suppose tomorrow new hardware becomes available, changing the board definition file should get you started quickly.
+The idea behind this project, is that this consumer based hardware is cheap (desay d6 < 5$), so it can be used in maker-projects other than just a watch.
+Example? The oswatch-calendar can be used as a timer to switch stuff. (clock - display - bluetooth - cts)
+(my intent is to use it as PID controller for beer production)
+
 The pinetime board (watch) has become a part of the zephyr distribution. 
-
 The zephyr project is very thorough in accepting code, board definitions etc ... which is very good indeed!
-
-I'm just a tinkerer, player, finding out things boy, maker ... which is very amateur-like from a zephyr-perspective.
-
 Anyone willing to take the samples in this repo and prepare/propose/incorporate them in the zephyr repo is welcome to do so.
+
 
 ## Where To Start?
 Read the tutorial! A helpful manual is included in the repository:
@@ -47,39 +55,33 @@ Zephyr is still under development and some nifty features were added since (or I
  - ssd1306 oled spi support
 
 it inspired me to morph the original pinetime-toolkit into an open-source-watch-framework.
+Right now the firmware can be used on 3(!) watch-platforms.
 
 ## philosophy
+Step by step functionality is added.
+If you have no need for bluetooth you can start with oswatch.
+If you need bluetooth you can start with oswatch-bt.
 
-Quick&easy, open and cheap!
+If you need powersaving, you can use oswatch-lowpower, which is an extension os oswatch-calendar, and as a consequence contains more code. (bigger firmware)
 
 Once you set up zephyr on your system, you only have to copy the "app" directory alongside.
 There is an extensive "hands-on" manual included, it is an addition of the zephyr manual.
 
 Although dev-boards are not expensive, you might just want to try things out, without spending money.
-Bluetooth, LVGL, board definition, touchscreen can be run native on X86.
+Bluetooth, LVGL, board definition, touchscreen can be run native on X86. (simulated watch)
 Another advantage : no need for a debug probe.
 You can get a taste of debugging your firmware with gdb.
 I've included compiled firmware, which you can run on your linux(64)  box.
 
 I used a osbox virtual linux ubuntu 18, so you do not even have to own a computer.
 
-## The Movie
-
-I made a demo clip : oswatchclip.mp4
-File should be on github, not sure if it will work...
-
 ### Copy
 suppose you already have ../work/zephyr installed,
 
 copy /app to ../work
-### Build 
-west build -p -b native_posix_64 oswatch
-### Run 
-./build/zephyr/zephyr.exe
-### Result 
-a simulated watch is displayed on the screen
-### Bluetooth
-the simulated watch can use bluetooth! (some extra config is needed : this is explained in the included manual) 
+### Building and Running
+-	west build -p -b native_posix_64 oswatch
+-	./build/zephyr/zephyr.exe
 
 
 Resources:
@@ -92,18 +94,19 @@ In this repository you can find files that supplement a zephyr installation.
 * **board definition** Contains the board definition for the pinetime, ds_d6, and native_posix_64
 * **drivers** Contains the drivers for the pinetime, ds_d6
 * **samples** These are building blocks, which eventually end up in the oswatch-firmware. 
+* **oswatch--** This is the actual firmware, and you can choose which functions you need 
 
 ## Project Roadmap
 ### DONE
-- the display
+- the display (OLED and pinetime and computerscreen)
 - bluetooth BLE
 - graphics libraries
-- - LittlevGL
 - RTC
-- Serial NOR flash
-- accel sensor
-- heart rate sensor
-- touchscreen (not with all the gizmo's yet)
+- Alarm - Calendar
+- Serial NOR flash 
+- accel sensor (not yet implented in oswatch--but driver exists)
+- heart rate sensor (not yet implemented in oswatch--but driver exists)
+- touchscreen (modifying the focaltech driver works on pinetime! but not present (yet) in oswatch---)
 - CTS (setting time in bluetooth)
 - DFU (wireless firmware update)
 - serial port
@@ -113,6 +116,7 @@ In this repository you can find files that supplement a zephyr installation.
 - powermanagement
 - watchdog
 - touchscreen (out of tree)
+- incorporating sensors
 
 ### NICE TO HAVE 
 - HR detection (algorithm)

@@ -29,56 +29,32 @@ const static struct device * display_dev;
 #define SCREEN_COUNT   3
 
 
-#define PARAM_TOTAL 6 //total number of parameters
+//#define PARAM_TOTAL 6 //total number of parameters
 
 
 char * param_label[] = {
-        "temp1",
-        "timer1",
-        "temp2",
-        "timer2",
-        "temp3",
-        "timer3"
+	"temp1",
+	"timer1",
+	"temp2",
+	"timer2",
+	"temp3",
+	"timer3"
 };
 
-int param[6]={10,20,30,40,50,60};
+int parameters[PARAM_TOTAL]={10,45,30,40,50,60};
 
 
 
 
 
 enum battery_symbol {
-        BAT_CHARGE,
-        BAT_FULL,
-        BAT_3,
-        BAT_2,
-        BAT_1,
-        BAT_EMPTY
+	BAT_CHARGE,
+	BAT_FULL,
+	BAT_3,
+	BAT_2,
+	BAT_1,
+	BAT_EMPTY
 };
-
-/*
-
-void display_timer_handler(struct k_timer * timer);
-void display_task_handler(struct k_work * work);
-
-K_TIMER_DEFINE(display_timer, display_timer_handler, NULL);
-
-K_WORK_DEFINE(display_work, display_task_handler);
-
-#define TICK_PERIOD   (10)
-
-void display_task_handler(struct k_work * work)
-{
-	lv_tick_inc(TICK_PERIOD);
-	lv_task_handler();
-}
-
-void display_timer_handler(struct k_timer * timer)
-{
-	k_work_submit(&display_work);
-}
-
-*/
 
 typedef struct {
 	lv_obj_t * screen;
@@ -125,23 +101,62 @@ void display_date_set_label(char *str)
 	lv_label_set_text(date_label, str);
 }
 
+void display_parameters_update(uint8_t *elementary)
+{ //these parameters are updated via bluetooth called from disconnected
+	//it is an array of 12 bytes which gives some flexibility
+	//suppose you want 33.33 you have to combine 2 bytes
+	//suppose you want 3344 you have to combine in another way ...
+	//in this examples type casting 1 byte to integer (6 bytes are left unused)
+	uint8_t paramdata[PARAM_TOTAL*2];
+	for (int i=0; i<(PARAM_TOTAL*2); i++) paramdata[i]=0; 
+	memcpy(paramdata, elementary,  PARAM_TOTAL*2); 
+	//   for (int i=0; i<(PARAM_TOTAL*2); i++) 
+	//		 printk("number %d value %d\n", i, paramdata[i]);
+	parameters[0]=paramdata[0] ; //todo loop
+	parameters[1]=paramdata[2] ; 
+	parameters[2]=paramdata[4] ; 
+	parameters[3]=paramdata[6] ; 
+	parameters[4]=paramdata[8] ; 
+	parameters[5]=paramdata[10] ; 
+}
+
+
 
 //parameters are displayed on screen2
 void display_label()
 {
-        screen2_label1_obj=lv_label_create(lv_scr_act(), NULL);
-        lv_obj_align(screen2_label1_obj, lv_scr_act(), LV_ALIGN_IN_TOP_LEFT, 0, 0);
-        screen2_label2_obj=lv_label_create(lv_scr_act(), NULL);
-        lv_obj_align(screen2_label2_obj, lv_scr_act(), LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+	screen2_label1_obj=lv_label_create(lv_scr_act(), NULL);
+	lv_obj_align(screen2_label1_obj, lv_scr_act(), LV_ALIGN_IN_TOP_LEFT, 0, 0);
+	screen2_label2_obj=lv_label_create(lv_scr_act(), NULL);
+	lv_obj_align(screen2_label2_obj, lv_scr_act(), LV_ALIGN_IN_TOP_RIGHT, 0, 0);
 }
+void show_status(int parnr)
+{
+	if (parnr==1){
+		lv_label_set_text(screen1_label0_obj, "to start: click");
+		//clock_set_alarm(parameters[1]);
+	}
 
+	if (parnr==2){
+		lv_label_set_text(screen1_label0_obj, "running");
+		clock_set_alarm(parameters[1]);
+		//timer_handler_init();
+	}
+	if (parnr==3){
+		lv_label_set_text(screen1_label0_obj, "to stop: click");
+	}
+	if (parnr==4){ //and extra click is needed to stop to avoid confusion with long press
+		lv_label_set_text(screen1_label0_obj, "halted");
+		clock_stop_alarm();
+	}
+}
 
 void show_label(int parnr)
 {
-        char snum[5];
-        sprintf(snum, "%d",param[parnr]);
-        lv_label_set_text(screen2_label1_obj, param_label[parnr]);
-        lv_label_set_text(screen2_label2_obj, snum);
+	char snum[5];
+	sprintf(snum, "%d",parameters[parnr]);
+	lv_label_set_text(screen2_label1_obj, param_label[parnr]);
+	lv_label_set_text(screen2_label2_obj, snum);
 }
 
 
@@ -152,7 +167,7 @@ void show_label(int parnr)
 
 void display_clock_update() // jj the clock apears in the first screen only 
 {
-             //                                   lv_scr_load(screens[0].screen);
+	//                                   lv_scr_load(screens[0].screen);
 
 
 
@@ -170,53 +185,53 @@ void display_clock_update() // jj the clock apears in the first screen only
 
 static void button_event_cb(lv_obj_t * obj, lv_event_t event)
 {
-	static int screen_id = 0;  // init to first screen id
-	static int param_id  = 0;  // init to first parameter index
+static int screen_id = 0;  // init to first screen id
+static int param_id  = 0;  // init to first parameter index
 
-	switch(event) {
-		case LV_EVENT_PRESSED:
-			break; 
-		case LV_EVENT_SHORT_CLICKED:
-			LOG_INF("Short clicked\n");
-			break;
+switch(event) {
+case LV_EVENT_PRESSED:
+break; 
+case LV_EVENT_SHORT_CLICKED:
+LOG_INF("Short clicked\n");
+break;
 
-		case LV_EVENT_CLICKED:
-			clock_increment_local_time();
+case LV_EVENT_CLICKED:
+clock_increment_local_time();
 
-			LOG_INF("Clicked\n");
-			break;
+LOG_INF("Clicked\n");
+break;
 
-		case LV_EVENT_LONG_PRESSED:
-			clock_increment_local_time();
-			clock_show_time();
-			LOG_INF("Long press\n");
-			break;
+case LV_EVENT_LONG_PRESSED:
+clock_increment_local_time();
+clock_show_time();
+LOG_INF("Long press\n");
+break;
 
-		case LV_EVENT_LONG_PRESSED_REPEAT:
+case LV_EVENT_LONG_PRESSED_REPEAT:
 
-			//this can be configured in menuconfig 
-			//standard value < long_pressed
-						screen_id++;
-						if (screen_id >= SCREEN_COUNT)
-						screen_id = 0;
-						lv_scr_load(screens[screen_id].screen);
-						param_id = 0;
-						LOG_INF("BTN1: screen_id(%d)", screen_id);
-			//   handle_button_event();
+//this can be configured in menuconfig 
+//standard value < long_pressed
+screen_id++;
+if (screen_id >= SCREEN_COUNT)
+screen_id = 0;
+lv_scr_load(screens[screen_id].screen);
+param_id = 0;
+LOG_INF("BTN1: screen_id(%d)", screen_id);
+//   handle_button_event();
 
 
 
-			LOG_INF("Long press repeat\n");
-			break;
+LOG_INF("Long press repeat\n");
+break;
 
-		case LV_EVENT_RELEASED:
-			LOG_INF("Released\n");
-			break;
-	}
+case LV_EVENT_RELEASED:
+LOG_INF("Released\n");
+break;
+}
 
 }
 #endif
-*/
+ */
 
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
@@ -228,25 +243,25 @@ static void button_event_cb(lv_obj_t * obj, lv_event_t event)
 
 void display_battery(enum battery_symbol s)
 {
-        switch (s) {
-                case BAT_CHARGE:
-                        lv_label_set_text(battery_label, LV_SYMBOL_CHARGE);
-                        break;
-                case BAT_FULL:
-                        lv_label_set_text(battery_label, LV_SYMBOL_BATTERY_FULL);
-                        break;
-                case BAT_3:
-                        lv_label_set_text(battery_label, LV_SYMBOL_BATTERY_3);
-                        break;
-                case BAT_2:
-                        lv_label_set_text(battery_label, LV_SYMBOL_BATTERY_2);
-                        break;
-                case BAT_1:
-                        lv_label_set_text(battery_label, LV_SYMBOL_BATTERY_1);
-                        break;
-                default:
-                        lv_label_set_text(battery_label, LV_SYMBOL_BATTERY_EMPTY);
-        }
+	switch (s) {
+		case BAT_CHARGE:
+			lv_label_set_text(battery_label, LV_SYMBOL_CHARGE);
+			break;
+		case BAT_FULL:
+			lv_label_set_text(battery_label, LV_SYMBOL_BATTERY_FULL);
+			break;
+		case BAT_3:
+			lv_label_set_text(battery_label, LV_SYMBOL_BATTERY_3);
+			break;
+		case BAT_2:
+			lv_label_set_text(battery_label, LV_SYMBOL_BATTERY_2);
+			break;
+		case BAT_1:
+			lv_label_set_text(battery_label, LV_SYMBOL_BATTERY_1);
+			break;
+		default:
+			lv_label_set_text(battery_label, LV_SYMBOL_BATTERY_EMPTY);
+	}
 }
 
 
@@ -258,7 +273,7 @@ void display_button()
 {
 	/* the ds_d6 has a real button and no touchscreen, so no need for lvgl-button */
 #if defined(CONFIG_LVGL_POINTER_KSCAN)
-//#if defined(CONFIG_BOARD_NATIVE_POSIX_64BIT)
+	//#if defined(CONFIG_BOARD_NATIVE_POSIX_64BIT)
 	button_obj = lv_btn_create(lv_scr_act(), NULL);
 	lv_obj_set_width(button_obj, 5);
 	lv_obj_set_height(button_obj, 5);
@@ -274,15 +289,15 @@ void display_button()
 
 void display_connect_event()
 {
-//      LOG_INF("display_connect_event");
-        lv_scr_load(screens[3].screen); //display the CTS screen
-//      lv_task_handler();//jj
+	//      LOG_INF("display_connect_event");
+	lv_scr_load(screens[3].screen); //display the CTS screen
+	//      lv_task_handler();//jj
 
 }
 
 void display_disconnect_event()
 {
-        lv_scr_load(screens[0].screen); //display the first screen
+	lv_scr_load(screens[0].screen); //display the first screen
 }
 
 
@@ -302,6 +317,14 @@ void display_btn_event(buttons_id_t btn_id)
 			screen_id++;
 			if (screen_id >= SCREEN_COUNT)
 				screen_id = 0;
+			if (screen_id==1) {
+//todo check alarm does not work
+				if (clock_check_alarm()) param_id =  2; //alarm is already active show status running
+				else
+					param_id = 1;
+				show_status(param_id);
+			}
+
 			lv_scr_load(screens[screen_id].screen);
 			param_id = 0;
 			LOG_INF("BTN1: screen_id(%d)", screen_id);
@@ -310,8 +333,9 @@ void display_btn_event(buttons_id_t btn_id)
 		case BTN1_SHORT:
 			param_id++;
 			if (param_id >= PARAM_TOTAL)  param_id = 0;
-			show_label(param_id);
-	//		if (param_id < 0)                          param_id = 0;
+			if (screen_id==1) show_status(param_id);
+			if (screen_id==2) show_label(param_id);
+			//		if (param_id < 0)                          param_id = 0;
 			LOG_INF("BTN2: screen_id(%d) param_id(%d)", screen_id, param_id);
 			break;
 
@@ -338,9 +362,9 @@ void display_screens_init(void)
 	 *  build basic screen0
 	 */
 	lv_scr_load(screens[0].screen);
-	lv_obj_t * screen0_label = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_text(screen0_label, "Pg1");
-	lv_obj_align(screen0_label, screens[0].screen, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+	//	lv_obj_t * screen0_label = lv_label_create(lv_scr_act(), NULL);
+	//	lv_label_set_text(screen0_label, "Pg1");
+	//	lv_obj_align(screen0_label, screens[0].screen, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
 	/* the ds_d6 has a real button and no touchscreen, so no need for lvgl-button */
 	display_button();
 
@@ -365,7 +389,7 @@ void display_screens_init(void)
 	battery_label = lv_label_create(lv_scr_act(), NULL);
 	display_battery(BAT_3); //todo just demo value -- need real level
 	//lv_label_set_text(battery_label, LV_SYMBOL_BATTERY_2);
-        lv_obj_align(battery_label, NULL, LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
+	lv_obj_align(battery_label, NULL, LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
 
 	//battery_label = lv_label_create(lv_scr_act(), NULL);
 	//lv_obj_align(battery_label, NULL, LV_ALIGN_IN_TOP_MID, 0, 0);
@@ -392,18 +416,19 @@ void display_screens_init(void)
 	 */
 	lv_scr_load(screens[1].screen);
 	lv_obj_t * screen1_page = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_text(screen1_page, "Pg2");
+	//lv_label_set_text(screen1_page, "Start Timer");
+	lv_label_set_text(screen1_page, param_label[1]); //this is timer1
 	lv_obj_align(screen1_page, screens[1].screen, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
 
 	// to avoid creating the same button all over again jj
 	display_button();
 
 	screen1_label0_obj = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_text(screen1_label0_obj, "0");
+	lv_label_set_text(screen1_label0_obj, "Start");
 	lv_obj_align(screen1_label0_obj, screens[1].screen, LV_ALIGN_IN_BOTTOM_LEFT, 5, -5);
 
 	screen1_label1_obj = lv_label_create(lv_scr_act(), NULL);
-	lv_label_set_text(screen1_label1_obj, "0");
+	lv_label_set_text_fmt(screen1_label1_obj,"%d", parameters[1]); //this is value of timer1
 	lv_obj_align(screen1_label1_obj, screens[1].screen, LV_ALIGN_IN_BOTTOM_RIGHT, -15, -5);
 
 	//	lv_obj_t * icon_1 = lv_img_create(lv_scr_act(), NULL);
@@ -419,34 +444,34 @@ void display_screens_init(void)
 	lv_obj_align(screen2_page, screens[2].screen, LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
 	// why define the same button all over again? jj
 	display_button();
-        display_label(); //parameters on screen 2
+	display_label(); //parameters on screen 2
 	show_label(1); //show first parameters on list --short click to scroll
 	//
-//	lv_obj_t * screen2_label0_tag = lv_label_create(lv_scr_act(), NULL);
-//	lv_label_set_text(screen2_label0_tag, "value-0");
-//	lv_obj_align(screen2_label0_tag, screens[2].screen, LV_ALIGN_IN_TOP_RIGHT, -70, 2);
+	//	lv_obj_t * screen2_label0_tag = lv_label_create(lv_scr_act(), NULL);
+	//	lv_label_set_text(screen2_label0_tag, "value-0");
+	//	lv_obj_align(screen2_label0_tag, screens[2].screen, LV_ALIGN_IN_TOP_RIGHT, -70, 2);
 
-//	screen2_label0_obj = lv_label_create(lv_scr_act(), NULL);
-//	lv_label_set_text(screen2_label0_obj, "0");
-//	lv_obj_align(screen2_label0_obj, screens[2].screen, LV_ALIGN_IN_TOP_RIGHT, -45, 2);
-
-	//
-//	lv_obj_t * screen2_label1_tag = lv_label_create(lv_scr_act(), NULL);
-//	lv_label_set_text(screen2_label1_tag, "value-1");
-//	lv_obj_align(screen2_label1_tag, screens[2].screen, LV_ALIGN_IN_RIGHT_MID, -70, 0);
-
-//	screen2_label1_obj = lv_label_create(lv_scr_act(), NULL);
-//	lv_label_set_text(screen2_label1_obj, "0");
-//	lv_obj_align(screen2_label1_obj, screens[2].screen, LV_ALIGN_IN_RIGHT_MID, -45, 0);
+	//	screen2_label0_obj = lv_label_create(lv_scr_act(), NULL);
+	//	lv_label_set_text(screen2_label0_obj, "0");
+	//	lv_obj_align(screen2_label0_obj, screens[2].screen, LV_ALIGN_IN_TOP_RIGHT, -45, 2);
 
 	//
-//	lv_obj_t * screen2_value2_tag = lv_label_create(lv_scr_act(), NULL);
-//	lv_label_set_text(screen2_value2_tag, "value-2");
-//	lv_obj_align(screen2_value2_tag, screens[2].screen, LV_ALIGN_IN_BOTTOM_RIGHT, -70, -2);
+	//	lv_obj_t * screen2_label1_tag = lv_label_create(lv_scr_act(), NULL);
+	//	lv_label_set_text(screen2_label1_tag, "value-1");
+	//	lv_obj_align(screen2_label1_tag, screens[2].screen, LV_ALIGN_IN_RIGHT_MID, -70, 0);
 
-//	screen2_label2_obj = lv_label_create(lv_scr_act(), NULL);
-//	lv_label_set_text(screen2_label2_obj, "0");
-//	lv_obj_align(screen2_label2_obj, screens[2].screen, LV_ALIGN_IN_BOTTOM_RIGHT, -45, -2);
+	//	screen2_label1_obj = lv_label_create(lv_scr_act(), NULL);
+	//	lv_label_set_text(screen2_label1_obj, "0");
+	//	lv_obj_align(screen2_label1_obj, screens[2].screen, LV_ALIGN_IN_RIGHT_MID, -45, 0);
+
+	//
+	//	lv_obj_t * screen2_value2_tag = lv_label_create(lv_scr_act(), NULL);
+	//	lv_label_set_text(screen2_value2_tag, "value-2");
+	//	lv_obj_align(screen2_value2_tag, screens[2].screen, LV_ALIGN_IN_BOTTOM_RIGHT, -70, -2);
+
+	//	screen2_label2_obj = lv_label_create(lv_scr_act(), NULL);
+	//	lv_label_set_text(screen2_label2_obj, "0");
+	//	lv_obj_align(screen2_label2_obj, screens[2].screen, LV_ALIGN_IN_BOTTOM_RIGHT, -45, -2);
 
 	//#if 0
 	//	lv_obj_t * icon_2 = lv_img_create(lv_scr_act(), NULL);
@@ -460,10 +485,10 @@ void display_screens_init(void)
 	lv_obj_t * screen3_page = lv_label_create(lv_scr_act(), NULL);
 	lv_label_set_text(screen3_page, "BT");
 	lv_obj_align(screen3_page, screens[3].screen, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
-        /* Bluetooth label */
-        title_label = lv_label_create(lv_scr_act(), NULL);
-        lv_obj_align(title_label, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
-        lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH);
+	/* Bluetooth label */
+	title_label = lv_label_create(lv_scr_act(), NULL);
+	lv_obj_align(title_label, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
+	lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH);
 
 	// why define the same button all over again? jj
 	display_button();
@@ -499,9 +524,9 @@ static void backlight_switch(bool enable)
 	gpio_pin_configure(dev, PIN, GPIO_OUTPUT_ACTIVE | FLAGS);
 	//   gpio_pin_configure(dev, LED, GPIO_DIR_OUT);
 	if (enable==true) 
-	gpio_pin_set(dev, PIN, 1);
+		gpio_pin_set(dev, PIN, 1);
 	else
-	gpio_pin_set(dev, PIN, 0);
+		gpio_pin_set(dev, PIN, 0);
 	//gpio_pin_write(dev, LED, 0);
 #endif
 }
@@ -511,9 +536,9 @@ static void backlight_switch(bool enable)
 
 int display_init(void)
 {
-//#if defined(CONFIG_BOARD_PINETIME_DEVKIT1)
+	//#if defined(CONFIG_BOARD_PINETIME_DEVKIT1)
 	backlight_switch(true); //jj check which board has backlight is done in procedure
-//#endif
+	//#endif
 	display_dev = device_get_binding(CONFIG_LVGL_DISPLAY_DEV_NAME);
 
 	if (display_dev == NULL) {
@@ -544,7 +569,7 @@ int display_init(void)
 	/*
 	 *  Start task handler timer loop
 	 */
-//	k_timer_start(&display_timer, K_MSEC(TICK_PERIOD), K_MSEC(TICK_PERIOD));
+	//	k_timer_start(&display_timer, K_MSEC(TICK_PERIOD), K_MSEC(TICK_PERIOD));
 
 	return 0;
 };

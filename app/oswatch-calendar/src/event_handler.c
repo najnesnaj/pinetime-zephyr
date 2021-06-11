@@ -234,6 +234,7 @@ void button_pressed_isr(const struct device *gpiobtn, struct gpio_callback *cb, 
 	handle_button_event();
 }
 
+
 void handle_clock_update(struct k_timer *clock_update) //jj if clock displayed, it should get the updated time
 {
 	printk("handle_clock_update\n");

@@ -34,7 +34,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump")
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
@@ -42,7 +42,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/root/work/zephyrproject/app/build/zephyr/subsys/bluetooth/common/cmake_install.cmake")
   include("/root/work/zephyrproject/app/build/zephyr/subsys/bluetooth/host/cmake_install.cmake")
   include("/root/work/zephyrproject/app/build/zephyr/subsys/bluetooth/services/cmake_install.cmake")
-  include("/root/work/zephyrproject/app/build/zephyr/subsys/bluetooth/controller/cmake_install.cmake")
 
 endif()
 

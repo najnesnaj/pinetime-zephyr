@@ -38,4 +38,4 @@
 "tfm-mcuboot":"/root/work/zephyrproject/modules/tee/tfm-mcuboot":""
 "nanopb":"/root/work/zephyrproject/modules/lib/nanopb":"${ZEPHYR_NANOPB_CMAKE_DIR}"
 "tensorflow":"/root/work/zephyrproject/modules/lib/tensorflow":"${ZEPHYR_TENSORFLOW_CMAKE_DIR}"
-"drivers":"/root/work/zephyrproject/app/oswatch-bt/drivers":"/root/work/zephyrproject/app/oswatch-bt/drivers/zephyr"
+"drivers":"/root/work/zephyrproject/app/oswatch-lowpower/drivers":"/root/work/zephyrproject/app/oswatch-lowpower/drivers/zephyr"

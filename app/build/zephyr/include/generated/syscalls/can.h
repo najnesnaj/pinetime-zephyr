@@ -26,9 +26,7 @@ static inline int can_send(const struct device * dev, const struct zcan_frame * 
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		return (int) arch_syscall_invoke6(*(uintptr_t *)&dev, *(uintptr_t *)&msg, parm0.split.lo, parm0.split.hi, *(uintptr_t *)&callback_isr, *(uintptr_t *)&callback_arg, K_SYSCALL_CAN_SEND);
+		return (int) arch_syscall_invoke5(*(uintptr_t *)&dev, *(uintptr_t *)&msg, *(uintptr_t *)&timeout, *(uintptr_t *)&callback_isr, *(uintptr_t *)&callback_arg, K_SYSCALL_CAN_SEND);
 	}
 #endif
 	compiler_barrier();
@@ -120,9 +118,7 @@ static inline int can_recover(const struct device * dev, k_timeout_t timeout)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		return (int) arch_syscall_invoke3(*(uintptr_t *)&dev, parm0.split.lo, parm0.split.hi, K_SYSCALL_CAN_RECOVER);
+		return (int) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&timeout, K_SYSCALL_CAN_RECOVER);
 	}
 #endif
 	compiler_barrier();

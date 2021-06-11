@@ -88,6 +88,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr  smartwatch framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Howto use the framework ?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idea.html">The idea behind the framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="out-of-tree.html">Out of tree</a></li>
@@ -105,6 +106,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#the-no-watch-approach-simulation-on-a-laptop">the no-watch approach : simulation on a laptop</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#nordic-nrf-connect-android">Nordic nRF Connect (android)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bluez">Bluez</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#using-bluez-to-write-something-to-the-device">using bluez to write something to the device</a></li>
 </ul>
@@ -288,6 +290,18 @@ UUID: Current Time Service      (00001805-0000-1000-8000-00805f9b34fb)</p>
 </div></blockquote>
 <p>If you have a smartphone, you can download the nrf utilities app from nordic.</p>
 </div>
+</div>
+<div class="section" id="nordic-nrf-connect-android">
+<h2>Nordic nRF Connect (android)<a class="headerlink" href="#nordic-nrf-connect-android" title="Permalink to this headline">¶</a></h2>
+<p>This app allows you to start a gatt server.</p>
+<p>As soon as a device is bonded, (oswatch) Pinetime will look for a CTS server (Current Time Service) on the connected device.</p>
+<p>Start NRFConnect and create a CTS server : Tap the hamburger button on the top left and select “Configure GATT server”.</p>
+<p>Tap “Add service” on the bottom Select server configuration “Current Time Service”  (0x1805)</p>
+<p>Here is for a manual time setup : add the Current Time 0x2A2B characteristic :
+in the intial value field add 0x141505130B0D which corresponds to (2021 year 05 month 19 day 11hours 13 minutes)</p>
+<p>In the samples is how to transfer variables to the watch.</p>
+<p>I have (mis)used the battery service (0x180F) to achieve this.
+Adding to battery level (0x2A19) a value (eg 0x112233445566778899AACCDD), allows you to transfer 12 bytes to the  watch)</p>
 </div>
 <div class="section" id="bluez">
 <h2>Bluez<a class="headerlink" href="#bluez" title="Permalink to this headline">¶</a></h2>

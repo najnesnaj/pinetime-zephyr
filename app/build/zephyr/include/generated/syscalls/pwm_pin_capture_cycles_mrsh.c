@@ -9,14 +9,10 @@
 
 extern int z_vrfy_pwm_pin_capture_cycles(const struct device * dev, uint32_t pwm, pwm_flags_t flags, uint32_t * period, uint32_t * pulse, k_timeout_t timeout);
 uintptr_t z_mrsh_pwm_pin_capture_cycles(uintptr_t arg0, uintptr_t arg1, uintptr_t arg2,
-		uintptr_t arg3, uintptr_t arg4, void *more, void *ssf)
+		uintptr_t arg3, uintptr_t arg4, uintptr_t arg5, void *ssf)
 {
 	_current->syscall_frame = ssf;
-	Z_OOPS(Z_SYSCALL_MEMORY_READ(more, 1 * sizeof(uintptr_t)));
-	union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-	parm0.split.lo = (((uintptr_t *)more)[0]);
-	parm0.split.hi = (((uintptr_t *)more)[1]);
-	int ret = z_vrfy_pwm_pin_capture_cycles(*(const struct device **)&arg0, *(uint32_t*)&arg1, *(pwm_flags_t*)&arg2, *(uint32_t **)&arg3, *(uint32_t **)&arg4, parm0.val)
+	int ret = z_vrfy_pwm_pin_capture_cycles(*(const struct device **)&arg0, *(uint32_t*)&arg1, *(pwm_flags_t*)&arg2, *(uint32_t **)&arg3, *(uint32_t **)&arg4, *(k_timeout_t*)&arg5)
 ;
 	_current->syscall_frame = NULL;
 	return (uintptr_t) ret;

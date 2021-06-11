@@ -12,6 +12,7 @@ uintptr_t z_mrsh_k_uptime_ticks(uintptr_t arg0, uintptr_t arg1, uintptr_t arg2,
 		uintptr_t arg3, uintptr_t arg4, uintptr_t arg5, void *ssf)
 {
 	_current->syscall_frame = ssf;
+	(void) arg0;	/* unused */
 	(void) arg1;	/* unused */
 	(void) arg2;	/* unused */
 	(void) arg3;	/* unused */
@@ -19,10 +20,8 @@ uintptr_t z_mrsh_k_uptime_ticks(uintptr_t arg0, uintptr_t arg1, uintptr_t arg2,
 	(void) arg5;	/* unused */
 	int64_t ret = z_vrfy_k_uptime_ticks()
 ;
-	Z_OOPS(Z_SYSCALL_MEMORY_WRITE(((uint64_t *)arg0), 8));
-	*((uint64_t *)arg0) = ret;
 	_current->syscall_frame = NULL;
-	return 0;
+	return (uintptr_t) ret;
 }
 
 #if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)

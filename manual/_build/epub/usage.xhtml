@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Howto use the framework ?</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="howto-use-the-framework">
+<h1>Howto use the framework ?</h1>
+<div class="section" id="boards">
+<h2>Boards</h2>
+<dl class="simple">
+<dt>This framework is build around 3 watches :</dt><dd><ul class="simple">
+<li><p>desay D6</p></li>
+<li><p>pinetime</p></li>
+<li><p>simulated X86</p></li>
+</ul>
+</dd>
+</dl>
+<p>Each of these watches has its own board definition file.</p>
+<p>While using the framework for a different setup, you will need a specific board definition file.
+This can easily be created, modifying an existing one.</p>
+</div>
+<div class="section" id="complexity">
+<h2>Complexity</h2>
+<p>As you add more features, the complexity and(!) code increases.</p>
+<p>An incremental approach has been used : from simple to more complex.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>oswatch</p></li>
+<li><p>oswatch-cts</p></li>
+<li><p>oswatch-bt</p></li>
+<li><p>oswatch-calendar</p></li>
+<li><p>oswatch-lowpower</p></li>
+<li><p>oswatch-battery</p></li>
+<li><p>oswatch-fota</p></li>
+</ul>
+</div></blockquote>
+<p>(each extends the functionality of the previous one)</p>
+</div>
+<div class="section" id="samples">
+<h2>Samples</h2>
+<p>As the firmware can be a bit overwhelming, a sample directory is provided.
+These samples can be installed and tested.
+Their purpose is to clarify certain functionality.
+Suppose you want to know how to use bluetooth notification, you can compile/install/use the smaller sample.</p>
+</div>
+<div class="section" id="bluetooth">
+<h2>Bluetooth</h2>
+<blockquote>
+<div><p>( oswatch-cts )
+( oswatch-bt )</p>
+</div></blockquote>
+<p>I have used Bluez on linux, and python scripts to communicate with the watch.</p>
+<p>Maybe there are other ways (android), but you would probably need to write apps or are limited to the functionality of existing apps.</p>
+<p>The python scripts can easily be extended and provide a good way to automate the communication process (eg when you need to communicate with multiple watches or in case of the internet of things)</p>
+</div>
+<div class="section" id="power-saving">
+<h2>Power saving</h2>
+<blockquote>
+<div><p>( oswatch-battery )</p>
+</div></blockquote>
+<p>Power saving makes sense when the device is battery operated, which is probably not always the case.</p>
+</div>
+<div class="section" id="updating-over-the-air">
+<h2>Updating over the air</h2>
+<blockquote>
+<div><p>( oswatch-fota )</p>
+</div></blockquote>
+<p>Firmware updating over the air in zephyr should be failsafe.
+As a consequence you need space for 2 images. 1 working and 1 updating.
+If the update process fails, you can carry on.</p>
+<p>The space can be a challenge if you do not have extra flash memory. (512 / 2 = 256)</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

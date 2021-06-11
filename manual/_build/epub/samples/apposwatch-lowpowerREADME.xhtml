@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lowpower oswatch</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/epub.css" type="text/css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="lowpower-oswatch">
+<span id="oswatch"></span><h1>Lowpower oswatch</h1>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>After a few seconds the watch switches to lowpower.
+Long press a button and it wakes-up.</p>
+<p>The simulated watch behaves differently and while sleeping, a message is displayed.</p>
+</div>
+<div class="section" id="which-power-is-saved">
+<h2>Which Power is saved?</h2>
+<p>There are two procedure power on and power off.
+Right now only the display is controlled from these procedures.
+If additional power needs to be saved, one can add extra lowpower features (switching of sensors ….)</p>
+</div>
+<div class="section" id="button-clicking">
+<h2>Button clicking</h2>
+<p>Each time the button is clicked, there is a check for lowpower mode (consequently a startup is executed)</p>
+<p>This method can be done differently (eg using an interrupt from the accel-sensor)</p>
+</div>
+<div class="section" id="building-and-running">
+<h2>Building and Running</h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">west</span> <span class="n">build</span> <span class="o">-</span><span class="n">p</span> <span class="o">-</span><span class="n">b</span> <span class="n">native_posix_64</span> <span class="n">oswatch</span><span class="o">-</span><span class="n">lowpower</span>
+<span class="o">./</span><span class="n">build</span><span class="o">/</span><span class="n">zephyr</span><span class="o">/</span><span class="n">zephyr</span><span class="o">.</span><span class="n">exe</span> <span class="o">--</span><span class="n">bt</span><span class="o">-</span><span class="n">dev</span><span class="o">=</span><span class="n">hci0</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

@@ -65,9 +65,7 @@ static inline uint32_t counter_us_to_ticks(const struct device * dev, uint64_t u
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; uint64_t val; } parm0;
-		parm0.val = us;
-		return (uint32_t) arch_syscall_invoke3(*(uintptr_t *)&dev, parm0.split.lo, parm0.split.hi, K_SYSCALL_COUNTER_US_TO_TICKS);
+		return (uint32_t) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&us, K_SYSCALL_COUNTER_US_TO_TICKS);
 	}
 #endif
 	compiler_barrier();
@@ -79,10 +77,8 @@ extern uint64_t z_impl_counter_ticks_to_us(const struct device * dev, uint32_t t
 static inline uint64_t counter_ticks_to_us(const struct device * dev, uint32_t ticks)
 {
 #ifdef CONFIG_USERSPACE
-	uint64_t ret64;
 	if (z_syscall_trap()) {
-		(void)arch_syscall_invoke3(*(uintptr_t *)&dev, *(uintptr_t *)&ticks, (uintptr_t)&ret64, K_SYSCALL_COUNTER_TICKS_TO_US);
-		return (uint64_t)ret64;
+		return (uint64_t) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&ticks, K_SYSCALL_COUNTER_TICKS_TO_US);
 	}
 #endif
 	compiler_barrier();

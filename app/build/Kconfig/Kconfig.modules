@@ -40,8 +40,8 @@ config ZEPHYR_TENSORFLOW_MODULE
 	bool
 	default y
 endmenu
-menu "drivers (/root/work/zephyrproject/app/oswatch-bt/drivers)"
-osource "/root/work/zephyrproject/app/oswatch-bt/drivers/zephyr/Kconfig"
+menu "drivers (/root/work/zephyrproject/app/oswatch-lowpower/drivers)"
+osource "/root/work/zephyrproject/app/oswatch-lowpower/drivers/zephyr/Kconfig"
 config ZEPHYR_DRIVERS_MODULE
 	bool
 	default y

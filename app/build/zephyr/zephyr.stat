@@ -1,84 +1,236 @@
 ELF Header:
-  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
-  Class:                             ELF32
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
   Data:                              2's complement, little endian
   Version:                           1 (current)
   OS/ABI:                            UNIX - System V
   ABI Version:                       0
-  Type:                              EXEC (Executable file)
-  Machine:                           ARM
+  Type:                              DYN (Shared object file)
+  Machine:                           Advanced Micro Devices X86-64
   Version:                           0x1
-  Entry point address:               0x8891
-  Start of program headers:          52 (bytes into file)
-  Start of section headers:          6693104 (bytes into file)
-  Flags:                             0x5000200, Version5 EABI, soft-float ABI
-  Size of this header:               52 (bytes)
-  Size of program headers:           32 (bytes)
-  Number of program headers:         4
-  Size of section headers:           40 (bytes)
-  Number of section headers:         42
-  Section header string table index: 41
+  Entry point address:               0xab20
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          4974768 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         9
+  Size of section headers:           64 (bytes)
+  Number of section headers:         86
+  Section header string table index: 85
 
 Section Headers:
-  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
-  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
-  [ 1] rom_start         PROGBITS        00000000 0000c0 0000dc 00 WAX  0   0  4
-  [ 2] text              PROGBITS        000000e0 0001a0 037ae6 00  AX  0   0 16
-  [ 3] .ARM.exidx        ARM_EXIDX       00037bc8 037c88 000008 00  AL  2   0  4
-  [ 4] initlevel         PROGBITS        00037bd0 037c90 0000b0 00   A  0   0  4
-  [ 5] sw_isr_table      PROGBITS        00037c80 037d40 000138 00  WA  0   0  4
-  [ 6] bt_l2cap_fixed_ch PROGBITS        00037db8 037e78 000024 00   A  0   0  4
-  [ 7] bt_gatt_service_s PROGBITS        00037ddc 037e9c 000030 00   A  0   0  4
-  [ 8] settings_handler_ PROGBITS        00037e0c 037ecc 000078 00   A  0   0  4
-  [ 9] log_const_section PROGBITS        00037e84 037f44 0001c8 00   A  0   0  4
-  [10] log_backends_sect PROGBITS        0003804c 03810c 000020 00   A  0   0  4
-  [11] shell_area        PROGBITS        0003806c 03812c 000030 00   A  0   0  4
-  [12] shell_root_cmds_s PROGBITS        0003809c 03815c 000058 00   A  0   0  4
-  [13] device_handles    PROGBITS        000380f4 0381b4 000054 00   A  0   0  2
-  [14] rodata            PROGBITS        00038150 038210 00a7b8 00   A  0   0 16
-  [15] .ramfunc          PROGBITS        20000000 043ad0 000000 00   W  0   0  1
-  [16] datas             PROGBITS        20000000 0429c8 000c57 00  WA  0   0  8
-  [17] devices           PROGBITS        20000c58 043620 0000d8 00   A  0   0  4
-  [18] log_dynamic_secti PROGBITS        20000d30 0436f8 0000e4 00  WA  0   0  4
-  [19] k_timer_area      PROGBITS        20000e18 0437e0 000070 00  WA  0   0  8
-  [20] k_mem_slab_area   PROGBITS        20000e88 043850 000054 00  WA  0   0  4
-  [21] k_heap_area       PROGBITS        20000edc 0438a4 000014 00  WA  0   0  4
-  [22] k_mutex_area      PROGBITS        20000ef0 0438b8 000028 00  WA  0   0  4
-  [23] k_msgq_area       PROGBITS        20000f18 0438e0 000030 00  WA  0   0  4
-  [24] k_sem_area        PROGBITS        20000f48 043910 000078 00  WA  0   0  4
-  [25] k_queue_area      PROGBITS        20000fc0 043988 000030 00  WA  0   0  4
-  [26] _net_buf_pool_are PROGBITS        20000ff0 0439b8 000118 00  WA  0   0  4
-  [27] bss               NOBITS          20001108 043ad0 00853c 00  WA  0   0  8
-  [28] noinit            NOBITS          20009648 043ad0 00421b 00  WA  0   0  8
-  [29] .comment          PROGBITS        00000000 043ad0 000032 01  MS  0   0  1
-  [30] .debug_aranges    PROGBITS        00000000 043b08 0065f8 00      0   0  8
-  [31] .debug_info       PROGBITS        00000000 04a100 3bfc60 00      0   0  1
-  [32] .debug_abbrev     PROGBITS        00000000 409d60 03dda0 00      0   0  1
-  [33] .debug_line       PROGBITS        00000000 447b00 0bfba0 00      0   0  1
-  [34] .debug_frame      PROGBITS        00000000 5076a0 013828 00      0   0  4
-  [35] .debug_str        PROGBITS        00000000 51aec8 02a18d 01  MS  0   0  1
-  [36] .debug_loc        PROGBITS        00000000 545055 0c3a24 00      0   0  1
-  [37] .debug_ranges     PROGBITS        00000000 608a80 0266c0 00      0   0  8
-  [38] .ARM.attributes   ARM_ATTRIBUTES  00000000 62f140 000031 00      0   0  1
-  [39] .symtab           SYMTAB          00000000 62f174 021960 10     40 6348  4
-  [40] .strtab           STRTAB          00000000 650ad4 0113f8 00      0   0  1
-  [41] .shstrtab         STRTAB          00000000 661ecc 000224 00      0   0  1
+  [Nr] Name              Type             Address           Offset
+       Size              EntSize          Flags  Link  Info  Align
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .interp           PROGBITS         0000000000000238  00000238
+       000000000000001c  0000000000000000   A       0     0     1
+  [ 2] .note.ABI-tag     NOTE             0000000000000254  00000254
+       0000000000000020  0000000000000000   A       0     0     4
+  [ 3] .gnu.hash         GNU_HASH         0000000000000278  00000278
+       0000000000000040  0000000000000000   A       4     0     8
+  [ 4] .dynsym           DYNSYM           00000000000002b8  000002b8
+       0000000000000a80  0000000000000018   A       5     1     8
+  [ 5] .dynstr           STRTAB           0000000000000d38  00000d38
+       00000000000005a8  0000000000000000   A       0     0     1
+  [ 6] .gnu.version      VERSYM           00000000000012e0  000012e0
+       00000000000000e0  0000000000000002   A       4     0     2
+  [ 7] .gnu.version_r    VERNEED          00000000000013c0  000013c0
+       00000000000000c0  0000000000000000   A       5     2     8
+  [ 8] .rela.dyn         RELA             0000000000001480  00001480
+       0000000000008760  0000000000000018   A       4     0     8
+  [ 9] .rela.plt         RELA             0000000000009be0  00009be0
+       0000000000000900  0000000000000018  AI       4    22     8
+  [10] .init             PROGBITS         000000000000a4e0  0000a4e0
+       0000000000000017  0000000000000000  AX       0     0     4
+  [11] .plt              PROGBITS         000000000000a500  0000a500
+       0000000000000610  0000000000000010  AX       0     0     16
+  [12] .plt.got          PROGBITS         000000000000ab10  0000ab10
+       0000000000000008  0000000000000008  AX       0     0     8
+  [13] .text             PROGBITS         000000000000ab20  0000ab20
+       00000000000440e1  0000000000000000  AX       0     0     16
+  [14] .fini             PROGBITS         000000000004ec04  0004ec04
+       0000000000000009  0000000000000000  AX       0     0     4
+  [15] .rodata           PROGBITS         000000000004ec20  0004ec20
+       0000000000012814  0000000000000000   A       0     0     32
+  [16] .eh_frame_hdr     PROGBITS         0000000000061434  00061434
+       0000000000000034  0000000000000000   A       0     0     4
+  [17] .eh_frame         PROGBITS         0000000000061468  00061468
+       00000000000000e8  0000000000000000   A       0     0     8
+  [18] .init_array       INIT_ARRAY       0000000000261850  00061850
+       0000000000000008  0000000000000008  WA       0     0     8
+  [19] .fini_array       FINI_ARRAY       0000000000261858  00061858
+       0000000000000008  0000000000000008  WA       0     0     8
+  [20] .data.rel.ro      PROGBITS         0000000000261860  00061860
+       0000000000003170  0000000000000000  WA       0     0     32
+  [21] .dynamic          DYNAMIC          00000000002649d0  000649d0
+       0000000000000220  0000000000000010  WA       5     0     8
+  [22] .got              PROGBITS         0000000000264bf0  00064bf0
+       0000000000000400  0000000000000008  WA       0     0     8
+  [23] .data             PROGBITS         0000000000265000  00065000
+       00000000000010a6  0000000000000000  WA       0     0     32
+  [24] .noinit."/root/wo PROGBITS         00000000002660a8  000660a8
+       0000000000000800  0000000000000000  WA       0     0     8
+  [25] .noinit."/root/wo PROGBITS         00000000002668a8  000668a8
+       0000000000000200  0000000000000000  WA       0     0     8
+  [26] .noinit."/root/wo PROGBITS         0000000000266aa8  00066aa8
+       0000000000000028  0000000000000000  WA       0     0     8
+  [27] .noinit."/root/wo PROGBITS         0000000000266ad0  00066ad0
+       00000000000000a0  0000000000000000  WA       0     0     4
+  [28] .noinit."/root/wo PROGBITS         0000000000266b80  00066b80
+       00000000000002c6  0000000000000000  WA       0     0     32
+  [29] .noinit."/root/wo PROGBITS         0000000000266e60  00066e60
+       00000000000001e0  0000000000000000  WA       0     0     32
+  [30] .noinit."/root/wo PROGBITS         0000000000267040  00067040
+       00000000000001bc  0000000000000000  WA       0     0     32
+  [31] .noinit."/root/wo PROGBITS         0000000000267200  00067200
+       0000000000000120  0000000000000000  WA       0     0     32
+  [32] .noinit."/root/wo PROGBITS         0000000000267320  00067320
+       000000000000008a  0000000000000000  WA       0     0     32
+  [33] .noinit."/root/wo PROGBITS         00000000002673c0  000673c0
+       0000000000000090  0000000000000000  WA       0     0     32
+  [34] .noinit."/root/wo PROGBITS         0000000000267450  00067450
+       0000000000000008  0000000000000000  WA       0     0     8
+  [35] .noinit."/root/wo PROGBITS         0000000000267460  00067460
+       0000000000000030  0000000000000000  WA       0     0     32
+  [36] .noinit."/root/wo PROGBITS         00000000002674a0  000674a0
+       000000000000008e  0000000000000000  WA       0     0     32
+  [37] .noinit."/root/wo PROGBITS         0000000000267540  00067540
+       0000000000000060  0000000000000000  WA       0     0     32
+  [38] .noinit."/root/wo PROGBITS         00000000002675a0  000675a0
+       0000000000000200  0000000000000000  WA       0     0     8
+  [39] .noinit."/root/wo PROGBITS         00000000002677a0  000677a0
+       0000000000000898  0000000000000000  WA       0     0     8
+  [40] .noinit."/root/wo PROGBITS         0000000000268040  00068040
+       0000000000000040  0000000000000000  WA       0     0     32
+  [41] .noinit."/root/wo PROGBITS         0000000000268080  00068080
+       0000000000000060  0000000000000000  WA       0     0     32
+  [42] .noinit."/root/wo PROGBITS         00000000002680e0  000680e0
+       00000000000000de  0000000000000000  WA       0     0     32
+  [43] .noinit."/root/wo PROGBITS         00000000002681c0  000681c0
+       0000000000000090  0000000000000000  WA       0     0     32
+  [44] .noinit."/root/wo PROGBITS         0000000000268250  00068250
+       0000000000000228  0000000000000000  WA       0     0     8
+  [45] .noinit."/root/wo PROGBITS         0000000000268478  00068478
+       0000000000000088  0000000000000000  WA       0     0     8
+  [46] .noinit."/root/wo PROGBITS         0000000000268500  00068500
+       00000000000000a8  0000000000000000  WA       0     0     8
+  [47] .noinit."/root/wo PROGBITS         00000000002685c0  000685c0
+       0000000000000145  0000000000000000  WA       0     0     32
+  [48] .noinit."/root/wo PROGBITS         0000000000268720  00068720
+       00000000000000f0  0000000000000000  WA       0     0     32
+  [49] .noinit."/root/wo PROGBITS         0000000000268810  00068810
+       0000000000000100  0000000000000000  WA       0     0     8
+  [50] .noinit."/root/wo PROGBITS         0000000000268910  00068910
+       0000000000000800  0000000000000000  WA       0     0     8
+  [51] .noinit."/root/wo PROGBITS         0000000000269110  00069110
+       0000000000000800  0000000000000000  WA       0     0     8
+  [52] .noinit."/root/wo PROGBITS         0000000000269910  00069910
+       0000000000000400  0000000000000000  WA       0     0     8
+  [53] initlevel         PROGBITS         0000000000269d10  00069d10
+       0000000000000100  0000000000000000  WA       0     0     8
+  [54] bt_l2cap_fixed_ch PROGBITS         0000000000269e10  00069e10
+       0000000000000048  0000000000000000  WA       0     0     8
+  [55] bt_gatt_service_s PROGBITS         0000000000269e58  00069e58
+       0000000000000060  0000000000000000  WA       0     0     8
+  [56] settings_handler_ PROGBITS         0000000000269eb8  00069eb8
+       00000000000000f0  0000000000000000  WA       0     0     8
+  [57] log_const_section PROGBITS         0000000000269fb0  00069fb0
+       00000000000001f0  0000000000000000  WA       0     0     16
+  [58] log_backends_sect PROGBITS         000000000026a1a0  0006a1a0
+       0000000000000020  0000000000000000  WA       0     0     8
+  [59] shell_area        PROGBITS         000000000026a1c0  0006a1c0
+       0000000000000060  0000000000000000  WA       0     0     8
+  [60] shell_root_cmds_s PROGBITS         000000000026a220  0006a220
+       00000000000000a0  0000000000000000  WA       0     0     16
+  [61] device_handles    PROGBITS         000000000026a2c0  0006a2c0
+       0000000000000022  0000000000000000   A       0     0     2
+  [62] devices           PROGBITS         000000000026a2e8  0006a2e8
+       0000000000000140  0000000000000000  WA       0     0     8
+  [63] log_dynamic_secti PROGBITS         000000000026a428  0006a428
+       000000000000007c  0000000000000000  WA       0     0     4
+  [64] k_timer_area      PROGBITS         000000000026a4a8  0006a4a8
+       0000000000000058  0000000000000000  WA       0     0     8
+  [65] k_mem_slab_area   PROGBITS         000000000026a500  0006a500
+       00000000000000a8  0000000000000000  WA       0     0     8
+  [66] k_heap_area       PROGBITS         000000000026a5a8  0006a5a8
+       0000000000000028  0000000000000000  WA       0     0     8
+  [67] k_mutex_area      PROGBITS         000000000026a5d0  0006a5d0
+       0000000000000020  0000000000000000  WA       0     0     8
+  [68] k_msgq_area       PROGBITS         000000000026a5f0  0006a5f0
+       0000000000000060  0000000000000000  WA       0     0     8
+  [69] k_sem_area        PROGBITS         000000000026a650  0006a650
+       0000000000000028  0000000000000000  WA       0     0     8
+  [70] k_queue_area      PROGBITS         000000000026a678  0006a678
+       0000000000000030  0000000000000000  WA       0     0     8
+  [71] _net_buf_pool_are PROGBITS         000000000026a6a8  0006a6a8
+       0000000000000280  0000000000000000  WA       0     0     8
+  [72] native_pre_tasks  PROGBITS         000000000026a928  0006a928
+       0000000000000058  0000000000000000  WA       0     0     8
+  [73] .bss              NOBITS           000000000026a980  0006a980
+       0000000000085918  0000000000000000  WA       0     0     32
+  [74] .comment          PROGBITS         0000000000000000  0006a980
+       0000000000000029  0000000000000001  MS       0     0     1
+  [75] .debug_aranges    PROGBITS         0000000000000000  0006a9a9
+       000000000000a1c0  0000000000000000           0     0     1
+  [76] .debug_info       PROGBITS         0000000000000000  00074b69
+       00000000002915f6  0000000000000000           0     0     1
+  [77] .debug_abbrev     PROGBITS         0000000000000000  0030615f
+       0000000000023252  0000000000000000           0     0     1
+  [78] .debug_line       PROGBITS         0000000000000000  003293b1
+       00000000000451d1  0000000000000000           0     0     1
+  [79] .debug_frame      PROGBITS         0000000000000000  0036e588
+       000000000001a3f8  0000000000000000           0     0     8
+  [80] .debug_str        PROGBITS         0000000000000000  00388980
+       00000000000227a3  0000000000000001  MS       0     0     1
+  [81] .debug_loc        PROGBITS         0000000000000000  003ab123
+       00000000000df387  0000000000000000           0     0     1
+  [82] .debug_ranges     PROGBITS         0000000000000000  0048a4aa
+       0000000000013160  0000000000000000           0     0     1
+  [83] .symtab           SYMTAB           0000000000000000  0049d610
+       0000000000012f60  0000000000000018          84   1639     8
+  [84] .strtab           STRTAB           0000000000000000  004b0570
+       000000000000d87e  0000000000000000           0     0     1
+  [85] .shstrtab         STRTAB           0000000000000000  004bddee
+       0000000000000abb  0000000000000000           0     0     1
 Key to Flags:
   W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
   L (link order), O (extra OS processing required), G (group), T (TLS),
   C (compressed), x (unknown), o (OS specific), E (exclude),
-  y (purecode), p (processor specific)
+  l (large), p (processor specific)
 
 Program Headers:
-  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
-  EXIDX          0x037c88 0x00037bc8 0x00037bc8 0x00008 0x00008 R   0x4
-  LOAD           0x0000c0 0x00000000 0x00000000 0x42908 0x42908 RWE 0x10
-  LOAD           0x0429c8 0x20000000 0x00042908 0x01108 0x01108 RW  0x8
-  LOAD           0x043ad0 0x20001108 0x20001108 0x00000 0x0c75b RW  0x8
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
+                 0x00000000000001f8 0x00000000000001f8  R      0x8
+  INTERP         0x0000000000000238 0x0000000000000238 0x0000000000000238
+                 0x000000000000001c 0x000000000000001c  R      0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000061550 0x0000000000061550  R E    0x200000
+  LOAD           0x0000000000061850 0x0000000000261850 0x0000000000261850
+                 0x0000000000009130 0x000000000008ea48  RW     0x200000
+  DYNAMIC        0x00000000000649d0 0x00000000002649d0 0x00000000002649d0
+                 0x0000000000000220 0x0000000000000220  RW     0x8
+  NOTE           0x0000000000000254 0x0000000000000254 0x0000000000000254
+                 0x0000000000000020 0x0000000000000020  R      0x4
+  GNU_EH_FRAME   0x0000000000061434 0x0000000000061434 0x0000000000061434
+                 0x0000000000000034 0x0000000000000034  R      0x4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     0x10
+  GNU_RELRO      0x0000000000061850 0x0000000000261850 0x0000000000261850
+                 0x00000000000037b0 0x00000000000037b0  R      0x1
 
  Section to Segment mapping:
   Segment Sections...
-   00     .ARM.exidx 
-   01     rom_start text .ARM.exidx initlevel sw_isr_table bt_l2cap_fixed_chan_area bt_gatt_service_static_area settings_handler_static_area log_const_sections log_backends_sections shell_area shell_root_cmds_sections device_handles rodata 
-   02     datas devices log_dynamic_sections k_timer_area k_mem_slab_area k_heap_area k_mutex_area k_msgq_area k_sem_area k_queue_area _net_buf_pool_area 
-   03     bss noinit 
+   00     
+   01     .interp 
+   02     .interp .note.ABI-tag .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .init .plt .plt.got .text .fini .rodata .eh_frame_hdr .eh_frame 
+   03     .init_array .fini_array .data.rel.ro .dynamic .got .data .noinit."/root/work/zephyrproject/zephyr/subsys/shell/shell_uart.c".2 .noinit."/root/work/zephyrproject/zephyr/subsys/shell/shell_uart.c".1 .noinit."/root/work/zephyrproject/zephyr/drivers/bluetooth/hci/userchan.c".0 .noinit."/root/work/zephyrproject/zephyr/lib/gui/lvgl/lvgl.c".0 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/buf.c".7 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/buf.c".6 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/buf.c".5 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/buf.c".4 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/buf.c".3 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/buf.c".2 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/buf.c".1 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/buf.c".0 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/hci_core.c".3 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/hci_core.c".2 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/hci_core.c".1 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/hci_core.c".0 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/conn.c".3 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/conn.c".2 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/conn.c".1 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/conn.c".0 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/att.c".4 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/att.c".3 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/att.c".2 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/att.c".1 .noinit."/root/work/zephyrproject/zephyr/subsys/bluetooth/host/att.c".0 .noinit."/root/work/zephyrproject/zephyr/kernel/init.c".2 .noinit."/root/work/zephyrproject/zephyr/kernel/init.c".1 .noinit."/root/work/zephyrproject/zephyr/kernel/init.c".3 .noinit."/root/work/zephyrproject/zephyr/kernel/system_work_q.c".0 initlevel bt_l2cap_fixed_chan_area bt_gatt_service_static_area settings_handler_static_area log_const_sections log_backends_sections shell_area shell_root_cmds_sections device_handles devices log_dynamic_sections k_timer_area k_mem_slab_area k_heap_area k_mutex_area k_msgq_area k_sem_area k_queue_area _net_buf_pool_area native_pre_tasks .bss 
+   04     .dynamic 
+   05     .note.ABI-tag 
+   06     .eh_frame_hdr 
+   07     
+   08     .init_array .fini_array .data.rel.ro .dynamic .got 

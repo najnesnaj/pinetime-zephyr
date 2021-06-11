@@ -12,13 +12,11 @@ uintptr_t z_mrsh_counter_us_to_ticks(uintptr_t arg0, uintptr_t arg1, uintptr_t a
 		uintptr_t arg3, uintptr_t arg4, uintptr_t arg5, void *ssf)
 {
 	_current->syscall_frame = ssf;
+	(void) arg2;	/* unused */
 	(void) arg3;	/* unused */
 	(void) arg4;	/* unused */
 	(void) arg5;	/* unused */
-	union { struct { uintptr_t lo, hi; } split; uint64_t val; } parm0;
-	parm0.split.lo = arg1;
-	parm0.split.hi = arg2;
-	uint32_t ret = z_vrfy_counter_us_to_ticks(*(const struct device **)&arg0, parm0.val)
+	uint32_t ret = z_vrfy_counter_us_to_ticks(*(const struct device **)&arg0, *(uint64_t*)&arg1)
 ;
 	_current->syscall_frame = NULL;
 	return (uintptr_t) ret;

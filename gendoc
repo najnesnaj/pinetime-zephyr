@@ -25,4 +25,4 @@ cp -rfp _build/html  ../docs
 cd ../docs
 echo "[view doc in html](html)" > index.md
 find -name '*md' |sed -e 's,^\./,,' | awk '{print "["$1"]" "(" $1 ")   "}' >> index.md
-cp -rfp /root/work/app /root/work/pinetime-zephyr 
+cp -rfp /root/work/zephyrproject/app /root/work/pinetime-zephyr 

@@ -130,6 +130,24 @@ Or, with a second bluetooth interface (eg dongle)
 
 If you have a smartphone, you can download the nrf utilities app from nordic.
 
+## Nordic nRF Connect (android)
+
+This app allows you to start a gatt server.
+
+As soon as a device is bonded, (oswatch) Pinetime will look for a CTS server (Current Time Service) on the connected device.
+
+Start NRFConnect and create a CTS server : Tap the hamburger button on the top left and select “Configure GATT server”.
+
+Tap “Add service” on the bottom Select server configuration “Current Time Service”  (0x1805)
+
+Here is for a manual time setup : add the Current Time 0x2A2B characteristic :
+in the intial value field add 0x141505130B0D which corresponds to (2021 year 05 month 19 day 11hours 13 minutes)
+
+In the samples is how to transfer variables to the watch.
+
+I have (mis)used the battery service (0x180F) to achieve this.
+Adding to battery level (0x2A19) a value (eg 0x112233445566778899AACCDD), allows you to transfer 12 bytes to the  watch)
+
 ## Bluez
 
 With Bluez on linux you can investigate the bluetoothservices,  using bluetoothctl:

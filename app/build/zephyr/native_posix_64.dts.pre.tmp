@@ -110,6 +110,12 @@
   label = "UART_0";
   current-speed = <0>;
  };
+ uart1: uart_1 {
+  status = "okay";
+  compatible = "zephyr,native-posix-uart";
+  label = "UART_1";
+  current-speed = <0>;
+ };
  rng: rng {
   status = "okay";
   compatible = "zephyr,native-posix-rng";

@@ -11,6 +11,7 @@ Samples
     apposwatch-calendarREADME
     apposwatch-ctsREADME
     apposwatch-fotaREADME
+    apposwatch-lowpowerREADME
     apposwatchREADME
     appsamplescfbREADME
     appsamplescfb_shellREADME

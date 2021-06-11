@@ -26,9 +26,7 @@ static inline int z_sys_mutex_kernel_lock(struct sys_mutex * mutex, k_timeout_t 
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		return (int) arch_syscall_invoke3(*(uintptr_t *)&mutex, parm0.split.lo, parm0.split.hi, K_SYSCALL_Z_SYS_MUTEX_KERNEL_LOCK);
+		return (int) arch_syscall_invoke2(*(uintptr_t *)&mutex, *(uintptr_t *)&timeout, K_SYSCALL_Z_SYS_MUTEX_KERNEL_LOCK);
 	}
 #endif
 	compiler_barrier();

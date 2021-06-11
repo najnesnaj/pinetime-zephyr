@@ -65,13 +65,7 @@ static inline int pwm_pin_capture_cycles(const struct device * dev, uint32_t pwm
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
-		parm0.val = timeout;
-		uintptr_t more[] = {
-			parm0.split.lo,
-			parm0.split.hi
-		};
-		return (int) arch_syscall_invoke6(*(uintptr_t *)&dev, *(uintptr_t *)&pwm, *(uintptr_t *)&flags, *(uintptr_t *)&period, *(uintptr_t *)&pulse, (uintptr_t) &more, K_SYSCALL_PWM_PIN_CAPTURE_CYCLES);
+		return (int) arch_syscall_invoke6(*(uintptr_t *)&dev, *(uintptr_t *)&pwm, *(uintptr_t *)&flags, *(uintptr_t *)&period, *(uintptr_t *)&pulse, *(uintptr_t *)&timeout, K_SYSCALL_PWM_PIN_CAPTURE_CYCLES);
 	}
 #endif
 	compiler_barrier();

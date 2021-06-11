@@ -1,34 +1,34 @@
-The target system is: Generic - 2.6.0 - arm
-The host system is: Linux - 5.4.0-72-generic - x86_64
+The target system is: Generic - 2.6.0 - posix
+The host system is: Linux - 5.4.0-74-generic - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler: /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc 
+Compiler: /usr/bin/gcc 
 Build flags: 
-Id flags: -c 
+Id flags:  
 
 The output was:
 0
 
 
-Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/root/work/zephyrproject/app/build/CMakeFiles/3.18.2/CompilerIdC/CMakeCCompilerId.o"
+The C compiler identification is GNU, found in "/root/work/zephyrproject/app/build/CMakeFiles/3.18.2/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: /root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-g++ 
+Compiler: /usr/bin/gcc 
 Build flags: 
-Id flags: -c 
+Id flags:  
 
 The output was:
 0
 
 
-Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/root/work/zephyrproject/app/build/CMakeFiles/3.18.2/CompilerIdCXX/CMakeCXXCompilerId.o"
+The CXX compiler identification is GNU, found in "/root/work/zephyrproject/app/build/CMakeFiles/3.18.2/CompilerIdCXX/a.out"
 
 Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
-arm-zephyr-eabi-gcc (crosstool-NG 1.24.0.37-3f461da-dirty) 9.2.0
-Copyright (C) 2019 Free Software Foundation, Inc.
+gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
+Copyright (C) 2017 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 

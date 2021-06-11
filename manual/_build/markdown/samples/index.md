@@ -37,10 +37,16 @@
     * References
 
 
-* Setting up an alarm/calendar event
+* Calendar oswatch
 
 
     * Overview
+
+
+    * Button clicking
+
+
+    * Samples
 
 
     * Requirements
@@ -83,6 +89,21 @@
 
 
     * References
+
+
+* Lowpower oswatch
+
+
+    * Overview
+
+
+    * Which Power is saved?
+
+
+    * Button clicking
+
+
+    * Building and Running
 
 
 * Basic OSWatch Framework
@@ -202,10 +223,16 @@
         * References
 
 
-    * Setting up an alarm/calendar event
+    * Calendar oswatch
 
 
         * Overview
+
+
+        * Button clicking
+
+
+        * Samples
 
 
         * Requirements
@@ -248,6 +275,21 @@
 
 
         * References
+
+
+    * Lowpower oswatch
+
+
+        * Overview
+
+
+        * Which Power is saved?
+
+
+        * Button clicking
+
+
+        * Building and Running
 
 
     * Basic OSWatch Framework

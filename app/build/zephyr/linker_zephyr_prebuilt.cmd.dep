@@ -1,19 +1,23 @@
 zephyr/linker_zephyr_prebuilt.cmd: \
- /root/work/zephyrproject/zephyr/soc/arm/nordic_nrf/nrf52/linker.ld \
- /root/work/zephyrproject/zephyr/include/arch/arm/aarch32/cortex_m/scripts/linker.ld \
+ /root/work/zephyrproject/zephyr/soc/posix/inf_clock/linker.ld \
+ /usr/include/stdc-predef.h \
+ /root/work/zephyrproject/zephyr/include/arch/posix/linker.ld \
  /root/work/zephyrproject/app/build/zephyr/include/generated/autoconf.h \
  /root/work/zephyrproject/zephyr/include/linker/sections.h \
  /root/work/zephyrproject/zephyr/include/linker/section_tags.h \
  /root/work/zephyrproject/zephyr/include/toolchain.h \
  /root/work/zephyrproject/zephyr/include/toolchain/gcc.h \
- /root/work/zephyrproject/zephyr/include/devicetree.h \
- /root/work/zephyrproject/app/build/zephyr/include/generated/devicetree_unfixed.h \
- /root/work/zephyrproject/app/build/zephyr/include/generated/devicetree_fixups.h \
+ /root/work/zephyrproject/zephyr/include/linker/linker-defs.h \
+ /root/work/zephyrproject/zephyr/include/toolchain/common.h \
  /root/work/zephyrproject/zephyr/include/sys/util.h \
  /root/work/zephyrproject/zephyr/include/sys/util_macro.h \
  /root/work/zephyrproject/zephyr/include/sys/util_internal.h \
  /root/work/zephyrproject/zephyr/include/sys/util_loops.h \
- /root/zephyr-sdk/arm-zephyr-eabi/lib/gcc/arm-zephyr-eabi/9.2.0/include/stdbool.h \
+ /usr/lib/gcc/x86_64-linux-gnu/7/include/stdbool.h \
+ /root/work/zephyrproject/app/build/zephyr/include/generated/offsets.h \
+ /root/work/zephyrproject/zephyr/include/devicetree.h \
+ /root/work/zephyrproject/app/build/zephyr/include/generated/devicetree_unfixed.h \
+ /root/work/zephyrproject/app/build/zephyr/include/generated/devicetree_fixups.h \
  /root/work/zephyrproject/zephyr/include/devicetree/io-channels.h \
  /root/work/zephyrproject/zephyr/include/devicetree/clocks.h \
  /root/work/zephyrproject/zephyr/include/devicetree/gpio.h \
@@ -23,31 +27,15 @@ zephyr/linker_zephyr_prebuilt.cmd: \
  /root/work/zephyrproject/zephyr/include/devicetree/fixed-partitions.h \
  /root/work/zephyrproject/zephyr/include/devicetree/zephyr.h \
  /root/work/zephyrproject/zephyr/include/devicetree/ordinals.h \
- /root/work/zephyrproject/zephyr/include/linker/devicetree_regions.h \
- /root/work/zephyrproject/zephyr/include/linker/linker-defs.h \
- /root/work/zephyrproject/zephyr/include/toolchain/common.h \
- /root/work/zephyrproject/app/build/zephyr/include/generated/offsets.h \
  /root/work/zephyrproject/zephyr/include/linker/linker-tool.h \
  /root/work/zephyrproject/zephyr/include/linker/linker-tool-gcc.h \
  /root/work/zephyrproject/zephyr/include/sys/mem_manage.h \
- /root/work/zephyrproject/zephyr/include/linker/rel-sections.ld \
  /root/work/zephyrproject/app/build/zephyr/include/generated/snippets-rom-start.ld \
- /root/work/zephyrproject/zephyr/include/../arch/common/rom_start_offset.ld \
- /root/work/zephyrproject/zephyr/include/../arch/arm/core/aarch32/vector_table.ld \
- /root/work/zephyrproject/zephyr/include/../arch/arm/core/aarch32/cortex_m/vector_table_pad.ld \
- /root/work/zephyrproject/zephyr/include/linker/kobject-text.ld \
  /root/work/zephyrproject/zephyr/include/linker/common-rom.ld \
- /root/work/zephyrproject/zephyr/include/linker/thread-local-storage.ld \
  /root/work/zephyrproject/app/build/zephyr/include/generated/snippets-rodata.ld \
- /root/work/zephyrproject/zephyr/include/linker/kobject-rom.ld \
- /root/work/zephyrproject/zephyr/include/linker/cplusplus-rom.ld \
- /root/work/zephyrproject/app/build/zephyr/include/generated/snippets-ram-sections.ld \
- /root/work/zephyrproject/zephyr/include/../arch/common/ramfunc.ld \
  /root/work/zephyrproject/app/build/zephyr/include/generated/snippets-rwdata.ld \
  /root/work/zephyrproject/zephyr/include/linker/common-ram.ld \
- /root/work/zephyrproject/zephyr/include/linker/kobject-data.ld \
- /root/work/zephyrproject/zephyr/include/linker/cplusplus-ram.ld \
+ /root/work/zephyrproject/app/build/zephyr/include/generated/snippets-ram-sections.ld \
+ /root/work/zephyrproject/zephyr/include/arch/posix/native_tasks.ld \
  /root/work/zephyrproject/app/build/zephyr/include/generated/snippets-noinit.ld \
- /root/work/zephyrproject/app/build/zephyr/include/generated/snippets-sections.ld \
- /root/work/zephyrproject/zephyr/include/linker/intlist.ld \
- /root/work/zephyrproject/zephyr/include/linker/debug-sections.ld
+ /root/work/zephyrproject/app/build/zephyr/include/generated/snippets-sections.ld

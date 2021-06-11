@@ -88,6 +88,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
 <li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr  smartwatch framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Howto use the framework ?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idea.html">The idea behind the framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="out-of-tree.html">Out of tree</a></li>
@@ -95,7 +96,7 @@
 <li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lvgl.html">LittlevGL Basic Sample</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Real Time Clock</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alarm">Alarm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
@@ -179,9 +180,14 @@
 <span id="rtc"></span><h1>Real Time Clock<a class="headerlink" href="#real-time-clock" title="Permalink to this headline">¶</a></h1>
 <p>The compile-time is used to set the initial time. (CMAKE file)</p>
 <p>The elapsed time since the startup can be calculated.</p>
-<p>Setting the exact time is done via bluetooth current time service.</p>
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Setting the exact time is done via bluetooth current time service. (oswatch-cts)</p>
+<div class="section" id="alarm">
+<h2>Alarm<a class="headerlink" href="#alarm" title="Permalink to this headline">¶</a></h2>
+<p>A cool feature, once you get a clock is an alarm. (oswatch-calendar)</p>
+<p>You can set/stop the alarm.</p>
+<p>Once set : the value of the “timer1” parameter is added to the current time.
+Everytime the clock is updated, there is a check if the alarm-time has been reached.</p>
+<p>The name (oswatch-calendar) was ambitious, but a more elaborate setup is possible using the same technique. (year month day hour minute needed as a parameter for a real calendar event)</p>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>

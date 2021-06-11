@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Howto use the framework ? &mdash; open source watch 1.2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="The idea behind the framework" href="idea.html" />
+    <link rel="prev" title="Zephyr smartwatch framework" href="content.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> open source watch
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                beta
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="copyright.html">Copyright</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Zephyr  smartwatch framework</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Howto use the framework ?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#boards">Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#complexity">Complexity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#samples">Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bluetooth">Bluetooth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#power-saving">Power saving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updating-over-the-air">Updating over the air</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="idea.html">The idea behind the framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Install zephyr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="out-of-tree.html">Out of tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display.html">display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basicapplications.html">Starting with some basic applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lvgl.html">LittlevGL Basic Sample</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RTC.html">Real Time Clock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="current-time.html">Current Time Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivers/drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bluetooth.html">bluetooth (BLE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notification.html">Bluetooth Notification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fota/fota.html">Firmware Over The Air (FOTA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samples/index.html">Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menuconfig.html">Menuconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging/debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hacking/hacking.html">Hacking stuff</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behind/behind.html">Behind the scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="author.html">Author</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">open source watch</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Howto use the framework ?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="howto-use-the-framework">
+<h1>Howto use the framework ?<a class="headerlink" href="#howto-use-the-framework" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="boards">
+<h2>Boards<a class="headerlink" href="#boards" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>This framework is build around 3 watches :</dt><dd><ul class="simple">
+<li><p>desay D6</p></li>
+<li><p>pinetime</p></li>
+<li><p>simulated X86</p></li>
+</ul>
+</dd>
+</dl>
+<p>Each of these watches has its own board definition file.</p>
+<p>While using the framework for a different setup, you will need a specific board definition file.
+This can easily be created, modifying an existing one.</p>
+</div>
+<div class="section" id="complexity">
+<h2>Complexity<a class="headerlink" href="#complexity" title="Permalink to this headline">¶</a></h2>
+<p>As you add more features, the complexity and(!) code increases.</p>
+<p>An incremental approach has been used : from simple to more complex.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>oswatch</p></li>
+<li><p>oswatch-cts</p></li>
+<li><p>oswatch-bt</p></li>
+<li><p>oswatch-calendar</p></li>
+<li><p>oswatch-lowpower</p></li>
+<li><p>oswatch-battery</p></li>
+<li><p>oswatch-fota</p></li>
+</ul>
+</div></blockquote>
+<p>(each extends the functionality of the previous one)</p>
+</div>
+<div class="section" id="samples">
+<h2>Samples<a class="headerlink" href="#samples" title="Permalink to this headline">¶</a></h2>
+<p>As the firmware can be a bit overwhelming, a sample directory is provided.
+These samples can be installed and tested.
+Their purpose is to clarify certain functionality.
+Suppose you want to know how to use bluetooth notification, you can compile/install/use the smaller sample.</p>
+</div>
+<div class="section" id="bluetooth">
+<h2>Bluetooth<a class="headerlink" href="#bluetooth" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>( oswatch-cts )
+( oswatch-bt )</p>
+</div></blockquote>
+<p>I have used Bluez on linux, and python scripts to communicate with the watch.</p>
+<p>Maybe there are other ways (android), but you would probably need to write apps or are limited to the functionality of existing apps.</p>
+<p>The python scripts can easily be extended and provide a good way to automate the communication process (eg when you need to communicate with multiple watches or in case of the internet of things)</p>
+</div>
+<div class="section" id="power-saving">
+<h2>Power saving<a class="headerlink" href="#power-saving" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>( oswatch-battery )</p>
+</div></blockquote>
+<p>Power saving makes sense when the device is battery operated, which is probably not always the case.</p>
+</div>
+<div class="section" id="updating-over-the-air">
+<h2>Updating over the air<a class="headerlink" href="#updating-over-the-air" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>( oswatch-fota )</p>
+</div></blockquote>
+<p>Firmware updating over the air in zephyr should be failsafe.
+As a consequence you need space for 2 images. 1 working and 1 updating.
+If the update process fails, you can carry on.</p>
+<p>The space can be a challenge if you do not have extra flash memory. (512 / 2 = 256)</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="idea.html" class="btn btn-neutral float-right" title="The idea behind the framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="content.html" class="btn btn-neutral float-left" title="Zephyr smartwatch framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; <a href="copyright.html">Copyright</a> 2020, jj
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

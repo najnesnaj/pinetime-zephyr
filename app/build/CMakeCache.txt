@@ -18,19 +18,19 @@
 APPLICATION_BINARY_DIR:PATH=/root/work/zephyrproject/app/build
 
 //Application Source Directory
-APPLICATION_SOURCE_DIR:PATH=/root/work/zephyrproject/app/oswatch-bt
+APPLICATION_SOURCE_DIR:PATH=/root/work/zephyrproject/app/oswatch-lowpower
 
-//Selected board
-BOARD:STRING=ds_d6
+//No help, variable specified on the command line.
+BOARD:UNINITIALIZED=native_posix_64
 
 //Path to a file.
-BOARD_DIR:PATH=/root/work/zephyrproject/app/oswatch-bt/boards/arm/ds_d6
+BOARD_DIR:PATH=/root/work/zephyrproject/zephyr/boards/posix/native_posix
 
 //Path to a program.
 BOSSAC:FILEPATH=/root/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/bin/bossac
 
 //Selected board
-CACHED_BOARD:STRING=ds_d6
+CACHED_BOARD:STRING=native_posix_64
 
 //If desired, you can build the application usingthe configuration
 // settings specified in an alternate .conf file using this parameter.
@@ -39,7 +39,7 @@ CACHED_BOARD:STRING=ds_d6
 // listed, e.g. CONF_FILE="prj1.confi;prj2.conf" The CACHED_CONF_FILE
 // is internal Zephyr variable used between CMake runs. To change
 // CONF_FILE, use the CONF_FILE variable.
-CACHED_CONF_FILE:STRING=/root/work/zephyrproject/app/oswatch-bt/prj.conf;/root/work/zephyrproject/app/oswatch-bt/boards/ds_d6.conf
+CACHED_CONF_FILE:STRING=/root/work/zephyrproject/app/oswatch-lowpower/prj.conf;/root/work/zephyrproject/app/oswatch-lowpower/boards/native_posix_64.conf
 
 //Selected shield
 CACHED_SHIELD:STRING=
@@ -48,24 +48,21 @@ CACHED_SHIELD:STRING=
 CCACHE_FOUND:FILEPATH=/usr/bin/ccache
 
 //Path to a program.
-CMAKE_ADDR2LINE:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-addr2line
+CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
 //Path to a program.
-CMAKE_AR:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar
-
-//Path to a program.
-CMAKE_AS:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-as
+CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //ASM compiler
-CMAKE_ASM_COMPILER:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc
+CMAKE_ASM_COMPILER:FILEPATH=/usr/bin/gcc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
-CMAKE_ASM_COMPILER_AR:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar
+CMAKE_ASM_COMPILER_AR:FILEPATH=/usr/bin/gcc-ar
 
 //A wrapper around 'ranlib' adding the appropriate '--plugin' option
 // for the GCC compiler
-CMAKE_ASM_COMPILER_RANLIB:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib
+CMAKE_ASM_COMPILER_RANLIB:FILEPATH=/usr/bin/gcc-ranlib
 
 //Flags used by the ASM compiler during all build types.
 CMAKE_ASM_FLAGS:STRING=
@@ -87,15 +84,15 @@ CMAKE_ASM_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 CMAKE_BUILD_TYPE:STRING=
 
 //Path to a program.
-CMAKE_CXX_COMPILER:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-g++
+CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/gcc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
-CMAKE_CXX_COMPILER_AR:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar
+CMAKE_CXX_COMPILER_AR:FILEPATH=/usr/bin/gcc-ar-7
 
 //A wrapper around 'ranlib' adding the appropriate '--plugin' option
 // for the GCC compiler
-CMAKE_CXX_COMPILER_RANLIB:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib
+CMAKE_CXX_COMPILER_RANLIB:FILEPATH=/usr/bin/gcc-ranlib-7
 
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=
@@ -113,15 +110,15 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //Path to a program.
-CMAKE_C_COMPILER:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc
+CMAKE_C_COMPILER:FILEPATH=/usr/bin/gcc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
-CMAKE_C_COMPILER_AR:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar
+CMAKE_C_COMPILER_AR:FILEPATH=/usr/bin/gcc-ar-7
 
 //A wrapper around 'ranlib' adding the appropriate '--plugin' option
 // for the GCC compiler
-CMAKE_C_COMPILER_RANLIB:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib
+CMAKE_C_COMPILER_RANLIB:FILEPATH=/usr/bin/gcc-ranlib-7
 
 //Flags used by the C compiler during all build types.
 CMAKE_C_FLAGS:STRING=
@@ -160,13 +157,13 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
 
 //Path to a program.
-CMAKE_GDB:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb
+CMAKE_GDB:FILEPATH=/usr/bin/gdb
 
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=/usr/local
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-ld
+CMAKE_LINKER:FILEPATH=/usr/bin/ld
 
 //Program used to build from build.ninja files.
 CMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/ninja
@@ -192,13 +189,13 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_NM:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-nm
+CMAKE_NM:FILEPATH=/usr/bin/nm
 
 //Path to a program.
-CMAKE_OBJCOPY:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-objcopy
+CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 
 //Path to a program.
-CMAKE_OBJDUMP:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump
+CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=
@@ -225,10 +222,13 @@ CMAKE_PROJECT_VERSION_PATCH:STATIC=0
 CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //Path to a program.
-CMAKE_RANLIB:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib
+CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
 
 //Path to a program.
-CMAKE_READELF:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-readelf
+CMAKE_RANLILB:FILEPATH=/usr/bin/ranlib
+
+//Path to a program.
+CMAKE_READELF:FILEPATH=/usr/bin/readelf
 
 //Flags used by the linker during the creation of shared libraries
 // during all build types.
@@ -278,7 +278,7 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_STRIP:FILEPATH=/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-strip
+CMAKE_STRIP:FILEPATH=/usr/bin/strip
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
@@ -311,6 +311,9 @@ OPENOCD:FILEPATH=/root/zephyr-sdk/sysroots/x86_64-pokysdk-linux/usr/bin/openocd
 //Path to a program.
 PAHOLE:FILEPATH=PAHOLE-NOTFOUND
 
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+
 //Path to a program.
 PUNCOVER:FILEPATH=PUNCOVER-NOTFOUND
 
@@ -318,7 +321,7 @@ PUNCOVER:FILEPATH=PUNCOVER-NOTFOUND
 PYTHON_PREFER_EXECUTABLE:FILEPATH=/usr/bin/python3
 
 //True if toolchain supports newlib
-TOOLCHAIN_HAS_NEWLIB:BOOL=ON
+TOOLCHAIN_HAS_NEWLIB:BOOL=OFF
 
 //Zephyr toolchain root
 TOOLCHAIN_ROOT:STRING=/root/work/zephyrproject/zephyr
@@ -333,16 +336,13 @@ ZEPHYR_BASE:PATH=/root/work/zephyrproject/zephyr
 ZEPHYR_SDK_INSTALL_DIR:PATH=/root/zephyr-sdk
 
 //Zephyr toolchain variant
-ZEPHYR_TOOLCHAIN_VARIANT:STRING=zephyr
+ZEPHYR_TOOLCHAIN_VARIANT:STRING=host
 
 //Value Computed by CMake
 Zephyr-Kernel_BINARY_DIR:STATIC=/root/work/zephyrproject/app/build
 
 //Value Computed by CMake
-Zephyr-Kernel_SOURCE_DIR:STATIC=/root/work/zephyrproject/app/oswatch-bt
-
-//The directory containing a CMake configuration file for Zephyr-sdk.
-Zephyr-sdk_DIR:PATH=/root/zephyr-sdk/cmake
+Zephyr-Kernel_SOURCE_DIR:STATIC=/root/work/zephyrproject/app/oswatch-lowpower
 
 //The directory containing a CMake configuration file for ZephyrBuildConfiguration.
 ZephyrBuildConfiguration_DIR:PATH=ZephyrBuildConfiguration_DIR-NOTFOUND
@@ -360,7 +360,10 @@ civetweb_SOURCE_DIR:STATIC=/root/work/zephyrproject/modules/lib/civetweb
 oswatch_BINARY_DIR:STATIC=/root/work/zephyrproject/app/build
 
 //Value Computed by CMake
-oswatch_SOURCE_DIR:STATIC=/root/work/zephyrproject/app/oswatch-bt
+oswatch_SOURCE_DIR:STATIC=/root/work/zephyrproject/app/oswatch-lowpower
+
+//Path to a library.
+pkgcfg_lib_SDL2_SDL2:FILEPATH=pkgcfg_lib_SDL2_SDL2-NOTFOUND
 
 
 ########################
@@ -420,6 +423,8 @@ CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS_RELWITHDEBINFO
 CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_COMPILER
+CMAKE_C_COMPILER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER_AR
 CMAKE_C_COMPILER_AR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER_RANLIB
@@ -462,7 +467,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/root/work/zephyrproject/app/oswatch-bt
+CMAKE_HOME_DIRECTORY:INTERNAL=/root/work/zephyrproject/app/oswatch-lowpower
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MAKE_PROGRAM
@@ -480,7 +485,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=128
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=114
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -523,17 +528,58 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding PkgConfig
+FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
 //Details about finding Python3
 FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[/usr/bin/python3.6][cfound components: Interpreter ][v3.6.9(3.6)]
 //ADVANCED property for variable: GIT_EXECUTABLE
 GIT_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+SDL2_CFLAGS:INTERNAL=-D_REENTRANT;-I/usr/include/SDL2
+SDL2_CFLAGS_I:INTERNAL=
+SDL2_CFLAGS_OTHER:INTERNAL=-D_REENTRANT
+SDL2_FOUND:INTERNAL=1
+SDL2_INCLUDEDIR:INTERNAL=/usr/include
+SDL2_INCLUDE_DIRS:INTERNAL=/usr/include/SDL2
+SDL2_LDFLAGS:INTERNAL=-lSDL2
+SDL2_LDFLAGS_OTHER:INTERNAL=
+SDL2_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+SDL2_LIBRARIES:INTERNAL=SDL2
+SDL2_LIBRARY_DIRS:INTERNAL=
+SDL2_LIBS:INTERNAL=
+SDL2_LIBS_L:INTERNAL=
+SDL2_LIBS_OTHER:INTERNAL=
+SDL2_LIBS_PATHS:INTERNAL=
+SDL2_MODULE_NAME:INTERNAL=sdl2
+SDL2_PREFIX:INTERNAL=/usr
+SDL2_STATIC_CFLAGS:INTERNAL=-D_REENTRANT;-I/usr/include/SDL2
+SDL2_STATIC_CFLAGS_I:INTERNAL=
+SDL2_STATIC_CFLAGS_OTHER:INTERNAL=-D_REENTRANT
+SDL2_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/SDL2
+SDL2_STATIC_LDFLAGS:INTERNAL=-lSDL2;-Wl,--no-undefined;-lm;-ldl;-lasound;-lm;-ldl;-lpthread;-lpulse-simple;-lpulse;-lsndio;-lX11;-lXext;-lXcursor;-lXinerama;-lXi;-lXrandr;-lXss;-lXxf86vm;-lwayland-egl;-lwayland-client;-lwayland-cursor;-lxkbcommon;-lpthread;-lrt
+SDL2_STATIC_LDFLAGS_OTHER:INTERNAL=-Wl,--no-undefined
+SDL2_STATIC_LIBDIR:INTERNAL=
+SDL2_STATIC_LIBRARIES:INTERNAL=SDL2;m;dl;asound;m;dl;pthread;pulse-simple;pulse;sndio;X11;Xext;Xcursor;Xinerama;Xi;Xrandr;Xss;Xxf86vm;wayland-egl;wayland-client;wayland-cursor;xkbcommon;pthread;rt
+SDL2_STATIC_LIBRARY_DIRS:INTERNAL=
+SDL2_STATIC_LIBS:INTERNAL=
+SDL2_STATIC_LIBS_L:INTERNAL=
+SDL2_STATIC_LIBS_OTHER:INTERNAL=
+SDL2_STATIC_LIBS_PATHS:INTERNAL=
+SDL2_VERSION:INTERNAL=2.0.8
+SDL2_sdl2_INCLUDEDIR:INTERNAL=
+SDL2_sdl2_LIBDIR:INTERNAL=
+SDL2_sdl2_PREFIX:INTERNAL=
+SDL2_sdl2_VERSION:INTERNAL=
 //West
 WEST:INTERNAL=/usr/bin/python3.6;-m;west.app.main
-//a configuration file for the runners Python package
-ZEPHYR_RUNNERS_YAML:INTERNAL=/root/work/zephyrproject/app/build/zephyr/runners.yaml
 //Path to a program.
 _Python3_EXECUTABLE:INTERNAL=/usr/bin/python3.6
 //Python3 Properties
 _Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;6;9;64;m;cpython-36m-x86_64-linux-gnu;/usr/lib/python3.6;/usr/lib/python3.6;/usr/lib/python3/dist-packages;/usr/lib/python3/dist-packages
 _Python3_INTERPRETER_SIGNATURE:INTERNAL=f4321868af5e9cacd59e0e2d6374d1ed
+__pkg_config_checked_SDL2:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_SDL2_SDL2
+pkgcfg_lib_SDL2_SDL2-ADVANCED:INTERNAL=1
+prefix_result:INTERNAL=/usr/lib/x86_64-linux-gnu
 

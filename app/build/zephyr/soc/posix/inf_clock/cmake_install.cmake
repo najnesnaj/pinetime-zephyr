@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/soc/posix/inf_clock
+# Install script for directory: /root/work/zephyrproject/zephyr/soc/posix/inf_clock
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

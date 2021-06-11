@@ -9,6 +9,7 @@ cp /root/work/zephyrproject/app/samples/bluetooth/peripheral-getparam/README.rst
 cp /root/work/zephyrproject/app/samples/timer/README.rst /root/work/pinetime-zephyr/manual/samples/appsamplestimerREADME.rst
 cp /root/work/zephyrproject/app/samples/lvgl/README.rst /root/work/pinetime-zephyr/manual/samples/appsampleslvglREADME.rst
 cp /root/work/zephyrproject/app/samples/cfb_shell/README.rst /root/work/pinetime-zephyr/manual/samples/appsamplescfb_shellREADME.rst
+cp /root/work/zephyrproject/app/oswatch-lowpower/README.rst /root/work/pinetime-zephyr/manual/samples/apposwatch-lowpowerREADME.rst
 cp /root/work/zephyrproject/app/oswatch-battery/README.rst /root/work/pinetime-zephyr/manual/samples/apposwatch-batteryREADME.rst
 cp /root/work/zephyrproject/app/oswatch-cts/README.rst /root/work/pinetime-zephyr/manual/samples/apposwatch-ctsREADME.rst
 cp /root/work/zephyrproject/app/oswatch-bt/README.rst /root/work/pinetime-zephyr/manual/samples/apposwatch-btREADME.rst

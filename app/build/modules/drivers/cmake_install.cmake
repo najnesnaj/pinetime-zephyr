@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyrproject/app/oswatch-bt/drivers/zephyr
+# Install script for directory: /root/work/zephyrproject/app/oswatch-lowpower/drivers/zephyr
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,6 +34,6 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/root/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump")
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 

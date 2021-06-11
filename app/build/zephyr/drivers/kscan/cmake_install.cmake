@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyr/drivers/kscan
+# Install script for directory: /root/work/zephyrproject/zephyr/drivers/kscan
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
