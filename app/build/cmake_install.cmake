@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyrproject/app/oswatch-lowpower
+# Install script for directory: /root/zephyrproject/app/oswatch-motion2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,12 +34,12 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "/root/zephyr-sdk-0.13.0/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/root/work/zephyrproject/app/build/zephyr/cmake_install.cmake")
+  include("/root/zephyrproject/app/build/zephyr/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/root/work/zephyrproject/app/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/root/zephyrproject/app/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

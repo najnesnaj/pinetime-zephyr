@@ -9,12 +9,17 @@
 #include <syscall_list.h>
 #include <syscall.h>
 
+#include <linker/sections.h>
+
 #if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
 #pragma GCC diagnostic push
 #endif
 
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#if !defined(__XCC__)
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
 #endif
 
 #ifdef __cplusplus
@@ -22,10 +27,13 @@ extern "C" {
 #endif
 
 extern int z_impl_led_blink(const struct device * dev, uint32_t led, uint32_t delay_on, uint32_t delay_off);
+
+__pinned_func
 static inline int led_blink(const struct device * dev, uint32_t led, uint32_t delay_on, uint32_t delay_off)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke4(*(uintptr_t *)&dev, *(uintptr_t *)&led, *(uintptr_t *)&delay_on, *(uintptr_t *)&delay_off, K_SYSCALL_LED_BLINK);
 	}
 #endif
@@ -35,10 +43,13 @@ static inline int led_blink(const struct device * dev, uint32_t led, uint32_t de
 
 
 extern int z_impl_led_get_info(const struct device * dev, uint32_t led, const struct led_info ** info);
+
+__pinned_func
 static inline int led_get_info(const struct device * dev, uint32_t led, const struct led_info ** info)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke3(*(uintptr_t *)&dev, *(uintptr_t *)&led, *(uintptr_t *)&info, K_SYSCALL_LED_GET_INFO);
 	}
 #endif
@@ -48,10 +59,13 @@ static inline int led_get_info(const struct device * dev, uint32_t led, const st
 
 
 extern int z_impl_led_set_brightness(const struct device * dev, uint32_t led, uint8_t value);
+
+__pinned_func
 static inline int led_set_brightness(const struct device * dev, uint32_t led, uint8_t value)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke3(*(uintptr_t *)&dev, *(uintptr_t *)&led, *(uintptr_t *)&value, K_SYSCALL_LED_SET_BRIGHTNESS);
 	}
 #endif
@@ -61,10 +75,13 @@ static inline int led_set_brightness(const struct device * dev, uint32_t led, ui
 
 
 extern int z_impl_led_write_channels(const struct device * dev, uint32_t start_channel, uint32_t num_channels, const uint8_t * buf);
+
+__pinned_func
 static inline int led_write_channels(const struct device * dev, uint32_t start_channel, uint32_t num_channels, const uint8_t * buf)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke4(*(uintptr_t *)&dev, *(uintptr_t *)&start_channel, *(uintptr_t *)&num_channels, *(uintptr_t *)&buf, K_SYSCALL_LED_WRITE_CHANNELS);
 	}
 #endif
@@ -74,10 +91,13 @@ static inline int led_write_channels(const struct device * dev, uint32_t start_c
 
 
 extern int z_impl_led_set_channel(const struct device * dev, uint32_t channel, uint8_t value);
+
+__pinned_func
 static inline int led_set_channel(const struct device * dev, uint32_t channel, uint8_t value)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke3(*(uintptr_t *)&dev, *(uintptr_t *)&channel, *(uintptr_t *)&value, K_SYSCALL_LED_SET_CHANNEL);
 	}
 #endif
@@ -87,10 +107,13 @@ static inline int led_set_channel(const struct device * dev, uint32_t channel, u
 
 
 extern int z_impl_led_set_color(const struct device * dev, uint32_t led, uint8_t num_colors, const uint8_t * color);
+
+__pinned_func
 static inline int led_set_color(const struct device * dev, uint32_t led, uint8_t num_colors, const uint8_t * color)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke4(*(uintptr_t *)&dev, *(uintptr_t *)&led, *(uintptr_t *)&num_colors, *(uintptr_t *)&color, K_SYSCALL_LED_SET_COLOR);
 	}
 #endif
@@ -100,10 +123,13 @@ static inline int led_set_color(const struct device * dev, uint32_t led, uint8_t
 
 
 extern int z_impl_led_on(const struct device * dev, uint32_t led);
+
+__pinned_func
 static inline int led_on(const struct device * dev, uint32_t led)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&led, K_SYSCALL_LED_ON);
 	}
 #endif
@@ -113,10 +139,13 @@ static inline int led_on(const struct device * dev, uint32_t led)
 
 
 extern int z_impl_led_off(const struct device * dev, uint32_t led);
+
+__pinned_func
 static inline int led_off(const struct device * dev, uint32_t led)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&led, K_SYSCALL_LED_OFF);
 	}
 #endif

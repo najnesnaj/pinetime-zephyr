@@ -9,12 +9,17 @@
 #include <syscall_list.h>
 #include <syscall.h>
 
+#include <linker/sections.h>
+
 #if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
 #pragma GCC diagnostic push
 #endif
 
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#if !defined(__XCC__)
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
 #endif
 
 #ifdef __cplusplus
@@ -22,10 +27,13 @@ extern "C" {
 #endif
 
 extern int z_impl_adc_channel_setup(const struct device * dev, const struct adc_channel_cfg * channel_cfg);
+
+__pinned_func
 static inline int adc_channel_setup(const struct device * dev, const struct adc_channel_cfg * channel_cfg)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&channel_cfg, K_SYSCALL_ADC_CHANNEL_SETUP);
 	}
 #endif
@@ -35,10 +43,13 @@ static inline int adc_channel_setup(const struct device * dev, const struct adc_
 
 
 extern int z_impl_adc_read(const struct device * dev, const struct adc_sequence * sequence);
+
+__pinned_func
 static inline int adc_read(const struct device * dev, const struct adc_sequence * sequence)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&sequence, K_SYSCALL_ADC_READ);
 	}
 #endif
@@ -48,10 +59,13 @@ static inline int adc_read(const struct device * dev, const struct adc_sequence 
 
 
 extern int z_impl_adc_read_async(const struct device * dev, const struct adc_sequence * sequence, struct k_poll_signal * async);
+
+__pinned_func
 static inline int adc_read_async(const struct device * dev, const struct adc_sequence * sequence, struct k_poll_signal * async)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke3(*(uintptr_t *)&dev, *(uintptr_t *)&sequence, *(uintptr_t *)&async, K_SYSCALL_ADC_READ_ASYNC);
 	}
 #endif

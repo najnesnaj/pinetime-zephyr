@@ -12,8 +12,8 @@
     <dc:publisher>najnesnaj@yahoo.com</dc:publisher>
     <dc:rights>2020, jj</dc:rights>
     <dc:identifier id="unknown">unknown</dc:identifier>
-    <dc:date>2021-06-11T10:17:31Z</dc:date>
-    <meta property="dcterms:modified">2021-06-11T10:17:31Z</meta>
+    <dc:date>2021-12-04T16:26:27Z</dc:date>
+    <meta property="dcterms:modified">2021-12-04T16:26:27Z</meta>
     <meta property="ibooks:version">beta</meta>
     <meta property="ibooks:specified-fonts">true</meta>
     <meta property="ibooks:binding">true</meta>
@@ -150,37 +150,6 @@
     <itemref idref="epub-54" />
     <itemref idref="epub-55" />
     <itemref idref="epub-77" />
-    <itemref idref="epub-65" />
-    <itemref idref="epub-66" />
-    <itemref idref="epub-67" />
-    <itemref idref="epub-68" />
-    <itemref idref="epub-69" />
-    <itemref idref="epub-70" />
-    <itemref idref="epub-71" />
-    <itemref idref="epub-72" />
-    <itemref idref="epub-73" />
-    <itemref idref="epub-74" />
-    <itemref idref="epub-75" />
-    <itemref idref="epub-76" />
-    <itemref idref="epub-78" />
-    <itemref idref="epub-79" />
-    <itemref idref="epub-80" />
-    <itemref idref="epub-81" />
-    <itemref idref="epub-82" />
-    <itemref idref="epub-83" />
-    <itemref idref="epub-64" />
-    <itemref idref="epub-84" />
-    <itemref idref="epub-85" />
-    <itemref idref="epub-86" />
-    <itemref idref="epub-87" />
-    <itemref idref="epub-88" />
-    <itemref idref="epub-89" />
-    <itemref idref="epub-90" />
-    <itemref idref="epub-91" />
-    <itemref idref="epub-92" />
-    <itemref idref="epub-93" />
-    <itemref idref="epub-94" />
-    <itemref idref="epub-95" />
     <itemref idref="epub-14" />
     <itemref idref="epub-38" />
     <itemref idref="epub-37" />
@@ -206,6 +175,37 @@
     <itemref idref="epub-15" linear="no" />
     <itemref idref="epub-18" linear="no" />
     <itemref idref="epub-20" linear="no" />
+    <itemref idref="epub-64" linear="no" />
+    <itemref idref="epub-65" linear="no" />
+    <itemref idref="epub-66" linear="no" />
+    <itemref idref="epub-67" linear="no" />
+    <itemref idref="epub-68" linear="no" />
+    <itemref idref="epub-69" linear="no" />
+    <itemref idref="epub-70" linear="no" />
+    <itemref idref="epub-71" linear="no" />
+    <itemref idref="epub-72" linear="no" />
+    <itemref idref="epub-73" linear="no" />
+    <itemref idref="epub-74" linear="no" />
+    <itemref idref="epub-75" linear="no" />
+    <itemref idref="epub-76" linear="no" />
+    <itemref idref="epub-78" linear="no" />
+    <itemref idref="epub-79" linear="no" />
+    <itemref idref="epub-80" linear="no" />
+    <itemref idref="epub-81" linear="no" />
+    <itemref idref="epub-82" linear="no" />
+    <itemref idref="epub-83" linear="no" />
+    <itemref idref="epub-84" linear="no" />
+    <itemref idref="epub-85" linear="no" />
+    <itemref idref="epub-86" linear="no" />
+    <itemref idref="epub-87" linear="no" />
+    <itemref idref="epub-88" linear="no" />
+    <itemref idref="epub-89" linear="no" />
+    <itemref idref="epub-90" linear="no" />
+    <itemref idref="epub-91" linear="no" />
+    <itemref idref="epub-92" linear="no" />
+    <itemref idref="epub-93" linear="no" />
+    <itemref idref="epub-94" linear="no" />
+    <itemref idref="epub-95" linear="no" />
   </spine>
   <guide>
     <reference type="toc" title="Table of Contents" href="index.xhtml" />

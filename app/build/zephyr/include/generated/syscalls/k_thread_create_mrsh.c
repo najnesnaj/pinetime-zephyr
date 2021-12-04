@@ -12,8 +12,11 @@ uintptr_t z_mrsh_k_thread_create(uintptr_t arg0, uintptr_t arg1, uintptr_t arg2,
 		uintptr_t arg3, uintptr_t arg4, void *more, void *ssf)
 {
 	_current->syscall_frame = ssf;
-	Z_OOPS(Z_SYSCALL_MEMORY_READ(more, 4 * sizeof(uintptr_t)));
-	k_tid_t ret = z_vrfy_k_thread_create(*(struct k_thread **)&arg0, *(k_thread_stack_t **)&arg1, *(size_t*)&arg2, *(k_thread_entry_t*)&arg3, *(void **)&arg4, *(void **)&(((uintptr_t *)more)[0]), *(void **)&(((uintptr_t *)more)[1]), *(int*)&(((uintptr_t *)more)[2]), *(uint32_t*)&(((uintptr_t *)more)[3]), *(k_timeout_t*)&(((uintptr_t *)more)[4]))
+	Z_OOPS(Z_SYSCALL_MEMORY_READ(more, 5 * sizeof(uintptr_t)));
+	union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
+	parm0.split.lo = (((uintptr_t *)more)[4]);
+	parm0.split.hi = (((uintptr_t *)more)[5]);
+	k_tid_t ret = z_vrfy_k_thread_create(*(struct k_thread **)&arg0, *(k_thread_stack_t **)&arg1, *(size_t*)&arg2, *(k_thread_entry_t*)&arg3, *(void **)&arg4, *(void **)&(((uintptr_t *)more)[0]), *(void **)&(((uintptr_t *)more)[1]), *(int*)&(((uintptr_t *)more)[2]), *(uint32_t*)&(((uintptr_t *)more)[3]), parm0.val)
 ;
 	_current->syscall_frame = NULL;
 	return (uintptr_t) ret;

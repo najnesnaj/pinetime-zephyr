@@ -99,7 +99,7 @@
     ],
     [
         [
-            "k_tid_t k_current_get",
+            "k_tid_t z_current_get",
             "void"
         ],
         "kernel.h"
@@ -614,6 +614,48 @@
             "const struct device *dev,\n\t\t\t     const struct adc_sequence *sequence,\n\t\t\t     struct k_poll_signal *async"
         ],
         "adc.h"
+    ],
+    [
+        [
+            "int bbram_check_invalid",
+            "const struct device *dev"
+        ],
+        "bbram.h"
+    ],
+    [
+        [
+            "int bbram_check_standby_power",
+            "const struct device *dev"
+        ],
+        "bbram.h"
+    ],
+    [
+        [
+            "int bbram_check_power",
+            "const struct device *dev"
+        ],
+        "bbram.h"
+    ],
+    [
+        [
+            "int bbram_get_size",
+            "const struct device *dev, size_t *size"
+        ],
+        "bbram.h"
+    ],
+    [
+        [
+            "int bbram_read",
+            "const struct device *dev, size_t offset, size_t size,\n\t\t\t uint8_t *data"
+        ],
+        "bbram.h"
+    ],
+    [
+        [
+            "int bbram_write",
+            "const struct device *dev, size_t offset, size_t size,\n\t\t\t  const uint8_t *data"
+        ],
+        "bbram.h"
     ],
     [
         [
@@ -1156,6 +1198,27 @@
     ],
     [
         [
+            "int hwinfo_get_reset_cause",
+            "uint32_t *cause"
+        ],
+        "hwinfo.h"
+    ],
+    [
+        [
+            "int hwinfo_clear_reset_cause",
+            "void"
+        ],
+        "hwinfo.h"
+    ],
+    [
+        [
+            "int hwinfo_get_supported_reset_cause",
+            "uint32_t *supported"
+        ],
+        "hwinfo.h"
+    ],
+    [
+        [
             "int i2c_configure",
             "const struct device *dev, uint32_t dev_config"
         ],
@@ -1321,6 +1384,34 @@
             "const struct device *dev, uint32_t led"
         ],
         "led.h"
+    ],
+    [
+        [
+            "void mdio_bus_enable",
+            "const struct device *dev"
+        ],
+        "mdio.h"
+    ],
+    [
+        [
+            "void mdio_bus_disable",
+            "const struct device *dev"
+        ],
+        "mdio.h"
+    ],
+    [
+        [
+            "int mdio_read",
+            "const struct device *dev, uint8_t prtad, uint8_t devad,\n\t\t\tuint16_t *data"
+        ],
+        "mdio.h"
+    ],
+    [
+        [
+            "int mdio_write",
+            "const struct device *dev, uint8_t prtad, uint8_t devad,\n\t\t\t uint16_t data"
+        ],
+        "mdio.h"
     ],
     [
         [
@@ -1646,6 +1737,13 @@
     ],
     [
         [
+            "void *flash_simulator_get_memory",
+            "const struct device *dev,\n\t\t\t\t\t   size_t *mock_size"
+        ],
+        "flash_simulator.h"
+    ],
+    [
+        [
             "int maxim_ds3231_req_syncpoint",
             "const struct device *dev,\n\t\t\t\t\t struct k_poll_signal *signal"
         ],
@@ -1835,6 +1933,41 @@
     ],
     [
         [
+            "int phy_configure_link",
+            "const struct device *dev,\n\t\t\t\t enum phy_link_speed speeds"
+        ],
+        "phy.h"
+    ],
+    [
+        [
+            "int phy_get_link_state",
+            "const struct device *dev,\n\t\t\t\t struct phy_link_state *state"
+        ],
+        "phy.h"
+    ],
+    [
+        [
+            "int phy_link_callback_set",
+            "const struct device *dev,\n\t\t\t\t    phy_callback_t callback,\n\t\t\t\t    void *user_data"
+        ],
+        "phy.h"
+    ],
+    [
+        [
+            "int phy_read",
+            "const struct device *dev, uint16_t reg_addr,\n\t\t       uint32_t *value"
+        ],
+        "phy.h"
+    ],
+    [
+        [
+            "int phy_write",
+            "const struct device *dev, uint16_t reg_addr,\n\t\t\tuint32_t value"
+        ],
+        "phy.h"
+    ],
+    [
+        [
             "void *zsock_get_context_object",
             "int sock"
         ],
@@ -1972,6 +2105,13 @@
             "const char *host,\n\t\t\t\t\t   const char *service,\n\t\t\t\t\t   const struct zsock_addrinfo *hints,\n\t\t\t\t\t   struct zsock_addrinfo *res"
         ],
         "socket.h"
+    ],
+    [
+        [
+            "int zsock_select",
+            "int nfds, zsock_fd_set *readfds,\n\t\t\t   zsock_fd_set *writefds,\n\t\t\t   zsock_fd_set *exceptfds,\n\t\t\t   struct zsock_timeval *timeout"
+        ],
+        "socket_select.h"
     ],
     [
         [

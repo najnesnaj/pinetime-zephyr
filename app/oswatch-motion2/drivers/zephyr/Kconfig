@@ -1,0 +1,49 @@
+# SSD1306 display controller configuration options
+
+# Copyright (c) 2018 Phytec Messtechnik GmbH
+# Copyright (c) 2021 najnesnaj@yahoo.Com           
+# SPDX-License-Identifier: Apache-2.0
+
+config SSD1306NEW
+	bool "SSD1306 display driver"
+	depends on SPI
+        default n
+	help
+	  Enable driver for SSD1306 display driver.
+
+if SSD1306NEW  
+
+config SSD1306_DEFAULT_CONTRAST
+	int "SSD1306 default contrast"
+	default 128
+	range 0 255
+	help
+	  SSD16XX default contrast.
+
+choice SSD1306_CONTROLLER_TYPE
+	prompt "Display controller type"
+	default SSD1306_DEFAULT
+	help
+	  Specify the type of the controller.
+
+config SSD1306_DEFAULT
+	bool "Default SSD1306 controller"
+
+config SSD1306_SH1106_COMPATIBLE
+	bool "Enable SH1106 compatible mode"
+
+endchoice
+
+config SSD1306_REVERSE_MODE
+	bool "SSD1306 reverse mode"
+	help
+	  SSD16XX reverse video mode.
+
+endif # SSD1306
+
+config ADXL345NEW
+        bool "ADXL345 Three Axis I2C accelerometer"
+        depends on I2C
+        help
+          Enable driver for ADXL345 Three-Axis Digital Accelerometer.
+

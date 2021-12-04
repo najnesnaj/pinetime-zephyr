@@ -9,12 +9,17 @@
 #include <syscall_list.h>
 #include <syscall.h>
 
+#include <linker/sections.h>
+
 #if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
 #pragma GCC diagnostic push
 #endif
 
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#if !defined(__XCC__)
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
 #endif
 
 #ifdef __cplusplus
@@ -22,10 +27,13 @@ extern "C" {
 #endif
 
 extern size_t z_impl_ivshmem_get_mem(const struct device * dev, uintptr_t * memmap);
+
+__pinned_func
 static inline size_t ivshmem_get_mem(const struct device * dev, uintptr_t * memmap)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (size_t) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&memmap, K_SYSCALL_IVSHMEM_GET_MEM);
 	}
 #endif
@@ -35,10 +43,13 @@ static inline size_t ivshmem_get_mem(const struct device * dev, uintptr_t * memm
 
 
 extern uint32_t z_impl_ivshmem_get_id(const struct device * dev);
+
+__pinned_func
 static inline uint32_t ivshmem_get_id(const struct device * dev)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (uint32_t) arch_syscall_invoke1(*(uintptr_t *)&dev, K_SYSCALL_IVSHMEM_GET_ID);
 	}
 #endif
@@ -48,10 +59,13 @@ static inline uint32_t ivshmem_get_id(const struct device * dev)
 
 
 extern uint16_t z_impl_ivshmem_get_vectors(const struct device * dev);
+
+__pinned_func
 static inline uint16_t ivshmem_get_vectors(const struct device * dev)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (uint16_t) arch_syscall_invoke1(*(uintptr_t *)&dev, K_SYSCALL_IVSHMEM_GET_VECTORS);
 	}
 #endif
@@ -61,10 +75,13 @@ static inline uint16_t ivshmem_get_vectors(const struct device * dev)
 
 
 extern int z_impl_ivshmem_int_peer(const struct device * dev, uint32_t peer_id, uint16_t vector);
+
+__pinned_func
 static inline int ivshmem_int_peer(const struct device * dev, uint32_t peer_id, uint16_t vector)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke3(*(uintptr_t *)&dev, *(uintptr_t *)&peer_id, *(uintptr_t *)&vector, K_SYSCALL_IVSHMEM_INT_PEER);
 	}
 #endif
@@ -74,10 +91,13 @@ static inline int ivshmem_int_peer(const struct device * dev, uint32_t peer_id, 
 
 
 extern int z_impl_ivshmem_register_handler(const struct device * dev, struct k_poll_signal * signal, uint16_t vector);
+
+__pinned_func
 static inline int ivshmem_register_handler(const struct device * dev, struct k_poll_signal * signal, uint16_t vector)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke3(*(uintptr_t *)&dev, *(uintptr_t *)&signal, *(uintptr_t *)&vector, K_SYSCALL_IVSHMEM_REGISTER_HANDLER);
 	}
 #endif

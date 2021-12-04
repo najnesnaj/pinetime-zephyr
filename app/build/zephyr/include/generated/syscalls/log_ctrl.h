@@ -9,12 +9,17 @@
 #include <syscall_list.h>
 #include <syscall.h>
 
+#include <linker/sections.h>
+
 #if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
 #pragma GCC diagnostic push
 #endif
 
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#if !defined(__XCC__)
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
 #endif
 
 #ifdef __cplusplus
@@ -22,10 +27,13 @@ extern "C" {
 #endif
 
 extern void z_impl_log_panic(void);
+
+__pinned_func
 static inline void log_panic(void)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		arch_syscall_invoke0(K_SYSCALL_LOG_PANIC);
 		return;
 	}
@@ -36,10 +44,13 @@ static inline void log_panic(void)
 
 
 extern bool z_impl_log_process(bool bypass);
+
+__pinned_func
 static inline bool log_process(bool bypass)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (bool) arch_syscall_invoke1(*(uintptr_t *)&bypass, K_SYSCALL_LOG_PROCESS);
 	}
 #endif
@@ -49,10 +60,13 @@ static inline bool log_process(bool bypass)
 
 
 extern uint32_t z_impl_log_buffered_cnt(void);
+
+__pinned_func
 static inline uint32_t log_buffered_cnt(void)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (uint32_t) arch_syscall_invoke0(K_SYSCALL_LOG_BUFFERED_CNT);
 	}
 #endif
@@ -62,10 +76,13 @@ static inline uint32_t log_buffered_cnt(void)
 
 
 extern uint32_t z_impl_log_filter_set(struct log_backend const *const backend, uint32_t domain_id, int16_t source_id, uint32_t level);
+
+__pinned_func
 static inline uint32_t log_filter_set(struct log_backend const *const backend, uint32_t domain_id, int16_t source_id, uint32_t level)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (uint32_t) arch_syscall_invoke4(*(uintptr_t *)&backend, *(uintptr_t *)&domain_id, *(uintptr_t *)&source_id, *(uintptr_t *)&level, K_SYSCALL_LOG_FILTER_SET);
 	}
 #endif

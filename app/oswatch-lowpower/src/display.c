@@ -555,8 +555,7 @@ void display_sleep(void)
 
 #endif
 
-	pm_device_state_set(display_dev, PM_DEVICE_STATE_LOW_POWER, NULL,
-			NULL);
+	pm_device_state_set(display_dev, PM_DEVICE_STATE_LOW_POWER);
 
 }
 
@@ -570,7 +569,7 @@ void display_wake_up(void)
 	if (state_of_watch == PM_DEVICE_STATE_LOW_POWER) 
 	{
 		lv_scr_load(screens[0].screen); //display always first screen after waking up 
-		pm_device_state_set(display_dev, PM_DEVICE_STATE_ACTIVE, NULL, NULL);
+		pm_device_state_set(display_dev, PM_DEVICE_STATE_ACTIVE);
 	}
 #else
 	if (state_of_watch == PM_DEVICE_STATE_ACTIVE) 
@@ -582,7 +581,7 @@ void display_wake_up(void)
 		printk("%d\n", state_of_watch);
 		display_blanking_off(display_dev);
 		lv_scr_load(screens[0].screen); //display always first screen after waking up 
-		pm_device_state_set(display_dev, PM_DEVICE_STATE_ACTIVE, NULL, NULL);
+		pm_device_state_set(display_dev, PM_DEVICE_STATE_ACTIVE);
 	}
 #endif
 }
@@ -623,7 +622,7 @@ int display_init(void)
 	 */
 	//	k_timer_start(&display_timer, K_MSEC(TICK_PERIOD), K_MSEC(TICK_PERIOD));
 	//set powerstatus to active
-		pm_device_state_set(display_dev, PM_DEVICE_STATE_ACTIVE, NULL, NULL);
+		pm_device_state_set(display_dev, PM_DEVICE_STATE_ACTIVE);
 
 	return 0;
 };

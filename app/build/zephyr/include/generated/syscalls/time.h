@@ -9,12 +9,17 @@
 #include <syscall_list.h>
 #include <syscall.h>
 
+#include <linker/sections.h>
+
 #if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
 #pragma GCC diagnostic push
 #endif
 
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#if !defined(__XCC__)
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
 #endif
 
 #ifdef __cplusplus
@@ -22,10 +27,13 @@ extern "C" {
 #endif
 
 extern int z_impl_clock_gettime(clockid_t clock_id, struct timespec * ts);
+
+__pinned_func
 static inline int clock_gettime(clockid_t clock_id, struct timespec * ts)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke2(*(uintptr_t *)&clock_id, *(uintptr_t *)&ts, K_SYSCALL_CLOCK_GETTIME);
 	}
 #endif

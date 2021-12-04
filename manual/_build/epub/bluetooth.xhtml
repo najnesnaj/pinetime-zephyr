@@ -37,7 +37,7 @@ A permissive license whose main conditions require preservation of copyright and
 <div><p>see:   <span class="xref std std-ref">bluetooth-eddystone-sample</span></p>
 </div></blockquote>
 <p><strong>Note:</strong>  compile the provided example, so a build directory gets created</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> west build -p -b pinetime_devkit0 samples/bluetooth/eddystone
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>west build -p -b pinetime_devkit0 samples/bluetooth/eddystone
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">this</span> <span class="pre">builds</span> <span class="pre">an</span> <span class="pre">image,</span> <span class="pre">which</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">found</span> <span class="pre">under</span> <span class="pre">the</span> <span class="pre">build</span> <span class="pre">directory</span></code></p>
@@ -151,7 +151,7 @@ Adding to battery level (0x2A19) a value (eg 0x112233445566778899AACCDD), allows
 Body Sensor Location</p>
 </dd>
 </dl>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[dsd6]#</span> <span class="k">select</span>-attribute /org/bluez/hci0/dev_74_71_4B_D5_18_21/service001f/char0023
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[dsd6]# </span><span class="k">select</span>-attribute /org/bluez/hci0/dev_74_71_4B_D5_18_21/service001f/char0023
 <span class="go">write &lt;data=0x1&gt;</span>
 </pre></div>
 </div>

@@ -64,4 +64,4 @@ suggestion :
 
 
 
-![image](./PineTime-830x400.png)
+![image](PineTime-830x400.png)

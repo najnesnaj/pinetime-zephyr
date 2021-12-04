@@ -1,23 +1,31 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Bluetooth: getting data from the watch &mdash; open source watch 1.2.0 documentation</title>
   
 
   
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -28,16 +36,10 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="Bluetooth: transferring data to the watch" href="samplesbluetoothperipheralREADME.html" />
-    <link rel="prev" title="Bluetooth: transferring data to the watch" href="samplesbluetoothperipheral-getparamREADME.html" /> 
+    <link rel="copyright" title="Copyright" href="../copyright.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -78,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -85,7 +88,7 @@
               
             
             
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">Copyright</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../content.html">Zephyr  smartwatch framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Howto use the framework ?</a></li>
@@ -101,45 +104,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../bluetooth.html">bluetooth (BLE)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notification.html">Bluetooth Notification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fota/fota.html">Firmware Over The Air (FOTA)</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Samples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="apposwatch-batteryREADME.html">Battery OSWatch Framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apposwatch-btREADME.html">Data exchange   OSWatch Framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apposwatch-calendarREADME.html">Calendar oswatch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apposwatch-ctsREADME.html">Current Time Setting  OSWatch Framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apposwatch-fotaREADME.html">FOTA OSWatch Framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apposwatch-lowpowerREADME.html">Lowpower oswatch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apposwatchREADME.html">Basic OSWatch Framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appsamplescfbREADME.html">Character frame buffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appsamplescfb_shellREADME.html">Character Framebuffer Shell Module Sample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appsampleslvglREADME.html">LittlevGL Basic Sample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appsamplesmax44009README.html">Lightsensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appsamplestimerREADME.html">Testing the timer refresh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oswatch-batteryREADME.html">Battery OSWatch Framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oswatch-btREADME.html">OSWatch bluetooth setting parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oswatch-calendarREADME.html">Setting up an alarm/calendar event</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oswatch-ctsREADME.html">Current Time Setting  OSWatch Framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oswatch-fotaREADME.html">FOTA OSWatch Framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="oswatchREADME.html">Basic OSWatch Framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html">HRS3300 Heart Rate Sensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="samplesbluetoothcentral_hrREADME.html">Bluetooth: Central / Heart-rate Monitor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="samplesbluetoothperipheral-getparamREADME.html">Bluetooth: transferring data to the watch</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Bluetooth: getting data from the watch</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#building-and-running">Building and Running</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="samplesbluetoothperipheralREADME.html">Bluetooth: transferring data to the watch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="samplesbuttonpinebuttonREADME.html">Pinetime  Button  Sample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="samplesbuttonsdlbutton2README.html">SDL Button Timer  Sample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="samplesbuttonsdlbuttonREADME.html">LittlevGL SDL Button  Sample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="samplescfbREADME.html">Character frame buffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="samplescfb_shellREADME.html">Character Framebuffer Shell Module Sample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sampleslvglREADME.html">LittlevGL Basic Sample</a></li>
-<li class="toctree-l2"><a class="reference internal" href="samplesmax44009README.html">Lightsensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="samplestimerREADME.html">Testing the timer refresh</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Samples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../menuconfig.html">Menuconfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../debugging/debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hacking/hacking.html">Hacking stuff</a></li>
@@ -151,6 +116,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -185,20 +151,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="index.html">Samples</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Bluetooth: getting data from the watch</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/samples/samplesbluetoothperipheral-notificationREADME.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -247,29 +213,25 @@ There is no confirmation of reception. (a bit like UDP network traffic)</p>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="samplesbluetoothperipheralREADME.html" class="btn btn-neutral float-right" title="Bluetooth: transferring data to the watch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="samplesbluetoothperipheral-getparamREADME.html" class="btn btn-neutral float-left" title="Bluetooth: transferring data to the watch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; <a href="../copyright.html">Copyright</a> 2020, jj
+        &#169; <a href="../copyright.html">Copyright</a> 2020, jj.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -277,7 +239,6 @@ There is no confirmation of reception. (a bit like UDP network traffic)</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

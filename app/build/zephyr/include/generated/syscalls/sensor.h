@@ -9,12 +9,17 @@
 #include <syscall_list.h>
 #include <syscall.h>
 
+#include <linker/sections.h>
+
 #if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
 #pragma GCC diagnostic push
 #endif
 
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#if !defined(__XCC__)
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
 #endif
 
 #ifdef __cplusplus
@@ -22,10 +27,13 @@ extern "C" {
 #endif
 
 extern int z_impl_sensor_attr_set(const struct device * dev, enum sensor_channel chan, enum sensor_attribute attr, const struct sensor_value * val);
+
+__pinned_func
 static inline int sensor_attr_set(const struct device * dev, enum sensor_channel chan, enum sensor_attribute attr, const struct sensor_value * val)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke4(*(uintptr_t *)&dev, *(uintptr_t *)&chan, *(uintptr_t *)&attr, *(uintptr_t *)&val, K_SYSCALL_SENSOR_ATTR_SET);
 	}
 #endif
@@ -35,10 +43,13 @@ static inline int sensor_attr_set(const struct device * dev, enum sensor_channel
 
 
 extern int z_impl_sensor_attr_get(const struct device * dev, enum sensor_channel chan, enum sensor_attribute attr, struct sensor_value * val);
+
+__pinned_func
 static inline int sensor_attr_get(const struct device * dev, enum sensor_channel chan, enum sensor_attribute attr, struct sensor_value * val)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke4(*(uintptr_t *)&dev, *(uintptr_t *)&chan, *(uintptr_t *)&attr, *(uintptr_t *)&val, K_SYSCALL_SENSOR_ATTR_GET);
 	}
 #endif
@@ -48,10 +59,13 @@ static inline int sensor_attr_get(const struct device * dev, enum sensor_channel
 
 
 extern int z_impl_sensor_sample_fetch(const struct device * dev);
+
+__pinned_func
 static inline int sensor_sample_fetch(const struct device * dev)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke1(*(uintptr_t *)&dev, K_SYSCALL_SENSOR_SAMPLE_FETCH);
 	}
 #endif
@@ -61,10 +75,13 @@ static inline int sensor_sample_fetch(const struct device * dev)
 
 
 extern int z_impl_sensor_sample_fetch_chan(const struct device * dev, enum sensor_channel type);
+
+__pinned_func
 static inline int sensor_sample_fetch_chan(const struct device * dev, enum sensor_channel type)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&type, K_SYSCALL_SENSOR_SAMPLE_FETCH_CHAN);
 	}
 #endif
@@ -74,10 +91,13 @@ static inline int sensor_sample_fetch_chan(const struct device * dev, enum senso
 
 
 extern int z_impl_sensor_channel_get(const struct device * dev, enum sensor_channel chan, struct sensor_value * val);
+
+__pinned_func
 static inline int sensor_channel_get(const struct device * dev, enum sensor_channel chan, struct sensor_value * val)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke3(*(uintptr_t *)&dev, *(uintptr_t *)&chan, *(uintptr_t *)&val, K_SYSCALL_SENSOR_CHANNEL_GET);
 	}
 #endif

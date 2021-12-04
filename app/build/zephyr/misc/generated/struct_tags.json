@@ -10,6 +10,7 @@
     "__subsystem": [
         "crypto_driver_api",
         "adc_driver_api",
+        "bbram_driver_api",
         "can_driver_api",
         "counter_driver_api",
         "dac_driver_api",
@@ -21,12 +22,14 @@
         "espi_driver_api",
         "espi_saf_driver_api",
         "flash_driver_api",
+        "fpga_driver_api",
         "gpio_driver_api",
         "i2c_driver_api",
         "i2s_driver_api",
         "ipm_driver_api",
         "kscan_driver_api",
         "led_driver_api",
+        "mdio_driver_api",
         "pinmux_driver_api",
         "ps2_driver_api",
         "ptp_clock_driver_api",
@@ -37,6 +40,7 @@
         "uart_driver_api",
         "wdt_driver_api",
         "uart_mux_driver_api",
-        "ivshmem_driver_api"
+        "ivshmem_driver_api",
+        "ethphy_driver_api"
     ]
 }

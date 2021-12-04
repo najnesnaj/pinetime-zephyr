@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyrproject/zephyr/arch
+# Install script for directory: /root/zephyrproject/zephyr/arch
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,13 +34,13 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "/root/zephyr-sdk-0.13.0/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/root/work/zephyrproject/app/build/zephyr/arch/common/cmake_install.cmake")
-  include("/root/work/zephyrproject/app/build/zephyr/arch/arch/posix/cmake_install.cmake")
+  include("/root/zephyrproject/app/build/zephyr/arch/common/cmake_install.cmake")
+  include("/root/zephyrproject/app/build/zephyr/arch/arch/arm/cmake_install.cmake")
 
 endif()
 

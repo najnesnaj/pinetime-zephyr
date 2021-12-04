@@ -9,12 +9,17 @@
 #include <syscall_list.h>
 #include <syscall.h>
 
+#include <linker/sections.h>
+
 #if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
 #pragma GCC diagnostic push
 #endif
 
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#if !defined(__XCC__)
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
 #endif
 
 #ifdef __cplusplus
@@ -22,10 +27,13 @@ extern "C" {
 #endif
 
 extern int z_impl_dma_start(const struct device * dev, uint32_t channel);
+
+__pinned_func
 static inline int dma_start(const struct device * dev, uint32_t channel)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&channel, K_SYSCALL_DMA_START);
 	}
 #endif
@@ -35,10 +43,13 @@ static inline int dma_start(const struct device * dev, uint32_t channel)
 
 
 extern int z_impl_dma_stop(const struct device * dev, uint32_t channel);
+
+__pinned_func
 static inline int dma_stop(const struct device * dev, uint32_t channel)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&channel, K_SYSCALL_DMA_STOP);
 	}
 #endif
@@ -48,10 +59,13 @@ static inline int dma_stop(const struct device * dev, uint32_t channel)
 
 
 extern int z_impl_dma_request_channel(const struct device * dev, void * filter_param);
+
+__pinned_func
 static inline int dma_request_channel(const struct device * dev, void * filter_param)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&filter_param, K_SYSCALL_DMA_REQUEST_CHANNEL);
 	}
 #endif
@@ -61,10 +75,13 @@ static inline int dma_request_channel(const struct device * dev, void * filter_p
 
 
 extern void z_impl_dma_release_channel(const struct device * dev, uint32_t channel);
+
+__pinned_func
 static inline void dma_release_channel(const struct device * dev, uint32_t channel)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&channel, K_SYSCALL_DMA_RELEASE_CHANNEL);
 		return;
 	}
@@ -75,10 +92,13 @@ static inline void dma_release_channel(const struct device * dev, uint32_t chann
 
 
 extern int z_impl_dma_chan_filter(const struct device * dev, int channel, void * filter_param);
+
+__pinned_func
 static inline int dma_chan_filter(const struct device * dev, int channel, void * filter_param)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke3(*(uintptr_t *)&dev, *(uintptr_t *)&channel, *(uintptr_t *)&filter_param, K_SYSCALL_DMA_CHAN_FILTER);
 	}
 #endif

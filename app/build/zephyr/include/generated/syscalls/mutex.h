@@ -9,12 +9,17 @@
 #include <syscall_list.h>
 #include <syscall.h>
 
+#include <linker/sections.h>
+
 #if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
 #pragma GCC diagnostic push
 #endif
 
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#if !defined(__XCC__)
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
 #endif
 
 #ifdef __cplusplus
@@ -22,11 +27,16 @@ extern "C" {
 #endif
 
 extern int z_impl_z_sys_mutex_kernel_lock(struct sys_mutex * mutex, k_timeout_t timeout);
+
+__pinned_func
 static inline int z_sys_mutex_kernel_lock(struct sys_mutex * mutex, k_timeout_t timeout)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
-		return (int) arch_syscall_invoke2(*(uintptr_t *)&mutex, *(uintptr_t *)&timeout, K_SYSCALL_Z_SYS_MUTEX_KERNEL_LOCK);
+		union { struct { uintptr_t lo, hi; } split; k_timeout_t val; } parm0;
+		parm0.val = timeout;
+		/* coverity[OVERRUN] */
+		return (int) arch_syscall_invoke3(*(uintptr_t *)&mutex, parm0.split.lo, parm0.split.hi, K_SYSCALL_Z_SYS_MUTEX_KERNEL_LOCK);
 	}
 #endif
 	compiler_barrier();
@@ -35,10 +45,13 @@ static inline int z_sys_mutex_kernel_lock(struct sys_mutex * mutex, k_timeout_t 
 
 
 extern int z_impl_z_sys_mutex_kernel_unlock(struct sys_mutex * mutex);
+
+__pinned_func
 static inline int z_sys_mutex_kernel_unlock(struct sys_mutex * mutex)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke1(*(uintptr_t *)&mutex, K_SYSCALL_Z_SYS_MUTEX_KERNEL_UNLOCK);
 	}
 #endif

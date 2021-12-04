@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyrproject/zephyr/subsys/modbus
+# Install script for directory: /root/zephyrproject/zephyr/subsys/modbus
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,6 +34,6 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "/root/zephyr-sdk-0.13.0/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump")
 endif()
 

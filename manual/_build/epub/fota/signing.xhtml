@@ -24,7 +24,7 @@ Each time you want to upload firmware, you have to sign it with a private key.</
 <h2>Generating a new keypair</h2>
 <p>Generating a keypair with imgtool is a matter of running the keygen
 subcommand:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./scripts/imgtool.py keygen -k mykey.pem -t rsa-2048
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./scripts/imgtool.py keygen -k mykey.pem -t rsa-2048
 </pre></div>
 </div>
 </div>
@@ -33,7 +33,7 @@ subcommand:</p>
 <p>The generated keypair above contains both the public and the private
 key.  It is necessary to extract the public key and insert it into the
 bootloader.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> ./scripts/imgtool.py getpub -k mykey.pem
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./scripts/imgtool.py getpub -k mykey.pem
 </pre></div>
 </div>
 <p>This will output the public key as a C array that can be dropped

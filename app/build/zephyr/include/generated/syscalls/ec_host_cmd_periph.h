@@ -9,12 +9,17 @@
 #include <syscall_list.h>
 #include <syscall.h>
 
+#include <linker/sections.h>
+
 #if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
 #pragma GCC diagnostic push
 #endif
 
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#if !defined(__XCC__)
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
 #endif
 
 #ifdef __cplusplus
@@ -22,10 +27,13 @@ extern "C" {
 #endif
 
 extern int z_impl_ec_host_cmd_periph_init(const struct device * dev, struct ec_host_cmd_periph_rx_ctx * rx_ctx);
+
+__pinned_func
 static inline int ec_host_cmd_periph_init(const struct device * dev, struct ec_host_cmd_periph_rx_ctx * rx_ctx)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&rx_ctx, K_SYSCALL_EC_HOST_CMD_PERIPH_INIT);
 	}
 #endif
@@ -35,10 +43,13 @@ static inline int ec_host_cmd_periph_init(const struct device * dev, struct ec_h
 
 
 extern int z_impl_ec_host_cmd_periph_send(const struct device * dev, const struct ec_host_cmd_periph_tx_buf * tx_buf);
+
+__pinned_func
 static inline int ec_host_cmd_periph_send(const struct device * dev, const struct ec_host_cmd_periph_tx_buf * tx_buf)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&tx_buf, K_SYSCALL_EC_HOST_CMD_PERIPH_SEND);
 	}
 #endif

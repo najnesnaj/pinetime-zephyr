@@ -8,6 +8,8 @@
 
 #define Z_SYSCALL_DRIVER_ADC(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, adc, ADC)
 
+#define Z_SYSCALL_DRIVER_BBRAM(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, bbram, BBRAM)
+
 #define Z_SYSCALL_DRIVER_CAN(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, can, CAN)
 
 #define Z_SYSCALL_DRIVER_COUNTER(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, counter, COUNTER)
@@ -30,6 +32,8 @@
 
 #define Z_SYSCALL_DRIVER_FLASH(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, flash, FLASH)
 
+#define Z_SYSCALL_DRIVER_FPGA(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, fpga, FPGA)
+
 #define Z_SYSCALL_DRIVER_GPIO(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, gpio, GPIO)
 
 #define Z_SYSCALL_DRIVER_I2C(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, i2c, I2C)
@@ -41,6 +45,8 @@
 #define Z_SYSCALL_DRIVER_KSCAN(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, kscan, KSCAN)
 
 #define Z_SYSCALL_DRIVER_LED(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, led, LED)
+
+#define Z_SYSCALL_DRIVER_MDIO(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, mdio, MDIO)
 
 #define Z_SYSCALL_DRIVER_PINMUX(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, pinmux, PINMUX)
 
@@ -63,4 +69,6 @@
 #define Z_SYSCALL_DRIVER_UART_MUX(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, uart_mux, UART_MUX)
 
 #define Z_SYSCALL_DRIVER_IVSHMEM(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, ivshmem, IVSHMEM)
+
+#define Z_SYSCALL_DRIVER_ETHPHY(ptr, op) Z_SYSCALL_DRIVER_GEN(ptr, op, ethphy, ETHPHY)
 #endif /* DRIVER_VALIDATION_GEN_H */

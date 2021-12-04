@@ -9,12 +9,17 @@
 #include <syscall_list.h>
 #include <syscall.h>
 
+#include <linker/sections.h>
+
 #if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
 #pragma GCC diagnostic push
 #endif
 
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#if !defined(__XCC__)
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
 #endif
 
 #ifdef __cplusplus
@@ -22,10 +27,13 @@ extern "C" {
 #endif
 
 extern int z_impl_maxim_ds3231_req_syncpoint(const struct device * dev, struct k_poll_signal * signal);
+
+__pinned_func
 static inline int maxim_ds3231_req_syncpoint(const struct device * dev, struct k_poll_signal * signal)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&signal, K_SYSCALL_MAXIM_DS3231_REQ_SYNCPOINT);
 	}
 #endif
@@ -35,10 +43,13 @@ static inline int maxim_ds3231_req_syncpoint(const struct device * dev, struct k
 
 
 extern int z_impl_maxim_ds3231_get_syncpoint(const struct device * dev, struct maxim_ds3231_syncpoint * syncpoint);
+
+__pinned_func
 static inline int maxim_ds3231_get_syncpoint(const struct device * dev, struct maxim_ds3231_syncpoint * syncpoint)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke2(*(uintptr_t *)&dev, *(uintptr_t *)&syncpoint, K_SYSCALL_MAXIM_DS3231_GET_SYNCPOINT);
 	}
 #endif

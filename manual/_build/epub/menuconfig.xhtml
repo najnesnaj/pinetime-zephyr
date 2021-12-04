@@ -24,7 +24,7 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">the</span> <span class="pre">pinetime</span> <span class="pre">contains</span> <span class="pre">an</span> <span class="pre">external</span> <span class="pre">32Kz</span> <span class="pre">crystal</span></code>
 now you can have a look in the configurationfile (and modify if needed)</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> west build -t menuconfig
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>west build -t menuconfig
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Modules</span>  <span class="o">---&gt;</span>
@@ -52,7 +52,7 @@ now you can have a look in the configurationfile (and modify if needed)</p>
     <span class="n">Networking</span>  <span class="o">---&gt;</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="p">]</span> <span class="n">IEEE</span> <span class="mf">802.15</span><span class="o">.</span><span class="mi">4</span> <span class="n">drivers</span> <span class="n">options</span>  <span class="o">----</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="p">]</span> <span class="n">IEEE</span> <span class="mf">802.15.4</span> <span class="n">drivers</span> <span class="n">options</span>  <span class="o">----</span>
 <span class="p">(</span><span class="n">UART_0</span><span class="p">)</span> <span class="n">Device</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">UART</span> <span class="n">Device</span> <span class="k">for</span> <span class="n">UART</span> <span class="n">Console</span>
 <span class="p">[</span><span class="o">*</span><span class="p">]</span> <span class="n">Console</span> <span class="n">drivers</span>  <span class="o">---&gt;</span>
 <span class="p">[</span> <span class="p">]</span> <span class="n">Net</span> <span class="n">loopback</span> <span class="n">driver</span>  <span class="o">----</span>

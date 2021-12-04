@@ -9,7 +9,7 @@
 
 / {
 model = "Desay D6 smart Watch";
-compatible = "nordic, nrf52832";
+compatible = "ds-d6";
 
 chosen {
 	zephyr,console = &uart0;

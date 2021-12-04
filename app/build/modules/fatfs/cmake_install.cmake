@@ -1,4 +1,4 @@
-# Install script for directory: /root/work/zephyrproject/modules/fs/fatfs
+# Install script for directory: /root/zephyrproject/modules/fs/fatfs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,6 +34,6 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "/root/zephyr-sdk-0.13.0/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump")
 endif()
 

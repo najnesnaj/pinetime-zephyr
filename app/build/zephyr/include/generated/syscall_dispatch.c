@@ -61,7 +61,7 @@ uintptr_t z_mrsh_k_wakeup(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
          uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 
 __weak ALIAS_OF(handler_no_syscall)
-uintptr_t z_mrsh_k_current_get(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+uintptr_t z_mrsh_z_current_get(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
          uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 
 __weak ALIAS_OF(handler_no_syscall)
@@ -354,6 +354,30 @@ uintptr_t z_mrsh_adc_read(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
 
 __weak ALIAS_OF(handler_no_syscall)
 uintptr_t z_mrsh_adc_read_async(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_bbram_check_invalid(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_bbram_check_standby_power(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_bbram_check_power(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_bbram_get_size(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_bbram_read(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_bbram_write(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
          uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 
 __weak ALIAS_OF(handler_no_syscall)
@@ -665,6 +689,18 @@ uintptr_t z_mrsh_hwinfo_get_device_id(uintptr_t arg1, uintptr_t arg2, uintptr_t 
          uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 
 __weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_hwinfo_get_reset_cause(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_hwinfo_clear_reset_cause(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_hwinfo_get_supported_reset_cause(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
 uintptr_t z_mrsh_i2c_configure(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
          uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 
@@ -758,6 +794,22 @@ uintptr_t z_mrsh_led_on(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
 
 __weak ALIAS_OF(handler_no_syscall)
 uintptr_t z_mrsh_led_off(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_mdio_bus_enable(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_mdio_bus_disable(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_mdio_read(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_mdio_write(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
          uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 
 __weak ALIAS_OF(handler_no_syscall)
@@ -945,6 +997,10 @@ uintptr_t z_mrsh_uart_mux_find(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
          uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 
 __weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_flash_simulator_get_memory(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
 uintptr_t z_mrsh_maxim_ds3231_req_syncpoint(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
          uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 
@@ -1053,6 +1109,26 @@ uintptr_t z_mrsh_net_addr_ntop(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
          uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 
 __weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_phy_configure_link(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_phy_get_link_state(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_phy_link_callback_set(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_phy_read(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_phy_write(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
 uintptr_t z_mrsh_zsock_get_context_object(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
          uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 
@@ -1130,6 +1206,10 @@ uintptr_t z_mrsh_zsock_inet_pton(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
 
 __weak ALIAS_OF(handler_no_syscall)
 uintptr_t z_mrsh_z_zsock_getaddrinfo_internal(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
+         uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
+
+__weak ALIAS_OF(handler_no_syscall)
+uintptr_t z_mrsh_zsock_select(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3,
          uintptr_t arg4, uintptr_t arg5, uintptr_t arg6, void *ssf);
 
 __weak ALIAS_OF(handler_no_syscall)
@@ -1258,7 +1338,7 @@ const _k_syscall_handler_t _k_syscall_table[K_SYSCALL_LIMIT] = {
 	[K_SYSCALL_K_BUSY_WAIT] = z_mrsh_k_busy_wait,
 	[K_SYSCALL_K_YIELD] = z_mrsh_k_yield,
 	[K_SYSCALL_K_WAKEUP] = z_mrsh_k_wakeup,
-	[K_SYSCALL_K_CURRENT_GET] = z_mrsh_k_current_get,
+	[K_SYSCALL_Z_CURRENT_GET] = z_mrsh_z_current_get,
 	[K_SYSCALL_K_THREAD_ABORT] = z_mrsh_k_thread_abort,
 	[K_SYSCALL_K_THREAD_START] = z_mrsh_k_thread_start,
 	[K_SYSCALL_K_THREAD_TIMEOUT_EXPIRES_TICKS] = z_mrsh_k_thread_timeout_expires_ticks,
@@ -1332,6 +1412,12 @@ const _k_syscall_handler_t _k_syscall_table[K_SYSCALL_LIMIT] = {
 	[K_SYSCALL_ADC_CHANNEL_SETUP] = z_mrsh_adc_channel_setup,
 	[K_SYSCALL_ADC_READ] = z_mrsh_adc_read,
 	[K_SYSCALL_ADC_READ_ASYNC] = z_mrsh_adc_read_async,
+	[K_SYSCALL_BBRAM_CHECK_INVALID] = z_mrsh_bbram_check_invalid,
+	[K_SYSCALL_BBRAM_CHECK_STANDBY_POWER] = z_mrsh_bbram_check_standby_power,
+	[K_SYSCALL_BBRAM_CHECK_POWER] = z_mrsh_bbram_check_power,
+	[K_SYSCALL_BBRAM_GET_SIZE] = z_mrsh_bbram_get_size,
+	[K_SYSCALL_BBRAM_READ] = z_mrsh_bbram_read,
+	[K_SYSCALL_BBRAM_WRITE] = z_mrsh_bbram_write,
 	[K_SYSCALL_CAN_SEND] = z_mrsh_can_send,
 	[K_SYSCALL_CAN_ATTACH_MSGQ] = z_mrsh_can_attach_msgq,
 	[K_SYSCALL_CAN_DETACH] = z_mrsh_can_detach,
@@ -1409,6 +1495,9 @@ const _k_syscall_handler_t _k_syscall_table[K_SYSCALL_LIMIT] = {
 	[K_SYSCALL_GPIO_PORT_TOGGLE_BITS] = z_mrsh_gpio_port_toggle_bits,
 	[K_SYSCALL_GPIO_GET_PENDING_INT] = z_mrsh_gpio_get_pending_int,
 	[K_SYSCALL_HWINFO_GET_DEVICE_ID] = z_mrsh_hwinfo_get_device_id,
+	[K_SYSCALL_HWINFO_GET_RESET_CAUSE] = z_mrsh_hwinfo_get_reset_cause,
+	[K_SYSCALL_HWINFO_CLEAR_RESET_CAUSE] = z_mrsh_hwinfo_clear_reset_cause,
+	[K_SYSCALL_HWINFO_GET_SUPPORTED_RESET_CAUSE] = z_mrsh_hwinfo_get_supported_reset_cause,
 	[K_SYSCALL_I2C_CONFIGURE] = z_mrsh_i2c_configure,
 	[K_SYSCALL_I2C_TRANSFER] = z_mrsh_i2c_transfer,
 	[K_SYSCALL_I2C_RECOVER_BUS] = z_mrsh_i2c_recover_bus,
@@ -1433,6 +1522,10 @@ const _k_syscall_handler_t _k_syscall_table[K_SYSCALL_LIMIT] = {
 	[K_SYSCALL_LED_SET_COLOR] = z_mrsh_led_set_color,
 	[K_SYSCALL_LED_ON] = z_mrsh_led_on,
 	[K_SYSCALL_LED_OFF] = z_mrsh_led_off,
+	[K_SYSCALL_MDIO_BUS_ENABLE] = z_mrsh_mdio_bus_enable,
+	[K_SYSCALL_MDIO_BUS_DISABLE] = z_mrsh_mdio_bus_disable,
+	[K_SYSCALL_MDIO_READ] = z_mrsh_mdio_read,
+	[K_SYSCALL_MDIO_WRITE] = z_mrsh_mdio_write,
 	[K_SYSCALL_PECI_CONFIG] = z_mrsh_peci_config,
 	[K_SYSCALL_PECI_ENABLE] = z_mrsh_peci_enable,
 	[K_SYSCALL_PECI_DISABLE] = z_mrsh_peci_disable,
@@ -1479,6 +1572,7 @@ const _k_syscall_handler_t _k_syscall_table[K_SYSCALL_LIMIT] = {
 	[K_SYSCALL_WDT_DISABLE] = z_mrsh_wdt_disable,
 	[K_SYSCALL_WDT_FEED] = z_mrsh_wdt_feed,
 	[K_SYSCALL_UART_MUX_FIND] = z_mrsh_uart_mux_find,
+	[K_SYSCALL_FLASH_SIMULATOR_GET_MEMORY] = z_mrsh_flash_simulator_get_memory,
 	[K_SYSCALL_MAXIM_DS3231_REQ_SYNCPOINT] = z_mrsh_maxim_ds3231_req_syncpoint,
 	[K_SYSCALL_MAXIM_DS3231_GET_SYNCPOINT] = z_mrsh_maxim_ds3231_get_syncpoint,
 	[K_SYSCALL_IVSHMEM_GET_MEM] = z_mrsh_ivshmem_get_mem,
@@ -1506,6 +1600,11 @@ const _k_syscall_handler_t _k_syscall_table[K_SYSCALL_LIMIT] = {
 	[K_SYSCALL_NET_IF_GET_BY_INDEX] = z_mrsh_net_if_get_by_index,
 	[K_SYSCALL_NET_ADDR_PTON] = z_mrsh_net_addr_pton,
 	[K_SYSCALL_NET_ADDR_NTOP] = z_mrsh_net_addr_ntop,
+	[K_SYSCALL_PHY_CONFIGURE_LINK] = z_mrsh_phy_configure_link,
+	[K_SYSCALL_PHY_GET_LINK_STATE] = z_mrsh_phy_get_link_state,
+	[K_SYSCALL_PHY_LINK_CALLBACK_SET] = z_mrsh_phy_link_callback_set,
+	[K_SYSCALL_PHY_READ] = z_mrsh_phy_read,
+	[K_SYSCALL_PHY_WRITE] = z_mrsh_phy_write,
 	[K_SYSCALL_ZSOCK_GET_CONTEXT_OBJECT] = z_mrsh_zsock_get_context_object,
 	[K_SYSCALL_ZSOCK_SOCKET] = z_mrsh_zsock_socket,
 	[K_SYSCALL_ZSOCK_SOCKETPAIR] = z_mrsh_zsock_socketpair,
@@ -1526,6 +1625,7 @@ const _k_syscall_handler_t _k_syscall_table[K_SYSCALL_LIMIT] = {
 	[K_SYSCALL_ZSOCK_GETHOSTNAME] = z_mrsh_zsock_gethostname,
 	[K_SYSCALL_ZSOCK_INET_PTON] = z_mrsh_zsock_inet_pton,
 	[K_SYSCALL_Z_ZSOCK_GETADDRINFO_INTERNAL] = z_mrsh_z_zsock_getaddrinfo_internal,
+	[K_SYSCALL_ZSOCK_SELECT] = z_mrsh_zsock_select,
 	[K_SYSCALL_CLOCK_GETTIME] = z_mrsh_clock_gettime,
 	[K_SYSCALL_SYS_RAND32_GET] = z_mrsh_sys_rand32_get,
 	[K_SYSCALL_SYS_RAND_GET] = z_mrsh_sys_rand_get,

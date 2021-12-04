@@ -57,6 +57,18 @@ Zephyr is still under development and some nifty features were added since (or I
 it inspired me to morph the original pinetime-toolkit into an open-source-watch-framework.
 Right now the firmware can be used on 3(!) watch-platforms.
 
+## update on 04/12/2021
+
+some modifications in order to work with latest version of zephyr
+played around with the KX022 motion sensor on the ds6
+wanted to create angle-detection for electric bike, but what I really need is a torque-sensor...
+found a suitable scooter xiaomi M365 controller
+Idea is to use regen breaking, for downhill 
+However need to be able to switch between regen and non-regen, difficult with hubmotor, cause it contains a one-way clutch
+
+
+
+
 ## philosophy
 Step by step functionality is added.
 If you have no need for bluetooth you can start with oswatch.

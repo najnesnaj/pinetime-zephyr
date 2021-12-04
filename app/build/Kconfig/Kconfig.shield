@@ -1,2 +1,1 @@
-osource "/root/work/zephyrproject/app/oswatch-lowpower/boards/shields/*/Kconfig.shield"
-osource "/root/work/zephyrproject/zephyr/boards/shields/*/Kconfig.shield"
+osource "/root/zephyrproject/app/oswatch-motion2/boards/shields/*/Kconfig.shield"

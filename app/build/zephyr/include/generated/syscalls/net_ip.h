@@ -9,12 +9,17 @@
 #include <syscall_list.h>
 #include <syscall.h>
 
+#include <linker/sections.h>
+
 #if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
 #pragma GCC diagnostic push
 #endif
 
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#if !defined(__XCC__)
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
 #endif
 
 #ifdef __cplusplus
@@ -22,10 +27,13 @@ extern "C" {
 #endif
 
 extern int z_impl_net_addr_pton(sa_family_t family, const char * src, void * dst);
+
+__pinned_func
 static inline int net_addr_pton(sa_family_t family, const char * src, void * dst)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke3(*(uintptr_t *)&family, *(uintptr_t *)&src, *(uintptr_t *)&dst, K_SYSCALL_NET_ADDR_PTON);
 	}
 #endif
@@ -35,10 +43,13 @@ static inline int net_addr_pton(sa_family_t family, const char * src, void * dst
 
 
 extern char * z_impl_net_addr_ntop(sa_family_t family, const void * src, char * dst, size_t size);
+
+__pinned_func
 static inline char * net_addr_ntop(sa_family_t family, const void * src, char * dst, size_t size)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (char *) arch_syscall_invoke4(*(uintptr_t *)&family, *(uintptr_t *)&src, *(uintptr_t *)&dst, *(uintptr_t *)&size, K_SYSCALL_NET_ADDR_NTOP);
 	}
 #endif

@@ -9,12 +9,17 @@
 #include <syscall_list.h>
 #include <syscall.h>
 
+#include <linker/sections.h>
+
 #if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
 #pragma GCC diagnostic push
 #endif
 
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#if !defined(__XCC__)
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
 #endif
 
 #ifdef __cplusplus
@@ -22,10 +27,13 @@ extern "C" {
 #endif
 
 extern void z_impl_k_object_access_grant(const void * object, struct k_thread * thread);
+
+__pinned_func
 static inline void k_object_access_grant(const void * object, struct k_thread * thread)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		arch_syscall_invoke2(*(uintptr_t *)&object, *(uintptr_t *)&thread, K_SYSCALL_K_OBJECT_ACCESS_GRANT);
 		return;
 	}
@@ -36,10 +44,13 @@ static inline void k_object_access_grant(const void * object, struct k_thread * 
 
 
 extern void z_impl_k_object_release(const void * object);
+
+__pinned_func
 static inline void k_object_release(const void * object)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		arch_syscall_invoke1(*(uintptr_t *)&object, K_SYSCALL_K_OBJECT_RELEASE);
 		return;
 	}
@@ -50,10 +61,13 @@ static inline void k_object_release(const void * object)
 
 
 extern void * z_impl_k_object_alloc(enum k_objects otype);
+
+__pinned_func
 static inline void * k_object_alloc(enum k_objects otype)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (void *) arch_syscall_invoke1(*(uintptr_t *)&otype, K_SYSCALL_K_OBJECT_ALLOC);
 	}
 #endif

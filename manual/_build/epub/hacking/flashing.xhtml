@@ -29,7 +29,7 @@ You can also use the GPIO header of a raspberry pi.
 </div>
 <p>To flash the software I use openocd :
 example for stm-link usb-stick</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span> openocd -s /usr/local/share/openocd/scripts -f interface/stlink.cfg -f target/nrf52.cfg
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>openocd -s /usr/local/share/openocd/scripts -f interface/stlink.cfg -f target/nrf52.cfg
 </pre></div>
 </div>
 <p>example for the orange-pi GPIO header (or raspberry)</p>
@@ -48,7 +48,7 @@ example for stm-link usb-stick</p>
 <span class="go">Connected to 127.0.0.1.</span>
 <span class="go">Escape character is &#39;^]&#39;.</span>
 <span class="go">Open On-Chip Debugger</span>
-<span class="gp">&gt;</span> program zephyr.bin
+<span class="go">&gt; program zephyr.bin</span>
 
 <span class="go">target halted due to debug-request, current mode: Thread</span>
 <span class="go">xPSR: 0x01000000 pc: 0x00001534 msp: 0x20004a10</span>
@@ -63,7 +63,7 @@ example for stm-link usb-stick</p>
 <span class="go">** Programming Finished **</span>
 
 <span class="go">And finally execute a reset :</span>
-<span class="gp">&gt;</span>reset
+<span class="go">&gt;reset</span>
 </pre></div>
 </div>
 <p>removing write protection see:   <a class="reference internal" href="writeprotection.xhtml#flashing"><span class="std std-ref">howto flash your zephyr image</span></a></p>

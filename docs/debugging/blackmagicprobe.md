@@ -42,7 +42,7 @@ dfu-util -v -R -d 0483:df11 -s 0x08002000 -D blackmagic.bin
 
 
 
-![image](./../blackmagicd6.jpeg)
+![image](blackmagicd6.jpeg)
 
 (removed boot0 and boot1 connectors on the stm afterwards)
 

@@ -12,5 +12,3 @@
 
 var stopwords = ;
 
-
-

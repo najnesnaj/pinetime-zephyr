@@ -9,12 +9,17 @@
 #include <syscall_list.h>
 #include <syscall.h>
 
+#include <linker/sections.h>
+
 #if __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6)
 #pragma GCC diagnostic push
 #endif
 
 #ifdef __GNUC__
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#if !defined(__XCC__)
+#pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
 #endif
 
 #ifdef __cplusplus
@@ -22,10 +27,13 @@ extern "C" {
 #endif
 
 extern int z_impl_net_if_ipv6_addr_lookup_by_index(const struct in6_addr * addr);
+
+__pinned_func
 static inline int net_if_ipv6_addr_lookup_by_index(const struct in6_addr * addr)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke1(*(uintptr_t *)&addr, K_SYSCALL_NET_IF_IPV6_ADDR_LOOKUP_BY_INDEX);
 	}
 #endif
@@ -35,10 +43,13 @@ static inline int net_if_ipv6_addr_lookup_by_index(const struct in6_addr * addr)
 
 
 extern bool z_impl_net_if_ipv6_addr_add_by_index(int index, struct in6_addr * addr, enum net_addr_type addr_type, uint32_t vlifetime);
+
+__pinned_func
 static inline bool net_if_ipv6_addr_add_by_index(int index, struct in6_addr * addr, enum net_addr_type addr_type, uint32_t vlifetime)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (bool) arch_syscall_invoke4(*(uintptr_t *)&index, *(uintptr_t *)&addr, *(uintptr_t *)&addr_type, *(uintptr_t *)&vlifetime, K_SYSCALL_NET_IF_IPV6_ADDR_ADD_BY_INDEX);
 	}
 #endif
@@ -48,10 +59,13 @@ static inline bool net_if_ipv6_addr_add_by_index(int index, struct in6_addr * ad
 
 
 extern bool z_impl_net_if_ipv6_addr_rm_by_index(int index, const struct in6_addr * addr);
+
+__pinned_func
 static inline bool net_if_ipv6_addr_rm_by_index(int index, const struct in6_addr * addr)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (bool) arch_syscall_invoke2(*(uintptr_t *)&index, *(uintptr_t *)&addr, K_SYSCALL_NET_IF_IPV6_ADDR_RM_BY_INDEX);
 	}
 #endif
@@ -61,10 +75,13 @@ static inline bool net_if_ipv6_addr_rm_by_index(int index, const struct in6_addr
 
 
 extern int z_impl_net_if_ipv4_addr_lookup_by_index(const struct in_addr * addr);
+
+__pinned_func
 static inline int net_if_ipv4_addr_lookup_by_index(const struct in_addr * addr)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (int) arch_syscall_invoke1(*(uintptr_t *)&addr, K_SYSCALL_NET_IF_IPV4_ADDR_LOOKUP_BY_INDEX);
 	}
 #endif
@@ -74,10 +91,13 @@ static inline int net_if_ipv4_addr_lookup_by_index(const struct in_addr * addr)
 
 
 extern bool z_impl_net_if_ipv4_addr_add_by_index(int index, struct in_addr * addr, enum net_addr_type addr_type, uint32_t vlifetime);
+
+__pinned_func
 static inline bool net_if_ipv4_addr_add_by_index(int index, struct in_addr * addr, enum net_addr_type addr_type, uint32_t vlifetime)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (bool) arch_syscall_invoke4(*(uintptr_t *)&index, *(uintptr_t *)&addr, *(uintptr_t *)&addr_type, *(uintptr_t *)&vlifetime, K_SYSCALL_NET_IF_IPV4_ADDR_ADD_BY_INDEX);
 	}
 #endif
@@ -87,10 +107,13 @@ static inline bool net_if_ipv4_addr_add_by_index(int index, struct in_addr * add
 
 
 extern bool z_impl_net_if_ipv4_addr_rm_by_index(int index, const struct in_addr * addr);
+
+__pinned_func
 static inline bool net_if_ipv4_addr_rm_by_index(int index, const struct in_addr * addr)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (bool) arch_syscall_invoke2(*(uintptr_t *)&index, *(uintptr_t *)&addr, K_SYSCALL_NET_IF_IPV4_ADDR_RM_BY_INDEX);
 	}
 #endif
@@ -100,10 +123,13 @@ static inline bool net_if_ipv4_addr_rm_by_index(int index, const struct in_addr 
 
 
 extern bool z_impl_net_if_ipv4_set_netmask_by_index(int index, const struct in_addr * netmask);
+
+__pinned_func
 static inline bool net_if_ipv4_set_netmask_by_index(int index, const struct in_addr * netmask)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (bool) arch_syscall_invoke2(*(uintptr_t *)&index, *(uintptr_t *)&netmask, K_SYSCALL_NET_IF_IPV4_SET_NETMASK_BY_INDEX);
 	}
 #endif
@@ -113,10 +139,13 @@ static inline bool net_if_ipv4_set_netmask_by_index(int index, const struct in_a
 
 
 extern bool z_impl_net_if_ipv4_set_gw_by_index(int index, const struct in_addr * gw);
+
+__pinned_func
 static inline bool net_if_ipv4_set_gw_by_index(int index, const struct in_addr * gw)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (bool) arch_syscall_invoke2(*(uintptr_t *)&index, *(uintptr_t *)&gw, K_SYSCALL_NET_IF_IPV4_SET_GW_BY_INDEX);
 	}
 #endif
@@ -126,10 +155,13 @@ static inline bool net_if_ipv4_set_gw_by_index(int index, const struct in_addr *
 
 
 extern struct net_if * z_impl_net_if_get_by_index(int index);
+
+__pinned_func
 static inline struct net_if * net_if_get_by_index(int index)
 {
 #ifdef CONFIG_USERSPACE
 	if (z_syscall_trap()) {
+		/* coverity[OVERRUN] */
 		return (struct net_if *) arch_syscall_invoke1(*(uintptr_t *)&index, K_SYSCALL_NET_IF_GET_BY_INDEX);
 	}
 #endif

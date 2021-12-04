@@ -7,7 +7,8 @@ list(APPEND ZEPHYR_EXTRA_MODULES
 
 
 # Add the board
-list(APPEND BOARD_ROOT ${CMAKE_CURRENT_LIST_DIR})
+set(BOARD_ROOT ${CMAKE_CURRENT_LIST_DIR})
+#list(APPEND BOARD_ROOT ${CMAKE_CURRENT_LIST_DIR})
 #list(APPEND DTS_ROOT ${CMAKE_CURRENT_LIST_DIR}/..)
 #add_subdirectory(drivers/kscan2)
 # Enable configurations through environment variables
