@@ -1,0 +1,1751 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 3.8.0 #10562 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module ds18b20
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _segmentMap
+                                     12 	.globl _main
+                                     13 	.globl _timer_isr
+                                     14 	.globl _rt_one_second_increment
+                                     15 	.globl _read_display_temp
+                                     16 	.globl _DS18B20_ReadTemperature
+                                     17 	.globl _DS18B20_ReadByte
+                                     18 	.globl _DS18B20_WriteByte
+                                     19 	.globl _DS18B20_Init
+                                     20 	.globl __delay_ms
+                                     21 	.globl __delay_us
+                                     22 	.globl _tm1637DisplayDecimal
+                                     23 	.globl _tm1637Init
+                                     24 	.globl _InitializeUART
+                                     25 	.globl _print_byte_hex
+                                     26 	.globl _UARTPrintF
+                                     27 	.globl _delay
+                                     28 	.globl _InitializeSystemClock
+                                     29 	.globl _delayTenMicro
+                                     30 	.globl _PIDController_Update
+                                     31 	.globl _PIDController_Init
+                                     32 	.globl _sprintf
+                                     33 	.globl _fast
+                                     34 	.globl _pid
+                                     35 	.globl _internteller
+                                     36 	.globl _alarmset
+                                     37 	.globl _real_time
+                                     38 	.globl _tm1637SetBrightness
+                                     39 	.globl __tm1637Start
+                                     40 	.globl __tm1637Stop
+                                     41 	.globl __tm1637ReadResult
+                                     42 	.globl __tm1637WriteByte
+                                     43 	.globl __tm1637ClkHigh
+                                     44 	.globl __tm1637ClkLow
+                                     45 	.globl __tm1637DioHigh
+                                     46 	.globl __tm1637DioLow
+                                     47 	.globl _heater_on
+                                     48 	.globl _heater_off
+                                     49 ;--------------------------------------------------------
+                                     50 ; ram data
+                                     51 ;--------------------------------------------------------
+                                     52 	.area DATA
+      000000                         53 _real_time::
+      000000                         54 	.ds 3
+      000003                         55 _alarmset::
+      000003                         56 	.ds 1
+      000004                         57 _internteller::
+      000004                         58 	.ds 2
+                                     59 ;--------------------------------------------------------
+                                     60 ; ram data
+                                     61 ;--------------------------------------------------------
+                                     62 	.area INITIALIZED
+      000000                         63 _pid::
+      000000                         64 	.ds 56
+      000038                         65 _fast::
+      000038                         66 	.ds 1
+                                     67 ;--------------------------------------------------------
+                                     68 ; Stack segment in internal ram 
+                                     69 ;--------------------------------------------------------
+                                     70 	.area	SSEG
+      000000                         71 __start__stack:
+      000000                         72 	.ds	1
+                                     73 
+                                     74 ;--------------------------------------------------------
+                                     75 ; absolute external ram data
+                                     76 ;--------------------------------------------------------
+                                     77 	.area DABS (ABS)
+                                     78 
+                                     79 ; default segment ordering for linker
+                                     80 	.area HOME
+                                     81 	.area GSINIT
+                                     82 	.area GSFINAL
+                                     83 	.area CONST
+                                     84 	.area INITIALIZER
+                                     85 	.area CODE
+                                     86 
+                                     87 ;--------------------------------------------------------
+                                     88 ; interrupt vector 
+                                     89 ;--------------------------------------------------------
+                                     90 	.area HOME
+      000000                         91 __interrupt_vect:
+      000000 82v00u00u00             92 	int s_GSINIT ; reset
+      000004 82 00 00 00             93 	int 0x000000 ; trap
+      000008 82 00 00 00             94 	int 0x000000 ; int0
+      00000C 82 00 00 00             95 	int 0x000000 ; int1
+      000010 82 00 00 00             96 	int 0x000000 ; int2
+      000014 82 00 00 00             97 	int 0x000000 ; int3
+      000018 82 00 00 00             98 	int 0x000000 ; int4
+      00001C 82 00 00 00             99 	int 0x000000 ; int5
+      000020 82v00u06u59            100 	int _timer_isr ; int6
+                                    101 ;--------------------------------------------------------
+                                    102 ; global & static initialisations
+                                    103 ;--------------------------------------------------------
+                                    104 	.area HOME
+                                    105 	.area GSINIT
+                                    106 	.area GSFINAL
+                                    107 	.area GSINIT
+      000000                        108 __sdcc_gs_init_startup:
+      000000                        109 __sdcc_init_data:
+                                    110 ; stm8_genXINIT() start
+      000000 AEr00r00         [ 2]  111 	ldw x, #l_DATA
+      000003 27 07            [ 1]  112 	jreq	00002$
+      000005                        113 00001$:
+      000005 72 4FuFFuFF      [ 1]  114 	clr (s_DATA - 1, x)
+      000009 5A               [ 2]  115 	decw x
+      00000A 26 F9            [ 1]  116 	jrne	00001$
+      00000C                        117 00002$:
+      00000C AEr00r00         [ 2]  118 	ldw	x, #l_INITIALIZER
+      00000F 27 09            [ 1]  119 	jreq	00004$
+      000011                        120 00003$:
+      000011 D6uFFuFF         [ 1]  121 	ld	a, (s_INITIALIZER - 1, x)
+      000014 D7uFFuFF         [ 1]  122 	ld	(s_INITIALIZED - 1, x), a
+      000017 5A               [ 2]  123 	decw	x
+      000018 26 F7            [ 1]  124 	jrne	00003$
+      00001A                        125 00004$:
+                                    126 ; stm8_genXINIT() end
+                                    127 	.area GSFINAL
+      000000 CCr00r24         [ 2]  128 	jp	__sdcc_program_startup
+                                    129 ;--------------------------------------------------------
+                                    130 ; Home
+                                    131 ;--------------------------------------------------------
+                                    132 	.area HOME
+                                    133 	.area HOME
+      000024                        134 __sdcc_program_startup:
+      000024 CCr06r87         [ 2]  135 	jp	_main
+                                    136 ;	return from main will return to caller
+                                    137 ;--------------------------------------------------------
+                                    138 ; code
+                                    139 ;--------------------------------------------------------
+                                    140 	.area CODE
+                                    141 ;	ds18b20.c: 62: void delayTenMicro (void) {
+                                    142 ;	-----------------------------------------
+                                    143 ;	 function delayTenMicro
+                                    144 ;	-----------------------------------------
+      000000                        145 _delayTenMicro:
+                                    146 ;	ds18b20.c: 64: for (a = 0; a < 50; ++a)
+      000000 A6 32            [ 1]  147 	ld	a, #0x32
+      000002 97               [ 1]  148 	ld	xl, a
+      000003                        149 00104$:
+                                    150 ;	ds18b20.c: 65: __asm__("nop");
+      000003 9D               [ 1]  151 	nop
+      000004 9F               [ 1]  152 	ld	a, xl
+      000005 4A               [ 1]  153 	dec	a
+      000006 97               [ 1]  154 	ld	xl, a
+                                    155 ;	ds18b20.c: 64: for (a = 0; a < 50; ++a)
+      000007 4D               [ 1]  156 	tnz	a
+      000008 26 F9            [ 1]  157 	jrne	00104$
+                                    158 ;	ds18b20.c: 66: }
+      00000A 81               [ 4]  159 	ret
+                                    160 ;	ds18b20.c: 70: void InitializeSystemClock() {
+                                    161 ;	-----------------------------------------
+                                    162 ;	 function InitializeSystemClock
+                                    163 ;	-----------------------------------------
+      00000B                        164 _InitializeSystemClock:
+                                    165 ;	ds18b20.c: 71: CLK_ICKR = 0;                       //  Reset the Internal Clock Register.
+      00000B 35 00 50 C0      [ 1]  166 	mov	0x50c0+0, #0x00
+                                    167 ;	ds18b20.c: 72: CLK_ICKR = CLK_HSIEN;               //  Enable the HSI.
+      00000F 35 01 50 C0      [ 1]  168 	mov	0x50c0+0, #0x01
+                                    169 ;	ds18b20.c: 73: CLK_ECKR = 0;                       //  Disable the external clock.
+      000013 35 00 50 C1      [ 1]  170 	mov	0x50c1+0, #0x00
+                                    171 ;	ds18b20.c: 74: while ((CLK_ICKR & CLK_HSIRDY) == 0);       //  Wait for the HSI to be ready for use.
+      000017                        172 00101$:
+      000017 C6 50 C0         [ 1]  173 	ld	a, 0x50c0
+      00001A A5 02            [ 1]  174 	bcp	a, #0x02
+      00001C 27 F9            [ 1]  175 	jreq	00101$
+                                    176 ;	ds18b20.c: 75: CLK_CKDIVR = 0;                     //  Ensure the clocks are running at full speed.
+      00001E 35 00 50 C6      [ 1]  177 	mov	0x50c6+0, #0x00
+                                    178 ;	ds18b20.c: 76: CLK_PCKENR1 = 0xff;                 //  Enable all peripheral clocks.
+      000022 35 FF 50 C7      [ 1]  179 	mov	0x50c7+0, #0xff
+                                    180 ;	ds18b20.c: 77: CLK_PCKENR2 = 0xff;                 //  Ditto.
+      000026 35 FF 50 CA      [ 1]  181 	mov	0x50ca+0, #0xff
+                                    182 ;	ds18b20.c: 78: CLK_CCOR = 0;                       //  Turn off CCO.
+      00002A 35 00 50 C9      [ 1]  183 	mov	0x50c9+0, #0x00
+                                    184 ;	ds18b20.c: 79: CLK_HSITRIMR = 0;                   //  Turn off any HSIU trimming.
+      00002E 35 00 50 CC      [ 1]  185 	mov	0x50cc+0, #0x00
+                                    186 ;	ds18b20.c: 80: CLK_SWIMCCR = 0;                    //  Set SWIM to run at clock / 2.
+      000032 35 00 50 CD      [ 1]  187 	mov	0x50cd+0, #0x00
+                                    188 ;	ds18b20.c: 81: CLK_SWR = 0xe1;                     //  Use HSI as the clock source.
+      000036 35 E1 50 C4      [ 1]  189 	mov	0x50c4+0, #0xe1
+                                    190 ;	ds18b20.c: 82: CLK_SWCR = 0;                       //  Reset the clock switch control register.
+      00003A 35 00 50 C5      [ 1]  191 	mov	0x50c5+0, #0x00
+                                    192 ;	ds18b20.c: 83: CLK_SWCR = CLK_SWEN;                //  Enable switching.
+      00003E 35 02 50 C5      [ 1]  193 	mov	0x50c5+0, #0x02
+                                    194 ;	ds18b20.c: 84: while ((CLK_SWCR & CLK_SWBSY) != 0);        //  Pause while the clock switch is busy.
+      000042                        195 00104$:
+      000042 C6 50 C5         [ 1]  196 	ld	a, 0x50c5
+      000045 44               [ 1]  197 	srl	a
+      000046 25 FA            [ 1]  198 	jrc	00104$
+                                    199 ;	ds18b20.c: 85: }
+      000048 81               [ 4]  200 	ret
+                                    201 ;	ds18b20.c: 86: void delay (int time_ms) {
+                                    202 ;	-----------------------------------------
+                                    203 ;	 function delay
+                                    204 ;	-----------------------------------------
+      000049                        205 _delay:
+      000049 52 0A            [ 2]  206 	sub	sp, #10
+                                    207 ;	ds18b20.c: 88: for (x = 0; x < 1036*time_ms; ++x)
+      00004B 5F               [ 1]  208 	clrw	x
+      00004C 1F 03            [ 2]  209 	ldw	(0x03, sp), x
+      00004E 1F 01            [ 2]  210 	ldw	(0x01, sp), x
+      000050 1E 0D            [ 2]  211 	ldw	x, (0x0d, sp)
+      000052 89               [ 2]  212 	pushw	x
+      000053 4B 0C            [ 1]  213 	push	#0x0c
+      000055 4B 04            [ 1]  214 	push	#0x04
+      000057 CDr00r00         [ 4]  215 	call	__mulint
+      00005A 5B 04            [ 2]  216 	addw	sp, #4
+      00005C 1F 09            [ 2]  217 	ldw	(0x09, sp), x
+      00005E                        218 00103$:
+      00005E 16 09            [ 2]  219 	ldw	y, (0x09, sp)
+      000060 17 07            [ 2]  220 	ldw	(0x07, sp), y
+      000062 7B 07            [ 1]  221 	ld	a, (0x07, sp)
+      000064 49               [ 1]  222 	rlc	a
+      000065 4F               [ 1]  223 	clr	a
+      000066 A2 00            [ 1]  224 	sbc	a, #0x00
+      000068 6B 06            [ 1]  225 	ld	(0x06, sp), a
+      00006A 6B 05            [ 1]  226 	ld	(0x05, sp), a
+      00006C 1E 03            [ 2]  227 	ldw	x, (0x03, sp)
+      00006E 13 07            [ 2]  228 	cpw	x, (0x07, sp)
+      000070 7B 02            [ 1]  229 	ld	a, (0x02, sp)
+      000072 12 06            [ 1]  230 	sbc	a, (0x06, sp)
+      000074 7B 01            [ 1]  231 	ld	a, (0x01, sp)
+      000076 12 05            [ 1]  232 	sbc	a, (0x05, sp)
+      000078 2E 17            [ 1]  233 	jrsge	00105$
+                                    234 ;	ds18b20.c: 89: __asm__("nop");
+      00007A 9D               [ 1]  235 	nop
+                                    236 ;	ds18b20.c: 88: for (x = 0; x < 1036*time_ms; ++x)
+      00007B 16 03            [ 2]  237 	ldw	y, (0x03, sp)
+      00007D 72 A9 00 01      [ 2]  238 	addw	y, #0x0001
+      000081 7B 02            [ 1]  239 	ld	a, (0x02, sp)
+      000083 A9 00            [ 1]  240 	adc	a, #0x00
+      000085 97               [ 1]  241 	ld	xl, a
+      000086 7B 01            [ 1]  242 	ld	a, (0x01, sp)
+      000088 A9 00            [ 1]  243 	adc	a, #0x00
+      00008A 95               [ 1]  244 	ld	xh, a
+      00008B 17 03            [ 2]  245 	ldw	(0x03, sp), y
+      00008D 1F 01            [ 2]  246 	ldw	(0x01, sp), x
+      00008F 20 CD            [ 2]  247 	jra	00103$
+      000091                        248 00105$:
+                                    249 ;	ds18b20.c: 90: }
+      000091 5B 0A            [ 2]  250 	addw	sp, #10
+      000093 81               [ 4]  251 	ret
+                                    252 ;	ds18b20.c: 93: void UARTPrintF (char *message) {
+                                    253 ;	-----------------------------------------
+                                    254 ;	 function UARTPrintF
+                                    255 ;	-----------------------------------------
+      000094                        256 _UARTPrintF:
+                                    257 ;	ds18b20.c: 94: char *ch = message;
+      000094 1E 03            [ 2]  258 	ldw	x, (0x03, sp)
+                                    259 ;	ds18b20.c: 95: while (*ch) {
+      000096                        260 00104$:
+      000096 F6               [ 1]  261 	ld	a, (x)
+      000097 26 01            [ 1]  262 	jrne	00130$
+      000099 81               [ 4]  263 	ret
+      00009A                        264 00130$:
+                                    265 ;	ds18b20.c: 96: UART1_DR = (unsigned char) *ch;     //  Put the next character into the data transmission register.
+      00009A C7 52 31         [ 1]  266 	ld	0x5231, a
+                                    267 ;	ds18b20.c: 97: while ((UART1_SR & SR_TXE) == 0);   //  Wait for transmission to complete.
+      00009D                        268 00101$:
+      00009D C6 52 30         [ 1]  269 	ld	a, 0x5230
+      0000A0 2A FB            [ 1]  270 	jrpl	00101$
+                                    271 ;	ds18b20.c: 98: ch++;                               //  Grab the next character.
+      0000A2 5C               [ 1]  272 	incw	x
+      0000A3 20 F1            [ 2]  273 	jra	00104$
+                                    274 ;	ds18b20.c: 100: }
+      0000A5 81               [ 4]  275 	ret
+                                    276 ;	ds18b20.c: 109: void print_byte_hex (unsigned char buffer) {
+                                    277 ;	-----------------------------------------
+                                    278 ;	 function print_byte_hex
+                                    279 ;	-----------------------------------------
+      0000A6                        280 _print_byte_hex:
+      0000A6 52 0C            [ 2]  281 	sub	sp, #12
+                                    282 ;	ds18b20.c: 112: a = (buffer >> 4);
+      0000A8 7B 0F            [ 1]  283 	ld	a, (0x0f, sp)
+      0000AA 4E               [ 1]  284 	swap	a
+      0000AB A4 0F            [ 1]  285 	and	a, #0x0f
+      0000AD 5F               [ 1]  286 	clrw	x
+      0000AE 97               [ 1]  287 	ld	xl, a
+                                    288 ;	ds18b20.c: 113: if (a > 9)
+      0000AF A3 00 09         [ 2]  289 	cpw	x, #0x0009
+      0000B2 2D 07            [ 1]  290 	jrsle	00102$
+                                    291 ;	ds18b20.c: 114: a = a + 'a' - 10;
+      0000B4 1C 00 57         [ 2]  292 	addw	x, #0x0057
+      0000B7 1F 0B            [ 2]  293 	ldw	(0x0b, sp), x
+      0000B9 20 05            [ 2]  294 	jra	00103$
+      0000BB                        295 00102$:
+                                    296 ;	ds18b20.c: 116: a += '0'; 
+      0000BB 1C 00 30         [ 2]  297 	addw	x, #0x0030
+      0000BE 1F 0B            [ 2]  298 	ldw	(0x0b, sp), x
+      0000C0                        299 00103$:
+                                    300 ;	ds18b20.c: 117: b = buffer & 0x0f;
+      0000C0 7B 0F            [ 1]  301 	ld	a, (0x0f, sp)
+      0000C2 A4 0F            [ 1]  302 	and	a, #0x0f
+      0000C4 97               [ 1]  303 	ld	xl, a
+      0000C5 4F               [ 1]  304 	clr	a
+      0000C6 95               [ 1]  305 	ld	xh, a
+                                    306 ;	ds18b20.c: 118: if (b > 9)
+      0000C7 A3 00 09         [ 2]  307 	cpw	x, #0x0009
+      0000CA 2D 07            [ 1]  308 	jrsle	00105$
+                                    309 ;	ds18b20.c: 119: b = b + 'a' - 10;
+      0000CC 1C 00 57         [ 2]  310 	addw	x, #0x0057
+      0000CF 1F 09            [ 2]  311 	ldw	(0x09, sp), x
+      0000D1 20 05            [ 2]  312 	jra	00106$
+      0000D3                        313 00105$:
+                                    314 ;	ds18b20.c: 121: b += '0'; 
+      0000D3 1C 00 30         [ 2]  315 	addw	x, #0x0030
+      0000D6 1F 09            [ 2]  316 	ldw	(0x09, sp), x
+      0000D8                        317 00106$:
+                                    318 ;	ds18b20.c: 122: message[0] = a;
+      0000D8 90 96            [ 1]  319 	ldw	y, sp
+      0000DA 90 5C            [ 1]  320 	incw	y
+      0000DC 7B 0C            [ 1]  321 	ld	a, (0x0c, sp)
+      0000DE 90 F7            [ 1]  322 	ld	(y), a
+                                    323 ;	ds18b20.c: 123: message[1] = b;
+      0000E0 93               [ 1]  324 	ldw	x, y
+      0000E1 5C               [ 1]  325 	incw	x
+      0000E2 7B 0A            [ 1]  326 	ld	a, (0x0a, sp)
+      0000E4 F7               [ 1]  327 	ld	(x), a
+                                    328 ;	ds18b20.c: 124: message[2] = 0;
+      0000E5 93               [ 1]  329 	ldw	x, y
+      0000E6 5C               [ 1]  330 	incw	x
+      0000E7 5C               [ 1]  331 	incw	x
+      0000E8 7F               [ 1]  332 	clr	(x)
+                                    333 ;	ds18b20.c: 125: UARTPrintF (message);
+      0000E9 90 89            [ 2]  334 	pushw	y
+      0000EB CDr00r94         [ 4]  335 	call	_UARTPrintF
+                                    336 ;	ds18b20.c: 126: }
+      0000EE 5B 0E            [ 2]  337 	addw	sp, #14
+      0000F0 81               [ 4]  338 	ret
+                                    339 ;	ds18b20.c: 131: void InitializeUART() {
+                                    340 ;	-----------------------------------------
+                                    341 ;	 function InitializeUART
+                                    342 ;	-----------------------------------------
+      0000F1                        343 _InitializeUART:
+                                    344 ;	ds18b20.c: 141: UART1_CR1 = 0;
+      0000F1 35 00 52 34      [ 1]  345 	mov	0x5234+0, #0x00
+                                    346 ;	ds18b20.c: 142: UART1_CR2 = 0;
+      0000F5 35 00 52 35      [ 1]  347 	mov	0x5235+0, #0x00
+                                    348 ;	ds18b20.c: 143: UART1_CR4 = 0;
+      0000F9 35 00 52 37      [ 1]  349 	mov	0x5237+0, #0x00
+                                    350 ;	ds18b20.c: 144: UART1_CR3 = 0;
+      0000FD 35 00 52 36      [ 1]  351 	mov	0x5236+0, #0x00
+                                    352 ;	ds18b20.c: 145: UART1_CR5 = 0;
+      000101 35 00 52 38      [ 1]  353 	mov	0x5238+0, #0x00
+                                    354 ;	ds18b20.c: 146: UART1_GTR = 0;
+      000105 35 00 52 39      [ 1]  355 	mov	0x5239+0, #0x00
+                                    356 ;	ds18b20.c: 147: UART1_PSCR = 0;
+      000109 35 00 52 3A      [ 1]  357 	mov	0x523a+0, #0x00
+                                    358 ;	ds18b20.c: 151: UNSET (UART1_CR1, CR1_M);        //  8 Data bits.
+      00010D 72 19 52 34      [ 1]  359 	bres	21044, #4
+                                    360 ;	ds18b20.c: 152: UNSET (UART1_CR1, CR1_PCEN);     //  Disable parity.
+      000111 72 15 52 34      [ 1]  361 	bres	21044, #2
+                                    362 ;	ds18b20.c: 153: UNSET (UART1_CR3, CR3_STOPH);    //  1 stop bit.
+      000115 72 1B 52 36      [ 1]  363 	bres	21046, #5
+                                    364 ;	ds18b20.c: 154: UNSET (UART1_CR3, CR3_STOPL);    //  1 stop bit.
+      000119 72 19 52 36      [ 1]  365 	bres	21046, #4
+                                    366 ;	ds18b20.c: 155: UART1_BRR2 = 0x0a;      //  Set the baud rate registers to 115200 baud
+      00011D 35 0A 52 33      [ 1]  367 	mov	0x5233+0, #0x0a
+                                    368 ;	ds18b20.c: 156: UART1_BRR1 = 0x08;      //  based upon a 16 MHz system clock.
+      000121 35 08 52 32      [ 1]  369 	mov	0x5232+0, #0x08
+                                    370 ;	ds18b20.c: 160: UNSET (UART1_CR2, CR2_TEN);      //  Disable transmit.
+      000125 72 17 52 35      [ 1]  371 	bres	21045, #3
+                                    372 ;	ds18b20.c: 161: UNSET (UART1_CR2, CR2_REN);      //  Disable receive.
+      000129 72 15 52 35      [ 1]  373 	bres	21045, #2
+                                    374 ;	ds18b20.c: 165: SET (UART1_CR3, CR3_CPOL);
+      00012D 72 14 52 36      [ 1]  375 	bset	21046, #2
+                                    376 ;	ds18b20.c: 166: SET (UART1_CR3, CR3_CPHA);
+      000131 72 12 52 36      [ 1]  377 	bset	21046, #1
+                                    378 ;	ds18b20.c: 167: SET (UART1_CR3, CR3_LBCL);
+      000135 72 10 52 36      [ 1]  379 	bset	21046, #0
+                                    380 ;	ds18b20.c: 171: SET (UART1_CR2, CR2_TEN);
+      000139 72 16 52 35      [ 1]  381 	bset	21045, #3
+                                    382 ;	ds18b20.c: 172: SET (UART1_CR2, CR2_REN);
+      00013D 72 14 52 35      [ 1]  383 	bset	21045, #2
+                                    384 ;	ds18b20.c: 173: UART1_CR3 = CR3_CLKEN;
+      000141 35 08 52 36      [ 1]  385 	mov	0x5236+0, #0x08
+                                    386 ;	ds18b20.c: 174: }
+      000145 81               [ 4]  387 	ret
+                                    388 ;	ds18b20.c: 201: void tm1637Init(void)
+                                    389 ;	-----------------------------------------
+                                    390 ;	 function tm1637Init
+                                    391 ;	-----------------------------------------
+      000146                        392 _tm1637Init:
+                                    393 ;	ds18b20.c: 203: tm1637SetBrightness(4);
+      000146 4B 04            [ 1]  394 	push	#0x04
+      000148 CDr01rDD         [ 4]  395 	call	_tm1637SetBrightness
+      00014B 84               [ 1]  396 	pop	a
+                                    397 ;	ds18b20.c: 204: }
+      00014C 81               [ 4]  398 	ret
+                                    399 ;	ds18b20.c: 208: void tm1637DisplayDecimal(long TT,unsigned int displaySeparator)
+                                    400 ;	-----------------------------------------
+                                    401 ;	 function tm1637DisplayDecimal
+                                    402 ;	-----------------------------------------
+      00014D                        403 _tm1637DisplayDecimal:
+      00014D 52 0B            [ 2]  404 	sub	sp, #11
+                                    405 ;	ds18b20.c: 210: unsigned int v = TT & 0x0000FFFF;
+      00014F 16 10            [ 2]  406 	ldw	y, (0x10, sp)
+                                    407 ;	ds18b20.c: 216: for (ii = 0; ii < 4; ++ii) {
+      000151 96               [ 1]  408 	ldw	x, sp
+      000152 5C               [ 1]  409 	incw	x
+      000153 1F 08            [ 2]  410 	ldw	(0x08, sp), x
+      000155 5F               [ 1]  411 	clrw	x
+      000156 1F 0A            [ 2]  412 	ldw	(0x0a, sp), x
+      000158                        413 00106$:
+                                    414 ;	ds18b20.c: 217: digitArr[ii] = segmentMap[v % 10];
+      000158 1E 08            [ 2]  415 	ldw	x, (0x08, sp)
+      00015A 72 FB 0A         [ 2]  416 	addw	x, (0x0a, sp)
+      00015D 1F 06            [ 2]  417 	ldw	(0x06, sp), x
+      00015F 90 89            [ 2]  418 	pushw	y
+      000161 93               [ 1]  419 	ldw	x, y
+      000162 90 AE 00 0A      [ 2]  420 	ldw	y, #0x000a
+      000166 65               [ 2]  421 	divw	x, y
+      000167 93               [ 1]  422 	ldw	x, y
+      000168 90 85            [ 2]  423 	popw	y
+      00016A 1Cr00r00         [ 2]  424 	addw	x, #_segmentMap
+      00016D F6               [ 1]  425 	ld	a, (x)
+      00016E 1E 06            [ 2]  426 	ldw	x, (0x06, sp)
+      000170 F7               [ 1]  427 	ld	(x), a
+                                    428 ;	ds18b20.c: 218: if (ii == 2 && displaySeparator) {
+      000171 1E 0A            [ 2]  429 	ldw	x, (0x0a, sp)
+      000173 A3 00 02         [ 2]  430 	cpw	x, #0x0002
+      000176 26 0C            [ 1]  431 	jrne	00102$
+      000178 1E 12            [ 2]  432 	ldw	x, (0x12, sp)
+      00017A 27 08            [ 1]  433 	jreq	00102$
+                                    434 ;	ds18b20.c: 219: digitArr[ii] |= 1 << 7;
+      00017C 1E 06            [ 2]  435 	ldw	x, (0x06, sp)
+      00017E F6               [ 1]  436 	ld	a, (x)
+      00017F AA 80            [ 1]  437 	or	a, #0x80
+      000181 1E 06            [ 2]  438 	ldw	x, (0x06, sp)
+      000183 F7               [ 1]  439 	ld	(x), a
+      000184                        440 00102$:
+                                    441 ;	ds18b20.c: 221: v /= 10;
+      000184 93               [ 1]  442 	ldw	x, y
+      000185 90 AE 00 0A      [ 2]  443 	ldw	y, #0x000a
+      000189 65               [ 2]  444 	divw	x, y
+      00018A 51               [ 1]  445 	exgw	x, y
+                                    446 ;	ds18b20.c: 216: for (ii = 0; ii < 4; ++ii) {
+      00018B 1E 0A            [ 2]  447 	ldw	x, (0x0a, sp)
+      00018D 5C               [ 1]  448 	incw	x
+      00018E 1F 0A            [ 2]  449 	ldw	(0x0a, sp), x
+      000190 A3 00 04         [ 2]  450 	cpw	x, #0x0004
+      000193 25 C3            [ 1]  451 	jrc	00106$
+                                    452 ;	ds18b20.c: 224: _tm1637Start();
+      000195 CDr01rEF         [ 4]  453 	call	__tm1637Start
+                                    454 ;	ds18b20.c: 225: _tm1637WriteByte(0x40);
+      000198 4B 40            [ 1]  455 	push	#0x40
+      00019A CDr02r43         [ 4]  456 	call	__tm1637WriteByte
+      00019D 84               [ 1]  457 	pop	a
+                                    458 ;	ds18b20.c: 226: _tm1637ReadResult();
+      00019E CDr02r28         [ 4]  459 	call	__tm1637ReadResult
+                                    460 ;	ds18b20.c: 227: _tm1637Stop();
+      0001A1 CDr02r01         [ 4]  461 	call	__tm1637Stop
+                                    462 ;	ds18b20.c: 229: _tm1637Start();
+      0001A4 CDr01rEF         [ 4]  463 	call	__tm1637Start
+                                    464 ;	ds18b20.c: 230: _tm1637WriteByte(0xc0);
+      0001A7 4B C0            [ 1]  465 	push	#0xc0
+      0001A9 CDr02r43         [ 4]  466 	call	__tm1637WriteByte
+      0001AC 84               [ 1]  467 	pop	a
+                                    468 ;	ds18b20.c: 231: _tm1637ReadResult();
+      0001AD CDr02r28         [ 4]  469 	call	__tm1637ReadResult
+                                    470 ;	ds18b20.c: 233: for (ii = 0; ii < 4; ++ii) {
+      0001B0 5F               [ 1]  471 	clrw	x
+      0001B1 1F 0A            [ 2]  472 	ldw	(0x0a, sp), x
+      0001B3                        473 00108$:
+                                    474 ;	ds18b20.c: 234: _tm1637WriteByte(digitArr[3 - ii]);
+      0001B3 7B 0B            [ 1]  475 	ld	a, (0x0b, sp)
+      0001B5 6B 05            [ 1]  476 	ld	(0x05, sp), a
+      0001B7 A6 03            [ 1]  477 	ld	a, #0x03
+      0001B9 10 05            [ 1]  478 	sub	a, (0x05, sp)
+      0001BB 97               [ 1]  479 	ld	xl, a
+      0001BC 49               [ 1]  480 	rlc	a
+      0001BD 4F               [ 1]  481 	clr	a
+      0001BE A2 00            [ 1]  482 	sbc	a, #0x00
+      0001C0 95               [ 1]  483 	ld	xh, a
+      0001C1 72 FB 08         [ 2]  484 	addw	x, (0x08, sp)
+      0001C4 F6               [ 1]  485 	ld	a, (x)
+      0001C5 88               [ 1]  486 	push	a
+      0001C6 CDr02r43         [ 4]  487 	call	__tm1637WriteByte
+      0001C9 84               [ 1]  488 	pop	a
+                                    489 ;	ds18b20.c: 235: _tm1637ReadResult();
+      0001CA CDr02r28         [ 4]  490 	call	__tm1637ReadResult
+                                    491 ;	ds18b20.c: 233: for (ii = 0; ii < 4; ++ii) {
+      0001CD 1E 0A            [ 2]  492 	ldw	x, (0x0a, sp)
+      0001CF 5C               [ 1]  493 	incw	x
+      0001D0 1F 0A            [ 2]  494 	ldw	(0x0a, sp), x
+      0001D2 A3 00 04         [ 2]  495 	cpw	x, #0x0004
+      0001D5 25 DC            [ 1]  496 	jrc	00108$
+                                    497 ;	ds18b20.c: 238: _tm1637Stop();
+      0001D7 CDr02r01         [ 4]  498 	call	__tm1637Stop
+                                    499 ;	ds18b20.c: 239: }
+      0001DA 5B 0B            [ 2]  500 	addw	sp, #11
+      0001DC 81               [ 4]  501 	ret
+                                    502 ;	ds18b20.c: 243: void tm1637SetBrightness(char brightness)
+                                    503 ;	-----------------------------------------
+                                    504 ;	 function tm1637SetBrightness
+                                    505 ;	-----------------------------------------
+      0001DD                        506 _tm1637SetBrightness:
+                                    507 ;	ds18b20.c: 250: _tm1637Start();
+      0001DD CDr01rEF         [ 4]  508 	call	__tm1637Start
+                                    509 ;	ds18b20.c: 251: _tm1637WriteByte(0x87 + brightness);
+      0001E0 7B 03            [ 1]  510 	ld	a, (0x03, sp)
+      0001E2 AB 87            [ 1]  511 	add	a, #0x87
+      0001E4 88               [ 1]  512 	push	a
+      0001E5 CDr02r43         [ 4]  513 	call	__tm1637WriteByte
+      0001E8 84               [ 1]  514 	pop	a
+                                    515 ;	ds18b20.c: 252: _tm1637ReadResult();
+      0001E9 CDr02r28         [ 4]  516 	call	__tm1637ReadResult
+                                    517 ;	ds18b20.c: 253: _tm1637Stop();
+                                    518 ;	ds18b20.c: 254: }
+      0001EC CCr02r01         [ 2]  519 	jp	__tm1637Stop
+                                    520 ;	ds18b20.c: 256: void _tm1637Start(void)
+                                    521 ;	-----------------------------------------
+                                    522 ;	 function _tm1637Start
+                                    523 ;	-----------------------------------------
+      0001EF                        524 __tm1637Start:
+                                    525 ;	ds18b20.c: 258: _tm1637ClkHigh();
+      0001EF CDr02r7F         [ 4]  526 	call	__tm1637ClkHigh
+                                    527 ;	ds18b20.c: 259: _tm1637DioHigh();
+      0001F2 CDr02r89         [ 4]  528 	call	__tm1637DioHigh
+                                    529 ;	ds18b20.c: 260: delay(5);
+      0001F5 4B 05            [ 1]  530 	push	#0x05
+      0001F7 4B 00            [ 1]  531 	push	#0x00
+      0001F9 CDr00r49         [ 4]  532 	call	_delay
+      0001FC 5B 02            [ 2]  533 	addw	sp, #2
+                                    534 ;	ds18b20.c: 261: _tm1637DioLow();
+                                    535 ;	ds18b20.c: 262: }
+      0001FE CCr02r8E         [ 2]  536 	jp	__tm1637DioLow
+                                    537 ;	ds18b20.c: 264: void _tm1637Stop(void)
+                                    538 ;	-----------------------------------------
+                                    539 ;	 function _tm1637Stop
+                                    540 ;	-----------------------------------------
+      000201                        541 __tm1637Stop:
+                                    542 ;	ds18b20.c: 266: _tm1637ClkLow();
+      000201 CDr02r84         [ 4]  543 	call	__tm1637ClkLow
+                                    544 ;	ds18b20.c: 267: delay(5);
+      000204 4B 05            [ 1]  545 	push	#0x05
+      000206 4B 00            [ 1]  546 	push	#0x00
+      000208 CDr00r49         [ 4]  547 	call	_delay
+      00020B 5B 02            [ 2]  548 	addw	sp, #2
+                                    549 ;	ds18b20.c: 268: _tm1637DioLow();
+      00020D CDr02r8E         [ 4]  550 	call	__tm1637DioLow
+                                    551 ;	ds18b20.c: 269: delay(5);
+      000210 4B 05            [ 1]  552 	push	#0x05
+      000212 4B 00            [ 1]  553 	push	#0x00
+      000214 CDr00r49         [ 4]  554 	call	_delay
+      000217 5B 02            [ 2]  555 	addw	sp, #2
+                                    556 ;	ds18b20.c: 270: _tm1637ClkHigh();
+      000219 CDr02r7F         [ 4]  557 	call	__tm1637ClkHigh
+                                    558 ;	ds18b20.c: 271: delay(5);
+      00021C 4B 05            [ 1]  559 	push	#0x05
+      00021E 4B 00            [ 1]  560 	push	#0x00
+      000220 CDr00r49         [ 4]  561 	call	_delay
+      000223 5B 02            [ 2]  562 	addw	sp, #2
+                                    563 ;	ds18b20.c: 272: _tm1637DioHigh();
+                                    564 ;	ds18b20.c: 273: }
+      000225 CCr02r89         [ 2]  565 	jp	__tm1637DioHigh
+                                    566 ;	ds18b20.c: 275: void _tm1637ReadResult(void)
+                                    567 ;	-----------------------------------------
+                                    568 ;	 function _tm1637ReadResult
+                                    569 ;	-----------------------------------------
+      000228                        570 __tm1637ReadResult:
+                                    571 ;	ds18b20.c: 277: _tm1637ClkLow();
+      000228 CDr02r84         [ 4]  572 	call	__tm1637ClkLow
+                                    573 ;	ds18b20.c: 278: delay(5);
+      00022B 4B 05            [ 1]  574 	push	#0x05
+      00022D 4B 00            [ 1]  575 	push	#0x00
+      00022F CDr00r49         [ 4]  576 	call	_delay
+      000232 5B 02            [ 2]  577 	addw	sp, #2
+                                    578 ;	ds18b20.c: 280: _tm1637ClkHigh();
+      000234 CDr02r7F         [ 4]  579 	call	__tm1637ClkHigh
+                                    580 ;	ds18b20.c: 281: delay(5);
+      000237 4B 05            [ 1]  581 	push	#0x05
+      000239 4B 00            [ 1]  582 	push	#0x00
+      00023B CDr00r49         [ 4]  583 	call	_delay
+      00023E 5B 02            [ 2]  584 	addw	sp, #2
+                                    585 ;	ds18b20.c: 282: _tm1637ClkLow();
+                                    586 ;	ds18b20.c: 283: }
+      000240 CCr02r84         [ 2]  587 	jp	__tm1637ClkLow
+                                    588 ;	ds18b20.c: 285: void _tm1637WriteByte(unsigned char b)
+                                    589 ;	-----------------------------------------
+                                    590 ;	 function _tm1637WriteByte
+                                    591 ;	-----------------------------------------
+      000243                        592 __tm1637WriteByte:
+      000243 52 02            [ 2]  593 	sub	sp, #2
+                                    594 ;	ds18b20.c: 287: for (ii = 0; ii < 8; ++ii) {
+      000245 5F               [ 1]  595 	clrw	x
+      000246 1F 01            [ 2]  596 	ldw	(0x01, sp), x
+      000248                        597 00105$:
+                                    598 ;	ds18b20.c: 288: _tm1637ClkLow();
+      000248 CDr02r84         [ 4]  599 	call	__tm1637ClkLow
+                                    600 ;	ds18b20.c: 289: if (b & 0x01) {
+      00024B 7B 05            [ 1]  601 	ld	a, (0x05, sp)
+      00024D 44               [ 1]  602 	srl	a
+      00024E 24 05            [ 1]  603 	jrnc	00102$
+                                    604 ;	ds18b20.c: 290: _tm1637DioHigh();
+      000250 CDr02r89         [ 4]  605 	call	__tm1637DioHigh
+      000253 20 03            [ 2]  606 	jra	00103$
+      000255                        607 00102$:
+                                    608 ;	ds18b20.c: 293: _tm1637DioLow();
+      000255 CDr02r8E         [ 4]  609 	call	__tm1637DioLow
+      000258                        610 00103$:
+                                    611 ;	ds18b20.c: 295: delay(15);
+      000258 4B 0F            [ 1]  612 	push	#0x0f
+      00025A 4B 00            [ 1]  613 	push	#0x00
+      00025C CDr00r49         [ 4]  614 	call	_delay
+      00025F 5B 02            [ 2]  615 	addw	sp, #2
+                                    616 ;	ds18b20.c: 296: b >>= 1;
+      000261 7B 05            [ 1]  617 	ld	a, (0x05, sp)
+      000263 44               [ 1]  618 	srl	a
+      000264 6B 05            [ 1]  619 	ld	(0x05, sp), a
+                                    620 ;	ds18b20.c: 297: _tm1637ClkHigh();
+      000266 CDr02r7F         [ 4]  621 	call	__tm1637ClkHigh
+                                    622 ;	ds18b20.c: 298: delay(15);
+      000269 4B 0F            [ 1]  623 	push	#0x0f
+      00026B 4B 00            [ 1]  624 	push	#0x00
+      00026D CDr00r49         [ 4]  625 	call	_delay
+      000270 5B 02            [ 2]  626 	addw	sp, #2
+                                    627 ;	ds18b20.c: 287: for (ii = 0; ii < 8; ++ii) {
+      000272 1E 01            [ 2]  628 	ldw	x, (0x01, sp)
+      000274 5C               [ 1]  629 	incw	x
+      000275 1F 01            [ 2]  630 	ldw	(0x01, sp), x
+      000277 A3 00 08         [ 2]  631 	cpw	x, #0x0008
+      00027A 2F CC            [ 1]  632 	jrslt	00105$
+                                    633 ;	ds18b20.c: 300: }
+      00027C 5B 02            [ 2]  634 	addw	sp, #2
+      00027E 81               [ 4]  635 	ret
+                                    636 ;	ds18b20.c: 304: void _tm1637ClkHigh(void)
+                                    637 ;	-----------------------------------------
+                                    638 ;	 function _tm1637ClkHigh
+                                    639 ;	-----------------------------------------
+      00027F                        640 __tm1637ClkHigh:
+                                    641 ;	ds18b20.c: 309: PD_ODR |= 1 << 2;
+      00027F 72 14 50 0F      [ 1]  642 	bset	20495, #2
+                                    643 ;	ds18b20.c: 310: }
+      000283 81               [ 4]  644 	ret
+                                    645 ;	ds18b20.c: 312: void _tm1637ClkLow(void)
+                                    646 ;	-----------------------------------------
+                                    647 ;	 function _tm1637ClkLow
+                                    648 ;	-----------------------------------------
+      000284                        649 __tm1637ClkLow:
+                                    650 ;	ds18b20.c: 316: PD_ODR &= ~(1 << 2);
+      000284 72 15 50 0F      [ 1]  651 	bres	20495, #2
+                                    652 ;	ds18b20.c: 320: }
+      000288 81               [ 4]  653 	ret
+                                    654 ;	ds18b20.c: 322: void _tm1637DioHigh(void)
+                                    655 ;	-----------------------------------------
+                                    656 ;	 function _tm1637DioHigh
+                                    657 ;	-----------------------------------------
+      000289                        658 __tm1637DioHigh:
+                                    659 ;	ds18b20.c: 326: PD_ODR |= 1 << 3;
+      000289 72 16 50 0F      [ 1]  660 	bset	20495, #3
+                                    661 ;	ds18b20.c: 328: }
+      00028D 81               [ 4]  662 	ret
+                                    663 ;	ds18b20.c: 330: void _tm1637DioLow(void)
+                                    664 ;	-----------------------------------------
+                                    665 ;	 function _tm1637DioLow
+                                    666 ;	-----------------------------------------
+      00028E                        667 __tm1637DioLow:
+                                    668 ;	ds18b20.c: 332: PD_ODR &= ~(1 << 3);
+      00028E 72 17 50 0F      [ 1]  669 	bres	20495, #3
+                                    670 ;	ds18b20.c: 337: }
+      000292 81               [ 4]  671 	ret
+                                    672 ;	ds18b20.c: 340: void _delay_us(unsigned int i)
+                                    673 ;	-----------------------------------------
+                                    674 ;	 function _delay_us
+                                    675 ;	-----------------------------------------
+      000293                        676 __delay_us:
+                                    677 ;	ds18b20.c: 342: i *= 3; 
+      000293 1E 03            [ 2]  678 	ldw	x, (0x03, sp)
+      000295 58               [ 2]  679 	sllw	x
+      000296 72 FB 03         [ 2]  680 	addw	x, (0x03, sp)
+                                    681 ;	ds18b20.c: 343: while(--i);
+      000299 1F 03            [ 2]  682 	ldw	(0x03, sp), x
+      00029B                        683 00101$:
+      00029B 5A               [ 2]  684 	decw	x
+      00029C 5D               [ 2]  685 	tnzw	x
+      00029D 26 FC            [ 1]  686 	jrne	00101$
+                                    687 ;	ds18b20.c: 344: }
+      00029F 81               [ 4]  688 	ret
+                                    689 ;	ds18b20.c: 346: void _delay_ms(unsigned int i)
+                                    690 ;	-----------------------------------------
+                                    691 ;	 function _delay_ms
+                                    692 ;	-----------------------------------------
+      0002A0                        693 __delay_ms:
+                                    694 ;	ds18b20.c: 348: while(i--)
+      0002A0 1E 03            [ 2]  695 	ldw	x, (0x03, sp)
+      0002A2                        696 00101$:
+      0002A2 90 93            [ 1]  697 	ldw	y, x
+      0002A4 5A               [ 2]  698 	decw	x
+      0002A5 90 5D            [ 2]  699 	tnzw	y
+      0002A7 26 01            [ 1]  700 	jrne	00117$
+      0002A9 81               [ 4]  701 	ret
+      0002AA                        702 00117$:
+                                    703 ;	ds18b20.c: 350: _delay_us(1000);
+      0002AA 89               [ 2]  704 	pushw	x
+      0002AB 4B E8            [ 1]  705 	push	#0xe8
+      0002AD 4B 03            [ 1]  706 	push	#0x03
+      0002AF CDr02r93         [ 4]  707 	call	__delay_us
+      0002B2 5B 02            [ 2]  708 	addw	sp, #2
+      0002B4 85               [ 2]  709 	popw	x
+      0002B5 20 EB            [ 2]  710 	jra	00101$
+                                    711 ;	ds18b20.c: 352: }
+      0002B7 81               [ 4]  712 	ret
+                                    713 ;	ds18b20.c: 356: void DS18B20_Init(void)
+                                    714 ;	-----------------------------------------
+                                    715 ;	 function DS18B20_Init
+                                    716 ;	-----------------------------------------
+      0002B8                        717 _DS18B20_Init:
+                                    718 ;	ds18b20.c: 358: DS18B20_DQ_OUT;   
+      0002B8 72 16 50 02      [ 1]  719 	bset	20482, #3
+                                    720 ;	ds18b20.c: 359: DS18B20_DQ_PUSH_PULL;    
+      0002BC 72 16 50 03      [ 1]  721 	bset	20483, #3
+                                    722 ;	ds18b20.c: 360: DS18B20_DQ_HIGH;   
+      0002C0 72 16 50 00      [ 1]  723 	bset	20480, #3
+                                    724 ;	ds18b20.c: 361: _delay_us(10);
+      0002C4 4B 0A            [ 1]  725 	push	#0x0a
+      0002C6 4B 00            [ 1]  726 	push	#0x00
+      0002C8 CDr02r93         [ 4]  727 	call	__delay_us
+      0002CB 5B 02            [ 2]  728 	addw	sp, #2
+                                    729 ;	ds18b20.c: 362: DS18B20_DQ_LOW;   
+      0002CD 72 17 50 00      [ 1]  730 	bres	20480, #3
+                                    731 ;	ds18b20.c: 363: _delay_us(600);     //????
+      0002D1 4B 58            [ 1]  732 	push	#0x58
+      0002D3 4B 02            [ 1]  733 	push	#0x02
+      0002D5 CDr02r93         [ 4]  734 	call	__delay_us
+      0002D8 5B 02            [ 2]  735 	addw	sp, #2
+                                    736 ;	ds18b20.c: 365: DS18B20_DQ_IN;   
+      0002DA 72 17 50 02      [ 1]  737 	bres	20482, #3
+                                    738 ;	ds18b20.c: 366: DS18B20_DQ_PULL_UP;    
+      0002DE 72 16 50 03      [ 1]  739 	bset	20483, #3
+                                    740 ;	ds18b20.c: 367: _delay_us(100);     
+      0002E2 4B 64            [ 1]  741 	push	#0x64
+      0002E4 4B 00            [ 1]  742 	push	#0x00
+      0002E6 CDr02r93         [ 4]  743 	call	__delay_us
+      0002E9 5B 02            [ 2]  744 	addw	sp, #2
+                                    745 ;	ds18b20.c: 369: _delay_us(400);
+      0002EB 4B 90            [ 1]  746 	push	#0x90
+      0002ED 4B 01            [ 1]  747 	push	#0x01
+      0002EF CDr02r93         [ 4]  748 	call	__delay_us
+      0002F2 5B 02            [ 2]  749 	addw	sp, #2
+                                    750 ;	ds18b20.c: 370: }
+      0002F4 81               [ 4]  751 	ret
+                                    752 ;	ds18b20.c: 373: void DS18B20_WriteByte(unsigned char _data)
+                                    753 ;	-----------------------------------------
+                                    754 ;	 function DS18B20_WriteByte
+                                    755 ;	-----------------------------------------
+      0002F5                        756 _DS18B20_WriteByte:
+      0002F5 88               [ 1]  757 	push	a
+                                    758 ;	ds18b20.c: 377: DS18B20_DQ_OUT;
+      0002F6 72 16 50 02      [ 1]  759 	bset	20482, #3
+                                    760 ;	ds18b20.c: 378: for (i = 0; i < 8; i++)
+      0002FA 0F 01            [ 1]  761 	clr	(0x01, sp)
+      0002FC                        762 00104$:
+                                    763 ;	ds18b20.c: 380: DS18B20_DQ_LOW;
+      0002FC 72 17 50 00      [ 1]  764 	bres	20480, #3
+                                    765 ;	ds18b20.c: 381: _delay_us(2);
+      000300 4B 02            [ 1]  766 	push	#0x02
+      000302 4B 00            [ 1]  767 	push	#0x00
+      000304 CDr02r93         [ 4]  768 	call	__delay_us
+      000307 5B 02            [ 2]  769 	addw	sp, #2
+                                    770 ;	ds18b20.c: 382: if (_data & 0x01)
+      000309 7B 04            [ 1]  771 	ld	a, (0x04, sp)
+      00030B 44               [ 1]  772 	srl	a
+      00030C 24 04            [ 1]  773 	jrnc	00102$
+                                    774 ;	ds18b20.c: 384: DS18B20_DQ_HIGH;
+      00030E 72 16 50 00      [ 1]  775 	bset	20480, #3
+      000312                        776 00102$:
+                                    777 ;	ds18b20.c: 386: _data >>= 1;
+      000312 04 04            [ 1]  778 	srl	(0x04, sp)
+                                    779 ;	ds18b20.c: 387: _delay_us(60);
+      000314 4B 3C            [ 1]  780 	push	#0x3c
+      000316 4B 00            [ 1]  781 	push	#0x00
+      000318 CDr02r93         [ 4]  782 	call	__delay_us
+      00031B 5B 02            [ 2]  783 	addw	sp, #2
+                                    784 ;	ds18b20.c: 388: DS18B20_DQ_HIGH;
+      00031D 72 16 50 00      [ 1]  785 	bset	20480, #3
+                                    786 ;	ds18b20.c: 378: for (i = 0; i < 8; i++)
+      000321 0C 01            [ 1]  787 	inc	(0x01, sp)
+      000323 7B 01            [ 1]  788 	ld	a, (0x01, sp)
+      000325 A1 08            [ 1]  789 	cp	a, #0x08
+      000327 25 D3            [ 1]  790 	jrc	00104$
+                                    791 ;	ds18b20.c: 390: }
+      000329 84               [ 1]  792 	pop	a
+      00032A 81               [ 4]  793 	ret
+                                    794 ;	ds18b20.c: 392: unsigned char DS18B20_ReadByte(void)
+                                    795 ;	-----------------------------------------
+                                    796 ;	 function DS18B20_ReadByte
+                                    797 ;	-----------------------------------------
+      00032B                        798 _DS18B20_ReadByte:
+                                    799 ;	ds18b20.c: 394: unsigned char i = 0, _data = 0;
+      00032B 4F               [ 1]  800 	clr	a
+      00032C 95               [ 1]  801 	ld	xh, a
+                                    802 ;	ds18b20.c: 396: for (i = 0; i < 8; i++)
+      00032D 4F               [ 1]  803 	clr	a
+      00032E 97               [ 1]  804 	ld	xl, a
+      00032F                        805 00104$:
+                                    806 ;	ds18b20.c: 398: DS18B20_DQ_OUT;
+      00032F 72 16 50 02      [ 1]  807 	bset	20482, #3
+                                    808 ;	ds18b20.c: 399: DS18B20_DQ_LOW;
+      000333 C6 50 00         [ 1]  809 	ld	a, 0x5000
+      000336 A4 F7            [ 1]  810 	and	a, #0xf7
+      000338 C7 50 00         [ 1]  811 	ld	0x5000, a
+                                    812 ;	ds18b20.c: 400: _delay_us(5);
+      00033B 89               [ 2]  813 	pushw	x
+      00033C 4B 05            [ 1]  814 	push	#0x05
+      00033E 4B 00            [ 1]  815 	push	#0x00
+      000340 CDr02r93         [ 4]  816 	call	__delay_us
+      000343 5B 02            [ 2]  817 	addw	sp, #2
+      000345 85               [ 2]  818 	popw	x
+                                    819 ;	ds18b20.c: 401: _data >>= 1;
+      000346 02               [ 1]  820 	rlwa	x
+      000347 44               [ 1]  821 	srl	a
+      000348 01               [ 1]  822 	rrwa	x
+                                    823 ;	ds18b20.c: 402: DS18B20_DQ_HIGH;
+      000349 72 16 50 00      [ 1]  824 	bset	20480, #3
+                                    825 ;	ds18b20.c: 403: DS18B20_DQ_IN;
+      00034D 72 17 50 02      [ 1]  826 	bres	20482, #3
+                                    827 ;	ds18b20.c: 404: if (DS18B20_DQ_VALUE)
+      000351 C6 50 01         [ 1]  828 	ld	a, 0x5001
+      000354 A5 08            [ 1]  829 	bcp	a, #0x08
+      000356 27 03            [ 1]  830 	jreq	00102$
+                                    831 ;	ds18b20.c: 406: _data |= 0x80;
+      000358 58               [ 2]  832 	sllw	x
+      000359 99               [ 1]  833 	scf
+      00035A 56               [ 2]  834 	rrcw	x
+      00035B                        835 00102$:
+                                    836 ;	ds18b20.c: 408: DS18B20_DQ_OUT; 
+      00035B 72 16 50 02      [ 1]  837 	bset	20482, #3
+                                    838 ;	ds18b20.c: 409: DS18B20_DQ_HIGH;
+      00035F 72 16 50 00      [ 1]  839 	bset	20480, #3
+                                    840 ;	ds18b20.c: 410: _delay_us(60);
+      000363 89               [ 2]  841 	pushw	x
+      000364 4B 3C            [ 1]  842 	push	#0x3c
+      000366 4B 00            [ 1]  843 	push	#0x00
+      000368 CDr02r93         [ 4]  844 	call	__delay_us
+      00036B 5B 02            [ 2]  845 	addw	sp, #2
+      00036D 85               [ 2]  846 	popw	x
+                                    847 ;	ds18b20.c: 396: for (i = 0; i < 8; i++)
+      00036E 9F               [ 1]  848 	ld	a, xl
+      00036F 4C               [ 1]  849 	inc	a
+      000370 97               [ 1]  850 	ld	xl, a
+      000371 A1 08            [ 1]  851 	cp	a, #0x08
+      000373 25 BA            [ 1]  852 	jrc	00104$
+                                    853 ;	ds18b20.c: 413: return _data;
+      000375 9E               [ 1]  854 	ld	a, xh
+                                    855 ;	ds18b20.c: 414: }
+      000376 81               [ 4]  856 	ret
+                                    857 ;	ds18b20.c: 416: float DS18B20_ReadTemperature(void)
+                                    858 ;	-----------------------------------------
+                                    859 ;	 function DS18B20_ReadTemperature
+                                    860 ;	-----------------------------------------
+      000377                        861 _DS18B20_ReadTemperature:
+      000377 52 0E            [ 2]  862 	sub	sp, #14
+                                    863 ;	ds18b20.c: 430: DS18B20_Init();
+      000379 CDr02rB8         [ 4]  864 	call	_DS18B20_Init
+                                    865 ;	ds18b20.c: 431: DS18B20_WriteByte(0xcc);
+      00037C 4B CC            [ 1]  866 	push	#0xcc
+      00037E CDr02rF5         [ 4]  867 	call	_DS18B20_WriteByte
+      000381 84               [ 1]  868 	pop	a
+                                    869 ;	ds18b20.c: 432: DS18B20_WriteByte(0x44);
+      000382 4B 44            [ 1]  870 	push	#0x44
+      000384 CDr02rF5         [ 4]  871 	call	_DS18B20_WriteByte
+      000387 84               [ 1]  872 	pop	a
+                                    873 ;	ds18b20.c: 434: DS18B20_Init();
+      000388 CDr02rB8         [ 4]  874 	call	_DS18B20_Init
+                                    875 ;	ds18b20.c: 435: DS18B20_WriteByte(0xcc);
+      00038B 4B CC            [ 1]  876 	push	#0xcc
+      00038D CDr02rF5         [ 4]  877 	call	_DS18B20_WriteByte
+      000390 84               [ 1]  878 	pop	a
+                                    879 ;	ds18b20.c: 436: DS18B20_WriteByte(0xbe);
+      000391 4B BE            [ 1]  880 	push	#0xbe
+      000393 CDr02rF5         [ 4]  881 	call	_DS18B20_WriteByte
+      000396 84               [ 1]  882 	pop	a
+                                    883 ;	ds18b20.c: 438: temp = DS18B20_ReadByte();
+      000397 CDr03r2B         [ 4]  884 	call	_DS18B20_ReadByte
+                                    885 ;	ds18b20.c: 439: t = (((temp & 0xf0) >> 4) + (temp & 0x07) * 0.125); 
+      00039A 90 5F            [ 1]  886 	clrw	y
+      00039C 88               [ 1]  887 	push	a
+      00039D A4 F0            [ 1]  888 	and	a, #0xf0
+      00039F 97               [ 1]  889 	ld	xl, a
+      0003A0 4F               [ 1]  890 	clr	a
+      0003A1 95               [ 1]  891 	ld	xh, a
+      0003A2 84               [ 1]  892 	pop	a
+      0003A3 57               [ 2]  893 	sraw	x
+      0003A4 57               [ 2]  894 	sraw	x
+      0003A5 57               [ 2]  895 	sraw	x
+      0003A6 57               [ 2]  896 	sraw	x
+      0003A7 1F 05            [ 2]  897 	ldw	(0x05, sp), x
+      0003A9 A4 07            [ 1]  898 	and	a, #0x07
+      0003AB 97               [ 1]  899 	ld	xl, a
+      0003AC 4F               [ 1]  900 	clr	a
+      0003AD 95               [ 1]  901 	ld	xh, a
+      0003AE 89               [ 2]  902 	pushw	x
+      0003AF CDr00r00         [ 4]  903 	call	___sint2fs
+      0003B2 5B 02            [ 2]  904 	addw	sp, #2
+      0003B4 89               [ 2]  905 	pushw	x
+      0003B5 90 89            [ 2]  906 	pushw	y
+      0003B7 5F               [ 1]  907 	clrw	x
+      0003B8 89               [ 2]  908 	pushw	x
+      0003B9 4B 00            [ 1]  909 	push	#0x00
+      0003BB 4B 3E            [ 1]  910 	push	#0x3e
+      0003BD CDr00r00         [ 4]  911 	call	___fsmul
+      0003C0 5B 08            [ 2]  912 	addw	sp, #8
+      0003C2 17 01            [ 2]  913 	ldw	(0x01, sp), y
+      0003C4 89               [ 2]  914 	pushw	x
+      0003C5 16 07            [ 2]  915 	ldw	y, (0x07, sp)
+      0003C7 90 89            [ 2]  916 	pushw	y
+      0003C9 CDr00r00         [ 4]  917 	call	___sint2fs
+      0003CC 5B 02            [ 2]  918 	addw	sp, #2
+      0003CE 1F 0B            [ 2]  919 	ldw	(0x0b, sp), x
+      0003D0 1E 03            [ 2]  920 	ldw	x, (0x03, sp)
+      0003D2 89               [ 2]  921 	pushw	x
+      0003D3 1E 0D            [ 2]  922 	ldw	x, (0x0d, sp)
+      0003D5 89               [ 2]  923 	pushw	x
+      0003D6 90 89            [ 2]  924 	pushw	y
+      0003D8 CDr00r00         [ 4]  925 	call	___fsadd
+      0003DB 5B 08            [ 2]  926 	addw	sp, #8
+      0003DD 1F 0D            [ 2]  927 	ldw	(0x0d, sp), x
+      0003DF 17 0B            [ 2]  928 	ldw	(0x0b, sp), y
+                                    929 ;	ds18b20.c: 440: temp = DS18B20_ReadByte();
+      0003E1 CDr03r2B         [ 4]  930 	call	_DS18B20_ReadByte
+                                    931 ;	ds18b20.c: 441: t += ((temp & 0x0f) << 4);
+      0003E4 90 5F            [ 1]  932 	clrw	y
+      0003E6 A4 0F            [ 1]  933 	and	a, #0x0f
+      0003E8 97               [ 1]  934 	ld	xl, a
+      0003E9 4F               [ 1]  935 	clr	a
+      0003EA 95               [ 1]  936 	ld	xh, a
+      0003EB 58               [ 2]  937 	sllw	x
+      0003EC 58               [ 2]  938 	sllw	x
+      0003ED 58               [ 2]  939 	sllw	x
+      0003EE 58               [ 2]  940 	sllw	x
+      0003EF 89               [ 2]  941 	pushw	x
+      0003F0 CDr00r00         [ 4]  942 	call	___sint2fs
+      0003F3 5B 02            [ 2]  943 	addw	sp, #2
+      0003F5 89               [ 2]  944 	pushw	x
+      0003F6 90 89            [ 2]  945 	pushw	y
+      0003F8 1E 11            [ 2]  946 	ldw	x, (0x11, sp)
+      0003FA 89               [ 2]  947 	pushw	x
+      0003FB 1E 11            [ 2]  948 	ldw	x, (0x11, sp)
+      0003FD 89               [ 2]  949 	pushw	x
+      0003FE CDr00r00         [ 4]  950 	call	___fsadd
+                                    951 ;	ds18b20.c: 442: return t;
+                                    952 ;	ds18b20.c: 443: }
+      000401 5B 16            [ 2]  953 	addw	sp, #22
+      000403 81               [ 4]  954 	ret
+                                    955 ;	ds18b20.c: 465: void read_display_temp(float temp1) //every second called by interrupt
+                                    956 ;	-----------------------------------------
+                                    957 ;	 function read_display_temp
+                                    958 ;	-----------------------------------------
+      000404                        959 _read_display_temp:
+      000404 52 28            [ 2]  960 	sub	sp, #40
+                                    961 ;	ds18b20.c: 469: char boodsch[12]="temp=\r\n";
+      000406 96               [ 1]  962 	ldw	x, sp
+      000407 5C               [ 1]  963 	incw	x
+      000408 1F 17            [ 2]  964 	ldw	(0x17, sp), x
+      00040A A6 74            [ 1]  965 	ld	a, #0x74
+      00040C F7               [ 1]  966 	ld	(x), a
+      00040D 1E 17            [ 2]  967 	ldw	x, (0x17, sp)
+      00040F 5C               [ 1]  968 	incw	x
+      000410 A6 65            [ 1]  969 	ld	a, #0x65
+      000412 F7               [ 1]  970 	ld	(x), a
+      000413 1E 17            [ 2]  971 	ldw	x, (0x17, sp)
+      000415 5C               [ 1]  972 	incw	x
+      000416 5C               [ 1]  973 	incw	x
+      000417 A6 6D            [ 1]  974 	ld	a, #0x6d
+      000419 F7               [ 1]  975 	ld	(x), a
+      00041A 1E 17            [ 2]  976 	ldw	x, (0x17, sp)
+      00041C A6 70            [ 1]  977 	ld	a, #0x70
+      00041E E7 03            [ 1]  978 	ld	(0x0003, x), a
+      000420 1E 17            [ 2]  979 	ldw	x, (0x17, sp)
+      000422 A6 3D            [ 1]  980 	ld	a, #0x3d
+      000424 E7 04            [ 1]  981 	ld	(0x0004, x), a
+      000426 1E 17            [ 2]  982 	ldw	x, (0x17, sp)
+      000428 A6 0D            [ 1]  983 	ld	a, #0x0d
+      00042A E7 05            [ 1]  984 	ld	(0x0005, x), a
+      00042C 1E 17            [ 2]  985 	ldw	x, (0x17, sp)
+      00042E A6 0A            [ 1]  986 	ld	a, #0x0a
+      000430 E7 06            [ 1]  987 	ld	(0x0006, x), a
+      000432 1E 17            [ 2]  988 	ldw	x, (0x17, sp)
+      000434 6F 07            [ 1]  989 	clr	(0x0007, x)
+      000436 1E 17            [ 2]  990 	ldw	x, (0x17, sp)
+      000438 6F 08            [ 1]  991 	clr	(0x0008, x)
+      00043A 1E 17            [ 2]  992 	ldw	x, (0x17, sp)
+      00043C 6F 09            [ 1]  993 	clr	(0x0009, x)
+      00043E 1E 17            [ 2]  994 	ldw	x, (0x17, sp)
+      000440 6F 0A            [ 1]  995 	clr	(0x000a, x)
+      000442 1E 17            [ 2]  996 	ldw	x, (0x17, sp)
+      000444 1C 00 0B         [ 2]  997 	addw	x, #0x000b
+      000447 7F               [ 1]  998 	clr	(x)
+                                    999 ;	ds18b20.c: 473: measurement = DS18B20_ReadTemperature() ; //multiply with 100 to get everything on the 4 digit display 
+      000448 CDr03r77         [ 4] 1000 	call	_DS18B20_ReadTemperature
+      00044B 1F 1F            [ 2] 1001 	ldw	(0x1f, sp), x
+      00044D 17 1D            [ 2] 1002 	ldw	(0x1d, sp), y
+                                   1003 ;	ds18b20.c: 474: objTemp = measurement*100;
+      00044F 1E 1F            [ 2] 1004 	ldw	x, (0x1f, sp)
+      000451 89               [ 2] 1005 	pushw	x
+      000452 1E 1F            [ 2] 1006 	ldw	x, (0x1f, sp)
+      000454 89               [ 2] 1007 	pushw	x
+      000455 5F               [ 1] 1008 	clrw	x
+      000456 89               [ 2] 1009 	pushw	x
+      000457 4B C8            [ 1] 1010 	push	#0xc8
+      000459 4B 42            [ 1] 1011 	push	#0x42
+      00045B CDr00r00         [ 4] 1012 	call	___fsmul
+      00045E 5B 08            [ 2] 1013 	addw	sp, #8
+      000460 1F 27            [ 2] 1014 	ldw	(0x27, sp), x
+      000462 17 25            [ 2] 1015 	ldw	(0x25, sp), y
+                                   1016 ;	ds18b20.c: 477: while (objTemp > 1000) {
+      000464 5F               [ 1] 1017 	clrw	x
+      000465 1F 21            [ 2] 1018 	ldw	(0x21, sp), x
+      000467                       1019 00101$:
+      000467 1E 27            [ 2] 1020 	ldw	x, (0x27, sp)
+      000469 89               [ 2] 1021 	pushw	x
+      00046A 1E 27            [ 2] 1022 	ldw	x, (0x27, sp)
+      00046C 89               [ 2] 1023 	pushw	x
+      00046D 5F               [ 1] 1024 	clrw	x
+      00046E 89               [ 2] 1025 	pushw	x
+      00046F 4B 7A            [ 1] 1026 	push	#0x7a
+      000471 4B 44            [ 1] 1027 	push	#0x44
+      000473 CDr00r00         [ 4] 1028 	call	___fslt
+      000476 5B 08            [ 2] 1029 	addw	sp, #8
+      000478 4D               [ 1] 1030 	tnz	a
+      000479 27 1C            [ 1] 1031 	jreq	00123$
+                                   1032 ;	ds18b20.c: 478: vierde+=1;
+      00047B 1E 21            [ 2] 1033 	ldw	x, (0x21, sp)
+      00047D 5C               [ 1] 1034 	incw	x
+      00047E 1F 21            [ 2] 1035 	ldw	(0x21, sp), x
+                                   1036 ;	ds18b20.c: 479: objTemp-=1000;
+      000480 5F               [ 1] 1037 	clrw	x
+      000481 89               [ 2] 1038 	pushw	x
+      000482 4B 7A            [ 1] 1039 	push	#0x7a
+      000484 4B 44            [ 1] 1040 	push	#0x44
+      000486 1E 2B            [ 2] 1041 	ldw	x, (0x2b, sp)
+      000488 89               [ 2] 1042 	pushw	x
+      000489 1E 2B            [ 2] 1043 	ldw	x, (0x2b, sp)
+      00048B 89               [ 2] 1044 	pushw	x
+      00048C CDr00r00         [ 4] 1045 	call	___fssub
+      00048F 5B 08            [ 2] 1046 	addw	sp, #8
+      000491 1F 27            [ 2] 1047 	ldw	(0x27, sp), x
+      000493 17 25            [ 2] 1048 	ldw	(0x25, sp), y
+      000495 20 D0            [ 2] 1049 	jra	00101$
+                                   1050 ;	ds18b20.c: 481: while (objTemp > 100) {
+      000497                       1051 00123$:
+      000497 16 21            [ 2] 1052 	ldw	y, (0x21, sp)
+      000499 17 15            [ 2] 1053 	ldw	(0x15, sp), y
+      00049B 5F               [ 1] 1054 	clrw	x
+      00049C 1F 23            [ 2] 1055 	ldw	(0x23, sp), x
+      00049E                       1056 00104$:
+      00049E 1E 27            [ 2] 1057 	ldw	x, (0x27, sp)
+      0004A0 89               [ 2] 1058 	pushw	x
+      0004A1 1E 27            [ 2] 1059 	ldw	x, (0x27, sp)
+      0004A3 89               [ 2] 1060 	pushw	x
+      0004A4 5F               [ 1] 1061 	clrw	x
+      0004A5 89               [ 2] 1062 	pushw	x
+      0004A6 4B C8            [ 1] 1063 	push	#0xc8
+      0004A8 4B 42            [ 1] 1064 	push	#0x42
+      0004AA CDr00r00         [ 4] 1065 	call	___fslt
+      0004AD 5B 08            [ 2] 1066 	addw	sp, #8
+      0004AF 4D               [ 1] 1067 	tnz	a
+      0004B0 27 1C            [ 1] 1068 	jreq	00124$
+                                   1069 ;	ds18b20.c: 482: derde+=1;
+      0004B2 1E 23            [ 2] 1070 	ldw	x, (0x23, sp)
+      0004B4 5C               [ 1] 1071 	incw	x
+      0004B5 1F 23            [ 2] 1072 	ldw	(0x23, sp), x
+                                   1073 ;	ds18b20.c: 483: objTemp-=100;
+      0004B7 5F               [ 1] 1074 	clrw	x
+      0004B8 89               [ 2] 1075 	pushw	x
+      0004B9 4B C8            [ 1] 1076 	push	#0xc8
+      0004BB 4B 42            [ 1] 1077 	push	#0x42
+      0004BD 1E 2B            [ 2] 1078 	ldw	x, (0x2b, sp)
+      0004BF 89               [ 2] 1079 	pushw	x
+      0004C0 1E 2B            [ 2] 1080 	ldw	x, (0x2b, sp)
+      0004C2 89               [ 2] 1081 	pushw	x
+      0004C3 CDr00r00         [ 4] 1082 	call	___fssub
+      0004C6 5B 08            [ 2] 1083 	addw	sp, #8
+      0004C8 1F 27            [ 2] 1084 	ldw	(0x27, sp), x
+      0004CA 17 25            [ 2] 1085 	ldw	(0x25, sp), y
+      0004CC 20 D0            [ 2] 1086 	jra	00104$
+                                   1087 ;	ds18b20.c: 485: while (objTemp > 10) {
+      0004CE                       1088 00124$:
+      0004CE 16 23            [ 2] 1089 	ldw	y, (0x23, sp)
+      0004D0 17 0F            [ 2] 1090 	ldw	(0x0f, sp), y
+      0004D2 5F               [ 1] 1091 	clrw	x
+      0004D3 1F 19            [ 2] 1092 	ldw	(0x19, sp), x
+      0004D5                       1093 00107$:
+      0004D5 1E 27            [ 2] 1094 	ldw	x, (0x27, sp)
+      0004D7 89               [ 2] 1095 	pushw	x
+      0004D8 1E 27            [ 2] 1096 	ldw	x, (0x27, sp)
+      0004DA 89               [ 2] 1097 	pushw	x
+      0004DB 5F               [ 1] 1098 	clrw	x
+      0004DC 89               [ 2] 1099 	pushw	x
+      0004DD 4B 20            [ 1] 1100 	push	#0x20
+      0004DF 4B 41            [ 1] 1101 	push	#0x41
+      0004E1 CDr00r00         [ 4] 1102 	call	___fslt
+      0004E4 5B 08            [ 2] 1103 	addw	sp, #8
+      0004E6 4D               [ 1] 1104 	tnz	a
+      0004E7 27 1C            [ 1] 1105 	jreq	00125$
+                                   1106 ;	ds18b20.c: 486: tweede+=1;
+      0004E9 1E 19            [ 2] 1107 	ldw	x, (0x19, sp)
+      0004EB 5C               [ 1] 1108 	incw	x
+      0004EC 1F 19            [ 2] 1109 	ldw	(0x19, sp), x
+                                   1110 ;	ds18b20.c: 487: objTemp-=10;
+      0004EE 5F               [ 1] 1111 	clrw	x
+      0004EF 89               [ 2] 1112 	pushw	x
+      0004F0 4B 20            [ 1] 1113 	push	#0x20
+      0004F2 4B 41            [ 1] 1114 	push	#0x41
+      0004F4 1E 2B            [ 2] 1115 	ldw	x, (0x2b, sp)
+      0004F6 89               [ 2] 1116 	pushw	x
+      0004F7 1E 2B            [ 2] 1117 	ldw	x, (0x2b, sp)
+      0004F9 89               [ 2] 1118 	pushw	x
+      0004FA CDr00r00         [ 4] 1119 	call	___fssub
+      0004FD 5B 08            [ 2] 1120 	addw	sp, #8
+      0004FF 1F 27            [ 2] 1121 	ldw	(0x27, sp), x
+      000501 17 25            [ 2] 1122 	ldw	(0x25, sp), y
+      000503 20 D0            [ 2] 1123 	jra	00107$
+                                   1124 ;	ds18b20.c: 489: while (objTemp > 0)
+      000505                       1125 00125$:
+      000505 16 19            [ 2] 1126 	ldw	y, (0x19, sp)
+      000507 17 0D            [ 2] 1127 	ldw	(0x0d, sp), y
+      000509 5F               [ 1] 1128 	clrw	x
+      00050A 1F 1B            [ 2] 1129 	ldw	(0x1b, sp), x
+      00050C                       1130 00110$:
+      00050C 1E 27            [ 2] 1131 	ldw	x, (0x27, sp)
+      00050E 89               [ 2] 1132 	pushw	x
+      00050F 1E 27            [ 2] 1133 	ldw	x, (0x27, sp)
+      000511 89               [ 2] 1134 	pushw	x
+      000512 5F               [ 1] 1135 	clrw	x
+      000513 89               [ 2] 1136 	pushw	x
+      000514 5F               [ 1] 1137 	clrw	x
+      000515 89               [ 2] 1138 	pushw	x
+      000516 CDr00r00         [ 4] 1139 	call	___fslt
+      000519 5B 08            [ 2] 1140 	addw	sp, #8
+      00051B 4D               [ 1] 1141 	tnz	a
+      00051C 27 1C            [ 1] 1142 	jreq	00112$
+                                   1143 ;	ds18b20.c: 491: eerste+=1;
+      00051E 1E 1B            [ 2] 1144 	ldw	x, (0x1b, sp)
+      000520 5C               [ 1] 1145 	incw	x
+      000521 1F 1B            [ 2] 1146 	ldw	(0x1b, sp), x
+                                   1147 ;	ds18b20.c: 492: objTemp-=1;
+      000523 5F               [ 1] 1148 	clrw	x
+      000524 89               [ 2] 1149 	pushw	x
+      000525 4B 80            [ 1] 1150 	push	#0x80
+      000527 4B 3F            [ 1] 1151 	push	#0x3f
+      000529 1E 2B            [ 2] 1152 	ldw	x, (0x2b, sp)
+      00052B 89               [ 2] 1153 	pushw	x
+      00052C 1E 2B            [ 2] 1154 	ldw	x, (0x2b, sp)
+      00052E 89               [ 2] 1155 	pushw	x
+      00052F CDr00r00         [ 4] 1156 	call	___fssub
+      000532 5B 08            [ 2] 1157 	addw	sp, #8
+      000534 1F 27            [ 2] 1158 	ldw	(0x27, sp), x
+      000536 17 25            [ 2] 1159 	ldw	(0x25, sp), y
+      000538 20 D2            [ 2] 1160 	jra	00110$
+      00053A                       1161 00112$:
+                                   1162 ;	ds18b20.c: 495: utemp=vierde*1000+derde*100+tweede*10+eerste;
+      00053A 1E 15            [ 2] 1163 	ldw	x, (0x15, sp)
+      00053C 89               [ 2] 1164 	pushw	x
+      00053D 4B E8            [ 1] 1165 	push	#0xe8
+      00053F 4B 03            [ 1] 1166 	push	#0x03
+      000541 CDr00r00         [ 4] 1167 	call	__mulint
+      000544 5B 04            [ 2] 1168 	addw	sp, #4
+      000546 1F 13            [ 2] 1169 	ldw	(0x13, sp), x
+      000548 1E 0F            [ 2] 1170 	ldw	x, (0x0f, sp)
+      00054A 89               [ 2] 1171 	pushw	x
+      00054B 4B 64            [ 1] 1172 	push	#0x64
+      00054D 4B 00            [ 1] 1173 	push	#0x00
+      00054F CDr00r00         [ 4] 1174 	call	__mulint
+      000552 5B 04            [ 2] 1175 	addw	sp, #4
+      000554 72 FB 13         [ 2] 1176 	addw	x, (0x13, sp)
+      000557 1F 11            [ 2] 1177 	ldw	(0x11, sp), x
+      000559 1E 0D            [ 2] 1178 	ldw	x, (0x0d, sp)
+      00055B 58               [ 2] 1179 	sllw	x
+      00055C 58               [ 2] 1180 	sllw	x
+      00055D 72 FB 0D         [ 2] 1181 	addw	x, (0x0d, sp)
+      000560 58               [ 2] 1182 	sllw	x
+      000561 72 FB 11         [ 2] 1183 	addw	x, (0x11, sp)
+      000564 72 FB 1B         [ 2] 1184 	addw	x, (0x1b, sp)
+                                   1185 ;	ds18b20.c: 497: tm1637DisplayDecimal(utemp, 1); // eg 37:12
+      000567 90 5F            [ 1] 1186 	clrw	y
+      000569 4B 01            [ 1] 1187 	push	#0x01
+      00056B 4B 00            [ 1] 1188 	push	#0x00
+      00056D 89               [ 2] 1189 	pushw	x
+      00056E 90 89            [ 2] 1190 	pushw	y
+      000570 CDr01r4D         [ 4] 1191 	call	_tm1637DisplayDecimal
+      000573 5B 06            [ 2] 1192 	addw	sp, #6
+                                   1193 ;	ds18b20.c: 502: PIDController_Update(&pid, temp1, measurement); 
+      000575 1E 1F            [ 2] 1194 	ldw	x, (0x1f, sp)
+      000577 89               [ 2] 1195 	pushw	x
+      000578 1E 1F            [ 2] 1196 	ldw	x, (0x1f, sp)
+      00057A 89               [ 2] 1197 	pushw	x
+      00057B 1E 31            [ 2] 1198 	ldw	x, (0x31, sp)
+      00057D 89               [ 2] 1199 	pushw	x
+      00057E 1E 31            [ 2] 1200 	ldw	x, (0x31, sp)
+      000580 89               [ 2] 1201 	pushw	x
+      000581 4Br00            [ 1] 1202 	push	#<_pid
+      000583 4Bs00            [ 1] 1203 	push	#(_pid >> 8)
+      000585 CDr00r00         [ 4] 1204 	call	_PIDController_Update
+      000588 5B 0A            [ 2] 1205 	addw	sp, #10
+                                   1206 ;	ds18b20.c: 503: sprintf(boodsch,"pid :%d\r\n", (int)(pid.out*10)); //todo dit moet SSD sturen of wel LED
+      00058A AEr00r00         [ 2] 1207 	ldw	x, #_pid
+      00058D 90 93            [ 1] 1208 	ldw	y, x
+      00058F 90 EE 36         [ 2] 1209 	ldw	y, (0x36, y)
+      000592 EE 34            [ 2] 1210 	ldw	x, (0x34, x)
+      000594 90 89            [ 2] 1211 	pushw	y
+      000596 89               [ 2] 1212 	pushw	x
+      000597 5F               [ 1] 1213 	clrw	x
+      000598 89               [ 2] 1214 	pushw	x
+      000599 4B 20            [ 1] 1215 	push	#0x20
+      00059B 4B 41            [ 1] 1216 	push	#0x41
+      00059D CDr00r00         [ 4] 1217 	call	___fsmul
+      0005A0 5B 08            [ 2] 1218 	addw	sp, #8
+      0005A2 89               [ 2] 1219 	pushw	x
+      0005A3 90 89            [ 2] 1220 	pushw	y
+      0005A5 CDr00r00         [ 4] 1221 	call	___fs2sint
+      0005A8 5B 04            [ 2] 1222 	addw	sp, #4
+      0005AA 16 17            [ 2] 1223 	ldw	y, (0x17, sp)
+      0005AC 89               [ 2] 1224 	pushw	x
+      0005AD 4Br11            [ 1] 1225 	push	#<___str_1
+      0005AF 4Bs00            [ 1] 1226 	push	#(___str_1 >> 8)
+      0005B1 90 89            [ 2] 1227 	pushw	y
+      0005B3 CDr00r00         [ 4] 1228 	call	_sprintf
+      0005B6 5B 06            [ 2] 1229 	addw	sp, #6
+                                   1230 ;	ds18b20.c: 504: UARTPrintF (boodsch); 
+      0005B8 1E 17            [ 2] 1231 	ldw	x, (0x17, sp)
+      0005BA 89               [ 2] 1232 	pushw	x
+      0005BB CDr00r94         [ 4] 1233 	call	_UARTPrintF
+                                   1234 ;	ds18b20.c: 506: }
+      0005BE 5B 2A            [ 2] 1235 	addw	sp, #42
+      0005C0 81               [ 4] 1236 	ret
+                                   1237 ;	ds18b20.c: 509: void rt_one_second_increment (st_time *t) {
+                                   1238 ;	-----------------------------------------
+                                   1239 ;	 function rt_one_second_increment
+                                   1240 ;	-----------------------------------------
+      0005C1                       1241 _rt_one_second_increment:
+      0005C1 52 08            [ 2] 1242 	sub	sp, #8
+                                   1243 ;	ds18b20.c: 517: t->second +=1;
+      0005C3 16 0B            [ 2] 1244 	ldw	y, (0x0b, sp)
+      0005C5 17 01            [ 2] 1245 	ldw	(0x01, sp), y
+      0005C7 93               [ 1] 1246 	ldw	x, y
+      0005C8 7C               [ 1] 1247 	inc	(x)
+      0005C9 1E 01            [ 2] 1248 	ldw	x, (0x01, sp)
+      0005CB F6               [ 1] 1249 	ld	a, (x)
+                                   1250 ;	ds18b20.c: 518: if ((t->second==1)  | (t->second==21) | (t->second==41))
+      0005CC 97               [ 1] 1251 	ld	xl, a
+      0005CD 4A               [ 1] 1252 	dec	a
+      0005CE 26 05            [ 1] 1253 	jrne	00134$
+      0005D0 A6 01            [ 1] 1254 	ld	a, #0x01
+      0005D2 6B 08            [ 1] 1255 	ld	(0x08, sp), a
+      0005D4 C1                    1256 	.byte 0xc1
+      0005D5                       1257 00134$:
+      0005D5 0F 08            [ 1] 1258 	clr	(0x08, sp)
+      0005D7                       1259 00135$:
+      0005D7 9F               [ 1] 1260 	ld	a, xl
+      0005D8 A0 15            [ 1] 1261 	sub	a, #0x15
+      0005DA 26 02            [ 1] 1262 	jrne	00137$
+      0005DC 4C               [ 1] 1263 	inc	a
+      0005DD 21                    1264 	.byte 0x21
+      0005DE                       1265 00137$:
+      0005DE 4F               [ 1] 1266 	clr	a
+      0005DF                       1267 00138$:
+      0005DF 1A 08            [ 1] 1268 	or	a, (0x08, sp)
+      0005E1 6B 03            [ 1] 1269 	ld	(0x03, sp), a
+      0005E3 9F               [ 1] 1270 	ld	a, xl
+      0005E4 A0 29            [ 1] 1271 	sub	a, #0x29
+      0005E6 26 02            [ 1] 1272 	jrne	00140$
+      0005E8 4C               [ 1] 1273 	inc	a
+      0005E9 21                    1274 	.byte 0x21
+      0005EA                       1275 00140$:
+      0005EA 4F               [ 1] 1276 	clr	a
+      0005EB                       1277 00141$:
+                                   1278 ;	ds18b20.c: 520: t->heat=0;
+      0005EB 1E 01            [ 2] 1279 	ldw	x, (0x01, sp)
+      0005ED 5C               [ 1] 1280 	incw	x
+      0005EE 5C               [ 1] 1281 	incw	x
+      0005EF 1F 06            [ 2] 1282 	ldw	(0x06, sp), x
+                                   1283 ;	ds18b20.c: 518: if ((t->second==1)  | (t->second==21) | (t->second==41))
+      0005F1 1A 03            [ 1] 1284 	or	a, (0x03, sp)
+      0005F3 27 03            [ 1] 1285 	jreq	00102$
+                                   1286 ;	ds18b20.c: 520: t->heat=0;
+      0005F5 1E 06            [ 2] 1287 	ldw	x, (0x06, sp)
+      0005F7 7F               [ 1] 1288 	clr	(x)
+      0005F8                       1289 00102$:
+                                   1290 ;	ds18b20.c: 523: t->heat+=1;
+      0005F8 1E 06            [ 2] 1291 	ldw	x, (0x06, sp)
+      0005FA 7C               [ 1] 1292 	inc	(x)
+                                   1293 ;	ds18b20.c: 524: if (fast) targettemp=(int)(pid.out*2);
+      0005FB 72 00u00u38 02   [ 2] 1294 	btjt	_fast+0, #0, 00143$
+      000600 20 21            [ 2] 1295 	jra	00104$
+      000602                       1296 00143$:
+      000602 AEr00r34         [ 2] 1297 	ldw	x, #_pid+52
+      000605 90 93            [ 1] 1298 	ldw	y, x
+      000607 90 EE 02         [ 2] 1299 	ldw	y, (0x2, y)
+      00060A FE               [ 2] 1300 	ldw	x, (x)
+      00060B 90 89            [ 2] 1301 	pushw	y
+      00060D 89               [ 2] 1302 	pushw	x
+      00060E 5F               [ 1] 1303 	clrw	x
+      00060F 89               [ 2] 1304 	pushw	x
+      000610 4B 00            [ 1] 1305 	push	#0x00
+      000612 4B 40            [ 1] 1306 	push	#0x40
+      000614 CDr00r00         [ 4] 1307 	call	___fsmul
+      000617 5B 08            [ 2] 1308 	addw	sp, #8
+      000619 89               [ 2] 1309 	pushw	x
+      00061A 90 89            [ 2] 1310 	pushw	y
+      00061C CDr00r00         [ 4] 1311 	call	___fs2sint
+      00061F 5B 04            [ 2] 1312 	addw	sp, #4
+      000621 20 11            [ 2] 1313 	jra	00105$
+      000623                       1314 00104$:
+                                   1315 ;	ds18b20.c: 526: targettemp=(int)(pid.out);	
+      000623 AEr00r34         [ 2] 1316 	ldw	x, #_pid+52
+      000626 90 93            [ 1] 1317 	ldw	y, x
+      000628 90 EE 02         [ 2] 1318 	ldw	y, (0x2, y)
+      00062B FE               [ 2] 1319 	ldw	x, (x)
+      00062C 90 89            [ 2] 1320 	pushw	y
+      00062E 89               [ 2] 1321 	pushw	x
+      00062F CDr00r00         [ 4] 1322 	call	___fs2sint
+      000632 5B 04            [ 2] 1323 	addw	sp, #4
+      000634                       1324 00105$:
+                                   1325 ;	ds18b20.c: 529: if(t->heat > targettemp)
+      000634 16 06            [ 2] 1326 	ldw	y, (0x06, sp)
+      000636 90 F6            [ 1] 1327 	ld	a, (y)
+      000638 6B 05            [ 1] 1328 	ld	(0x05, sp), a
+      00063A 0F 04            [ 1] 1329 	clr	(0x04, sp)
+      00063C 13 04            [ 2] 1330 	cpw	x, (0x04, sp)
+      00063E 2E 05            [ 1] 1331 	jrsge	00107$
+                                   1332 ;	ds18b20.c: 531: heater_off();
+      000640 CDr06r7E         [ 4] 1333 	call	_heater_off
+      000643 20 03            [ 2] 1334 	jra	00108$
+      000645                       1335 00107$:
+                                   1336 ;	ds18b20.c: 535: heater_on();
+      000645 CDr06r75         [ 4] 1337 	call	_heater_on
+      000648                       1338 00108$:
+                                   1339 ;	ds18b20.c: 539: if(t->second > 59) {
+      000648 1E 01            [ 2] 1340 	ldw	x, (0x01, sp)
+      00064A F6               [ 1] 1341 	ld	a, (x)
+      00064B A1 3B            [ 1] 1342 	cp	a, #0x3b
+      00064D 23 07            [ 2] 1343 	jrule	00111$
+                                   1344 ;	ds18b20.c: 540: t->second= 0;
+      00064F 1E 01            [ 2] 1345 	ldw	x, (0x01, sp)
+      000651 7F               [ 1] 1346 	clr	(x)
+                                   1347 ;	ds18b20.c: 547: t->minute -=1;
+      000652 1E 01            [ 2] 1348 	ldw	x, (0x01, sp)
+      000654 5C               [ 1] 1349 	incw	x
+      000655 7A               [ 1] 1350 	dec	(x)
+      000656                       1351 00111$:
+                                   1352 ;	ds18b20.c: 549: }
+      000656 5B 08            [ 2] 1353 	addw	sp, #8
+      000658 81               [ 4] 1354 	ret
+                                   1355 ;	ds18b20.c: 552: void timer_isr(void) __interrupt(BEEP_ISR) {
+                                   1356 ;	-----------------------------------------
+                                   1357 ;	 function timer_isr
+                                   1358 ;	-----------------------------------------
+      000659                       1359 _timer_isr:
+      000659 4F               [ 1] 1360 	clr	a
+      00065A 62               [ 2] 1361 	div	x, a
+                                   1362 ;	ds18b20.c: 553: if (++internteller > 500) {
+      00065B CEu00u04         [ 2] 1363 	ldw	x, _internteller+0
+      00065E 5C               [ 1] 1364 	incw	x
+      00065F CFu00u04         [ 2] 1365 	ldw	_internteller+0, x
+      000662 A3 01 F4         [ 2] 1366 	cpw	x, #0x01f4
+      000665 23 0D            [ 2] 1367 	jrule	00103$
+                                   1368 ;	ds18b20.c: 554: internteller=0;
+      000667 5F               [ 1] 1369 	clrw	x
+      000668 CFu00u04         [ 2] 1370 	ldw	_internteller+0, x
+                                   1371 ;	ds18b20.c: 555: rt_one_second_increment(&real_time);
+      00066B 4Br00            [ 1] 1372 	push	#<_real_time
+      00066D 4Bs00            [ 1] 1373 	push	#(_real_time >> 8)
+      00066F CDr05rC1         [ 4] 1374 	call	_rt_one_second_increment
+      000672 5B 02            [ 2] 1375 	addw	sp, #2
+      000674                       1376 00103$:
+                                   1377 ;	ds18b20.c: 560: }
+      000674 80               [11] 1378 	iret
+                                   1379 ;	ds18b20.c: 564: void heater_on(void)
+                                   1380 ;	-----------------------------------------
+                                   1381 ;	 function heater_on
+                                   1382 ;	-----------------------------------------
+      000675                       1383 _heater_on:
+                                   1384 ;	ds18b20.c: 566: PC_ODR = (1<<3) ; //C8 connected to SSD
+      000675 35 08 50 0A      [ 1] 1385 	mov	0x500a+0, #0x08
+                                   1386 ;	ds18b20.c: 567: PB_ODR = (0<<5) ; //onboard LED
+      000679 35 00 50 05      [ 1] 1387 	mov	0x5005+0, #0x00
+                                   1388 ;	ds18b20.c: 568: }
+      00067D 81               [ 4] 1389 	ret
+                                   1390 ;	ds18b20.c: 570: void heater_off(void)
+                                   1391 ;	-----------------------------------------
+                                   1392 ;	 function heater_off
+                                   1393 ;	-----------------------------------------
+      00067E                       1394 _heater_off:
+                                   1395 ;	ds18b20.c: 572: PC_ODR = (0<<3) ;
+      00067E 35 00 50 0A      [ 1] 1396 	mov	0x500a+0, #0x00
+                                   1397 ;	ds18b20.c: 573: PB_ODR = (1<<5) ; //onboard LED
+      000682 35 20 50 05      [ 1] 1398 	mov	0x5005+0, #0x20
+                                   1399 ;	ds18b20.c: 574: }
+      000686 81               [ 4] 1400 	ret
+                                   1401 ;	ds18b20.c: 576: int main () {
+                                   1402 ;	-----------------------------------------
+                                   1403 ;	 function main
+                                   1404 ;	-----------------------------------------
+      000687                       1405 _main:
+      000687 52 12            [ 2] 1406 	sub	sp, #18
+                                   1407 ;	ds18b20.c: 584: char boodsch[12]="temp=\r\n";
+      000689 96               [ 1] 1408 	ldw	x, sp
+      00068A 5C               [ 1] 1409 	incw	x
+      00068B 1F 0F            [ 2] 1410 	ldw	(0x0f, sp), x
+      00068D A6 74            [ 1] 1411 	ld	a, #0x74
+      00068F F7               [ 1] 1412 	ld	(x), a
+      000690 1E 0F            [ 2] 1413 	ldw	x, (0x0f, sp)
+      000692 5C               [ 1] 1414 	incw	x
+      000693 A6 65            [ 1] 1415 	ld	a, #0x65
+      000695 F7               [ 1] 1416 	ld	(x), a
+      000696 1E 0F            [ 2] 1417 	ldw	x, (0x0f, sp)
+      000698 5C               [ 1] 1418 	incw	x
+      000699 5C               [ 1] 1419 	incw	x
+      00069A A6 6D            [ 1] 1420 	ld	a, #0x6d
+      00069C F7               [ 1] 1421 	ld	(x), a
+      00069D 1E 0F            [ 2] 1422 	ldw	x, (0x0f, sp)
+      00069F A6 70            [ 1] 1423 	ld	a, #0x70
+      0006A1 E7 03            [ 1] 1424 	ld	(0x0003, x), a
+      0006A3 1E 0F            [ 2] 1425 	ldw	x, (0x0f, sp)
+      0006A5 A6 3D            [ 1] 1426 	ld	a, #0x3d
+      0006A7 E7 04            [ 1] 1427 	ld	(0x0004, x), a
+      0006A9 1E 0F            [ 2] 1428 	ldw	x, (0x0f, sp)
+      0006AB A6 0D            [ 1] 1429 	ld	a, #0x0d
+      0006AD E7 05            [ 1] 1430 	ld	(0x0005, x), a
+      0006AF 1E 0F            [ 2] 1431 	ldw	x, (0x0f, sp)
+      0006B1 A6 0A            [ 1] 1432 	ld	a, #0x0a
+      0006B3 E7 06            [ 1] 1433 	ld	(0x0006, x), a
+      0006B5 1E 0F            [ 2] 1434 	ldw	x, (0x0f, sp)
+      0006B7 6F 07            [ 1] 1435 	clr	(0x0007, x)
+      0006B9 1E 0F            [ 2] 1436 	ldw	x, (0x0f, sp)
+      0006BB 6F 08            [ 1] 1437 	clr	(0x0008, x)
+      0006BD 1E 0F            [ 2] 1438 	ldw	x, (0x0f, sp)
+      0006BF 6F 09            [ 1] 1439 	clr	(0x0009, x)
+      0006C1 1E 0F            [ 2] 1440 	ldw	x, (0x0f, sp)
+      0006C3 6F 0A            [ 1] 1441 	clr	(0x000a, x)
+      0006C5 1E 0F            [ 2] 1442 	ldw	x, (0x0f, sp)
+      0006C7 6F 0B            [ 1] 1443 	clr	(0x000b, x)
+                                   1444 ;	ds18b20.c: 586: real_time.minute=15;
+      0006C9 AEr00r01         [ 2] 1445 	ldw	x, #_real_time+1
+      0006CC 1F 0D            [ 2] 1446 	ldw	(0x0d, sp), x
+      0006CE A6 0F            [ 1] 1447 	ld	a, #0x0f
+      0006D0 F7               [ 1] 1448 	ld	(x), a
+                                   1449 ;	ds18b20.c: 587: InitializeSystemClock();
+      0006D1 CDr00r0B         [ 4] 1450 	call	_InitializeSystemClock
+                                   1451 ;	ds18b20.c: 589: BEEP_CSR = (0<<7) | (0<<6) | (1<<5) | 0x1E;
+      0006D4 35 3E 50 F3      [ 1] 1452 	mov	0x50f3+0, #0x3e
+                                   1453 ;	ds18b20.c: 591: PD_DDR = (1 << 3) | (1 << 2); // output mode
+      0006D8 35 0C 50 11      [ 1] 1454 	mov	0x5011+0, #0x0c
+                                   1455 ;	ds18b20.c: 593: PD_DDR &=  ~(1 << 4); //PD4 input for beep?
+      0006DC 72 19 50 11      [ 1] 1456 	bres	20497, #4
+                                   1457 ;	ds18b20.c: 595: PD_CR1 = (1 << 3) | (1 << 2); // push-pull
+      0006E0 35 0C 50 12      [ 1] 1458 	mov	0x5012+0, #0x0c
+                                   1459 ;	ds18b20.c: 596: PD_CR1 &= ~(1 << 4); // input with float beep?
+      0006E4 C6 50 12         [ 1] 1460 	ld	a, 0x5012
+      0006E7 A4 EF            [ 1] 1461 	and	a, #0xef
+      0006E9 C7 50 12         [ 1] 1462 	ld	0x5012, a
+                                   1463 ;	ds18b20.c: 598: PD_CR2 = (1 << 3) | (1 << 2) | (1<< 4); // up to 10MHz speed + interrupt enabled
+      0006EC 35 1C 50 13      [ 1] 1464 	mov	0x5013+0, #0x1c
+                                   1465 ;	ds18b20.c: 600: EXTI_CR1 = (1<<7); //Port D external sensitivity bits7:6 10: Falling edge only
+      0006F0 35 80 50 A0      [ 1] 1466 	mov	0x50a0+0, #0x80
+                                   1467 ;	ds18b20.c: 601: EXTI_CR1 &= ~(1<<6); //Port D external sensitivity bits7:6 10: Falling edge only
+      0006F4 C6 50 A0         [ 1] 1468 	ld	a, 0x50a0
+      0006F7 A4 BF            [ 1] 1469 	and	a, #0xbf
+      0006F9 C7 50 A0         [ 1] 1470 	ld	0x50a0, a
+                                   1471 ;	ds18b20.c: 604: PC_DDR = (1<<3) ;
+      0006FC 35 08 50 0C      [ 1] 1472 	mov	0x500c+0, #0x08
+                                   1473 ;	ds18b20.c: 605: PB_DDR = (1<<5) ;
+      000700 35 20 50 07      [ 1] 1474 	mov	0x5007+0, #0x20
+                                   1475 ;	ds18b20.c: 607: PC_CR1 = (1<<3) ;
+      000704 35 08 50 0D      [ 1] 1476 	mov	0x500d+0, #0x08
+                                   1477 ;	ds18b20.c: 608: PB_CR1 = (1<<5) ;
+      000708 35 20 50 08      [ 1] 1478 	mov	0x5008+0, #0x20
+                                   1479 ;	ds18b20.c: 611: tm1637Init();
+      00070C CDr01r46         [ 4] 1480 	call	_tm1637Init
+                                   1481 ;	ds18b20.c: 613: InitializeUART();
+      00070F CDr00rF1         [ 4] 1482 	call	_InitializeUART
+                                   1483 ;	ds18b20.c: 615: __asm__("rim");
+      000712 9A               [ 1] 1484 	rim
+                                   1485 ;	ds18b20.c: 620: PIDController_Init(&pid);
+      000713 4Br00            [ 1] 1486 	push	#<_pid
+      000715 4Bs00            [ 1] 1487 	push	#(_pid >> 8)
+      000717 CDr00r00         [ 4] 1488 	call	_PIDController_Init
+      00071A 5B 02            [ 2] 1489 	addw	sp, #2
+                                   1490 ;	ds18b20.c: 622: phase=1;
+      00071C AE 00 01         [ 2] 1491 	ldw	x, #0x0001
+      00071F 1F 11            [ 2] 1492 	ldw	(0x11, sp), x
+                                   1493 ;	ds18b20.c: 623: while (1) {
+      000721                       1494 00117$:
+                                   1495 ;	ds18b20.c: 627: switch (phase){
+      000721 1E 11            [ 2] 1496 	ldw	x, (0x11, sp)
+      000723 5A               [ 2] 1497 	decw	x
+      000724 27 25            [ 1] 1498 	jreq	00101$
+      000726 1E 11            [ 2] 1499 	ldw	x, (0x11, sp)
+      000728 A3 00 02         [ 2] 1500 	cpw	x, #0x0002
+      00072B 27 56            [ 1] 1501 	jreq	00104$
+      00072D 1E 11            [ 2] 1502 	ldw	x, (0x11, sp)
+      00072F A3 00 03         [ 2] 1503 	cpw	x, #0x0003
+      000732 26 03            [ 1] 1504 	jrne	00178$
+      000734 CCr07rB8         [ 2] 1505 	jp	00107$
+      000737                       1506 00178$:
+      000737 1E 11            [ 2] 1507 	ldw	x, (0x11, sp)
+      000739 A3 00 04         [ 2] 1508 	cpw	x, #0x0004
+      00073C 26 03            [ 1] 1509 	jrne	00181$
+      00073E CCr07rF0         [ 2] 1510 	jp	00110$
+      000741                       1511 00181$:
+      000741 1E 11            [ 2] 1512 	ldw	x, (0x11, sp)
+      000743 A3 00 05         [ 2] 1513 	cpw	x, #0x0005
+      000746 26 D9            [ 1] 1514 	jrne	00117$
+      000748 CCr08r28         [ 2] 1515 	jp	00113$
+                                   1516 ;	ds18b20.c: 629: case 1: 
+      00074B                       1517 00101$:
+                                   1518 ;	ds18b20.c: 630: read_display_temp(45); //sample temp
+      00074B 5F               [ 1] 1519 	clrw	x
+      00074C 89               [ 2] 1520 	pushw	x
+      00074D 4B 34            [ 1] 1521 	push	#0x34
+      00074F 4B 42            [ 1] 1522 	push	#0x42
+      000751 CDr04r04         [ 4] 1523 	call	_read_display_temp
+      000754 5B 04            [ 2] 1524 	addw	sp, #4
+                                   1525 ;	ds18b20.c: 631: if (real_time.minute<1) {phase =2; real_time.minute=45;
+      000756 1E 0D            [ 2] 1526 	ldw	x, (0x0d, sp)
+      000758 F6               [ 1] 1527 	ld	a, (x)
+      000759 A1 01            [ 1] 1528 	cp	a, #0x01
+      00075B 24 C4            [ 1] 1529 	jrnc	00117$
+      00075D AE 00 02         [ 2] 1530 	ldw	x, #0x0002
+      000760 1F 11            [ 2] 1531 	ldw	(0x11, sp), x
+      000762 1E 0D            [ 2] 1532 	ldw	x, (0x0d, sp)
+      000764 A6 2D            [ 1] 1533 	ld	a, #0x2d
+      000766 F7               [ 1] 1534 	ld	(x), a
+                                   1535 ;	ds18b20.c: 632: fast=false;
+      000767 72 5Fu00u38      [ 1] 1536 	clr	_fast+0
+                                   1537 ;	ds18b20.c: 633: sprintf(boodsch,"to phase2\r\n"); 
+      00076B 90 AEr00r1B      [ 2] 1538 	ldw	y, #___str_3
+      00076F 1E 0F            [ 2] 1539 	ldw	x, (0x0f, sp)
+      000771 90 89            [ 2] 1540 	pushw	y
+      000773 89               [ 2] 1541 	pushw	x
+      000774 CDr00r00         [ 4] 1542 	call	_sprintf
+      000777 5B 04            [ 2] 1543 	addw	sp, #4
+                                   1544 ;	ds18b20.c: 634: UARTPrintF (boodsch); 
+      000779 1E 0F            [ 2] 1545 	ldw	x, (0x0f, sp)
+      00077B 89               [ 2] 1546 	pushw	x
+      00077C CDr00r94         [ 4] 1547 	call	_UARTPrintF
+      00077F 5B 02            [ 2] 1548 	addw	sp, #2
+                                   1549 ;	ds18b20.c: 636: break;
+      000781 20 9E            [ 2] 1550 	jra	00117$
+                                   1551 ;	ds18b20.c: 638: case 2: 
+      000783                       1552 00104$:
+                                   1553 ;	ds18b20.c: 639: read_display_temp(62); //sample temp
+      000783 5F               [ 1] 1554 	clrw	x
+      000784 89               [ 2] 1555 	pushw	x
+      000785 4B 78            [ 1] 1556 	push	#0x78
+      000787 4B 42            [ 1] 1557 	push	#0x42
+      000789 CDr04r04         [ 4] 1558 	call	_read_display_temp
+      00078C 5B 04            [ 2] 1559 	addw	sp, #4
+                                   1560 ;	ds18b20.c: 640: if (real_time.minute<1) {phase =3; real_time.minute=20;
+      00078E 1E 0D            [ 2] 1561 	ldw	x, (0x0d, sp)
+      000790 F6               [ 1] 1562 	ld	a, (x)
+      000791 A1 01            [ 1] 1563 	cp	a, #0x01
+      000793 24 8C            [ 1] 1564 	jrnc	00117$
+      000795 AE 00 03         [ 2] 1565 	ldw	x, #0x0003
+      000798 1F 11            [ 2] 1566 	ldw	(0x11, sp), x
+      00079A 1E 0D            [ 2] 1567 	ldw	x, (0x0d, sp)
+      00079C A6 14            [ 1] 1568 	ld	a, #0x14
+      00079E F7               [ 1] 1569 	ld	(x), a
+                                   1570 ;	ds18b20.c: 641: sprintf(boodsch,"to phase3\r\n"); 
+      00079F 90 AEr00r27      [ 2] 1571 	ldw	y, #___str_4
+      0007A3 1E 0F            [ 2] 1572 	ldw	x, (0x0f, sp)
+      0007A5 90 89            [ 2] 1573 	pushw	y
+      0007A7 89               [ 2] 1574 	pushw	x
+      0007A8 CDr00r00         [ 4] 1575 	call	_sprintf
+      0007AB 5B 04            [ 2] 1576 	addw	sp, #4
+                                   1577 ;	ds18b20.c: 642: UARTPrintF (boodsch); 
+      0007AD 1E 0F            [ 2] 1578 	ldw	x, (0x0f, sp)
+      0007AF 89               [ 2] 1579 	pushw	x
+      0007B0 CDr00r94         [ 4] 1580 	call	_UARTPrintF
+      0007B3 5B 02            [ 2] 1581 	addw	sp, #2
+                                   1582 ;	ds18b20.c: 645: break;
+      0007B5 CCr07r21         [ 2] 1583 	jp	00117$
+                                   1584 ;	ds18b20.c: 646: case 3: 
+      0007B8                       1585 00107$:
+                                   1586 ;	ds18b20.c: 647: read_display_temp(71); //end no heating, no timer, overshoot 1degree, hence target is 72
+      0007B8 5F               [ 1] 1587 	clrw	x
+      0007B9 89               [ 2] 1588 	pushw	x
+      0007BA 4B 8E            [ 1] 1589 	push	#0x8e
+      0007BC 4B 42            [ 1] 1590 	push	#0x42
+      0007BE CDr04r04         [ 4] 1591 	call	_read_display_temp
+      0007C1 5B 04            [ 2] 1592 	addw	sp, #4
+                                   1593 ;	ds18b20.c: 648: if (real_time.minute<1) {phase =4; real_time.minute=6;
+      0007C3 1E 0D            [ 2] 1594 	ldw	x, (0x0d, sp)
+      0007C5 F6               [ 1] 1595 	ld	a, (x)
+      0007C6 A1 01            [ 1] 1596 	cp	a, #0x01
+      0007C8 25 03            [ 1] 1597 	jrc	00188$
+      0007CA CCr07r21         [ 2] 1598 	jp	00117$
+      0007CD                       1599 00188$:
+      0007CD AE 00 04         [ 2] 1600 	ldw	x, #0x0004
+      0007D0 1F 11            [ 2] 1601 	ldw	(0x11, sp), x
+      0007D2 1E 0D            [ 2] 1602 	ldw	x, (0x0d, sp)
+      0007D4 A6 06            [ 1] 1603 	ld	a, #0x06
+      0007D6 F7               [ 1] 1604 	ld	(x), a
+                                   1605 ;	ds18b20.c: 650: sprintf(boodsch,"to phase4\r\n"); 
+      0007D7 90 AEr00r33      [ 2] 1606 	ldw	y, #___str_5
+      0007DB 1E 0F            [ 2] 1607 	ldw	x, (0x0f, sp)
+      0007DD 90 89            [ 2] 1608 	pushw	y
+      0007DF 89               [ 2] 1609 	pushw	x
+      0007E0 CDr00r00         [ 4] 1610 	call	_sprintf
+      0007E3 5B 04            [ 2] 1611 	addw	sp, #4
+                                   1612 ;	ds18b20.c: 651: UARTPrintF (boodsch); 
+      0007E5 1E 0F            [ 2] 1613 	ldw	x, (0x0f, sp)
+      0007E7 89               [ 2] 1614 	pushw	x
+      0007E8 CDr00r94         [ 4] 1615 	call	_UARTPrintF
+      0007EB 5B 02            [ 2] 1616 	addw	sp, #2
+                                   1617 ;	ds18b20.c: 653: break;
+      0007ED CCr07r21         [ 2] 1618 	jp	00117$
+                                   1619 ;	ds18b20.c: 654: case 4: 
+      0007F0                       1620 00110$:
+                                   1621 ;	ds18b20.c: 655: read_display_temp(78); //end no heating, no timer
+      0007F0 5F               [ 1] 1622 	clrw	x
+      0007F1 89               [ 2] 1623 	pushw	x
+      0007F2 4B 9C            [ 1] 1624 	push	#0x9c
+      0007F4 4B 42            [ 1] 1625 	push	#0x42
+      0007F6 CDr04r04         [ 4] 1626 	call	_read_display_temp
+      0007F9 5B 04            [ 2] 1627 	addw	sp, #4
+                                   1628 ;	ds18b20.c: 656: if (real_time.minute<1) {phase =5; real_time.minute=60; //end
+      0007FB 1E 0D            [ 2] 1629 	ldw	x, (0x0d, sp)
+      0007FD F6               [ 1] 1630 	ld	a, (x)
+      0007FE A1 01            [ 1] 1631 	cp	a, #0x01
+      000800 25 03            [ 1] 1632 	jrc	00189$
+      000802 CCr07r21         [ 2] 1633 	jp	00117$
+      000805                       1634 00189$:
+      000805 AE 00 05         [ 2] 1635 	ldw	x, #0x0005
+      000808 1F 11            [ 2] 1636 	ldw	(0x11, sp), x
+      00080A 1E 0D            [ 2] 1637 	ldw	x, (0x0d, sp)
+      00080C A6 3C            [ 1] 1638 	ld	a, #0x3c
+      00080E F7               [ 1] 1639 	ld	(x), a
+                                   1640 ;	ds18b20.c: 657: sprintf(boodsch,"to phase5\r\n"); 
+      00080F 90 AEr00r3F      [ 2] 1641 	ldw	y, #___str_6
+      000813 1E 0F            [ 2] 1642 	ldw	x, (0x0f, sp)
+      000815 90 89            [ 2] 1643 	pushw	y
+      000817 89               [ 2] 1644 	pushw	x
+      000818 CDr00r00         [ 4] 1645 	call	_sprintf
+      00081B 5B 04            [ 2] 1646 	addw	sp, #4
+                                   1647 ;	ds18b20.c: 658: UARTPrintF (boodsch); 
+      00081D 1E 0F            [ 2] 1648 	ldw	x, (0x0f, sp)
+      00081F 89               [ 2] 1649 	pushw	x
+      000820 CDr00r94         [ 4] 1650 	call	_UARTPrintF
+      000823 5B 02            [ 2] 1651 	addw	sp, #2
+                                   1652 ;	ds18b20.c: 661: break;
+      000825 CCr07r21         [ 2] 1653 	jp	00117$
+                                   1654 ;	ds18b20.c: 662: case 5:
+      000828                       1655 00113$:
+                                   1656 ;	ds18b20.c: 663: read_display_temp(0); //end no heating, no timer
+      000828 5F               [ 1] 1657 	clrw	x
+      000829 89               [ 2] 1658 	pushw	x
+      00082A 5F               [ 1] 1659 	clrw	x
+      00082B 89               [ 2] 1660 	pushw	x
+      00082C CDr04r04         [ 4] 1661 	call	_read_display_temp
+      00082F 5B 04            [ 2] 1662 	addw	sp, #4
+                                   1663 ;	ds18b20.c: 664: sprintf(boodsch,"end\r\n"); 
+      000831 90 AEr00r4B      [ 2] 1664 	ldw	y, #___str_7
+      000835 1E 0F            [ 2] 1665 	ldw	x, (0x0f, sp)
+      000837 90 89            [ 2] 1666 	pushw	y
+      000839 89               [ 2] 1667 	pushw	x
+      00083A CDr00r00         [ 4] 1668 	call	_sprintf
+      00083D 5B 04            [ 2] 1669 	addw	sp, #4
+                                   1670 ;	ds18b20.c: 665: UARTPrintF (boodsch); 
+      00083F 1E 0F            [ 2] 1671 	ldw	x, (0x0f, sp)
+      000841 89               [ 2] 1672 	pushw	x
+      000842 CDr00r94         [ 4] 1673 	call	_UARTPrintF
+      000845 5B 02            [ 2] 1674 	addw	sp, #2
+                                   1675 ;	ds18b20.c: 666: break;
+                                   1676 ;	ds18b20.c: 670: }
+                                   1677 ;	ds18b20.c: 672: }
+      000847 CCr07r21         [ 2] 1678 	jp	00117$
+                                   1679 	.area CODE
+                                   1680 	.area CONST
+      000000                       1681 _segmentMap:
+      000000 3F                    1682 	.db #0x3f	; 63
+      000001 06                    1683 	.db #0x06	; 6
+      000002 5B                    1684 	.db #0x5b	; 91
+      000003 4F                    1685 	.db #0x4f	; 79	'O'
+      000004 66                    1686 	.db #0x66	; 102	'f'
+      000005 6D                    1687 	.db #0x6d	; 109	'm'
+      000006 7D                    1688 	.db #0x7d	; 125
+      000007 07                    1689 	.db #0x07	; 7
+      000008 7F                    1690 	.db #0x7f	; 127
+      000009 6F                    1691 	.db #0x6f	; 111	'o'
+      00000A 77                    1692 	.db #0x77	; 119	'w'
+      00000B 7C                    1693 	.db #0x7c	; 124
+      00000C 39                    1694 	.db #0x39	; 57	'9'
+      00000D 5E                    1695 	.db #0x5e	; 94
+      00000E 79                    1696 	.db #0x79	; 121	'y'
+      00000F 71                    1697 	.db #0x71	; 113	'q'
+      000010 00                    1698 	.db #0x00	; 0
+      000011                       1699 ___str_1:
+      000011 70 69 64 20 3A 25 64  1700 	.ascii "pid :%d"
+      000018 0D                    1701 	.db 0x0d
+      000019 0A                    1702 	.db 0x0a
+      00001A 00                    1703 	.db 0x00
+      00001B                       1704 ___str_3:
+      00001B 74 6F 20 70 68 61 73  1705 	.ascii "to phase2"
+             65 32
+      000024 0D                    1706 	.db 0x0d
+      000025 0A                    1707 	.db 0x0a
+      000026 00                    1708 	.db 0x00
+      000027                       1709 ___str_4:
+      000027 74 6F 20 70 68 61 73  1710 	.ascii "to phase3"
+             65 33
+      000030 0D                    1711 	.db 0x0d
+      000031 0A                    1712 	.db 0x0a
+      000032 00                    1713 	.db 0x00
+      000033                       1714 ___str_5:
+      000033 74 6F 20 70 68 61 73  1715 	.ascii "to phase4"
+             65 34
+      00003C 0D                    1716 	.db 0x0d
+      00003D 0A                    1717 	.db 0x0a
+      00003E 00                    1718 	.db 0x00
+      00003F                       1719 ___str_6:
+      00003F 74 6F 20 70 68 61 73  1720 	.ascii "to phase5"
+             65 35
+      000048 0D                    1721 	.db 0x0d
+      000049 0A                    1722 	.db 0x0a
+      00004A 00                    1723 	.db 0x00
+      00004B                       1724 ___str_7:
+      00004B 65 6E 64              1725 	.ascii "end"
+      00004E 0D                    1726 	.db 0x0d
+      00004F 0A                    1727 	.db 0x0a
+      000050 00                    1728 	.db 0x00
+                                   1729 	.area INITIALIZER
+      000000                       1730 __xinit__pid:
+      000000 3F 80 00 00           1731 	.byte #0x3f,#0x80,#0x00,#0x00	;  1.000000e+00
+      000004 3F 80 00 00           1732 	.byte #0x3f,#0x80,#0x00,#0x00	;  1.000000e+00
+      000008 3F 80 00 00           1733 	.byte #0x3f,#0x80,#0x00,#0x00	;  1.000000e+00
+      00000C 3C A3 D7 0A           1734 	.byte #0x3c,#0xa3,#0xd7,#0x0a	;  2.000000e-02
+      000010 00 00 00 00           1735 	.byte #0x00,#0x00,#0x00,#0x00	;  0.000000e+00
+      000014 41 20 00 00           1736 	.byte #0x41,#0x20,#0x00,#0x00	;  1.000000e+01
+      000018 00 00 00 00           1737 	.byte #0x00,#0x00,#0x00,#0x00	;  0.000000e+00
+      00001C 40 A0 00 00           1738 	.byte #0x40,#0xa0,#0x00,#0x00	;  5.000000e+00
+      000020 41 A0 00 00           1739 	.byte #0x41,#0xa0,#0x00,#0x00	;  2.000000e+01
+      000024 00 00 00 00           1740 	.byte #0x00,#0x00,#0x00,#0x00	;  0.000000e+00
+      000028 00 00 00 00           1741 	.byte #0x00,#0x00,#0x00,#0x00	;  0.000000e+00
+      00002C 00 00 00 00           1742 	.byte #0x00,#0x00,#0x00,#0x00	;  0.000000e+00
+      000030 00 00 00 00           1743 	.byte #0x00,#0x00,#0x00,#0x00	;  0.000000e+00
+      000034 00 00 00 00           1744 	.byte #0x00,#0x00,#0x00,#0x00	;  0.000000e+00
+      000038                       1745 __xinit__fast:
+      000038 01                    1746 	.db #0x01	;  1
+                                   1747 	.area CABS (ABS)

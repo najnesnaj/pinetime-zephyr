@@ -1,0 +1,14 @@
+-muwx
+-i ds18b20.ihx
+-Y
+-b HOME = 0x8000
+-b DATA = 0x0001
+-b SSEG = 0xffffffff
+-k /usr/bin/../share/sdcc/lib/stm8
+-k /usr/share/sdcc/lib/stm8
+-l stm8
+-l stm8
+ds18b20.rel
+PID.rel
+
+-e
