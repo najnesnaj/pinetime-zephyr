@@ -1,4 +1,4 @@
-# Install script for directory: /root/zephyrproject/zephyr/samples/subsys/display/lvgl
+# Install script for directory: /root/zephyrproject/zephyr/samples/oswatch-cts
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,4 +1,4 @@
-# Install script for directory: /root/zephyrproject/zephyr/subsys/input
+# Install script for directory: /root/zephyrproject/zephyr/subsys/settings
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,10 @@ endif()
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/root/zephyrproject/zephyr/build/zephyr/subsys/settings/src/cmake_install.cmake")
 endif()
 

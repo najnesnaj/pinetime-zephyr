@@ -1,4 +1,4 @@
-# Install script for directory: /root/zephyrproject/zephyr/drivers/gpio
+# Install script for directory: /root/zephyrproject/zephyr/subsys/settings/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

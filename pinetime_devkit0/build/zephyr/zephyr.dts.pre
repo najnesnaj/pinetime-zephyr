@@ -254,44 +254,4 @@
 };
 # 8 "/root/zephyrproject/zephyr/boards/posix/native_posix/native_posix_64.dts" 2
 # 1 "<command-line>" 2
-# 1 "/root/zephyrproject/zephyr/samples/subsys/display/lvgl/boards/native_posix_64.overlay" 1
-
-
-
-
-
-# 1 "/root/zephyrproject/zephyr/samples/subsys/display/lvgl/boards/native_posix.overlay" 1
-
-
-
-
-
-
-
-/ {
- aliases {
-  sw0 = &button0;
- };
-
- keys {
-  compatible = "gpio-keys";
-  button0: button0 {
-
-   gpios = <&gpio0 1 (0 << 0)>;
-  };
- };
-};
-
-&gpio0 {
- ngpios = <2>;
-
- sdl_gpio {
-  status = "okay";
-  compatible = "zephyr,gpio-emul-sdl";
-
-  scancodes = <0 21>;
- };
-};
-# 6 "/root/zephyrproject/zephyr/samples/subsys/display/lvgl/boards/native_posix_64.overlay" 2
-# 1 "<command-line>" 2
 # 1 "/root/zephyrproject/zephyr/misc/empty_file.c"

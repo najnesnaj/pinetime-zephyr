@@ -67,7 +67,7 @@ ztest :
  {
   KEEP(*(".dbg_thread_info"));
  }
- input_listener_area : SUBALIGN(4) { _input_listener_list_start = .; KEEP(*(SORT_BY_NAME(._input_listener.static.*))); _input_listener_list_end = .; }
+ settings_handler_static_area : SUBALIGN(4) { _settings_handler_static_list_start = .; KEEP(*(SORT_BY_NAME(._settings_handler_static.static.*))); _settings_handler_static_list_end = .; }
  symbol_to_keep :
  {
   __symbol_to_keep_start = .;

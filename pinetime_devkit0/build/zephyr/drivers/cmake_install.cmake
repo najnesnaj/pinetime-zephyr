@@ -79,21 +79,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/root/zephyrproject/zephyr/build/zephyr/drivers/gpio/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/root/zephyrproject/zephyr/build/zephyr/drivers/input/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/root/zephyrproject/zephyr/build/zephyr/drivers/kscan/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
   include("/root/zephyrproject/zephyr/build/zephyr/drivers/timer/cmake_install.cmake")
 endif()
 

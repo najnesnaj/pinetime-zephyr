@@ -23,7 +23,6 @@
 		led0 = &led0;
 		kscan0 = &kscan_input;
 		rtc = &rtc;
-		sw0 = &button0;
 	};
 	leds {
 		compatible = "gpio-leds";
@@ -135,13 +134,7 @@
 		low-level;
 		gpio-controller;
 		#gpio-cells = < 0x2 >;
-		ngpios = < 0x2 >;
 		phandle = < 0x1 >;
-		sdl_gpio {
-			status = "okay";
-			compatible = "zephyr,gpio-emul-sdl";
-			scancodes = < 0x0 0x15 >;
-		};
 	};
 	zephyr_udc0: udc0 {
 		compatible = "zephyr,native-posix-udc";
@@ -182,11 +175,5 @@
 		nchannels = < 0x2 >;
 		#io-channel-cells = < 0x1 >;
 		status = "okay";
-	};
-	keys {
-		compatible = "gpio-keys";
-		button0: button0 {
-			gpios = < &gpio0 0x1 0x0 >;
-		};
 	};
 };

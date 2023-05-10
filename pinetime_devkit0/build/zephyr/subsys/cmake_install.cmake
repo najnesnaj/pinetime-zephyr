@@ -134,6 +134,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/root/zephyrproject/zephyr/build/zephyr/subsys/input/cmake_install.cmake")
+  include("/root/zephyrproject/zephyr/build/zephyr/subsys/settings/cmake_install.cmake")
 endif()
 

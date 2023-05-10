@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: lvgl
+# Project: oswatch_cts
 # Configurations: 
 # =============================================================================
 # =============================================================================
@@ -165,25 +165,6 @@ rule C_STATIC_LIBRARY_LINKER__boards__posix__native_posix_
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__subsys__input_unscanned_
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ccache /usr/bin/gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building C object $out
-
-
-#############################################
-# Rule for linking C static library.
-
-rule C_STATIC_LIBRARY_LINKER__subsys__input_
-  command = $PRE_LINK && ccache /usr/bin/cmake -E rm -f $TARGET_FILE && ccache /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
-  description = Linking C static library $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
-# Rule for compiling C files.
-
 rule C_COMPILER__drivers__interrupt_controller_unscanned_
   depfile = $DEP_FILE
   deps = gcc
@@ -233,63 +214,6 @@ rule C_COMPILER__drivers__display_unscanned_
 # Rule for linking C static library.
 
 rule C_STATIC_LIBRARY_LINKER__drivers__display_
-  command = $PRE_LINK && ccache /usr/bin/cmake -E rm -f $TARGET_FILE && ccache /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
-  description = Linking C static library $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
-# Rule for compiling C files.
-
-rule C_COMPILER__drivers__gpio_unscanned_
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ccache /usr/bin/gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building C object $out
-
-
-#############################################
-# Rule for linking C static library.
-
-rule C_STATIC_LIBRARY_LINKER__drivers__gpio_
-  command = $PRE_LINK && ccache /usr/bin/cmake -E rm -f $TARGET_FILE && ccache /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
-  description = Linking C static library $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
-# Rule for compiling C files.
-
-rule C_COMPILER__drivers__input_unscanned_
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ccache /usr/bin/gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building C object $out
-
-
-#############################################
-# Rule for linking C static library.
-
-rule C_STATIC_LIBRARY_LINKER__drivers__input_
-  command = $PRE_LINK && ccache /usr/bin/cmake -E rm -f $TARGET_FILE && ccache /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
-  description = Linking C static library $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
-# Rule for compiling C files.
-
-rule C_COMPILER__drivers__kscan_unscanned_
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ccache /usr/bin/gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building C object $out
-
-
-#############################################
-# Rule for linking C static library.
-
-rule C_STATIC_LIBRARY_LINKER__drivers__kscan_
   command = $PRE_LINK && ccache /usr/bin/cmake -E rm -f $TARGET_FILE && ccache /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && ccache /usr/bin/ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -356,7 +280,7 @@ rule C_STATIC_LIBRARY_LINKER__kernel_
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake --regenerate-during-build -S/root/zephyrproject/zephyr/samples/subsys/display/lvgl -B/root/zephyrproject/zephyr/build
+  command = /usr/bin/cmake --regenerate-during-build -S/root/zephyrproject/zephyr/samples/oswatch-cts -B/root/zephyrproject/zephyr/build
   description = Re-running CMake...
   generator = 1
 

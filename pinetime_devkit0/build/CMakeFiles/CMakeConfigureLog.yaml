@@ -9,7 +9,7 @@ events:
       - "/root/zephyrproject/zephyr/cmake/modules/zephyr_default.cmake:124 (include)"
       - "/root/zephyrproject/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:66 (include)"
       - "/root/zephyrproject/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:92 (include_boilerplate)"
-      - "CMakeLists.txt:5 (find_package)"
+      - "CMakeLists.txt:7 (find_package)"
     message: |
       The target system is: Generic - 3.3.99 - posix
       The host system is: Linux - 5.10.16.3-microsoft-standard-WSL2 - x86_64
@@ -23,7 +23,7 @@ events:
       - "/root/zephyrproject/zephyr/cmake/modules/zephyr_default.cmake:124 (include)"
       - "/root/zephyrproject/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:66 (include)"
       - "/root/zephyrproject/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:92 (include_boilerplate)"
-      - "CMakeLists.txt:5 (find_package)"
+      - "CMakeLists.txt:7 (find_package)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
       Compiler: /usr/bin/gcc 
@@ -49,7 +49,7 @@ events:
       - "/root/zephyrproject/zephyr/cmake/modules/zephyr_default.cmake:124 (include)"
       - "/root/zephyrproject/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:66 (include)"
       - "/root/zephyrproject/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:92 (include_boilerplate)"
-      - "CMakeLists.txt:5 (find_package)"
+      - "CMakeLists.txt:7 (find_package)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
       Compiler: /usr/bin/gcc 
@@ -74,7 +74,7 @@ events:
       - "/root/zephyrproject/zephyr/cmake/modules/zephyr_default.cmake:124 (include)"
       - "/root/zephyrproject/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:66 (include)"
       - "/root/zephyrproject/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:92 (include_boilerplate)"
-      - "CMakeLists.txt:5 (find_package)"
+      - "CMakeLists.txt:7 (find_package)"
     message: |
       Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
       gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0
@@ -82,4 +82,34 @@ events:
       This is free software; see the source for copying conditions.  There is NO
       warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
       
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.26/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.26/Modules/CheckCCompilerFlag.cmake:40 (cmake_check_compiler_flag)"
+      - "/root/zephyrproject/zephyr/cmake/modules/extensions.cmake:1912 (check_c_compiler_flag)"
+      - "/root/zephyrproject/zephyr/cmake/modules/extensions.cmake:1084 (check_compiler_flag)"
+      - "/root/zephyrproject/zephyr/cmake/modules/extensions.cmake:1951 (zephyr_check_compiler_flag)"
+      - "/root/zephyrproject/zephyr/cmake/modules/extensions.cmake:1927 (target_cc_option_fallback)"
+      - "/root/zephyrproject/zephyr/cmake/modules/extensions.cmake:122 (target_cc_option)"
+      - "/root/zephyrproject/zephyr/CMakeLists.txt:449 (zephyr_cc_option)"
+    directories:
+      source: "/root/zephyrproject/zephyr/build/CMakeFiles/CMakeScratch/TryCompile-3htpjY"
+      binary: "/root/zephyrproject/zephyr/build/CMakeFiles/CMakeScratch/TryCompile-3htpjY"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/root/zephyrproject/zephyr/cmake/modules"
+    buildResult:
+      variable: "check_fmacro_prefix_map__root_zephyrproject_zephyr_samples_oswatch_cts_CMAKE_SOURCE_DIR_C_"
+      cached: true
+      stdout: |
+        Change Dir: /root/zephyrproject/zephyr/build/CMakeFiles/CMakeScratch/TryCompile-3htpjY
+        
+        Run Build Command(s):/usr/bin/ninja -v cmTC_5f58c && [1/2] /usr/bin/gcc -Dcheck_fmacro_prefix_map__root_zephyrproject_zephyr_samples_oswatch_cts_CMAKE_SOURCE_DIR_C_  -fmacro-prefix-map=/root/zephyrproject/zephyr/samples/oswatch-cts=CMAKE_SOURCE_DIR -o CMakeFiles/cmTC_5f58c.dir/src.c.obj -c /root/zephyrproject/zephyr/build/CMakeFiles/CMakeScratch/TryCompile-3htpjY/src.c
+        [2/2] : && /usr/bin/gcc   CMakeFiles/cmTC_5f58c.dir/src.c.obj -o cmTC_5f58c   && :
+        
+      exitCode: 0
 ...

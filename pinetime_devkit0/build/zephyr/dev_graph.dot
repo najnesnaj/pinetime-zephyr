@@ -1,10 +1,4 @@
 // /root/zephyrproject/zephyr/build/zephyr/zephyr_pre0.elf
 digraph "Device dependency graph" {
-	27 [label="gpio@800\nOrdinal: 27 | Handle: 1\n/gpio@800"]
-	28 [label="sdl_gpio\nOrdinal: 28 | Handle: 2\n/gpio@800/sdl_gpio"]
-	29 [label="input-sdl-touch\nOrdinal: 29 | Handle: 3\n/input-sdl-touch"]
-	30 [label="kscan-input\nOrdinal: 30 | Handle: 4\n/input-sdl-touch/kscan-input"]
-	12 [label="sdl_dc\nOrdinal: 12 | Handle: 5\n/sdl_dc"]
-	27 -> 28
-	29 -> 30
+	12 [label="sdl_dc\nOrdinal: 12 | Handle: 1\n/sdl_dc"]
 }
