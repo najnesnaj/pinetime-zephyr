@@ -8,7 +8,7 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(oswatch_cts)
 
 #target_sources(app PRIVATE src/main.c)
-target_sources(app PRIVATE src/main.c src/event_handler.c)
+target_sources(app PRIVATE src/main.c src/event_handler.c src/display.c)
 
 #cmake_minimum_required(VERSION 3.13.1)
 #list(APPEND ZEPHYR_EXTRA_MODULES

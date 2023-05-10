@@ -27,7 +27,7 @@ int main(void)
 		init_button();
 	}
 #endif
-//	display_init();
+	display_init();
 //	clock_init();
 //	event_handler_init();
 //        bt_init();

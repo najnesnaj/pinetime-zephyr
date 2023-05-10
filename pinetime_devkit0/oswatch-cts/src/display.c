@@ -4,19 +4,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <device.h>
-#include <drivers/display.h>
-#include <drivers/gpio.h>
+#include <zephyr/device.h>
+#include <zephyr/drivers/display.h>
+#include <zephyr/drivers/gpio.h>
 #include <lvgl.h>
 #include <stdio.h>
 #include <string.h>
-#include <zephyr.h>
+//#include <zephyr.h>
+#include <zephyr/kernel.h>
 
 #include "display.h"
 #include "buttons.h"
 #include "clock.h"
 #include "event_handler.h"
-#include <logging/log.h>
+#include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(display, 3);
 
 const static struct device * display_dev;
@@ -129,10 +130,14 @@ void display_date_set_label(char *str)
 //parameters are displayed on screen2
 void display_label()
 {
-        screen2_label1_obj=lv_label_create(lv_scr_act(), NULL);
-        lv_obj_align(screen2_label1_obj, lv_scr_act(), LV_ALIGN_IN_TOP_LEFT, 0, 0);
-        screen2_label2_obj=lv_label_create(lv_scr_act(), NULL);
-        lv_obj_align(screen2_label2_obj, lv_scr_act(), LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+        //screen2_label1_obj=lv_label_create(lv_scr_act(), NULL);
+        screen2_label1_obj=lv_label_create(lv_scr_act());
+        //lv_obj_align(screen2_label1_obj, lv_scr_act(), LV_ALIGN_IN_TOP_LEFT, 0, 0);
+        lv_obj_align(screen2_label1_obj,  LV_ALIGN_TOP_LEFT, 0, 0);
+        //screen2_label2_obj=lv_label_create(lv_scr_act(), NULL);
+        screen2_label2_obj=lv_label_create(lv_scr_act());
+        //lv_obj_align(screen2_label2_obj, lv_scr_act(), LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+        lv_obj_align(screen2_label2_obj, LV_ALIGN_TOP_RIGHT, 0, 0);
 }
 
 
@@ -263,9 +268,12 @@ void display_button()
 	lv_obj_set_width(button_obj, 5);
 	lv_obj_set_height(button_obj, 5);
 	//lv_obj_align(button_obj, NULL, LV_ALIGN_CENTER, 128, 0);
-	lv_obj_align(button_obj, NULL, LV_ALIGN_IN_RIGHT_MID, 0, 0);
+	//lv_obj_align(button_obj, NULL, LV_ALIGN_IN_RIGHT_MID, 0, 0);
+	//lv_obj_align(button_obj, NULL, LV_ALIGN_RIGHT_MID, 0, 0);
+	lv_obj_align(button_obj, LV_ALIGN_RIGHT_MID, 0, 0);
 	lv_btn_set_fit(button_obj, LV_FIT_TIGHT);
-	screen0_label0_obj = lv_label_create(button_obj, NULL);
+	//screen0_label0_obj = lv_label_create(button_obj, NULL);
+	screen0_label0_obj = lv_label_create(button_obj);
 	lv_label_set_text(screen0_label0_obj, "O"); //substitute for real switch on physical watch
 	lv_obj_set_event_cb(button_obj, button_event_cb);
 #endif
@@ -326,10 +334,14 @@ void display_btn_event(buttons_id_t btn_id)
 /*---------------------------------------------------------------------------*/
 void display_screens_init(void)
 {
-	screens[0].screen = lv_obj_create(NULL, NULL);
-	screens[1].screen = lv_obj_create(NULL, NULL);
-	screens[2].screen = lv_obj_create(NULL, NULL);
-	screens[3].screen = lv_obj_create(NULL, NULL);
+	//screens[0].screen = lv_obj_create(NULL, NULL);
+	screens[0].screen = lv_obj_create(NULL);
+	//screens[1].screen = lv_obj_create(NULL, NULL);
+	screens[1].screen = lv_obj_create(NULL);
+	//screens[2].screen = lv_obj_create(NULL, NULL);
+	screens[2].screen = lv_obj_create(NULL);
+	//screens[3].screen = lv_obj_create(NULL, NULL);
+	screens[3].screen = lv_obj_create(NULL);
 
 	// lv_theme_t * mono = lv_theme_mono_init(0, NULL);
 	// lv_theme_set_current(mono);
@@ -338,34 +350,49 @@ void display_screens_init(void)
 	 *  build basic screen0
 	 */
 	lv_scr_load(screens[0].screen);
-	lv_obj_t * screen0_label = lv_label_create(lv_scr_act(), NULL);
+	//lv_obj_t * screen0_label = lv_label_create(lv_scr_act(), NULL);
+	lv_obj_t * screen0_label = lv_label_create(lv_scr_act());
 	lv_label_set_text(screen0_label, "Pg1");
-	lv_obj_align(screen0_label, screens[0].screen, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+	//lv_obj_align(screen0_label, screens[0].screen, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+	//lv_obj_align(screen0_label, screens[0].screen, LV_ALIGN_TOP_RIGHT, 0, 0);
+	lv_obj_align(screen0_label,  LV_ALIGN_TOP_RIGHT, 0, 0);
 	/* the ds_d6 has a real button and no touchscreen, so no need for lvgl-button */
 	display_button();
 
 	/* Time label */
-	time_label = lv_label_create(lv_scr_act(), NULL);
-	lv_obj_align(time_label, NULL, LV_ALIGN_IN_TOP_MID, 0, 0); //jj
+	//time_label = lv_label_create(lv_scr_act(), NULL);
+	time_label = lv_label_create(lv_scr_act());
+	//lv_obj_align(time_label, NULL, LV_ALIGN_IN_TOP_MID, 0, 0); //jj
+	//lv_obj_align(time_label, NULL, LV_ALIGN_TOP_MID, 0, 0); //jj
+	lv_obj_align(time_label, LV_ALIGN_TOP_MID, 0, 0); //jj
 	lv_label_set_text(time_label, "00:00");
 	/* Date label */
-	date_label = lv_label_create(lv_scr_act(), NULL);
-	lv_obj_align(date_label, NULL, LV_ALIGN_IN_BOTTOM_MID, 0, 0);
+	//date_label = lv_label_create(lv_scr_act(), NULL);
+	date_label = lv_label_create(lv_scr_act());
+	//lv_obj_align(date_label, NULL, LV_ALIGN_IN_BOTTOM_MID, 0, 0);
+	//lv_obj_align(date_label, NULL, LV_ALIGN_BOTTOM_MID, 0, 0);
+	lv_obj_align(date_label,  LV_ALIGN_BOTTOM_MID, 0, 0);
 	lv_label_set_text(date_label, "Mon 10 Jan");
 
 	/* title label */
-	title_label = lv_label_create(lv_scr_act(), NULL);
-	lv_obj_align(title_label, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
+	//title_label = lv_label_create(lv_scr_act(), NULL);
+	title_label = lv_label_create(lv_scr_act());
+	//lv_obj_align(title_label, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
+	//lv_obj_align(title_label, NULL, LV_ALIGN_TOP_LEFT, 0, 0);
+	lv_obj_align(title_label,  LV_ALIGN_TOP_LEFT, 0, 0);
 	//lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH"symb");
 	//lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH);
 	lv_label_set_text(title_label, LV_SYMBOL_WIFI);
 
 	/* Battery label */
 	//display_battery(3);
-	battery_label = lv_label_create(lv_scr_act(), NULL);
+	//battery_label = lv_label_create(lv_scr_act(), NULL);
+	battery_label = lv_label_create(lv_scr_act());
 	display_battery(BAT_3); //todo just demo value -- need real level
 	//lv_label_set_text(battery_label, LV_SYMBOL_BATTERY_2);
-        lv_obj_align(battery_label, NULL, LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
+        //lv_obj_align(battery_label, NULL, LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
+        //lv_obj_align(battery_label, NULL, LV_ALIGN_BOTTOM_LEFT, 0, 0);
+        lv_obj_align(battery_label, LV_ALIGN_BOTTOM_LEFT, 0, 0);
 
 	//battery_label = lv_label_create(lv_scr_act(), NULL);
 	//lv_obj_align(battery_label, NULL, LV_ALIGN_IN_TOP_MID, 0, 0);
@@ -391,20 +418,30 @@ void display_screens_init(void)
 	 *  build basic screen1
 	 */
 	lv_scr_load(screens[1].screen);
-	lv_obj_t * screen1_page = lv_label_create(lv_scr_act(), NULL);
+	//lv_obj_t * screen1_page = lv_label_create(lv_scr_act(), NULL);
+	lv_obj_t * screen1_page = lv_label_create(lv_scr_act());
 	lv_label_set_text(screen1_page, "Pg2");
-	lv_obj_align(screen1_page, screens[1].screen, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+	//lv_obj_align(screen1_page, screens[1].screen, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+	//lv_obj_align(screen1_page, screens[1].screen, LV_ALIGN_TOP_RIGHT, 0, 0);
+	//lv_obj_align(screen1_page, screens[1].screen, LV_ALIGN_TOP_RIGHT, 0, 0);
+	lv_obj_align(screen1_page,  LV_ALIGN_TOP_RIGHT, 0, 0);
 
 	// to avoid creating the same button all over again jj
 	display_button();
 
-	screen1_label0_obj = lv_label_create(lv_scr_act(), NULL);
+	//screen1_label0_obj = lv_label_create(lv_scr_act(), NULL);
+	screen1_label0_obj = lv_label_create(lv_scr_act());
 	lv_label_set_text(screen1_label0_obj, "0");
-	lv_obj_align(screen1_label0_obj, screens[1].screen, LV_ALIGN_IN_BOTTOM_LEFT, 5, -5);
+	//lv_obj_align(screen1_label0_obj, screens[1].screen, LV_ALIGN_IN_BOTTOM_LEFT, 5, -5);
+	//lv_obj_align(screen1_label0_obj, screens[1].screen, LV_ALIGN_BOTTOM_LEFT, 5, -5);
+	lv_obj_align(screen1_label0_obj,  LV_ALIGN_BOTTOM_LEFT, 5, -5);
 
-	screen1_label1_obj = lv_label_create(lv_scr_act(), NULL);
+	//screen1_label1_obj = lv_label_create(lv_scr_act(), NULL);
+	screen1_label1_obj = lv_label_create(lv_scr_act());
 	lv_label_set_text(screen1_label1_obj, "0");
-	lv_obj_align(screen1_label1_obj, screens[1].screen, LV_ALIGN_IN_BOTTOM_RIGHT, -15, -5);
+	//lv_obj_align(screen1_label1_obj, screens[1].screen, LV_ALIGN_IN_BOTTOM_RIGHT, -15, -5);
+	//lv_obj_align(screen1_label1_obj, screens[1].screen, LV_ALIGN_BOTTOM_RIGHT, -15, -5);
+	lv_obj_align(screen1_label1_obj, LV_ALIGN_BOTTOM_RIGHT, -15, -5);
 
 	//	lv_obj_t * icon_1 = lv_img_create(lv_scr_act(), NULL);
 	//	lv_img_set_src(icon_1, &icon1);
@@ -414,9 +451,12 @@ void display_screens_init(void)
 	 *  build basic screen2
 	 */
 	lv_scr_load(screens[2].screen);
-	lv_obj_t * screen2_page = lv_label_create(lv_scr_act(), NULL);
+	//lv_obj_t * screen2_page = lv_label_create(lv_scr_act(), NULL);
+	lv_obj_t * screen2_page = lv_label_create(lv_scr_act());
 	lv_label_set_text(screen2_page, "Pg3");
-	lv_obj_align(screen2_page, screens[2].screen, LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
+	//lv_obj_align(screen2_page, screens[2].screen, LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
+	//lv_obj_align(screen2_page, screens[2].screen, LV_ALIGN_BOTTOM_LEFT, 0, 0);
+	lv_obj_align(screen2_page,  LV_ALIGN_BOTTOM_LEFT, 0, 0);
 	// why define the same button all over again? jj
 	display_button();
         display_label(); //parameters on screen 2
@@ -457,12 +497,18 @@ void display_screens_init(void)
 	 *  build basic screen3
 	 */
 	lv_scr_load(screens[3].screen);
-	lv_obj_t * screen3_page = lv_label_create(lv_scr_act(), NULL);
+	//lv_obj_t * screen3_page = lv_label_create(lv_scr_act(), NULL);
+	lv_obj_t * screen3_page = lv_label_create(lv_scr_act());
 	lv_label_set_text(screen3_page, "BT");
-	lv_obj_align(screen3_page, screens[3].screen, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+	//lv_obj_align(screen3_page, screens[3].screen, LV_ALIGN_IN_TOP_RIGHT, 0, 0);
+	//lv_obj_align(screen3_page, screens[3].screen, LV_ALIGN_TOP_RIGHT, 0, 0);
+	lv_obj_align(screen3_page,  LV_ALIGN_TOP_RIGHT, 0, 0);
         /* Bluetooth label */
-        title_label = lv_label_create(lv_scr_act(), NULL);
-        lv_obj_align(title_label, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
+        //title_label = lv_label_create(lv_scr_act(), NULL);
+        title_label = lv_label_create(lv_scr_act());
+        //lv_obj_align(title_label, NULL, LV_ALIGN_IN_TOP_LEFT, 0, 0);
+        //lv_obj_align(title_label, NULL, LV_ALIGN_TOP_LEFT, 0, 0);
+        lv_obj_align(title_label, LV_ALIGN_TOP_LEFT, 0, 0);
         lv_label_set_text(title_label, LV_SYMBOL_BLUETOOTH);
 
 	// why define the same button all over again? jj
@@ -478,15 +524,38 @@ void display_screens_init(void)
 /*---------------------------------------------------------------------------*/
 #if defined(CONFIG_BOARD_PINETIME_DEVKIT0)
 
-
-#define LED0_NODE DT_ALIAS(led1)
-
-#if DT_NODE_HAS_STATUS(LED0_NODE, okay)
-#define LED0    DT_GPIO_LABEL(LED0_NODE, gpios)
-#define PIN     DT_GPIO_PIN(LED0_NODE, gpios)
-#define FLAGS   DT_GPIO_FLAGS(LED0_NODE, gpios)
+//TODO this is backlighting mid, might be necessary to set to led2 = high
+//#define LED0_NODE DT_ALIAS(led1)
+/* Locate led0 as alias or label by that name */
+#if DT_NODE_EXISTS(DT_ALIAS(led0))
+#define LED0 DT_ALIAS(led0)
+#elif DT_NODE_EXISTS(DT_NODELABEL(led0))
+#define LED0 DT_NODELABEL(led0)
+#else
+#define LED0 DT_INVALID_NODE
 #endif
+
+
+
+
+//#if DT_NODE_HAS_STATUS(LED0_NODE, okay)
+//#define LED0    DT_GPIO_LABEL(LED0_NODE, gpios)
+//#define PIN     DT_GPIO_PIN(LED0_NODE, gpios)
+//#define FLAGS   DT_GPIO_FLAGS(LED0_NODE, gpios)
+//#endif
+
+#if DT_NODE_EXISTS(LED0)
+#define LED0_DEV DT_PHANDLE(LED0, gpios)
+#define LED0_PIN DT_PHA(LED0, gpios, pin)
+#define LED0_FLAGS DT_PHA(LED0, gpios, flags)
+#else
+#define LED0 DT_INVALID_NODE
 #endif
+
+static const struct device *const led_dev = DEVICE_DT_GET(LED0_DEV);
+//#endif /* LED0 */
+	
+#endif /* PINETIME_DEVKIT0 */
 
 static void backlight_switch(bool enable)
 {
@@ -494,14 +563,16 @@ static void backlight_switch(bool enable)
 
 	const struct device *dev;
 
-	dev = device_get_binding(LED0);
+	//dev = device_get_binding(LED0);
+//	dev = DEVICE_DT_GET(LED0_DEV);
+	//dev = device_get_binding(LED0);
 	/* If you have a backlight, set it up and turn it on here */
-	gpio_pin_configure(dev, PIN, GPIO_OUTPUT_ACTIVE | FLAGS);
+	gpio_pin_configure(dev, LED0_PIN, GPIO_OUTPUT_ACTIVE | LED0_FLAGS);
 	//   gpio_pin_configure(dev, LED, GPIO_DIR_OUT);
 	if (enable==true) 
-	gpio_pin_set(dev, PIN, 1);
+	gpio_pin_set(dev, LED0_PIN, 1);
 	else
-	gpio_pin_set(dev, PIN, 0);
+	gpio_pin_set(dev, LED0_PIN, 0);
 	//gpio_pin_write(dev, LED, 0);
 #endif
 }
@@ -514,12 +585,16 @@ int display_init(void)
 //#if defined(CONFIG_BOARD_PINETIME_DEVKIT0)
 	backlight_switch(true); //jj check which board has backlight is done in procedure
 //#endif
-	display_dev = device_get_binding(CONFIG_LVGL_DISPLAY_DEV_NAME);
-
-	if (display_dev == NULL) {
-		LOG_ERR("device not found. %s", CONFIG_LVGL_DISPLAY_DEV_NAME);
-		return -1;
-	}
+//	display_dev = device_get_binding(CONFIG_LVGL_DISPLAY_DEV_NAME);
+        display_dev = DEVICE_DT_GET(DT_CHOSEN(zephyr_display));
+        if (!device_is_ready(display_dev)) {
+                LOG_ERR("Device not ready, aborting test");
+                return 0;
+        }
+//	if (display_dev == NULL) {
+//		LOG_ERR("device not found. %s", CONFIG_LVGL_DISPLAY_DEV_NAME);
+//		return -1;
+//	}
 
 	//lv_init();
 
