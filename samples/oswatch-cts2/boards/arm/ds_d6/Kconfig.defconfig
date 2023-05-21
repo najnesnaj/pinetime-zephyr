@@ -1,0 +1,15 @@
+#
+# Copyright (c) 2019 Nordic Semiconductor
+#
+# SPDX-License-Identifier: LicenseRef-BSD-5-Clause-Nordic
+#
+
+if BOARD_DS_D6
+
+config BOARD
+	default "ds_d6"
+
+config BT_CTLR
+	default BT
+
+endif # BOARD_DS_D6

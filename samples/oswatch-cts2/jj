@@ -1,0 +1,6 @@
+./src/display.c:		case LV_EVENT_PRESSED:
+./src/display.c:		case LV_EVENT_SHORT_CLICKED:
+./src/display.c:		case LV_EVENT_CLICKED:
+./src/display.c:		case LV_EVENT_LONG_PRESSED:
+./src/display.c:		case LV_EVENT_LONG_PRESSED_REPEAT:
+./src/display.c:		case LV_EVENT_RELEASED:

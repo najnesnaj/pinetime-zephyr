@@ -1,0 +1,21 @@
+
+
+
+in powershell as administrator: 
+
+newest kernel
+
+wsl --install
+
+
+PS C:\WINDOWS\system32> usbipd list
+Connected:
+BUSID  VID:PID    DEVICE                                                        STATE
+4-1    0a12:0001  Generic Bluetooth Radio                                       Not shared
+4-2    1d50:6018  USB Serial Device (COM6), USB Serial Device (COM7), Black...  Not shared
+4-7    413c:8187  Generic Bluetooth Adapter                                     Not shared
+4-8    0a5c:5800  Broadcom USH, Microsoft Usbccid Smartcard Reader (WUDF)       Not shared
+
+this attaches the black magic probe to WSL-ubuntu (you have to startup a shell of linux)
+
+PS C:\WINDOWS\system32> usbipd wsl attach --busid 4-2
