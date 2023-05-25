@@ -313,6 +313,16 @@ void display_btn_event(buttons_id_t btn_id)
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
 /*---------------------------------------------------------------------------*/
+
+
+
+//lv_img_set_src(beavis, "beavis.bin")
+//    LV_IMG_DECLARE(img_cogwheel_argb);
+
+        /*Now create the actual image*/
+//        lv_obj_t * img = lv_img_create(lv_scr_act());
+//	    lv_img_set_src(img, &img_cogwheel_argb);
+//	        lv_obj_align(img, LV_ALIGN_CENTER, 50, 50);
 void display_screens_init(void)
 {
 	//screens[0].screen = lv_obj_create(NULL, NULL);
@@ -330,7 +340,18 @@ void display_screens_init(void)
 	/*
 	 *  build basic screen0
 	 */
+
+
 	lv_scr_load(screens[0].screen);
+//
+        lv_obj_t * img1 = lv_img_create(lv_scr_act());
+        lv_img_set_src(img1, "beavis.bin");
+	lv_obj_align(img1, LV_ALIGN_CENTER, 0, -20);
+
+
+
+
+
 	lv_obj_t * screen0_label = lv_label_create(lv_scr_act());
 	lv_label_set_text(screen0_label, "Pg1");
 	lv_obj_align(screen0_label,  LV_ALIGN_TOP_RIGHT, 0, 0);

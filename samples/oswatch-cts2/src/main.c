@@ -29,8 +29,8 @@ int main(void)
 	LOG_INF ("clock init\n");
 	event_handler_init();
 	LOG_INF ("event_handler init\n");
-	bt_init();
-       	LOG_INF("start bt\n");
+//	bt_init();
+//      	LOG_INF("start bt\n");
 	clock_init();
 	while (1) {
 //		printf ("hello\n");
