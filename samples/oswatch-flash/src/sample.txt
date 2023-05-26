@@ -1,0 +1,71 @@
+#include <zephyr.h>
+#include <fs/fs.h>
+#include <storage/flash_map.h>
+
+//#define IMAGE_FILE_PATH     "/path/to/your/image.png"
+#define IMAGE_FILE_PATH     "beavis.bin"
+//#define IMAGE_FILE_BEAVIS     "beavis.bin"
+//#define IMAGE_FILE_BUTTHEAD     "butthead.bin"
+//#define FLASH_IMAGE_ADDR    FLASH_AREA_IMAGE_1_OFFSET
+#define FLASH_IMAGE_ADDR   0x74000 
+
+void main(void)
+{
+    int err;
+    struct fs_file_t file;
+    off_t file_size;
+    uint8_t buffer[256];
+    off_t flash_offset = FLASH_IMAGE_ADDR;
+
+    /* Open the image file for reading */
+    err = fs_open(&file, IMAGE_FILE_PATH);
+    if (err) {
+        printk("Failed to open image file: %d\n", err);
+        return;
+    }
+
+    /* Get the size of the image file */
+    err = fs_size(&file, &file_size);
+    if (err) {
+        printk("Failed to get image file size: %d\n", err);
+        fs_close(&file);
+        return;
+    }
+
+    /* Erase the flash region where the image will be written */
+    err = flash_erase(flash_offset, file_size);
+    if (err) {
+        printk("Failed to erase flash region: %d\n", err);
+        fs_close(&file);
+        return;
+    }
+
+    /* Copy the image data to flash memory */
+    while (file_size > 0) {
+        size_t read_size = MIN(file_size, sizeof(buffer));
+
+        /* Read a chunk of data from the image file */
+        err = fs_read(&file, buffer, read_size);
+        if (err <= 0) {
+            printk("Failed to read image file: %d\n", err);
+            fs_close(&file);
+            return;
+        }
+
+        /* Write the data to flash memory */
+        err = flash_write(flash_offset, buffer, read_size);
+        if (err) {
+            printk("Failed to write to flash memory: %d\n", err);
+            fs_close(&file);
+            return;
+        }
+
+        flash_offset += read_size;
+        file_size -= read_size;
+    }
+
+    printk("Image file copied to flash memory successfully.\n");
+
+    /* Close the image file */
+    fs_close(&file);
+}
