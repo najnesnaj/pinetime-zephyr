@@ -1,0 +1,29 @@
+# Available runners configured by board.cmake.
+runners:
+- pyocd
+- blackmagicprobe
+
+# Default flash runner if --runner is not given.
+flash-runner: pyocd
+
+# Default debug runner if --runner is not given.
+debug-runner: pyocd
+
+# Common runner configuration values.
+config:
+  board_dir: /home/naj/ncs/v2.4.0/zephyr/boards/arm/pinetime_devkit0
+  # Build outputs:
+  elf_file: zephyr.elf
+  hex_file: zephyr.hex
+  bin_file: zephyr.bin
+  # Host tools:
+  gdb: /home/naj/ncs/toolchains/1f9b40e71a/opt/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb-py
+
+# Runner specific arguments
+args:
+  pyocd:
+    - --dt-flash=y
+    - --target=nrf52832
+  blackmagicprobe:
+    []
+
