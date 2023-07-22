@@ -1,0 +1,215 @@
+zephyr.lst://reet = ring_buf_get(&shell_bt_nus_tx_ringbuf, temp_buffer);
+zephyr.lst:000000000000be78 <ring_buf_put_claim>:
+zephyr.lst:#include <zephyr/sys/ring_buffer.h>
+zephyr.lst:uint32_t ring_buf_put_claim(struct ring_buf *buf, uint8_t **data, uint32_t size)
+zephyr.lst:    be95:	77 06                	ja     be9d <ring_buf_put_claim+0x25>
+zephyr.lst:static inline uint32_t ring_buf_space_get(struct ring_buf *buf)
+zephyr.lst:	free_space = ring_buf_space_get(buf);
+zephyr.lst:000000000000bec6 <ring_buf_put_finish>:
+zephyr.lst:int ring_buf_put_finish(struct ring_buf *buf, uint32_t size)
+zephyr.lst:    beda:	72 1c                	jb     bef8 <ring_buf_put_finish+0x32>
+zephyr.lst:    bef1:	77 05                	ja     bef8 <ring_buf_put_finish+0x32>
+zephyr.lst:000000000000befc <ring_buf_put>:
+zephyr.lst:uint32_t ring_buf_put(struct ring_buf *buf, const uint8_t *data, uint32_t size)
+zephyr.lst:		partial_size = ring_buf_put_claim(buf, &dst, size);
+zephyr.lst:    bf32:	e8 41 ff ff ff       	call   be78 <ring_buf_put_claim>
+zephyr.lst:    bf4a:	74 04                	je     bf50 <ring_buf_put+0x54>
+zephyr.lst:    bf4e:	75 da                	jne    bf2a <ring_buf_put+0x2e>
+zephyr.lst:	err = ring_buf_put_finish(buf, total_size);
+zephyr.lst:    bf56:	e8 6b ff ff ff       	call   bec6 <ring_buf_put_finish>
+zephyr.lst:    bf5d:	74 40                	je     bf9f <ring_buf_put+0xa3>
+zephyr.lst:    bfad:	74 05                	je     bfb4 <ring_buf_put+0xb8>
+zephyr.lst:000000000000bfc4 <ring_buf_get_claim>:
+zephyr.lst:uint32_t ring_buf_get_claim(struct ring_buf *buf, uint8_t **data, uint32_t size)
+zephyr.lst:    bfe1:	77 06                	ja     bfe9 <ring_buf_get_claim+0x25>
+zephyr.lst:static inline uint32_t ring_buf_size_get(struct ring_buf *buf)
+zephyr.lst:	available_size = ring_buf_size_get(buf);
+zephyr.lst:000000000000c00b <ring_buf_get_finish>:
+zephyr.lst:int ring_buf_get_finish(struct ring_buf *buf, uint32_t size)
+zephyr.lst:    c01f:	72 1c                	jb     c03d <ring_buf_get_finish+0x32>
+zephyr.lst:    c036:	77 05                	ja     c03d <ring_buf_get_finish+0x32>
+zephyr.lst:000000000000c041 <ring_buf_get>:
+zephyr.lst:uint32_t ring_buf_get(struct ring_buf *buf, uint8_t *data, uint32_t size)
+zephyr.lst:		partial_size = ring_buf_get_claim(buf, &src, size);
+zephyr.lst:    c077:	e8 48 ff ff ff       	call   bfc4 <ring_buf_get_claim>
+zephyr.lst:    c07f:	74 0e                	je     c08f <ring_buf_get+0x4e>
+zephyr.lst:    c094:	74 04                	je     c09a <ring_buf_get+0x59>
+zephyr.lst:    c098:	75 d5                	jne    c06f <ring_buf_get+0x2e>
+zephyr.lst:	err = ring_buf_get_finish(buf, total_size);
+zephyr.lst:    c0a0:	e8 66 ff ff ff       	call   c00b <ring_buf_get_finish>
+zephyr.lst:    c0a7:	74 40                	je     c0e9 <ring_buf_get+0xa8>
+zephyr.lst:    c0f7:	74 05                	je     c0fe <ring_buf_get+0xbd>
+zephyr.lst:	*cnt = ring_buf_get(sh_uart->rx_ringbuf, data, length);
+zephyr.lst:	*cnt = ring_buf_get(sh_uart->rx_ringbuf, data, length);
+zephyr.lst:    eccd:	e8 6f d3 ff ff       	call   c041 <ring_buf_get>
+zephyr.lst:		if (ring_buf_put(sh_uart->rx_ringbuf, &c, 1) == 0U) {
+zephyr.lst:    ee40:	e8 b7 d0 ff ff       	call   befc <ring_buf_put>
+zephyr.lst:	ring_buf_get(history->ring_buf, NULL, total_len);
+zephyr.lst:	ring_buf_get(history->ring_buf, NULL, total_len);
+zephyr.lst:	ring_buf_get(history->ring_buf, NULL, total_len);
+zephyr.lst:   132f4:	e8 48 8d ff ff       	call   c041 <ring_buf_get>
+zephyr.lst:	if (total_len > ring_buf_capacity_get(history->ring_buf)) {
+zephyr.lst:			ring_buf_reset(history->ring_buf);
+zephyr.lst:		claim_len = ring_buf_put_claim(history->ring_buf,
+zephyr.lst:		if (ring_buf_is_empty(history->ring_buf)) {
+zephyr.lst:		claim_len = ring_buf_put_claim(history->ring_buf,
+zephyr.lst:   13469:	e8 0a 8a ff ff       	call   be78 <ring_buf_put_claim>
+zephyr.lst:				ring_buf_put_claim(history->ring_buf,
+zephyr.lst:   13482:	e8 f1 89 ff ff       	call   be78 <ring_buf_put_claim>
+zephyr.lst:			ring_buf_put_finish(history->ring_buf, claim_len);
+zephyr.lst:   134d9:	e8 e8 89 ff ff       	call   bec6 <ring_buf_put_finish>
+zephyr.lst:		ring_buf_put_finish(history->ring_buf, 0);
+zephyr.lst:   134e6:	e8 db 89 ff ff       	call   bec6 <ring_buf_put_finish>
+zephyr.lst:	*cnt = ring_buf_get(bt_nus->rx_ringbuf, data, length);
+zephyr.lst:	*cnt = ring_buf_get(bt_nus->rx_ringbuf, data, length);
+zephyr.lst:   13938:	e8 04 87 ff ff       	call   c041 <ring_buf_get>
+zephyr.lst:	size = ring_buf_get_claim(bt_nus->tx_ringbuf, &buf, req_len);
+zephyr.lst:   13a2a:	e8 95 85 ff ff       	call   bfc4 <ring_buf_get_claim>
+zephyr.lst:	size = ring_buf_get_claim(bt_nus->tx_ringbuf, &buf, req_len);
+zephyr.lst:		err2 = ring_buf_get_finish(bt_nus->tx_ringbuf, size);
+zephyr.lst:		err2 = ring_buf_get_finish(bt_nus->tx_ringbuf, size);
+zephyr.lst:   13a54:	e8 b2 85 ff ff       	call   c00b <ring_buf_get_finish>
+zephyr.lst:	uint32_t done = ring_buf_put(bt_nus->rx_ringbuf, data, len);
+zephyr.lst:	uint32_t done = ring_buf_put(bt_nus->rx_ringbuf, data, len);
+zephyr.lst:	uint32_t done = ring_buf_put(bt_nus->rx_ringbuf, data, len);
+zephyr.lst:   13bb9:	e8 3e 83 ff ff       	call   befc <ring_buf_put>
+zephyr.lst:	uint32_t done = ring_buf_put(bt_nus->rx_ringbuf, data, len);
+zephyr.lst:	*cnt = ring_buf_put(bt_nus->tx_ringbuf, data, length);
+zephyr.lst:   13d2a:	e8 cd 81 ff ff       	call   befc <ring_buf_put>
+zephyr.lst:	*cnt = ring_buf_put(bt_nus->tx_ringbuf, data, length);
+zephyr.lst:	err = lvgl_allocate_rendering_buffers(&disp_drv);
+zephyr.map:zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .text          0x0000000000000000        0x0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .data          0x0000000000000000        0x0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .bss           0x0000000000000000        0x0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .text.ring_buf_peek
+zephyr.map:                0x0000000000000000      0x115 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .text.ring_buf_item_put
+zephyr.map:                0x0000000000000000      0x1a8 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .text.ring_buf_item_get
+zephyr.map:                0x0000000000000000      0x182 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map:                0x0000000000000000        0x0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map:                0x0000000000000000       0x20 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .rela.data.rel.local.shell_uart_history_ring_buf
+zephyr.map: .rela.data.rel.local.shell_bt_nus_history_ring_buf
+zephyr.map: .text.ring_buf_put_claim
+zephyr.map:                0x000000000000be78       0x4e zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map:                0x000000000000be78                ring_buf_put_claim
+zephyr.map: .text.ring_buf_put_finish
+zephyr.map:                0x000000000000bec6       0x36 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map:                0x000000000000bec6                ring_buf_put_finish
+zephyr.map: .text.ring_buf_put
+zephyr.map:                0x000000000000befc       0xc8 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map:                0x000000000000befc                ring_buf_put
+zephyr.map: .text.ring_buf_get_claim
+zephyr.map:                0x000000000000bfc4       0x47 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map:                0x000000000000bfc4                ring_buf_get_claim
+zephyr.map: .text.ring_buf_get_finish
+zephyr.map:                0x000000000000c00b       0x36 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map:                0x000000000000c00b                ring_buf_get_finish
+zephyr.map: .text.ring_buf_get
+zephyr.map:                0x000000000000c041       0xcd zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map:                0x000000000000c041                ring_buf_get
+zephyr.map: .rodata.ring_buf_put.str1.1
+zephyr.map:                0x00000000000683e4       0x28 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .data.rel.local.shell_uart_history_ring_buf
+zephyr.map: .data.rel.local.shell_bt_nus_history_ring_buf
+zephyr.map: .comment       0x000000000000002d       0x2e zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map:                0x00000000000003b0       0xb0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .debug_info    0x000000000000b8b0     0x10c9 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .debug_abbrev  0x00000000000019c5      0x23a zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .debug_line    0x0000000000004869      0x9de zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .debug_frame   0x00000000000008a0      0x1f0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .debug_str     0x00000000000035c8      0x18a zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .debug_loc     0x000000000000c501     0x16b0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr.map: .debug_ranges  0x0000000000001290      0x2a0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map:zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .text          0x0000000000000000        0x0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .data          0x0000000000000000        0x0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .bss           0x0000000000000000        0x0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .text.ring_buf_peek
+zephyr_pre0.map:                0x0000000000000000      0x115 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .text.ring_buf_item_put
+zephyr_pre0.map:                0x0000000000000000      0x1a8 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .text.ring_buf_item_get
+zephyr_pre0.map:                0x0000000000000000      0x182 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map:                0x0000000000000000        0x0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map:                0x0000000000000000       0x20 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .rela.data.rel.local.shell_uart_history_ring_buf
+zephyr_pre0.map: .rela.data.rel.local.shell_bt_nus_history_ring_buf
+zephyr_pre0.map: .text.ring_buf_put_claim
+zephyr_pre0.map:                0x000000000000be99       0x4e zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map:                0x000000000000be99                ring_buf_put_claim
+zephyr_pre0.map: .text.ring_buf_put_finish
+zephyr_pre0.map:                0x000000000000bee7       0x36 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map:                0x000000000000bee7                ring_buf_put_finish
+zephyr_pre0.map: .text.ring_buf_put
+zephyr_pre0.map:                0x000000000000bf1d       0xc8 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map:                0x000000000000bf1d                ring_buf_put
+zephyr_pre0.map: .text.ring_buf_get_claim
+zephyr_pre0.map:                0x000000000000bfe5       0x47 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map:                0x000000000000bfe5                ring_buf_get_claim
+zephyr_pre0.map: .text.ring_buf_get_finish
+zephyr_pre0.map:                0x000000000000c02c       0x36 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map:                0x000000000000c02c                ring_buf_get_finish
+zephyr_pre0.map: .text.ring_buf_get
+zephyr_pre0.map:                0x000000000000c062       0xcd zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map:                0x000000000000c062                ring_buf_get
+zephyr_pre0.map: .rodata.ring_buf_put.str1.1
+zephyr_pre0.map:                0x00000000000683e4       0x28 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .data.rel.local.shell_uart_history_ring_buf
+zephyr_pre0.map: .data.rel.local.shell_bt_nus_history_ring_buf
+zephyr_pre0.map: .comment       0x000000000000002d       0x2e zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map:                0x0000000000000390       0xb0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .debug_info    0x000000000000b8ae     0x10c9 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .debug_abbrev  0x0000000000001974      0x23a zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .debug_line    0x00000000000047d7      0x9de zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .debug_frame   0x00000000000008a0      0x1f0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .debug_str     0x00000000000035d5      0x159 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .debug_loc     0x000000000000c516     0x16b0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre0.map: .debug_ranges  0x0000000000001260      0x2a0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map:zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .text          0x0000000000000000        0x0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .data          0x0000000000000000        0x0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .bss           0x0000000000000000        0x0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .text.ring_buf_peek
+zephyr_pre1.map:                0x0000000000000000      0x115 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .text.ring_buf_item_put
+zephyr_pre1.map:                0x0000000000000000      0x1a8 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .text.ring_buf_item_get
+zephyr_pre1.map:                0x0000000000000000      0x182 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map:                0x0000000000000000        0x0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map:                0x0000000000000000       0x20 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .rela.data.rel.local.shell_uart_history_ring_buf
+zephyr_pre1.map: .rela.data.rel.local.shell_bt_nus_history_ring_buf
+zephyr_pre1.map: .text.ring_buf_put_claim
+zephyr_pre1.map:                0x000000000000be78       0x4e zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map:                0x000000000000be78                ring_buf_put_claim
+zephyr_pre1.map: .text.ring_buf_put_finish
+zephyr_pre1.map:                0x000000000000bec6       0x36 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map:                0x000000000000bec6                ring_buf_put_finish
+zephyr_pre1.map: .text.ring_buf_put
+zephyr_pre1.map:                0x000000000000befc       0xc8 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map:                0x000000000000befc                ring_buf_put
+zephyr_pre1.map: .text.ring_buf_get_claim
+zephyr_pre1.map:                0x000000000000bfc4       0x47 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map:                0x000000000000bfc4                ring_buf_get_claim
+zephyr_pre1.map: .text.ring_buf_get_finish
+zephyr_pre1.map:                0x000000000000c00b       0x36 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map:                0x000000000000c00b                ring_buf_get_finish
+zephyr_pre1.map: .text.ring_buf_get
+zephyr_pre1.map:                0x000000000000c041       0xcd zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map:                0x000000000000c041                ring_buf_get
+zephyr_pre1.map: .rodata.ring_buf_put.str1.1
+zephyr_pre1.map:                0x00000000000683e4       0x28 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .data.rel.local.shell_uart_history_ring_buf
+zephyr_pre1.map: .data.rel.local.shell_bt_nus_history_ring_buf
+zephyr_pre1.map: .comment       0x000000000000002d       0x2e zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map:                0x00000000000003b0       0xb0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .debug_info    0x000000000000b8b0     0x10c9 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .debug_abbrev  0x00000000000019c5      0x23a zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .debug_line    0x0000000000004869      0x9de zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .debug_frame   0x00000000000008a0      0x1f0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .debug_str     0x00000000000035c8      0x18a zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .debug_loc     0x000000000000c501     0x16b0 zephyr/libzephyr.a(ring_buffer.c.obj)
+zephyr_pre1.map: .debug_ranges  0x0000000000001290      0x2a0 zephyr/libzephyr.a(ring_buffer.c.obj)

@@ -1,0 +1,43 @@
+The target system is: Generic - 3.3.99 - posix
+The host system is: Linux - 5.19.0-43-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/naj/ncs/v2.4.0/nrf/samples/bluetooth/shell_bt_nus/build_2/CMakeFiles/3.20.5/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/gcc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/naj/ncs/v2.4.0/nrf/samples/bluetooth/shell_bt_nus/build_2/CMakeFiles/3.20.5/CompilerIdCXX/a.out"
+
+Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
+gcc (Ubuntu 11.3.0-1ubuntu1~22.04.1) 11.3.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Performing C SOURCE FILE Test check_fmacro_prefix_map__home_naj_ncs_v2_4_0_nrf_samples_bluetooth_shell_bt_nus_CMAKE_SOURCE_DIR_C_ succeeded with the following output:
+Change Dir: /home/naj/ncs/v2.4.0/nrf/samples/bluetooth/shell_bt_nus/build_2/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/naj/ncs/toolchains/1f9b40e71a/usr/local/bin/ninja cmTC_92d57 && [1/2] Building C object CMakeFiles/cmTC_92d57.dir/src.c.obj
+[2/2] Linking C executable cmTC_92d57
+
+
+Source file was:
+int main(void) { return 0; }

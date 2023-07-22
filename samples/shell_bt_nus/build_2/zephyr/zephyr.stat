@@ -1,0 +1,266 @@
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              DYN (Position-Independent Executable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x9ac0
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          5328560 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         13
+  Size of section headers:           64 (bytes)
+  Number of section headers:         95
+  Section header string table index: 94
+
+Section Headers:
+  [Nr] Name              Type             Address           Offset
+       Size              EntSize          Flags  Link  Info  Align
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .interp           PROGBITS         0000000000000318  00000318
+       000000000000001c  0000000000000000   A       0     0     1
+  [ 2] .note.gnu.pr[...] NOTE             0000000000000338  00000338
+       0000000000000030  0000000000000000   A       0     0     8
+  [ 3] .note.ABI-tag     NOTE             0000000000000368  00000368
+       0000000000000020  0000000000000000   A       0     0     4
+  [ 4] .gnu.hash         GNU_HASH         0000000000000388  00000388
+       0000000000000028  0000000000000000   A       5     0     8
+  [ 5] .dynsym           DYNSYM           00000000000003b0  000003b0
+       0000000000000900  0000000000000018   A       6     1     8
+  [ 6] .dynstr           STRTAB           0000000000000cb0  00000cb0
+       00000000000004fc  0000000000000000   A       0     0     1
+  [ 7] .gnu.version      VERSYM           00000000000011ac  000011ac
+       00000000000000c0  0000000000000002   A       5     0     2
+  [ 8] .gnu.version_r    VERNEED          0000000000001270  00001270
+       0000000000000090  0000000000000000   A       6     1     8
+  [ 9] .rela.dyn         RELA             0000000000001300  00001300
+       0000000000006600  0000000000000018   A       5     0     8
+  [10] .rela.plt         RELA             0000000000007900  00007900
+       00000000000007e0  0000000000000018  AI       5    24     8
+  [11] .init             PROGBITS         0000000000009000  00009000
+       000000000000001b  0000000000000000  AX       0     0     4
+  [12] .plt              PROGBITS         0000000000009020  00009020
+       0000000000000550  0000000000000010  AX       0     0     16
+  [13] .plt.got          PROGBITS         0000000000009570  00009570
+       0000000000000010  0000000000000010  AX       0     0     16
+  [14] .plt.sec          PROGBITS         0000000000009580  00009580
+       0000000000000540  0000000000000010  AX       0     0     16
+  [15] .text             PROGBITS         0000000000009ac0  00009ac0
+       00000000000585c0  0000000000000000  AX       0     0     16
+  [16] .fini             PROGBITS         0000000000062080  00062080
+       000000000000000d  0000000000000000  AX       0     0     4
+  [17] .rodata           PROGBITS         0000000000063000  00063000
+       000000000000b428  0000000000000000   A       0     0     32
+  [18] .eh_frame_hdr     PROGBITS         000000000006e428  0006e428
+       000000000000002c  0000000000000000   A       0     0     4
+  [19] .eh_frame         PROGBITS         000000000006e458  0006e458
+       0000000000000088  0000000000000000   A       0     0     8
+  [20] .init_array       INIT_ARRAY       000000000006fa50  0006ea50
+       0000000000000008  0000000000000008  WA       0     0     8
+  [21] .fini_array       FINI_ARRAY       000000000006fa58  0006ea58
+       0000000000000008  0000000000000008  WA       0     0     8
+  [22] .data.rel.ro      PROGBITS         000000000006fa60  0006ea60
+       0000000000002fc0  0000000000000000  WA       0     0     32
+  [23] .dynamic          DYNAMIC          0000000000072a20  00071a20
+       0000000000000210  0000000000000010  WA       6     0     8
+  [24] .got              PROGBITS         0000000000072c30  00071c30
+       00000000000003c8  0000000000000008  WA       0     0     8
+  [25] .data             PROGBITS         0000000000073000  00072000
+       0000000000000eec  0000000000000000  WA       0     0     32
+  [26] initlevel         PROGBITS         0000000000073ef0  00072ef0
+       00000000000000e0  0000000000000000  WA       0     0     8
+  [27] devices           PROGBITS         0000000000073fd0  00072fd0
+       0000000000000060  0000000000000000  WA       0     0     8
+  [28] _static_thre[...] PROGBITS         0000000000074030  00073030
+       0000000000000050  0000000000000000  WA       0     0     8
+  [29] device_handles    PROGBITS         0000000000074080  00073080
+       000000000000000c  0000000000000000   A       0     0     2
+  [30] bt_l2cap_fix[...] PROGBITS         0000000000074090  00073090
+       0000000000000048  0000000000000000  WA       0     0     8
+  [31] bt_conn_cb_area   PROGBITS         00000000000740d8  000730d8
+       0000000000000038  0000000000000000  WA       0     0     8
+  [32] bt_gatt_serv[...] PROGBITS         0000000000074110  00073110
+       0000000000000030  0000000000000000  WA       0     0     8
+  [33] log_const_se[...] PROGBITS         0000000000074140  00073140
+       00000000000001e0  0000000000000000  WA       0     0     16
+  [34] log_backend_area  PROGBITS         0000000000074320  00073320
+       0000000000000040  0000000000000000  WA       0     0     8
+  [35] shell_area        PROGBITS         0000000000074360  00073360
+       00000000000000c0  0000000000000000  WA       0     0     8
+  [36] shell_root_c[...] PROGBITS         0000000000074420  00073420
+       0000000000000048  0000000000000000  WA       0     0     8
+  [37] shell_subcmd[...] PROGBITS         0000000000074480  00073480
+       0000000000000040  0000000000000000   A       0     0     32
+  [38] shell_dynami[...] PROGBITS         00000000000744c0  000734c0
+       0000000000000018  0000000000000000  WA       0     0     8
+  [39] device_states     PROGBITS         00000000000744d8  000734d8
+       0000000000000004  0000000000000000  WA       0     0     1
+  [40] log_msg_ptr_area  PROGBITS         00000000000744e0  000734e0
+       0000000000000008  0000000000000000  WA       0     0     8
+  [41] log_dynamic_[...] PROGBITS         00000000000744e8  000734e8
+       0000000000000078  0000000000000000  WA       0     0     4
+  [42] k_mem_slab_area   PROGBITS         0000000000074560  00073560
+       00000000000000c0  0000000000000000  WA       0     0     8
+  [43] k_heap_area       PROGBITS         0000000000074620  00073620
+       0000000000000030  0000000000000000  WA       0     0     8
+  [44] k_sem_area        PROGBITS         0000000000074650  00073650
+       0000000000000050  0000000000000000  WA       0     0     8
+  [45] k_queue_area      PROGBITS         00000000000746a0  000736a0
+       0000000000000070  0000000000000000  WA       0     0     8
+  [46] _net_buf_poo[...] PROGBITS         0000000000074710  00073710
+       00000000000002a0  0000000000000000  WA       0     0     8
+  [47] native_pre_tasks  PROGBITS         00000000000749b0  000739b0
+       0000000000000048  0000000000000000  WA       0     0     8
+  [48] .bss              NOBITS           0000000000074a00  000739f8
+       000000000005e5f0  0000000000000000  WA       0     0     32
+  [49] .noinit."WES[...] NOBITS           00000000000d2ff0  000739f8
+       0000000000000800  0000000000000000  WA       0     0     8
+  [50] .noinit."WES[...] NOBITS           00000000000d37f0  000739f8
+       0000000000000200  0000000000000000  WA       0     0     8
+  [51] .noinit."WES[...] NOBITS           00000000000d3a00  000739f8
+       0000000000000040  0000000000000000  WA       0     0     32
+  [52] .noinit."WES[...] NOBITS           00000000000d3a40  000739f8
+       0000000000000800  0000000000000000  WA       0     0     8
+  [53] .noinit."WES[...] NOBITS           00000000000d4240  000739f8
+       0000000000000200  0000000000000000  WA       0     0     8
+  [54] .noinit."WES[...] NOBITS           00000000000d4440  000739f8
+       0000000000000032  0000000000000000  WA       0     0     32
+  [55] .noinit."WES[...] NOBITS           00000000000d4480  000739f8
+       0000000000000020  0000000000000000  WA       0     0     32
+  [56] .noinit."WES[...] NOBITS           00000000000d44a0  000739f8
+       0000000000000028  0000000000000000  WA       0     0     8
+  [57] .noinit."WES[...] NOBITS           00000000000d44c8  000739f8
+       0000000000000518  0000000000000000  WA       0     0     8
+  [58] .noinit."WES[...] NOBITS           00000000000d49e0  000739f8
+       00000000000002c6  0000000000000000  WA       0     0     8
+  [59] .noinit."WES[...] NOBITS           00000000000d4cc0  000739f8
+       0000000000000230  0000000000000000  WA       0     0     32
+  [60] .noinit."WES[...] NOBITS           00000000000d4ef0  000739f8
+       00000000000001bc  0000000000000000  WA       0     0     8
+  [61] .noinit."WES[...] NOBITS           00000000000d50c0  000739f8
+       0000000000000150  0000000000000000  WA       0     0     32
+  [62] .noinit."WES[...] NOBITS           00000000000d5210  000739f8
+       000000000000008a  0000000000000000  WA       0     0     8
+  [63] .noinit."WES[...] NOBITS           00000000000d52a0  000739f8
+       00000000000000a8  0000000000000000  WA       0     0     32
+  [64] .noinit."WES[...] NOBITS           00000000000d5348  000739f8
+       000000000000000c  0000000000000000  WA       0     0     8
+  [65] .noinit."WES[...] NOBITS           00000000000d5360  000739f8
+       0000000000000038  0000000000000000  WA       0     0     32
+  [66] .noinit."WES[...] NOBITS           00000000000d5398  000739f8
+       000000000000008e  0000000000000000  WA       0     0     8
+  [67] .noinit."WES[...] NOBITS           00000000000d5440  000739f8
+       0000000000000070  0000000000000000  WA       0     0     32
+  [68] .noinit."WES[...] NOBITS           00000000000d54b0  000739f8
+       0000000000000200  0000000000000000  WA       0     0     8
+  [69] .noinit."WES[...] NOBITS           00000000000d56b0  000739f8
+       00000000000004b0  0000000000000000  WA       0     0     8
+  [70] .noinit."WES[...] NOBITS           00000000000d5b60  000739f8
+       0000000000000040  0000000000000000  WA       0     0     8
+  [71] .noinit."WES[...] NOBITS           00000000000d5ba0  000739f8
+       0000000000000080  0000000000000000  WA       0     0     32
+  [72] .noinit."WES[...] NOBITS           00000000000d5c20  000739f8
+       00000000000000de  0000000000000000  WA       0     0     8
+  [73] .noinit."WES[...] NOBITS           00000000000d5d00  000739f8
+       00000000000000c0  0000000000000000  WA       0     0     32
+  [74] .noinit."WES[...] NOBITS           00000000000d5dc0  000739f8
+       00000000000001e0  0000000000000000  WA       0     0     8
+  [75] .noinit."WES[...] NOBITS           00000000000d5fa0  000739f8
+       00000000000000c0  0000000000000000  WA       0     0     8
+  [76] .noinit."WES[...] NOBITS           00000000000d6060  000739f8
+       00000000000000a8  0000000000000000  WA       0     0     8
+  [77] .noinit."WES[...] NOBITS           00000000000d6108  000739f8
+       0000000000000028  0000000000000000  WA       0     0     8
+  [78] .noinit."WES[...] NOBITS           00000000000d6130  000739f8
+       0000000000000800  0000000000000000  WA       0     0     8
+  [79] .noinit."WES[...] NOBITS           00000000000d6930  000739f8
+       0000000000000100  0000000000000000  WA       0     0     8
+  [80] .noinit."WES[...] NOBITS           00000000000d6a30  000739f8
+       0000000000000400  0000000000000000  WA       0     0     8
+  [81] .noinit."WES[...] NOBITS           00000000000d6e30  000739f8
+       0000000000000400  0000000000000000  WA       0     0     8
+  [82] .noinit."WES[...] NOBITS           00000000000d7230  000739f8
+       0000000000000800  0000000000000000  WA       0     0     8
+  [83] .comment          PROGBITS         0000000000000000  000739f8
+       000000000000002d  0000000000000001  MS       0     0     1
+  [84] .debug_aranges    PROGBITS         0000000000000000  00073a25
+       000000000000c6e0  0000000000000000           0     0     1
+  [85] .debug_info       PROGBITS         0000000000000000  00080105
+       00000000001e8316  0000000000000000           0     0     1
+  [86] .debug_abbrev     PROGBITS         0000000000000000  0026841b
+       000000000003552f  0000000000000000           0     0     1
+  [87] .debug_line       PROGBITS         0000000000000000  0029d94a
+       00000000000a3da7  0000000000000000           0     0     1
+  [88] .debug_frame      PROGBITS         0000000000000000  003416f8
+       000000000001f828  0000000000000000           0     0     8
+  [89] .debug_str        PROGBITS         0000000000000000  00360f20
+       0000000000028b0d  0000000000000001  MS       0     0     1
+  [90] .debug_loc        PROGBITS         0000000000000000  00389a2d
+       0000000000134f9b  0000000000000000           0     0     1
+  [91] .debug_ranges     PROGBITS         0000000000000000  004be9c8
+       000000000002de90  0000000000000000           0     0     1
+  [92] .symtab           SYMTAB           0000000000000000  004ec858
+       00000000000161e8  0000000000000018          93   1600     8
+  [93] .strtab           STRTAB           0000000000000000  00502a40
+       000000000001193e  0000000000000000           0     0     1
+  [94] .shstrtab         STRTAB           0000000000000000  0051437e
+       0000000000000b2c  0000000000000000           0     0     1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), l (large), p (processor specific)
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
+                 0x00000000000002d8 0x00000000000002d8  R      0x8
+  INTERP         0x0000000000000318 0x0000000000000318 0x0000000000000318
+                 0x000000000000001c 0x000000000000001c  R      0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x00000000000080e0 0x00000000000080e0  R      0x1000
+  LOAD           0x0000000000009000 0x0000000000009000 0x0000000000009000
+                 0x000000000005908d 0x000000000005908d  R E    0x1000
+  LOAD           0x0000000000063000 0x0000000000063000 0x0000000000063000
+                 0x000000000000b4e0 0x000000000000b4e0  R      0x1000
+  LOAD           0x000000000006ea50 0x000000000006fa50 0x000000000006fa50
+                 0x0000000000004fa8 0x0000000000067fe0  RW     0x1000
+  DYNAMIC        0x0000000000071a20 0x0000000000072a20 0x0000000000072a20
+                 0x0000000000000210 0x0000000000000210  RW     0x8
+  NOTE           0x0000000000000338 0x0000000000000338 0x0000000000000338
+                 0x0000000000000030 0x0000000000000030  R      0x8
+  NOTE           0x0000000000000368 0x0000000000000368 0x0000000000000368
+                 0x0000000000000020 0x0000000000000020  R      0x4
+  GNU_PROPERTY   0x0000000000000338 0x0000000000000338 0x0000000000000338
+                 0x0000000000000030 0x0000000000000030  R      0x8
+  GNU_EH_FRAME   0x000000000006e428 0x000000000006e428 0x000000000006e428
+                 0x000000000000002c 0x000000000000002c  R      0x4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     0x10
+  GNU_RELRO      0x000000000006ea50 0x000000000006fa50 0x000000000006fa50
+                 0x00000000000035b0 0x00000000000035b0  R      0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+   02     .interp .note.gnu.property .note.ABI-tag .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt 
+   03     .init .plt .plt.got .plt.sec .text .fini 
+   04     .rodata .eh_frame_hdr .eh_frame 
+   05     .init_array .fini_array .data.rel.ro .dynamic .got .data initlevel devices _static_thread_data_area device_handles bt_l2cap_fixed_chan_area bt_conn_cb_area bt_gatt_service_static_area log_const_sections log_backend_area shell_area shell_root_cmds_sections shell_subcmds_sections shell_dynamic_subcmds_sections device_states log_msg_ptr_area log_dynamic_sections k_mem_slab_area k_heap_area k_sem_area k_queue_area _net_buf_pool_area native_pre_tasks .bss .noinit."WEST_TOPDIR/zephyr/subsys/shell/backends/shell_uart.c".2 .noinit."WEST_TOPDIR/zephyr/subsys/shell/backends/shell_uart.c".1 .noinit."WEST_TOPDIR/zephyr/subsys/shell/backends/shell_uart.c".0 .noinit."WEST_TOPDIR/nrf/subsys/shell/shell_bt_nus.c".3 .noinit."WEST_TOPDIR/nrf/subsys/shell/shell_bt_nus.c".2 .noinit."WEST_TOPDIR/nrf/subsys/shell/shell_bt_nus.c".1 .noinit."WEST_TOPDIR/nrf/subsys/shell/shell_bt_nus.c".0 .noinit."WEST_TOPDIR/zephyr/boards/posix/native_posix/sdl_events.c".0 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/long_wq.c".0 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/buf.c".7 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/buf.c".6 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/buf.c".5 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/buf.c".4 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/buf.c".3 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/buf.c".2 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/buf.c".1 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/buf.c".0 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/hci_core.c".3 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/hci_core.c".2 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/hci_core.c".1 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/hci_core.c".0 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/conn.c".3 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/conn.c".2 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/conn.c".1 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/conn.c".0 .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/att.c".k_mem_slab_buf_chan_slab .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/att.c".k_mem_slab_buf_att_slab .noinit."WEST_TOPDIR/zephyr/subsys/bluetooth/host/att.c".k_mem_slab_buf_req_slab .noinit."WEST_TOPDIR/zephyr/drivers/bluetooth/hci/userchan.c".0 .noinit."WEST_TOPDIR/zephyr/kernel/init.c".2 .noinit."WEST_TOPDIR/zephyr/kernel/init.c".1 .noinit."WEST_TOPDIR/zephyr/kernel/init.c".0 .noinit."WEST_TOPDIR/zephyr/kernel/system_work_q.c".0 .noinit."WEST_TOPDIR/zephyr/kernel/mempool.c".kheap_buf__system_heap 
+   06     .dynamic 
+   07     .note.gnu.property 
+   08     .note.ABI-tag 
+   09     .note.gnu.property 
+   10     .eh_frame_hdr 
+   11     
+   12     .init_array .fini_array .data.rel.ro .dynamic .got 

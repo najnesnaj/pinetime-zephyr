@@ -1,0 +1,2 @@
+osource "/home/naj/ncs/v2.4.0/zephyr/samples/subsys/display/lvgl/boards/shields/*/Kconfig.shield"
+osource "/home/naj/ncs/v2.4.0/nrf/boards/shields/*/Kconfig.shield"
